@@ -7,6 +7,10 @@ Many thanks for nana-4, the developer of Flat-Plat!!
 
 Soon 3.19.x conversion might be finished...
 
+Elements
+--------
+![Materials](img/Materials.png)
+
 Required Components
 -------------------
 * Gtk+-3.0 >= 3.18.6
