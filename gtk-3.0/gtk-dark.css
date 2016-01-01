@@ -273,7 +273,7 @@ GtkTextView {
     color: rgba(0, 188, 212, 0.4); }
     .button:checked:insensitive > .label {
       color: inherit; }
-  .button.flat, .inline-toolbar .button, .osd .toolbar .button, .toolbar.osd .button, .app-notification .button,
+  .button.flat, .inline-toolbar .button, GtkButtonBox > .button:not(:last-child), .osd .toolbar .button, .toolbar.osd .button, .app-notification .button,
   .app-notification.frame .button, .titlebar .button:not(.suggested-action):not(.destructive-action),
   .header-bar .button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .button, .sidebar-button.button, .info .button,
   .question .button,
@@ -283,7 +283,7 @@ GtkTextView {
     box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
-    .button.flat:hover, .inline-toolbar .button:hover, .osd .toolbar .button:hover, .toolbar.osd .button:hover, .app-notification .button:hover, .titlebar .button:hover:not(.suggested-action):not(.destructive-action),
+    .button.flat:hover, .inline-toolbar .button:hover, GtkButtonBox > .button:hover:not(:last-child), .osd .toolbar .button:hover, .toolbar.osd .button:hover, .app-notification .button:hover, .titlebar .button:hover:not(.suggested-action):not(.destructive-action),
     .header-bar .button:hover:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .button:hover, .sidebar-button.button:hover, .info .button:hover,
     .question .button:hover,
     .warning .button:hover,
@@ -291,7 +291,7 @@ GtkTextView {
     GtkVolumeButton.button:hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
-    .button.flat:active, .inline-toolbar .button:active, .osd .toolbar .button:active, .toolbar.osd .button:active, .app-notification .button:active, .titlebar .button:active:not(.suggested-action):not(.destructive-action),
+    .button.flat:active, .inline-toolbar .button:active, GtkButtonBox > .button:active:not(:last-child), .osd .toolbar .button:active, .toolbar.osd .button:active, .app-notification .button:active, .titlebar .button:active:not(.suggested-action):not(.destructive-action),
     .header-bar .button:active:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .button:active, .sidebar-button.button:active, .info .button:active,
     .question .button:active,
     .warning .button:active,
@@ -299,7 +299,7 @@ GtkTextView {
     GtkVolumeButton.button:active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    .button.flat:insensitive, .inline-toolbar .button:insensitive, .osd .toolbar .button:insensitive, .toolbar.osd .button:insensitive, .app-notification .button:insensitive, .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action),
+    .button.flat:insensitive, .inline-toolbar .button:insensitive, GtkButtonBox > .button:insensitive:not(:last-child), .osd .toolbar .button:insensitive, .toolbar.osd .button:insensitive, .app-notification .button:insensitive, .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action),
     .header-bar .button:insensitive:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .button:insensitive, .sidebar-button.button:insensitive, .info .button:insensitive,
     .question .button:insensitive,
     .warning .button:insensitive,
@@ -307,7 +307,7 @@ GtkTextView {
     GtkVolumeButton.button:insensitive {
       box-shadow: none;
       background-color: transparent; }
-    .button.flat:checked, .inline-toolbar .button:checked, .osd .toolbar .button:checked, .toolbar.osd .button:checked, .app-notification .button:checked, .titlebar .button:checked:not(.suggested-action):not(.destructive-action),
+    .button.flat:checked, .inline-toolbar .button:checked, GtkButtonBox > .button:checked:not(:last-child), .osd .toolbar .button:checked, .toolbar.osd .button:checked, .app-notification .button:checked, .titlebar .button:checked:not(.suggested-action):not(.destructive-action),
     .header-bar .button:checked:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .button:checked, .sidebar-button.button:checked, .info .button:checked,
     .question .button:checked,
     .warning .button:checked,
@@ -315,21 +315,21 @@ GtkTextView {
     GtkVolumeButton.button:checked {
       background-color: alpha(currentColor, 0.2);
       color: #ECEFF1; }
-    .button.flat:checked:insensitive > .label, .inline-toolbar .button:checked:insensitive > .label, .osd .toolbar .button:checked:insensitive > .label, .toolbar.osd .button:checked:insensitive > .label, .app-notification .button:checked:insensitive > .label, .titlebar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label,
+    .button.flat:checked:insensitive > .label, .inline-toolbar .button:checked:insensitive > .label, GtkButtonBox > .button:checked:insensitive:not(:last-child) > .label, .osd .toolbar .button:checked:insensitive > .label, .toolbar.osd .button:checked:insensitive > .label, .app-notification .button:checked:insensitive > .label, .titlebar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label,
     .header-bar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label, .message-dialog.csd .dialog-action-area .button:checked:insensitive > .label, .sidebar-button.button:checked:insensitive > .label, .info .button:checked:insensitive > .label,
     .question .button:checked:insensitive > .label,
     .warning .button:checked:insensitive > .label,
     .error .button:checked:insensitive > .label, GtkScaleButton.button:checked:insensitive > .label,
     GtkVolumeButton.button:checked:insensitive > .label {
       color: inherit; }
-    .linked > .button.flat, .inline-toolbar .linked > .button, .osd .toolbar .linked > .button, .toolbar.osd .linked > .button, .app-notification .linked > .button, .titlebar .linked > .button:not(.suggested-action):not(.destructive-action),
+    .linked > .button.flat, .inline-toolbar .linked > .button, GtkButtonBox.linked > .button:not(:last-child), .osd .toolbar .linked > .button, .toolbar.osd .linked > .button, .app-notification .linked > .button, .titlebar .linked > .button:not(.suggested-action):not(.destructive-action),
     .header-bar .linked > .button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .linked > .button, .linked > .sidebar-button.button, .info .linked > .button,
     .question .linked > .button,
     .warning .linked > .button,
     .error .linked > .button, .linked > GtkScaleButton.button,
     .linked > GtkVolumeButton.button {
       border-radius: 2px; }
-      .linked > .button.flat.image-button, .inline-toolbar .linked > .image-button.button, .osd .toolbar .linked > .image-button.button, .toolbar.osd .linked > .image-button.button, .app-notification .linked > .image-button.button, .titlebar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
+      .linked > .button.flat.image-button, .inline-toolbar .linked > .image-button.button, GtkButtonBox.linked > .image-button.button:not(:last-child), .osd .toolbar .linked > .image-button.button, .toolbar.osd .linked > .image-button.button, .app-notification .linked > .image-button.button, .titlebar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
       .header-bar .linked > .image-button.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .linked > .image-button.button, .linked > .image-button.sidebar-button.button, .info .linked > .image-button.button,
       .question .linked > .image-button.button,
       .warning .linked > .image-button.button,
@@ -352,7 +352,7 @@ GtkTextView {
         color: inherit; }
     .button.suggested-action:checked {
       background-color: #ff7575; }
-    .button.suggested-action.flat, .inline-toolbar .suggested-action.button, .osd .toolbar .suggested-action.button, .toolbar.osd .suggested-action.button, .app-notification .suggested-action.button, .titlebar .suggested-action.button:not(.suggested-action):not(.destructive-action),
+    .button.suggested-action.flat, .inline-toolbar .suggested-action.button, GtkButtonBox > .suggested-action.button:not(:last-child), .osd .toolbar .suggested-action.button, .toolbar.osd .suggested-action.button, .app-notification .suggested-action.button, .titlebar .suggested-action.button:not(.suggested-action):not(.destructive-action),
     .header-bar .suggested-action.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .suggested-action.button, .suggested-action.sidebar-button.button, .info .suggested-action.button,
     .question .suggested-action.button,
     .warning .suggested-action.button,
@@ -360,7 +360,7 @@ GtkTextView {
     GtkVolumeButton.suggested-action.button {
       background-color: transparent;
       color: #FF5252; }
-      .button.suggested-action.flat:insensitive, .inline-toolbar .suggested-action.button:insensitive, .osd .toolbar .suggested-action.button:insensitive, .toolbar.osd .suggested-action.button:insensitive, .app-notification .suggested-action.button:insensitive, .titlebar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action),
+      .button.suggested-action.flat:insensitive, .inline-toolbar .suggested-action.button:insensitive, GtkButtonBox > .suggested-action.button:insensitive:not(:last-child), .osd .toolbar .suggested-action.button:insensitive, .toolbar.osd .suggested-action.button:insensitive, .app-notification .suggested-action.button:insensitive, .titlebar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action),
       .header-bar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .suggested-action.button:insensitive, .suggested-action.sidebar-button.button:insensitive, .info .suggested-action.button:insensitive,
       .question .suggested-action.button:insensitive,
       .warning .suggested-action.button:insensitive,
@@ -379,7 +379,7 @@ GtkTextView {
         color: inherit; }
     .button.destructive-action:checked {
       background-color: #ff7575; }
-    .button.destructive-action.flat, .inline-toolbar .destructive-action.button, .osd .toolbar .destructive-action.button, .toolbar.osd .destructive-action.button, .app-notification .destructive-action.button, .titlebar .destructive-action.button:not(.suggested-action):not(.destructive-action),
+    .button.destructive-action.flat, .inline-toolbar .destructive-action.button, GtkButtonBox > .destructive-action.button:not(:last-child), .osd .toolbar .destructive-action.button, .toolbar.osd .destructive-action.button, .app-notification .destructive-action.button, .titlebar .destructive-action.button:not(.suggested-action):not(.destructive-action),
     .header-bar .destructive-action.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .destructive-action.button, .destructive-action.sidebar-button.button, .info .destructive-action.button,
     .question .destructive-action.button,
     .warning .destructive-action.button,
@@ -387,7 +387,7 @@ GtkTextView {
     GtkVolumeButton.destructive-action.button {
       background-color: transparent;
       color: #FF5252; }
-      .button.destructive-action.flat:insensitive, .inline-toolbar .destructive-action.button:insensitive, .osd .toolbar .destructive-action.button:insensitive, .toolbar.osd .destructive-action.button:insensitive, .app-notification .destructive-action.button:insensitive, .titlebar .destructive-action.button:insensitive:not(.suggested-action):not(.destructive-action),
+      .button.destructive-action.flat:insensitive, .inline-toolbar .destructive-action.button:insensitive, GtkButtonBox > .destructive-action.button:insensitive:not(:last-child), .osd .toolbar .destructive-action.button:insensitive, .toolbar.osd .destructive-action.button:insensitive, .app-notification .destructive-action.button:insensitive, .titlebar .destructive-action.button:insensitive:not(.suggested-action):not(.destructive-action),
       .header-bar .destructive-action.button:insensitive:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .destructive-action.button:insensitive, .destructive-action.sidebar-button.button:insensitive, .info .destructive-action.button:insensitive,
       .question .destructive-action.button:insensitive,
       .warning .destructive-action.button:insensitive,
@@ -516,6 +516,28 @@ GtkColorButton.button {
   GtkColorButton.button GtkColorSwatch:first-child:last-child {
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+GtkButtonBox > .button:last-child {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #546E7A;
+  background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+  color: rgba(236, 239, 241, 0.75);
+  color: rgba(255, 255, 255, 0.75);
+  background-color: #FF5252; }
+  GtkButtonBox > .button:last-child:hover {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    color: #ECEFF1;
+    color: #FFFFFF; }
+  GtkButtonBox > .button:last-child:active, GtkButtonBox > .button:last-child:checked {
+    background-color: #00BCD4;
+    color: #FFFFFF; }
+  GtkButtonBox > .button:last-child:insensitive {
+    box-shadow: none;
+    background-color: alpha(currentColor, 0.2);
+    color: rgba(236, 239, 241, 0.225); }
+    GtkButtonBox > .button:last-child:insensitive > .label {
+      color: inherit; }
 
 /*********
  * Links *
@@ -891,7 +913,7 @@ column-header.button.dnd, column-header .button.dnd {
     border-style: none;
     border-image: none;
     background-color: transparent; }
-  .popover .button.flat, .popover .inline-toolbar .button, .inline-toolbar .popover .button, .popover .osd .toolbar .button, .osd .toolbar .popover .button, .popover .toolbar.osd .button, .toolbar.osd .popover .button, .popover .app-notification .button, .app-notification .popover .button, .popover .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .popover .button:not(.suggested-action):not(.destructive-action),
+  .popover .button.flat, .popover .inline-toolbar .button, .inline-toolbar .popover .button, .popover GtkButtonBox > .button:not(:last-child), .popover .osd .toolbar .button, .osd .toolbar .popover .button, .popover .toolbar.osd .button, .toolbar.osd .popover .button, .popover .app-notification .button, .app-notification .popover .button, .popover .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .popover .button:not(.suggested-action):not(.destructive-action),
   .popover .header-bar .button:not(.suggested-action):not(.destructive-action),
   .header-bar .popover .button:not(.suggested-action):not(.destructive-action), .popover .message-dialog.csd .dialog-action-area .button, .message-dialog.csd .dialog-action-area .popover .button, .popover .sidebar-button.button, .popover .info .button, .info .popover .button,
   .popover .question .button,
@@ -1801,7 +1823,7 @@ GtkScrolledWindow GtkViewport.frame {
 
 .list-row:selected .button:insensitive {
   color: rgba(236, 239, 241, 0.3); }
-.list-row:selected .button.flat, .list-row:selected .inline-toolbar .button, .inline-toolbar .list-row:selected .button, .list-row:selected .osd .toolbar .button, .osd .toolbar .list-row:selected .button, .list-row:selected .toolbar.osd .button, .toolbar.osd .list-row:selected .button, .list-row:selected .app-notification .button, .app-notification .list-row:selected .button, .list-row:selected .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:not(.suggested-action):not(.destructive-action),
+.list-row:selected .button.flat, .list-row:selected .inline-toolbar .button, .inline-toolbar .list-row:selected .button, .list-row:selected GtkButtonBox > .button:not(:last-child), .list-row:selected .osd .toolbar .button, .osd .toolbar .list-row:selected .button, .list-row:selected .toolbar.osd .button, .toolbar.osd .list-row:selected .button, .list-row:selected .app-notification .button, .app-notification .list-row:selected .button, .list-row:selected .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:not(.suggested-action):not(.destructive-action),
 .list-row:selected .header-bar .button:not(.suggested-action):not(.destructive-action),
 .header-bar .list-row:selected .button:not(.suggested-action):not(.destructive-action), .list-row:selected .message-dialog.csd .dialog-action-area .button, .message-dialog.csd .dialog-action-area .list-row:selected .button, .list-row:selected .sidebar-button.button, .list-row:selected .info .button, .info .list-row:selected .button,
 .list-row:selected .question .button,
@@ -1812,7 +1834,7 @@ GtkScrolledWindow GtkViewport.frame {
 .error .list-row:selected .button, .list-row:selected GtkScaleButton.button,
 .list-row:selected GtkVolumeButton.button {
   color: rgba(255, 255, 255, 0.75); }
-  .list-row:selected .button.flat:hover, .list-row:selected .inline-toolbar .button:hover, .inline-toolbar .list-row:selected .button:hover, .list-row:selected .osd .toolbar .button:hover, .osd .toolbar .list-row:selected .button:hover, .list-row:selected .toolbar.osd .button:hover, .toolbar.osd .list-row:selected .button:hover, .list-row:selected .app-notification .button:hover, .app-notification .list-row:selected .button:hover, .list-row:selected .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:hover:not(.suggested-action):not(.destructive-action),
+  .list-row:selected .button.flat:hover, .list-row:selected .inline-toolbar .button:hover, .inline-toolbar .list-row:selected .button:hover, .list-row:selected GtkButtonBox > .button:hover:not(:last-child), .list-row:selected .osd .toolbar .button:hover, .osd .toolbar .list-row:selected .button:hover, .list-row:selected .toolbar.osd .button:hover, .toolbar.osd .list-row:selected .button:hover, .list-row:selected .app-notification .button:hover, .app-notification .list-row:selected .button:hover, .list-row:selected .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:hover:not(.suggested-action):not(.destructive-action),
   .list-row:selected .header-bar .button:hover:not(.suggested-action):not(.destructive-action),
   .header-bar .list-row:selected .button:hover:not(.suggested-action):not(.destructive-action), .list-row:selected .message-dialog.csd .dialog-action-area .button:hover, .message-dialog.csd .dialog-action-area .list-row:selected .button:hover, .list-row:selected .sidebar-button.button:hover, .list-row:selected .info .button:hover, .info .list-row:selected .button:hover,
   .list-row:selected .question .button:hover,
@@ -1821,7 +1843,7 @@ GtkScrolledWindow GtkViewport.frame {
   .warning .list-row:selected .button:hover,
   .list-row:selected .error .button:hover,
   .error .list-row:selected .button:hover, .list-row:selected GtkScaleButton.button:hover,
-  .list-row:selected GtkVolumeButton.button:hover, .list-row:selected .button.flat:active, .list-row:selected .inline-toolbar .button:active, .inline-toolbar .list-row:selected .button:active, .list-row:selected .osd .toolbar .button:active, .osd .toolbar .list-row:selected .button:active, .list-row:selected .toolbar.osd .button:active, .toolbar.osd .list-row:selected .button:active, .list-row:selected .app-notification .button:active, .app-notification .list-row:selected .button:active, .list-row:selected .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:active:not(.suggested-action):not(.destructive-action),
+  .list-row:selected GtkVolumeButton.button:hover, .list-row:selected .button.flat:active, .list-row:selected .inline-toolbar .button:active, .inline-toolbar .list-row:selected .button:active, .list-row:selected GtkButtonBox > .button:active:not(:last-child), .list-row:selected .osd .toolbar .button:active, .osd .toolbar .list-row:selected .button:active, .list-row:selected .toolbar.osd .button:active, .toolbar.osd .list-row:selected .button:active, .list-row:selected .app-notification .button:active, .app-notification .list-row:selected .button:active, .list-row:selected .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:active:not(.suggested-action):not(.destructive-action),
   .list-row:selected .header-bar .button:active:not(.suggested-action):not(.destructive-action),
   .header-bar .list-row:selected .button:active:not(.suggested-action):not(.destructive-action), .list-row:selected .message-dialog.csd .dialog-action-area .button:active, .message-dialog.csd .dialog-action-area .list-row:selected .button:active, .list-row:selected .sidebar-button.button:active, .list-row:selected .info .button:active, .info .list-row:selected .button:active,
   .list-row:selected .question .button:active,
@@ -1832,7 +1854,7 @@ GtkScrolledWindow GtkViewport.frame {
   .error .list-row:selected .button:active, .list-row:selected GtkScaleButton.button:active,
   .list-row:selected GtkVolumeButton.button:active {
     color: #FFFFFF; }
-  .list-row:selected .button.flat:insensitive, .list-row:selected .inline-toolbar .button:insensitive, .inline-toolbar .list-row:selected .button:insensitive, .list-row:selected .osd .toolbar .button:insensitive, .osd .toolbar .list-row:selected .button:insensitive, .list-row:selected .toolbar.osd .button:insensitive, .toolbar.osd .list-row:selected .button:insensitive, .list-row:selected .app-notification .button:insensitive, .app-notification .list-row:selected .button:insensitive, .list-row:selected .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:insensitive:not(.suggested-action):not(.destructive-action),
+  .list-row:selected .button.flat:insensitive, .list-row:selected .inline-toolbar .button:insensitive, .inline-toolbar .list-row:selected .button:insensitive, .list-row:selected GtkButtonBox > .button:insensitive:not(:last-child), .list-row:selected .osd .toolbar .button:insensitive, .osd .toolbar .list-row:selected .button:insensitive, .list-row:selected .toolbar.osd .button:insensitive, .toolbar.osd .list-row:selected .button:insensitive, .list-row:selected .app-notification .button:insensitive, .app-notification .list-row:selected .button:insensitive, .list-row:selected .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:insensitive:not(.suggested-action):not(.destructive-action),
   .list-row:selected .header-bar .button:insensitive:not(.suggested-action):not(.destructive-action),
   .header-bar .list-row:selected .button:insensitive:not(.suggested-action):not(.destructive-action), .list-row:selected .message-dialog.csd .dialog-action-area .button:insensitive, .message-dialog.csd .dialog-action-area .list-row:selected .button:insensitive, .list-row:selected .sidebar-button.button:insensitive, .list-row:selected .info .button:insensitive, .info .list-row:selected .button:insensitive,
   .list-row:selected .question .button:insensitive,
@@ -2005,7 +2027,7 @@ GtkInfoBar {
   .warning .button:insensitive,
   .error .button:insensitive {
     color: rgba(236, 239, 241, 0.225); }
-  .info .button.flat, .info .inline-toolbar .button, .inline-toolbar .info .button, .info .osd .toolbar .button, .osd .toolbar .info .button, .info .toolbar.osd .button, .toolbar.osd .info .button, .info .app-notification .button, .app-notification .info .button, .info .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .info .button:not(.suggested-action):not(.destructive-action),
+  .info .button.flat, .info .inline-toolbar .button, .inline-toolbar .info .button, .info GtkButtonBox > .button:not(:last-child), .info .osd .toolbar .button, .osd .toolbar .info .button, .info .toolbar.osd .button, .toolbar.osd .info .button, .info .app-notification .button, .app-notification .info .button, .info .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .info .button:not(.suggested-action):not(.destructive-action),
   .info .header-bar .button:not(.suggested-action):not(.destructive-action),
   .header-bar .info .button:not(.suggested-action):not(.destructive-action), .info .message-dialog.csd .dialog-action-area .button, .message-dialog.csd .dialog-action-area .info .button, .info .sidebar-button.button, .info .button,
   .info .question .button,
@@ -2018,6 +2040,7 @@ GtkInfoBar {
   .question .button.flat,
   .question .inline-toolbar .button,
   .inline-toolbar .question .button,
+  .question GtkButtonBox > .button:not(:last-child),
   .question .osd .toolbar .button,
   .osd .toolbar .question .button,
   .question .toolbar.osd .button,
@@ -2043,6 +2066,7 @@ GtkInfoBar {
   .warning .button.flat,
   .warning .inline-toolbar .button,
   .inline-toolbar .warning .button,
+  .warning GtkButtonBox > .button:not(:last-child),
   .warning .osd .toolbar .button,
   .osd .toolbar .warning .button,
   .warning .toolbar.osd .button,
@@ -2068,6 +2092,7 @@ GtkInfoBar {
   .error .button.flat,
   .error .inline-toolbar .button,
   .inline-toolbar .error .button,
+  .error GtkButtonBox > .button:not(:last-child),
   .error .osd .toolbar .button,
   .osd .toolbar .error .button,
   .error .toolbar.osd .button,
@@ -2091,7 +2116,7 @@ GtkInfoBar {
   .error GtkScaleButton.button,
   .error GtkVolumeButton.button {
     color: rgba(236, 239, 241, 0.75); }
-    .info .button.flat:hover, .info .inline-toolbar .button:hover, .inline-toolbar .info .button:hover, .info .osd .toolbar .button:hover, .osd .toolbar .info .button:hover, .info .toolbar.osd .button:hover, .toolbar.osd .info .button:hover, .info .app-notification .button:hover, .app-notification .info .button:hover, .info .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .info .button:hover:not(.suggested-action):not(.destructive-action),
+    .info .button.flat:hover, .info .inline-toolbar .button:hover, .inline-toolbar .info .button:hover, .info GtkButtonBox > .button:hover:not(:last-child), .info .osd .toolbar .button:hover, .osd .toolbar .info .button:hover, .info .toolbar.osd .button:hover, .toolbar.osd .info .button:hover, .info .app-notification .button:hover, .app-notification .info .button:hover, .info .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .info .button:hover:not(.suggested-action):not(.destructive-action),
     .info .header-bar .button:hover:not(.suggested-action):not(.destructive-action),
     .header-bar .info .button:hover:not(.suggested-action):not(.destructive-action), .info .message-dialog.csd .dialog-action-area .button:hover, .message-dialog.csd .dialog-action-area .info .button:hover, .info .sidebar-button.button:hover, .info .button:hover,
     .info .question .button:hover,
@@ -2100,7 +2125,7 @@ GtkInfoBar {
     .warning .info .button:hover,
     .info .error .button:hover,
     .error .info .button:hover, .info GtkScaleButton.button:hover,
-    .info GtkVolumeButton.button:hover, .info .button.flat:active, .info .inline-toolbar .button:active, .inline-toolbar .info .button:active, .info .osd .toolbar .button:active, .osd .toolbar .info .button:active, .info .toolbar.osd .button:active, .toolbar.osd .info .button:active, .info .app-notification .button:active, .app-notification .info .button:active, .info .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .info .button:active:not(.suggested-action):not(.destructive-action),
+    .info GtkVolumeButton.button:hover, .info .button.flat:active, .info .inline-toolbar .button:active, .inline-toolbar .info .button:active, .info GtkButtonBox > .button:active:not(:last-child), .info .osd .toolbar .button:active, .osd .toolbar .info .button:active, .info .toolbar.osd .button:active, .toolbar.osd .info .button:active, .info .app-notification .button:active, .app-notification .info .button:active, .info .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .info .button:active:not(.suggested-action):not(.destructive-action),
     .info .header-bar .button:active:not(.suggested-action):not(.destructive-action),
     .header-bar .info .button:active:not(.suggested-action):not(.destructive-action), .info .message-dialog.csd .dialog-action-area .button:active, .message-dialog.csd .dialog-action-area .info .button:active, .info .sidebar-button.button:active, .info .button:active,
     .info .question .button:active,
@@ -2113,6 +2138,7 @@ GtkInfoBar {
     .question .button.flat:hover,
     .question .inline-toolbar .button:hover,
     .inline-toolbar .question .button:hover,
+    .question GtkButtonBox > .button:hover:not(:last-child),
     .question .osd .toolbar .button:hover,
     .osd .toolbar .question .button:hover,
     .question .toolbar.osd .button:hover,
@@ -2138,6 +2164,7 @@ GtkInfoBar {
     .question .button.flat:active,
     .question .inline-toolbar .button:active,
     .inline-toolbar .question .button:active,
+    .question GtkButtonBox > .button:active:not(:last-child),
     .question .osd .toolbar .button:active,
     .osd .toolbar .question .button:active,
     .question .toolbar.osd .button:active,
@@ -2163,6 +2190,7 @@ GtkInfoBar {
     .warning .button.flat:hover,
     .warning .inline-toolbar .button:hover,
     .inline-toolbar .warning .button:hover,
+    .warning GtkButtonBox > .button:hover:not(:last-child),
     .warning .osd .toolbar .button:hover,
     .osd .toolbar .warning .button:hover,
     .warning .toolbar.osd .button:hover,
@@ -2188,6 +2216,7 @@ GtkInfoBar {
     .warning .button.flat:active,
     .warning .inline-toolbar .button:active,
     .inline-toolbar .warning .button:active,
+    .warning GtkButtonBox > .button:active:not(:last-child),
     .warning .osd .toolbar .button:active,
     .osd .toolbar .warning .button:active,
     .warning .toolbar.osd .button:active,
@@ -2213,6 +2242,7 @@ GtkInfoBar {
     .error .button.flat:hover,
     .error .inline-toolbar .button:hover,
     .inline-toolbar .error .button:hover,
+    .error GtkButtonBox > .button:hover:not(:last-child),
     .error .osd .toolbar .button:hover,
     .osd .toolbar .error .button:hover,
     .error .toolbar.osd .button:hover,
@@ -2238,6 +2268,7 @@ GtkInfoBar {
     .error .button.flat:active,
     .error .inline-toolbar .button:active,
     .inline-toolbar .error .button:active,
+    .error GtkButtonBox > .button:active:not(:last-child),
     .error .osd .toolbar .button:active,
     .osd .toolbar .error .button:active,
     .error .toolbar.osd .button:active,
@@ -2261,7 +2292,7 @@ GtkInfoBar {
     .error GtkScaleButton.button:active,
     .error GtkVolumeButton.button:active {
       color: #ECEFF1; }
-    .info .button.flat:insensitive, .info .inline-toolbar .button:insensitive, .inline-toolbar .info .button:insensitive, .info .osd .toolbar .button:insensitive, .osd .toolbar .info .button:insensitive, .info .toolbar.osd .button:insensitive, .toolbar.osd .info .button:insensitive, .info .app-notification .button:insensitive, .app-notification .info .button:insensitive, .info .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .info .button:insensitive:not(.suggested-action):not(.destructive-action),
+    .info .button.flat:insensitive, .info .inline-toolbar .button:insensitive, .inline-toolbar .info .button:insensitive, .info GtkButtonBox > .button:insensitive:not(:last-child), .info .osd .toolbar .button:insensitive, .osd .toolbar .info .button:insensitive, .info .toolbar.osd .button:insensitive, .toolbar.osd .info .button:insensitive, .info .app-notification .button:insensitive, .app-notification .info .button:insensitive, .info .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .info .button:insensitive:not(.suggested-action):not(.destructive-action),
     .info .header-bar .button:insensitive:not(.suggested-action):not(.destructive-action),
     .header-bar .info .button:insensitive:not(.suggested-action):not(.destructive-action), .info .message-dialog.csd .dialog-action-area .button:insensitive, .message-dialog.csd .dialog-action-area .info .button:insensitive, .info .sidebar-button.button:insensitive, .info .button:insensitive,
     .info .question .button:insensitive,
@@ -2274,6 +2305,7 @@ GtkInfoBar {
     .question .button.flat:insensitive,
     .question .inline-toolbar .button:insensitive,
     .inline-toolbar .question .button:insensitive,
+    .question GtkButtonBox > .button:insensitive:not(:last-child),
     .question .osd .toolbar .button:insensitive,
     .osd .toolbar .question .button:insensitive,
     .question .toolbar.osd .button:insensitive,
@@ -2299,6 +2331,7 @@ GtkInfoBar {
     .warning .button.flat:insensitive,
     .warning .inline-toolbar .button:insensitive,
     .inline-toolbar .warning .button:insensitive,
+    .warning GtkButtonBox > .button:insensitive:not(:last-child),
     .warning .osd .toolbar .button:insensitive,
     .osd .toolbar .warning .button:insensitive,
     .warning .toolbar.osd .button:insensitive,
@@ -2324,6 +2357,7 @@ GtkInfoBar {
     .error .button.flat:insensitive,
     .error .inline-toolbar .button:insensitive,
     .inline-toolbar .error .button:insensitive,
+    .error GtkButtonBox > .button:insensitive:not(:last-child),
     .error .osd .toolbar .button:insensitive,
     .osd .toolbar .error .button:insensitive,
     .error .toolbar.osd .button:insensitive,
@@ -2498,7 +2532,7 @@ GtkColorSwatch {
     border: solid 1px rgba(0, 0, 0, 0.15);
     box-shadow: none; }
 
-.view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, .osd .toolbar .menuitem.button:selected, .toolbar.osd .menuitem.button:selected, .app-notification .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
+.view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected:not(:last-child), .osd .toolbar .menuitem.button:selected, .toolbar.osd .menuitem.button:selected, .app-notification .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
 .question .menuitem.button:selected,
 .warning .menuitem.button:selected,
@@ -2506,14 +2540,14 @@ GtkColorSwatch {
 GtkVolumeButton.menuitem.button:selected, .list-row:selected, .sidebar:selected {
   background-color: #00BCD4;
   color: #FFFFFF; }
-  .view:insensitive:selected, GtkCalendar:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, .menuitem.button.flat:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, .osd .toolbar .menuitem.button:insensitive:selected, .toolbar.osd .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
+  .view:insensitive:selected, GtkCalendar:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, .menuitem.button.flat:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, GtkButtonBox > .menuitem.button:insensitive:selected:not(:last-child), .osd .toolbar .menuitem.button:insensitive:selected, .toolbar.osd .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:insensitive:selected, .menuitem.sidebar-button.button:insensitive:selected, .info .menuitem.button:insensitive:selected,
   .question .menuitem.button:insensitive:selected,
   .warning .menuitem.button:insensitive:selected,
   .error .menuitem.button:insensitive:selected, GtkScaleButton.menuitem.button:insensitive:selected,
   GtkVolumeButton.menuitem.button:insensitive:selected, .list-row:insensitive:selected, .sidebar:insensitive:selected, GtkPlacesSidebar.sidebar .list-row:selected:insensitive .label {
     color: rgba(236, 239, 241, 0.4); }
-  .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, .menuitem.button.flat:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, .osd .toolbar .menuitem.button:backdrop:insensitive:selected, .toolbar.osd .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
+  .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, .menuitem.button.flat:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox > .menuitem.button:backdrop:insensitive:selected:not(:last-child), .osd .toolbar .menuitem.button:backdrop:insensitive:selected, .toolbar.osd .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:backdrop:insensitive:selected, .menuitem.sidebar-button.button:backdrop:insensitive:selected, .info .menuitem.button:backdrop:insensitive:selected,
   .question .menuitem.button:backdrop:insensitive:selected,
   .warning .menuitem.button:backdrop:insensitive:selected,
