@@ -22,6 +22,15 @@ Installation
 1. Extract the archive to the themes directory (`/usr/share/themes` or `~/.themes`).
 2. Use `gnome-tweak-tool` to change the theme.
 
+Work in Progress
+----------------
+* Conversion to Gtk+ 3.19.5 or higher ( see details in 3.19.x branch...)
+
+TODO
+----
+* Gnome-Shell theme styling (I hope, but it might be regardless)
+* Budgie-Desktop theme styling (Not quite sure, hahaha!)
+
 Public License
 --------------
 * License: GPLv3
