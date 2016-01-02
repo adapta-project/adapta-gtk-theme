@@ -1158,7 +1158,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     padding: 0.3em 0.4em 0.4em;
     background-color: transparent;
     background-size: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
-    color: $fg_color;
+    color: $secondary_fg_color;
     font: initial;
   }
 
@@ -1167,11 +1167,16 @@ column-header.button.dnd { // for treeview-like derive widgets
     // @extend .button.flat;
     @include button(flat);
     @extend %button_array;
+    color: $secondary_fg_color;
     &:hover { @include button(flat-hover); }
-    &:active { @include button(active); }
-    &:insensitive { @include button(insensitive); }
-    &:checked { @include button(checked); }
-    &:checked:insensitive { @include button(checked-insensitive); }
+    &:active { @include button(flat-active); }
+    &:insensitive { @include button(flat-nsensitive); }
+    &:checked {
+      @include button(checked);
+      color: $fg_color;
+      background-color: transparent;
+    }
+    &:checked:insensitive { @include button(flat-checked-insensitive); }
   }
 
   &.osd { @extend %osd; }

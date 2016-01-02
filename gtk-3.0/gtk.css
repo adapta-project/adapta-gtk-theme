@@ -965,35 +965,27 @@ column-header.button.dnd, column-header .button.dnd {
     padding: 0.3em 0.4em 0.4em;
     background-color: transparent;
     background-size: 10em 10em, auto;
-    color: #263238;
+    color: rgba(38, 50, 56, 0.75);
     font: initial; }
   .popover .linked > .button {
     border-radius: 2px;
     box-shadow: none;
     background-color: transparent;
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    color: rgba(38, 50, 56, 0.75); }
     .popover .linked > .button:hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
     .popover .linked > .button:active {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-      color: #263238;
-      transition-duration: 0;
-      animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    .popover .linked > .button:insensitive {
       box-shadow: none;
-      background-color: alpha(currentColor, 0.2);
-      color: rgba(38, 50, 56, 0.225); }
-      .popover .linked > .button:insensitive > .label {
-        color: inherit; }
+      animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
     .popover .linked > .button:checked {
       background-color: #00BCD4;
-      color: #FFFFFF; }
-    .popover .linked > .button:checked:insensitive {
-      background-color: alpha(currentColor, 0.2);
-      color: rgba(0, 188, 212, 0.4); }
-      .popover .linked > .button:checked:insensitive > .label {
-        color: inherit; }
+      color: #FFFFFF;
+      color: #263238;
+      background-color: transparent; }
+    .popover .linked > .button:checked:insensitive > .label {
+      color: inherit; }
 
 /*****************
  * Notebooks and *
