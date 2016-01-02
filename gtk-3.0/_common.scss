@@ -607,7 +607,7 @@ GtkColorButton.button {
 // suggested action button at the bottom area of windows
 // like action-area
 GtkButtonBox > .button {
-  &:last-child {
+  &:last-child:not(:only-child) {
     @include button(normal);
     color: $secondary_selected_fg_color;
     background-color: $suggested_color;

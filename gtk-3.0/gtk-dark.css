@@ -547,26 +547,26 @@ GtkColorButton.button {
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
-GtkButtonBox > .button:last-child {
+GtkButtonBox > .button:last-child:not(:only-child) {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #546E7A;
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
   color: rgba(236, 239, 241, 0.75);
   color: rgba(255, 255, 255, 0.75);
   background-color: #FF5252; }
-  GtkButtonBox > .button:last-child:hover {
+  GtkButtonBox > .button:last-child:not(:only-child):hover {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
     color: #ECEFF1;
     color: #FFFFFF; }
-  GtkButtonBox > .button:last-child:active, GtkButtonBox > .button:last-child:checked {
+  GtkButtonBox > .button:last-child:not(:only-child):active, GtkButtonBox > .button:last-child:not(:only-child):checked {
     background-color: #00BCD4;
     color: #FFFFFF; }
-  GtkButtonBox > .button:last-child:insensitive {
+  GtkButtonBox > .button:last-child:not(:only-child):insensitive {
     box-shadow: none;
     background-color: alpha(currentColor, 0.2);
     color: rgba(236, 239, 241, 0.225); }
-    GtkButtonBox > .button:last-child:insensitive > .label {
+    GtkButtonBox > .button:last-child:not(:only-child):insensitive > .label {
       color: inherit; }
 
 /*********
