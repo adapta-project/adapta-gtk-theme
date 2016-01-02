@@ -1099,13 +1099,14 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   .menuitem {
     transition-duration: 0.1s;
-    padding: 0.3em 0.4em 0.4em;
+    padding: 0.4em 0 0.5em;
+    color: $secondary_fg_color;
     font: initial;
     text-shadow: none;
     &:hover {
       transition-duration: 0;
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      color: $fg_color;
+      background-color: gtkalpha(currentColor,0.1);
     }
     &:insensitive { color: $insensitive_fg_color; }
 
@@ -1130,6 +1131,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 }
 
 .menuitem .accelerator { color: gtkalpha(currentColor, 0.6); }
+.menuitem .separator { color: $borders_color; }
 
 
 /***************
@@ -1155,7 +1157,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 
   .button.flat {
-    padding: 0.3em 0.4em 0.4em;
+    padding: 0.4em 0 0.5em;
     background-color: transparent;
     background-size: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
     color: $secondary_fg_color;
@@ -1163,7 +1165,6 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 
   .linked > .button {
-    border-radius: 2px;
     // @extend .button.flat;
     @include button(flat);
     @extend %button_array;
@@ -1627,8 +1628,8 @@ GtkSwitch {
                                     url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
       icon-shadow: none;
       &:hover {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic-dark.png"),
-                                      url("assets/#{$a}#{$as}-symbolic-dark@2.png"));
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
+                                      url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
       }
     }
   }

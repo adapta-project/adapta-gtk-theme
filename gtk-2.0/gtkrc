@@ -1944,8 +1944,8 @@ style "menu_framed_box" {
 }
 
 style "menu_item" {
- xthickness = 4
- ythickness = 3
+ xthickness = 0
+ ythickness = 4
 
         # HACK: Gtk doesn't actually read this value
         # while rendering the menu items, but Libreoffice
@@ -1955,11 +1955,11 @@ style "menu_item" {
         # highlight. The price to pay is black text on menus as well,
         # but at least it's readable.
         # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
-        bg[SELECTED]    = @selected_fg_color
+        bg[SELECTED]    = shade(0.94, @base_color)
 
- bg[PRELIGHT] = @selected_bg_color
- fg[PRELIGHT] = @selected_fg_color
- text[PRELIGHT] = @selected_fg_color
+ bg[PRELIGHT] = shade(0.94, @base_color)
+ fg[PRELIGHT] = shade(0.96, @fg_color)
+ text[PRELIGHT] = shade(0.96, @fg_color)
 
  engine "pixmap"
  {

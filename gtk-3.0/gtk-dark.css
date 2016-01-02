@@ -903,13 +903,14 @@ column-header.button.dnd, column-header .button.dnd {
     border: none; }
   .menu .menuitem {
     transition-duration: 0.1s;
-    padding: 0.3em 0.4em 0.4em;
+    padding: 0.4em 0 0.5em;
+    color: rgba(236, 239, 241, 0.75);
     font: initial;
     text-shadow: none; }
     .menu .menuitem:hover {
       transition-duration: 0;
-      color: #FFFFFF;
-      background-color: #00BCD4; }
+      color: #ECEFF1;
+      background-color: alpha(currentColor, 0.1); }
     .menu .menuitem:insensitive {
       color: rgba(236, 239, 241, 0.3); }
     .menu .menuitem.arrow {
@@ -933,6 +934,9 @@ column-header.button.dnd, column-header .button.dnd {
 
 .menuitem .accelerator {
   color: alpha(currentColor, 0.6); }
+
+.menuitem .separator {
+  color: rgba(0, 0, 0, 0.15); }
 
 /***************
  * Popovers   *
@@ -962,13 +966,12 @@ column-header.button.dnd, column-header .button.dnd {
   .popover .error .button,
   .error .popover .button, .popover GtkScaleButton.button,
   .popover GtkVolumeButton.button {
-    padding: 0.3em 0.4em 0.4em;
+    padding: 0.4em 0 0.5em;
     background-color: transparent;
     background-size: 10em 10em, auto;
     color: rgba(236, 239, 241, 0.75);
     font: initial; }
   .popover .linked > .button {
-    border-radius: 2px;
     box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
