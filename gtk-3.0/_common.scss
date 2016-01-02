@@ -443,7 +443,8 @@ GtkTextView { // This will get overridden by .view,
                               to(transparent))
                               0 0 1 / 0 0 1px;
   &:hover {
-    @include button(flat-hover);
+    color: $fg_color;
+    background-color: gtkalpha(currentColor, 0.1);
     border-radius: 0;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -462,6 +463,7 @@ GtkTextView { // This will get overridden by .view,
                                 to($selected_bg_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
+    &:hover { background-color: gtkalpha(currentColor, 0.1); }
     &:insensitive {
       color: $insensitive_fg_color;
       background-color: $track_color;
@@ -495,7 +497,8 @@ GtkTextView { // This will get overridden by .view,
   &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
   &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
   &:hover {
-    @include button(flat-hover);
+    color: $fg_color;
+    background-color: gtkalpha(currentColor, 0.1);
     &:dir(ltr) { box-shadow: inset 2px 0 $track_color; }
     &:dir(rtl) { box-shadow: inset -2px 0 $track_color; }
   }
@@ -505,6 +508,7 @@ GtkTextView { // This will get overridden by .view,
     background-color: transparent;
     &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
     &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
+    &:hover { background-color: gtkalpha(currentColor, 0.1); }
     &:insensitive {
       color: $insensitive_fg_color;
       background-color: $track_color;
@@ -708,6 +712,28 @@ GtkComboBox {
     -GtkWidget-wide-separators: true;
   }
 
+  .button { // combobox-button styling
+    @extend %button_array;
+    border-radius: 0;
+    // padding: 0.35em 0.5em 0.45em;
+    padding: 0.5em 0.5em 0.55em;  // FIXME: need a bit more padding
+    color: $secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked {
+      @include button(flat);
+      @extend %button_array:active;
+      background-color: transparent;
+      &:insensitive {
+        color: $insensitive_fg_color;
+      }
+    }
+    &:insensitive {
+      color: $insensitive_fg_color;
+      background-color: transparent;
+    }
+  }
+
   &.combobox-entry {
     padding: 0;
   }
@@ -717,9 +743,15 @@ GtkComboBox {
 
   &.combobox-entry .button {
     padding: 0 0.7em;
-    box-shadow: none;
-    background-color: transparent;
-    &:checked { color: $selected_bg_color; }
+  }
+}
+
+.linked.vertical > GtkComboBox {
+  .button { // vertical combobox-button styling
+    @extend %button_vertical_array;
+    padding: 0.35em 0.5em 0.45em;
+    border-radius: 0;
+    color: $secondary_fg_color;
   }
 }
 
@@ -733,34 +765,25 @@ GtkComboBox {
     @extend %linked_middle;
   }
 }
+
+// stop using rounded-borders
 .linked > GtkComboBox:first-child > .the-button-in-the-combobox,
-.linked > GtkComboBoxText:first-child > .the-button-in-the-combobox {
-  @extend %linked:first-child;
-}
+.linked > GtkComboBoxText:first-child > .the-button-in-the-combobox,
 .linked > GtkComboBox:last-child > .the-button-in-the-combobox,
-.linked > GtkComboBoxText:last-child > .the-button-in-the-combobox {
-  @extend %linked:last-child;
-}
+.linked > GtkComboBoxText:last-child > .the-button-in-the-combobox,
 .linked > GtkComboBox:only-child > .the-button-in-the-combobox,
 .linked > GtkComboBoxText:only-child > .the-button-in-the-combobox {
-  @extend %linked:only-child;
+  @extend %linked_middle;
 }
-
 .linked.vertical > GtkComboBoxText > .the-button-in-the-combobox,
-.linked.vertical > GtkComboBox > .the-button-in-the-combobox {
-  @extend %linked_vertical_middle;
-}
+.linked.vertical > GtkComboBox > .the-button-in-the-combobox,
 .linked.vertical > GtkComboBoxText:first-child > .the-button-in-the-combobox,
-.linked.vertical > GtkComboBox:first-child > .the-button-in-the-combobox {
-  @extend %linked_vertical:first-child;
-}
+.linked.vertical > GtkComboBox:first-child > .the-button-in-the-combobox,
 .linked.vertical > GtkComboBoxText:last-child > .the-button-in-the-combobox,
-.linked.vertical > GtkComboBox:last-child > .the-button-in-the-combobox {
-  @extend %linked_vertical:last-child;
-}
+.linked.vertical > GtkComboBox:last-child > .the-button-in-the-combobox,
 .linked.vertical > GtkComboBoxText:only-child > .the-button-in-the-combobox,
 .linked.vertical > GtkComboBox:only-child > .the-button-in-the-combobox {
-  @extend %linked_vertical:only-child;
+  @extend %linked_vertical_middle;
 }
 
 
