@@ -608,10 +608,10 @@ GtkButtonBox:not(.vertical) > .button:last-child:not(:only-child) {
     box-shadow: none;
     background-color: transparent; }
 .spinbutton.vertical {
-  padding: 1em 0; }
+  padding: 0.5em 0; }
   .spinbutton.vertical .button {
-    padding: 0.2em 0.7em;
-    border: solid 0.7em transparent;
+    padding: 0.2em 0;
+    border: solid 0.5em transparent;
     border-radius: 100px;
     outline-radius: 100px; }
 
@@ -2534,7 +2534,23 @@ GtkColorSwatch {
   background-color: #37474F; }
 
 .scale-popup .button {
-  padding: 0.8em; }
+  background: none;
+  color: #ECEFF1; }
+  .scale-popup .button:first-child:hover {
+    background: none;
+    color: #00E676; }
+  .scale-popup .button:first-child:insensitive {
+    color: alpha(#00E676, 0.4); }
+  .scale-popup .button:last-child:hover {
+    background: none;
+    color: #F44336; }
+  .scale-popup .button:last-child:insensitive {
+    color: alpha(#F44336, 0.4); }
+
+GtkScaleButton.button,
+GtkVolumeButton.button {
+  border-radius: 100px;
+  outline-radius: 100px; }
 
 .floating-bar {
   padding: 0.1em 0 0.2em;

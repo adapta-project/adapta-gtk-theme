@@ -674,10 +674,10 @@ GtkButtonBox.vertical > .button {
 
   &.vertical { // FIXME: try using linking templates for
                // vertically linked stuff
-    padding: 1em 0;
+    padding: 0.5em 0;
     .button {
-      padding: 0.2em 0.7em;
-      border: solid 0.7em transparent;
+      padding: 0.2em 0;
+      border: solid 0.5em transparent;
       border-radius: 100px;
       outline-radius: 100px;
     }
@@ -2413,13 +2413,35 @@ GtkColorSwatch {
 }
 
 .scale-popup {
-   .osd & { @extend %osd; }
+  .osd & { @extend %osd; }
 
-   .osd & .button.flat {  // FIXME: quick hack, redo properly
-   }
+  .osd & .button.flat {  // FIXME: quick hack, redo properly
+  }
 
   .button { // +/- buttons on GtkVolumeButton popup
-    padding: 0.8em;
+    // padding: 0.8em;
+    background: none;
+    color: $fg_color;
+    &:first-child { // '+' button
+      &:hover {
+        background: none;
+        color: $success_color;
+      }
+      &:insensitive { color: gtkalpha($success_color, 0.4); }
+    }
+    &:last-child { // '-' button
+      &:hover {
+        background: none;
+        color: $error_color;
+      }
+      &:insensitive { color: gtkalpha($error_color, 0.4); }
+    }
+    // &:active,
+    // &:hover:active {
+    //   background-color: $track_color;
+    //   color: $warning_color;
+    //   animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    // }
   }
 }
 
@@ -2430,6 +2452,8 @@ GtkVolumeButton.button {
   // depending on the button child these selectors can be deleted.
   @extend %image_button;
   @extend .button.flat;
+  border-radius: 100px;
+  outline-radius: 100px;
 
   &.text-button { @extend .text-button }
 }
