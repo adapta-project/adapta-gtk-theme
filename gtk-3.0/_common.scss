@@ -622,6 +622,11 @@ GtkButtonBox:not(.vertical) > .button {
   &:not(:last-child) { @extend .button.flat; }
 }
 
+// vertical box is always shown with flat-buttons
+GtkButtonBox.vertical > .button {
+  @extend .button.flat;
+}
+
 
 /*********
  * Links *
