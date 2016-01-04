@@ -2418,7 +2418,10 @@ GtkColorSwatch {
   .osd & .button.flat {  // FIXME: quick hack, redo properly
   }
 
-  .button { // +/- buttons on GtkVolumeButton popup
+  // +/- buttons on GtkVolumeButton popup
+  // vertical popup
+  .osd & .vertical .button,
+  & .vertical .button {
     // padding: 0.8em;
     background: none;
     color: $fg_color;
@@ -2442,6 +2445,24 @@ GtkColorSwatch {
     //   color: $warning_color;
     //   animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     // }
+  }
+  // horizontal popup
+  .osd & .button,
+  .button {
+    &:first-child { // '-' button
+      &:hover {
+        background: none;
+        color: $error_color;
+      }
+      &:insensitive { color: gtkalpha($error_color, 0.4); }
+    }
+    &:last-child { // '+' button
+      &:hover {
+        background: none;
+        color: $success_color;
+      }
+      &:insensitive { color: gtkalpha($success_color, 0.4); }
+    }
   }
 }
 

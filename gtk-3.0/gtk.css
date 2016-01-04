@@ -2533,19 +2533,33 @@ GtkColorSwatch {
 .content-view {
   background-color: #fafbfc; }
 
-.scale-popup .button {
+.osd .scale-popup .vertical .button, .scale-popup .vertical .button {
   background: none;
   color: #263238; }
-  .scale-popup .button:first-child:hover {
+  .osd .scale-popup .vertical .button:first-child:hover, .scale-popup .vertical .button:first-child:hover {
     background: none;
     color: #00E676; }
-  .scale-popup .button:first-child:insensitive {
+  .osd .scale-popup .vertical .button:first-child:insensitive, .scale-popup .vertical .button:first-child:insensitive {
     color: alpha(#00E676, 0.4); }
-  .scale-popup .button:last-child:hover {
+  .osd .scale-popup .vertical .button:last-child:hover, .scale-popup .vertical .button:last-child:hover {
     background: none;
     color: #F44336; }
-  .scale-popup .button:last-child:insensitive {
+  .osd .scale-popup .vertical .button:last-child:insensitive, .scale-popup .vertical .button:last-child:insensitive {
     color: alpha(#F44336, 0.4); }
+.osd .scale-popup .button:first-child:hover,
+.scale-popup .button:first-child:hover {
+  background: none;
+  color: #F44336; }
+.osd .scale-popup .button:first-child:insensitive,
+.scale-popup .button:first-child:insensitive {
+  color: alpha(#F44336, 0.4); }
+.osd .scale-popup .button:last-child:hover,
+.scale-popup .button:last-child:hover {
+  background: none;
+  color: #00E676; }
+.osd .scale-popup .button:last-child:insensitive,
+.scale-popup .button:last-child:insensitive {
+  color: alpha(#00E676, 0.4); }
 
 GtkScaleButton.button,
 GtkVolumeButton.button {
