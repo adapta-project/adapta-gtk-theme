@@ -2124,9 +2124,26 @@ GtkCalendar {
           border-right-width: 0;
         }
         &:last-child { // usually 'save', 'delete' and 'OK'...
+          @include button(flat);
           border-radius: 0 0 2px 0;
           border-left-width: 0;
-          color: $selected_fg_color;
+          background-color: transparent;
+          color: $warning_color;
+          &:hover {
+            @include button(flat-hover);
+            color: $warning_color;
+          }
+          &:active {
+            @include button(flat-active);
+            color: $selected_fg_color;
+            background-color: $warning_bg_color;
+          }
+          &:checked {
+            @include button(flat-checked);
+            color: $selected_fg_color;
+            background-color: $warning_bg_color;
+          }
+          &:insensitive { @include button(flat-insensitive); }
         }
       }
     }

@@ -1992,9 +1992,34 @@ GtkCalendar {
       border-right-width: 0; }
     .message-dialog.csd .dialog-action-area .button:last-child,
     .message-dialog.csd .dialog-action-area .linked > .button:last-child {
+      box-shadow: none;
+      background-color: transparent;
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
       border-radius: 0 0 2px 0;
       border-left-width: 0;
-      color: #FFFFFF; }
+      background-color: transparent;
+      color: #FF9800; }
+      .message-dialog.csd .dialog-action-area .button:last-child:hover,
+      .message-dialog.csd .dialog-action-area .linked > .button:last-child:hover {
+        box-shadow: none;
+        background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
+        color: #FF9800; }
+      .message-dialog.csd .dialog-action-area .button:last-child:active,
+      .message-dialog.csd .dialog-action-area .linked > .button:last-child:active {
+        box-shadow: none;
+        animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        color: #FFFFFF;
+        background-color: #FF9100; }
+      .message-dialog.csd .dialog-action-area .button:last-child:checked,
+      .message-dialog.csd .dialog-action-area .linked > .button:last-child:checked {
+        background-color: alpha(currentColor, 0.2);
+        color: #ECEFF1;
+        color: #FFFFFF;
+        background-color: #FF9100; }
+      .message-dialog.csd .dialog-action-area .button:last-child:insensitive,
+      .message-dialog.csd .dialog-action-area .linked > .button:last-child:insensitive {
+        box-shadow: none;
+        background-color: transparent; }
 
 GtkFileChooserDialog .dialog-action-box {
   border-top: 1px solid rgba(0, 0, 0, 0.15); }
