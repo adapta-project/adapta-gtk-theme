@@ -2689,8 +2689,11 @@ GtkVolumeButton.button {
 PanelWidget,
 PanelApplet,
 PanelToplevel {
+  // Always use dark-color of dark variant
   color: if($variant=='light', $secondary_selected_fg_color, $fg_color);
-  background-color: if($variant=='light', $fg_color, $bg_color);
+  background-color: if($variant=='light',
+                                 mix(#263238, #37474F, 75%),
+                                 $dark_color);
 }
 
 PanelSeparator {
