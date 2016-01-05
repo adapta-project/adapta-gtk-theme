@@ -2005,6 +2005,14 @@ GtkFileChooserDialog .dialog-action-box {
 .sidebar {
   border: none;
   background-color: #fdfdfe; }
+  .sidebar .list-row {
+    color: rgba(38, 50, 56, 0.75);
+    font-weight: bold; }
+    .sidebar .list-row:hover {
+      color: #263238; }
+    .sidebar .list-row:selected {
+      color: #00BCD4;
+      background-color: transparent; }
 
 GtkSidebarRow.list-row {
   padding: 0px; }
@@ -2021,6 +2029,8 @@ GtkSidebarRow .sidebar-label:dir(ltr) {
 GtkSidebarRow .sidebar-label:dir(rtl) {
   padding-left: 0.1em; }
 
+GtkPlacesSidebar.sidebar .list-row:selected:insensitive .label {
+  color: rgba(38, 50, 56, 0.4); }
 GtkPlacesSidebar.sidebar .sidebar-placeholder-row {
   border: solid 1px #00BCD4; }
 GtkPlacesSidebar.sidebar .sidebar-new-bookmark-row {
@@ -2629,7 +2639,7 @@ GtkVolumeButton.button {
 .question .menuitem.button:selected,
 .warning .menuitem.button:selected,
 .error .menuitem.button:selected, GtkScaleButton.menuitem.button:selected,
-GtkVolumeButton.menuitem.button:selected, .list-row:selected, .sidebar:selected {
+GtkVolumeButton.menuitem.button:selected, .list-row:selected {
   background-color: #00BCD4;
   color: #FFFFFF; }
   .view:insensitive:selected, GtkCalendar:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, .menuitem.button.flat:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, GtkButtonBox:not(.vertical) > .menuitem.button:insensitive:selected:not(:last-child), GtkButtonBox.vertical > .menuitem.button:insensitive:selected, .osd .toolbar .menuitem.button:insensitive:selected, .toolbar.osd .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
@@ -2637,14 +2647,14 @@ GtkVolumeButton.menuitem.button:selected, .list-row:selected, .sidebar:selected 
   .question .menuitem.button:insensitive:selected,
   .warning .menuitem.button:insensitive:selected,
   .error .menuitem.button:insensitive:selected, GtkScaleButton.menuitem.button:insensitive:selected,
-  GtkVolumeButton.menuitem.button:insensitive:selected, .list-row:insensitive:selected, .sidebar:insensitive:selected, GtkPlacesSidebar.sidebar .list-row:selected:insensitive .label {
+  GtkVolumeButton.menuitem.button:insensitive:selected, .list-row:insensitive:selected {
     color: rgba(38, 50, 56, 0.4); }
   .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, .menuitem.button.flat:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox:not(.vertical) > .menuitem.button:backdrop:insensitive:selected:not(:last-child), GtkButtonBox.vertical > .menuitem.button:backdrop:insensitive:selected, .osd .toolbar .menuitem.button:backdrop:insensitive:selected, .toolbar.osd .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:backdrop:insensitive:selected, .menuitem.sidebar-button.button:backdrop:insensitive:selected, .info .menuitem.button:backdrop:insensitive:selected,
   .question .menuitem.button:backdrop:insensitive:selected,
   .warning .menuitem.button:backdrop:insensitive:selected,
   .error .menuitem.button:backdrop:insensitive:selected, GtkScaleButton.menuitem.button:backdrop:insensitive:selected,
-  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, .list-row:backdrop:insensitive:selected, .sidebar:backdrop:insensitive:selected, GtkPlacesSidebar.sidebar .list-row:selected:insensitive .label:backdrop {
+  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, .list-row:backdrop:insensitive:selected {
     color: rgba(38, 50, 56, 0.4); }
 
 .monospace {

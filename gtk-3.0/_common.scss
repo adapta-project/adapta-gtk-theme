@@ -2150,7 +2150,17 @@ GtkFileChooserDialog {
   border: none;
   background-color: $secondary_base_color;
 
-  &:selected { @extend %selected_items; }
+  .list-row {
+    color: $secondary_fg_color;
+    font-weight: bold;
+    &:hover { color: $fg_color; }
+    &:selected {
+      color: $selected_bg_color;
+      background-color: transparent;
+      // &:dir(ltr) { box-shadow: inset -2px 0 $selected_bg_color; }
+      // &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
+    }
+  }
 }
 
 GtkSidebarRow {
@@ -2178,7 +2188,7 @@ GtkPlacesSidebar.sidebar {
   // .list-row:selected:active { box-shadow: none; }
 
   // looks like the label doesn't get all the states so work around
-  .list-row:selected:insensitive .label { @extend %selected_items:insensitive; }
+  .list-row:selected:insensitive .label { color: $insensitive_selected_fg_color; }
   // .list-row:selected:backdrop:insensitive .label { @extend %selected_items:backdrop:insensitive; }
 
   .sidebar-placeholder-row { border: solid 1px $selected_bg_color; }
