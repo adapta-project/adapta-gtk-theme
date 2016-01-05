@@ -275,7 +275,8 @@ GtkTextView {
       color: inherit; }
   .button.flat, .inline-toolbar .button, GtkButtonBox:not(.vertical) > .button:not(:last-child), GtkButtonBox.vertical > .button, .osd .toolbar .button, .toolbar.osd .button, .app-notification .button,
   .app-notification.frame .button, .titlebar .button:not(.suggested-action):not(.destructive-action),
-  .header-bar .button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .button, .sidebar-button.button, .info .button,
+  .header-bar .button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .button,
+  .message-dialog.csd .dialog-action-area .linked > .button, .sidebar-button.button, .info .button,
   .question .button,
   .warning .button,
   .error .button, GtkScaleButton.button,
@@ -316,21 +317,24 @@ GtkTextView {
       background-color: alpha(currentColor, 0.2);
       color: #263238; }
     .button.flat:checked:insensitive > .label, .inline-toolbar .button:checked:insensitive > .label, GtkButtonBox:not(.vertical) > .button:checked:insensitive:not(:last-child) > .label, GtkButtonBox.vertical > .button:checked:insensitive > .label, .osd .toolbar .button:checked:insensitive > .label, .toolbar.osd .button:checked:insensitive > .label, .app-notification .button:checked:insensitive > .label, .titlebar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label,
-    .header-bar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label, .message-dialog.csd .dialog-action-area .button:checked:insensitive > .label, .sidebar-button.button:checked:insensitive > .label, .info .button:checked:insensitive > .label,
+    .header-bar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label, .message-dialog.csd .dialog-action-area .button:checked:insensitive > .label,
+    .message-dialog.csd .dialog-action-area .linked > .button:checked:insensitive > .label, .sidebar-button.button:checked:insensitive > .label, .info .button:checked:insensitive > .label,
     .question .button:checked:insensitive > .label,
     .warning .button:checked:insensitive > .label,
     .error .button:checked:insensitive > .label, GtkScaleButton.button:checked:insensitive > .label,
     GtkVolumeButton.button:checked:insensitive > .label {
       color: inherit; }
     .linked > .button.flat, .inline-toolbar .linked > .button, GtkButtonBox.linked:not(.vertical) > .button:not(:last-child), GtkButtonBox.vertical.linked > .button, .osd .toolbar .linked > .button, .toolbar.osd .linked > .button, .app-notification .linked > .button, .titlebar .linked > .button:not(.suggested-action):not(.destructive-action),
-    .header-bar .linked > .button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .linked > .button, .linked > .sidebar-button.button, .info .linked > .button,
+    .header-bar .linked > .button:not(.suggested-action):not(.destructive-action),
+    .message-dialog.csd .dialog-action-area .linked > .button, .linked > .sidebar-button.button, .info .linked > .button,
     .question .linked > .button,
     .warning .linked > .button,
     .error .linked > .button, .linked > GtkScaleButton.button,
     .linked > GtkVolumeButton.button {
       border-radius: 2px; }
       .linked > .button.flat.image-button, .inline-toolbar .linked > .image-button.button, GtkButtonBox.linked:not(.vertical) > .image-button.button:not(:last-child), GtkButtonBox.vertical.linked > .image-button.button, .osd .toolbar .linked > .image-button.button, .toolbar.osd .linked > .image-button.button, .app-notification .linked > .image-button.button, .titlebar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
-      .header-bar .linked > .image-button.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .linked > .image-button.button, .linked > .image-button.sidebar-button.button, .info .linked > .image-button.button,
+      .header-bar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
+      .message-dialog.csd .dialog-action-area .linked > .image-button.button, .linked > .image-button.sidebar-button.button, .info .linked > .image-button.button,
       .question .linked > .image-button.button,
       .warning .linked > .image-button.button,
       .error .linked > .image-button.button, .linked > GtkScaleButton.image-button.button,
@@ -1975,17 +1979,21 @@ GtkCalendar {
   .message-dialog.csd.background {
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px; }
-  .message-dialog.csd .dialog-action-area .button {
-    padding: 0.7em 1.2em 0.8em;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  .message-dialog.csd .dialog-action-area .button,
+  .message-dialog.csd .dialog-action-area .linked > .button {
+    padding: 0.7em 1em 0.8em;
+    border: 2px solid transparent;
     border-radius: 0;
     color: rgba(255, 255, 255, 0.75);
-    font-size: larger;
     background-size: 240px 240px, auto; }
-    .message-dialog.csd .dialog-action-area .button:first-child {
-      border-radius: 0 0 0 2px; }
-    .message-dialog.csd .dialog-action-area .button:last-child {
+    .message-dialog.csd .dialog-action-area .button:first-child,
+    .message-dialog.csd .dialog-action-area .linked > .button:first-child {
+      border-radius: 0 0 0 2px;
+      border-right-width: 0; }
+    .message-dialog.csd .dialog-action-area .button:last-child,
+    .message-dialog.csd .dialog-action-area .linked > .button:last-child {
       border-radius: 0 0 2px 0;
+      border-left-width: 0;
       color: #FFFFFF; }
 
 GtkFileChooserDialog .dialog-action-box {

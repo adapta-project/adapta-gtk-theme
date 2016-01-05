@@ -2108,20 +2108,26 @@ GtkCalendar {
       border-bottom-right-radius: 2px;
     }
 
-    .dialog-action-area .button {
-      @extend .button.flat;
-      padding: 0.7em 1.2em 0.8em;
-      border-top: 1px solid $borders_color;
-      border-radius: 0;
-      color: $secondary_selected_fg_color;
-      font-size: larger;
-      background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
-      // &:first-child{ border-bottom-left-radius: 2px; }
-      // &:last-child { border-bottom-right-radius: 2px; }
-      &:first-child{ border-radius: 0 0 0 2px; }
-      &:last-child { // usually 'save', 'delete' and 'OK'...
-        border-radius: 0 0 2px 0;
-        color: $selected_fg_color;
+    .dialog-action-area {
+      .button,
+      .linked > .button {
+        @extend .button.flat;
+        padding: 0.7em 1em 0.8em;
+        border: 2px solid transparent;
+        border-radius: 0;
+        color: $secondary_selected_fg_color;
+        background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
+        // &:first-child { border-bottom-left-radius: 2px; }
+        // &:last-child { border-bottom-right-radius: 2px; }
+        &:first-child {
+          border-radius: 0 0 0 2px;
+          border-right-width: 0;
+        }
+        &:last-child { // usually 'save', 'delete' and 'OK'...
+          border-radius: 0 0 2px 0;
+          border-left-width: 0;
+          color: $selected_fg_color;
+        }
       }
     }
   }
@@ -2418,10 +2424,8 @@ GtkColorSwatch {
   .osd & .button.flat {  // FIXME: quick hack, redo properly
   }
 
-  // +/- buttons on GtkVolumeButton popup
-  // vertical popup
   .osd & .vertical .button,
-  & .vertical .button {
+  & .vertical .button { // +/- buttons on GtkVolumeButton popup
     // padding: 0.8em;
     background: none;
     color: $fg_color;
@@ -2446,7 +2450,6 @@ GtkColorSwatch {
     //   animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     // }
   }
-  // horizontal popup
   .osd & .button,
   .button {
     &:first-child { // '-' button
