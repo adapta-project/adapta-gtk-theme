@@ -826,6 +826,49 @@ GtkComboBox {
       color: $warning_bg_color;
     }
   }
+
+  .button { // use flat-buttons
+    @extend .button.flat;
+    box-shadow: none;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.001,
+                                to($track_color),
+                                to(transparent))
+                                0 0 0 / 0 0 0px;
+    &:hover {
+      box-shadow: none;
+      border-image: none;
+    }
+    &:checked {
+      box-shadow: none;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($selected_bg_color),
+                                  to(transparent))
+                                  0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+      // &:active { transition: none; }
+      &:insensitive {
+        box-shadow: none;
+        background-color: transparent;
+        color: $insensitive_fg_color;
+        border-image: none;
+        > .label { color: inherit; }
+      }
+    }
+    &:insensitive {
+      box-shadow: none;
+      background-color: transparent;
+      color: $insensitive_fg_color;
+      border-image: none;
+    }
+  }
+  & .linked > .button { // remove double-background
+    &:hover { background-color: transparent; }
+  }
 }
 
 // searchbar, location-bar & inline-toolbar
