@@ -912,10 +912,6 @@ GtkComboBox {
  * Header bars *
  ***************/
 
-.header-bar { // draw hilight and shadows
-  box-shadow: if($variant=='light', $header-light, $header-dark);
-}
-
 .titlebar,
 .header-bar {
   padding: 0.4em;
@@ -950,7 +946,7 @@ GtkComboBox {
     -GtkWidget-separator-width: 1px;
     border-style: solid;
     border-width: 0 1px;
-    border-color: $borders_color;
+    border-color: if($variant=='light', #CFD2D5, #242F35);
   }
 
   & .button:not(.suggested-action):not(.destructive-action) {
@@ -1049,6 +1045,17 @@ GtkComboBox {
     padding: 0.4em;
     border-width: 0;
     .button { padding: 0.4em; }
+  }
+}
+
+.header-bar { // draw hilight and shadows
+  .csd & {
+    box-shadow: if($variant=='light', $header-light, $header-dark);
+  }
+  GtkBox & { // Remove unneeded side shadows with dirty hacks
+    &:last-child {
+      box-shadow: if($variant=='light', $sub-header-light, $sub-header-dark);
+    }
   }
 }
 
