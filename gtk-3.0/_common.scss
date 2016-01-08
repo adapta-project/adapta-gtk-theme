@@ -468,7 +468,7 @@ GtkTextView { // This will get overridden by .view,
     &:insensitive {
       @include button(flat-checked-insensitive);
       color: $insensitive_fg_color;
-      background-color: $track_color;
+      background-color: transparent;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -482,7 +482,7 @@ GtkTextView { // This will get overridden by .view,
     @include button(flat-insensitive);
     border-radius: 0;
     color: $insensitive_fg_color;
-    background-color: $track_color;
+    background-color: transparent;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
@@ -516,7 +516,7 @@ GtkTextView { // This will get overridden by .view,
     &:insensitive {
       @include button(flat-checked-insensitive);
       color: $insensitive_fg_color;
-      background-color: $track_color;
+      background-color: transparent;
       &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
       &:dir(ltr) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
       > .label { color: inherit; }
@@ -525,7 +525,7 @@ GtkTextView { // This will get overridden by .view,
   &:insensitive {
     @include button(flat-insensitive);
     color: $insensitive_fg_color;
-    background-color: $track_color;
+    background-color: transparent;
     &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
     &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
   }
