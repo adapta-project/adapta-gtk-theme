@@ -435,7 +435,7 @@ GtkTextView {
   .primary-toolbar .button {
     icon-shadow: none; }
 
-.linked > .button, .linked > .button .image-button, .linked > .button .text-button, GtkComboBox .button, .popover .linked > .button {
+.linked > .button, .linked > .button .image-button, .linked > .button .text-button, GtkComboBox .button, .toolbar .linked > .button:not(.image-button), .popover .linked > .button {
   box-shadow: none;
   background-color: transparent;
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
@@ -443,24 +443,32 @@ GtkTextView {
   outline-radius: 0;
   color: rgba(38, 50, 56, 0.75);
   border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px; }
-  .linked > .button:hover, .linked > .button .image-button:hover, .linked > .button .text-button:hover, GtkComboBox .button:hover, .popover .linked > .button:hover {
-    color: #263238;
-    background-color: alpha(currentColor, 0.1);
+  .linked > .button:hover, .linked > .button .image-button:hover, .linked > .button .text-button:hover, GtkComboBox .button:hover, .toolbar .linked > .button:hover:not(.image-button), .popover .linked > .button:hover {
+    box-shadow: none;
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     border-radius: 0;
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 2/0 0 2px; }
-  .linked > .button:active, .linked > .button .image-button:active, .linked > .button .text-button:active, GtkComboBox .button:active, GtkComboBox .button:hover, GtkComboBox .button:checked, .popover .linked > .button:active, .linked > .button:checked, .linked > .button .image-button:checked, .linked > .button .text-button:checked, GtkComboBox .button:checked, .popover .linked > .button:checked {
+  .linked > .button:active, .linked > .button .image-button:active, .linked > .button .text-button:active, GtkComboBox .button:active, GtkComboBox .button:hover, GtkComboBox .button:checked, .toolbar .linked > .button:active:not(.image-button), .popover .linked > .button:active, .linked > .button:checked, .linked > .button .image-button:checked, .linked > .button .text-button:checked, GtkComboBox .button:checked, .toolbar .linked > .button:checked:not(.image-button), .popover .linked > .button:checked {
+    background-color: alpha(currentColor, 0.2);
+    color: #263238;
+    border-radius: 0;
     color: #263238;
     background-color: transparent;
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#00BCD4), to(transparent)) 0 0 2/0 0 2px; }
-    .linked > .button:active:hover, .linked > .button .image-button:active:hover, .linked > .button .text-button:active:hover, GtkComboBox .button:hover, .popover .linked > .button:active:hover, .linked > .button:checked:hover, .linked > .button .image-button:checked:hover, .linked > .button .text-button:checked:hover, GtkComboBox .button:checked:hover, .popover .linked > .button:checked:hover {
-      background-color: alpha(currentColor, 0.1); }
-    .linked > .button:active:insensitive, .linked > .button .image-button:active:insensitive, .linked > .button .text-button:active:insensitive, GtkComboBox .button:active:insensitive, GtkComboBox .button:insensitive:hover, GtkComboBox .button:insensitive:checked, .popover .linked > .button:active:insensitive, .linked > .button:checked:insensitive, .linked > .button .image-button:checked:insensitive, .linked > .button .text-button:checked:insensitive, GtkComboBox .button:checked:insensitive, .popover .linked > .button:checked:insensitive {
+    .linked > .button:active:hover, .linked > .button .image-button:active:hover, .linked > .button .text-button:active:hover, GtkComboBox .button:hover, .toolbar .linked > .button:active:hover:not(.image-button), .popover .linked > .button:active:hover, .linked > .button:checked:hover, .linked > .button .image-button:checked:hover, .linked > .button .text-button:checked:hover, GtkComboBox .button:checked:hover, .toolbar .linked > .button:checked:hover:not(.image-button), .popover .linked > .button:checked:hover {
+      background-color: alpha(rgba(38, 50, 56, 0.75), 0.1); }
+    .linked > .button:active:insensitive, .linked > .button .image-button:active:insensitive, .linked > .button .text-button:active:insensitive, GtkComboBox .button:active:insensitive, GtkComboBox .button:insensitive:hover, GtkComboBox .button:insensitive:checked, .toolbar .linked > .button:active:insensitive:not(.image-button), .popover .linked > .button:active:insensitive, .linked > .button:checked:insensitive, .linked > .button .image-button:checked:insensitive, .linked > .button .text-button:checked:insensitive, GtkComboBox .button:checked:insensitive, .toolbar .linked > .button:checked:insensitive:not(.image-button), .popover .linked > .button:checked:insensitive {
       color: rgba(38, 50, 56, 0.3);
       background-color: alpha(currentColor, 0.2);
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(rgba(0, 188, 212, 0.2)), to(transparent)) 0 0 2/0 0 2px; }
       .linked > .button:active:insensitive > .label, .linked > .button .image-button:active:insensitive > .label, .linked > .button .text-button:active:insensitive > .label, GtkComboBox .button:active:insensitive > .label, GtkComboBox .button:insensitive:hover > .label, GtkComboBox .button:insensitive:checked > .label, .linked > .button:checked:insensitive > .label, .linked > .button .image-button:checked:insensitive > .label, .linked > .button .text-button:checked:insensitive > .label, GtkComboBox .button:checked:insensitive > .label {
         color: inherit; }
-  .linked > .button:insensitive, .linked > .button .image-button:insensitive, .linked > .button .text-button:insensitive, GtkComboBox .button:insensitive, .popover .linked > .button:insensitive {
+      .linked > .button:active:insensitive > .label, .linked > .button .image-button:active:insensitive > .label, .linked > .button .text-button:active:insensitive > .label, GtkComboBox .button:active:insensitive > .label, GtkComboBox .button:insensitive:hover > .label, GtkComboBox .button:insensitive:checked > .label, .linked > .button:checked:insensitive > .label, .linked > .button .image-button:checked:insensitive > .label, .linked > .button .text-button:checked:insensitive > .label, GtkComboBox .button:checked:insensitive > .label {
+        color: inherit; }
+  .linked > .button:insensitive, .linked > .button .image-button:insensitive, .linked > .button .text-button:insensitive, GtkComboBox .button:insensitive, .toolbar .linked > .button:insensitive:not(.image-button), .popover .linked > .button:insensitive {
+    box-shadow: none;
+    background-color: transparent;
+    border-radius: 0;
     color: rgba(38, 50, 56, 0.3);
     background-color: alpha(currentColor, 0.2);
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px; }
@@ -478,13 +486,15 @@ GtkTextView {
   .linked.vertical > .button:dir(rtl), .linked.vertical > .button .image-button:dir(rtl), .linked.vertical > .button .text-button:dir(rtl), .linked.vertical > GtkComboBox .button:dir(rtl) {
     box-shadow: inset -1px 0 alpha(currentColor, 0.2); }
   .linked.vertical > .button:hover, .linked.vertical > .button .image-button:hover, .linked.vertical > .button .text-button:hover, .linked.vertical > GtkComboBox .button:hover {
-    color: #263238;
-    background-color: alpha(currentColor, 0.1); }
+    box-shadow: none;
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
     .linked.vertical > .button:hover:dir(ltr), .linked.vertical > .button .image-button:hover:dir(ltr), .linked.vertical > .button .text-button:hover:dir(ltr), .linked.vertical > GtkComboBox .button:hover:dir(ltr) {
       box-shadow: inset 2px 0 alpha(currentColor, 0.2); }
     .linked.vertical > .button:hover:dir(rtl), .linked.vertical > .button .image-button:hover:dir(rtl), .linked.vertical > .button .text-button:hover:dir(rtl), .linked.vertical > GtkComboBox .button:hover:dir(rtl) {
       box-shadow: inset -2px 0 alpha(currentColor, 0.2); }
   .linked.vertical > .button:active, .linked.vertical > .button .image-button:active, .linked.vertical > .button .text-button:active, .linked.vertical > GtkComboBox .button:active, .linked.vertical > .button:checked, .linked.vertical > .button .image-button:checked, .linked.vertical > .button .text-button:checked, .linked.vertical > GtkComboBox .button:checked {
+    background-color: alpha(currentColor, 0.2);
+    color: #263238;
     color: #263238;
     background-color: transparent; }
     .linked.vertical > .button:active:dir(ltr), .linked.vertical > .button .image-button:active:dir(ltr), .linked.vertical > .button .text-button:active:dir(ltr), .linked.vertical > GtkComboBox .button:active:dir(ltr), .linked.vertical > .button:checked:dir(ltr), .linked.vertical > .button .image-button:checked:dir(ltr), .linked.vertical > .button .text-button:checked:dir(ltr), .linked.vertical > GtkComboBox .button:checked:dir(ltr) {
@@ -496,6 +506,8 @@ GtkTextView {
     .linked.vertical > .button:active:insensitive, .linked.vertical > .button .image-button:active:insensitive, .linked.vertical > .button .text-button:active:insensitive, .linked.vertical > GtkComboBox .button:active:insensitive, .linked.vertical > .button:checked:insensitive, .linked.vertical > .button .image-button:checked:insensitive, .linked.vertical > .button .text-button:checked:insensitive, .linked.vertical > GtkComboBox .button:checked:insensitive {
       color: rgba(38, 50, 56, 0.3);
       background-color: alpha(currentColor, 0.2); }
+      .linked.vertical > .button:active:insensitive > .label, .linked.vertical > .button .image-button:active:insensitive > .label, .linked.vertical > .button .text-button:active:insensitive > .label, .linked.vertical > GtkComboBox .button:active:insensitive > .label, .linked.vertical > .button:checked:insensitive > .label, .linked.vertical > .button .image-button:checked:insensitive > .label, .linked.vertical > .button .text-button:checked:insensitive > .label, .linked.vertical > GtkComboBox .button:checked:insensitive > .label {
+        color: inherit; }
       .linked.vertical > .button:active:insensitive:dir(ltr), .linked.vertical > .button .image-button:active:insensitive:dir(ltr), .linked.vertical > .button .text-button:active:insensitive:dir(ltr), .linked.vertical > GtkComboBox .button:active:insensitive:dir(ltr), .linked.vertical > .button:checked:insensitive:dir(ltr), .linked.vertical > .button .image-button:checked:insensitive:dir(ltr), .linked.vertical > .button .text-button:checked:insensitive:dir(ltr), .linked.vertical > GtkComboBox .button:checked:insensitive:dir(ltr) {
         box-shadow: inset 2px 0 rgba(0, 188, 212, 0.2); }
       .linked.vertical > .button:active:insensitive:dir(ltr), .linked.vertical > .button .image-button:active:insensitive:dir(ltr), .linked.vertical > .button .text-button:active:insensitive:dir(ltr), .linked.vertical > GtkComboBox .button:active:insensitive:dir(ltr), .linked.vertical > .button:checked:insensitive:dir(ltr), .linked.vertical > .button .image-button:checked:insensitive:dir(ltr), .linked.vertical > .button .text-button:checked:insensitive:dir(ltr), .linked.vertical > GtkComboBox .button:checked:insensitive:dir(ltr) {
@@ -503,6 +515,8 @@ GtkTextView {
       .linked.vertical > .button:active:insensitive > .label, .linked.vertical > .button .image-button:active:insensitive > .label, .linked.vertical > .button .text-button:active:insensitive > .label, .linked.vertical > GtkComboBox .button:active:insensitive > .label, .linked.vertical > .button:checked:insensitive > .label, .linked.vertical > .button .image-button:checked:insensitive > .label, .linked.vertical > .button .text-button:checked:insensitive > .label, .linked.vertical > GtkComboBox .button:checked:insensitive > .label {
         color: inherit; }
   .linked.vertical > .button:insensitive, .linked.vertical > .button .image-button:insensitive, .linked.vertical > .button .text-button:insensitive, .linked.vertical > GtkComboBox .button:insensitive {
+    box-shadow: none;
+    background-color: transparent;
     color: rgba(38, 50, 56, 0.3);
     background-color: alpha(currentColor, 0.2); }
     .linked.vertical > .button:insensitive:dir(ltr), .linked.vertical > .button .image-button:insensitive:dir(ltr), .linked.vertical > .button .text-button:insensitive:dir(ltr), .linked.vertical > GtkComboBox .button:insensitive:dir(ltr) {

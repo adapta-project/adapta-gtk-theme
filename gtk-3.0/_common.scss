@@ -443,8 +443,7 @@ GtkTextView { // This will get overridden by .view,
                               to(transparent))
                               0 0 1 / 0 0 1px;
   &:hover {
-    color: $fg_color;
-    background-color: gtkalpha(currentColor, 0.1);
+    @include button(flat-hover);
     border-radius: 0;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -455,6 +454,8 @@ GtkTextView { // This will get overridden by .view,
   }
   &:active,
   &:checked {
+    @include button(flat-checked);
+    border-radius: 0;
     color: $fg_color;
     background-color: transparent;
     border-image: -gtk-gradient(radial,
@@ -463,8 +464,9 @@ GtkTextView { // This will get overridden by .view,
                                 to($selected_bg_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
-    &:hover { background-color: gtkalpha(currentColor, 0.1); }
+    &:hover { background-color: gtkalpha($secondary_fg_color, 0.1); }
     &:insensitive {
+      @include button(flat-checked-insensitive);
       color: $insensitive_fg_color;
       background-color: $track_color;
       border-image: -gtk-gradient(radial,
@@ -477,6 +479,8 @@ GtkTextView { // This will get overridden by .view,
     }
   }
   &:insensitive {
+    @include button(flat-insensitive);
+    border-radius: 0;
     color: $insensitive_fg_color;
     background-color: $track_color;
     border-image: -gtk-gradient(radial,
@@ -497,19 +501,20 @@ GtkTextView { // This will get overridden by .view,
   &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
   &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
   &:hover {
-    color: $fg_color;
-    background-color: gtkalpha(currentColor, 0.1);
+    @include button(flat-hover);
     &:dir(ltr) { box-shadow: inset 2px 0 $track_color; }
     &:dir(rtl) { box-shadow: inset -2px 0 $track_color; }
   }
   &:active,
   &:checked {
+    @include button(flat-checked);
     color: $fg_color;
     background-color: transparent;
     &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
     &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
     &:hover { background-color: gtkalpha(currentColor, 0.1); }
     &:insensitive {
+      @include button(flat-checked-insensitive);
       color: $insensitive_fg_color;
       background-color: $track_color;
       &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
@@ -518,6 +523,7 @@ GtkTextView { // This will get overridden by .view,
     }
   }
   &:insensitive {
+    @include button(flat-insensitive);
     color: $insensitive_fg_color;
     background-color: $track_color;
     &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
@@ -866,8 +872,12 @@ GtkComboBox {
       border-image: none;
     }
   }
+
   & .linked > .button { // remove double-background
     &:hover { background-color: transparent; }
+  }
+  & .linked > .button:not(.image-button) { // revive underlines
+    @extend %button_array;
   }
 }
 
