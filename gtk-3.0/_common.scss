@@ -608,6 +608,14 @@ GtkColorButton.button {
     border-radius: 2px;
     box-shadow: $z-depth-1;
   }
+
+  &,
+  GtkColorSwatch {
+    &:insensitive {
+      box-shadow: none;
+      opacity: 0.4;
+    }
+  }
 }
 
 // suggested action button at the bottom area of windows
@@ -649,6 +657,7 @@ GtkButtonBox.vertical > .button {
   &:selected, *:selected & {
     color: mix($selected_fg_color, $selected_bg_color, 80%);
   }
+  &:insensitive { opacity: 0.4; }
 }
 
 .button:link, .button:visited {
