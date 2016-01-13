@@ -75,6 +75,13 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   -gtk-image-effect: dim;
 }
 
+// Fot backdrop state, draw all contents with semi-transparent
+// ease-in/out.
+*:backdrop {
+  transition: 0.2s;
+  opacity: 0.92;
+}
+
 .gtkstyle-fallback {
   background-color: $bg_color;
   color: $fg_color;
