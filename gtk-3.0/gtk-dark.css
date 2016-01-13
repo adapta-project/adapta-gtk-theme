@@ -2851,6 +2851,10 @@ PanelApplet,
 PanelToplevel {
   color: #ECEFF1;
   background-color: #2a373e; }
+  PanelWidget:backdrop,
+  PanelApplet:backdrop,
+  PanelToplevel:backdrop {
+    opacity: 1.0; }
 
 PanelSeparator {
   border-width: 0;
@@ -2863,6 +2867,10 @@ ClockBox {
   font: bold;
   color: #ECEFF1;
   background-color: transparent; }
+  .gnome-panel-menu-bar:backdrop,
+  PanelApplet > GtkMenuBar.menubar:backdrop,
+  ClockBox:backdrop {
+    opacity: 1.0; }
 
 .gnome-panel-menu-bar,
 PanelApplet > GtkMenuBar.menubar {
@@ -2875,6 +2883,9 @@ PanelApplet > GtkMenuBar.menubar {
     PanelApplet > GtkMenuBar.menubar .menuitem:hover {
       color: #FFFFFF;
       box-shadow: inset 0 -2px #00BCD4; }
+    .gnome-panel-menu-bar .menuitem:backdrop,
+    PanelApplet > GtkMenuBar.menubar .menuitem:backdrop {
+      opacity: 1.0; }
   .gnome-panel-menu-bar .menu,
   PanelApplet > GtkMenuBar.menubar .menu {
     font: regular; }
@@ -2907,15 +2918,21 @@ PanelApplet GtkButton#tasklist-button, PanelApplet GtkButton#clock-applet-button
   border-radius: 0; }
   PanelApplet GtkButton#tasklist-button:hover, PanelApplet GtkButton#tasklist-button:checked, PanelApplet GtkButton#tasklist-button:insensitive:checked, PanelApplet GtkButton#clock-applet-button:hover, PanelApplet GtkButton#clock-applet-button:checked, PanelApplet GtkButton#clock-applet-button:insensitive:checked, PanelApplet GtkButton#showdesktop-button:hover, PanelApplet GtkButton#showdesktop-button:checked, PanelApplet GtkButton#showdesktop-button:insensitive:checked {
     color: #FFFFFF;
-    background-color: #37474F;
+    background-color: #2a373e;
     box-shadow: inset 0 -2px #00BCD4; }
+  PanelApplet GtkButton#tasklist-button:backdrop, PanelApplet GtkButton#clock-applet-button:backdrop, PanelApplet GtkButton#showdesktop-button:backdrop {
+    opacity: 1.0; }
 
 WnckPager:selected {
   box-shadow: inset 0 -2px #00BCD4; }
+WnckPager:backdrop {
+  opacity: 1.0; }
 
 NaTrayApplet {
   -NaTrayApplet-icon-padding: 2;
   -NaTrayApplet-icon-size: 16; }
+  NaTrayApplet:backdrop {
+    opacity: 1.0; }
 
 /* GTK NAMED COLORS
    ----------------
