@@ -61,9 +61,8 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   background-color: $bg_color;
   color: $fg_color;
 
-  &:backdrop {
-  //  color: $backdrop_fg_color;
-  }
+  // fully opaque
+  &:backdrop { opacity: 1.0; }
 }
 
 // These wildcard seems unavoidable, need to investigate.
@@ -75,11 +74,11 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   -gtk-image-effect: dim;
 }
 
-// Fot backdrop state, draw all contents with semi-transparent
+// For backdrop state, draw all contents with semi-transparent
 // ease-in/out.
 *:backdrop {
   transition: 0.2s;
-  opacity: 0.92;
+  opacity: 0.88;
 }
 
 .gtkstyle-fallback {
@@ -930,9 +929,8 @@ GtkComboBox {
   background-color: $dark_color;
   background-clip: border-box;
 
-  &:backdrop {
-  //  background-color: $dark_color;
-  }
+  // fully opaque
+  &:backdrop { opacity: 1.0; }
 
   .title {
     padding-left: 1em;

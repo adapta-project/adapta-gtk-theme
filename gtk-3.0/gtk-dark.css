@@ -50,13 +50,15 @@
 .background {
   background-color: #37474F;
   color: #ECEFF1; }
+  .background:backdrop {
+    opacity: 1.0; }
 
 *:insensitive {
   -gtk-image-effect: dim; }
 
 *:backdrop {
   transition: 0.2s;
-  opacity: 0.92; }
+  opacity: 0.88; }
 
 .gtkstyle-fallback {
   background-color: #37474F;
@@ -753,6 +755,9 @@ GtkComboBox {
   border-radius: 2px 2px 0 0;
   background-color: #2a373e;
   background-clip: border-box; }
+  .titlebar:backdrop,
+  .header-bar:backdrop {
+    opacity: 1.0; }
   .titlebar .title,
   .header-bar .title {
     padding-left: 1em;
