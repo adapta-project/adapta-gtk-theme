@@ -2934,6 +2934,124 @@ NaTrayApplet {
   NaTrayApplet:backdrop {
     opacity: 1.0; }
 
+/******************
+ * Budgie Desktop *
+ ******************/
+.budgie-panel *:backdrop,
+.max-budgie-panel *:backdrop,
+PanelToplevel *:backdrop {
+  opacity: 1.0; }
+
+.budgie-panel {
+  background-color: transparent;
+  background-image: none;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid #000000;
+  transition: 100ms ease-out; }
+  .budgie-panel:backdrop {
+    opacity: 1.0; }
+
+.max-budgie-panel {
+  background-color: alpha(#000000, 0.7);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #000000;
+  transition: 100ms ease-in; }
+  .max-budgie-panel:backdrop {
+    opacity: 1.0; }
+
+.budgie-panel {
+  border: 1px solid transparent;
+  border-bottom: 2px solid #000000; }
+  .budgie-panel.top {
+    border: 1px solid transparent;
+    border-top: 2px solid #000000; }
+  .budgie-panel.left {
+    border: 1px solid transparent;
+    border-left: 2px solid #000000; }
+  .budgie-panel.right {
+    border: 1px solid transparent;
+    border-right: 2px solid #000000; }
+
+.max-budgie-panel {
+  border: 1px solid alpha(#000000, 0.7);
+  border-bottom: 2px solid #000000; }
+  .max-budgie-panel.top {
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  .max-budgie-panel.left {
+    border-left: 2px solid #000000;
+    border-right: 1px solid rgba(0, 0, 0, 0.1); }
+  .max-budgie-panel.right {
+    border-right: 2px solid #000000;
+    border-left: 1px solid rgba(0, 0, 0, 0.1); }
+
+.budgie-panel .launcher,
+PanelToplevel .launcher {
+  border: 2px solid transparent;
+  background-image: none;
+  transition: 100ms ease-in; }
+  .budgie-panel .launcher:hover,
+  PanelToplevel .launcher:hover {
+    border: 2px solid transparent;
+    border-bottom: 2px solid #00BCD4; }
+
+.top .launcher:hover {
+  border: 2px solid transparent;
+  border-top: 2px solid #00BCD4; }
+
+.left .launcher:hover {
+  border: 2px solid transparent;
+  border-left: 2px solid #00BCD4; }
+
+.right .launcher:hover {
+  border: 2px solid transparent;
+  border-right: 2px solid #00BCD4; }
+
+.budgie-icon-tasklist {
+  border-color: #00BCD4; }
+
+.budgie-panel .message-area {
+  background-clip: padding-box;
+  background-color: alpha(#000000, 0.5);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: 100ms ease-out; }
+.budgie-panel .max-message-area {
+  background-clip: padding-box;
+  background-color: transparent;
+  border: 2px solid transparent;
+  transition: 100ms ease-in; }
+.budgie-panel .message-area,
+.budgie-panel .max-message-area,
+.budgie-panel .menu-icon *,
+.budgie-panel .message-area * {
+  color: #FFFFFF;
+  text-shadow: none;
+  icon-shadow: none; }
+.budgie-panel .menu-icon GtkBox, .budgie-panel .menu-icon GtkBox:active, .budgie-panel .menu-icon GtkBox:hover {
+  background-clip: padding-box;
+  background-image: none;
+  background-color: alpha(black, 0.5);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: 100ms ease-out;
+  font: bold;
+  text-shadow: none;
+  icon-shadow: none; }
+
+GtkPopover * .entry,
+GtkPopover * GtkCalendar {
+  color: #263238; }
+
+.budgie-run-dialog {
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+
+.budgie-session-dialog {
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(38, 50, 56, 0.75); }
+
 /* GTK NAMED COLORS
    ----------------
    use responsibly! */
