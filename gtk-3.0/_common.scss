@@ -936,6 +936,7 @@ GtkComboBox {
     padding-left: 1em;
     padding-right: 1em;
     font-weight: bold;
+    &:backdrop { opacity: 0.5; }
   }
 
   .subtitle {
@@ -943,6 +944,7 @@ GtkComboBox {
     padding-left: 1em;
     padding-right: 1em;
     font-size: smaller;
+    &:backdrop { opacity: 0.5; }
   }
 
   .header-bar-separator,
@@ -982,6 +984,7 @@ GtkComboBox {
         > .label { color: inherit; }
       }
     }
+    &:backdrop { opacity: 0.5; }
   }
 
   &.selection-mode {
@@ -1029,6 +1032,7 @@ GtkComboBox {
         &:active { @include button(active); }
         &:insensitive { @include button(insensitive); }
       }
+      &:backdrop { opacity: 0.5; }
     }
 
     .selection-menu {
@@ -1049,7 +1053,10 @@ GtkComboBox {
   &.default-decoration {
     padding: 0.4em;
     border-width: 0;
-    .button { padding: 0.4em; }
+    .button {
+      padding: 0.4em;
+      &:backdrop { opacity: 0.5; }
+    }
   }
 }
 

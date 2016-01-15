@@ -763,11 +763,17 @@ GtkComboBox {
     padding-left: 1em;
     padding-right: 1em;
     font-weight: bold; }
+    .titlebar .title:backdrop,
+    .header-bar .title:backdrop {
+      opacity: 0.5; }
   .titlebar .subtitle,
   .header-bar .subtitle {
     padding-left: 1em;
     padding-right: 1em;
     font-size: smaller; }
+    .titlebar .subtitle:backdrop,
+    .header-bar .subtitle:backdrop {
+      opacity: 0.5; }
   .titlebar .header-bar-separator, .titlebar > GtkBox > .separator.vertical,
   .header-bar .header-bar-separator,
   .header-bar > GtkBox > .separator.vertical {
@@ -791,6 +797,9 @@ GtkComboBox {
         .titlebar .button:not(.suggested-action):not(.destructive-action):checked:insensitive > .label,
         .header-bar .button:not(.suggested-action):not(.destructive-action):checked:insensitive > .label {
           color: inherit; }
+    .titlebar .button:not(.suggested-action):not(.destructive-action):backdrop,
+    .header-bar .button:not(.suggested-action):not(.destructive-action):backdrop {
+      opacity: 0.5; }
   .titlebar.selection-mode,
   .header-bar.selection-mode {
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.2);
@@ -840,6 +849,9 @@ GtkComboBox {
           .titlebar.selection-mode .button.suggested-action:insensitive > .label,
           .header-bar.selection-mode .button.suggested-action:insensitive > .label {
             color: inherit; }
+      .titlebar.selection-mode .button:backdrop,
+      .header-bar.selection-mode .button:backdrop {
+        opacity: 0.5; }
     .titlebar.selection-mode .selection-menu,
     .header-bar.selection-mode .selection-menu {
       padding-left: 1.2em;
@@ -862,6 +874,9 @@ GtkComboBox {
     .titlebar.default-decoration .button,
     .header-bar.default-decoration .button {
       padding: 0.4em; }
+      .titlebar.default-decoration .button:backdrop,
+      .header-bar.default-decoration .button:backdrop {
+        opacity: 0.5; }
 
 .csd .header-bar {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.18); }
