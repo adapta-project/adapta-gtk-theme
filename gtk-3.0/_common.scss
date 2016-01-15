@@ -61,8 +61,8 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   background-color: $bg_color;
   color: $fg_color;
 
-  // fully opaque
-  &:backdrop { opacity: 1.0; }
+  // fully opaque except for gnome-terminal
+  &:backdrop:not(TerminalWindow):not(TerminalScreen) { opacity: 1.0; }
 }
 
 // These wildcard seems unavoidable, need to investigate.
