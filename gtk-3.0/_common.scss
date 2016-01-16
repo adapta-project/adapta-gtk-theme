@@ -1053,14 +1053,16 @@ GtkComboBox {
   &.default-decoration {
     padding: 0.4em;
     border-width: 0;
-    &:backdrop { opacity: 1.0; }
-    .button {
-      padding: 0.4em;
-      &:backdrop { opacity: 0.5; }
+    &:backdrop {
+      opacity: 1.0;
+      color: $insensitive_fg_color;
     }
-    .title,
-    .subtitle {
-      &:backdrop { opacity: 0.5; }
+    .button.titlebutton {
+      padding: 0.4em;
+      &:backdrop {
+        opacity: 1.0;
+        color: $insensitive_fg_color;
+      }
     }
   }
 }
@@ -2675,12 +2677,12 @@ GtkVolumeButton.button {
 .titlebar .button.titlebutton {
   // @extend .button.flat;
   @extend %image_button;
-  &:backdrop { opacity: 0.5; }
+  // &:backdrop { opacity: 0.5; }
 }
 
 .header-bar.selection-mode .button.titlebutton,
 .titlebar.selection-mode .button.titlebutton {
-  &:backdrop { opacity: 0.5; }
+  // &:backdrop { opacity: 0.5; }
 }
 
 

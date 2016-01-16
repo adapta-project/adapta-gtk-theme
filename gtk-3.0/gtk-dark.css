@@ -873,18 +873,15 @@ GtkComboBox {
     border-width: 0; }
     .titlebar.default-decoration:backdrop,
     .header-bar.default-decoration:backdrop {
-      opacity: 1.0; }
-    .titlebar.default-decoration .button,
-    .header-bar.default-decoration .button {
+      opacity: 1.0;
+      color: rgba(236, 239, 241, 0.3); }
+    .titlebar.default-decoration .button.titlebutton,
+    .header-bar.default-decoration .button.titlebutton {
       padding: 0.4em; }
-      .titlebar.default-decoration .button:backdrop,
-      .header-bar.default-decoration .button:backdrop {
-        opacity: 0.5; }
-    .titlebar.default-decoration .title:backdrop,
-    .titlebar.default-decoration .subtitle:backdrop,
-    .header-bar.default-decoration .title:backdrop,
-    .header-bar.default-decoration .subtitle:backdrop {
-      opacity: 0.5; }
+      .titlebar.default-decoration .button.titlebutton:backdrop,
+      .header-bar.default-decoration .button.titlebutton:backdrop {
+        opacity: 1.0;
+        color: rgba(236, 239, 241, 0.3); }
 
 .csd .header-bar {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.18); }
@@ -2755,14 +2752,6 @@ GtkVolumeButton.button {
     background-color: #FF9800;
     border: solid 1px rgba(0, 0, 0, 0.15);
     box-shadow: none; }
-
-.header-bar .button.titlebutton:backdrop,
-.titlebar .button.titlebutton:backdrop {
-  opacity: 0.5; }
-
-.header-bar.selection-mode .button.titlebutton:backdrop,
-.titlebar.selection-mode .button.titlebutton:backdrop {
-  opacity: 0.5; }
 
 .view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox:not(.vertical) > .menuitem.button:selected:not(:last-child), GtkButtonBox.vertical > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
