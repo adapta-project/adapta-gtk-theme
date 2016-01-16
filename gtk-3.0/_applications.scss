@@ -1,0 +1,296 @@
+/***********************
+ * Fallback mode panel *
+ ***********************/
+
+PanelWidget,
+PanelApplet,
+PanelToplevel {
+  // Always use dark-color of dark variant
+  color: if($variant=='light', $secondary_selected_fg_color, $fg_color);
+  background-color: if($variant=='light',
+                                 mix(#263238, #37474F, 75%),
+                                 $dark_color);
+  &:backdrop { opacity: 1.0; }
+}
+
+PanelSeparator {
+  border-width: 0;
+  background: none;
+  background-image: none;
+}
+
+.gnome-panel-menu-bar,
+PanelApplet > GtkMenuBar.menubar,
+ClockBox {
+  font: bold;
+  color: if($variant=='light', $secondary_selected_fg_color, $fg_color);
+  background-color: transparent;
+  &:backdrop { opacity: 1.0; }
+}
+
+.gnome-panel-menu-bar,
+PanelApplet > GtkMenuBar.menubar {
+  box-shadow: none;
+  & .menuitem {
+    color: if($variant=='light', $secondary_selected_fg_color, $fg_color);
+    background-color: transparent;
+    &:hover {
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+    &:backdrop { opacity: 1.0; }
+  }
+  .menu {
+    font: regular;
+    .menuitem {
+      color: $secondary_fg_color;
+      background-color: $base_color;
+      &:hover {
+        color: $fg_color;
+        background-color: gtkalpha(currentColor, 0.1);
+	box-shadow: none;
+      }
+    }
+    .separator { color: $borders_color; }
+  }
+}
+
+PanelAppletFrame {
+  border-width: 0;
+  background-color: transparent;
+  background-image: none;
+}
+
+PanelApplet {
+  GtkButton {
+    &#tasklist-button,
+    &#clock-applet-button,
+    &#showdesktop-button {
+      @include button(flat);
+      padding: 0px 4px;
+      color: $secondary_selected_fg_color;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      &:hover,
+      &:checked,
+      &:insensitive:checked { // 'checked' = 'active'
+        color: $selected_fg_color;
+        background-color: if($variant=='light',
+                                       mix(#263238, #37474F, 75%),
+                                       $dark_color);
+        box-shadow: inset 0 -2px $selected_bg_color;
+      }
+      &:backdrop { opacity: 1.0; }
+    }
+  }
+}
+
+WnckPager {
+  &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+  &:backdrop { opacity: 1.0; }
+}
+
+NaTrayApplet {
+  -NaTrayApplet-icon-padding: 2;
+  -NaTrayApplet-icon-size: 16;
+  &:backdrop { opacity: 1.0; }
+}
+
+
+/******************
+ * Budgie Desktop *
+ ******************/
+
+// disable backdrop transparency
+.budgie-panel,
+.max-budgie-panel,
+PanelToplevel {
+  *:backdrop { opacity: 1.0; }
+}
+
+// panel styling
+.budgie-panel {
+  background-color: transparent;
+  background-image: none;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid #000000;
+  transition: 100ms ease-out;
+  &:backdrop { opacity: 1.0; }
+}
+.max-budgie-panel  {
+  background-color: gtkalpha(#000000, 0.7);
+  border-top: 1px solid $borders_color;
+  border-bottom: 2px solid #000000;
+  transition: 100ms ease-in;
+  &:backdrop { opacity: 1.0; }
+}
+
+// panel border styling
+.budgie-panel {
+  border: 1px solid transparent;
+  border-bottom: 2px solid #000000;
+  &.top {
+    border: 1px solid transparent;
+    border-top: 2px solid #000000;
+  }
+  &.left {
+    border: 1px solid transparent;
+    border-left: 2px solid #000000;
+  }
+  &.right {
+    border: 1px solid transparent;
+    border-right: 2px solid #000000;
+  }
+}
+.max-budgie-panel {
+  border: 1px solid gtkalpha(#000000, 0.7);
+  border-bottom: 2px solid #000000;
+  &.top {
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid $borders_color;
+  }
+  &.left {
+    border-left: 2px solid #000000;
+    border-right: 1px solid $borders_color;
+  }
+  &.right {
+    border-right: 2px solid #000000;
+    border-left: 1px solid $borders_color;
+  }
+}
+
+// launcher styling
+.budgie-panel,
+PanelToplevel {
+  .launcher {
+    border: 2px solid transparent;
+    background-image: none;
+    transition: 100ms ease-in;
+    &:hover {
+      border: 2px solid transparent;
+      border-bottom: 2px solid $selected_bg_color;
+    }
+  }
+}
+.top .launcher {
+  &:hover {
+    border: 2px solid transparent;
+    border-top: 2px solid $selected_bg_color;
+  }
+}
+.left .launcher {
+  &:hover {
+    border: 2px solid transparent;
+    border-left: 2px solid $selected_bg_color;
+  }
+}
+.right .launcher {
+  &:hover {
+    border: 2px solid transparent;
+    border-right: 2px solid $selected_bg_color;
+  }
+}
+
+// selected window highlight border on icon tasklist
+.budgie-icon-tasklist {
+    border-color: $selected_bg_color;
+}
+
+// message-area styling
+.budgie-panel {
+  .message-area {
+    background-clip: padding-box;
+    background-color: gtkalpha(#000000, 0.5);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: 100ms ease-out;
+  }
+  .max-message-area {
+    background-clip: padding-box;
+    background-color: transparent;
+    border: 2px solid transparent;
+    transition: 100ms ease-in;
+  }
+
+  .message-area,
+  .max-message-area,
+  .menu-icon *,
+  .message-area * {
+    color: #FFFFFF;
+    // font: bold;
+    // font-size: 110%;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  .menu-icon {
+    & GtkBox {
+      &,
+      &:active,
+      &:hover {
+        background-clip: padding-box;
+        background-image: none;
+        background-color: gtkalpha(black, 0.5);
+        border: 2px solid transparent;
+        border-radius: 4px;
+        transition: 100ms ease-out;
+        font: bold;
+        text-shadow: none;
+        icon-shadow: none;
+      }
+    }
+  }
+}
+
+// popover styling
+GtkPopover * .entry,
+GtkPopover * GtkCalendar {
+  color: $fg_color;
+}
+
+// dialog styling
+.budgie-run-dialog {
+  border-radius: 2px;
+  border: 1px solid $borders_color;
+}
+
+.budgie-session-dialog {
+  border-radius: 2px;
+  border: 1px solid $borders_color;
+  color: $secondary_fg_color;
+}
+
+/**************
+ * Tweak-tool *
+ **************/
+
+// sidebar
+.tweak-categories {
+  background-color: $secondary_base_color;
+  color: $secondary_fg_color;
+
+  .separator { -GtkWidget-wide-separators: true; }
+}
+
+.tweak-category {
+  @extend .list-row;
+  color: $secondary_fg_color;
+  font-weight: bold;
+  &:hover { color: $fg_color; }
+  &:selected {
+    color: $selected_bg_color;
+    background-color: transparent;
+    // &:dir(ltr) { box-shadow: inset -2px 0 $selected_bg_color; }
+    // &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
+  }
+}
+
+// container and tweaks in a group
+.tweak-group {
+    padding: 6px;
+    background-color: transparent;
+}
+
+.tweak {
+}
