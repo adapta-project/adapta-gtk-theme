@@ -3025,3 +3025,38 @@ GtkPopover * GtkCalendar {
   border: 1px solid $borders_color;
   color: $secondary_fg_color;
 }
+
+
+/**************
+ * Tweak-tool *
+ **************/
+
+// sidebar
+.tweak-categories {
+  background-color: $secondary_base_color;
+  color: $secondary_fg_color;
+
+  .separator { -GtkWidget-wide-separators: true; }
+}
+
+.tweak-category {
+  @extend .list-row;
+  color: $secondary_fg_color;
+  font-weight: bold;
+  &:hover { color: $fg_color; }
+  &:selected {
+    color: $selected_bg_color;
+    background-color: transparent;
+    // &:dir(ltr) { box-shadow: inset -2px 0 $selected_bg_color; }
+    // &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
+  }
+}
+
+// container and tweaks in a group
+.tweak-group {
+    padding: 6px;
+    background-color: transparent;
+}
+
+.tweak {
+}
