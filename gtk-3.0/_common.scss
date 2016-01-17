@@ -601,6 +601,7 @@ GtkTextView { // This will get overridden by .view,
 
 // menu buttons
 .menuitem.button.flat {
+  transition: none;
   &:selected { @extend %selected_items; }
 }
 
@@ -1214,13 +1215,13 @@ column-header.button.dnd { // for treeview-like derive widgets
   .csd & { border: none; }  // axes borders in a composited env
 
   .menuitem {
-    transition-duration: 0.1s;
+    transition: none;
     padding: 0.4em 0.4em 0.5em;
     color: $secondary_fg_color;
     font: initial;
     text-shadow: none;
     &:hover {
-      transition-duration: 0;
+      transition: none;
       color: $fg_color;
       background-color: gtkalpha(currentColor,0.1);
     }
@@ -1276,6 +1277,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 
   .button.flat {
+    transition: none;
     padding: 0.4em 0 0.5em;
     background-color: transparent;
     background-size: 8em * 1 / 0.8 8em * 1 / 0.8, auto;

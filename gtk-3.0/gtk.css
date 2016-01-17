@@ -567,6 +567,14 @@ GtkVolumeButton.button, .header-bar .button.titlebutton,
 .linked.vertical > GtkComboBox:only-child > .the-button-in-the-combobox {
   border-radius: 0; }
 
+.menuitem.button.flat, .inline-toolbar .menuitem.button, GtkButtonBox:not(.vertical) > .menuitem.button:not(:last-child), GtkButtonBox.vertical > .menuitem.button, .app-notification .menuitem.button, .toolbar .menuitem.button, .titlebar .menuitem.button:not(.suggested-action):not(.destructive-action),
+.header-bar .menuitem.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button, .menuitem.sidebar-button.button, .info .menuitem.button,
+.question .menuitem.button,
+.warning .menuitem.button,
+.error .menuitem.button, GtkScaleButton.menuitem.button,
+GtkVolumeButton.menuitem.button {
+  transition: none; }
+
 GtkColorButton.button {
   padding: 0.4em 0.6em 0.5em; }
   GtkColorButton.button GtkColorSwatch:first-child:last-child {
@@ -991,13 +999,13 @@ column-header.button.dnd, column-header .button.dnd {
   .csd .menu {
     border: none; }
   .menu .menuitem {
-    transition-duration: 0.1s;
+    transition: none;
     padding: 0.4em 0.4em 0.5em;
     color: rgba(38, 50, 56, 0.75);
     font: initial;
     text-shadow: none; }
     .menu .menuitem:hover {
-      transition-duration: 0;
+      transition: none;
       color: #263238;
       background-color: alpha(currentColor, 0.1); }
     .menu .menuitem:insensitive {
@@ -1057,6 +1065,7 @@ column-header.button.dnd, column-header .button.dnd {
   .popover .error .button,
   .error .popover .button, .popover GtkScaleButton.button,
   .popover GtkVolumeButton.button {
+    transition: none;
     padding: 0.4em 0 0.5em;
     background-color: transparent;
     background-size: 10em 10em, auto;
