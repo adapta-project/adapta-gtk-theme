@@ -1481,7 +1481,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     .label { // tab text
       padding: 0.1em; // needed for a nicer focus ring
       font-weight: bold;
-      color: $secondary_fg_color;
+      color: $tertiary_fg_color;
     }
     .prelight-page .label, .label.prelight-page {
       // prelight tab text
@@ -1498,6 +1498,7 @@ column-header.button.dnd { // for treeview-like derive widgets
       background-size: 2em * 1 / 0.8 2em * 1 / 0.8, auto;
       // @extend .button.flat;
       @include button(flat);
+      color: $secondary_fg_color;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:insensitive { @include button(flat-insensitive); }
@@ -1508,10 +1509,10 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 
   &.arrow {
-    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
-    &:insensitive {
-      color: $insensitive_fg_color;
-    }
+    color: $tertiary_fg_color;
+    &:hover,
+    &:active { color: $fg_color; }
+    &:insensitive { color: $insensitive_fg_color; }
   }
 
   &:not(.reorderable-page) > .entry {

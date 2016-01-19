@@ -1247,7 +1247,7 @@ column-header.button.dnd, column-header .button.dnd {
     .notebook tab .label {
       padding: 0.1em;
       font-weight: bold;
-      color: rgba(38, 50, 56, 0.75); }
+      color: rgba(38, 50, 56, 0.6); }
     .notebook tab .prelight-page .label, .notebook tab .label.prelight-page {
       color: #263238; }
     .notebook tab .active-page .label, .notebook tab .label.active-page {
@@ -1257,7 +1257,8 @@ column-header.button.dnd, column-header .button.dnd {
       background-size: 2.5em 2.5em, auto;
       box-shadow: none;
       background-color: transparent;
-      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+      color: rgba(38, 50, 56, 0.75); }
       .notebook tab .button:hover {
         box-shadow: none;
         background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
@@ -1269,10 +1270,12 @@ column-header.button.dnd, column-header .button.dnd {
         background-color: transparent; }
       .notebook tab .button > GtkImage {
         padding: 4px; }
-  .notebook.arrow:not(:hover):not(:active) {
-    color: alpha(currentColor, 0.75); }
-  .notebook.arrow:insensitive {
-    color: rgba(38, 50, 56, 0.3); }
+  .notebook.arrow {
+    color: rgba(38, 50, 56, 0.6); }
+    .notebook.arrow:hover, .notebook.arrow:active {
+      color: #263238; }
+    .notebook.arrow:insensitive {
+      color: rgba(38, 50, 56, 0.3); }
 
 /**************
  * Scrollbars *
