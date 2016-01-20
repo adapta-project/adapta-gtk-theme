@@ -104,14 +104,80 @@ GtkAssistant .sidebar {
     border-right: 1px solid rgba(0, 0, 0, 0.15); }
   GtkAssistant .sidebar:dir(rtl) {
     border-left: 1px solid rgba(0, 0, 0, 0.15); }
-GtkAssistant.csd .sidebar {
-  border-top-style: none; }
-GtkAssistant .sidebar .label {
-  opacity: 0.75;
-  padding: 0.7em 1em 0.8em;
-  font-weight: bold; }
-GtkAssistant .sidebar .label.highlight {
-  opacity: 1; }
+  .csd GtkAssistant .sidebar {
+    border-top-style: none; }
+  GtkAssistant .sidebar .label {
+    padding: 0.7em 1em 0.8em;
+    color: rgba(236, 239, 241, 0.75);
+    font-weight: bold; }
+    GtkAssistant .sidebar .label.highlight {
+      color: #00BCD4; }
+GtkAssistant .header-bar .button.flat:not(:last-child), GtkAssistant .header-bar .inline-toolbar .button:not(:last-child), .inline-toolbar GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar GtkButtonBox:not(.vertical) > .button:not(:last-child), GtkAssistant .header-bar GtkButtonBox.vertical > .button:not(:last-child), GtkAssistant .header-bar .app-notification .button:not(:last-child), .app-notification GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar .toolbar .button:not(:last-child), .toolbar GtkAssistant .header-bar .button:not(:last-child),
+GtkAssistant .header-bar .button:not(:last-child):not(.suggested-action):not(.destructive-action), GtkAssistant .header-bar .message-dialog.csd .dialog-action-area .button:not(:last-child), .message-dialog.csd .dialog-action-area GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar .sidebar-button.button:not(:last-child), GtkAssistant .header-bar .info .button:not(:last-child), .info GtkAssistant .header-bar .button:not(:last-child),
+GtkAssistant .header-bar .question .button:not(:last-child),
+.question GtkAssistant .header-bar .button:not(:last-child),
+GtkAssistant .header-bar .warning .button:not(:last-child),
+.warning GtkAssistant .header-bar .button:not(:last-child),
+GtkAssistant .header-bar .error .button:not(:last-child),
+.error GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar GtkScaleButton.button:not(:last-child),
+GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.05);
+  background-color: #546E7A;
+  background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+  color: rgba(236, 239, 241, 0.75);
+  background-color: #FF5252;
+  color: #FFFFFF; }
+  GtkAssistant .header-bar .button.flat:not(:last-child):hover, GtkAssistant .header-bar .inline-toolbar .button:not(:last-child):hover, .inline-toolbar GtkAssistant .header-bar .button:not(:last-child):hover, GtkAssistant .header-bar GtkButtonBox:not(.vertical) > .button:not(:last-child):hover, GtkAssistant .header-bar GtkButtonBox.vertical > .button:not(:last-child):hover, GtkAssistant .header-bar .app-notification .button:not(:last-child):hover, .app-notification GtkAssistant .header-bar .button:not(:last-child):hover, GtkAssistant .header-bar .toolbar .button:not(:last-child):hover, .toolbar GtkAssistant .header-bar .button:not(:last-child):hover,
+  GtkAssistant .header-bar .button:not(:last-child):hover:not(.suggested-action):not(.destructive-action), GtkAssistant .header-bar .message-dialog.csd .dialog-action-area .button:not(:last-child):hover, .message-dialog.csd .dialog-action-area GtkAssistant .header-bar .button:not(:last-child):hover, GtkAssistant .header-bar .sidebar-button.button:not(:last-child):hover, GtkAssistant .header-bar .info .button:not(:last-child):hover, .info GtkAssistant .header-bar .button:not(:last-child):hover,
+  GtkAssistant .header-bar .question .button:not(:last-child):hover,
+  .question GtkAssistant .header-bar .button:not(:last-child):hover,
+  GtkAssistant .header-bar .warning .button:not(:last-child):hover,
+  .warning GtkAssistant .header-bar .button:not(:last-child):hover,
+  GtkAssistant .header-bar .error .button:not(:last-child):hover,
+  .error GtkAssistant .header-bar .button:not(:last-child):hover, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):hover,
+  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):hover {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.05);
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    color: #ECEFF1;
+    color: #FFFFFF; }
+  GtkAssistant .header-bar .button.flat:not(:last-child):checked, GtkAssistant .header-bar .inline-toolbar .button:not(:last-child):checked, .inline-toolbar GtkAssistant .header-bar .button:not(:last-child):checked, GtkAssistant .header-bar GtkButtonBox:not(.vertical) > .button:not(:last-child):checked, GtkAssistant .header-bar GtkButtonBox.vertical > .button:not(:last-child):checked, GtkAssistant .header-bar .app-notification .button:not(:last-child):checked, .app-notification GtkAssistant .header-bar .button:not(:last-child):checked, GtkAssistant .header-bar .toolbar .button:not(:last-child):checked, .toolbar GtkAssistant .header-bar .button:not(:last-child):checked,
+  GtkAssistant .header-bar .button:not(:last-child):checked:not(.suggested-action):not(.destructive-action), GtkAssistant .header-bar .message-dialog.csd .dialog-action-area .button:not(:last-child):checked, .message-dialog.csd .dialog-action-area GtkAssistant .header-bar .button:not(:last-child):checked, GtkAssistant .header-bar .sidebar-button.button:not(:last-child):checked, GtkAssistant .header-bar .info .button:not(:last-child):checked, .info GtkAssistant .header-bar .button:not(:last-child):checked,
+  GtkAssistant .header-bar .question .button:not(:last-child):checked,
+  .question GtkAssistant .header-bar .button:not(:last-child):checked,
+  GtkAssistant .header-bar .warning .button:not(:last-child):checked,
+  .warning GtkAssistant .header-bar .button:not(:last-child):checked,
+  GtkAssistant .header-bar .error .button:not(:last-child):checked,
+  .error GtkAssistant .header-bar .button:not(:last-child):checked, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):checked,
+  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):checked {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.05);
+    background-color: #00BCD4;
+    color: #FFFFFF;
+    background-color: #ff7575;
+    color: #FFFFFF; }
+  GtkAssistant .header-bar .button.flat:not(:last-child):insensitive, GtkAssistant .header-bar .inline-toolbar .button:not(:last-child):insensitive, .inline-toolbar GtkAssistant .header-bar .button:not(:last-child):insensitive, GtkAssistant .header-bar GtkButtonBox:not(.vertical) > .button:not(:last-child):insensitive, GtkAssistant .header-bar GtkButtonBox.vertical > .button:not(:last-child):insensitive, GtkAssistant .header-bar .app-notification .button:not(:last-child):insensitive, .app-notification GtkAssistant .header-bar .button:not(:last-child):insensitive, GtkAssistant .header-bar .toolbar .button:not(:last-child):insensitive, .toolbar GtkAssistant .header-bar .button:not(:last-child):insensitive,
+  GtkAssistant .header-bar .button:not(:last-child):insensitive:not(.suggested-action):not(.destructive-action), GtkAssistant .header-bar .message-dialog.csd .dialog-action-area .button:not(:last-child):insensitive, .message-dialog.csd .dialog-action-area GtkAssistant .header-bar .button:not(:last-child):insensitive, GtkAssistant .header-bar .sidebar-button.button:not(:last-child):insensitive, GtkAssistant .header-bar .info .button:not(:last-child):insensitive, .info GtkAssistant .header-bar .button:not(:last-child):insensitive,
+  GtkAssistant .header-bar .question .button:not(:last-child):insensitive,
+  .question GtkAssistant .header-bar .button:not(:last-child):insensitive,
+  GtkAssistant .header-bar .warning .button:not(:last-child):insensitive,
+  .warning GtkAssistant .header-bar .button:not(:last-child):insensitive,
+  GtkAssistant .header-bar .error .button:not(:last-child):insensitive,
+  .error GtkAssistant .header-bar .button:not(:last-child):insensitive, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):insensitive,
+  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):insensitive {
+    box-shadow: none;
+    background-color: alpha(currentColor, 0.2);
+    color: rgba(236, 239, 241, 0.225); }
+    GtkAssistant .header-bar .button.flat:not(:last-child):insensitive > .label, GtkAssistant .header-bar .inline-toolbar .button:not(:last-child):insensitive > .label, .inline-toolbar GtkAssistant .header-bar .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar GtkButtonBox:not(.vertical) > .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar GtkButtonBox.vertical > .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .app-notification .button:not(:last-child):insensitive > .label, .app-notification GtkAssistant .header-bar .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .toolbar .button:not(:last-child):insensitive > .label, .toolbar GtkAssistant .header-bar .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .titlebar .button:not(:last-child):insensitive:not(.suggested-action):not(.destructive-action) > .label,
+    GtkAssistant .header-bar .button:not(:last-child):insensitive:not(.suggested-action):not(.destructive-action) > .label, GtkAssistant .header-bar .message-dialog.csd .dialog-action-area .button:not(:last-child):insensitive > .label, .message-dialog.csd .dialog-action-area GtkAssistant .header-bar .button:not(:last-child):insensitive > .label,
+    GtkAssistant .header-bar .message-dialog.csd .dialog-action-area .linked > .button:not(:last-child):insensitive > .label,
+    .message-dialog.csd .dialog-action-area GtkAssistant .header-bar .linked > .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .sidebar-button.button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .info .button:not(:last-child):insensitive > .label, .info GtkAssistant .header-bar .button:not(:last-child):insensitive > .label,
+    GtkAssistant .header-bar .question .button:not(:last-child):insensitive > .label,
+    .question GtkAssistant .header-bar .button:not(:last-child):insensitive > .label,
+    GtkAssistant .header-bar .warning .button:not(:last-child):insensitive > .label,
+    .warning GtkAssistant .header-bar .button:not(:last-child):insensitive > .label,
+    GtkAssistant .header-bar .error .button:not(:last-child):insensitive > .label,
+    .error GtkAssistant .header-bar .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):insensitive > .label,
+    GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):insensitive > .label {
+      color: inherit; }
 
 GtkTextView {
   background-color: #3e515a; }

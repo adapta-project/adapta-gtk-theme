@@ -146,20 +146,42 @@ $asset_suffix: if($variant=='dark', '-dark', '');
 }
 
 GtkAssistant {
+  // sidebar styling
   .sidebar {
     padding: 0.5em 0;
     border-top: 1px solid $borders_color;
     &:dir(ltr) { border-right: 1px solid $borders_color; }
     &:dir(rtl) { border-left: 1px solid $borders_color; }
+
+    .csd & { border-top-style: none; }
+
+    .label {
+      padding: 0.7em 1em 0.8em;
+      color: $secondary_fg_color;
+      font-weight: bold;
+      &.highlight { color: $selected_bg_color; }
+    }
   }
-  &.csd .sidebar { border-top-style: none; }
-  .sidebar .label {
-    opacity: 0.75;
-    padding: 0.7em 1em 0.8em;
-    font-weight: bold;
-  }
-  .sidebar .label.highlight {
-    opacity: 1;
+
+  // header-bar styling
+  .header-bar {
+    // apply suggested-action button for "Next" and "Back"
+    // last -> "cancel", nth -> "Next" and "Back", that's weird.
+    .button.flat:not(:last-child) {
+      @include button(normal);
+      background-color: $suggested_color;
+      color: $selected_fg_color;
+      &:hover {
+        @include button(hover);
+        color: $selected_fg_color;
+      }
+      &:checked {
+        @include button(checked);
+	background-color: mix($selected_fg_color, $suggested_color, 20%);
+        color: $selected_fg_color;
+      }
+      &:insensitive { @include button(insensitive); }
+    }
   }
 }
 
