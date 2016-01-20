@@ -270,6 +270,12 @@ GtkPopover * GtkCalendar {
 .tweak-categories {
   background-color: $secondary_base_color;
   color: $secondary_fg_color;
+  &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                                 $sidebar-dark-ltr);
+  }
+  &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
+                                                 $sidebar-dark-rtl);
+  }
 
   .separator { -GtkWidget-wide-separators: true; }
 }

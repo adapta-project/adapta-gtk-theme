@@ -2160,14 +2160,22 @@ GtkFileChooserDialog .dialog-action-box {
 .sidebar {
   border: none;
   background-color: #fdfdfe; }
+  .sidebar:dir(ltr) {
+    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
+  .sidebar:dir(rtl) {
+    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
   .sidebar .list-row, .sidebar .tweak-category {
     color: rgba(38, 50, 56, 0.75);
+    background-color: transparent;
     font-weight: bold; }
     .sidebar .list-row:hover, .sidebar .tweak-category:hover {
       color: #263238; }
     .sidebar .list-row:selected, .sidebar .tweak-category:selected {
       color: #00BCD4;
       background-color: transparent; }
+  .sidebar .overshoot,
+  .sidebar .undershoot {
+    box-shadow: none; }
 
 GtkSidebarRow.list-row, GtkSidebarRow.tweak-category {
   padding: 0; }
@@ -3131,6 +3139,10 @@ GtkPopover * GtkCalendar {
 .tweak-categories {
   background-color: #fdfdfe;
   color: rgba(38, 50, 56, 0.75); }
+  .tweak-categories:dir(ltr) {
+    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
+  .tweak-categories:dir(rtl) {
+    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
   .tweak-categories .separator {
     -GtkWidget-wide-separators: true; }
 
