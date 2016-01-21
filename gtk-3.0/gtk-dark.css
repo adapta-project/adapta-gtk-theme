@@ -3226,6 +3226,31 @@ GtkPopover * GtkCalendar {
   padding: 6px;
   background-color: transparent; }
 
+/*******************
+ * Gnome-Flashback *
+ *******************/
+FlashbackOsdWindow,
+GfPopupWindow {
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  opacity: 0.9; }
+  FlashbackOsdWindow.background,
+  GfPopupWindow.background {
+    background-color: #37474F;
+    color: #ECEFF1; }
+
+GfInputSourcePopup #input-source {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 2em;
+  font-weight: bold; }
+  GfInputSourcePopup #input-source:selected {
+    border-radius: 2px;
+    color: #FF9800;
+    background-color: alpha(currentColor, 0.2); }
+
+FlashbackLabelWindow {
+  font-size: 4em; }
+
 /* GTK NAMED COLORS
    ----------------
    use responsibly! */

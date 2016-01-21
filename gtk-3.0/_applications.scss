@@ -301,3 +301,37 @@ GtkPopover * GtkCalendar {
 
 .tweak {
 }
+
+
+/*******************
+ * Gnome-Flashback *
+ *******************/
+
+// use message-dialog style for popup osd windows
+FlashbackOsdWindow,
+GfPopupWindow {
+  border-radius: 2px;
+  border: 1px solid $borders_color;
+  opacity: 0.9;
+  &.background {
+    background-color: if($variant=='light', $fg_color, $bg_color);
+    color: if($variant=='light', $secondary_selected_fg_color, $fg_color);
+  }
+}
+
+GfInputSourcePopup {
+  #input-source {
+    color: $secondary_selected_fg_color;
+    font-size: 2em;
+    font-weight: bold;
+    &:selected {
+      border-radius: 2px;
+      color: $warning_color;
+      background-color: $track_color;
+    }
+  }
+}
+
+FlashbackLabelWindow {
+  font-size: 4em;
+}
