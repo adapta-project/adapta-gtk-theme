@@ -1096,7 +1096,14 @@ GtkComboBox {
   }
   GtkBox & { // Remove unneeded side shadows with dirty hacks
     &:last-child {
-      box-shadow: if($variant=='light', $sub-header-light, $sub-header-dark);
+      &:dir(ltr) {
+        box-shadow: if($variant=='light', $sub-header-light-ltr,
+                                          $sub-header-dark-ltr);
+      }
+      &:dir(rtl) {
+        box-shadow: if($variant=='light', $sub-header-light-rtl,
+                                          $sub-header-dark-rtl);
+      }
     }
   }
 }
@@ -2288,7 +2295,6 @@ GtkFileChooserDialog {
 
   .list-row {
     color: $secondary_fg_color;
-    background-color: transparent;
     font-weight: bold;
     &:hover { color: $fg_color; }
     &:selected {
