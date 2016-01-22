@@ -1615,7 +1615,10 @@ $_slider_fine_tune_margin: 6px;
   // trough coloring
   .trough {
     background-color: $base_color;
-    border: 1px none $borders_color;
+    // fix for Webkit2 2.10.5, use absolute colour codes
+    // for $borders_color / $base_color;
+    border: if($variant=='light', 1px none #E5E9EC,
+                                  1px none #3B4D55);
   }
 
   // slider coloring
