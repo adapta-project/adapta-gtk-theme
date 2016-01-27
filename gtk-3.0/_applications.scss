@@ -102,151 +102,106 @@ NaTrayApplet {
  * Budgie Desktop *
  ******************/
 
+// orientation
+$orientation: ((top, bottom),
+               (bottom, top),
+	       (left, right),
+	       (right, left));
+
 // disable backdrop transparency
-.budgie-panel,
-.max-budgie-panel,
-PanelToplevel {
+.budgie-panel {
+  &:backdrop,
   *:backdrop { opacity: 1.0; }
 }
 
 // panel styling
 .budgie-panel {
-  background-color: transparent;
-  background-image: none;
-  border-top: 1px solid transparent;
-  border-bottom: 2px solid #000000;
-  transition: 100ms ease-out;
-  &:backdrop { opacity: 1.0; }
-}
-.max-budgie-panel  {
-  background-color: gtkalpha(#000000, 0.7);
-  border-top: 1px solid $borders_color;
-  border-bottom: 2px solid #000000;
-  transition: 100ms ease-in;
-  &:backdrop { opacity: 1.0; }
+  // Always use dark-color of dark variant
+  color: if($variant=='light', $secondary_selected_fg_color, $fg_color);
+  background-color: if($variant=='light',
+                                 mix(#263238, #37474F, 75%),
+                                 $dark_color);
+
+  // panel border styling
+  @each $along_side, $opp_side in $orientation {
+    .#{$along_side} & { border-#{$along_side}: 2px solid #000000; }
+  }
 }
 
-// panel border styling
+@each $along_side, $opp_side in $orientation {
+  // panel shadow styling
+  .#{$along_side} .shadow-block {
+    background-color: transparent;
+    background-image: linear-gradient(to $opp_side,
+                                      gtkalpha(#000000, 0.24),
+                                      transparent);
+  }
+
+  // raven border styling
+  .#{$along_side} .raven-frame {
+    padding: 0;
+    border: none;
+    border-#{$opp_side}: 1px solid $borders_color;
+    background: none;
+  }
+}
+
+// wnck tasklist styling
+.budgie-panel WnckTasklist {
+  .button {
+    border: none;
+    background: none;
+    opacity: 0.5;
+    &:hover,
+    &:active,
+    &:checked { opacity: 1.0; }
+  }
+}
+
+// icon tasklist styling
+// FIXME: can not set opaque to minimized/unfocused?
 .budgie-panel {
-  border: 1px solid transparent;
-  border-bottom: 2px solid #000000;
-  &.top {
-    border: 1px solid transparent;
-    border-top: 2px solid #000000;
-  }
-  &.left {
-    border: 1px solid transparent;
-    border-left: 2px solid #000000;
-  }
-  &.right {
-    border: 1px solid transparent;
-    border-right: 2px solid #000000;
-  }
-}
-.max-budgie-panel {
-  border: 1px solid gtkalpha(#000000, 0.7);
-  border-bottom: 2px solid #000000;
-  &.top {
-    border-top: 2px solid #000000;
-    border-bottom: 1px solid $borders_color;
-  }
-  &.left {
-    border-left: 2px solid #000000;
-    border-right: 1px solid $borders_color;
-  }
-  &.right {
-    border-right: 2px solid #000000;
-    border-left: 1px solid $borders_color;
-  }
-}
-
-// launcher styling
-.budgie-panel,
-PanelToplevel {
   .launcher {
+    transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 2px solid transparent;
     background-image: none;
-    transition: 100ms ease-in;
+    opacity: 0.5;
     &:hover {
-      border: 2px solid transparent;
-      border-bottom: 2px solid $selected_bg_color;
+      -gtk-image-effect: highlight;
+      opacity: 1.0;
     }
-  }
-}
-.top .launcher {
-  &:hover {
-    border: 2px solid transparent;
-    border-top: 2px solid $selected_bg_color;
-  }
-}
-.left .launcher {
-  &:hover {
-    border: 2px solid transparent;
-    border-left: 2px solid $selected_bg_color;
-  }
-}
-.right .launcher {
-  &:hover {
-    border: 2px solid transparent;
-    border-right: 2px solid $selected_bg_color;
+    &:active,
+    &:checked { opacity: 1.0; }
+
+    .unpinned &,
+    .pinned &.running { opacity: 1.0; }
   }
 }
 
-// selected window highlight border on icon tasklist
-.budgie-icon-tasklist {
-    border-color: $selected_bg_color;
-}
-
-// message-area styling
-.budgie-panel {
-  .message-area {
-    background-clip: padding-box;
-    background-color: gtkalpha(#000000, 0.5);
-    border: 2px solid transparent;
-    border-radius: 4px;
-    transition: 100ms ease-out;
-  }
-  .max-message-area {
-    background-clip: padding-box;
-    background-color: transparent;
-    border: 2px solid transparent;
-    transition: 100ms ease-in;
-  }
-
-  .message-area,
-  .max-message-area,
-  .menu-icon *,
-  .message-area * {
-    color: #FFFFFF;
-    // font: bold;
-    // font-size: 110%;
-    text-shadow: none;
-    icon-shadow: none;
-  }
-
-  .menu-icon {
-    & GtkBox {
-      &,
-      &:active,
+// draw underscores
+@each $along_side, $opp_side in $orientation {
+  .#{$along_side} .budgie-panel {
+    WnckTasklist .button {
+      border: 2px solid transparent;
       &:hover {
-        background-clip: padding-box;
-        background-image: none;
-        background-color: gtkalpha(black, 0.5);
-        border: 2px solid transparent;
-        border-radius: 4px;
-        transition: 100ms ease-out;
-        font: bold;
-        text-shadow: none;
-        icon-shadow: none;
+        border-#{$along_side}: 2px solid gtkalpha($selected_bg_color, 0.5);
+      }
+      &:active,
+      &:checked {
+        border-#{$along_side}: 2px solid $selected_bg_color;
+      }
+    }
+    .launcher {
+      border: 2px solid transparent;
+      &:hover {
+        border-#{$along_side}: 2px solid gtkalpha($selected_bg_color, 0.5);
+      }
+      &:active,
+      &:checked {
+        border-#{$along_side}: 2px solid $selected_bg_color;
       }
     }
   }
-}
-
-// popover styling
-GtkPopover * .entry,
-GtkPopover * GtkCalendar {
-  color: $fg_color;
 }
 
 // dialog styling
@@ -267,19 +222,60 @@ GtkPopover * GtkCalendar {
   opacity: 0.9;
   &:backdrop { opacity: 1.0; }
 
-  .button {
+  .button,
+  .linked > .button {
     @extend .button.flat;
-    color: $warning_color;
-    &:hover { color: $warning_color; }
-    &:active {
-      background-color: $warning_bg_color;
-      color: $selected_fg_color;
+    padding: 0.7em 1em 0.8em;
+    border: 2px solid transparent;
+    border-radius: 0;
+    color: $secondary_selected_fg_color;
+    background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
+    // &:first-child { border-bottom-left-radius: 2px; }
+    // &:last-child { border-bottom-right-radius: 2px; }
+    &:first-child {
+      border-radius: 0 0 0 2px;
+      border-right-width: 0;
     }
-    &:insensitive { color: if($variant=='light',
-                                        gtkopacity($selected_fg_color, 0.3),
-                                        $insensitive_fg_color);
+    &:last-child { // usually 'save', 'delete' and 'OK'...
+      @include button(flat);
+      border-radius: 0 0 2px 0;
+      border-left-width: 0;
+      background-color: transparent;
+      color: $warning_color;
+      &:hover {
+        @include button(flat-hover);
+        color: $warning_color;
+      }
+      &:active {
+        @include button(flat-active);
+        color: $selected_fg_color;
+        background-color: $warning_bg_color;
+      }
+      &:checked {
+       @include button(flat-checked);
+        color: $selected_fg_color;
+        background-color: $warning_bg_color;
+      }
+      &:insensitive { @include button(flat-insensitive); }
     }
   }
+}
+
+.budgie-polkit-dialog {
+  @extend .budgie-session-dialog;
+
+  .message { color: $secondary_fg_color; }
+  .failure {
+    color: $warning_color;
+    font-weight: bold;
+  }
+}
+
+.drop-shadow {
+    background-color: transparent;
+    background-image: none;
+    box-shadow: $z-depth-2;
+    border-radius: 2px;
 }
 
 

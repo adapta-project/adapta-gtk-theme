@@ -120,7 +120,7 @@ GtkAssistant .header-bar .warning .button:not(:last-child),
 .warning GtkAssistant .header-bar .button:not(:last-child),
 GtkAssistant .header-bar .error .button:not(:last-child),
 .error GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar GtkScaleButton.button:not(:last-child),
-GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child), GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child), .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child) {
+GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child), GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child), .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar .budgie-polkit-dialog .button:not(:last-child), .budgie-polkit-dialog GtkAssistant .header-bar .button:not(:last-child) {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.05);
   background-color: #546E7A;
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
@@ -135,7 +135,7 @@ GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child), GtkAssistant .
   .warning GtkAssistant .header-bar .button:not(:last-child):hover,
   GtkAssistant .header-bar .error .button:not(:last-child):hover,
   .error GtkAssistant .header-bar .button:not(:last-child):hover, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):hover,
-  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):hover, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):hover, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):hover {
+  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):hover, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):hover, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):hover, GtkAssistant .header-bar .budgie-polkit-dialog .button:not(:last-child):hover, .budgie-polkit-dialog GtkAssistant .header-bar .button:not(:last-child):hover {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.05);
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
     color: #ECEFF1;
@@ -148,7 +148,7 @@ GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child), GtkAssistant .
   .warning GtkAssistant .header-bar .button:not(:last-child):checked,
   GtkAssistant .header-bar .error .button:not(:last-child):checked,
   .error GtkAssistant .header-bar .button:not(:last-child):checked, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):checked,
-  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):checked, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):checked, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):checked {
+  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):checked, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):checked, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):checked, GtkAssistant .header-bar .budgie-polkit-dialog .button:not(:last-child):checked, .budgie-polkit-dialog GtkAssistant .header-bar .button:not(:last-child):checked {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.05);
     background-color: #00BCD4;
     color: #FFFFFF;
@@ -162,7 +162,7 @@ GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child), GtkAssistant .
   .warning GtkAssistant .header-bar .button:not(:last-child):insensitive,
   GtkAssistant .header-bar .error .button:not(:last-child):insensitive,
   .error GtkAssistant .header-bar .button:not(:last-child):insensitive, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):insensitive,
-  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):insensitive, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):insensitive, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):insensitive {
+  GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):insensitive, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):insensitive, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):insensitive, GtkAssistant .header-bar .budgie-polkit-dialog .button:not(:last-child):insensitive, .budgie-polkit-dialog GtkAssistant .header-bar .button:not(:last-child):insensitive {
     box-shadow: none;
     background-color: alpha(currentColor, 0.2);
     color: rgba(236, 239, 241, 0.225); }
@@ -176,7 +176,11 @@ GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child), GtkAssistant .
     .warning GtkAssistant .header-bar .button:not(:last-child):insensitive > .label,
     GtkAssistant .header-bar .error .button:not(:last-child):insensitive > .label,
     .error GtkAssistant .header-bar .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar GtkScaleButton.button:not(:last-child):insensitive > .label,
-    GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):insensitive > .label, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):insensitive > .label {
+    GtkAssistant .header-bar GtkVolumeButton.button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .budgie-session-dialog .button:not(:last-child):insensitive > .label, .budgie-session-dialog GtkAssistant .header-bar .button:not(:last-child):insensitive > .label, GtkAssistant .header-bar .budgie-polkit-dialog .button:not(:last-child):insensitive > .label, .budgie-polkit-dialog GtkAssistant .header-bar .button:not(:last-child):insensitive > .label,
+    GtkAssistant .header-bar .budgie-session-dialog .linked > .button:not(:last-child):insensitive > .label,
+    .budgie-session-dialog GtkAssistant .header-bar .linked > .button:not(:last-child):insensitive > .label,
+    GtkAssistant .header-bar .budgie-polkit-dialog .linked > .button:not(:last-child):insensitive > .label,
+    .budgie-polkit-dialog GtkAssistant .header-bar .linked > .button:not(:last-child):insensitive > .label {
       color: inherit; }
 
 GtkTextView {
@@ -354,7 +358,9 @@ GtkTextView {
   .question .button,
   .warning .button,
   .error .button, GtkScaleButton.button,
-  GtkVolumeButton.button, .budgie-session-dialog .button {
+  GtkVolumeButton.button, .budgie-session-dialog .button, .budgie-polkit-dialog .button,
+  .budgie-session-dialog .linked > .button,
+  .budgie-polkit-dialog .linked > .button {
     box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
@@ -363,7 +369,7 @@ GtkTextView {
     .question .button:hover,
     .warning .button:hover,
     .error .button:hover, GtkScaleButton.button:hover,
-    GtkVolumeButton.button:hover, .budgie-session-dialog .button:hover {
+    GtkVolumeButton.button:hover, .budgie-session-dialog .button:hover, .budgie-polkit-dialog .button:hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
     .button.flat:active, .inline-toolbar .button:active, GtkButtonBox:not(.vertical) > .button:active:not(:last-child), GtkButtonBox.vertical > .button:active, .app-notification .button:active, .toolbar .button:active, .titlebar .button:active:not(.suggested-action):not(.destructive-action),
@@ -371,7 +377,7 @@ GtkTextView {
     .question .button:active,
     .warning .button:active,
     .error .button:active, GtkScaleButton.button:active,
-    GtkVolumeButton.button:active, .budgie-session-dialog .button:active {
+    GtkVolumeButton.button:active, .budgie-session-dialog .button:active, .budgie-polkit-dialog .button:active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
     .button.flat:insensitive, .inline-toolbar .button:insensitive, GtkButtonBox:not(.vertical) > .button:insensitive:not(:last-child), GtkButtonBox.vertical > .button:insensitive, .app-notification .button:insensitive, .toolbar .button:insensitive, .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -379,7 +385,7 @@ GtkTextView {
     .question .button:insensitive,
     .warning .button:insensitive,
     .error .button:insensitive, GtkScaleButton.button:insensitive,
-    GtkVolumeButton.button:insensitive, .budgie-session-dialog .button:insensitive {
+    GtkVolumeButton.button:insensitive, .budgie-session-dialog .button:insensitive, .budgie-polkit-dialog .button:insensitive {
       box-shadow: none;
       background-color: transparent; }
     .button.flat:checked, .inline-toolbar .button:checked, GtkButtonBox:not(.vertical) > .button:checked:not(:last-child), GtkButtonBox.vertical > .button:checked, .app-notification .button:checked, .toolbar .button:checked, .titlebar .button:checked:not(.suggested-action):not(.destructive-action),
@@ -387,7 +393,7 @@ GtkTextView {
     .question .button:checked,
     .warning .button:checked,
     .error .button:checked, GtkScaleButton.button:checked,
-    GtkVolumeButton.button:checked, .budgie-session-dialog .button:checked {
+    GtkVolumeButton.button:checked, .budgie-session-dialog .button:checked, .budgie-polkit-dialog .button:checked {
       background-color: alpha(currentColor, 0.2);
       color: #ECEFF1; }
     .button.flat:checked:insensitive > .label, .inline-toolbar .button:checked:insensitive > .label, GtkButtonBox:not(.vertical) > .button:checked:insensitive:not(:last-child) > .label, GtkButtonBox.vertical > .button:checked:insensitive > .label, .app-notification .button:checked:insensitive > .label, .toolbar .button:checked:insensitive > .label, .titlebar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label,
@@ -396,7 +402,9 @@ GtkTextView {
     .question .button:checked:insensitive > .label,
     .warning .button:checked:insensitive > .label,
     .error .button:checked:insensitive > .label, GtkScaleButton.button:checked:insensitive > .label,
-    GtkVolumeButton.button:checked:insensitive > .label, .budgie-session-dialog .button:checked:insensitive > .label {
+    GtkVolumeButton.button:checked:insensitive > .label, .budgie-session-dialog .button:checked:insensitive > .label, .budgie-polkit-dialog .button:checked:insensitive > .label,
+    .budgie-session-dialog .linked > .button:checked:insensitive > .label,
+    .budgie-polkit-dialog .linked > .button:checked:insensitive > .label {
       color: inherit; }
     .linked > .button.flat, .inline-toolbar .linked > .button, GtkButtonBox.linked:not(.vertical) > .button:not(:last-child), GtkButtonBox.vertical.linked > .button, .app-notification .linked > .button, .toolbar .linked > .button, .titlebar .linked > .button:not(.suggested-action):not(.destructive-action),
     .header-bar .linked > .button:not(.suggested-action):not(.destructive-action),
@@ -404,7 +412,9 @@ GtkTextView {
     .question .linked > .button,
     .warning .linked > .button,
     .error .linked > .button, .linked > GtkScaleButton.button,
-    .linked > GtkVolumeButton.button, .budgie-session-dialog .linked > .button {
+    .linked > GtkVolumeButton.button,
+    .budgie-session-dialog .linked > .button,
+    .budgie-polkit-dialog .linked > .button {
       border-radius: 2px; }
       .linked > .button.flat.image-button, .inline-toolbar .linked > .image-button.button, GtkButtonBox.linked:not(.vertical) > .image-button.button:not(:last-child), GtkButtonBox.vertical.linked > .image-button.button, .app-notification .linked > .image-button.button, .toolbar .linked > .image-button.button, .titlebar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
       .header-bar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
@@ -412,7 +422,9 @@ GtkTextView {
       .question .linked > .image-button.button,
       .warning .linked > .image-button.button,
       .error .linked > .image-button.button, .linked > GtkScaleButton.image-button.button,
-      .linked > GtkVolumeButton.image-button.button, .budgie-session-dialog .linked > .image-button.button {
+      .linked > GtkVolumeButton.image-button.button,
+      .budgie-session-dialog .linked > .image-button.button,
+      .budgie-polkit-dialog .linked > .image-button.button {
         outline-radius: 100px;
         border-radius: 100px; }
   .button.osd.image-button {
@@ -435,7 +447,7 @@ GtkTextView {
     .question .suggested-action.button,
     .warning .suggested-action.button,
     .error .suggested-action.button, GtkScaleButton.suggested-action.button,
-    GtkVolumeButton.suggested-action.button, .budgie-session-dialog .suggested-action.button {
+    GtkVolumeButton.suggested-action.button, .budgie-session-dialog .suggested-action.button, .budgie-polkit-dialog .suggested-action.button {
       background-color: transparent;
       color: #FF5252; }
       .button.suggested-action.flat:insensitive, .inline-toolbar .suggested-action.button:insensitive, GtkButtonBox:not(.vertical) > .suggested-action.button:insensitive:not(:last-child), GtkButtonBox.vertical > .suggested-action.button:insensitive, .app-notification .suggested-action.button:insensitive, .toolbar .suggested-action.button:insensitive, .titlebar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -443,7 +455,7 @@ GtkTextView {
       .question .suggested-action.button:insensitive,
       .warning .suggested-action.button:insensitive,
       .error .suggested-action.button:insensitive, GtkScaleButton.suggested-action.button:insensitive,
-      GtkVolumeButton.suggested-action.button:insensitive, .budgie-session-dialog .suggested-action.button:insensitive {
+      GtkVolumeButton.suggested-action.button:insensitive, .budgie-session-dialog .suggested-action.button:insensitive, .budgie-polkit-dialog .suggested-action.button:insensitive {
         box-shadow: none;
         background-color: transparent; }
   .button.destructive-action {
@@ -462,7 +474,7 @@ GtkTextView {
     .question .destructive-action.button,
     .warning .destructive-action.button,
     .error .destructive-action.button, GtkScaleButton.destructive-action.button,
-    GtkVolumeButton.destructive-action.button, .budgie-session-dialog .destructive-action.button {
+    GtkVolumeButton.destructive-action.button, .budgie-session-dialog .destructive-action.button, .budgie-polkit-dialog .destructive-action.button {
       background-color: transparent;
       color: #FF5252; }
       .button.destructive-action.flat:insensitive, .inline-toolbar .destructive-action.button:insensitive, GtkButtonBox:not(.vertical) > .destructive-action.button:insensitive:not(:last-child), GtkButtonBox.vertical > .destructive-action.button:insensitive, .app-notification .destructive-action.button:insensitive, .toolbar .destructive-action.button:insensitive, .titlebar .destructive-action.button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -470,7 +482,7 @@ GtkTextView {
       .question .destructive-action.button:insensitive,
       .warning .destructive-action.button:insensitive,
       .error .destructive-action.button:insensitive, GtkScaleButton.destructive-action.button:insensitive,
-      GtkVolumeButton.destructive-action.button:insensitive, .budgie-session-dialog .destructive-action.button:insensitive {
+      GtkVolumeButton.destructive-action.button:insensitive, .budgie-session-dialog .destructive-action.button:insensitive, .budgie-polkit-dialog .destructive-action.button:insensitive {
         box-shadow: none;
         background-color: transparent; }
   .button.text-button, GtkScaleButton.button.text-button,
@@ -638,7 +650,7 @@ GtkVolumeButton.button, .header-bar .button.titlebutton,
 .question .menuitem.button,
 .warning .menuitem.button,
 .error .menuitem.button, GtkScaleButton.menuitem.button,
-GtkVolumeButton.menuitem.button, .budgie-session-dialog .menuitem.button {
+GtkVolumeButton.menuitem.button, .budgie-session-dialog .menuitem.button, .budgie-polkit-dialog .menuitem.button {
   transition: none; }
 
 GtkColorButton.button {
@@ -1135,7 +1147,7 @@ column-header.button.dnd, column-header .button.dnd {
   .warning .popover .button,
   .popover .error .button,
   .error .popover .button, .popover GtkScaleButton.button,
-  .popover GtkVolumeButton.button, .popover .budgie-session-dialog .button, .budgie-session-dialog .popover .button {
+  .popover GtkVolumeButton.button, .popover .budgie-session-dialog .button, .budgie-session-dialog .popover .button, .popover .budgie-polkit-dialog .button, .budgie-polkit-dialog .popover .button {
     transition: none;
     padding: 0.4em 0 0.5em;
     background-color: transparent;
@@ -2052,7 +2064,7 @@ GtkScrolledWindow GtkViewport.frame {
 .tweak-category:selected .error .button,
 .error .tweak-category:selected .button, .list-row:selected GtkScaleButton.button, .tweak-category:selected GtkScaleButton.button,
 .list-row:selected GtkVolumeButton.button,
-.tweak-category:selected GtkVolumeButton.button, .list-row:selected .budgie-session-dialog .button, .budgie-session-dialog .list-row:selected .button, .tweak-category:selected .budgie-session-dialog .button, .budgie-session-dialog .tweak-category:selected .button {
+.tweak-category:selected GtkVolumeButton.button, .list-row:selected .budgie-session-dialog .button, .budgie-session-dialog .list-row:selected .button, .tweak-category:selected .budgie-session-dialog .button, .budgie-session-dialog .tweak-category:selected .button, .list-row:selected .budgie-polkit-dialog .button, .budgie-polkit-dialog .list-row:selected .button, .tweak-category:selected .budgie-polkit-dialog .button, .budgie-polkit-dialog .tweak-category:selected .button {
   color: rgba(255, 255, 255, 0.75); }
   .list-row:selected .button.flat:hover, .tweak-category:selected .button.flat:hover, .list-row:selected .inline-toolbar .button:hover, .inline-toolbar .list-row:selected .button:hover, .tweak-category:selected .inline-toolbar .button:hover, .inline-toolbar .tweak-category:selected .button:hover, .list-row:selected GtkButtonBox:not(.vertical) > .button:hover:not(:last-child), .tweak-category:selected GtkButtonBox:not(.vertical) > .button:hover:not(:last-child), .list-row:selected GtkButtonBox.vertical > .button:hover, .tweak-category:selected GtkButtonBox.vertical > .button:hover, .list-row:selected .app-notification .button:hover, .app-notification .list-row:selected .button:hover, .tweak-category:selected .app-notification .button:hover, .app-notification .tweak-category:selected .button:hover, .list-row:selected .toolbar .button:hover, .toolbar .list-row:selected .button:hover, .tweak-category:selected .toolbar .button:hover, .toolbar .tweak-category:selected .button:hover, .list-row:selected .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:hover:not(.suggested-action):not(.destructive-action), .tweak-category:selected .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .tweak-category:selected .button:hover:not(.suggested-action):not(.destructive-action),
   .list-row:selected .header-bar .button:hover:not(.suggested-action):not(.destructive-action),
@@ -2072,7 +2084,7 @@ GtkScrolledWindow GtkViewport.frame {
   .tweak-category:selected .error .button:hover,
   .error .tweak-category:selected .button:hover, .list-row:selected GtkScaleButton.button:hover, .tweak-category:selected GtkScaleButton.button:hover,
   .list-row:selected GtkVolumeButton.button:hover,
-  .tweak-category:selected GtkVolumeButton.button:hover, .list-row:selected .budgie-session-dialog .button:hover, .budgie-session-dialog .list-row:selected .button:hover, .tweak-category:selected .budgie-session-dialog .button:hover, .budgie-session-dialog .tweak-category:selected .button:hover, .list-row:selected .button.flat:active, .tweak-category:selected .button.flat:active, .list-row:selected .inline-toolbar .button:active, .inline-toolbar .list-row:selected .button:active, .tweak-category:selected .inline-toolbar .button:active, .inline-toolbar .tweak-category:selected .button:active, .list-row:selected GtkButtonBox:not(.vertical) > .button:active:not(:last-child), .tweak-category:selected GtkButtonBox:not(.vertical) > .button:active:not(:last-child), .list-row:selected GtkButtonBox.vertical > .button:active, .tweak-category:selected GtkButtonBox.vertical > .button:active, .list-row:selected .app-notification .button:active, .app-notification .list-row:selected .button:active, .tweak-category:selected .app-notification .button:active, .app-notification .tweak-category:selected .button:active, .list-row:selected .toolbar .button:active, .toolbar .list-row:selected .button:active, .tweak-category:selected .toolbar .button:active, .toolbar .tweak-category:selected .button:active, .list-row:selected .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:active:not(.suggested-action):not(.destructive-action), .tweak-category:selected .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .tweak-category:selected .button:active:not(.suggested-action):not(.destructive-action),
+  .tweak-category:selected GtkVolumeButton.button:hover, .list-row:selected .budgie-session-dialog .button:hover, .budgie-session-dialog .list-row:selected .button:hover, .tweak-category:selected .budgie-session-dialog .button:hover, .budgie-session-dialog .tweak-category:selected .button:hover, .list-row:selected .budgie-polkit-dialog .button:hover, .budgie-polkit-dialog .list-row:selected .button:hover, .tweak-category:selected .budgie-polkit-dialog .button:hover, .budgie-polkit-dialog .tweak-category:selected .button:hover, .list-row:selected .button.flat:active, .tweak-category:selected .button.flat:active, .list-row:selected .inline-toolbar .button:active, .inline-toolbar .list-row:selected .button:active, .tweak-category:selected .inline-toolbar .button:active, .inline-toolbar .tweak-category:selected .button:active, .list-row:selected GtkButtonBox:not(.vertical) > .button:active:not(:last-child), .tweak-category:selected GtkButtonBox:not(.vertical) > .button:active:not(:last-child), .list-row:selected GtkButtonBox.vertical > .button:active, .tweak-category:selected GtkButtonBox.vertical > .button:active, .list-row:selected .app-notification .button:active, .app-notification .list-row:selected .button:active, .tweak-category:selected .app-notification .button:active, .app-notification .tweak-category:selected .button:active, .list-row:selected .toolbar .button:active, .toolbar .list-row:selected .button:active, .tweak-category:selected .toolbar .button:active, .toolbar .tweak-category:selected .button:active, .list-row:selected .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:active:not(.suggested-action):not(.destructive-action), .tweak-category:selected .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .tweak-category:selected .button:active:not(.suggested-action):not(.destructive-action),
   .list-row:selected .header-bar .button:active:not(.suggested-action):not(.destructive-action),
   .header-bar .list-row:selected .button:active:not(.suggested-action):not(.destructive-action),
   .tweak-category:selected .header-bar .button:active:not(.suggested-action):not(.destructive-action),
@@ -2090,7 +2102,7 @@ GtkScrolledWindow GtkViewport.frame {
   .tweak-category:selected .error .button:active,
   .error .tweak-category:selected .button:active, .list-row:selected GtkScaleButton.button:active, .tweak-category:selected GtkScaleButton.button:active,
   .list-row:selected GtkVolumeButton.button:active,
-  .tweak-category:selected GtkVolumeButton.button:active, .list-row:selected .budgie-session-dialog .button:active, .budgie-session-dialog .list-row:selected .button:active, .tweak-category:selected .budgie-session-dialog .button:active, .budgie-session-dialog .tweak-category:selected .button:active {
+  .tweak-category:selected GtkVolumeButton.button:active, .list-row:selected .budgie-session-dialog .button:active, .budgie-session-dialog .list-row:selected .button:active, .tweak-category:selected .budgie-session-dialog .button:active, .budgie-session-dialog .tweak-category:selected .button:active, .list-row:selected .budgie-polkit-dialog .button:active, .budgie-polkit-dialog .list-row:selected .button:active, .tweak-category:selected .budgie-polkit-dialog .button:active, .budgie-polkit-dialog .tweak-category:selected .button:active {
     color: #FFFFFF; }
   .list-row:selected .button.flat:insensitive, .tweak-category:selected .button.flat:insensitive, .list-row:selected .inline-toolbar .button:insensitive, .inline-toolbar .list-row:selected .button:insensitive, .tweak-category:selected .inline-toolbar .button:insensitive, .inline-toolbar .tweak-category:selected .button:insensitive, .list-row:selected GtkButtonBox:not(.vertical) > .button:insensitive:not(:last-child), .tweak-category:selected GtkButtonBox:not(.vertical) > .button:insensitive:not(:last-child), .list-row:selected GtkButtonBox.vertical > .button:insensitive, .tweak-category:selected GtkButtonBox.vertical > .button:insensitive, .list-row:selected .app-notification .button:insensitive, .app-notification .list-row:selected .button:insensitive, .tweak-category:selected .app-notification .button:insensitive, .app-notification .tweak-category:selected .button:insensitive, .list-row:selected .toolbar .button:insensitive, .toolbar .list-row:selected .button:insensitive, .tweak-category:selected .toolbar .button:insensitive, .toolbar .tweak-category:selected .button:insensitive, .list-row:selected .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:insensitive:not(.suggested-action):not(.destructive-action), .tweak-category:selected .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .tweak-category:selected .button:insensitive:not(.suggested-action):not(.destructive-action),
   .list-row:selected .header-bar .button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -2110,7 +2122,7 @@ GtkScrolledWindow GtkViewport.frame {
   .tweak-category:selected .error .button:insensitive,
   .error .tweak-category:selected .button:insensitive, .list-row:selected GtkScaleButton.button:insensitive, .tweak-category:selected GtkScaleButton.button:insensitive,
   .list-row:selected GtkVolumeButton.button:insensitive,
-  .tweak-category:selected GtkVolumeButton.button:insensitive, .list-row:selected .budgie-session-dialog .button:insensitive, .budgie-session-dialog .list-row:selected .button:insensitive, .tweak-category:selected .budgie-session-dialog .button:insensitive, .budgie-session-dialog .tweak-category:selected .button:insensitive {
+  .tweak-category:selected GtkVolumeButton.button:insensitive, .list-row:selected .budgie-session-dialog .button:insensitive, .budgie-session-dialog .list-row:selected .button:insensitive, .tweak-category:selected .budgie-session-dialog .button:insensitive, .budgie-session-dialog .tweak-category:selected .button:insensitive, .list-row:selected .budgie-polkit-dialog .button:insensitive, .budgie-polkit-dialog .list-row:selected .button:insensitive, .tweak-category:selected .budgie-polkit-dialog .button:insensitive, .budgie-polkit-dialog .tweak-category:selected .button:insensitive {
     color: rgba(236, 239, 241, 0.3); }
 
 .list-row:hover, .tweak-category:hover {
@@ -2331,7 +2343,7 @@ GtkInfoBar {
   .warning .info .button,
   .info .error .button,
   .error .info .button, .info GtkScaleButton.button,
-  .info GtkVolumeButton.button, .info .budgie-session-dialog .button, .budgie-session-dialog .info .button,
+  .info GtkVolumeButton.button, .info .budgie-session-dialog .button, .budgie-session-dialog .info .button, .info .budgie-polkit-dialog .button, .budgie-polkit-dialog .info .button,
   .question .button.flat,
   .question .inline-toolbar .button,
   .inline-toolbar .question .button,
@@ -2359,6 +2371,8 @@ GtkInfoBar {
   .question GtkVolumeButton.button,
   .question .budgie-session-dialog .button,
   .budgie-session-dialog .question .button,
+  .question .budgie-polkit-dialog .button,
+  .budgie-polkit-dialog .question .button,
   .warning .button.flat,
   .warning .inline-toolbar .button,
   .inline-toolbar .warning .button,
@@ -2386,6 +2400,8 @@ GtkInfoBar {
   .warning GtkVolumeButton.button,
   .warning .budgie-session-dialog .button,
   .budgie-session-dialog .warning .button,
+  .warning .budgie-polkit-dialog .button,
+  .budgie-polkit-dialog .warning .button,
   .error .button.flat,
   .error .inline-toolbar .button,
   .inline-toolbar .error .button,
@@ -2412,7 +2428,9 @@ GtkInfoBar {
   .error GtkScaleButton.button,
   .error GtkVolumeButton.button,
   .error .budgie-session-dialog .button,
-  .budgie-session-dialog .error .button {
+  .budgie-session-dialog .error .button,
+  .error .budgie-polkit-dialog .button,
+  .budgie-polkit-dialog .error .button {
     color: rgba(236, 239, 241, 0.75); }
     .info .button.flat:hover, .info .inline-toolbar .button:hover, .inline-toolbar .info .button:hover, .info GtkButtonBox:not(.vertical) > .button:hover:not(:last-child), .info GtkButtonBox.vertical > .button:hover, .info .app-notification .button:hover, .app-notification .info .button:hover, .info .toolbar .button:hover, .toolbar .info .button:hover, .info .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .info .button:hover:not(.suggested-action):not(.destructive-action),
     .info .header-bar .button:hover:not(.suggested-action):not(.destructive-action),
@@ -2423,7 +2441,7 @@ GtkInfoBar {
     .warning .info .button:hover,
     .info .error .button:hover,
     .error .info .button:hover, .info GtkScaleButton.button:hover,
-    .info GtkVolumeButton.button:hover, .info .budgie-session-dialog .button:hover, .budgie-session-dialog .info .button:hover, .info .button.flat:active, .info .inline-toolbar .button:active, .inline-toolbar .info .button:active, .info GtkButtonBox:not(.vertical) > .button:active:not(:last-child), .info GtkButtonBox.vertical > .button:active, .info .app-notification .button:active, .app-notification .info .button:active, .info .toolbar .button:active, .toolbar .info .button:active, .info .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .info .button:active:not(.suggested-action):not(.destructive-action),
+    .info GtkVolumeButton.button:hover, .info .budgie-session-dialog .button:hover, .budgie-session-dialog .info .button:hover, .info .budgie-polkit-dialog .button:hover, .budgie-polkit-dialog .info .button:hover, .info .button.flat:active, .info .inline-toolbar .button:active, .inline-toolbar .info .button:active, .info GtkButtonBox:not(.vertical) > .button:active:not(:last-child), .info GtkButtonBox.vertical > .button:active, .info .app-notification .button:active, .app-notification .info .button:active, .info .toolbar .button:active, .toolbar .info .button:active, .info .titlebar .button:active:not(.suggested-action):not(.destructive-action), .titlebar .info .button:active:not(.suggested-action):not(.destructive-action),
     .info .header-bar .button:active:not(.suggested-action):not(.destructive-action),
     .header-bar .info .button:active:not(.suggested-action):not(.destructive-action), .info .message-dialog.csd .dialog-action-area .button:active, .message-dialog.csd .dialog-action-area .info .button:active, .info .sidebar-button.button:active, .info .button:active,
     .info .question .button:active,
@@ -2432,7 +2450,7 @@ GtkInfoBar {
     .warning .info .button:active,
     .info .error .button:active,
     .error .info .button:active, .info GtkScaleButton.button:active,
-    .info GtkVolumeButton.button:active, .info .budgie-session-dialog .button:active, .budgie-session-dialog .info .button:active,
+    .info GtkVolumeButton.button:active, .info .budgie-session-dialog .button:active, .budgie-session-dialog .info .button:active, .info .budgie-polkit-dialog .button:active, .budgie-polkit-dialog .info .button:active,
     .question .button.flat:hover,
     .question .inline-toolbar .button:hover,
     .inline-toolbar .question .button:hover,
@@ -2460,6 +2478,8 @@ GtkInfoBar {
     .question GtkVolumeButton.button:hover,
     .question .budgie-session-dialog .button:hover,
     .budgie-session-dialog .question .button:hover,
+    .question .budgie-polkit-dialog .button:hover,
+    .budgie-polkit-dialog .question .button:hover,
     .question .button.flat:active,
     .question .inline-toolbar .button:active,
     .inline-toolbar .question .button:active,
@@ -2487,6 +2507,8 @@ GtkInfoBar {
     .question GtkVolumeButton.button:active,
     .question .budgie-session-dialog .button:active,
     .budgie-session-dialog .question .button:active,
+    .question .budgie-polkit-dialog .button:active,
+    .budgie-polkit-dialog .question .button:active,
     .warning .button.flat:hover,
     .warning .inline-toolbar .button:hover,
     .inline-toolbar .warning .button:hover,
@@ -2514,6 +2536,8 @@ GtkInfoBar {
     .warning GtkVolumeButton.button:hover,
     .warning .budgie-session-dialog .button:hover,
     .budgie-session-dialog .warning .button:hover,
+    .warning .budgie-polkit-dialog .button:hover,
+    .budgie-polkit-dialog .warning .button:hover,
     .warning .button.flat:active,
     .warning .inline-toolbar .button:active,
     .inline-toolbar .warning .button:active,
@@ -2541,6 +2565,8 @@ GtkInfoBar {
     .warning GtkVolumeButton.button:active,
     .warning .budgie-session-dialog .button:active,
     .budgie-session-dialog .warning .button:active,
+    .warning .budgie-polkit-dialog .button:active,
+    .budgie-polkit-dialog .warning .button:active,
     .error .button.flat:hover,
     .error .inline-toolbar .button:hover,
     .inline-toolbar .error .button:hover,
@@ -2568,6 +2594,8 @@ GtkInfoBar {
     .error GtkVolumeButton.button:hover,
     .error .budgie-session-dialog .button:hover,
     .budgie-session-dialog .error .button:hover,
+    .error .budgie-polkit-dialog .button:hover,
+    .budgie-polkit-dialog .error .button:hover,
     .error .button.flat:active,
     .error .inline-toolbar .button:active,
     .inline-toolbar .error .button:active,
@@ -2594,7 +2622,9 @@ GtkInfoBar {
     .error GtkScaleButton.button:active,
     .error GtkVolumeButton.button:active,
     .error .budgie-session-dialog .button:active,
-    .budgie-session-dialog .error .button:active {
+    .budgie-session-dialog .error .button:active,
+    .error .budgie-polkit-dialog .button:active,
+    .budgie-polkit-dialog .error .button:active {
       color: #ECEFF1; }
     .info .button.flat:insensitive, .info .inline-toolbar .button:insensitive, .inline-toolbar .info .button:insensitive, .info GtkButtonBox:not(.vertical) > .button:insensitive:not(:last-child), .info GtkButtonBox.vertical > .button:insensitive, .info .app-notification .button:insensitive, .app-notification .info .button:insensitive, .info .toolbar .button:insensitive, .toolbar .info .button:insensitive, .info .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .info .button:insensitive:not(.suggested-action):not(.destructive-action),
     .info .header-bar .button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -2605,7 +2635,7 @@ GtkInfoBar {
     .warning .info .button:insensitive,
     .info .error .button:insensitive,
     .error .info .button:insensitive, .info GtkScaleButton.button:insensitive,
-    .info GtkVolumeButton.button:insensitive, .info .budgie-session-dialog .button:insensitive, .budgie-session-dialog .info .button:insensitive,
+    .info GtkVolumeButton.button:insensitive, .info .budgie-session-dialog .button:insensitive, .budgie-session-dialog .info .button:insensitive, .info .budgie-polkit-dialog .button:insensitive, .budgie-polkit-dialog .info .button:insensitive,
     .question .button.flat:insensitive,
     .question .inline-toolbar .button:insensitive,
     .inline-toolbar .question .button:insensitive,
@@ -2633,6 +2663,8 @@ GtkInfoBar {
     .question GtkVolumeButton.button:insensitive,
     .question .budgie-session-dialog .button:insensitive,
     .budgie-session-dialog .question .button:insensitive,
+    .question .budgie-polkit-dialog .button:insensitive,
+    .budgie-polkit-dialog .question .button:insensitive,
     .warning .button.flat:insensitive,
     .warning .inline-toolbar .button:insensitive,
     .inline-toolbar .warning .button:insensitive,
@@ -2660,6 +2692,8 @@ GtkInfoBar {
     .warning GtkVolumeButton.button:insensitive,
     .warning .budgie-session-dialog .button:insensitive,
     .budgie-session-dialog .warning .button:insensitive,
+    .warning .budgie-polkit-dialog .button:insensitive,
+    .budgie-polkit-dialog .warning .button:insensitive,
     .error .button.flat:insensitive,
     .error .inline-toolbar .button:insensitive,
     .inline-toolbar .error .button:insensitive,
@@ -2686,7 +2720,9 @@ GtkInfoBar {
     .error GtkScaleButton.button:insensitive,
     .error GtkVolumeButton.button:insensitive,
     .error .budgie-session-dialog .button:insensitive,
-    .budgie-session-dialog .error .button:insensitive {
+    .budgie-session-dialog .error .button:insensitive,
+    .error .budgie-polkit-dialog .button:insensitive,
+    .budgie-polkit-dialog .error .button:insensitive {
       color: rgba(236, 239, 241, 0.225); }
   .info .label:selected,
   .info .label:selected:focus,
@@ -2874,7 +2910,7 @@ GtkVolumeButton.button {
 .question .menuitem.button:selected,
 .warning .menuitem.button:selected,
 .error .menuitem.button:selected, GtkScaleButton.menuitem.button:selected,
-GtkVolumeButton.menuitem.button:selected, .budgie-session-dialog .menuitem.button:selected, .list-row:selected, .tweak-category:selected {
+GtkVolumeButton.menuitem.button:selected, .budgie-session-dialog .menuitem.button:selected, .budgie-polkit-dialog .menuitem.button:selected, .list-row:selected, .tweak-category:selected {
   background-color: #00BCD4;
   color: #FFFFFF; }
   .view:insensitive:selected, GtkCalendar:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, .menuitem.button.flat:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, GtkButtonBox:not(.vertical) > .menuitem.button:insensitive:selected:not(:last-child), GtkButtonBox.vertical > .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, .toolbar .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
@@ -2882,14 +2918,14 @@ GtkVolumeButton.menuitem.button:selected, .budgie-session-dialog .menuitem.butto
   .question .menuitem.button:insensitive:selected,
   .warning .menuitem.button:insensitive:selected,
   .error .menuitem.button:insensitive:selected, GtkScaleButton.menuitem.button:insensitive:selected,
-  GtkVolumeButton.menuitem.button:insensitive:selected, .budgie-session-dialog .menuitem.button:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected {
+  GtkVolumeButton.menuitem.button:insensitive:selected, .budgie-session-dialog .menuitem.button:insensitive:selected, .budgie-polkit-dialog .menuitem.button:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected {
     color: rgba(236, 239, 241, 0.4); }
   .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, .menuitem.button.flat:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox:not(.vertical) > .menuitem.button:backdrop:insensitive:selected:not(:last-child), GtkButtonBox.vertical > .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, .toolbar .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:backdrop:insensitive:selected, .menuitem.sidebar-button.button:backdrop:insensitive:selected, .info .menuitem.button:backdrop:insensitive:selected,
   .question .menuitem.button:backdrop:insensitive:selected,
   .warning .menuitem.button:backdrop:insensitive:selected,
   .error .menuitem.button:backdrop:insensitive:selected, GtkScaleButton.menuitem.button:backdrop:insensitive:selected,
-  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, .budgie-session-dialog .menuitem.button:backdrop:insensitive:selected, .list-row:backdrop:insensitive:selected, .tweak-category:backdrop:insensitive:selected {
+  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, .budgie-session-dialog .menuitem.button:backdrop:insensitive:selected, .budgie-polkit-dialog .menuitem.button:backdrop:insensitive:selected, .list-row:backdrop:insensitive:selected, .tweak-category:backdrop:insensitive:selected {
     color: rgba(236, 239, 241, 0.4); }
 
 .monospace {
@@ -3114,134 +3150,207 @@ NaTrayApplet {
 /******************
  * Budgie Desktop *
  ******************/
-.budgie-panel *:backdrop,
-.max-budgie-panel *:backdrop,
-PanelToplevel *:backdrop {
+.budgie-panel:backdrop,
+.budgie-panel *:backdrop {
   opacity: 1.0; }
 
 .budgie-panel {
-  background-color: transparent;
-  background-image: none;
-  border-top: 1px solid transparent;
-  border-bottom: 2px solid #000000;
-  transition: 100ms ease-out; }
-  .budgie-panel:backdrop {
-    opacity: 1.0; }
-
-.max-budgie-panel {
-  background-color: alpha(#000000, 0.7);
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  border-bottom: 2px solid #000000;
-  transition: 100ms ease-in; }
-  .max-budgie-panel:backdrop {
-    opacity: 1.0; }
-
-.budgie-panel {
-  border: 1px solid transparent;
-  border-bottom: 2px solid #000000; }
-  .budgie-panel.top {
-    border: 1px solid transparent;
+  color: #ECEFF1;
+  background-color: #2a373e; }
+  .top .budgie-panel {
     border-top: 2px solid #000000; }
-  .budgie-panel.left {
-    border: 1px solid transparent;
+  .bottom .budgie-panel {
+    border-bottom: 2px solid #000000; }
+  .left .budgie-panel {
     border-left: 2px solid #000000; }
-  .budgie-panel.right {
-    border: 1px solid transparent;
+  .right .budgie-panel {
     border-right: 2px solid #000000; }
 
-.max-budgie-panel {
-  border: 1px solid alpha(#000000, 0.7);
-  border-bottom: 2px solid #000000; }
-  .max-budgie-panel.top {
-    border-top: 2px solid #000000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
-  .max-budgie-panel.left {
-    border-left: 2px solid #000000;
-    border-right: 1px solid rgba(0, 0, 0, 0.15); }
-  .max-budgie-panel.right {
-    border-right: 2px solid #000000;
-    border-left: 1px solid rgba(0, 0, 0, 0.15); }
+.top .shadow-block {
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, alpha(#000000, 0.24), transparent); }
 
-.budgie-panel .launcher,
-PanelToplevel .launcher {
+.top .raven-frame {
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  background: none; }
+
+.bottom .shadow-block {
+  background-color: transparent;
+  background-image: linear-gradient(to top, alpha(#000000, 0.24), transparent); }
+
+.bottom .raven-frame {
+  padding: 0;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  background: none; }
+
+.left .shadow-block {
+  background-color: transparent;
+  background-image: linear-gradient(to right, alpha(#000000, 0.24), transparent); }
+
+.left .raven-frame {
+  padding: 0;
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  background: none; }
+
+.right .shadow-block {
+  background-color: transparent;
+  background-image: linear-gradient(to left, alpha(#000000, 0.24), transparent); }
+
+.right .raven-frame {
+  padding: 0;
+  border: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  background: none; }
+
+.budgie-panel WnckTasklist .button {
+  border: none;
+  background: none;
+  opacity: 0.5; }
+  .budgie-panel WnckTasklist .button:hover, .budgie-panel WnckTasklist .button:active, .budgie-panel WnckTasklist .button:checked {
+    opacity: 1.0; }
+
+.budgie-panel .launcher {
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: 2px solid transparent;
   background-image: none;
-  transition: 100ms ease-in; }
-  .budgie-panel .launcher:hover,
-  PanelToplevel .launcher:hover {
-    border: 2px solid transparent;
+  opacity: 0.5; }
+  .budgie-panel .launcher:hover {
+    -gtk-image-effect: highlight;
+    opacity: 1.0; }
+  .budgie-panel .launcher:active, .budgie-panel .launcher:checked {
+    opacity: 1.0; }
+  .unpinned .budgie-panel .launcher, .pinned .budgie-panel .launcher.running {
+    opacity: 1.0; }
+
+.top .budgie-panel WnckTasklist .button {
+  border: 2px solid transparent; }
+  .top .budgie-panel WnckTasklist .button:hover {
+    border-top: 2px solid alpha(#00BCD4, 0.5); }
+  .top .budgie-panel WnckTasklist .button:active, .top .budgie-panel WnckTasklist .button:checked {
+    border-top: 2px solid #00BCD4; }
+.top .budgie-panel .launcher {
+  border: 2px solid transparent; }
+  .top .budgie-panel .launcher:hover {
+    border-top: 2px solid alpha(#00BCD4, 0.5); }
+  .top .budgie-panel .launcher:active, .top .budgie-panel .launcher:checked {
+    border-top: 2px solid #00BCD4; }
+
+.bottom .budgie-panel WnckTasklist .button {
+  border: 2px solid transparent; }
+  .bottom .budgie-panel WnckTasklist .button:hover {
+    border-bottom: 2px solid alpha(#00BCD4, 0.5); }
+  .bottom .budgie-panel WnckTasklist .button:active, .bottom .budgie-panel WnckTasklist .button:checked {
+    border-bottom: 2px solid #00BCD4; }
+.bottom .budgie-panel .launcher {
+  border: 2px solid transparent; }
+  .bottom .budgie-panel .launcher:hover {
+    border-bottom: 2px solid alpha(#00BCD4, 0.5); }
+  .bottom .budgie-panel .launcher:active, .bottom .budgie-panel .launcher:checked {
     border-bottom: 2px solid #00BCD4; }
 
-.top .launcher:hover {
-  border: 2px solid transparent;
-  border-top: 2px solid #00BCD4; }
+.left .budgie-panel WnckTasklist .button {
+  border: 2px solid transparent; }
+  .left .budgie-panel WnckTasklist .button:hover {
+    border-left: 2px solid alpha(#00BCD4, 0.5); }
+  .left .budgie-panel WnckTasklist .button:active, .left .budgie-panel WnckTasklist .button:checked {
+    border-left: 2px solid #00BCD4; }
+.left .budgie-panel .launcher {
+  border: 2px solid transparent; }
+  .left .budgie-panel .launcher:hover {
+    border-left: 2px solid alpha(#00BCD4, 0.5); }
+  .left .budgie-panel .launcher:active, .left .budgie-panel .launcher:checked {
+    border-left: 2px solid #00BCD4; }
 
-.left .launcher:hover {
-  border: 2px solid transparent;
-  border-left: 2px solid #00BCD4; }
-
-.right .launcher:hover {
-  border: 2px solid transparent;
-  border-right: 2px solid #00BCD4; }
-
-.budgie-icon-tasklist {
-  border-color: #00BCD4; }
-
-.budgie-panel .message-area {
-  background-clip: padding-box;
-  background-color: alpha(#000000, 0.5);
-  border: 2px solid transparent;
-  border-radius: 4px;
-  transition: 100ms ease-out; }
-.budgie-panel .max-message-area {
-  background-clip: padding-box;
-  background-color: transparent;
-  border: 2px solid transparent;
-  transition: 100ms ease-in; }
-.budgie-panel .message-area,
-.budgie-panel .max-message-area,
-.budgie-panel .menu-icon *,
-.budgie-panel .message-area * {
-  color: #FFFFFF;
-  text-shadow: none;
-  icon-shadow: none; }
-.budgie-panel .menu-icon GtkBox, .budgie-panel .menu-icon GtkBox:active, .budgie-panel .menu-icon GtkBox:hover {
-  background-clip: padding-box;
-  background-image: none;
-  background-color: alpha(black, 0.5);
-  border: 2px solid transparent;
-  border-radius: 4px;
-  transition: 100ms ease-out;
-  font: bold;
-  text-shadow: none;
-  icon-shadow: none; }
-
-GtkPopover * .entry,
-GtkPopover * GtkCalendar {
-  color: #ECEFF1; }
+.right .budgie-panel WnckTasklist .button {
+  border: 2px solid transparent; }
+  .right .budgie-panel WnckTasklist .button:hover {
+    border-right: 2px solid alpha(#00BCD4, 0.5); }
+  .right .budgie-panel WnckTasklist .button:active, .right .budgie-panel WnckTasklist .button:checked {
+    border-right: 2px solid #00BCD4; }
+.right .budgie-panel .launcher {
+  border: 2px solid transparent; }
+  .right .budgie-panel .launcher:hover {
+    border-right: 2px solid alpha(#00BCD4, 0.5); }
+  .right .budgie-panel .launcher:active, .right .budgie-panel .launcher:checked {
+    border-right: 2px solid #00BCD4; }
 
 .budgie-run-dialog {
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.15); }
 
-.budgie-session-dialog {
+.budgie-session-dialog, .budgie-polkit-dialog {
   border-radius: 2px;
   border-width: 0;
   background-color: #2a373e;
   color: #ECEFF1;
   font-weight: bold;
   opacity: 0.9; }
-  .budgie-session-dialog:backdrop {
+  .budgie-session-dialog:backdrop, .budgie-polkit-dialog:backdrop {
     opacity: 1.0; }
-  .budgie-session-dialog .button {
-    color: #FF9800; }
-    .budgie-session-dialog .button:hover {
+  .budgie-session-dialog .button, .budgie-polkit-dialog .button,
+  .budgie-session-dialog .linked > .button,
+  .budgie-polkit-dialog .linked > .button {
+    padding: 0.7em 1em 0.8em;
+    border: 2px solid transparent;
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.75);
+    background-size: 240px 240px, auto; }
+    .budgie-session-dialog .button:first-child, .budgie-polkit-dialog .button:first-child,
+    .budgie-session-dialog .linked > .button:first-child,
+    .budgie-polkit-dialog .linked > .button:first-child {
+      border-radius: 0 0 0 2px;
+      border-right-width: 0; }
+    .budgie-session-dialog .button:last-child, .budgie-polkit-dialog .button:last-child,
+    .budgie-session-dialog .linked > .button:last-child,
+    .budgie-polkit-dialog .linked > .button:last-child {
+      box-shadow: none;
+      background-color: transparent;
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+      border-radius: 0 0 2px 0;
+      border-left-width: 0;
+      background-color: transparent;
       color: #FF9800; }
-    .budgie-session-dialog .button:active {
-      background-color: #FF9100;
-      color: #FFFFFF; }
-    .budgie-session-dialog .button:insensitive {
-      color: rgba(236, 239, 241, 0.3); }
+      .budgie-session-dialog .button:last-child:hover, .budgie-polkit-dialog .button:last-child:hover,
+      .budgie-session-dialog .linked > .button:last-child:hover,
+      .budgie-polkit-dialog .linked > .button:last-child:hover {
+        box-shadow: none;
+        background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
+        color: #FF9800; }
+      .budgie-session-dialog .button:last-child:active, .budgie-polkit-dialog .button:last-child:active,
+      .budgie-session-dialog .linked > .button:last-child:active,
+      .budgie-polkit-dialog .linked > .button:last-child:active {
+        box-shadow: none;
+        animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        color: #FFFFFF;
+        background-color: #FF9100; }
+      .budgie-session-dialog .button:last-child:checked, .budgie-polkit-dialog .button:last-child:checked,
+      .budgie-session-dialog .linked > .button:last-child:checked,
+      .budgie-polkit-dialog .linked > .button:last-child:checked {
+        background-color: alpha(currentColor, 0.2);
+        color: #ECEFF1;
+        color: #FFFFFF;
+        background-color: #FF9100; }
+      .budgie-session-dialog .button:last-child:insensitive, .budgie-polkit-dialog .button:last-child:insensitive,
+      .budgie-session-dialog .linked > .button:last-child:insensitive,
+      .budgie-polkit-dialog .linked > .button:last-child:insensitive {
+        box-shadow: none;
+        background-color: transparent; }
+
+.budgie-polkit-dialog .message {
+  color: rgba(236, 239, 241, 0.75); }
+.budgie-polkit-dialog .failure {
+  color: #FF9800;
+  font-weight: bold; }
+
+.drop-shadow {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  border-radius: 2px; }
 
 /**************
  * Tweak-tool *
