@@ -5,7 +5,7 @@ An adaptive Material Design-ish Gtk+ theme.
 Lots of elements are forked from Flat-Plat: https://github.com/nana-4/Flat-Plat
 Many thanks for nana-4, the developer of Flat-Plat!!
 
-Soon 3.19.x conversion might be finished...
+3.19.x conversion started in 3.19.x branch.
 
 Elements
 --------
@@ -20,6 +20,7 @@ Required Components
 * metacity >= 3.18.1
 * gnome-panel >= 3.18.1
 * gtk2-engines-pixbuf >= 2.24.29
+* budgie-desktop >= 10.1
 
 Installation
 ------------
@@ -28,12 +29,12 @@ Installation
 
 Work in Progress
 ----------------
-* Conversion to Gtk+ 3.19.5 or higher ( see details in 3.19.x branch...)
+* Conversion to Gtk+ 3.19.5 or higher (see details in 3.19.x branch...)
+* Budgie-Desktop theme styling (for v10.2.2 into master as experimental use)
 
 TODO
 ----
 * Gnome-Shell theme styling (I hope, but it might be regardless)
-* Budgie-Desktop theme styling (Not quite sure, hahaha!)
 
 Public License
 --------------
