@@ -1781,8 +1781,9 @@ GtkSwitch {
     .#{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
-      icon-shadow: $z-depth-1;
-      &:hover, &:active { icon-shadow: $z-depth-2; }
+      icon-shadow: $check-radio-depth-1;
+      &:hover,
+      &:active { icon-shadow: $check-radio-depth-2; }
       &:insensitive { icon-shadow: none; }
       &.button.flat {
       }
@@ -1841,7 +1842,7 @@ GtkSwitch {
 
 GtkCheckButton.text-button, GtkRadioButton.text-button {
   // this is for a nice focus on check and radios text
-  padding: 0.1em 0.3em;
+  padding: 0.2em 0.5em;
   outline-offset: 0;
   &:insensitive,
   &:insensitive:active,
