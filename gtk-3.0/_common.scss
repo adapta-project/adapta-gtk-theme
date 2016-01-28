@@ -1372,7 +1372,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   &.header {
     // FIXME: double borders in some case, can't fix it w/o a class tho
     // FIXME: doesn't work on dark var
-    background-color: $bg_color;
+    background-color: $secondary_base_color;
 
     // this is the shading of the header behind the tabs
     &.frame {
@@ -1383,21 +1383,45 @@ column-header.button.dnd { // for treeview-like derive widgets
       &.left { border-right-width: 0; }
     }
 
-    &.top {
-      box-shadow: inset 0 -1px $borders_color, // border
-                  inset 0 1px 2px rgba(0, 0, 0, 0.08);
+    &.top { // draw boders and shadows
+      @if $variant=='light' {
+        box-shadow: inset 0 -1px $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+      @else {
+        box-shadow: inset 0 -1px $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
+      }
     }
     &.bottom {
-      box-shadow: inset 0 1px $borders_color,
-                  inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      @if $variant=='light' {
+        box-shadow: inset 0 1px $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+      @else {
+        box-shadow: inset 0 1px $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
+      }
     }
     &.right {
-      box-shadow: inset 1px 0 $borders_color,
-                  inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      @if $variant=='light' {
+        box-shadow: inset 1px 0 $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+      @else {
+        box-shadow: inset 1px 0 $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
+      }
     }
     &.left {
-      box-shadow: inset -1px 0 $borders_color,
-                  inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      @if $variant=='light' {
+        box-shadow: inset -1px 0 $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+      @else {
+        box-shadow: inset -1px 0 $borders_color,
+                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
+      }
     }
   }
 
@@ -1501,13 +1525,15 @@ column-header.button.dnd { // for treeview-like derive widgets
           border-color: $borders_color;
           border-#{$_border}-width: 2px;
           border-#{$_border}-color: $track_color;
-          background-color: $bg_color;
+          background-color: $base_color;
+          box-shadow: $z-depth-1;
         }
         &:active, &.active-page {
           border-color: $borders_color;
           border-#{$_border}-width: 2px;
           border-#{$_border}-color: $selected_bg_color;
-          background-color: $light_color;
+          background-color: $base_color;
+          box-shadow: $z-depth-1;
         }
       }
     }
