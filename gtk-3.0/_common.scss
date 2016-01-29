@@ -977,11 +977,10 @@ GtkComboBox {
 
   .header-bar-separator,
   & > GtkBox > .separator.vertical {
-    -GtkWidget-wide-separators: true;
+    // -GtkWidget-wide-separators: true;
     -GtkWidget-separator-width: 1px;
-    border-style: solid;
-    border-width: 0 1px;
-    border-color: if($variant=='light', #CFD2D5, #242F35);
+    border: 0 none transparent;
+    color: transparent;
   }
 
   & .button:not(.suggested-action):not(.destructive-action) {
