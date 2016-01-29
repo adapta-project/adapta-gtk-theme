@@ -1,19 +1,31 @@
+//
 // Drawing mixins
+//
 
-// generic drawing of more complex things
+//
+// Generic drawing of more complex things
+//
 
-// default shadows
+//
+// Default shadows
+//
 $z-depth-1: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
 $z-depth-2: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.20);
 $z-depth-3: 0 10px 10px rgba(0, 0, 0, 0.19), 0 6px 3px rgba(0, 0, 0, 0.23);
 $z-depth-4: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22);
 $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
-// check and radio shadows
+
+//
+// Check and radio shadows
+//
 $check-radio-depth-1: 0 1px 1px rgba(0, 0, 0, 0.08),
                       0 1px 2px rgba(0, 0, 0, 0.16);
 $check-radio-depth-2: 0 1px 2px rgba(0, 0, 0, 0.12),
                       0 2px 2px rgba(0, 0, 0, 0.20);
-// header-bar shadows
+
+//
+// Header-bar shadows
+//
 $header-light: inset 0 1px $highlight_color,
                0 1px 2px rgba(0, 0, 0, 0.06),
                0 2px 3px rgba(0, 0, 0, 0.08);
@@ -40,7 +52,10 @@ $sub-header-dark-rtl: inset 0 1px $highlight_color,
                       0 2px 3px rgba(0, 0, 0, 0.18),
                       5px 0 0 -1px $dark_color,
                       2px 0 0 -1px $borders_color;
-// side-bar shadows
+
+//
+// Side-bar shadows
+//
 $sidebar-light-ltr: inset -1px 0 2px rgba(0, 0, 0, 0.04),
                     inset -2px 0 3px rgba(0, 0, 0, 0.04);
 $sidebar-light-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.04),
@@ -50,7 +65,14 @@ $sidebar-dark-ltr: inset -1px 0 2px rgba(0, 0, 0, 0.06),
 $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
                    inset 2px 0 3px rgba(0, 0, 0, 0.04);
 
+//
+// Ripple effects
+//
 @keyframes ripple_effect {
+//
+// Ripple effect drawing function
+//
+
   from {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
@@ -107,8 +129,9 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
   }
 }
 
-// entries
-
+//
+// Entries
+//
 @mixin entry($t, $fc:$selected_bg_color) {
 //
 // Entries drawing function
@@ -143,7 +166,8 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
   @if $t==flat-focus {
     box-shadow: inset 0 -2px $fc;
     color: $fg_color;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
   }
   @if $t==flat-insensitive {
     box-shadow: inset 0 -1px $track_color;
@@ -151,8 +175,9 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
   }
 }
 
-// buttons
-
+//
+// Buttons
+//
 @mixin button($t, $c:$light_color, $tc:$fg_color) {
 //
 // Button drawing function
@@ -163,7 +188,8 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
 //
 // possible $t values:
 // normal, hover, active, insensitive, checked, checked-insensitive,
-// flat, flat-hover, flat-active, flat-insensitive, flat-checked, flat-checked-insensitive, undecorated
+// flat, flat-hover, flat-active, flat-insensitive, flat-checked,
+// flat-checked-insensitive, undecorated
 //
 
   @if $t==normal {
@@ -213,7 +239,8 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
   //
     box-shadow: none;
     background-color: $track_color;
-    color: if($tc!=$fg_color, $insensitive_fg_color, $insensitive_secondary_fg_color);
+    color: if($tc!=$fg_color, $insensitive_fg_color,
+                              $insensitive_secondary_fg_color);
     > .label { color: inherit; }
   }
   @else if $t==checked {
@@ -301,9 +328,12 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
   }
 }
 
+//
+// Overshoot
+//
 @mixin overshoot($p, $t:normal, $c:$secondary_selected_bg_color) {
 //
-// overshoot
+// Overshoot drawing function
 //
 // $p: position
 // $t: type
@@ -331,14 +361,18 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
   background-repeat: no-repeat;
   background-position: $_position;
 
-  background-color: transparent; // reset some properties to be sure to not inherit them somehow
-  border: none;                  //
-  box-shadow: none;              //
+  // reset some properties to be sure to not inherit them somehow
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
 
+//
+// Undershoot
+//
 @mixin undershoot($p) {
 //
-// undershoot
+// Undershoot drawing function
 //
 // $p: position
 //
@@ -354,7 +388,8 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
   $_gradient_repeat: repeat-x;
   $_bg_pos: center $p;
 
-  background-color: transparent; // shouldn't be needed, but better to be sure;
+  // shouldn't be needed, but better to be sure
+  background-color: transparent;
 
   @if ($p == left) or ($p == right) {
     $_gradient_dir: top;
@@ -363,7 +398,8 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
     $_bg_pos: $p center;
   }
 
-  background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
+  // this is the dashed line
+  background-image: linear-gradient(to $_gradient_dir,
                                     $_undershoot_color_light 50%,
                                     $_undershoot_color_dark 50%);
 

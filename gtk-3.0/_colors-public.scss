@@ -1,91 +1,115 @@
-//apps rely on some named colors to be exported
-/* GTK NAMED COLORS
-   ----------------
-   use responsibly! */
+//
+// Apps rely on some named colors to be exported
+//
 
+// GTK NAMED COLORS
+// ----------------
+// Use responsibly!
+//
 // Sass thinks we're using the colors in the variables as strings and may shoot
 // warning, it's innocuous and can be defeated by using "" + $var
-/*
-widget text/foreground color */
+
+//
+// Widget text/foreground color
+//
 @define-color theme_fg_color #{"" +$fg_color};
 
-/*
-text color for entries, views and content in general */
+//
+// Text color for entries, views and content in general
+//
 @define-color theme_text_color #{"" +$fg_color};
 
-/*
-widget base background color */
+//
+// Widget base background color
+//
 @define-color theme_bg_color #{"" +$bg_color};
 
-/*
-text widgets and the like base background color */
+//
+// Text widgets and the like base background color
+//
 @define-color theme_base_color #{"" +$base_color};
 
-/*
-base background color of selections */
+//
+// Base background color of selections
+//
 @define-color theme_selected_bg_color #{"" +$selected_bg_color};
 
-/*
-text/foreground color of selections */
+//
+// Text/foreground color of selections
+//
 @define-color theme_selected_fg_color #{"" +$selected_fg_color};
 
-/*
-base background color of insensitive widgets */
+//
+// Base background color of insensitive widgets
+//
 @define-color insensitive_bg_color #{"" +$bg_color};
 
-/*
-text foreground color of insensitive widgets */
+//
+// Text foreground color of insensitive widgets
+//
 @define-color insensitive_fg_color #{"" +$insensitive_fg_color};
 
-/*
-insensitive text widgets and the like base background color */
+//
+// Insensitive text widgets and the like base background color
+//
 @define-color insensitive_base_color #{"" +$secondary_base_color};
 
-/*
-widget text/foreground color on backdrop windows */
+//
+// Widget text/foreground color on backdrop windows
+//
 @define-color theme_unfocused_fg_color #{"" +$insensitive_fg_color};
 
-/*
-text color for entries, views and content in general on backdrop windows */
+//
+// Text color for entries, views and content in general on backdrop windows
+//
 @define-color theme_unfocused_text_color #{"" +$insensitive_fg_color};
 
-/*
-widget base background color on backdrop windows */
+//
+// Widget base background color on backdrop windows
+//
 @define-color theme_unfocused_bg_color #{"" +$bg_color};
 
-/*
-text widgets and the like base background color on backdrop windows */
+//
+// Text widgets and the like base background color on backdrop windows
+//
 @define-color theme_unfocused_base_color #{"" +$base_color};
 
-/*
-base background color of selections on backdrop windows */
+//
+// Base background color of selections on backdrop windows
+//
 @define-color theme_unfocused_selected_bg_color #{"" +$selected_bg_color};
 
-/*
-text/foreground color of selections on backdrop windows */
+//
+// Text/foreground color of selections on backdrop windows
+//
 @define-color theme_unfocused_selected_fg_color #{"" + $selected_fg_color};
 
-/*
-widgets main borders color */
+//
+// Widgets main borders color
+//
 @define-color borders #{"" +$borders_color};
 
-/*
-widgets main borders color on backdrop windows */
+//
+// Widgets main borders color on backdrop windows
+//
 @define-color unfocused_borders #{"" +$borders_color};
 
-/*
-these are pretty self explicative */
+//
+// These are pretty self explicative
+//
 @define-color warning_color #{"" +$warning_color};
 @define-color error_color #{"" +$error_color};
 @define-color success_color #{"" +$success_color};
-//@define-color destructive_color #{"" +$destructive_color}
+// @define-color destructive_color #{"" +$destructive_color}
 
-/*
-revert wm_bg_a for gnome-flashback (metacity) */
+//
+// Revert wm_bg_a/b for gnome-flashback (metacity)
+//
 @define-color wm_bg_a #{"" +$dark_color};
 @define-color wm_bg_b #{"" +$highlight_color};
 
-//FIXME this is really an API
-
+//
+// FIXME: this is really an API
+//
 @define-color content_view_bg #{"" +$base_color};
 
