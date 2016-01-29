@@ -1,3 +1,6 @@
+/******************
+ * Ripple effects *
+ ******************/
 @keyframes ripple_effect {
   from {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(currentColor, 0.1)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
@@ -13,6 +16,9 @@
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.05)); }
   to {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.4, to(alpha(currentColor, 0.1)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); } }
+/*****************
+ * Common States *
+ *****************/
 * {
   padding: 0;
   background-clip: padding-box;
@@ -3409,6 +3415,9 @@ GfInputSourcePopup #input-source {
 FlashbackLabelWindow {
   font-size: 4em; }
 
+/***********
+ * Colours *
+ ***********/
 @define-color theme_fg_color #263238;
 @define-color theme_text_color #263238;
 @define-color theme_bg_color #fafbfc;
