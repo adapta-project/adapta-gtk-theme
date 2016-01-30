@@ -193,7 +193,7 @@ GtkAssistant {
 
 GtkTextView { // This will get overridden by .view,
               // needed by gedit line numbers
-  background-color: $secondary_base_color;
+  background-color: $secondary_dark_color;
 }
 
 .grid-child {
@@ -936,7 +936,10 @@ GtkComboBox {
   border-style: solid;
   border-width: 0 1px 1px;
   border-color: $borders_color;
-  background-color: $secondary_base_color;
+  background-color: $secondary_dark_color;
+  // shadows same with notebook-header
+  box-shadow: if($variant=='light', inset 0 1px 2px rgba(0, 0, 0, 0.08),
+                                    inset 0 1px 2px rgba(0, 0, 0, 0.18));
 }
 
 .search-bar, .location-bar {
@@ -944,7 +947,7 @@ GtkComboBox {
   border-style: solid;
   border-width: 0 0 1px;
   border-color: $borders_color;
-  background-color: $dark_color;
+  background-color: $secondary_dark_color;
 }
 
 
@@ -1248,7 +1251,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 .menu {
   margin: 4px;
   padding: 0;
-  background-color: $base_color;
+  background-color: $secondary_base_color;
   border: 1px solid $borders_color; // adds borders in a non composited env
 
   .csd & { border: none; }  // axes borders in a composited env
@@ -1277,10 +1280,10 @@ column-header.button.dnd { // for treeview-like derive widgets
   &.button { // overlow buttons
     border-style: none;
     border-radius: 0;
-    background-color: $base_color;
+    background-color: $secondary_base_color;
     &.top { border-bottom: 1px solid $borders_color; }
     &.bottom { border-top: 1px solid $borders_color; }
-    &:hover { background-color: $dark_color; }
+    &:hover { background-color: $secondary_dark_color; }
     &:insensitive {
       color: transparent;
       background-color: transparent;
@@ -1333,7 +1336,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     &:active { @include button(flat-active); }
     &:insensitive { @include button(flat-nsensitive); }
     &:checked {
-      @include button(checked);
+      @include button(flat-checked);
       color: $fg_color;
       background-color: transparent;
     }
@@ -1377,7 +1380,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   &.header {
     // FIXME: double borders in some case, can't fix it w/o a class tho
     // FIXME: doesn't work on dark var
-    background-color: $secondary_base_color;
+    background-color: $secondary_dark_color;
 
     // this is the shading of the header behind the tabs
     &.frame {
@@ -2329,7 +2332,7 @@ GtkFileChooserDialog {
 
 .sidebar {
   border: none;
-  background-color: $secondary_base_color;
+  background-color: $secondary_dark_color;
   &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
                                                  $sidebar-dark-ltr);
   }

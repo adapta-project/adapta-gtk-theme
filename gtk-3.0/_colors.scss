@@ -49,7 +49,10 @@ $secondary_base_color: mix($base_color, $bg_color, 50%);        // = W _ 50
 $light_color: if($variant=='light', $base_color,                // = White
                                     #546E7A);                   // = BluGry600
 $dark_color: if($variant=='light', mix(#ECEFF1, #CFD8DC, 75%),  // =  50 _ 100
-                                   mix(#263238, #37474F, 75%)); // = 800 _ 900
+                                   mix(#263238, #37474F, 75%)); // = 900 _ 800
+$secondary_dark_color: if($variant=='light',
+                          mix(#FFFFFF, #ECEFF1, 60%),           // = W _ 50
+                          mix(#37474F, #455A64, 60%));          // = 800 _ 700
 
 $selected_bg_color: #00BCD4;                                    // = Cyan500
 $secondary_selected_bg_color: #4DD0E1;                          // = Cyan300
@@ -58,8 +61,7 @@ $secondary_selected_bg_color: #4DD0E1;                          // = Cyan300
 // Misc colors
 //
 $track_color: gtkalpha(currentColor, 0.2);
-$borders_color: if($variant=='light', gtkopacity(#000000, 0.1),
-                                      gtkopacity(#000000, 0.15));
+$borders_color: gtkopacity(#000000, 0.12);
 $highlight_color: if($variant=='light', gtkopacity(#FFFFFF, 0.2),
                                         gtkopacity(#FFFFFF, 0.05));
 
