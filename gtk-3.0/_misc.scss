@@ -172,3 +172,22 @@ FlashbackLabelWindow {
   font-size: 4em;
 }
 
+// popup for inpu-source candidates
+GfCandidatePopup {
+  border-radius: 2px;
+  // it doesn't work.
+  // box-shadow: $z-depth-2;
+
+  &.solid { border-radius: 0; }
+
+  GfCandidateBox {
+    .label { padding: 0.4em 0.4em 0.5em; } // same as .menuitem
+
+    &:last-child { padding-left: 0; }
+    &:selected,
+    &:hover {
+      border-radius: 0;
+      @extend %selected_items;
+    }
+  }
+}
