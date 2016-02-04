@@ -162,8 +162,8 @@ GfInputSourcePopup {
     font-weight: bold;
     &:selected {
       border-radius: 2px;
-      color: $warning_color;
       background-color: $track_color;
+      color: $warning_color;
     }
   }
 }
@@ -174,20 +174,37 @@ FlashbackLabelWindow {
 
 // popup for inpu-source candidates
 GfCandidatePopup {
-  border-radius: 2px;
-  // it doesn't work.
-  // box-shadow: $z-depth-2;
-
-  &.solid { border-radius: 0; }
+  &, &.solid {
+    border-radius: 2px;
+    border: 1px solid $borders_color;
+    color: if($variant=='light', $secondary_selected_fg_color, $fg_color);
+  }
 
   GfCandidateBox {
-    .label { padding: 0.4em 0.4em 0.5em; } // same as .menuitem
+    transition: none;
+    .label { padding: 0.2em 0.2em 0.3em; } // half of .menuitem
 
     &:last-child { padding-left: 0; }
-    &:selected,
-    &:hover {
+    &:hover,
+    &:selected {
       border-radius: 0;
-      @extend %selected_items;
+      background-color: $track_color;
+      color: $selected_fg_color;
+    }
+  }
+
+  .button,
+  .linked > .button { // page-up&down buttons
+    &,
+    &:first-child,
+    &:last-child {
+      @extend .button.flat;
+      border-radius: 0;
+      border: none;
+      background-color: transparent;
+      color: $warning_color;
+      box-shadow: none;
     }
   }
 }
+
