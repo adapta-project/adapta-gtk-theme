@@ -3068,9 +3068,9 @@ GtkVolumeButton.menuitem.button:selected, .budgie-session-dialog .menuitem.butto
   background-origin: content-box;
   background-position: right center; }
 
-/***********************
- * Fallback mode panel *
- ***********************/
+/***************
+ * Gnome panel *
+ ***************/
 PanelWidget,
 PanelApplet,
 PanelToplevel {
@@ -3158,6 +3158,57 @@ NaTrayApplet {
   -NaTrayApplet-icon-size: 16; }
   NaTrayApplet:backdrop {
     opacity: 1.0; }
+
+/**************
+ * Tweak-tool *
+ **************/
+.tweak-categories {
+  background-color: #3d4f57;
+  color: rgba(236, 239, 241, 0.75); }
+  .tweak-categories:dir(ltr) {
+    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.06), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
+  .tweak-categories:dir(rtl) {
+    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.06), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
+  .tweak-categories .separator {
+    -GtkWidget-wide-separators: true; }
+
+.tweak-category {
+  color: rgba(236, 239, 241, 0.75);
+  font-weight: bold; }
+  .tweak-category:hover {
+    color: #ECEFF1; }
+  .tweak-category:selected {
+    color: #00BCD4;
+    background-color: transparent; }
+
+.tweak-group {
+  padding: 6px;
+  background-color: transparent; }
+
+/*******************
+ * Gnome-Flashback *
+ *******************/
+FlashbackOsdWindow,
+GfPopupWindow {
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  opacity: 0.9; }
+  FlashbackOsdWindow.background,
+  GfPopupWindow.background {
+    background-color: #37474F;
+    color: #ECEFF1; }
+
+GfInputSourcePopup #input-source {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 2em;
+  font-weight: bold; }
+  GfInputSourcePopup #input-source:selected {
+    border-radius: 2px;
+    color: #FF9800;
+    background-color: alpha(currentColor, 0.2); }
+
+FlashbackLabelWindow {
+  font-size: 4em; }
 
 /******************
  * Budgie Desktop *
@@ -3363,57 +3414,6 @@ NaTrayApplet {
   background-image: none;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2);
   border-radius: 2px; }
-
-/**************
- * Tweak-tool *
- **************/
-.tweak-categories {
-  background-color: #3d4f57;
-  color: rgba(236, 239, 241, 0.75); }
-  .tweak-categories:dir(ltr) {
-    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.06), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
-  .tweak-categories:dir(rtl) {
-    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.06), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
-  .tweak-categories .separator {
-    -GtkWidget-wide-separators: true; }
-
-.tweak-category {
-  color: rgba(236, 239, 241, 0.75);
-  font-weight: bold; }
-  .tweak-category:hover {
-    color: #ECEFF1; }
-  .tweak-category:selected {
-    color: #00BCD4;
-    background-color: transparent; }
-
-.tweak-group {
-  padding: 6px;
-  background-color: transparent; }
-
-/*******************
- * Gnome-Flashback *
- *******************/
-FlashbackOsdWindow,
-GfPopupWindow {
-  border-radius: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  opacity: 0.9; }
-  FlashbackOsdWindow.background,
-  GfPopupWindow.background {
-    background-color: #37474F;
-    color: #ECEFF1; }
-
-GfInputSourcePopup #input-source {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 2em;
-  font-weight: bold; }
-  GfInputSourcePopup #input-source:selected {
-    border-radius: 2px;
-    color: #FF9800;
-    background-color: alpha(currentColor, 0.2); }
-
-FlashbackLabelWindow {
-  font-size: 4em; }
 
 /***********
  * Colours *
