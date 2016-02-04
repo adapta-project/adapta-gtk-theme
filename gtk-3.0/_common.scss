@@ -653,27 +653,10 @@ GtkColorButton.button {
   }
 }
 
-// suggested action button at the bottom area of windows
-// like action-area
-GtkButtonBox:not(.vertical) > .button {
-  &:last-child:not(:only-child) {
-    @include button(normal);
-    color: $secondary_selected_fg_color;
-    background-color: $suggested_color;
-    &:hover {
-      @include button(hover);
-      color: $selected_fg_color;
-    }
-    &:active,
-    &:checked { @include button(checked); }
-    &:insensitive { @include button(insensitive); }
-  }
-  &:not(:last-child) { @extend .button.flat; }
-}
-
-// vertical box is always shown with flat-buttons
-GtkButtonBox.vertical > .button {
+// button box is always shown with flat-buttons
+GtkButtonBox > .button {
   @extend .button.flat;
+  font-weight: bold;
 }
 
 
