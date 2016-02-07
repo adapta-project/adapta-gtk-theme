@@ -208,3 +208,35 @@ GfCandidatePopup {
   }
 }
 
+
+/************
+ * Nautilus *
+ ************/
+
+.nautilus-canvas-item {
+  border-radius: 2px;
+}
+
+.nautilus-circular-button {
+  border-radius: 100px;
+  outline-radius: 100px;
+}
+
+
+/*********
+ * Geary *
+ *********/
+
+// Geary is the most ugly app for theming.
+.geary-titlebar-left {
+  // remove unexpected "hardcoded" vertical separator
+  .separator { opacity: 0; }
+}
+
+.sidebar {
+  // remove unexpected shadows insdie the columns
+  // since the codes hooks "GtkSidebar" class to
+  // GtkTreeView.view. Really mad...
+  GtkTreeView.view { box-shadow: none; }
+}
+
