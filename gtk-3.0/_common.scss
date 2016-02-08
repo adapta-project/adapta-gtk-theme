@@ -10,6 +10,7 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   padding: 0;
   background-clip: padding-box;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0;
+
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: $error_color;
 
@@ -112,18 +113,16 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   @extend .list-row.activatable;
   background-color: $base_color;
   color: $fg_color;
-
-  &:hover, &:active, &:selected { border-radius: 2px; }
-
+  &:hover,
+  &:active,
+  &:selected { border-radius: 2px; }
   &:insensitive {
     // background-color: $secondary_base_color;
     color: $insensitive_fg_color;
   }
-
   &:backdrop {
     // color: $backdrop_fg_color;
   }
-
   &:selected { @extend %selected_items; }
 }
 
@@ -138,9 +137,7 @@ $asset_suffix: if($variant=='dark', '-dark', '');
     @extend .dim-label;
     // &:backdrop { color: $backdrop_fg_color; }
   }
-  &:selected {
-    @extend %selected_items;
-  }
+  &:selected { @extend %selected_items; }
   &:insensitive {
     color: $insensitive_fg_color;
     // &:backdrop { color: $backdrop_insensitive_fg_color; }
@@ -708,6 +705,7 @@ GtkButtonBox > .button {
   &.vertical { // FIXME: try using linking templates for
                // vertically linked stuff
     padding: 0.5em 0;
+
     .button {
       padding: 0.2em 0;
       border: solid 0.5em transparent;
@@ -720,7 +718,8 @@ GtkButtonBox > .button {
   }
 
   GtkTreeView & {
-    &.entry, &.entry:focus {
+    &.entry,
+    &.entry:focus {
       // padding: 1px;
       // border-width: 1px 0;
       // border-color: $selected_bg_color;
@@ -774,13 +773,11 @@ GtkComboBox {
 
   &.combobox-entry {
     padding: 0;
-  }
 
-  &.combobox-entry .entry {
-  }
+    .entry {
+    }
 
-  &.combobox-entry .button {
-    padding: 0 0.7em;
+    .button { padding: 0 0.7em; }
   }
 }
 
@@ -854,7 +851,7 @@ GtkComboBox {
       // box-shadow: $z-depth-1;
     }
 
-    & .button {
+    .button {
       @extend .button.flat;
       color: $warning_bg_color;
     }
@@ -1023,13 +1020,11 @@ GtkComboBox {
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
       color: $secondary_selected_fg_color;
-      &:hover, &:active, &:checked {
-        color: $selected_fg_color;
-      }
-
+      &:hover,
+      &:active,
+      &:checked { color: $selected_fg_color; }
       &:insensitive {
       }
-
       &:checked {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
@@ -1064,7 +1059,8 @@ GtkComboBox {
     }
   }
 
-  .tiled &, .maximized & {
+  .tiled &,
+  .maximized & {
     border-radius: 0; // squared corners when the window is max'd or tiled
     box-shadow: none;
   }
@@ -1110,17 +1106,20 @@ GtkComboBox {
  ************/
 
 .path-bar .button {
-  padding: 0.3em 0.5em 0.4em;
-  &.image-button { padding: 0.8em; }
-  &:only-child {
-    padding-left: 1.2em;
-    padding-right: 1.2em;
-  }
+  padding: 0.3em 0.7em 0.4em;
+
+  &.image-button { padding: 0.7em; }
+  &:only-child { padding: 0.3em 0.7em 0.4em; }
 
   // the following is for spacing the icon and the label inside the home button
-  .label:last-child { padding-left: 2px; }
-  .label:first-child { padding-right: 2px; }
-  .label:only-child { padding-right: 0; padding-left: 0; }
+  .label {
+    &:last-child { padding-left: 2px; }
+    &:first-child { padding-right: 2px; }
+    &:only-child { padding-right: 0;
+                   padding-left: 0;
+    }
+  }
+
   GtkImage { padding-top: 1px; }
 }
 
@@ -1145,7 +1144,9 @@ GtkTreeView.view {
 
   border-radius: 0; // rest border radius in lists
 
-  &:hover, &:active, &:selected { border-radius: 0; }
+  &:hover,
+  &:active,
+  &:selected { border-radius: 0; }
 
   &.dnd {
     border-style: solid none;
@@ -1434,8 +1435,10 @@ column-header.button.dnd { // for treeview-like derive widgets
 
     // FIXME: we get double border in some cases, not considering the broken
     // notebook content frame...
-    &.top, &.bottom { padding: $vt_vpadding $vt_hpadding; }
-    &.left, &.right { padding: $ht_vpadding $ht_hpadding; }
+    &.top,
+    &.bottom { padding: $vt_vpadding $vt_hpadding; }
+    &.left,
+    &.right { padding: $ht_vpadding $ht_hpadding; }
 
 
     /* works for testnotebookdnd, but there's a superfluous border
@@ -1470,17 +1473,20 @@ column-header.button.dnd { // for treeview-like derive widgets
 
     &.reorderable-page {
       -GtkNotebook-tab-overlap: 1;
-      &.top, &.bottom {
+      &.top,
+      &.bottom {
         padding-left: 1em;  // for a nicer close button
         padding-right: 1em; // placement
         border-left-width: 1px;
         border-right-width: 1px;
       }
-      &.left, &.right {
+      &.left,
+      &.right {
         border-bottom-width: 1px;
         border-top-width: 1px;
       }
     }
+
     &.top {
       // padding-bottom: ($vt_vpadding -$tab_indicator_size);
       border-bottom-width: $tab_indicator_size;
@@ -1499,12 +1505,10 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
 
     // here's the interesting stuff
-    &:hover, &.prelight-page {
-      border-color: $track_color;
-    }
-    &:active, &.active-page {
-      border-color: $selected_bg_color;
-    }
+    &:hover,
+    &.prelight-page { border-color: $track_color; }
+    &:active,
+    &.active-page { border-color: $selected_bg_color; }
 
     @each $_tab, $_border in (top, bottom),
                              (bottom, top),
@@ -1566,9 +1570,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     &:insensitive { color: $insensitive_fg_color; }
   }
 
-  &:not(.reorderable-page) > .entry {
-    @extend .entry.flat;
-  }
+  &:not(.reorderable-page) > .entry { @extend .entry.flat; }
 }
 
 
@@ -1591,9 +1593,7 @@ $_slider_fine_tune_margin: 6px;
   -GtkRange-stepper-spacing: 0;
   -GtkRange-trough-under-steppers: 1;
 
-  .button {
-    border: none;
-  }
+  .button { border: none; }
 
   &.overlay-indicator {
     &:not(.dragging):not(.hovering) { // Overlay scrolling indicator
@@ -1616,7 +1616,6 @@ $_slider_fine_tune_margin: 6px;
         // margin-top: $_slider_margin - 1px;
         // margin-bottom: $_slider_margin - 1px;
       }
-
       &.horizontal .slider {
         // margin-left: $_slider_margin - 1px;
         // margin-right: $_slider_margin - 1px;
@@ -1634,8 +1633,7 @@ $_slider_fine_tune_margin: 6px;
     background-color: $base_color;
     // fix for Webkit2 2.10.5, use absolute colour codes
     // for $borders_color / $base_color;
-    border: if($variant=='light', 1px none #E5E9EC,
-                                  1px none #3B4D55);
+    border: if($variant=='light', 1px none #E5E9EC, 1px none #3B4D55);
   }
 
   // slider coloring
@@ -1813,8 +1811,12 @@ GtkSwitch {
 }
 
 // treeview and list-rows
-.view.check, .view.radio,
-.list-row .check, list-row .radio {
+.view.check,
+.view.radio,
+.list-row {
+  .check,
+  .radio {
+  }
 }
 
 // selection-mode
@@ -2013,15 +2015,16 @@ GtkProgressBar {
   &.left.right {
     box-shadow: none;
   }
+
   &.vertical {
+    &.top {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
     &.bottom {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       box-shadow: none;
-    }
-    &.top {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
     }
   }
 
@@ -2042,6 +2045,7 @@ GtkProgressBar {
   box-shadow: $z-depth-1; // needs to be set here to avoid clipping
   -GtkLevelBar-min-block-width: 36;
   -GtkLevelBar-min-block-height: 4;
+
   &.vertical {
     -GtkLevelBar-min-block-width: 4;
     -GtkLevelBar-min-block-height: 36;
@@ -2200,9 +2204,7 @@ GtkScrolledWindow {
 GtkCalendar {
   border: 1px solid $borders_color;
   color: $fg_color;
-  &:selected {
-    @extend .view:selected;
-  }
+  &:selected { @extend .view:selected; }
 
   &.header {
     border: 1px solid transparent;
@@ -2247,9 +2249,7 @@ GtkCalendar {
     background-color: if($variant=='light', $fg_color, $bg_color);
   }
 
-  .entry {
-    color: $selected_fg_color;
-  }
+  .entry { color: $selected_fg_color; }
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
@@ -2419,12 +2419,14 @@ GtkPaned { // this is for the standard paned separator
 GtkPaned.wide { // this is for the paned with wide separator
   -GtkPaned-handle-size: 6; // wider separator here
   margin: 0; // no need of the invisible drag area so, reset margin
+
   .pane-separator {
     background-color: transparent;
     border-style: none solid;
     border-color: $borders_color;
     border-width: 1px;
   }
+
   &.vertical .pane-separator { border-style: solid none;}
 }
 
@@ -2443,6 +2445,7 @@ GtkInfoBar {
 .warning,
 .error {
   color: $secondary_fg_color;
+
   .button {
     @extend .button.flat;
     &:insensitive { color: $insensitive_secondary_fg_color; }
@@ -2573,8 +2576,8 @@ GtkColorSwatch {
   }
 
   // indicator and keynav outline colors
-  &.color-dark { color: white; }
-  &.color-light { color: gtkopacity(black, 0.8); }
+  &.color-dark { color: #FFFFFF; }
+  &.color-light { color: gtkopacity(#000000, 0.8); }
 
   // border color
   &.overlay,
@@ -2590,7 +2593,7 @@ GtkColorSwatch {
                                     $info_bg_color 50%,
                                     $info_bg_color 75%,
                                     $question_bg_color 75%);
-  color: white;
+  color: #FFFFFF;
   }
 }
 
@@ -2820,6 +2823,7 @@ GtkVolumeButton.button {
   background-color: $base_color;
   box-shadow: $z-depth-2;
   &:backdrop { box-shadow: $z-depth-1; }
+
   .button {
   }
 }
@@ -2842,3 +2846,4 @@ GtkVolumeButton.button {
   &.left { @include undershoot(left); }
   &.right { @include undershoot(right); }
 }
+
