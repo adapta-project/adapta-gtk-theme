@@ -20,6 +20,11 @@
 @define-color theme_fg_color #{"" +$fg_color};
 
 //
+// Widget inverted text/foreground color
+//
+@define-color theme_inverted_fg_color #{"" +$inverted_fg_color};
+
+//
 // Text color for entries, views and content in general
 //
 @define-color theme_text_color #{"" +$fg_color};
@@ -65,9 +70,19 @@
 @define-color theme_unfocused_fg_color #{"" +$insensitive_fg_color};
 
 //
+// Widget inverted text/foreground color on backdrop windows
+//
+@define-color theme_unfocused_inverted_fg_color #{"" +$insensitive_inverted_fg_color};
+
+//
 // Text color for entries, views and content in general on backdrop windows
 //
 @define-color theme_unfocused_text_color #{"" +$insensitive_fg_color};
+
+//
+// Text inverted color for entries, views and content in general on backdrop windows
+//
+@define-color theme_unfocused_inverted_text_color #{"" +$insensitive_inverted_fg_color};
 
 //
 // Widget base background color on backdrop windows
@@ -110,8 +125,8 @@
 //
 // Revert wm_bg_a/b for gnome-flashback (metacity)
 //
-@define-color wm_bg_a #{"" +$dark_color};
-@define-color wm_bg_b #{"" +$highlight_color};
+@define-color wm_bg_a #{"" +$inverted_dark_color};
+@define-color wm_bg_b #{"" +$inverted_highlight_color};
 
 //
 // FIXME: this is really an API
