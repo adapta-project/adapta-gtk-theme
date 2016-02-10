@@ -1118,12 +1118,21 @@ GtkComboBox {
 }
 
 .header-bar { // draw hilight and shadows
-  .csd & { box-shadow: $header-shadow; }
+  .csd & {
+    box-shadow: if($variant=='light', $header-shadow-light,
+                                      $header-shadow-dark);
+  }
 
   GtkBox & { // Remove unneeded side shadows with dirty hacks
     &:last-child {
-      &:dir(ltr) { box-shadow: $sub-header-shadow-ltr; }
-      &:dir(rtl) { box-shadow: $sub-header-shadow-rtl; }
+      &:dir(ltr) {
+        box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
+                                          $sub-header-shadow-dark-ltr);
+      }
+      &:dir(rtl) {
+        box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
+                                          $sub-header-shadow-dark-rtl);
+      }
     }
   }
 }
