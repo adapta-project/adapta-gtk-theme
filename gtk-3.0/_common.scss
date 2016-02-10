@@ -841,9 +841,9 @@ GtkComboBox {
     //                           url("assets/osd-shadow-dark@2.png"))
     //               10 / 10px stretch;
     // box-shadow: $z-depth-2;
-    color: $inverted_fg_color;
+    color: $inverted_secondary_fg_color;
     // always use dark variant base colour
-    background-color: $inverted_bg_color;
+    background-color: $inverted_dark_color;
     &:backdrop {
       // border-image: -gtk-scaled(url("assets/osd-shadow-backdrop-dark.png"),
       //                           url("assets/osd-shadow-backdrop-dark@2.png"))
@@ -2267,14 +2267,14 @@ GtkCalendar {
 .message-dialog { // Message Dialog styling
   color: $inverted_secondary_fg_color;
   &.background {
-    background-color: $inverted_bg_color;
+    background-color: $inverted_dark_color;
     opacity: 0.9;
   }
   .titlebar {
     border-style: none;
     // box-shadow: inset 0 1px $inverted_highlight_color;
     color: $inverted_secondary_fg_color;
-    background-color: $inverted_bg_color;
+    background-color: $inverted_dark_color;
   }
 
   .entry { color: $inverted_fg_color; }
@@ -2511,7 +2511,7 @@ GtkInfoBar {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    background-color: gtkopacity($inverted_bg_color, 0.9);
+    background-color: gtkopacity($inverted_dark_color, 0.9);
   }
 
   // @extend %osd;
@@ -2706,7 +2706,7 @@ GtkVolumeButton.button {
   border: 1px solid transparent;
   border-radius: 0;
   color: $warning_color;
-  background-color: $inverted_bg_color;
+  background-color: $inverted_dark_color;
   transition: none;
 }
 
