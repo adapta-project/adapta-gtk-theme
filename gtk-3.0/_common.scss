@@ -941,10 +941,11 @@ GtkComboBox {
   border-width: 0 0 1px;
   border-style: solid;
   // do not use transparentize
-  border-color: if($variant=='light', #CFD2D5, #242F35);
+  border-color: #242F35;
   border-radius: 2px 2px 0 0;
-  background-color: $dark_color;
+  background-color: $inverted_dark_color;
   background-clip: border-box;
+  color: $inverted_secondary_fg_color;
 
   // fully opaque
   &:backdrop { opacity: 1.0; }
@@ -952,6 +953,7 @@ GtkComboBox {
   .title {
     padding-left: 1em;
     padding-right: 1em;
+    color: $inverted_fg_color;
     font-weight: bold;
     &:backdrop { opacity: 0.5; }
   }
@@ -960,6 +962,7 @@ GtkComboBox {
     @extend .dim-label;
     padding-left: 1em;
     padding-right: 1em;
+    color: $inverted_fg_color;
     font-size: smaller;
     &:backdrop { opacity: 0.5; }
   }
@@ -972,7 +975,7 @@ GtkComboBox {
     color: transparent;
   }
 
-  & .button:not(.suggested-action):not(.destructive-action) {
+  .button:not(.suggested-action):not(.destructive-action) {
     @extend .button.flat;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -980,6 +983,8 @@ GtkComboBox {
                                 to($track_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
+    color: $inverted_secondary_fg_color;
+    &:hover { color: $inverted_fg_color; }
     &:checked {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
@@ -989,17 +994,37 @@ GtkComboBox {
                                   0 0 2 / 0 0 2px;
       // box-shadow: inset 0 -2px $selected_bg_color;
       background-color: transparent;
-      color: $fg_color;
+      color: $inverted_fg_color;
       // transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
       //             box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
       //             color 0;
       // &:active { transition: none; }
       &:insensitive {
         background-color: transparent;
-        color: $insensitive_fg_color;
+        color: $insensitive_inverted_fg_color;
         > .label { color: inherit; }
       }
     }
+    &:insensitive {color: $insensitive_inverted_secondary_fg_color; }
+    &:backdrop { opacity: 0.5; }
+  }
+
+  .button.suggested-action,
+  .button.destructive-action {
+    color: $inverted_secondary_fg_color;
+    &:hover { color: $inverted_fg_color; }
+    &:checked {
+      color: $inverted_fg_color;
+      &:insensitive { color: $insensitive_inverted_fg_color; }
+    }
+    &:insensitive {color: $insensitive_inverted_secondary_fg_color; }
+    &:backdrop { opacity: 0.5; }
+  }
+
+  .entry {
+    color: $inverted_secondary_fg_color;
+    &:focus { color: $inverted_fg_color; }
+    &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     &:backdrop { opacity: 0.5; }
   }
 
@@ -1023,8 +1048,7 @@ GtkComboBox {
       &:hover,
       &:active,
       &:checked { color: $selected_fg_color; }
-      &:insensitive {
-      }
+      &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
       &:checked {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
@@ -1049,6 +1073,13 @@ GtkComboBox {
       &:backdrop { opacity: 0.5; }
     }
 
+    .entry {
+      color: $inverted_secondary_fg_color;
+      &:focus { color: $inverted_fg_color; }
+      &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+      &:backdrop { opacity: 0.5; }
+    }
+
     .selection-menu {
       padding-left: 1.2em;
       padding-right: 1.2em;
@@ -1068,34 +1099,31 @@ GtkComboBox {
   &.default-decoration {
     padding: 0.4em;
     border-width: 0;
+    color: $inverted_fg_color;
     &:backdrop {
       opacity: 1.0;
-      color: $insensitive_fg_color;
+      color: $insensitive_inverted_fg_color;
     }
     .button.titlebutton {
       padding: 0.4em;
+      color: $inverted_secondary_fg_color;
+      &:hover,
+      &:active { color: $inverted_fg_color; }
       &:backdrop {
         opacity: 1.0;
-        color: $insensitive_fg_color;
+        color: $insensitive_inverted_secondary_fg_color;
       }
     }
   }
 }
 
 .header-bar { // draw hilight and shadows
-  .csd & {
-    box-shadow: if($variant=='light', $header-light, $header-dark);
-  }
+  .csd & { box-shadow: $header-shadow; }
+
   GtkBox & { // Remove unneeded side shadows with dirty hacks
     &:last-child {
-      &:dir(ltr) {
-        box-shadow: if($variant=='light', $sub-header-light-ltr,
-                                          $sub-header-dark-ltr);
-      }
-      &:dir(rtl) {
-        box-shadow: if($variant=='light', $sub-header-light-rtl,
-                                          $sub-header-dark-rtl);
-      }
+      &:dir(ltr) { box-shadow: $sub-header-shadow-ltr; }
+      &:dir(rtl) { box-shadow: $sub-header-shadow-rtl; }
     }
   }
 }
