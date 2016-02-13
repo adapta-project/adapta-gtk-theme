@@ -395,8 +395,7 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
 // top, bottom, right, left
 //
 
-  $_undershoot_color_dark: gtkopacity(black, 0.2);
-  $_undershoot_color_light: gtkopacity(white, 0.2);
+  $_undershoot_dash_color: $insensitive_fg_color;
 
   $_gradient_dir: left;
   $_dash_bg_size: 16px 2px;
@@ -415,8 +414,8 @@ $sidebar-dark-rtl: inset 1px 0 2px rgba(0, 0, 0, 0.06),
 
   // this is the dashed line
   background-image: linear-gradient(to $_gradient_dir,
-                                    $_undershoot_color_light 50%,
-                                    $_undershoot_color_dark 50%);
+                                    $_undershoot_dash_color 50%,
+                                    transparent 50%);
 
   padding-#{$p}: 0;
   background-size: $_dash_bg_size;
