@@ -944,6 +944,18 @@ GtkComboBox {
     .header-bar .button.suggested-action:backdrop,
     .header-bar .button.destructive-action:backdrop {
       opacity: 0.5; }
+  .titlebar .button:not(.suggested-action):not(.destructive-action),
+  .header-bar .button:not(.suggested-action):not(.destructive-action) {
+    border-radius: 100px;
+    outline-radius: 100px; }
+    .titlebar .button:not(.suggested-action):not(.destructive-action).text-button,
+    .header-bar .button:not(.suggested-action):not(.destructive-action).text-button {
+      border-radius: 2px;
+      outline-radius: 2px; }
+      .titlebar .button:not(.suggested-action):not(.destructive-action).text-button.image-button,
+      .header-bar .button:not(.suggested-action):not(.destructive-action).text-button.image-button {
+        border-radius: 100px;
+        outline-radius: 100px; }
   .titlebar .entry,
   .header-bar .entry {
     color: rgba(236, 239, 241, 0.75); }

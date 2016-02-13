@@ -1021,6 +1021,20 @@ GtkComboBox {
     &:backdrop { opacity: 0.5; }
   }
 
+  // force to draw circle flat buttons as default
+  .button:not(.suggested-action):not(.destructive-action) {
+    border-radius: 100px;
+    outline-radius: 100px;
+    &.text-button {
+      border-radius: 2px;
+      outline-radius: 2px;
+      &.image-button {
+        border-radius: 100px;
+        outline-radius: 100px;
+      }
+    }
+  }
+
   .entry {
     color: $inverted_secondary_fg_color;
     &:focus { color: $inverted_fg_color; }
