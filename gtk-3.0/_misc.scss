@@ -129,11 +129,18 @@ NaTrayApplet {
 
 // container and tweaks in a group
 .tweak-group {
-    padding: 6px;
-    background-color: transparent;
+  padding: 6px;
+  background-color: $base_color;
 }
 
 .tweak {
+  background-color: $base_color;
+  &:hover { background-color: transparent; }
+}
+
+.tweak-group-white,
+.tweak-white {
+  background-color: $base_color;
 }
 
 
@@ -229,6 +236,11 @@ GfCandidatePopup {
 .geary-titlebar-left {
   // remove unexpected "hardcoded" vertical separator
   .separator { opacity: 0; }
+}
+
+.geary-titlebar-right {
+  // stop double-shadows on right paned header-bar
+  box-shadow: inset 0 1px $inverted_highlight_color;
 }
 
 .sidebar {
