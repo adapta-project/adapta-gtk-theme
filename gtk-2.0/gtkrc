@@ -1878,9 +1878,9 @@ style "standalone_entry" {
 }
 
 style "menubar" {
-  bg[NORMAL] = "#e5e9ec"
  xthickness = 0
  ythickness = 0
+ bg[NORMAL] = "#2a373e"
 
  engine "pixmap"
  {
@@ -1897,9 +1897,9 @@ style "menubar" {
 style "menubar_item" {
  xthickness = 3
  ythickness = 3
- fg[NORMAL] = mix(0.8, @fg_color, shade(0.96, @bg_color))
- bg[PRELIGHT] = "#e5e9ec"
- fg[PRELIGHT] = @fg_color
+ fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
+ bg[PRELIGHT] = "#2a373e"
+ fg[PRELIGHT] = @selected_fg_color
  engine "pixmap"
  {
    image
