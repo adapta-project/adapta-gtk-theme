@@ -860,8 +860,7 @@ GtkComboBox {
   border-color: #242F35;
   border-radius: 2px 2px 0 0;
   background-color: #2a373e;
-  background-clip: border-box;
-  color: rgba(236, 239, 241, 0.75); }
+  background-clip: border-box; }
   .titlebar:backdrop,
   .header-bar:backdrop {
     opacity: 1.0; }
@@ -1053,12 +1052,14 @@ GtkComboBox {
   .titlebar.default-decoration,
   .header-bar.default-decoration {
     padding: 0.4em;
-    border-width: 0;
-    color: #ECEFF1; }
-    .titlebar.default-decoration:backdrop,
-    .header-bar.default-decoration:backdrop {
-      opacity: 1.0;
-      color: rgba(236, 239, 241, 0.3); }
+    border-width: 0; }
+    .titlebar.default-decoration .title,
+    .header-bar.default-decoration .title {
+      color: #ECEFF1; }
+      .titlebar.default-decoration .title:backdrop,
+      .header-bar.default-decoration .title:backdrop {
+        opacity: 1.0;
+        color: rgba(236, 239, 241, 0.3); }
     .titlebar.default-decoration .button.titlebutton,
     .header-bar.default-decoration .button.titlebutton {
       padding: 0.4em;

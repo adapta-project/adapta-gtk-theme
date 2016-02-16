@@ -945,7 +945,6 @@ GtkComboBox {
   border-radius: 2px 2px 0 0;
   background-color: $inverted_dark_color;
   background-clip: border-box;
-  color: $inverted_secondary_fg_color;
 
   // fully opaque
   &:backdrop { opacity: 1.0; }
@@ -1113,10 +1112,13 @@ GtkComboBox {
   &.default-decoration {
     padding: 0.4em;
     border-width: 0;
-    color: $inverted_fg_color;
-    &:backdrop {
-      opacity: 1.0;
-      color: $insensitive_inverted_fg_color;
+
+    .title {
+      color: $inverted_fg_color;
+      &:backdrop {
+        opacity: 1.0;
+        color: $insensitive_inverted_fg_color;
+      }
     }
     .button.titlebutton {
       padding: 0.4em;
