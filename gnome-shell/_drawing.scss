@@ -1,4 +1,6 @@
+//
 // Drawing mixins
+//
 
 // generic drawing of more complex things
 
@@ -8,7 +10,11 @@
   //font-size: ($size / $base) * 1rem;
 }
 
+
+//
 // shadows
+//
+
 @mixin shadow($level) {
   @if $level==1 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -27,7 +33,10 @@
   }
 }
 
+
+//
 // entries
+//
 
 @mixin entry($t, $fc:$selected_bg_color) {
 //
@@ -57,7 +66,10 @@
   }
 }
 
+
+//
 // buttons
+//
 
 @mixin button($t, $c:$bg_color, $tc:$fg_color) {
 //
