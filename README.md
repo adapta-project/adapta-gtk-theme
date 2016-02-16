@@ -31,10 +31,10 @@ Work in Progress
 ----------------
 * Conversion to Gtk+ 3.19.5 or higher (see details in 3.19.x branch...)
 * Budgie-Desktop theme styling (for v10.2.2 into master as experimental use)
+* Gnome-Shell theme styling (for v3.18.3 merged into master)
 
 TODO
 ----
-* Gnome-Shell theme styling (I hope, but it might be regardless)
 
 Public License
 --------------
