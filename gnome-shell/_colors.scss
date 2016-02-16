@@ -1,0 +1,96 @@
+//
+// When color definition differs for dark and light variant,
+// it gets @if ed depending on $variant
+//
+
+
+//
+// Foreground colors
+//
+$fg_color: #ECEFF1;
+$secondary_fg_color: scale-color($fg_color, $alpha: -25%);
+
+$dim_fg_color: scale-color($fg_color, $alpha: -60%);
+$fill_color: scale-color($fg_color, $alpha: -80%);
+$semi_fill_color: scale-color($fg_color, $alpha: -90%);
+
+$selected_fg_color: #FFFFFF;
+
+$insensitive_fg_color: scale-color($fg_color, $alpha: -60%);
+$insensitive_secondary_fg_color: scale-color($secondary_fg_color, $alpha: -60%);
+
+$insensitive_fill_color: scale-color($fill_color, $alpha: -60%);
+
+
+//
+// Background colors
+//
+$bg_color: #37474F;
+$base_color: #455A64;
+
+$selected_bg_color: #00BCD4;
+
+$insensitive_bg_color: mix($bg_color, $base_color, 60%);
+
+
+//
+// Misc colors
+//
+$borders_color: scale-color(#000000, $alpha: -88%);
+$borders_edge: scale-color(#000000, $alpha: -95%);
+$top_hilight: $borders_edge;
+
+$link_color: #03A9F4;
+$link_visited_color: #9C27B0;
+
+$warning_color: #FF9800;
+$error_color: #F44336;
+$success_color: #00E676;
+
+$destructive_color: #FF5252;
+
+$insensitive_borders_color: $borders_color;
+
+
+//
+// OSD Foreground colors
+//
+$osd_fg_color: $fg_color;
+$osd_secondary_fg_color: scale-color($osd_fg_color, $alpha: -25%);
+
+$osd_dim_fg_color: scale-color($osd_fg_color, $alpha: -50%);
+$osd_fill_color: scale-color($osd_fg_color, $alpha: -60%);
+$osd_semi_fill_color: scale-color($osd_fg_color, $alpha: -80%);
+
+$insensitive_osd_fg_color: scale-color($osd_fg_color, $alpha: -60%);
+$insensitive_osd_secondary_fg_color: scale-color($osd_secondary_fg_color, $alpha: -60%);
+$insensitive_osd_fill_color: scale-color($osd_fill_color, $alpha: -60%);
+
+
+//
+// OSD Background colors
+//
+$osd_bg_color: mix(#263238, #37474F, 75%);
+$osd_base_color: $bg_color;
+
+$osd_indicator_color: scale-color($osd_fg_color, $alpha: -20%);
+
+$osd_borders_color: $borders_color;
+$osd_outer_borders_color: transparent;
+$tooltip_borders_color: $osd_borders_color;
+
+
+//
+// Backdrop colors
+//
+$backdrop_fg_color: scale-color($fg_color, $alpha: -12%);
+
+$backdrop_bg_color: $bg_color;
+$backdrop_base_color: $base_color;
+
+$backdrop_insensitive_color: if($variant =='light', darken($backdrop_bg_color,15%),
+                                                    lighten($backdrop_bg_color,15%));
+
+$backdrop_borders_color: $borders_color;
+$backdrop_dark_fill: mix($backdrop_borders_color,$backdrop_bg_color, 35%);
+
