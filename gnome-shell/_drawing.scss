@@ -97,7 +97,8 @@
   //
   // focused button
   //
-    color: $tc;
+    color: $fg_color;
+    background-color: $tc;
     text-shadow: none;
     icon-shadow: none;
     box-shadow: 0 0 transparent;
@@ -120,8 +121,8 @@
   //
   // pushed button
   //
-    color: if($tc!=$fg_color, $tc, $fg_color);
-    background-color: mix($tc, $c, 20%);
+    color: if($tc!=$fg_color, $tc, $selected_fg_color);
+    background-color: $tc;
     border-color: transparent;
     @include shadow(2);
     text-shadow: none;
@@ -153,7 +154,7 @@
   //
   // focused flat button
   //
-    color: $tc;
+    color: $fg_color;
     text-shadow: none;
     icon-shadow: none;
     box-shadow: 0 0 transparent;
@@ -165,7 +166,7 @@
   // hovered flat button
   //
     color: if($tc!=$fg_color, $tc, $fg_color);
-    background-color: if($c!=$bg_color, $c, $semi_fill_color);
+    background-color: if($c!=$bg_color, $fill_color, $semi_fill_color);
     border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
@@ -176,8 +177,8 @@
   //
   // pushed flat button
   //
-    color: if($tc!=$fg_color, $tc, $fg_color);
-    background-color: if($c!=$bg_color, $c, $fill_color);
+    color: if($tc!=$fg_color, $tc, $selected_fg_color);
+    background-color: if($c!=$bg_color, $tc, $fill_color);
     border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;

@@ -37,8 +37,8 @@ $panel-corner-radius: 0;
   transition-duration: 0.2s;
 }
 
-$font-size: 11;
-$font-family: "M+ 1c", Cantarell, Sans-Serif;
+$font-size: 10;
+$font-family: Roboto, Lato, Cantarell, Sans-Serif;
 
 stage {
   font-family: $font-family;
@@ -69,15 +69,24 @@ stage {
 }
 
 .modal-dialog-linked-button {
+  @include button(flat-normal);
   padding: 9px 16px 10px;
   border-right-width: 0;
-  border-top: 1px solid $fill_color !important;
+  border: none;
+  color: $warning_color;
   font-weight: 500;
-  @include button(flat-normal);
-  &:hover { @include button(flat-hover); }
-  &:active { @include button(flat-active); }
+  &:hover,
+  &:focus {
+    @include button(flat-hover);
+    color: $warning_color;
+    background-color: scale-color($warning_color, $alpha: -90%);
+  }
+  &:active {
+    @include button(flat-active);
+    color: $selected_fg_color;
+    background-color: $warning_color;
+  }
   &:insensitive { @include button(flat-insensitive); }
-  &:focus { @include button(flat-focus); }
 
   &:first-child { border-radius: 0px 0px 0px 2px; }
   &:last-child {
@@ -156,11 +165,11 @@ StScrollBar {
 .slider {
   height: 16px;
   color: $success_color;
-  -slider-height: 4px;
-  -slider-background-color: $fill_color; //background of the trough
-  -slider-border-color: transparent; //trough border color
-  -slider-active-background-color: $success_color; //active trough fill
-  -slider-active-border-color: transparent; //active trough border
+  -slider-height: 3px;
+  -slider-background-color: $fill_color; // background of the trough
+  -slider-border-color: transparent; // trough border color
+  -slider-active-background-color: $success_color; // active trough fill
+  -slider-active-border-color: transparent; // active trough border
   -slider-border-width: 0;
   -slider-handle-radius: 8px;
 }
@@ -226,7 +235,7 @@ StScrollBar {
   border: none;
   border-radius: 2px;
   color: $fg_color;
-  background-color: $bg_color;
+  background-color: transparentize($osd_bg_color, 0.1);
   @include shadow(4);
 
   .modal-dialog-content-box { padding: 24px; }
@@ -585,10 +594,10 @@ StScrollBar {
   .osd-monitor-label { font-size: 3em; }
 
   .level {
-    height: 0.6em;
-    border-radius: 4px;
+    height: 3px;
+    border-radius: 0;
     background-color: $fill_color;
-    color: $fg_color;
+    color: $success_color;
   }
 }
 
@@ -759,7 +768,7 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: bold;
-    color: $fg_color;
+    color: $secondary_fg_color;
     transition-duration: 0.2s;
 
     .app-menu-icon {
@@ -1321,7 +1330,7 @@ StScrollBar {
   border-radius: 2px;
   padding: 4px 12px;
   color: $fg_color;
-  background-color: $bg_color;
+  background-color: $osd_bg_color;
   @include shadow(2);
   text-align: center;
   -x-offset: 8px;
@@ -1437,11 +1446,11 @@ StScrollBar {
 .app-view-control { // favorties | all toggle button
   padding: 7px 32px 8px;
   font-weight: bold;
-  color: $osd_fg_color;
+  color: $secondary_fg_color;
+  box-shadow: inset 0 1px 0px $fill_color;
   &:hover {
     color: $osd_fg_color;
-    background-color: transparent !important;
-    box-shadow: inset 0 2px 0px $fill_color;
+    background-color: $fill_color !important;
   }
   &:active {
     color: $osd_fg_color;
@@ -1485,7 +1494,10 @@ StScrollBar {
 .app-well-app.app-folder,
 .show-apps,
 .grid-search-result {
-  & .overview-icon { @extend %icon_tile; }
+  & .overview-icon {
+    @extend %icon_tile;
+    color: $secondary_fg_color;
+  }
 
   &:hover .overview-icon,
   &:focus .overview-icon,
@@ -1493,11 +1505,13 @@ StScrollBar {
     border-image: none;
     background-color: $osd_semi_fill_color;
     background-image: none;
+    color: $osd_fg_color;
     transition-duration: 0s;
   }
   &:active .overview-icon,
   &:checked .overview-icon {
-    background-color: $osd_fill_color;
+    background-color: $osd_indicator_color;
+    color: $osd_fg_color;
     box-shadow: 0 0 transparent;
     transition-duration: 0.2s;
   }
