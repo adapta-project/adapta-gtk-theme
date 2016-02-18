@@ -748,31 +748,37 @@ StScrollBar {
  ***********/
 
 #panel {
-  background-color: $osd_bg_color;
+  height: 2.25em;
   font-weight: bold;
-  height: 32px;
-  @include shadow(2);
+  background-color: $panel_bg_color;
 
   &:overview,
   &.unlock-screen,
   &.login-screen,
-  &.lock-screen {
-    background-color: transparent;
-  }
+  &.lock-screen { background-color: transparent; }
 
-  #panelLeft, #panelCenter { // spacing between activities<>app menu and such
+  #panelLeft,
+  #panelCenter { // spacing between activities<>app menu and such
     spacing: 0;
   }
 
   .panel-corner {
     -panel-corner-radius: $panel-corner-radius;
-    -panel-corner-background-color: $osd_bg_color;
+    -panel-corner-background-color: $panel_bg_color;
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
 
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 2px 0 $osd_fill_color;
+    }
     &:active,
     &:overview,
-    &:focus { -panel-corner-border-color: $osd_indicator_color; }
+    &:focus {
+      -panel-corner-border-color: transparent;
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 2px 0 $osd_indicator_color;
+    }
 
     &.lock-screen,
     &.login-screen,
@@ -799,8 +805,9 @@ StScrollBar {
 
     &:hover {
       color: $selected_fg_color;
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 2px 0 $osd_fill_color;
     }
-
     &:active,
     &:focus,
     &:checked,
@@ -808,7 +815,7 @@ StScrollBar {
       // Trick due to St limitations. It needs a background to draw
       // a box-shadow
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0 $osd_indicator_color;
+      box-shadow: inset 0 2px 0 $osd_indicator_color;
       color: $selected_fg_color;
 
       & > .system-status-icon { icon-shadow: none; }
@@ -835,6 +842,73 @@ StScrollBar {
   }
 
   .screencast-indicator { color: $warning_color; }
+}
+
+
+/**************
+ * Bottom Bar *
+ **************/
+
+.bottom-panel {
+  height: 2.25em;
+
+  // inverted orientations for underlines
+  .panel-button {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 -2px 0 $osd_fill_color;
+    }
+    &:active,
+    &:focus,
+    &:checked,
+    &:overview {
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 -2px 0 $osd_indicator_color;
+    }
+  }
+}
+
+
+/**************************
+ * Window-List Extenstion *
+ **************************/
+
+.window-list {
+  spacing: 2px;
+  font-size: 1em;
+}
+
+.window-button > StWidget {
+  padding: 3px 6px 1px;
+  border-radius: 0;
+  -st-natural-width: 18.75em;
+  max-width: 18.75em;
+  background-color: $panel_bg_color;
+  color: $osd_fg_color;
+}
+
+.window-button:hover > StWidget {
+  color: $selected_fg_color;
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: inset 0 -2px 0 $osd_fill_color;
+}
+.window-button:active > StWidget,
+.window-button:focus > StWidget,
+.window-button:focused > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: inset 0 -2px 0 $osd_indicator_color;
+}
+
+.window-button.minimized > StWidget { color: $osd_secondary_fg_color; }
+.window-button.minimized:active > StWidget {
+  color: $selected_fg_color;
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: inset 0 -2px 0 $osd_indicator_color;
+}
+
+.window-list-workspace-indicator > StWidget {
+  background-color: rgba(200, 200, 200, .3);
+  border: 1px solid #cccccc;
 }
 
 
