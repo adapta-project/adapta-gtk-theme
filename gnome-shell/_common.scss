@@ -88,14 +88,14 @@ stage {
   }
   &:insensitive { @include button(flat-insensitive); }
 
-  &:first-child { border-radius: 0px 0px 0px 2px; }
+  &:first-child { border-radius: 0 0 0 2px; }
   &:last-child {
-    border-right-width: 0px;
-    border-radius: 0px 0px 2px 0px;
+    border-right-width: 0;
+    border-radius: 0 0 2px 0;
   }
   &:first-child:last-child {
-    border-right-width: 0px;
-    border-radius: 0px 0px 2px 2px;
+    border-right-width: 0;
+    border-radius: 0 0 2px 2px;
   }
 }
 
@@ -151,7 +151,8 @@ StScrollBar {
     margin: 4px;
     border-radius: 100px;
     background-color: scale-color($fg_color, $alpha: -40%);
-    //border: 4px solid transparent; //would be nice to margin or at least to transparent
+    // would be nice to margin or at least to transparent
+    // border: 4px solid transparent;
     &:hover { background-color: scale-color($fg_color, $alpha: -20%); }
     &:active { background-color: scale-color($fg_color, $alpha: -0%); }
   }
@@ -218,8 +219,14 @@ StScrollBar {
 .shell-link {
   border-radius: 2px;
   color: $link_color;
-  &:hover { color: $link_color; background-color: transparentize($link_color, 0.9); }
-  &:active { color: $link_color; background-color: transparentize($link_color, 0.8); }
+  &:hover {
+    color: $link_color;
+    background-color: transparentize($link_color, 0.9);
+  }
+  &:active {
+    color: $link_color;
+    background-color: transparentize($link_color, 0.8);
+  }
 }
 
 
@@ -240,7 +247,11 @@ StScrollBar {
 
   .modal-dialog-content-box { padding: 24px; }
 
-  .run-dialog-entry { width: 20em; margin-bottom: 6px; }
+  .run-dialog-entry {
+    width: 20em;
+    margin-bottom: 6px;
+  }
+
   .run-dialog-error-box {
     padding-top: 16px;
     spacing: 6px;
@@ -351,7 +362,7 @@ StScrollBar {
 
 .show-processes-dialog-subject:rtl,
 .mount-question-dialog-subject:rtl {
-  padding-left: 0px;
+  padding-left: 0;
   padding-right: 17px;
 }
 
@@ -531,7 +542,10 @@ StScrollBar {
   }
 
   // dunno what that is
-  // .popup-status-menu-item { font-weight: normal;  color: pink; }
+  // .popup-status-menu-item {
+  //   font-weight: normal;
+  //   color: pink;
+  // }
 
   &.panel-menu {
     -boxpointer-gap: 4px;
@@ -553,7 +567,7 @@ StScrollBar {
   -arrow-border-color: transparent;
   -arrow-base: 0;
   -arrow-rise: 0;
-  -arrow-box-shadow: none; //dreaming. bug #689995
+  -arrow-box-shadow: none; // dreaming. bug #689995
   margin: 5px 8px 8px;
   border-radius: 2px;
   background-color: $bg_color;
@@ -562,7 +576,7 @@ StScrollBar {
 
 .popup-separator-menu-item {
   //-margin-horizontal: 24px;
-  height: 1px; //not really the whole box
+  height: 1px; // not really the whole box
   margin: 6px 64px;
   border-color: $borders_color;
   border-bottom-width: 1px;
@@ -571,7 +585,10 @@ StScrollBar {
 }
 
 // Background menu
-.background-menu { -boxpointer-gap: 4px; -arrow-rise: 0px; }
+.background-menu {
+  -boxpointer-gap: 4px;
+  -arrow-rise: 0;
+}
 
 // Fallback menu
 // odd thing for styling App menu when apparently not running under shell.
@@ -753,11 +770,13 @@ StScrollBar {
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
 
-    &:active, &:overview, &:focus {
-      -panel-corner-border-color: $osd_indicator_color;
-    }
+    &:active,
+    &:overview,
+    &:focus { -panel-corner-border-color: $osd_indicator_color; }
 
-    &.lock-screen, &.login-screen, &.unlock-screen {
+    &.lock-screen,
+    &.login-screen,
+    &.unlock-screen {
       -panel-corner-radius: 0;
       -panel-corner-background-color: transparent;
       -panel-corner-border-color: transparent;
@@ -782,22 +801,31 @@ StScrollBar {
       color: $selected_fg_color;
     }
 
-    &:active, &:overview, &:focus, &:checked {
+    &:active,
+    &:focus,
+    &:checked,
+    &:overview {
       // Trick due to St limitations. It needs a background to draw
       // a box-shadow
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0px $osd_indicator_color;
+      box-shadow: inset 0 -2px 0 $osd_indicator_color;
       color: $selected_fg_color;
 
       & > .system-status-icon { icon-shadow: none; }
     }
 
-    .system-status-icon { icon-size: 1.09em; padding: 0 5px; }
+    .system-status-icon {
+      icon-size: 1.09em;
+      padding: 0 5px;
+    }
+
     .unlock-screen &,
     .login-screen &,
     .lock-screen & {
       color: $osd_fg_color;
-      &:focus, &:hover, &:active { color: $selected_fg_color; }
+      &:focus,
+      &:hover,
+      &:active { color: $selected_fg_color; }
     }
   }
 
@@ -843,7 +871,11 @@ StScrollBar {
 .datemenu-today-button,
 .world-clocks-button,
 .message-list-section-title {
-  &:hover,&:focus { color: $fg_color; background-color: $semi_fill_color; }
+  &:hover,
+  &:focus {
+    color: $fg_color;
+    background-color: $semi_fill_color;
+  }
   &:active {
     color: $fg_color;
     background-color: $fill_color;
@@ -876,7 +908,8 @@ StScrollBar {
   border-radius: 32px;
   color: $fg_color;
   background-color: transparent;
-  &:hover, &:focus { background-color: $semi_fill_color; }
+  &:hover,
+  &:focus { background-color: $semi_fill_color; }
   &:active { background-color: $fill_color; }
 }
 
@@ -990,8 +1023,8 @@ StScrollBar {
 }
 
 .message-icon-bin {
-  padding: 8px 0px 8px 8px;
-  &:rtl { padding: 8px 8px 8px 0px; }
+  padding: 8px 0 8px 8px;
+  &:rtl { padding: 8px 8px 8px 0; }
 
   & > StIcon { icon-size: 32px; }
 }
@@ -1208,7 +1241,7 @@ StScrollBar {
   // For window decorations with round corners we can't match
   // the exact shape when the window is scaled. So apply a shadow
   // to fix that case
-  box-shadow: inset 0px 0px 0px 1px $osd_fill_color;
+  box-shadow: inset 0 0 0 1px $osd_fill_color;
 }
 
 .window-caption {
@@ -1447,7 +1480,7 @@ StScrollBar {
   padding: 7px 32px 8px;
   font-weight: bold;
   color: $secondary_fg_color;
-  box-shadow: inset 0 1px 0px $fill_color;
+  box-shadow: inset 0 1px 0 $fill_color;
   &:hover {
     color: $osd_fg_color;
     background-color: $fill_color !important;
@@ -1455,12 +1488,12 @@ StScrollBar {
   &:active {
     color: $osd_fg_color;
     background-color: $osd_fill_color !important;
-    box-shadow: inset 0 2px 0px $osd_indicator_color;
+    box-shadow: inset 0 2px 0 $osd_indicator_color;
   }
   &:checked {
     color: $osd_fg_color;
     background-color: rgba(0, 0, 0, 0.01) !important;
-    box-shadow: inset 0 2px 0px $osd_indicator_color;
+    box-shadow: inset 0 2px 0 $osd_indicator_color;
   }
   &:first-child {
     border-right-width: 0;
@@ -1606,15 +1639,15 @@ StScrollBar {
  * Workspace pager *
  *******************/
 
-.workspace-thumbnails { //container ala dash
+.workspace-thumbnails { // container ala dash
   @extend %overview-panel;
-  visible-width: 32px; //amount visible before hover
+  visible-width: 32px; // amount visible before hover
   spacing: 12px;
   padding: 12px;
   border-radius: 2px 0 0 2px;
-  //border-width: 0; //fixme: can't have non unoform borders :(
+  //border-width: 0; // FIXME: can't have non unoform borders :(
 
-  &:rtl { border-radius: 0 2px 2px 0;}
+  &:rtl { border-radius: 0 2px 2px 0; }
 }
 
 .workspace-thumbnail-indicator {
@@ -1688,7 +1721,10 @@ StScrollBar {
   &:focus { background-color: $bg_color; }
 
   .notification-icon { padding: 5px; }
-  .notification-content { padding: 5px; spacing: 5px; }
+  .notification-content {
+    padding: 5px;
+    spacing: 5px;
+  }
   .secondary-icon { icon-size: 1.09em; }
   .notification-actions {
     padding-top: 0;
@@ -1954,7 +1990,7 @@ $legacy_icon_size: 24px;
   border-right-width: 0;
 }
 
-.candidate-page-button-next { border-radius: 2px;  }
+.candidate-page-button-next { border-radius: 2px; }
 .candidate-page-button-icon { icon-size: 1.09em; }
 
 
@@ -2018,14 +2054,17 @@ $legacy_icon_size: 24px;
   }
 }
 
-.login-dialog-logo-bin { padding: 24px 0px; }
+.login-dialog-logo-bin { padding: 24px 0; }
 .login-dialog-banner { color: $osd_secondary_fg_color; }
 .login-dialog-button-box { spacing: 5px; }
 .login-dialog-message-warning { color: $warning_color; }
-.login-dialog-message-hint { padding-top: 0; padding-bottom: 20px; }
+.login-dialog-message-hint {
+  padding-top: 0;
+  padding-bottom: 20px;
+}
 
 .login-dialog-user-selection-box {
-  padding: 100px 0px;
+  padding: 100px 0;
 
   .login-dialog-not-listed-label {
     padding-left: 2px;
@@ -2184,11 +2223,11 @@ $legacy_icon_size: 24px;
 
 
 .screen-shield-notification-label {
-  padding: 0px 0px 0px 12px;
+  padding: 0 0 0 12px;
   font-weight: bold;
 }
 
-.screen-shield-notification-count-text { padding: 0px 0px 0px 12px; }
+.screen-shield-notification-count-text { padding: 0 0 0 12px; }
 
 #panel.lock-screen { background-color: $osd_bg_color; }
 
@@ -2229,7 +2268,7 @@ $legacy_icon_size: 24px;
     border: none;
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0.01);
-    box-shadow: inset 0 -1px 0px $borders_color;
+    box-shadow: inset 0 -1px 0 $borders_color;
   }
 
   .labels { spacing: 0; }
@@ -2251,7 +2290,7 @@ $legacy_icon_size: 24px;
       border-bottom-width: 0;
       border-color: transparent;
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0px $selected_bg_color;
+      box-shadow: inset 0 -2px 0 $selected_bg_color;
       color: $fg_color;
       text-shadow: none;
     }
