@@ -948,8 +948,8 @@ GtkComboBox {
   &:backdrop { opacity: 1.0; }  // fully opaque
 
   // basic text colours
+  color: $inverted_secondary_fg_color;
   .label { // FIXME: only for insensitive state!
-    // color: $inverted_secondary_fg_color;
     // &:hover { color: $inverted_fg_color; }
     // &:focus,
     // &:active,
@@ -1077,6 +1077,31 @@ GtkComboBox {
       &:insensitive { color: $insensitive_fg_color; }
     }
   }
+
+  // switch styling
+  GtkSwitch {
+    &.trough {
+      background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
+      &:active {
+        background-color: gtkopacity($selected_bg_color, 0.2);
+        &:insensitive { background-color: gtkopacity($selected_bg_color, 0.2); }
+      }
+      &:insensitive {
+        color: $insensitive_inverted_fg_color;
+        background-color: $track_color;
+      }
+    }
+
+    &.slider {
+      background-color: $inverted_dark_color;
+      &:active {
+        background-color: $selected_bg_color;
+        &:insensitive { background-color: #3F4E56; }
+      }
+      &:insensitive { background-color: #3F4E56; }
+    }
+  }
+
 
   // selection-mode styling
   &.selection-mode {
