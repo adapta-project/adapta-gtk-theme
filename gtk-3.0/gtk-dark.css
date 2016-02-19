@@ -913,33 +913,45 @@ GtkComboBox {
     .titlebar .button:not(.suggested-action):not(.destructive-action):backdrop,
     .header-bar .button:not(.suggested-action):not(.destructive-action):backdrop {
       opacity: 0.5; }
+  .titlebar .button,
   .titlebar .button.suggested-action,
   .titlebar .button.destructive-action,
+  .header-bar .button,
   .header-bar .button.suggested-action,
   .header-bar .button.destructive-action {
     color: rgba(236, 239, 241, 0.75); }
+    .titlebar .button:hover,
     .titlebar .button.suggested-action:hover,
     .titlebar .button.destructive-action:hover,
+    .header-bar .button:hover,
     .header-bar .button.suggested-action:hover,
     .header-bar .button.destructive-action:hover {
       color: #ECEFF1; }
+    .titlebar .button:checked,
     .titlebar .button.suggested-action:checked,
     .titlebar .button.destructive-action:checked,
+    .header-bar .button:checked,
     .header-bar .button.suggested-action:checked,
     .header-bar .button.destructive-action:checked {
       color: #ECEFF1; }
+      .titlebar .button:checked:insensitive,
       .titlebar .button.suggested-action:checked:insensitive,
       .titlebar .button.destructive-action:checked:insensitive,
+      .header-bar .button:checked:insensitive,
       .header-bar .button.suggested-action:checked:insensitive,
       .header-bar .button.destructive-action:checked:insensitive {
         color: rgba(236, 239, 241, 0.3); }
+    .titlebar .button:insensitive,
     .titlebar .button.suggested-action:insensitive,
     .titlebar .button.destructive-action:insensitive,
+    .header-bar .button:insensitive,
     .header-bar .button.suggested-action:insensitive,
     .header-bar .button.destructive-action:insensitive {
       color: rgba(236, 239, 241, 0.225); }
+    .titlebar .button:backdrop,
     .titlebar .button.suggested-action:backdrop,
     .titlebar .button.destructive-action:backdrop,
+    .header-bar .button:backdrop,
     .header-bar .button.suggested-action:backdrop,
     .header-bar .button.destructive-action:backdrop {
       opacity: 0.5; }
@@ -1440,7 +1452,7 @@ column-header.button.dnd, column-header .button.dnd {
         background-color: #455A64;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
     .notebook tab .label {
-      padding: 0.1em;
+      padding: 0.6em;
       font-weight: bold;
       color: rgba(236, 239, 241, 0.6); }
     .notebook tab .prelight-page .label, .notebook tab .label.prelight-page {

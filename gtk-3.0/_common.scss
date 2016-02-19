@@ -1004,10 +1004,11 @@ GtkComboBox {
         > .label { color: inherit; }
       }
     }
-    &:insensitive {color: $insensitive_inverted_secondary_fg_color; }
+    &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     &:backdrop { opacity: 0.5; }
   }
 
+  .button,
   .button.suggested-action,
   .button.destructive-action {
     color: $inverted_secondary_fg_color;
@@ -1016,7 +1017,7 @@ GtkComboBox {
       color: $inverted_fg_color;
       &:insensitive { color: $insensitive_inverted_fg_color; }
     }
-    &:insensitive {color: $insensitive_inverted_secondary_fg_color; }
+    &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     &:backdrop { opacity: 0.5; }
   }
 
@@ -1592,7 +1593,10 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
 
     .label { // tab text
-      padding: 0.1em; // needed for a nicer focus ring
+      // needed for a nicer focus ring
+      // and to prevent unexpected offset on reorderable-page,
+      // set larger padding than .button > GtkImage?
+      padding: 0.6em;
       font-weight: bold;
       color: $tertiary_fg_color;
     }
