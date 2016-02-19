@@ -647,8 +647,8 @@ StScrollBar {
 }
 
 .switcher-list .item-box:selected {
-  background-color: $selected_bg_color;
-  color: $selected_fg_color;
+  background-color: scale-color($warning_color, $alpha: -85%);
+  color: $warning_color;
 }
 
 .switcher-list .thumbnail-box {
@@ -2041,12 +2041,9 @@ $legacy_icon_size: 24px;
     background-color: $semi_fill_color;
     color: $fg_color;
   }
-  &:active {
-    background-color: $fill_color;
-    color: $fg_color;
-  }
+  &:active,
   &:selected {
-    background-color: $selected_bg_color;
+    background-color: $fill_color;
     color: $selected_fg_color;
   }
 }
@@ -2057,7 +2054,18 @@ $legacy_icon_size: 24px;
   .horizontal & { padding-left: 0.5em; }
 }
 
-.candidate-page-button { padding: 4px; }
+.candidate-page-button {
+  padding: 4px;
+  color: $warning_color;
+  &:hover {
+    background-color: scale-color($warning_color, $alpha: -85%);
+    color: $warning_color;
+  }
+  &:active {
+    background-color: $warning_color;
+    color: $selected_fg_color;
+  }
+}
 
 .candidate-page-button-previous {
   border-radius: 2px;
