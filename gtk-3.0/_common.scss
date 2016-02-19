@@ -945,10 +945,22 @@ GtkComboBox {
   border-radius: 2px 2px 0 0;
   background-color: $inverted_dark_color;
   background-clip: border-box;
+  &:backdrop { opacity: 1.0; }  // fully opaque
 
-  // fully opaque
-  &:backdrop { opacity: 1.0; }
+  // basic text colours
+  .label { // FIXME: only for insensitive state!
+    // color: $inverted_secondary_fg_color;
+    // &:hover { color: $inverted_fg_color; }
+    // &:focus,
+    // &:active,
+    &:checked {
+      // color: $selected_fg_color;
+      &:insensitive { color: $insensitive_inverted_fg_color; }
+    }
+    &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+  }
 
+  // titles
   .title {
     padding-left: 1em;
     padding-right: 1em;
@@ -966,6 +978,7 @@ GtkComboBox {
     &:backdrop { opacity: 0.5; }
   }
 
+  // separator
   .header-bar-separator,
   & > GtkBox > .separator.vertical {
     // -GtkWidget-wide-separators: true;
@@ -974,6 +987,7 @@ GtkComboBox {
     color: transparent;
   }
 
+  // button styling
   .button:not(.suggested-action):not(.destructive-action) {
     @extend .button.flat;
     border-image: -gtk-gradient(radial,
@@ -1035,6 +1049,7 @@ GtkComboBox {
     }
   }
 
+  // entry styling
   .entry {
     color: $inverted_secondary_fg_color;
     &:focus { color: $inverted_fg_color; }
@@ -1042,6 +1057,28 @@ GtkComboBox {
     &:backdrop { opacity: 0.5; }
   }
 
+  // menu styling
+  .menu .menuitem { // reset text colour
+    color: $secondary_fg_color;
+    &:hover { color: $fg_color; }
+    .label {
+      &:insensitive { color: $insensitive_fg_color; }
+    }
+    .accelerator { color: gtkalpha(currentColor, 0.6); }
+    .separator { color: $borders_color; }
+  }
+
+  // pop-over styling
+  .popover .button.flat {
+    color: $secondary_fg_color;
+    &:hover { color: $fg_color; }
+    .label {
+      &:hover { color: $fg_color; }
+      &:insensitive { color: $insensitive_fg_color; }
+    }
+  }
+
+  // selection-mode styling
   &.selection-mode {
     box-shadow: inset 0 1px gtkopacity(white, 0.2);
     background-color: $selection_color;
@@ -1104,6 +1141,7 @@ GtkComboBox {
     }
   }
 
+  // misc
   .tiled &,
   .maximized & {
     border-radius: 0; // squared corners when the window is max'd or tiled
