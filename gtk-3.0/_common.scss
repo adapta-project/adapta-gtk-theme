@@ -686,19 +686,48 @@ GtkButtonBox > .button {
  *****************/
 
 .spinbutton {
-  .button {
+  .button,
+  .osd & .button {
     padding: 0.35em;
     border: solid 0.35em transparent;
-    @extend %image_button;
-    // @extend .button.flat;
-    @include button(flat);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:insensitive { @include button(flat-insensitive); }
-  }
-
-  .osd & {
-    .button {
+    border-radius: 100px;
+    outline-radius: 100px;
+    background: none;
+    box-shadow: none;
+    color: $secondary_fg_color;
+    &:not(last-child) { // '-' button
+      &:hover {
+        @include button(flat-hover);
+        background: none;
+        color: $error_color;
+      }
+      &:active {
+        @include button(flat-active);
+        background-color: $track_color;
+        color: $error_color;
+      }
+      &:insensitive {
+        @include button(flat-insensitive);
+        background: none;
+        color: $insensitive_fg_color;
+      }
+    }
+    &:last-child { // '+' button
+      &:hover {
+        @include button(flat-hover);
+        background: none;
+        color: $success_color;
+      }
+      &:active {
+        @include button(flat-active);
+        background-color: $track_color;
+        color: $success_color;
+      }
+      &:insensitive {
+        @include button(flat-insensitive);
+        background: none;
+        color: $insensitive_fg_color;
+      }
     }
   }
 
@@ -711,6 +740,43 @@ GtkButtonBox > .button {
       border: solid 0.5em transparent;
       border-radius: 100px;
       outline-radius: 100px;
+      background: none;
+      box-shadow: none;
+      color: $secondary_fg_color;
+      &:first-child { // '+' button
+        &:hover {
+          @include button(flat-hover);
+          background: none;
+          color: $success_color;
+	}
+        &:active {
+          @include button(flat-active);
+          background-color: $track_color;
+          color: $success_color;
+        }
+        &:insensitive {
+          @include button(flat-insensitive);
+          background: none;
+          color: $insensitive_fg_color;
+        }
+      }
+      &:last-child { // '-' button
+        &:hover {
+          @include button(flat-hover);
+          background: none;
+          color: $error_color;
+	}
+        &:active {
+          @include button(flat-active);
+          background-color: $track_color;
+          color: $error_color;
+        }
+        &:insensitive {
+          @include button(flat-insensitive);
+          background: none;
+          color: $insensitive_fg_color;
+        }
+      }
     }
 
     &.entry {
@@ -2746,44 +2812,84 @@ GtkColorSwatch {
   .osd & .vertical .button,
   & .vertical .button { // +/- buttons on GtkVolumeButton popup
     // padding: 0.8em;
-    background: none;
-    color: $fg_color;
+    border-radius: 100px;
+    outline-radius: 100px;
+    background-color: transparent;
+    color: $secondary_fg_color;
     &:first-child { // '+' button
       &:hover {
+        @include button(flat-hover);
         background: none;
         color: $success_color;
       }
-      &:insensitive { color: gtkalpha($success_color, 0.4); }
+      &:active {
+        @include button(flat-active);
+        background-color: $track_color;
+        color: $success_color;
+      }
+      &:insensitive {
+        @include button(flat-insensitive);
+        background: none;
+        color: gtkalpha($success_color, 0.4);
+      }
     }
     &:last-child { // '-' button
       &:hover {
+        @include button(flat-hover);
         background: none;
         color: $error_color;
       }
-      &:insensitive { color: gtkalpha($error_color, 0.4); }
+      &:active {
+        @include button(flat-active);
+        background-color: $track_color;
+        color: $error_color;
+      }
+      &:insensitive {
+        @include button(flat-insensitive);
+        background: none;
+        color: gtkalpha($error_color, 0.4);
+      }
     }
-    // &:active,
-    // &:hover:active {
-    //   background-color: $track_color;
-    //   color: $warning_color;
-    //   animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    // }
   }
   .osd & .button,
   .button {
+    border-radius: 100px;
+    outline-radius: 100px;
+    background-color: transparent;
+    color: $secondary_fg_color;
     &:first-child { // '-' button
       &:hover {
+        @include button(flat-hover);
         background: none;
         color: $error_color;
       }
-      &:insensitive { color: gtkalpha($error_color, 0.4); }
+      &:active {
+        @include button(flat-active);
+        background-color: $track_color;
+        color: $error_color;
+      }
+      &:insensitive {
+        @include button(flat-insensitive);
+        background: none;
+        color: gtkalpha($error_color, 0.4);
+      }
     }
     &:last-child { // '+' button
       &:hover {
+        @include button(flat-hover);
         background: none;
         color: $success_color;
       }
-      &:insensitive { color: gtkalpha($success_color, 0.4); }
+      &:active {
+        @include button(flat-active);
+        background-color: $track_color;
+        color: $success_color;
+      }
+      &:insensitive {
+        @include button(flat-insensitive);
+        background: none;
+        color: gtkalpha($success_color, 0.4);
+      }
     }
   }
 }
