@@ -946,6 +946,18 @@ GtkComboBox {
   background-color: $inverted_dark_color;
   background-clip: border-box;
 
+  // FIXME: 'Unlock' button on g-c-c's user-manager, unknown style-class!
+  // wildcard is really ugly...
+  & * {
+    color: $inverted_secondary_fg_color;
+    &:hover { color: $inverted_fg_color; }
+    &:focus,
+    &:active,
+    &:checked { color: $selected_fg_color; }
+    &:active:insensitive { color: $insensitive_inverted_fg_color; }
+    &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+  }
+
   // fully opaque
   &:backdrop { opacity: 1.0; }
 
@@ -993,7 +1005,7 @@ GtkComboBox {
                                   0 0 2 / 0 0 2px;
       // box-shadow: inset 0 -2px $selected_bg_color;
       background-color: transparent;
-      color: $inverted_fg_color;
+      color: $selected_fg_color;
       // transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
       //             box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
       //             color 0;
@@ -1014,7 +1026,7 @@ GtkComboBox {
     color: $inverted_secondary_fg_color;
     &:hover { color: $inverted_fg_color; }
     &:checked {
-      color: $inverted_fg_color;
+      color: $selected_fg_color;
       &:insensitive { color: $insensitive_inverted_fg_color; }
     }
     &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
@@ -1037,7 +1049,7 @@ GtkComboBox {
 
   .entry {
     color: $inverted_secondary_fg_color;
-    &:focus { color: $inverted_fg_color; }
+    &:focus { color: $selected_fg_color; }
     &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     &:backdrop { opacity: 0.5; }
   }
@@ -2503,7 +2515,7 @@ GtkInfoBar {
   border-style: solid;
   // do not use transparentize
   border-color: if($variant=='light', #E1E2E3, #242F35);
-  backgound-color: $secondary_dark_color;
+  background-color: $secondary_dark_color;
 }
 
 .info,
