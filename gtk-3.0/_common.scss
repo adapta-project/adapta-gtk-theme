@@ -2988,17 +2988,31 @@ GtkVolumeButton.button {
   }
 }
 
-// Window Close button
-.header-bar .button.titlebutton,
-.titlebar .button.titlebutton {
-  // @extend .button.flat;
-  @extend %image_button;
-  // &:backdrop { opacity: 0.5; }
-}
+// Window manager buttons
+.header-bar,
+.titlebar {
+  & .button.titlebutton,
+  &.selection-mode .button.titlebutton {
+    // @extend .button.flat;
+    @extend %image_button;
+    // &:backdrop { opacity: 0.5; }
 
-.header-bar.selection-mode .button.titlebutton,
-.titlebar.selection-mode .button.titlebutton {
-  // &:backdrop { opacity: 0.5; }
+    // raised 'Close' button
+    &.close {
+      &:hover {
+        color: $selected_fg_color;
+        background-color: $destructive_color;
+	box-shadow: $z-depth-2,
+                    inset 0 1px $inverted_highlight_color;
+      }
+      &:active {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+	box-shadow: $z-depth-2,
+                    inset 0 1px $inverted_highlight_color;
+      }
+    }
+  }
 }
 
 

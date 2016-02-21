@@ -643,8 +643,9 @@ GtkTextView {
       box-shadow: inset -1px 0 alpha(currentColor, 0.2); }
 
 .button.image-button, .inline-toolbar .button, .notebook tab .button, GtkScaleButton.button,
-GtkVolumeButton.button, .header-bar .button.titlebutton,
-.titlebar .button.titlebutton {
+GtkVolumeButton.button, .header-bar .button.titlebutton, .header-bar.selection-mode .button.titlebutton,
+.titlebar .button.titlebutton,
+.titlebar.selection-mode .button.titlebutton {
   padding: 1em;
   outline-radius: 100px;
   border-radius: 100px;
@@ -3467,6 +3468,19 @@ GtkVolumeButton.button {
     background-color: #FF9800;
     border: solid 1px rgba(0, 0, 0, 0.12);
     box-shadow: none; }
+
+.header-bar .button.titlebutton.close:hover, .header-bar.selection-mode .button.titlebutton.close:hover,
+.titlebar .button.titlebutton.close:hover,
+.titlebar.selection-mode .button.titlebutton.close:hover {
+  color: #FFFFFF;
+  background-color: #FF5252;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.05); }
+.header-bar .button.titlebutton.close:active, .header-bar.selection-mode .button.titlebutton.close:active,
+.titlebar .button.titlebutton.close:active,
+.titlebar.selection-mode .button.titlebutton.close:active {
+  color: #FFFFFF;
+  background-color: #00BCD4;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.05); }
 
 .view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
