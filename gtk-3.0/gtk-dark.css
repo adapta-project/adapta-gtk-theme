@@ -660,7 +660,7 @@ GtkVolumeButton.button, .header-bar .button.titlebutton, .header-bar.selection-m
   .stack-switcher > .button.needs-attention > .label:dir(rtl), .stack-switcher > .button.needs-attention > GtkImage:dir(rtl), .sidebar-item.needs-attention > .label:dir(rtl) {
     background-position: left 3px; }
 
-.linked > .button:not(.flat):not(only-child), .linked > .button, .linked > .button .image-button, .linked > .button .text-button, .linked > GtkComboBox > .the-button-in-the-combobox:dir(ltr), .linked > GtkComboBox > .the-button-in-the-combobox:dir(rtl),
+.linked > .button:not(.flat):not(:only-child), .linked > .button, .linked > .button .image-button, .linked > .button .text-button, .linked > GtkComboBox > .the-button-in-the-combobox:dir(ltr), .linked > GtkComboBox > .the-button-in-the-combobox:dir(rtl),
 .linked > GtkComboBoxText > .the-button-in-the-combobox:dir(ltr),
 .linked > GtkComboBoxText > .the-button-in-the-combobox:dir(rtl), .linked > GtkComboBox:first-child > .the-button-in-the-combobox,
 .linked > GtkComboBoxText:first-child > .the-button-in-the-combobox,
@@ -670,7 +670,7 @@ GtkVolumeButton.button, .header-bar .button.titlebutton, .header-bar.selection-m
 .linked > GtkComboBoxText:only-child > .the-button-in-the-combobox {
   border-radius: 0; }
 
-.linked.vertical > .button:not(only-child), .linked.vertical > .button, .linked.vertical > .button .image-button, .linked.vertical > .button .text-button, .linked.vertical > GtkComboBoxText > .the-button-in-the-combobox,
+.linked.vertical > .button:not(:only-child), .linked.vertical > .button, .linked.vertical > .button .image-button, .linked.vertical > .button .text-button, .linked.vertical > GtkComboBoxText > .the-button-in-the-combobox,
 .linked.vertical > GtkComboBox > .the-button-in-the-combobox,
 .linked.vertical > GtkComboBoxText:first-child > .the-button-in-the-combobox,
 .linked.vertical > GtkComboBox:first-child > .the-button-in-the-combobox,
@@ -736,17 +736,17 @@ GtkButtonBox > .button {
   background: none;
   box-shadow: none;
   color: rgba(236, 239, 241, 0.75); }
-  .spinbutton .button:not(last-child):hover, .osd .spinbutton .button:not(last-child):hover {
+  .spinbutton .button:not(:last-child):hover, .osd .spinbutton .button:not(:last-child):hover {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     background: none;
     color: #F44336; }
-  .spinbutton .button:not(last-child):active, .osd .spinbutton .button:not(last-child):active {
+  .spinbutton .button:not(:last-child):active, .osd .spinbutton .button:not(:last-child):active {
     box-shadow: none;
     animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     background-color: alpha(currentColor, 0.2);
     color: #F44336; }
-  .spinbutton .button:not(last-child):insensitive, .osd .spinbutton .button:not(last-child):insensitive {
+  .spinbutton .button:not(:last-child):insensitive, .osd .spinbutton .button:not(:last-child):insensitive {
     box-shadow: none;
     background-color: transparent;
     background: none;

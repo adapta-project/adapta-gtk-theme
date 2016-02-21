@@ -445,7 +445,7 @@ GtkTextView { // This will get overridden by .view,
 
   // mimic tab-switcher-ish button array
   // horizontal array
-  .linked > &:not(.flat):not(only-child) { @extend %linked_middle; }
+  .linked > &:not(.flat):not(:only-child) { @extend %linked_middle; }
   .linked > &,
   .linked > & .image-button,
   .linked > & .text-button {
@@ -453,7 +453,7 @@ GtkTextView { // This will get overridden by .view,
     @extend %button_array;
   }
   // vertical array
-  .linked.vertical > &:not(only-child) { @extend %linked_vertical_middle; }
+  .linked.vertical > &:not(:only-child) { @extend %linked_vertical_middle; }
   .linked.vertical > &,
   .linked.vertical > & .image-button,
   .linked.vertical > & .text-button {
@@ -695,7 +695,7 @@ GtkButtonBox > .button {
     background: none;
     box-shadow: none;
     color: $secondary_fg_color;
-    &:not(last-child) { // '-' button
+    &:not(:last-child) { // '-' button
       &:hover {
         @include button(flat-hover);
         background: none;
