@@ -3472,15 +3472,24 @@ GtkVolumeButton.button {
 .header-bar .button.titlebutton.close:hover, .header-bar.selection-mode .button.titlebutton.close:hover,
 .titlebar .button.titlebutton.close:hover,
 .titlebar.selection-mode .button.titlebutton.close:hover {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.05);
+  background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+  color: #263238;
   color: #FFFFFF;
-  background-color: #FF5252;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.05); }
+  background-color: #FF5252; }
 .header-bar .button.titlebutton.close:active, .header-bar.selection-mode .button.titlebutton.close:active,
 .titlebar .button.titlebutton.close:active,
 .titlebar.selection-mode .button.titlebutton.close:active {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.05);
+  color: #263238;
+  transition-duration: 0;
+  animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   color: #FFFFFF;
-  background-color: #00BCD4;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.05); }
+  background-color: #00BCD4; }
+.header-bar .button.titlebutton.close:backdrop, .header-bar.selection-mode .button.titlebutton.close:backdrop,
+.titlebar .button.titlebutton.close:backdrop,
+.titlebar.selection-mode .button.titlebutton.close:backdrop {
+  opacity: 0.5; }
 
 .view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,

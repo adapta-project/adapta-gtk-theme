@@ -2995,22 +2995,20 @@ GtkVolumeButton.button {
   &.selection-mode .button.titlebutton {
     // @extend .button.flat;
     @extend %image_button;
-    // &:backdrop { opacity: 0.5; }
 
     // raised 'Close' button
     &.close {
       &:hover {
+        @include button(hover);
         color: $selected_fg_color;
         background-color: $destructive_color;
-	box-shadow: $z-depth-2,
-                    inset 0 1px $inverted_highlight_color;
       }
       &:active {
+        @include button(active);
         color: $selected_fg_color;
         background-color: $selected_bg_color;
-	box-shadow: $z-depth-2,
-                    inset 0 1px $inverted_highlight_color;
       }
+      &:backdrop { opacity: 0.5; }
     }
   }
 }
