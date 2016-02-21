@@ -3652,8 +3652,11 @@ PanelToplevel {
   color: rgba(236, 239, 241, 0.75);
   background-color: #000000; }
   PanelWidget:backdrop,
+  PanelWidget *:backdrop,
   PanelApplet:backdrop,
-  PanelToplevel:backdrop {
+  PanelApplet *:backdrop,
+  PanelToplevel:backdrop,
+  PanelToplevel *:backdrop {
     opacity: 1.0; }
 
 PanelSeparator {
@@ -3716,9 +3719,13 @@ PanelApplet GtkButton#tasklist-button, PanelApplet GtkButton#clock-applet-button
   background-color: transparent;
   border: none;
   border-radius: 0; }
-  PanelApplet GtkButton#tasklist-button:hover, PanelApplet GtkButton#tasklist-button:checked, PanelApplet GtkButton#tasklist-button:insensitive:checked, PanelApplet GtkButton#clock-applet-button:hover, PanelApplet GtkButton#clock-applet-button:checked, PanelApplet GtkButton#clock-applet-button:insensitive:checked, PanelApplet GtkButton#showdesktop-button:hover, PanelApplet GtkButton#showdesktop-button:checked, PanelApplet GtkButton#showdesktop-button:insensitive:checked {
+  PanelApplet GtkButton#tasklist-button:hover, PanelApplet GtkButton#clock-applet-button:hover, PanelApplet GtkButton#showdesktop-button:hover {
     color: #FFFFFF;
-    background-color: #2a373e;
+    background-color: transparent;
+    box-shadow: inset 0 -2px alpha(currentColor, 0.2); }
+  PanelApplet GtkButton#tasklist-button:checked, PanelApplet GtkButton#tasklist-button:hover:checked, PanelApplet GtkButton#tasklist-button:insensitive:checked, PanelApplet GtkButton#clock-applet-button:checked, PanelApplet GtkButton#clock-applet-button:hover:checked, PanelApplet GtkButton#clock-applet-button:insensitive:checked, PanelApplet GtkButton#showdesktop-button:checked, PanelApplet GtkButton#showdesktop-button:hover:checked, PanelApplet GtkButton#showdesktop-button:insensitive:checked {
+    color: #FFFFFF;
+    background-color: transparent;
     box-shadow: inset 0 -2px #00BCD4; }
   PanelApplet GtkButton#tasklist-button:backdrop, PanelApplet GtkButton#clock-applet-button:backdrop, PanelApplet GtkButton#showdesktop-button:backdrop {
     opacity: 1.0; }
