@@ -1,6 +1,6 @@
 # Bridge | ScionicSpectre
 
-gtk-color-scheme ="base_color:#ffffff\ntext_color:#253238\nbg_color:#fafbfc\nfg_color:#253238\ntooltip_bg_color:#263238\ntooltip_fg_color:#ffffff\nselected_bg_color:#00bcd4\nselected_fg_color:#ffffff"
+gtk-color-scheme="base_color:#FFFFFF\ntext_color:#263238\nbg_color:#FAFBFC\nfg_color:#263238\ntooltip_bg_color:#2A373E\ntooltip_fg_color:#ECEFF1\nselected_bg_color:#00BCD4\nselected_fg_color:#FFFFFF"
 
 gtk-auto-mnemonics = 1
 gtk-primary-button-warps-slider = 1
@@ -38,7 +38,7 @@ style "default" {
 
   GtkScrollbar::trough-border = 0
   GtkRange::trough-border = 0
-  GtkRange::slider-width = 12
+  GtkRange::slider-width = 11
   GtkRange::stepper-size = 0
 
   GtkScrollbar::activate-slider = 1
@@ -2295,9 +2295,12 @@ style "eclipse-tooltips" {
   xthickness = 9
   ythickness = 9
 
-  bg[NORMAL] = @base_color
-  fg[NORMAL] = @text_color
-  bg[SELECTED] = @base_color
+  bg[NORMAL] = @tooltip_bg_color
+  fg[NORMAL] = @tooltip_fg_color
+  bg[SELECTED] = @tooltip_bg_color
+#  bg[NORMAL] = @base_color
+#  fg[NORMAL] = @text_color
+#  bg[SELECTED] = @base_color
 }
 
 # Chromium
