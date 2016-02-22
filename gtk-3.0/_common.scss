@@ -2626,7 +2626,7 @@ GtkPaned.wide { // this is for the paned with wide separator
     border-width: 1px;
   }
 
-  &.vertical .pane-separator { border-style: solid none;}
+  &.vertical .pane-separator { border-style: solid none; }
 }
 
 
@@ -2961,13 +2961,14 @@ GtkVolumeButton.button {
   &.popup { box-shadow: none; }
 
   // server-side decorations as used by mutter
-  &.ssd {// just doing borders, wm draws actual shadows
+  &.ssd { // just doing borders, wm draws actual shadows
     box-shadow: 0 0 0 1px $borders_color;
 
     .titlebar {
-      padding: 0.6em;
       // revive top-edge highlight border
       box-shadow: inset 0 1px $inverted_highlight_color;
+      // control titlebar height with button padding
+      .button.titlebutton { padding: 0.6em; }
     }
   }
 
