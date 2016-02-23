@@ -35,6 +35,8 @@ Work in Progress
 
 TODO
 ----
+* Rewrite and sync 3.19.x branch for Gtk+ 3.19.9 or git master
+* Add Cinnamon theme styling (regardless)
 
 Public License
 --------------
