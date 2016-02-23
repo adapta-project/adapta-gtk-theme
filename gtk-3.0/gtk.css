@@ -322,6 +322,13 @@ GtkTextView {
     color: #00BCD4; }
   .entry.image:insensitive {
     color: alpha(currentColor, 0.6); }
+  GtkTreeView .entry.flat:focus, GtkTreeView .linked > .entry:focus:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus {
+    padding: 1px;
+    border-radius: 0;
+    border-width: 0;
+    background-color: #FFFFFF;
+    color: #263238;
+    box-shadow: none; }
 
 /***********
  * Buttons *
@@ -806,6 +813,13 @@ GtkButtonBox > .button {
       background-color: transparent;
       background: none;
       color: rgba(38, 50, 56, 0.3); }
+GtkTreeView .spinbutton.entry:focus {
+  padding: 1px;
+  border-radius: 0;
+  border-width: 0;
+  background-color: #FFFFFF;
+  color: #263238;
+  box-shadow: none; }
 
 /**************
  * ComboBoxes *
@@ -3496,28 +3510,28 @@ GtkVolumeButton.button {
 .titlebar.selection-mode .button.titlebutton.close:backdrop {
   opacity: 0.5; }
 
-.view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
+.view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, GtkTreeView .entry.flat:focus:selected, GtkTreeView .linked > .entry:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
 .question .menuitem.button:selected,
 .warning .menuitem.button:selected,
 .error .menuitem.button:selected, GtkScaleButton.menuitem.button:selected,
 GtkVolumeButton.menuitem.button:selected, GfCandidatePopup .menuitem.button:selected, GfCandidatePopup .menuitem.button:selected:first-child, GfCandidatePopup .menuitem.button:selected:last-child,
-GfCandidatePopup .linked > .menuitem.button:selected, .budgie-session-dialog .menuitem.button:selected, .budgie-polkit-dialog .menuitem.button:selected, .list-row:selected, .tweak-category:selected {
+GfCandidatePopup .linked > .menuitem.button:selected, .budgie-session-dialog .menuitem.button:selected, .budgie-polkit-dialog .menuitem.button:selected, GtkTreeView .spinbutton.entry:focus:selected, .list-row:selected, .tweak-category:selected {
   background-color: #00BCD4;
   color: #FFFFFF; }
-  .view:insensitive:selected, GtkCalendar:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, .menuitem.button.flat:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, GtkButtonBox > .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, .toolbar .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
+  .view:insensitive:selected, GtkCalendar:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, GtkTreeView .entry.flat:insensitive:focus:selected, GtkTreeView .linked > .entry:insensitive:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:insensitive:focus:selected, .menuitem.button.flat:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, GtkButtonBox > .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, .toolbar .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:insensitive:selected, .menuitem.sidebar-button.button:insensitive:selected, .info .menuitem.button:insensitive:selected,
   .question .menuitem.button:insensitive:selected,
   .warning .menuitem.button:insensitive:selected,
   .error .menuitem.button:insensitive:selected, GtkScaleButton.menuitem.button:insensitive:selected,
-  GtkVolumeButton.menuitem.button:insensitive:selected, GfCandidatePopup .menuitem.button:insensitive:selected, .budgie-session-dialog .menuitem.button:insensitive:selected, .budgie-polkit-dialog .menuitem.button:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected {
+  GtkVolumeButton.menuitem.button:insensitive:selected, GfCandidatePopup .menuitem.button:insensitive:selected, .budgie-session-dialog .menuitem.button:insensitive:selected, .budgie-polkit-dialog .menuitem.button:insensitive:selected, GtkTreeView .spinbutton.entry:insensitive:focus:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected {
     color: rgba(38, 50, 56, 0.4); }
-  .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, .menuitem.button.flat:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox > .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, .toolbar .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
+  .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, GtkTreeView .entry.flat:backdrop:insensitive:focus:selected, GtkTreeView .linked > .entry:backdrop:insensitive:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:backdrop:insensitive:focus:selected, .menuitem.button.flat:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox > .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, .toolbar .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:backdrop:insensitive:selected, .menuitem.sidebar-button.button:backdrop:insensitive:selected, .info .menuitem.button:backdrop:insensitive:selected,
   .question .menuitem.button:backdrop:insensitive:selected,
   .warning .menuitem.button:backdrop:insensitive:selected,
   .error .menuitem.button:backdrop:insensitive:selected, GtkScaleButton.menuitem.button:backdrop:insensitive:selected,
-  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, GfCandidatePopup .menuitem.button:backdrop:insensitive:selected, .budgie-session-dialog .menuitem.button:backdrop:insensitive:selected, .budgie-polkit-dialog .menuitem.button:backdrop:insensitive:selected, .list-row:backdrop:insensitive:selected, .tweak-category:backdrop:insensitive:selected {
+  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, GfCandidatePopup .menuitem.button:backdrop:insensitive:selected, .budgie-session-dialog .menuitem.button:backdrop:insensitive:selected, .budgie-polkit-dialog .menuitem.button:backdrop:insensitive:selected, GtkTreeView .spinbutton.entry:backdrop:insensitive:focus:selected, .list-row:backdrop:insensitive:selected, .tweak-category:backdrop:insensitive:selected {
     color: rgba(38, 50, 56, 0.4); }
 
 .monospace {

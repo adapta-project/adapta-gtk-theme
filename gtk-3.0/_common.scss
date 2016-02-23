@@ -287,6 +287,18 @@ GtkTextView { // This will get overridden by .view,
     &:insensitive { color: gtkalpha(currentColor, 0.6); }
   }
 
+  GtkTreeView & { // reset styling inside tree-view
+    &.flat:focus {
+      padding: 1px;
+      border-radius: 0;
+      border-width: 0;
+      background-color: $base_color;
+      color: $fg_color;
+      box-shadow: none;
+      &:selected { @extend %selected_items; }
+    }
+  }
+
   .osd & {
   }
 }
@@ -783,14 +795,15 @@ GtkButtonBox > .button {
     }
   }
 
-  GtkTreeView & {
-    &.entry,
+  GtkTreeView & { // reset styling inside tree-view
     &.entry:focus {
-      // padding: 1px;
-      // border-width: 1px 0;
-      // border-color: $selected_bg_color;
-      // border-radius: 0;
-      // box-shadow: none;
+      padding: 1px;
+      border-radius: 0;
+      border-width: 0;
+      background-color: $base_color;
+      color: $fg_color;
+      box-shadow: none;
+      &:selected { @extend %selected_items; }
     }
   }
 }
