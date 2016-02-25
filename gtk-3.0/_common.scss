@@ -1101,6 +1101,7 @@ GtkComboBox {
   }
 
   .button,
+  .linked > .button,
   .button.suggested-action,
   .button.destructive-action {
     color: $inverted_secondary_fg_color;
@@ -1128,11 +1129,36 @@ GtkComboBox {
   }
 
   // entry styling
-  .entry {
+  .entry,
+  .linked > .entry {
     color: $inverted_secondary_fg_color;
     &:focus { color: $inverted_fg_color; }
     &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     &:backdrop { opacity: 0.5; }
+  }
+
+  // combobox styling
+  GtkComboBox,
+  .linked > GtkComboBox {
+    &.combobox-entry {
+      .entry {
+        color: $inverted_secondary_fg_color;
+        &:focus { color: $inverted_fg_color; }
+        &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+        &:backdrop { opacity: 0.5; }
+      }
+      .button,
+      > .the-button-in-the-combobox & {
+        color: $inverted_secondary_fg_color;
+        &:hover { color: $inverted_fg_color; }
+        &:checked {
+          color: $inverted_fg_color;
+          &:insensitive { color: $insensitive_inverted_fg_color; }
+        }
+        &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+        &:backdrop { opacity: 0.5; }
+      }
+    }
   }
 
   // menu styling

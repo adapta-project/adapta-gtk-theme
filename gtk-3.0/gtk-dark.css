@@ -991,44 +991,56 @@ GtkComboBox {
     .header-bar .button:not(.suggested-action):not(.destructive-action):backdrop {
       opacity: 0.5; }
   .titlebar .button,
+  .titlebar .linked > .button,
   .titlebar .button.suggested-action,
   .titlebar .button.destructive-action,
   .header-bar .button,
+  .header-bar .linked > .button,
   .header-bar .button.suggested-action,
   .header-bar .button.destructive-action {
     color: rgba(236, 239, 241, 0.75); }
     .titlebar .button:hover,
+    .titlebar .linked > .button:hover,
     .titlebar .button.suggested-action:hover,
     .titlebar .button.destructive-action:hover,
     .header-bar .button:hover,
+    .header-bar .linked > .button:hover,
     .header-bar .button.suggested-action:hover,
     .header-bar .button.destructive-action:hover {
       color: #ECEFF1; }
     .titlebar .button:checked,
+    .titlebar .linked > .button:checked,
     .titlebar .button.suggested-action:checked,
     .titlebar .button.destructive-action:checked,
     .header-bar .button:checked,
+    .header-bar .linked > .button:checked,
     .header-bar .button.suggested-action:checked,
     .header-bar .button.destructive-action:checked {
       color: #ECEFF1; }
       .titlebar .button:checked:insensitive,
+      .titlebar .linked > .button:checked:insensitive,
       .titlebar .button.suggested-action:checked:insensitive,
       .titlebar .button.destructive-action:checked:insensitive,
       .header-bar .button:checked:insensitive,
+      .header-bar .linked > .button:checked:insensitive,
       .header-bar .button.suggested-action:checked:insensitive,
       .header-bar .button.destructive-action:checked:insensitive {
         color: rgba(236, 239, 241, 0.3); }
     .titlebar .button:insensitive,
+    .titlebar .linked > .button:insensitive,
     .titlebar .button.suggested-action:insensitive,
     .titlebar .button.destructive-action:insensitive,
     .header-bar .button:insensitive,
+    .header-bar .linked > .button:insensitive,
     .header-bar .button.suggested-action:insensitive,
     .header-bar .button.destructive-action:insensitive {
       color: rgba(236, 239, 241, 0.225); }
     .titlebar .button:backdrop,
+    .titlebar .linked > .button:backdrop,
     .titlebar .button.suggested-action:backdrop,
     .titlebar .button.destructive-action:backdrop,
     .header-bar .button:backdrop,
+    .header-bar .linked > .button:backdrop,
     .header-bar .button.suggested-action:backdrop,
     .header-bar .button.destructive-action:backdrop {
       opacity: 0.5; }
@@ -1045,16 +1057,92 @@ GtkComboBox {
         border-radius: 100px;
         outline-radius: 100px; }
   .titlebar .entry,
-  .header-bar .entry {
+  .titlebar .linked > .entry,
+  .header-bar .entry,
+  .header-bar .linked > .entry {
     color: rgba(236, 239, 241, 0.75); }
     .titlebar .entry:focus,
-    .header-bar .entry:focus {
+    .titlebar .linked > .entry:focus,
+    .header-bar .entry:focus,
+    .header-bar .linked > .entry:focus {
       color: #ECEFF1; }
     .titlebar .entry:insensitive,
-    .header-bar .entry:insensitive {
+    .titlebar .linked > .entry:insensitive,
+    .header-bar .entry:insensitive,
+    .header-bar .linked > .entry:insensitive {
       color: rgba(236, 239, 241, 0.225); }
     .titlebar .entry:backdrop,
-    .header-bar .entry:backdrop {
+    .titlebar .linked > .entry:backdrop,
+    .header-bar .entry:backdrop,
+    .header-bar .linked > .entry:backdrop {
+      opacity: 0.5; }
+  .titlebar GtkComboBox.combobox-entry .entry,
+  .titlebar .linked > GtkComboBox.combobox-entry .entry,
+  .header-bar GtkComboBox.combobox-entry .entry,
+  .header-bar .linked > GtkComboBox.combobox-entry .entry {
+    color: rgba(236, 239, 241, 0.75); }
+    .titlebar GtkComboBox.combobox-entry .entry:focus,
+    .titlebar .linked > GtkComboBox.combobox-entry .entry:focus,
+    .header-bar GtkComboBox.combobox-entry .entry:focus,
+    .header-bar .linked > GtkComboBox.combobox-entry .entry:focus {
+      color: #ECEFF1; }
+    .titlebar GtkComboBox.combobox-entry .entry:insensitive,
+    .titlebar .linked > GtkComboBox.combobox-entry .entry:insensitive,
+    .header-bar GtkComboBox.combobox-entry .entry:insensitive,
+    .header-bar .linked > GtkComboBox.combobox-entry .entry:insensitive {
+      color: rgba(236, 239, 241, 0.225); }
+    .titlebar GtkComboBox.combobox-entry .entry:backdrop,
+    .titlebar .linked > GtkComboBox.combobox-entry .entry:backdrop,
+    .header-bar GtkComboBox.combobox-entry .entry:backdrop,
+    .header-bar .linked > GtkComboBox.combobox-entry .entry:backdrop {
+      opacity: 0.5; }
+  .titlebar GtkComboBox.combobox-entry .button, > .the-button-in-the-combobox .titlebar GtkComboBox.combobox-entry,
+  .titlebar .linked > GtkComboBox.combobox-entry .button, > .the-button-in-the-combobox
+  .titlebar .linked > GtkComboBox.combobox-entry,
+  .header-bar GtkComboBox.combobox-entry .button, > .the-button-in-the-combobox
+  .header-bar GtkComboBox.combobox-entry,
+  .header-bar .linked > GtkComboBox.combobox-entry .button, > .the-button-in-the-combobox
+  .header-bar .linked > GtkComboBox.combobox-entry {
+    color: rgba(236, 239, 241, 0.75); }
+    .titlebar GtkComboBox.combobox-entry .button:hover, > .the-button-in-the-combobox .titlebar GtkComboBox.combobox-entry:hover,
+    .titlebar .linked > GtkComboBox.combobox-entry .button:hover, > .the-button-in-the-combobox
+    .titlebar .linked > GtkComboBox.combobox-entry:hover,
+    .header-bar GtkComboBox.combobox-entry .button:hover, > .the-button-in-the-combobox
+    .header-bar GtkComboBox.combobox-entry:hover,
+    .header-bar .linked > GtkComboBox.combobox-entry .button:hover, > .the-button-in-the-combobox
+    .header-bar .linked > GtkComboBox.combobox-entry:hover {
+      color: #ECEFF1; }
+    .titlebar GtkComboBox.combobox-entry .button:checked, > .the-button-in-the-combobox .titlebar GtkComboBox.combobox-entry:checked,
+    .titlebar .linked > GtkComboBox.combobox-entry .button:checked, > .the-button-in-the-combobox
+    .titlebar .linked > GtkComboBox.combobox-entry:checked,
+    .header-bar GtkComboBox.combobox-entry .button:checked, > .the-button-in-the-combobox
+    .header-bar GtkComboBox.combobox-entry:checked,
+    .header-bar .linked > GtkComboBox.combobox-entry .button:checked, > .the-button-in-the-combobox
+    .header-bar .linked > GtkComboBox.combobox-entry:checked {
+      color: #ECEFF1; }
+      .titlebar GtkComboBox.combobox-entry .button:checked:insensitive, > .the-button-in-the-combobox .titlebar GtkComboBox.combobox-entry:checked:insensitive,
+      .titlebar .linked > GtkComboBox.combobox-entry .button:checked:insensitive, > .the-button-in-the-combobox
+      .titlebar .linked > GtkComboBox.combobox-entry:checked:insensitive,
+      .header-bar GtkComboBox.combobox-entry .button:checked:insensitive, > .the-button-in-the-combobox
+      .header-bar GtkComboBox.combobox-entry:checked:insensitive,
+      .header-bar .linked > GtkComboBox.combobox-entry .button:checked:insensitive, > .the-button-in-the-combobox
+      .header-bar .linked > GtkComboBox.combobox-entry:checked:insensitive {
+        color: rgba(236, 239, 241, 0.3); }
+    .titlebar GtkComboBox.combobox-entry .button:insensitive, > .the-button-in-the-combobox .titlebar GtkComboBox.combobox-entry:insensitive,
+    .titlebar .linked > GtkComboBox.combobox-entry .button:insensitive, > .the-button-in-the-combobox
+    .titlebar .linked > GtkComboBox.combobox-entry:insensitive,
+    .header-bar GtkComboBox.combobox-entry .button:insensitive, > .the-button-in-the-combobox
+    .header-bar GtkComboBox.combobox-entry:insensitive,
+    .header-bar .linked > GtkComboBox.combobox-entry .button:insensitive, > .the-button-in-the-combobox
+    .header-bar .linked > GtkComboBox.combobox-entry:insensitive {
+      color: rgba(236, 239, 241, 0.225); }
+    .titlebar GtkComboBox.combobox-entry .button:backdrop, > .the-button-in-the-combobox .titlebar GtkComboBox.combobox-entry:backdrop,
+    .titlebar .linked > GtkComboBox.combobox-entry .button:backdrop, > .the-button-in-the-combobox
+    .titlebar .linked > GtkComboBox.combobox-entry:backdrop,
+    .header-bar GtkComboBox.combobox-entry .button:backdrop, > .the-button-in-the-combobox
+    .header-bar GtkComboBox.combobox-entry:backdrop,
+    .header-bar .linked > GtkComboBox.combobox-entry .button:backdrop, > .the-button-in-the-combobox
+    .header-bar .linked > GtkComboBox.combobox-entry:backdrop {
       opacity: 0.5; }
   .titlebar .menu .menuitem,
   .header-bar .menu .menuitem {
