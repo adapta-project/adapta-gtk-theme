@@ -3878,6 +3878,75 @@ EphyWindow .floating-bar {
 SeahorseWidget .sidebar .pane-separator {
   border: none; }
 
+/**********
+ * Polari *
+ **********/
+.polari-sidebar {
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-image: none; }
+  .polari-sidebar.polari-room-list:dir(ltr) {
+    border-width: 0 1px 0 0; }
+  .polari-sidebar.polari-room-list:dir(rtl) {
+    border-width: 0 0 0 1px; }
+
+.polari-user-list .list-row, .polari-user-list .tweak-category {
+  -GtkWidget-focus-padding: 0; }
+  .polari-user-list .list-row.expanded, .polari-user-list .expanded.tweak-category {
+    background-color: #3d4f57; }
+    .polari-user-list .list-row.expanded .frame, .polari-user-list .expanded.tweak-category .frame {
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
+      border-width: 0; }
+
+.polari-nick-entry {
+  color: rgba(236, 239, 241, 0.3); }
+
+.polari-room-list .room-list-header {
+  padding: 8px 6px 1px 8px;
+  font-size: smaller;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+.polari-room-list .list-row, .polari-room-list .tweak-category {
+  padding-left: 0.6em; }
+  .polari-room-list .list-row.inactive, .polari-room-list .inactive.tweak-category {
+    color: rgba(236, 239, 241, 0.3); }
+    .polari-room-list .list-row.inactive:selected, .polari-room-list .inactive.tweak-category:selected {
+      color: rgba(0, 188, 212, 0.4); }
+  .polari-room-list .list-row:selected, .polari-room-list .tweak-category:selected {
+    color: #00BCD4;
+    background-color: alpha(currentColor, 0.2); }
+  .polari-room-list .list-row .pending-messages-count, .polari-room-list .tweak-category .pending-messages-count {
+    padding: 0px 0.3em;
+    border-radius: 2px;
+    color: rgba(236, 239, 241, 0.75);
+    background-color: alpha(currentColor, 0.2);
+    font-size: smaller; }
+
+.polari-titlebar-left {
+  padding: 0 1px; }
+
+.polari-titlebar-left:dir(ltr),
+.polari-titlebar-right:dir(rtl) {
+  border-top-right-radius: 0; }
+
+.polari-titlebar-right:dir(ltr),
+.polari-titlebar-left:dir(rtl) {
+  border-top-left-radius: 0; }
+
+.polari-titlebar-separator {
+  border-image: none;
+  border-width: 0;
+  border-color: transparent; }
+
+.polari-error-information {
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-width: 1px 0 0 0;
+  background-color: #2a373e;
+  opacity: 0.9; }
+  .polari-error-information .label {
+    color: #FF9800;
+    font-size: smaller; }
+
 /******************
  * Budgie Desktop *
  ******************/
