@@ -929,7 +929,6 @@ GtkComboBox {
   border-width: 0 0 1px;
   border-style: solid;
   border-color: #242F35;
-  border-radius: 2px 2px 0 0;
   background-color: #2a373e;
   background-clip: border-box;
   color: rgba(236, 239, 241, 0.75); }
@@ -1357,8 +1356,7 @@ GtkComboBox {
   .tiled .titlebar, .maximized .titlebar, .tiled
   .header-bar, .maximized
   .header-bar {
-    border-radius: 0;
-    box-shadow: none; }
+    border-radius: 0; }
   .titlebar.default-decoration,
   .header-bar.default-decoration {
     padding: 0.4em;
@@ -1384,11 +1382,30 @@ GtkComboBox {
         color: rgba(236, 239, 241, 0.225); }
 
 .csd .header-bar {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.05); }
 GtkBox .header-bar:last-child:dir(ltr) {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.12); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.05); }
 GtkBox .header-bar:last-child:dir(rtl) {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.12); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.05); }
+
+.header-bar,
+.titlebar {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
+  GtkBox .header-bar:not(:last-child):dir(ltr), GtkBox
+  .titlebar:not(:last-child):dir(ltr) {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0; }
+  GtkBox .header-bar:not(:last-child):dir(rtl), GtkBox
+  .titlebar:not(:last-child):dir(rtl) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 2px; }
+  GtkBox .header-bar:last-child:dir(ltr), GtkBox
+  .titlebar:last-child:dir(ltr) {
+    border-top-left-radius: 0; }
+  GtkBox .header-bar:last-child:dir(rtl), GtkBox
+  .titlebar:last-child:dir(rtl) {
+    border-top-right-radius: 0; }
 
 /************
  * Pathbars *
