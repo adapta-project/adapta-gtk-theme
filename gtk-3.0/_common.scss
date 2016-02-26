@@ -911,23 +911,19 @@ GtkComboBox {
   background-color: $bg_color;
 
   .osd &, &.osd {
-    padding: 4px;
+    padding: 3px;
     border-style: solid;
-    border-width: 0 1px 1px;
-    border-color: transparent;
-    border-radius: 0 0 2px 2px;
-    // border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"),
-    //                           url("assets/osd-shadow-dark@2.png"))
-    //               10 / 10px stretch;
-    // box-shadow: $z-depth-2;
+    border-width: 9px;
+    border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
+                              url("assets/osd-shadow#{$asset_suffix}@2.png"))
+                  10 / 10px stretch;
+    border-radius: 2px;
     color: $inverted_secondary_fg_color;
-    // always use dark variant base colour
     background-color: $inverted_dark_color;
     &:backdrop {
-      // border-image: -gtk-scaled(url("assets/osd-shadow-backdrop-dark.png"),
-      //                           url("assets/osd-shadow-backdrop-dark@2.png"))
-      //               10 / 10px stretch;
-      // box-shadow: $z-depth-1;
+      border-image: -gtk-scaled(url("assets/osd-shadow-backdrop#{$asset_suffix}.png"),
+                                url("assets/osd-shadow-backdrop#{$asset_suffix}@2.png"))
+                    10 / 10px stretch;
     }
 
     .button {
