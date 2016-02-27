@@ -1554,10 +1554,12 @@ StScrollBar {
   padding: 7px 32px 8px;
   font-weight: bold;
   color: $secondary_fg_color;
-  box-shadow: inset 0 1px 0 $fill_color;
+  background-color: rgba(0, 0, 0, 0.01) !important;
+  box-shadow: inset 0 1px 0 $osd_fill_color;
   &:hover {
     color: $osd_fg_color;
     background-color: $fill_color !important;
+    box-shadow: inset 0 2px 0 $osd_fill_color;
   }
   &:active {
     color: $osd_fg_color;
@@ -1567,6 +1569,11 @@ StScrollBar {
   &:checked {
     color: $osd_fg_color;
     background-color: rgba(0, 0, 0, 0.01) !important;
+    box-shadow: inset 0 2px 0 $osd_indicator_color;
+  }
+  &:hover:checked {
+    color: $osd_fg_color;
+    background-color: $fill_color !important;
     box-shadow: inset 0 2px 0 $osd_indicator_color;
   }
   &:first-child {

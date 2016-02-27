@@ -1336,10 +1336,12 @@ StScrollBar {
   padding: 7px 32px 8px;
   font-weight: bold;
   color: rgba(236, 239, 241, 0.75);
-  box-shadow: inset 0 1px 0 rgba(236, 239, 241, 0.15); }
+  background-color: rgba(0, 0, 0, 0.01) !important;
+  box-shadow: inset 0 1px 0 rgba(236, 239, 241, 0.4); }
   .app-view-control:hover {
     color: #ECEFF1;
-    background-color: rgba(236, 239, 241, 0.15) !important; }
+    background-color: rgba(236, 239, 241, 0.15) !important;
+    box-shadow: inset 0 2px 0 rgba(236, 239, 241, 0.4); }
   .app-view-control:active {
     color: #ECEFF1;
     background-color: rgba(236, 239, 241, 0.4) !important;
@@ -1347,6 +1349,10 @@ StScrollBar {
   .app-view-control:checked {
     color: #ECEFF1;
     background-color: rgba(0, 0, 0, 0.01) !important;
+    box-shadow: inset 0 2px 0 #00BCD4; }
+  .app-view-control:hover:checked {
+    color: #ECEFF1;
+    background-color: rgba(236, 239, 241, 0.15) !important;
     box-shadow: inset 0 2px 0 #00BCD4; }
   .app-view-control:first-child {
     border-right-width: 0;
