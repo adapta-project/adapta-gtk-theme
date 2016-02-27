@@ -594,6 +594,8 @@ GtkTextView { // This will get overridden by .view,
 // should really be deprecated...
 .inline-toolbar GtkToolButton > .button { // redefining the button look is
                                           // needed since those are flat...
+  outline-radius: 100px;
+  border-radius: 100px;
 }
 
 // More inline toolbar buttons
@@ -911,7 +913,7 @@ GtkComboBox {
   border-style: solid;
   border-width: 0 0 1px;
   border-color: $borders_color;
-  background-color: $bg_color;
+  background-color: $secondary_dark_color;
 
   .osd &, &.osd {
     padding: 3px;
@@ -981,10 +983,16 @@ GtkComboBox {
     }
   }
 
-  & .linked > .button { // remove double-background
-    &:hover { background-color: transparent; }
+  & .linked > .button {
+    border-radius: 100px;
+    outline-radius: 100px;
+    &:hover { background-color: transparent; } // remove double-background
+    &,
+    &:hover,
+    &:active,
+    &chekced { border-radius: 100px; }
   }
-  & .linked > .button:not(.image-button) { // revive underlines
+  & .linked > .button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
   }
 }
@@ -1431,19 +1439,6 @@ GtkTreeView.view {
 
     &:selected,
     .list-row:selected { @extend %selected_items; }
-
-    column-header { // remove side borders
-      &,
-      &:not(:first-child):not(:last-child) {
-        &.button,
-        & .button { border-style: solid solid solid none; }
-      }
-      &:first-child,
-      &:last-child {
-        &.button,
-        & .button { border-style: solid none solid none; }
-      }
-    }
   }
 }
 
@@ -1467,6 +1462,24 @@ column-header {
   &:last-child.button { // treeview-like derived widgets
                         // in Banshee and Evolution
     border-right-style: none;
+  }
+
+  GtkPaned & { // redraw some stuff for RhythmBox
+    .button {
+      background-color: $bg_color;
+      &:insensitive { background-color: $bg_color; }
+    }
+
+    &:not(:first-child):not(:last-child) {
+      &.button,
+      & .button { border-style: none solid solid none; }
+    }
+    &, &:only-child,
+    &:first-child,
+    &:last-child {
+      &.button,
+      & .button { border-style: none none solid none; }
+    }
   }
 }
 
@@ -2595,6 +2608,7 @@ GtkFileChooserDialog {
 
 .sidebar {
   border: none;
+  // background-image: linear-gradient(to bottom, $secondary_dark_color);
   background-color: $secondary_dark_color;
   color: $secondary_fg_color;
   &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
