@@ -914,6 +914,7 @@ GtkComboBox {
   border-width: 0 0 1px;
   border-color: $borders_color;
   background-color: $secondary_dark_color;
+  color: $secondary_fg_color;
 
   .osd &, &.osd {
     padding: 3px;
@@ -947,9 +948,11 @@ GtkComboBox {
                                 to($track_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
+    color: $secondary_fg_color;
     &:hover {
       box-shadow: none;
       border-image: none;
+      color: $fg_color;
     }
     &:checked {
       box-shadow: none;
@@ -973,7 +976,7 @@ GtkComboBox {
     &:insensitive {
       box-shadow: none;
       background-color: transparent;
-      color: $insensitive_fg_color;
+      color: $insensitive_secondary_fg_color;
       border-image: none;
     }
 
@@ -1452,9 +1455,17 @@ column-header {
     border-radius: 0;
     box-shadow: none;
     background-color: $base_color;
+    color: $tertiary_fg_color;
     // font-weight: bold;
-    &:hover, &:active { box-shadow: none; }
-    &:insensitive { background-color: $base_color; }
+    &:hover,
+    &:active {
+      color: $fg_color;
+      box-shadow: none;
+    }
+    &:insensitive {
+      color: $insensitive_tertiary_fg_color;
+      background-color: $base_color;
+    }
     &.dnd { @extend column-header.button.dnd; }
   }
 
