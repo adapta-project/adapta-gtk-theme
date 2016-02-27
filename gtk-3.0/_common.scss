@@ -935,7 +935,12 @@ GtkComboBox {
 
     .button {
       @extend .button.flat;
-      color: $warning_bg_color;
+      &:not(:active):not(:insensitive) { color: $warning_color; }
+      &:active {
+        color: $selected_fg_color;
+	background-color: $warning_color;
+      }
+      &:insensitive { color: gtkopacity($warning_color, 0.4); }
     }
   }
 
@@ -990,10 +995,10 @@ GtkComboBox {
     border-radius: 100px;
     outline-radius: 100px;
     &:hover { background-color: transparent; } // remove double-background
-    &,
-    &:hover,
-    &:active,
-    &chekced { border-radius: 100px; }
+    &:not(:checked) {
+      border-radius: 100px;
+      outline-radius: 100px;
+    }
   }
   & .linked > .button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
@@ -1438,7 +1443,7 @@ GtkTreeView.view {
   }
 
   GtkPaned & { // redraw some stuff for RhythmBox
-    background-color: $bg_color;
+    background-color: $base_color;
 
     &:selected,
     .list-row:selected { @extend %selected_items; }
@@ -1467,6 +1472,8 @@ column-header {
       background-color: $base_color;
     }
     &.dnd { @extend column-header.button.dnd; }
+
+    .pane-separator { border: none; }
   }
 
   &:last-child .button,
@@ -1647,66 +1654,29 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   &.frame {
     border: 1px solid $borders_color;
-    // FIXME: doesn't work
-    &.top { border-top-width: 0; }
-    &.bottom { border-bottom-width: 0; }
-    &.right { border-right-width: 0; }
-    &.left { border-left-width: 0; }
+    @each $_tab, $_border in (top, top),
+                             (bottom, bottom),
+                             (left, left),
+                             (right, right) {
+      &.#{$_tab} {
+        border-#{$_border}-color: $base_color;
+      }
+    }
   }
 
   &.header {
     // FIXME: double borders in some case, can't fix it w/o a class tho
     // FIXME: doesn't work on dark var
-    background-color: $secondary_dark_color;
+    background-color: $bg_color;
 
     // this is the shading of the header behind the tabs
-    &.frame {
-      border: 1px solid $borders_color;
-      &.top { border-bottom-width: 0; }
-      &.bottom { border-top-width: 0; }
-      &.right { border-left-width: 0; }
-      &.left { border-right-width: 0; }
-    }
+    &.frame { border: none; }
 
-    &.top { // draw boders and shadows
-      @if $variant=='light' {
-        box-shadow: inset 0 -1px $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
-      }
-      @else {
-        box-shadow: inset 0 -1px $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
-      }
-    }
-    &.bottom {
-      @if $variant=='light' {
-        box-shadow: inset 0 1px $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
-      }
-      @else {
-        box-shadow: inset 0 1px $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
-      }
-    }
-    &.right {
-      @if $variant=='light' {
-        box-shadow: inset 1px 0 $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
-      }
-      @else {
-        box-shadow: inset 1px 0 $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
-      }
-    }
-    &.left {
-      @if $variant=='light' {
-        box-shadow: inset -1px 0 $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.08);
-      }
-      @else {
-        box-shadow: inset -1px 0 $borders_color,
-                    inset 0 1px 2px rgba(0, 0, 0, 0.18);
-      }
+    @each $_header, $_border in (top, 0 -1px),
+                                (bottom, 0 1px),
+                                (left, -1px 0),
+                                (right, 1px 0) {
+      &.#{$_header} { box-shadow: inset #{$_border} $borders_color; }
     }
   }
 
@@ -1780,21 +1750,14 @@ column-header.button.dnd { // for treeview-like derive widgets
       }
     }
 
-    &.top {
-      // padding-bottom: ($vt_vpadding -$tab_indicator_size);
-      border-bottom-width: $tab_indicator_size;
-    }
-    &.bottom {
-      // padding-top: ($vt_vpadding -$tab_indicator_size);
-      border-top-width: $tab_indicator_size;
-    }
-    &.left {
-      // padding-right: ($ht_hpadding -$tab_indicator_size);
-      border-right-width: $tab_indicator_size;
-    }
-    &.right {
-      // padding-left: ($ht_hpadding -$tab_indicator_size);
-      border-left-width: $tab_indicator_size;
+    @each $_tab, $_border in (top, bottom),
+                             (bottom, top),
+                             (left, right),
+                             (right, left) {
+      &.#{$_tab} {
+        // padding-#{$_border}: ($vt_vpadding -$tab_indicator_size);
+        border-#{$_border}-width: $tab_indicator_size;
+      }
     }
 
     // here's the interesting stuff
@@ -1811,18 +1774,19 @@ column-header.button.dnd { // for treeview-like derive widgets
         border-color: transparent;
         &:hover, &.prelight-page {
           border-color: $borders_color;
-          border-#{$_border}-width: 2px;
-          border-#{$_border}-color: $track_color;
+          border-#{$_border}-width: 1px;
+          border-#{$_border}-color: $borders_color;
           background-color: $base_color;
-          box-shadow: $z-depth-1;
+          box-shadow: none;
         }
         &:active, &.active-page {
           border-color: $borders_color;
           border-#{$_border}-width: 2px;
-          border-#{$_border}-color: $selected_bg_color;
+          border-#{$_border}-color: $base_color;
           background-color: $base_color;
           box-shadow: $z-depth-1;
         }
+	&:backdrop { box-shadow: none; }
       }
     }
 
@@ -1849,7 +1813,7 @@ column-header.button.dnd { // for treeview-like derive widgets
       background-size: 2em * 1 / 0.8 2em * 1 / 0.8, auto;
       // @extend .button.flat;
       @include button(flat);
-      color: $secondary_fg_color;
+      color: $tertiary_fg_color;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:insensitive { @include button(flat-insensitive); }
@@ -2548,7 +2512,7 @@ GtkCalendar {
   }
   .titlebar {
     border-style: none;
-    // box-shadow: inset 0 1px $inverted_highlight_color;
+    // box-shadow: inset 0 1px $highlight_color;
     color: $inverted_secondary_fg_color;
     background-color: $inverted_dark_color;
   }
@@ -3078,7 +3042,7 @@ GtkVolumeButton.button {
 
     .titlebar {
       // revive top-edge highlight border
-      box-shadow: inset 0 1px $inverted_highlight_color;
+      box-shadow: inset 0 1px $highlight_color;
       // control titlebar height with button padding
       .button.titlebutton { padding: 0.6em; }
     }
