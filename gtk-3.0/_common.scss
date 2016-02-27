@@ -1007,14 +1007,17 @@ GtkComboBox {
 
 // searchbar, location-bar & inline-toolbar
 .inline-toolbar {
-  padding: 0.4em;
-  border-style: solid;
-  border-width: 0 1px 1px;
-  border-color: $borders_color;
-  background-color: $secondary_dark_color;
-  // shadows same with notebook-header
-  box-shadow: if($variant=='light', inset 0 1px 2px rgba(0, 0, 0, 0.08),
-                                    inset 0 1px 2px rgba(0, 0, 0, 0.18));
+  padding: 0;
+  &.toolbar {
+    padding: 0.4em;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    border-color: $borders_color;
+    background-color: $secondary_dark_color;
+    // shadows same with notebook-header
+    box-shadow: if($variant=='light', inset 0 1px 2px rgba(0, 0, 0, 0.08),
+                                      inset 0 1px 2px rgba(0, 0, 0, 0.18));
+  }
 }
 
 .search-bar,
@@ -1442,7 +1445,7 @@ GtkTreeView.view {
     &:selected { border-color: $track_color; }
   }
 
-  GtkPaned & { // redraw some stuff for RhythmBox
+  &, GtkPaned & { // redraw some stuff for RhythmBox
     background-color: $base_color;
 
     &:selected,
@@ -1468,12 +1471,10 @@ column-header {
       box-shadow: none;
     }
     &:insensitive {
-      color: $insensitive_tertiary_fg_color;
+      color: $insensitive_secondary_fg_color;
       background-color: $base_color;
     }
     &.dnd { @extend column-header.button.dnd; }
-
-    .pane-separator { border: none; }
   }
 
   &:last-child .button,
@@ -1485,7 +1486,11 @@ column-header {
   GtkPaned & { // redraw some stuff for RhythmBox
     .button {
       background-color: $bg_color;
-      &:insensitive { background-color: $bg_color; }
+      // background-image: linear-gradient(to bottom, $bg_color);
+      &:insensitive {
+        color: $insensitive_secondary_fg_color;
+        background-color: $bg_color;
+      }
     }
 
     &:not(:first-child):not(:last-child) {

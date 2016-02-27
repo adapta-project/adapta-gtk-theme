@@ -932,12 +932,14 @@ GtkComboBox {
       outline-radius: 100px; }
 
 .inline-toolbar {
-  padding: 0.4em;
-  border-style: solid;
-  border-width: 0 1px 1px;
-  border-color: rgba(0, 0, 0, 0.09);
-  background-color: #3d4f57;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18); }
+  padding: 0; }
+  .inline-toolbar.toolbar, .inline-toolbar#sidebar-toolbar {
+    padding: 0.4em;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    border-color: rgba(0, 0, 0, 0.09);
+    background-color: #3d4f57;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18); }
 
 .search-bar,
 .location-bar {
@@ -1571,7 +1573,7 @@ GtkTreeView.view {
     border-color: rgba(255, 152, 0, 0.2); }
     GtkTreeView.view.trough:selected {
       border-color: alpha(currentColor, 0.2); }
-  GtkPaned GtkTreeView.view {
+  GtkTreeView.view, GtkPaned GtkTreeView.view {
     background-color: #455A64; }
 
 column-header .button {
@@ -1587,15 +1589,14 @@ column-header .button {
     color: #ECEFF1;
     box-shadow: none; }
   column-header .button:insensitive {
-    color: rgba(236, 239, 241, 0.15);
+    color: rgba(236, 239, 241, 0.225);
     background-color: #455A64; }
-  column-header .button .pane-separator {
-    border: none; }
 column-header:last-child .button, column-header:last-child.button {
   border-right-style: none; }
 GtkPaned column-header .button {
   background-color: #37474F; }
   GtkPaned column-header .button:insensitive {
+    color: rgba(236, 239, 241, 0.225);
     background-color: #37474F; }
 GtkPaned column-header:not(:first-child):not(:last-child).button, GtkPaned column-header:not(:first-child):not(:last-child) .button {
   border-style: none solid solid none; }
@@ -3682,7 +3683,9 @@ GtkVolumeButton.button {
 .warning .menuitem.button:selected,
 .error .menuitem.button:selected, GtkScaleButton.menuitem.button:selected,
 GtkVolumeButton.menuitem.button:selected, GfCandidatePopup .menuitem.button:selected, GfCandidatePopup .menuitem.button:selected:first-child, GfCandidatePopup .menuitem.button:selected:last-child,
-GfCandidatePopup .linked > .menuitem.button:selected, .budgie-session-dialog .menuitem.button:selected, .budgie-polkit-dialog .menuitem.button:selected, GtkTreeView .spinbutton.entry:focus:selected, GtkPaned GtkTreeView.view:selected,
+GfCandidatePopup .linked > .menuitem.button:selected, .budgie-session-dialog .menuitem.button:selected, .budgie-polkit-dialog .menuitem.button:selected, GtkTreeView .spinbutton.entry:focus:selected, GtkTreeView.view:selected,
+GtkTreeView.view .list-row:selected,
+GtkTreeView.view .tweak-category:selected, GtkPaned GtkTreeView.view:selected,
 GtkPaned GtkTreeView.view .list-row:selected,
 GtkPaned GtkTreeView.view .tweak-category:selected, .list-row:selected, .tweak-category:selected, .sidebar GtkTreeView.view:selected, #polari-sidebar GtkTreeView.view:selected,
 .sidebar GtkTreeView.view .list-row:selected,
@@ -3697,11 +3700,9 @@ GtkPaned GtkTreeView.view .tweak-category:selected, .list-row:selected, .tweak-c
   .warning .menuitem.button:insensitive:selected,
   .error .menuitem.button:insensitive:selected, GtkScaleButton.menuitem.button:insensitive:selected,
   GtkVolumeButton.menuitem.button:insensitive:selected, GfCandidatePopup .menuitem.button:insensitive:selected, .budgie-session-dialog .menuitem.button:insensitive:selected, .budgie-polkit-dialog .menuitem.button:insensitive:selected, GtkTreeView .spinbutton.entry:insensitive:focus:selected,
-  GtkPaned GtkTreeView.view .list-row:insensitive:selected,
-  GtkPaned GtkTreeView.view .tweak-category:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected, .sidebar GtkTreeView.view:insensitive:selected, #polari-sidebar GtkTreeView.view:insensitive:selected,
-  .sidebar GtkTreeView.view .list-row:insensitive:selected,
+  GtkTreeView.view .list-row:insensitive:selected,
+  GtkTreeView.view .tweak-category:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected, .sidebar GtkTreeView.view:insensitive:selected, #polari-sidebar GtkTreeView.view:insensitive:selected,
   #polari-sidebar GtkTreeView.view .list-row:insensitive:selected,
-  .sidebar GtkTreeView.view .tweak-category:insensitive:selected,
   #polari-sidebar GtkTreeView.view .tweak-category:insensitive:selected {
     color: rgba(236, 239, 241, 0.4); }
   .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, GtkTreeView .entry.flat:backdrop:insensitive:focus:selected, GtkTreeView .linked > .entry:backdrop:insensitive:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:backdrop:insensitive:focus:selected, .menuitem.button.flat:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox > .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, .toolbar .menuitem.button:backdrop:insensitive:selected, #sidebar-toolbar .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
