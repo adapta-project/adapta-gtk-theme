@@ -752,10 +752,14 @@ StScrollBar {
   font-weight: bold;
   background-color: $panel_bg_color;
 
+  // remain top-edge solid part
   &:overview,
   &.unlock-screen,
   &.login-screen,
-  &.lock-screen { background-color: transparent; }
+  &.lock-screen {
+    background-color: rgba(0, 0, 0, 0.01);
+    box-shadow: inset 0 2px 0 $panel_bg_color;
+  }
 
   #panelLeft,
   #panelCenter { // spacing between activities<>app menu and such
@@ -849,11 +853,12 @@ StScrollBar {
  * Bottom Bar *
  **************/
 
-.bottom-panel {
+// FIXME: it doesn't work
+#bottom-panel {
   height: 2.25em;
 
   // inverted orientations for underlines
-  .panel-button {
+  #panel-button {
     &:hover {
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset 0 -2px 0 $osd_fill_color;
@@ -873,42 +878,45 @@ StScrollBar {
  * Window-List Extenstion *
  **************************/
 
-.window-list {
+// FIXME: it doesn't work
+#window-list {
   spacing: 2px;
   font-size: 1em;
 }
 
-.window-button > StWidget {
+#window-button {
   padding: 3px 6px 1px;
   border-radius: 0;
   -st-natural-width: 18.75em;
   max-width: 18.75em;
   background-color: $panel_bg_color;
   color: $osd_fg_color;
+
+  &:hover {
+    color: $selected_fg_color;
+    background-color: rgba(0, 0, 0, 0.01);
+    box-shadow: inset 0 -2px 0 $osd_fill_color;
+  }
+  &:active,
+  &:focus,
+  &:focused {
+    background-color: rgba(0, 0, 0, 0.01);
+    box-shadow: inset 0 -2px 0 $osd_indicator_color;
+  }
+
+  #minimized {
+    color: $osd_secondary_fg_color;
+    &:active {
+      color: $selected_fg_color;
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 -2px 0 $osd_indicator_color;
+    }
+  }
 }
 
-.window-button:hover > StWidget {
-  color: $selected_fg_color;
-  background-color: rgba(0, 0, 0, 0.01);
-  box-shadow: inset 0 -2px 0 $osd_fill_color;
-}
-.window-button:active > StWidget,
-.window-button:focus > StWidget,
-.window-button:focused > StWidget {
-  background-color: rgba(0, 0, 0, 0.01);
-  box-shadow: inset 0 -2px 0 $osd_indicator_color;
-}
-
-.window-button.minimized > StWidget { color: $osd_secondary_fg_color; }
-.window-button.minimized:active > StWidget {
-  color: $selected_fg_color;
-  background-color: rgba(0, 0, 0, 0.01);
-  box-shadow: inset 0 -2px 0 $osd_indicator_color;
-}
-
-.window-list-workspace-indicator > StWidget {
-  background-color: rgba(200, 200, 200, .3);
-  border: 1px solid #cccccc;
+#window-list-workspace-indicator {
+  background-color: $osd_fill_color;
+  border: 1px solid $borders_color;
 }
 
 
@@ -1310,12 +1318,12 @@ StScrollBar {
 }
 
 .window-clone-border {
-  border: 4px solid $osd_fill_color;
+  border: 4px solid $osd_semi_fill_color;
   border-radius: 2px;
   // For window decorations with round corners we can't match
   // the exact shape when the window is scaled. So apply a shadow
   // to fix that case
-  box-shadow: inset 0 0 0 1px $osd_fill_color;
+  box-shadow: inset 0 0 0 1px $osd_semi_fill_color;
 }
 
 .window-caption {
@@ -1323,11 +1331,13 @@ StScrollBar {
   border-radius: 2px;
   spacing: 25px;
   color: $osd_fg_color;
-  background-color: transparent;
+  background-color: $osd_bg_color;
   -shell-caption-spacing: 12px;
+  @include shadow(1);
   &:hover {
-    background-color: $osd_fill_color;
     color: $osd_fg_color;
+    background-color: $osd_semi_fill_color;
+    @include shadow(2);
   }
 }
 
@@ -1412,12 +1422,13 @@ StScrollBar {
   padding: 3px 0;
   border: none;
   border-left: 0;
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0; // still needed?
   font-size: 9pt;
   color: $osd_fg_color;
-  background-color: $osd_base_color;
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: inset -1px 0 0 $osd_semi_fill_color;
 
-  &:rtl { border-radius: 2px 0 0 2px; }
+  &:rtl { box-shadow: inset 1px 0 0 $osd_semi_fill_color; }
 
   .placeholder {
     background-image: url("assets/dash-placeholder.svg");
@@ -1445,16 +1456,31 @@ StScrollBar {
 
 // Add Dash to Dock Support
 #dashtodockContainer {
-  #dash { background-color: $osd_bg_color; }
-
-  &:overview #dash { background-color: $osd_base_color; }
+  #dash {
+    // do not use transparentize, or shine-through artifact happens.
+    background-color: $osd_bg_color;
+    box-shadow: none;
+  }
 
   &.extended #dash {
     padding: 0;
     border-radius: 0;
   }
 
-  &.extended:overview #dash { background-color: transparent; }
+  &:overview #dash,
+  &.extended:overview #dash {
+    background-color: transparent;
+  }
+}
+
+#dashtodockContainer { // set radius for solid dock
+  #dash,
+  &:overview #dash {
+    &:top { border-radius: 0 0 2px 2px; }
+    &:bottom { border-radius: 2px 2px 0 0; }
+    &:left { border-radius: 0 2px 2px 0; }
+    &:right { border-radius: 2px 0 0 2px; }
+  }
 }
 
 #dashtodockContainer.extended.left .dash-item-container > StWidget,
@@ -1492,7 +1518,7 @@ StScrollBar {
 }
 
 #dashtodockContainer .app-well-app-running-dot {
-    background-color: transparent;
+    background-color: $osd_bg_color;
 }
 
 #dashtodockContainer .app-well-app .overview-icon {
@@ -1532,7 +1558,10 @@ StScrollBar {
 }
 
 // Add Simple Dock Support
-#dash:desktop { background-color: $osd_bg_color; }
+#dash:desktop {
+  background-color: $osd_bg_color;
+  box-shadow: none;
+}
 
 // App Vault/Grid
 .icon-grid {
@@ -1546,20 +1575,22 @@ StScrollBar {
 //.app-display { spacing: 20px; }
 
 .app-view-controls { //favorties | all toggle container
-  width: 320px;
-  padding-bottom: 32px;
+  width: 344px; // search entry width + search icon width(24) ?
+  padding-bottom: 24px;
+  background-color: rgba(0, 0, 0, 0.01) !important;
+  box-shadow: inset 0 1px 0 $osd_semi_fill_color;
 }
 
 .app-view-control { // favorties | all toggle button
   padding: 7px 32px 8px;
+  border-radius: 0;
   font-weight: bold;
   color: $secondary_fg_color;
   background-color: rgba(0, 0, 0, 0.01) !important;
-  box-shadow: inset 0 1px 0 $osd_fill_color;
   &:hover {
     color: $osd_fg_color;
     background-color: $fill_color !important;
-    box-shadow: inset 0 2px 0 $osd_fill_color;
+    box-shadow: inset 0 2px 0 $osd_semi_fill_color;
   }
   &:active {
     color: $osd_fg_color;
@@ -1575,15 +1606,6 @@ StScrollBar {
     color: $osd_fg_color;
     background-color: $fill_color !important;
     box-shadow: inset 0 2px 0 $osd_indicator_color;
-  }
-  &:first-child {
-    border-right-width: 0;
-    border-radius: 2px;
-    &:checked { border-radius: 0; }
-  }
-  &:last-child {
-    border-radius: 2px;
-    &:checked { border-radius: 0; }
   }
 }
 
@@ -1631,6 +1653,20 @@ StScrollBar {
   }
 }
 
+// set circle dock buttons on dash
+#dash {
+  .overview-icon {
+    border-radius: 100px;
+  }
+  *:hover .overview-icon { // more lighter fill than osd_semi_fill!
+    background-color: $osd_slight_fill_color;
+  }
+  *:active .overview-icon,
+  *:checked .overview-icon {
+    background-color: $osd_indicator_color;
+  }
+}
+
 .app-well-app-running-dot { // running apps indicator
   width: 32px;
   height: 2px;
@@ -1648,10 +1684,12 @@ StScrollBar {
 }
 
 .app-well-app.app-folder > .overview-icon {
-  background-color: $osd_base_color;
+  background: transparent;
 }
 
-.show-apps .show-apps-icon { color: $osd_fg_color; }
+.show-apps .show-apps-icon {
+  color: $osd_secondary_fg_color;
+}
 
 .show-apps:hover .show-apps-icon,
 .show-apps:active .show-apps-icon,
@@ -1661,11 +1699,7 @@ StScrollBar {
   transition-duration: 0.2s;
 }
 
-
-/***************
- * Collections *
- ***************/
-
+// Collections
 .app-folder-popup { // expanded collection
   -arrow-border-radius: 2px;
   -arrow-background-color: $osd_base_color;
@@ -1721,18 +1755,21 @@ StScrollBar {
  *******************/
 
 .workspace-thumbnails { // container ala dash
-  @extend %overview-panel;
+  border: none;
   visible-width: 32px; // amount visible before hover
   spacing: 12px;
   padding: 12px;
-  border-radius: 2px 0 0 2px;
+  border-radius: 0;
   //border-width: 0; // FIXME: can't have non unoform borders :(
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: inset 1px 0 0 $osd_semi_fill_color;
+  color: $osd_fg_color;
 
-  &:rtl { border-radius: 0 2px 2px 0; }
+  &:rtl { box-shadow: inset -1px 0 0 $osd_semi_fill_color; }
 }
 
 .workspace-thumbnail-indicator {
-  padding: 6px;
+  padding: 6px 6px 6px 10px;
   border: 0 solid $osd_indicator_color;
   border-left-width: 2px;
   border-radius: 0;
@@ -1746,12 +1783,6 @@ StScrollBar {
   padding: 0 88px 10px 88px;
 }
 
-%overview-panel {
-  border: none;
-  color: $osd_fg_color;
-  background-color: $osd_base_color;
-}
-
 %status_text {
   font-size: 2em;
   font-weight: bold;
@@ -1760,24 +1791,10 @@ StScrollBar {
 
 // Add Dash to Dock Support
 
-#workspacestodockContainer .workspace-thumbnails {
-    background-color: $osd_bg_color;
-}
-
-#workspacestodockContainer:overview .workspace-thumbnails {
-    background-color: $osd_base_color;
-}
-
+#workspacestodockContainer .workspace-thumbnails,
+#workspacestodockContainer:overview .workspace-thumbnails,
 #workspacestodockContainer.fullheight:overview .workspace-thumbnails {
-    background-color: transparent;
-}
-
-#workspacestodockContainer.right .workspace-thumbnails {
-    border-radius: 2px 0 0 2px;
-}
-
-#workspacestodockContainer.left .workspace-thumbnails {
-    border-radius: 0 2px 2px 0;
+  background-color: transparent;
 }
 
 

@@ -61,12 +61,9 @@ $osd_fg_color: $fg_color;
 $osd_secondary_fg_color: scale-color($osd_fg_color, $alpha: -25%);
 
 $osd_dim_fg_color: scale-color($osd_fg_color, $alpha: -50%);
-$osd_fill_color: scale-color($osd_fg_color, $alpha: -60%);
-$osd_semi_fill_color: scale-color($osd_fg_color, $alpha: -80%);
 
 $insensitive_osd_fg_color: scale-color($osd_fg_color, $alpha: -60%);
 $insensitive_osd_secondary_fg_color: scale-color($osd_secondary_fg_color, $alpha: -60%);
-$insensitive_osd_fill_color: scale-color($osd_fill_color, $alpha: -60%);
 
 
 //
@@ -75,12 +72,17 @@ $insensitive_osd_fill_color: scale-color($osd_fill_color, $alpha: -60%);
 $osd_bg_color: mix(#263238, #37474F, 75%);
 $osd_base_color: $bg_color;
 
+$osd_fill_color: scale-color($osd_fg_color, $alpha: -60%);
+$osd_semi_fill_color: scale-color($osd_fg_color, $alpha: -80%);
+$osd_slight_fill_color: scale-color($osd_fg_color, $alpha: -88%);
+
 $osd_indicator_color: $selected_bg_color;
 
 $osd_borders_color: $borders_color;
 $osd_outer_borders_color: transparent;
 $tooltip_borders_color: $osd_borders_color;
 
+$insensitive_osd_fill_color: scale-color($osd_fill_color, $alpha: -60%);
 
 //
 // Backdrop colors
