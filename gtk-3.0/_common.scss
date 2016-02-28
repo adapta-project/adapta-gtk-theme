@@ -180,7 +180,7 @@ GtkAssistant {
       }
       &:checked {
         @include button(checked);
-	background-color: mix($selected_fg_color, $suggested_color, 20%);
+        background-color: mix($selected_fg_color, $suggested_color, 20%);
         color: $selected_fg_color;
       }
       &:insensitive { @include button(insensitive); }
@@ -939,6 +939,11 @@ GtkComboBox {
       &:active {
         color: $selected_fg_color;
 	background-color: $warning_color;
+      }
+      &:active,
+      &:checked {
+        border-image: none;
+        box-shadow: none;
       }
       &:insensitive { color: gtkopacity($warning_color, 0.4); }
     }
