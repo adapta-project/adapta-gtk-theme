@@ -49,8 +49,8 @@ TODO
 
 Public License
 --------------
-* License: GPLv3
+* License: GPLv2
 
-Very Thanks To
+Special Thanks To
 --------------
 Nana-4, the developer of Flat-Plat.
