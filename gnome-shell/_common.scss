@@ -73,18 +73,18 @@ stage {
   padding: 9px 16px 10px;
   border-right-width: 0;
   border: none;
-  color: $warning_color;
+  color: $accent_color;
   font-weight: 500;
   &:hover,
   &:focus {
     @include button(flat-hover);
-    color: $warning_color;
-    background-color: scale-color($warning_color, $alpha: -90%);
+    color: $accent_color;
+    background-color: scale-color($accent_color, $alpha: -90%);
   }
   &:active {
     @include button(flat-active);
     color: $selected_fg_color;
-    background-color: $warning_color;
+    background-color: $accent_color;
   }
   &:insensitive { @include button(flat-insensitive); }
 
@@ -165,11 +165,11 @@ StScrollBar {
 
 .slider {
   height: 16px;
-  color: $success_color;
+  color: $accent_color;
   -slider-height: 3px;
   -slider-background-color: $fill_color; // background of the trough
   -slider-border-color: transparent; // trough border color
-  -slider-active-background-color: $success_color; // active trough fill
+  -slider-active-background-color: $accent_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
   -slider-border-width: 0;
   -slider-handle-radius: 8px;
@@ -647,8 +647,8 @@ StScrollBar {
 }
 
 .switcher-list .item-box:selected {
-  background-color: scale-color($warning_color, $alpha: -85%);
-  color: $warning_color;
+  background-color: scale-color($accent_color, $alpha: -85%);
+  color: $accent_color;
 }
 
 .switcher-list .thumbnail-box {
@@ -845,7 +845,7 @@ StScrollBar {
     spacing: 2px;
   }
 
-  .screencast-indicator { color: $warning_color; }
+  .screencast-indicator { color: $accent_color; }
 }
 
 
@@ -2080,13 +2080,13 @@ $legacy_icon_size: 24px;
 
 .candidate-page-button {
   padding: 4px;
-  color: $warning_color;
+  color: $accent_color;
   &:hover {
-    background-color: scale-color($warning_color, $alpha: -85%);
-    color: $warning_color;
+    background-color: scale-color($accent_color, $alpha: -85%);
+    color: $accent_color;
   }
   &:active {
-    background-color: $warning_color;
+    background-color: $accent_color;
     color: $selected_fg_color;
   }
 }

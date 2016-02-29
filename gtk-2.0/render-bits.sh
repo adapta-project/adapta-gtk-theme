@@ -4,6 +4,7 @@
 #
 INKSCAPE=/usr/bin/inkscape
 SVG=assets.svg
+#SVG=adwaita-bits.svg
 LISTFILE=assets.txt
 for filename in `cat $LISTFILE`
 do

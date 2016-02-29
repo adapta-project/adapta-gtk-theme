@@ -214,7 +214,7 @@ GtkTextView { // This will get overridden by .view,
 }
 
 .spinner {
-  color: $warning_color;
+  color: $accent_color;
   background-color: blue;
   background-image: none;
   opacity: 0; // non spinning spinner makes no sense
@@ -252,7 +252,7 @@ GtkTextView { // This will get overridden by .view,
   &.progressbar {
     border-style: none none solid;
     border-width: 2px;
-    border-color: $warning_color;
+    border-color: $accent_color;
     border-radius: 0;
     box-shadow: none;
     background-color: transparent;
@@ -935,17 +935,17 @@ GtkComboBox {
 
     .button {
       @extend .button.flat;
-      &:not(:active):not(:insensitive) { color: $warning_color; }
+      &:not(:active):not(:insensitive) { color: $accent_color; }
       &:active {
         color: $selected_fg_color;
-	background-color: $warning_color;
+	background-color: $accent_color;
       }
       &:active,
       &:checked {
         border-image: none;
         box-shadow: none;
       }
-      &:insensitive { color: gtkopacity($warning_color, 0.4); }
+      &:insensitive { color: gtkopacity($accent_color, 0.4); }
     }
   }
 
@@ -1446,7 +1446,7 @@ GtkTreeView.view {
   &.trough { // progress bar trough in treeviews
     @extend .entry.progressbar;
     border-width: 4px;
-    border-color: gtkopacity($warning_color, 0.2);
+    border-color: gtkopacity($accent_color, 0.2);
     &:selected { border-color: $track_color; }
   }
 
@@ -2155,7 +2155,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
     &:not(:hover):not(:active) { background-size: 80%; }
       // @include entry(normal);
       // border-radius: 50%;
-      // background-color: $success_color;
+      // background-color: $accent_color;
       @each $s,$as in ('',''),
                   //  (':hover','-hover'),
                       (':active','-active'),
@@ -2190,7 +2190,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
     border-radius: 0;
     background-color: $track_color;
     &.highlight {
-      background-color: $success_color;
+      background-color: $accent_color;
       &:insensitive { background-color: $track_color; }
     }
     &:insensitive { color: $insensitive_fg_color; }
@@ -2273,7 +2273,7 @@ GtkProgressBar {
 
   &.trough { // background
     border-radius: 0;
-    background-color: gtkopacity($warning_color, 0.2);
+    background-color: gtkopacity($accent_color, 0.2);
     &.osd {
       border-style: none;
       box-shadow: none;
@@ -2285,7 +2285,7 @@ GtkProgressBar {
 // moving bit
 .progressbar {
   border-radius: 0;
-  background-color: $warning_color;
+  background-color: $accent_color;
   &.left {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -2312,7 +2312,7 @@ GtkProgressBar {
 
   &.osd {
     background-image: none;
-    background-color: $warning_color;
+    background-color: $accent_color;
     border-style: none;
     border-radius: 0;
   }
@@ -2347,7 +2347,7 @@ GtkProgressBar {
   &.fill-block {
     // FIXME: it would be nice to set make fill blocks bigger, but we'd need
     // :nth-child working on discrete indicators
-    background-color: $selected_bg_color;
+    background-color: $accent_color;
     border-radius: 0;
     box-shadow: none;
     &.indicator-discrete {
@@ -2355,7 +2355,7 @@ GtkProgressBar {
       &.vertical { margin: 1px 0; }
     }
     &.level-high { background-color: $success_color; }
-    &.level-low { background-color: $warning_color; }
+    &.level-low { background-color: $accent_color; }
     &.empty-fill-block { background-color: $track_color; }
   }
 }
@@ -2568,20 +2568,20 @@ GtkCalendar {
           border-radius: 0 0 2px 0;
           border-left-width: 0;
           background-color: transparent;
-          color: $warning_color;
+          color: $accent_color;
           &:hover {
             @include button(flat-hover);
-            color: $warning_color;
+            color: $accent_color;
           }
           &:active {
             @include button(flat-active);
             color: $selected_fg_color;
-            background-color: $warning_bg_color;
+            background-color: $accent_color;
           }
           &:checked {
             @include button(flat-checked);
             color: $selected_fg_color;
-            background-color: $warning_bg_color;
+            background-color: $accent_color;
           }
           &:insensitive { @include button(flat-insensitive); }
         }
@@ -3089,7 +3089,7 @@ GtkVolumeButton.button {
   &.solid-csd {
     border-radius: 0;
     margin: 0.4em;
-    background-color: $warning_color;
+    background-color: $accent_color;
     border: solid 1px $borders_color;
     box-shadow: none;
   }
@@ -3145,7 +3145,7 @@ GtkVolumeButton.button {
 // touch selection handlebars for the Popover.osd above
 .entry.cursor-handle,
 .cursor-handle {
-  background-color: $success_color;
+  background-color: $accent_color;
   background-image: none;
   box-shadow: none;
   border-style: none;
