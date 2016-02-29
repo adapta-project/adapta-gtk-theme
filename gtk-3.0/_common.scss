@@ -2012,7 +2012,19 @@ GtkSwitch {
       background-color: if($variant=='light', #F0F2F3, #3F4E56);
     }
   }
-  .list-row:selected & {
+  .list-row:selected & { // return to monochrome
+    &.trough {
+      background-color: $bg_color;
+      &:active {
+        background-color: $secondary_dark_color;
+        &:insensitive { background-color: $secondary_dark_color; }
+      }
+    }
+
+    &.slider {
+      background-color: $bg_color;
+      &:active { background-color: $base_color; }
+    }
   }
 }
 
