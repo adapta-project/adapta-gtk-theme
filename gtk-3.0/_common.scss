@@ -2666,6 +2666,14 @@ GtkPlacesSidebar.sidebar {
   .list-row:selected:insensitive .label { color: $insensitive_selected_fg_color; }
   // .list-row:selected:backdrop:insensitive .label { @extend %selected_items:backdrop:insensitive; }
 
+  .list-row:selected { // 'eject' button
+    .sidebar-button.button {
+      color: $secondary_selected_bg_color;
+      &:hover,
+      &:active { color: $selected_bg_color; }
+    }
+  }
+
   .sidebar-placeholder-row { border: solid 1px $selected_bg_color; }
 
   .sidebar-new-bookmark-row { color: $selected_bg_color; }
@@ -2675,7 +2683,13 @@ GtkPlacesSidebar.sidebar {
   // "GtkPlacesSidebar.sidebar .sidebar-button.button" [specificity 0,0,3,1]
   // the extended selector ".sidebar-button.button" [specificity 0,0,2,0]
   @at-root .sidebar-button.button { 
-    &.image-button { padding: 4px; }
+    &.image-button {
+      padding: 4px;
+      color: $secondary_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $fg_color; }
+    }
 
     @extend .button.flat;
     // border-radius: 100%;
