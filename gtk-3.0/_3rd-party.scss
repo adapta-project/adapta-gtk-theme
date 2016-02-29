@@ -137,20 +137,20 @@ $orientation: ((top, bottom),
       border-radius: 0 0 2px 0;
       border-left-width: 0;
       background-color: transparent;
-      color: $warning_color;
+      color: $accent_color;
       &:hover {
         @include button(flat-hover);
-        color: $warning_color;
+        color: $accent_color;
       }
       &:active {
         @include button(flat-active);
         color: $selected_fg_color;
-        background-color: $warning_bg_color;
+        background-color: $accent_color;
       }
       &:checked {
        @include button(flat-checked);
         color: $selected_fg_color;
-        background-color: $warning_bg_color;
+        background-color: $accent_color;
       }
       &:insensitive { @include button(flat-insensitive); }
     }
@@ -162,7 +162,7 @@ $orientation: ((top, bottom),
 
   .message { color: $secondary_fg_color; }
   .failure {
-    color: $warning_color;
+    color: $accent_color;
     font-weight: bold;
   }
 }
