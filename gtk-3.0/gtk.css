@@ -960,9 +960,10 @@ GtkComboBox {
 .titlebar,
 .header-bar {
   padding: 0.4em;
-  border-width: 0 0 1px;
+  border-width: 1px 0 1px;
   border-style: solid;
-  border-color: #242F35;
+  border-top-color: #37474F;
+  border-bottom-color: #242F35;
   background-color: #2a373e;
   background-clip: border-box;
   color: rgba(236, 239, 241, 0.75); }
@@ -1484,7 +1485,8 @@ GtkComboBox {
   .tiled .titlebar, .maximized .titlebar, .tiled
   .header-bar, .maximized
   .header-bar {
-    border-radius: 0; }
+    border-radius: 0;
+    border-top-color: #2a373e; }
   .titlebar.default-decoration,
   .header-bar.default-decoration {
     padding: 0.4em;
@@ -1510,29 +1512,33 @@ GtkComboBox {
         color: rgba(236, 239, 241, 0.225); }
 
 .csd .header-bar {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), inset 0 1px rgba(255, 255, 255, 0.07); }
-GtkBox .header-bar:last-child:dir(ltr) {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.09), inset 0 1px rgba(255, 255, 255, 0.07); }
-GtkBox .header-bar:last-child:dir(rtl) {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.09), inset 0 1px rgba(255, 255, 255, 0.07); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32); }
+GtkBox .header-bar:last-child:dir(ltr), GtkPaned:last-child .header-bar:dir(ltr) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.09); }
+GtkBox .header-bar:last-child:dir(rtl), GtkPaned:last-child .header-bar:dir(rtl) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.09); }
 
 .header-bar,
 .titlebar {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px; }
-  GtkBox .header-bar:not(:last-child):dir(ltr), GtkBox
-  .titlebar:not(:last-child):dir(ltr) {
+  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(ltr), GtkPaned:not(:last-child) .header-bar:not(.titlebar):dir(ltr), GtkBox
+  .titlebar:not(:last-child):not(.titlebar):dir(ltr), GtkPaned:not(:last-child)
+  .titlebar:not(.titlebar):dir(ltr) {
     border-top-left-radius: 2px;
     border-top-right-radius: 0; }
-  GtkBox .header-bar:not(:last-child):dir(rtl), GtkBox
-  .titlebar:not(:last-child):dir(rtl) {
+  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(rtl), GtkPaned:not(:last-child) .header-bar:not(.titlebar):dir(rtl), GtkBox
+  .titlebar:not(:last-child):not(.titlebar):dir(rtl), GtkPaned:not(:last-child)
+  .titlebar:not(.titlebar):dir(rtl) {
     border-top-left-radius: 0;
     border-top-right-radius: 2px; }
-  GtkBox .header-bar:last-child:dir(ltr), GtkBox
-  .titlebar:last-child:dir(ltr) {
+  GtkBox .header-bar:last-child:not(.titlebar):dir(ltr), GtkPaned:last-child .header-bar:not(.titlebar):dir(ltr), GtkBox
+  .titlebar:last-child:not(.titlebar):dir(ltr), GtkPaned:last-child
+  .titlebar:not(.titlebar):dir(ltr) {
     border-top-left-radius: 0; }
-  GtkBox .header-bar:last-child:dir(rtl), GtkBox
-  .titlebar:last-child:dir(rtl) {
+  GtkBox .header-bar:last-child:not(.titlebar):dir(rtl), GtkPaned:last-child .header-bar:not(.titlebar):dir(rtl), GtkBox
+  .titlebar:last-child:not(.titlebar):dir(rtl), GtkPaned:last-child
+  .titlebar:not(.titlebar):dir(rtl) {
     border-top-right-radius: 0; }
 
 /************

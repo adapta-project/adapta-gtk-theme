@@ -1042,10 +1042,11 @@ GtkComboBox {
 .titlebar,
 .header-bar {
   padding: 0.4em;
-  border-width: 0 0 1px;
+  border-width: 1px 0 1px;
   border-style: solid;
   // do not use transparentize
-  border-color: #242F35;
+  border-top-color: $inverted_bg_color;
+  border-bottom-color: #242F35;
   background-color: $inverted_dark_color;
   background-clip: border-box;
   &:backdrop { opacity: 1.0; }  // fully opaque
@@ -1298,6 +1299,7 @@ GtkComboBox {
   .tiled &,
   .maximized & {
     border-radius: 0; // squared corners when the window is max'd or tiled
+    border-top-color: $inverted_dark_color;
   }
 
   &.default-decoration {
@@ -1330,16 +1332,15 @@ GtkComboBox {
                                       $header-shadow-dark);
   }
 
-  GtkBox & { // Remove unneeded side shadows with dirty hacks
-    &:last-child {
-      &:dir(ltr) {
-        box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
-                                          $sub-header-shadow-dark-ltr);
-      }
-      &:dir(rtl) {
-        box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
-                                          $sub-header-shadow-dark-rtl);
-      }
+  GtkBox &:last-child,
+  GtkPaned:last-child & { // Remove unneeded side shadows with dirty hacks
+    &:dir(ltr) {
+      box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
+                                        $sub-header-shadow-dark-ltr);
+    }
+    &:dir(rtl) {
+      box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
+                                        $sub-header-shadow-dark-rtl);
     }
   }
 }
@@ -1349,21 +1350,22 @@ GtkComboBox {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 
-  GtkBox & {
-    &:not(:last-child) {
-      &:dir(ltr) {
-        border-top-left-radius: 2px;
-        border-top-right-radius: 0;
-      }
-      &:dir(rtl) {
-        border-top-left-radius: 0;
-        border-top-right-radius: 2px;
-      }
+  GtkBox &:not(:last-child):not(.titlebar),
+  GtkPaned:not(:last-child) &:not(.titlebar) {
+    &:dir(ltr) {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 0;
     }
-    &:last-child {
-      &:dir(ltr) { border-top-left-radius: 0; }
-      &:dir(rtl) { border-top-right-radius: 0; }
+    &:dir(rtl) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 2px;
     }
+  }
+
+  GtkBox &:last-child:not(.titlebar),
+  GtkPaned:last-child &:not(.titlebar) {
+    &:dir(ltr) { border-top-left-radius: 0; }
+    &:dir(rtl) { border-top-right-radius: 0; }
   }
 }
 
