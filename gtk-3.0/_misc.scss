@@ -309,9 +309,9 @@ SeahorseWidget {
  **************/
 
 MathWindow {
-  &:not(.titlebar),
-  &:not(.header-bar) {
-    .button:not(.titlebutton) {
+  & :not(.titlebar),
+  & :not(.header-bar) {
+    .button:not(.flat):not(.titlebutton) {
       @extend .button.flat;
       padding: 0.75em 1em 0.75em;  // FIXME: broken in 12pt fonts?
       border: 0.75em solid transparent;
