@@ -715,8 +715,8 @@ StScrollBar {
   padding: 12px;
   border-radius: 2px;
   border: none;
-  color: $fg_color;
-  background-color: $bg_color;
+  color: $osd_fg_color;
+  background-color: transparentize($osd_bg_color, 0.1);
   @include shadow(4);
 }
 
@@ -1077,9 +1077,9 @@ StScrollBar {
 .message-list-section-title-box { spacing: 0.4em; }
 
 .message-list-section-close > StIcon {
-  padding: 8px;
-  border-radius: 16px;
-  icon-size: 16px;
+  padding: 6px;
+  border-radius: 20px;
+  icon-size: 20px;
   color: $secondary_fg_color;
   background-color: transparent;
 }
@@ -1097,6 +1097,8 @@ StScrollBar {
 }
 
 .message {
+  min-height: 22px;
+  padding: 6px;
   border-radius: 2px;
   background-color: transparent;
   &:hover,
@@ -1108,7 +1110,7 @@ StScrollBar {
   padding: 8px 0 8px 8px;
   &:rtl { padding: 8px 8px 8px 0; }
 
-  & > StIcon { icon-size: 32px; }
+  & > StIcon { icon-size: 16px; }
 }
 
 .message-secondary-bin {
@@ -1120,6 +1122,7 @@ StScrollBar {
 }
 
 .message-title {
+  padding: 8px;
   font-weight: bold;
   font-size: 1.1em;
 }
@@ -1130,7 +1133,7 @@ StScrollBar {
 }
 
 .message-content * > StIcon {
-  padding: 2px;
+  padding: 8px;
   border-radius: 16px;
   icon-size: 16px;
   color: $secondary_fg_color;
@@ -1331,7 +1334,7 @@ StScrollBar {
   border-radius: 2px;
   spacing: 25px;
   color: $osd_fg_color;
-  background-color: $osd_bg_color;
+  background-color: transparentize($osd_bg_color, 0.1);
   -shell-caption-spacing: 12px;
   @include shadow(1);
   &:hover {
@@ -1448,7 +1451,7 @@ StScrollBar {
   border-radius: 2px;
   padding: 4px 12px;
   color: $fg_color;
-  background-color: $osd_bg_color;
+  background-color: transparentize($osd_bg_color, 0.1);
   @include shadow(2);
   text-align: center;
   -x-offset: 8px;
@@ -1807,46 +1810,46 @@ StScrollBar {
 // Banners
 .notification-banner {
   width: 34em;
+  min-height: 4.5em;
   margin: 5px;
   border: none;
   border-radius: 2px;
-  font-size: 11pt;
-  color: $fg_color;
-  background-color: $bg_color;
-
+  font-size: 1.1em;
+  background-color: transparentize($osd_bg_color, 0.1);
   @include shadow(2);
-  &:hover { background-color: $bg_color; }
-  &:focus { background-color: $bg_color; }
+  &:hover,
+  &:focus { background-color: transparentize($osd_bg_color, 0.1); }
 
-  .notification-icon { padding: 5px; }
+  .notification-icon { padding: 8px; }
   .notification-content {
-    padding: 5px;
-    spacing: 5px;
+    padding: 8px;
+    spacing: 8px;
   }
   .secondary-icon { icon-size: 1.09em; }
   .notification-actions {
     padding-top: 0;
-    border-top: 1px solid $fill_color;
+    border: transparent;
     spacing: 1px;
+    color: $accent_color;
     background-color: transparent;
   }
 
   .notification-button {
     padding: 9px 4px 10px;
     background-color: transparent;
-    color: $secondary_fg_color;
-    font-weight: 500;
+    color: $accent_color;
+    font-weight: bold;
 
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
     &:hover,
-    &focus {
-      background-color: $semi_fill_color;
-      color: $fg_color;
+    &:focus {
+      background-color: $osd_semi_fill_color;
+      color: $accent_color;
     }
     &:active {
-      background-color: $fill_color;
-      color: $fg_color;
+      background-color: $osd_fill_color;
+      color: $accent_color;
     }
   }
 }
@@ -1893,7 +1896,7 @@ StScrollBar {
   padding-left: 4px;
   font-size: 9pt;
   font-weight: bold;
-  color: transparentize($fg_color, 0.4);
+  color: $insensitive_fg_color;
   &:rtl {
     padding-left: 0;
     padding-right: 4px;
@@ -1940,7 +1943,7 @@ StScrollBar {
 .hotplug-resident-eject-button {
   padding: 7px;
   border-radius: 2px;
-  color: $fg_color;
+  color: $osd_fg_color;
 }
 
 // Eeeky things
@@ -2318,7 +2321,7 @@ $legacy_icon_size: 24px;
   .screen-shield-notification-source {
     padding: 12px 6px;
     border: none;
-    background-color: $osd_bg_color;
+    background-color: transparentize($osd_bg_color, 0.1);
     color: $osd_fg_color;
     border-radius: 2px;
   }

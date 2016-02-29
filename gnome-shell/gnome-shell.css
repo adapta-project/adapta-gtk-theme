@@ -643,7 +643,7 @@ StScrollBar {
   border-radius: 2px;
   border: none;
   color: #ECEFF1;
-  background-color: #37474F;
+  background-color: rgba(42, 55, 62, 0.9);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.375), 0 10px 10px rgba(0, 0, 0, 0.33); }
 
 /*************************
@@ -916,9 +916,9 @@ StScrollBar {
   spacing: 0.4em; }
 
 .message-list-section-close > StIcon {
-  padding: 8px;
-  border-radius: 16px;
-  icon-size: 16px;
+  padding: 6px;
+  border-radius: 20px;
+  icon-size: 20px;
   color: rgba(236, 239, 241, 0.75);
   background-color: transparent; }
 
@@ -932,6 +932,8 @@ StScrollBar {
   background-color: rgba(236, 239, 241, 0.15); }
 
 .message {
+  min-height: 22px;
+  padding: 6px;
   border-radius: 2px;
   background-color: transparent; }
   .message:hover, .message:focus {
@@ -944,7 +946,7 @@ StScrollBar {
   .message-icon-bin:rtl {
     padding: 8px 8px 8px 0; }
   .message-icon-bin > StIcon {
-    icon-size: 32px; }
+    icon-size: 16px; }
 
 .message-secondary-bin {
   color: rgba(236, 239, 241, 0.4); }
@@ -956,6 +958,7 @@ StScrollBar {
     icon-size: 16px; }
 
 .message-title {
+  padding: 8px;
   font-weight: bold;
   font-size: 1.1em; }
 
@@ -964,7 +967,7 @@ StScrollBar {
   font-size: 0.9em; }
 
 .message-content * > StIcon {
-  padding: 2px;
+  padding: 8px;
   border-radius: 16px;
   icon-size: 16px;
   color: rgba(236, 239, 241, 0.75); }
@@ -1140,7 +1143,7 @@ StScrollBar {
   border-radius: 2px;
   spacing: 25px;
   color: #ECEFF1;
-  background-color: #2a373e;
+  background-color: rgba(42, 55, 62, 0.9);
   -shell-caption-spacing: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   .window-caption:hover {
@@ -1243,7 +1246,7 @@ StScrollBar {
   border-radius: 2px;
   padding: 4px 12px;
   color: #ECEFF1;
-  background-color: #2a373e;
+  background-color: rgba(42, 55, 62, 0.9);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.24), 0 3px 6px rgba(0, 0, 0, 0.345);
   text-align: center;
   -x-offset: 8px; }
@@ -1528,44 +1531,43 @@ StScrollBar {
 
 .notification-banner {
   width: 34em;
+  min-height: 4.5em;
   margin: 5px;
   border: none;
   border-radius: 2px;
-  font-size: 11pt;
-  color: #ECEFF1;
-  background-color: #37474F;
+  font-size: 1.1em;
+  background-color: rgba(42, 55, 62, 0.9);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.24), 0 3px 6px rgba(0, 0, 0, 0.345); }
-  .notification-banner:hover {
-    background-color: #37474F; }
-  .notification-banner:focus {
-    background-color: #37474F; }
+  .notification-banner:hover, .notification-banner:focus {
+    background-color: rgba(42, 55, 62, 0.9); }
   .notification-banner .notification-icon {
-    padding: 5px; }
+    padding: 8px; }
   .notification-banner .notification-content {
-    padding: 5px;
-    spacing: 5px; }
+    padding: 8px;
+    spacing: 8px; }
   .notification-banner .secondary-icon {
     icon-size: 1.09em; }
   .notification-banner .notification-actions {
     padding-top: 0;
-    border-top: 1px solid rgba(236, 239, 241, 0.15);
+    border: transparent;
     spacing: 1px;
+    color: #1DE9B6;
     background-color: transparent; }
   .notification-banner .notification-button {
     padding: 9px 4px 10px;
     background-color: transparent;
-    color: rgba(236, 239, 241, 0.75);
-    font-weight: 500; }
+    color: #1DE9B6;
+    font-weight: bold; }
     .notification-banner .notification-button:first-child {
       border-radius: 0 0 0 2px; }
     .notification-banner .notification-button:last-child {
       border-radius: 0 0 2px 0; }
-    .notification-banner .notification-button:hover, .notification-banner .notification-buttonfocus {
-      background-color: rgba(236, 239, 241, 0.07);
-      color: #ECEFF1; }
+    .notification-banner .notification-button:hover, .notification-banner .notification-button:focus {
+      background-color: rgba(236, 239, 241, 0.2);
+      color: #1DE9B6; }
     .notification-banner .notification-button:active {
-      background-color: rgba(236, 239, 241, 0.15);
-      color: #ECEFF1; }
+      background-color: rgba(236, 239, 241, 0.4);
+      color: #1DE9B6; }
 
 .summary-source-counter {
   width: 1.6em;
@@ -1612,7 +1614,7 @@ StScrollBar {
   padding-left: 4px;
   font-size: 9pt;
   font-weight: bold;
-  color: rgba(236, 239, 241, 0.6); }
+  color: rgba(236, 239, 241, 0.4); }
   .chat-meta-message:rtl {
     padding-left: 0;
     padding-right: 4px; }
@@ -2060,7 +2062,7 @@ StScrollBar {
   .screen-shield-notifications-container .screen-shield-notification-source {
     padding: 12px 6px;
     border: none;
-    background-color: #2a373e;
+    background-color: rgba(42, 55, 62, 0.9);
     color: #ECEFF1;
     border-radius: 2px; }
   .screen-shield-notifications-container .notification {
