@@ -26,6 +26,8 @@ Supported Desktop Environments
   * gnome-panel >= 3.18.1
   * metacity >= 3.18.1
 * Budgie-Desktop 10.2.2
+* Unity7 7.4.0
+  * Compiz >= 0.9.12
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
@@ -42,6 +44,7 @@ Installation
 Work in Progress
 ----------------
 * Conversion to Gtk+ 3.19.9 or git master (see progress in 3.19.x branch...)
+* Unity7 desktop integration (but unity is not my thing at all...)
 
 TODO
 ----
