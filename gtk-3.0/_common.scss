@@ -1049,7 +1049,7 @@ GtkComboBox {
   border-style: solid;
   // do not use transparentize
   border-top-color: $inverted_bg_color;
-  border-bottom-color: #242F35;
+  border-bottom-color: $solid_dark_borders_color;
   background-color: $inverted_dark_color;
   background-clip: border-box;
   &:backdrop { opacity: 1.0; }  // fully opaque
@@ -1344,6 +1344,11 @@ GtkComboBox {
       box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
                                         $sub-header-shadow-dark-rtl);
     }
+  }
+
+  GtkPaned &:last-child { // draw paned-separator with border
+    &:dir(ltr) { border-left: 1px solid $solid_dark_borders_color; }
+    &:dir(rtl) { border-right: 1px solid $solid_dark_borders_color; }
   }
 }
 
@@ -2753,7 +2758,8 @@ GtkInfoBar {
   border-width: 0 0 1px;
   border-style: solid;
   // do not use transparentize
-  border-color: if($variant=='light', #E1E2E3, #242F35);
+  border-color: if($variant=='light', $solid_light_borders_color,
+                                      $solid_dark_borders_color);
   background-color: $secondary_dark_color;
 }
 
