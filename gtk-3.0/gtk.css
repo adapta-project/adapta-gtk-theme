@@ -3720,8 +3720,10 @@ GtkVolumeButton.button {
   margin: 8px; }
   .window-frame:backdrop {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2); }
-  .window-frame.tiled {
+  .window-frame.maximized, .window-frame.tiled {
     border-radius: 0; }
+    .window-frame.maximized.ssd .titlebar, .window-frame.tiled.ssd .titlebar {
+      box-shadow: none; }
   .window-frame.popup {
     box-shadow: none; }
   .window-frame.ssd {

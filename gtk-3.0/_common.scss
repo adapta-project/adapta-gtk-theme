@@ -3076,7 +3076,11 @@ GtkVolumeButton.button {
 
   &:backdrop { box-shadow: $z-depth-2; }
 
-  &.tiled { border-radius: 0; }
+  &.maximized,
+  &.tiled {
+    border-radius: 0;
+    &.ssd .titlebar { box-shadow: none; }
+  }
 
   &.popup { box-shadow: none; }
 
