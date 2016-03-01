@@ -31,7 +31,6 @@ Supported Desktop Environments
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
-* Unity
 * Cinnamon
 * Mate
 * XFce4
