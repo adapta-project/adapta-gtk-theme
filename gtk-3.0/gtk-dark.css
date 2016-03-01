@@ -959,6 +959,7 @@ GtkComboBox {
  ***************/
 .titlebar,
 .header-bar {
+  -GtkPaned-handle-size: 0;
   padding: 0.4em;
   border-width: 1px 0 1px;
   border-style: solid;
@@ -997,7 +998,7 @@ GtkComboBox {
   .titlebar .header-bar-separator, .titlebar > GtkBox > .separator.vertical,
   .header-bar .header-bar-separator,
   .header-bar > GtkBox > .separator.vertical {
-    -GtkWidget-separator-width: 1px;
+    -GtkWidget-separator-width: 0;
     border: 0 none transparent;
     color: transparent; }
   .titlebar .button:not(.suggested-action):not(.destructive-action),
@@ -1513,32 +1514,28 @@ GtkComboBox {
 
 .csd .header-bar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2); }
-GtkBox .header-bar:last-child:dir(ltr), GtkPaned:last-child .header-bar:dir(ltr) {
+GtkBox .header-bar:last-child:dir(ltr) {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.09); }
-GtkBox .header-bar:last-child:dir(rtl), GtkPaned:last-child .header-bar:dir(rtl) {
+GtkBox .header-bar:last-child:dir(rtl) {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.09); }
 
 .header-bar,
 .titlebar {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px; }
-  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(ltr), GtkPaned:not(:last-child) .header-bar:not(.titlebar):dir(ltr), GtkBox
-  .titlebar:not(:last-child):not(.titlebar):dir(ltr), GtkPaned:not(:last-child)
-  .titlebar:not(.titlebar):dir(ltr) {
+  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(ltr), GtkBox
+  .titlebar:not(:last-child):not(.titlebar):dir(ltr) {
     border-top-left-radius: 2px;
     border-top-right-radius: 0; }
-  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(rtl), GtkPaned:not(:last-child) .header-bar:not(.titlebar):dir(rtl), GtkBox
-  .titlebar:not(:last-child):not(.titlebar):dir(rtl), GtkPaned:not(:last-child)
-  .titlebar:not(.titlebar):dir(rtl) {
+  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(rtl), GtkBox
+  .titlebar:not(:last-child):not(.titlebar):dir(rtl) {
     border-top-left-radius: 0;
     border-top-right-radius: 2px; }
-  GtkBox .header-bar:last-child:not(.titlebar):dir(ltr), GtkPaned:last-child .header-bar:not(.titlebar):dir(ltr), GtkBox
-  .titlebar:last-child:not(.titlebar):dir(ltr), GtkPaned:last-child
-  .titlebar:not(.titlebar):dir(ltr) {
+  GtkBox .header-bar:last-child:not(.titlebar):dir(ltr), GtkBox
+  .titlebar:last-child:not(.titlebar):dir(ltr) {
     border-top-left-radius: 0; }
-  GtkBox .header-bar:last-child:not(.titlebar):dir(rtl), GtkPaned:last-child .header-bar:not(.titlebar):dir(rtl), GtkBox
-  .titlebar:last-child:not(.titlebar):dir(rtl), GtkPaned:last-child
-  .titlebar:not(.titlebar):dir(rtl) {
+  GtkBox .header-bar:last-child:not(.titlebar):dir(rtl), GtkBox
+  .titlebar:last-child:not(.titlebar):dir(rtl) {
     border-top-right-radius: 0; }
 
 /************
@@ -4136,7 +4133,7 @@ GfCandidatePopup .linked > .button:last-child {
   opacity: 0; }
 
 .geary-titlebar-right {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.07); }
+  box-shadow: none; }
 
 /************
  * Epiphany *

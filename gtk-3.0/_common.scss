@@ -1041,6 +1041,9 @@ GtkComboBox {
 
 .titlebar,
 .header-bar {
+
+  -GtkPaned-handle-size: 0; // FIXME: workaround for ugly Gedit!
+
   padding: 0.4em;
   border-width: 1px 0 1px;
   border-style: solid;
@@ -1086,7 +1089,7 @@ GtkComboBox {
   .header-bar-separator,
   & > GtkBox > .separator.vertical {
     // -GtkWidget-wide-separators: true;
-    -GtkWidget-separator-width: 1px;
+    -GtkWidget-separator-width: 0;
     border: 0 none transparent;
     color: transparent;
   }
@@ -1299,7 +1302,7 @@ GtkComboBox {
   .tiled &,
   .maximized & {
     border-radius: 0; // squared corners when the window is max'd or tiled
-    border-top-color: $inverted_dark_color;
+    border-top-color: $inverted_dark_color; // remove highlight edge
   }
 
   &.default-decoration {
@@ -1332,8 +1335,7 @@ GtkComboBox {
                                       $header-shadow-dark);
   }
 
-  GtkBox &:last-child,
-  GtkPaned:last-child & { // Remove unneeded side shadows with dirty hacks
+  GtkBox &:last-child { // Remove unneeded side shadows with dirty hacks
     &:dir(ltr) {
       box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
                                         $sub-header-shadow-dark-ltr);
@@ -1350,8 +1352,7 @@ GtkComboBox {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 
-  GtkBox &:not(:last-child):not(.titlebar),
-  GtkPaned:not(:last-child) &:not(.titlebar) {
+  GtkBox &:not(:last-child):not(.titlebar) {
     &:dir(ltr) {
       border-top-left-radius: 2px;
       border-top-right-radius: 0;
@@ -1362,8 +1363,7 @@ GtkComboBox {
     }
   }
 
-  GtkBox &:last-child:not(.titlebar),
-  GtkPaned:last-child &:not(.titlebar) {
+  GtkBox &:last-child:not(.titlebar) {
     &:dir(ltr) { border-top-left-radius: 0; }
     &:dir(rtl) { border-top-right-radius: 0; }
   }
