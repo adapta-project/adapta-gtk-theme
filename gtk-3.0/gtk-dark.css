@@ -1740,36 +1740,7 @@ column-header.button.dnd, column-header .button.dnd {
     border-style: solid;
     border-color: transparent;
     background-color: transparent;
-    outline-offset: 0;
-    /* works for testnotebookdnd, but there's a superfluous border
-       in gedit or web, commented out for now, needs gtk fixes
-    &.reorderable-page {
-      &.top {
-        padding-top: ($vt_vpadding - 1px);
-        border-top-width: 1px;
-        border-left-width: 1px;
-        border-right-width: 1px;
-      }
-      &.bottom {
-        padding-bottom: ($vt_vpadding - 1px);
-        border-bottom-width: 1px;
-        border-left-width: 1px;
-        border-right-width: 1px;
-      }
-      &.left {
-        padding-left: ($ht_hpadding - 1px);
-        border-left-width: 1px;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-      }
-      &.right {
-        padding-right: ($ht_hpadding - 1px);
-        border-right-width: 1px;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-      }
-    }
-    */ }
+    outline-offset: 0; }
     .notebook tab.top, .notebook tab.bottom {
       padding: 0.5em 1.2em; }
     .notebook tab.left, .notebook tab.right {
@@ -1806,7 +1777,7 @@ column-header.button.dnd, column-header .button.dnd {
         box-shadow: none; }
       .notebook tab.reorderable-page.top:active, .notebook tab.reorderable-page.top.active-page {
         border-color: rgba(0, 0, 0, 0.09);
-        border-bottom-width: 2px;
+        border-bottom-width: 1px;
         border-bottom-color: #455A64;
         background-color: #455A64;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
@@ -1820,7 +1791,7 @@ column-header.button.dnd, column-header .button.dnd {
         box-shadow: none; }
       .notebook tab.reorderable-page.bottom:active, .notebook tab.reorderable-page.bottom.active-page {
         border-color: rgba(0, 0, 0, 0.09);
-        border-top-width: 2px;
+        border-top-width: 1px;
         border-top-color: #455A64;
         background-color: #455A64;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
@@ -1834,7 +1805,7 @@ column-header.button.dnd, column-header .button.dnd {
         box-shadow: none; }
       .notebook tab.reorderable-page.left:active, .notebook tab.reorderable-page.left.active-page {
         border-color: rgba(0, 0, 0, 0.09);
-        border-right-width: 2px;
+        border-right-width: 1px;
         border-right-color: #455A64;
         background-color: #455A64;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
@@ -1848,7 +1819,7 @@ column-header.button.dnd, column-header .button.dnd {
         box-shadow: none; }
       .notebook tab.reorderable-page.right:active, .notebook tab.reorderable-page.right.active-page {
         border-color: rgba(0, 0, 0, 0.09);
-        border-left-width: 2px;
+        border-left-width: 1px;
         border-left-color: #455A64;
         background-color: #455A64;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
@@ -1856,9 +1827,11 @@ column-header.button.dnd, column-header .button.dnd {
       padding: 0.6em;
       font-weight: bold;
       color: rgba(236, 239, 241, 0.5); }
-    .notebook tab .prelight-page .label, .notebook tab .label.prelight-page {
+    .notebook tab .prelight-page .label,
+    .notebook tab .label.prelight-page {
       color: #ECEFF1; }
-    .notebook tab .active-page .label, .notebook tab .label.active-page {
+    .notebook tab .active-page .label,
+    .notebook tab .label.active-page {
       color: #ECEFF1; }
     .notebook tab .button {
       padding: 0;
@@ -1878,12 +1851,16 @@ column-header.button.dnd, column-header .button.dnd {
         background-color: transparent; }
       .notebook tab .button > GtkImage {
         padding: 4px; }
+    .notebook tab .prelight-page .button, .notebook tab:hover .button {
+      color: #ECEFF1; }
+    .notebook tab .active-page .button, .notebook tab:hover .button {
+      color: #ECEFF1; }
   .notebook.arrow {
     color: rgba(236, 239, 241, 0.5); }
     .notebook.arrow:hover, .notebook.arrow:active {
       color: #ECEFF1; }
     .notebook.arrow:insensitive {
-      color: rgba(236, 239, 241, 0.3); }
+      color: rgba(236, 239, 241, 0.225); }
 
 /**************
  * Scrollbars *

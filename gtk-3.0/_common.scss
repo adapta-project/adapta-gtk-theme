@@ -1688,37 +1688,6 @@ column-header.button.dnd { // for treeview-like derive widgets
     &.left,
     &.right { padding: $ht_vpadding $ht_hpadding; }
 
-
-    /* works for testnotebookdnd, but there's a superfluous border
-       in gedit or web, commented out for now, needs gtk fixes
-    &.reorderable-page {
-      &.top {
-        padding-top: ($vt_vpadding - 1px);
-        border-top-width: 1px;
-        border-left-width: 1px;
-        border-right-width: 1px;
-      }
-      &.bottom {
-        padding-bottom: ($vt_vpadding - 1px);
-        border-bottom-width: 1px;
-        border-left-width: 1px;
-        border-right-width: 1px;
-      }
-      &.left {
-        padding-left: ($ht_hpadding - 1px);
-        border-left-width: 1px;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-      }
-      &.right {
-        padding-right: ($ht_hpadding - 1px);
-        border-right-width: 1px;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-      }
-    }
-    */
-
     &.reorderable-page {
       -GtkNotebook-tab-overlap: 1;
       &.top,
@@ -1766,7 +1735,7 @@ column-header.button.dnd { // for treeview-like derive widgets
         }
         &:active, &.active-page {
           border-color: $borders_color;
-          border-#{$_border}-width: 2px;
+          border-#{$_border}-width: 1px;
           border-#{$_border}-color: $base_color;
           background-color: $base_color;
           box-shadow: $z-depth-1;
@@ -1782,12 +1751,12 @@ column-header.button.dnd { // for treeview-like derive widgets
       font-weight: bold;
       color: $tertiary_fg_color;
     }
-    .prelight-page .label, .label.prelight-page {
-      // prelight tab text
+    .prelight-page .label,
+    .label.prelight-page { // hover tab text
       color: $fg_color;
     }
-    .active-page .label, .label.active-page {
-      // active tab text
+    .active-page .label,
+    .label.active-page { // active tab text
       color: $fg_color;
     }
 
@@ -1805,13 +1774,21 @@ column-header.button.dnd { // for treeview-like derive widgets
         padding: 4px;
       }
     }
+    .prelight-page .button,
+    &:hover .button { // hover tab close button
+      color: $fg_color;
+    }
+    .active-page .button,
+    &:hover .button { // active tab close button
+      color: $fg_color;
+    }
   }
 
   &.arrow {
     color: $tertiary_fg_color;
     &:hover,
     &:active { color: $fg_color; }
-    &:insensitive { color: $insensitive_fg_color; }
+    &:insensitive { color: $insensitive_secondary_fg_color; }
   }
 
   &:not(.reorderable-page) > .entry { @extend .entry.flat; }
