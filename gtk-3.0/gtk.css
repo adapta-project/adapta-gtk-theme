@@ -56,15 +56,9 @@
 .background {
   background-color: #fafbfc;
   color: #263238; }
-  .background:backdrop:not(TerminalWindow):not(TerminalScreen) {
-    opacity: 1.0; }
 
 *:insensitive {
   -gtk-image-effect: dim; }
-
-*:backdrop {
-  transition: 0.2s;
-  opacity: 0.88; }
 
 .gtkstyle-fallback {
   background-color: #fafbfc;
@@ -968,9 +962,6 @@ GtkComboBox {
   background-color: #2a373e;
   background-clip: border-box;
   color: rgba(236, 239, 241, 0.75); }
-  .titlebar:backdrop,
-  .header-bar:backdrop {
-    opacity: 1.0; }
   .titlebar .label:checked:insensitive,
   .header-bar .label:checked:insensitive {
     color: rgba(236, 239, 241, 0.3); }
@@ -983,18 +974,12 @@ GtkComboBox {
     padding-right: 1em;
     color: #ECEFF1;
     font-weight: bold; }
-    .titlebar .title:backdrop,
-    .header-bar .title:backdrop {
-      opacity: 0.5; }
   .titlebar .subtitle,
   .header-bar .subtitle {
     padding-left: 1em;
     padding-right: 1em;
     color: #ECEFF1;
     font-size: smaller; }
-    .titlebar .subtitle:backdrop,
-    .header-bar .subtitle:backdrop {
-      opacity: 0.5; }
   .titlebar .header-bar-separator, .titlebar > GtkBox > .separator.vertical,
   .header-bar .header-bar-separator,
   .header-bar > GtkBox > .separator.vertical {
@@ -1023,9 +1008,6 @@ GtkComboBox {
     .titlebar .button:not(.suggested-action):not(.destructive-action):insensitive,
     .header-bar .button:not(.suggested-action):not(.destructive-action):insensitive {
       color: rgba(236, 239, 241, 0.225); }
-    .titlebar .button:not(.suggested-action):not(.destructive-action):backdrop,
-    .header-bar .button:not(.suggested-action):not(.destructive-action):backdrop {
-      opacity: 0.5; }
   .titlebar .button,
   .titlebar .linked > .button,
   .titlebar .button.suggested-action,
@@ -1071,15 +1053,6 @@ GtkComboBox {
     .header-bar .button.suggested-action:insensitive,
     .header-bar .button.destructive-action:insensitive {
       color: rgba(236, 239, 241, 0.225); }
-    .titlebar .button:backdrop,
-    .titlebar .linked > .button:backdrop,
-    .titlebar .button.suggested-action:backdrop,
-    .titlebar .button.destructive-action:backdrop,
-    .header-bar .button:backdrop,
-    .header-bar .linked > .button:backdrop,
-    .header-bar .button.suggested-action:backdrop,
-    .header-bar .button.destructive-action:backdrop {
-      opacity: 0.5; }
   .titlebar .button:not(.suggested-action):not(.destructive-action),
   .header-bar .button:not(.suggested-action):not(.destructive-action) {
     border-radius: 100px;
@@ -1107,11 +1080,6 @@ GtkComboBox {
     .header-bar .entry:insensitive,
     .header-bar .linked > .entry:insensitive {
       color: rgba(236, 239, 241, 0.225); }
-    .titlebar .entry:backdrop,
-    .titlebar .linked > .entry:backdrop,
-    .header-bar .entry:backdrop,
-    .header-bar .linked > .entry:backdrop {
-      opacity: 0.5; }
   .titlebar GtkComboBox.combobox-entry .entry,
   .titlebar .linked > GtkComboBox.combobox-entry .entry,
   .header-bar GtkComboBox.combobox-entry .entry,
@@ -1127,11 +1095,6 @@ GtkComboBox {
     .header-bar GtkComboBox.combobox-entry .entry:insensitive,
     .header-bar .linked > GtkComboBox.combobox-entry .entry:insensitive {
       color: rgba(236, 239, 241, 0.225); }
-    .titlebar GtkComboBox.combobox-entry .entry:backdrop,
-    .titlebar .linked > GtkComboBox.combobox-entry .entry:backdrop,
-    .header-bar GtkComboBox.combobox-entry .entry:backdrop,
-    .header-bar .linked > GtkComboBox.combobox-entry .entry:backdrop {
-      opacity: 0.5; }
   .titlebar GtkComboBox.combobox-entry .button,
   .titlebar .linked > GtkComboBox.combobox-entry .button,
   .header-bar GtkComboBox.combobox-entry .button,
@@ -1157,11 +1120,6 @@ GtkComboBox {
     .header-bar GtkComboBox.combobox-entry .button:insensitive,
     .header-bar .linked > GtkComboBox.combobox-entry .button:insensitive {
       color: rgba(236, 239, 241, 0.225); }
-    .titlebar GtkComboBox.combobox-entry .button:backdrop,
-    .titlebar .linked > GtkComboBox.combobox-entry .button:backdrop,
-    .header-bar GtkComboBox.combobox-entry .button:backdrop,
-    .header-bar .linked > GtkComboBox.combobox-entry .button:backdrop {
-      opacity: 0.5; }
   .titlebar .menu .menuitem,
   .header-bar .menu .menuitem {
     color: rgba(38, 50, 56, 0.75); }
@@ -1458,9 +1416,6 @@ GtkComboBox {
           .titlebar.selection-mode .button.suggested-action:insensitive > .label,
           .header-bar.selection-mode .button.suggested-action:insensitive > .label {
             color: inherit; }
-      .titlebar.selection-mode .button:backdrop,
-      .header-bar.selection-mode .button:backdrop {
-        opacity: 0.5; }
     .titlebar.selection-mode .entry,
     .header-bar.selection-mode .entry {
       color: rgba(236, 239, 241, 0.75); }
@@ -1470,9 +1425,6 @@ GtkComboBox {
       .titlebar.selection-mode .entry:insensitive,
       .header-bar.selection-mode .entry:insensitive {
         color: rgba(236, 239, 241, 0.225); }
-      .titlebar.selection-mode .entry:backdrop,
-      .header-bar.selection-mode .entry:backdrop {
-        opacity: 0.5; }
     .titlebar.selection-mode .selection-menu,
     .header-bar.selection-mode .selection-menu {
       padding-left: 1.2em;
@@ -1495,10 +1447,6 @@ GtkComboBox {
     .titlebar.default-decoration .title,
     .header-bar.default-decoration .title {
       color: #ECEFF1; }
-      .titlebar.default-decoration .title:backdrop,
-      .header-bar.default-decoration .title:backdrop {
-        opacity: 1.0;
-        color: rgba(236, 239, 241, 0.3); }
     .titlebar.default-decoration .button.titlebutton,
     .header-bar.default-decoration .button.titlebutton {
       padding: 0.4em;
@@ -1507,10 +1455,6 @@ GtkComboBox {
       .header-bar.default-decoration .button.titlebutton:hover,
       .header-bar.default-decoration .button.titlebutton:active {
         color: #ECEFF1; }
-      .titlebar.default-decoration .button.titlebutton:backdrop,
-      .header-bar.default-decoration .button.titlebutton:backdrop {
-        opacity: 1.0;
-        color: rgba(236, 239, 241, 0.225); }
 
 .csd .header-bar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32); }
@@ -1866,8 +1810,6 @@ column-header.button.dnd, column-header .button.dnd {
         border-bottom-color: #FFFFFF;
         background-color: #FFFFFF;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-      .notebook tab.reorderable-page.top:backdrop {
-        box-shadow: none; }
     .notebook tab.reorderable-page.bottom {
       border-color: transparent; }
       .notebook tab.reorderable-page.bottom:hover, .notebook tab.reorderable-page.bottom.prelight-page {
@@ -1882,8 +1824,6 @@ column-header.button.dnd, column-header .button.dnd {
         border-top-color: #FFFFFF;
         background-color: #FFFFFF;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-      .notebook tab.reorderable-page.bottom:backdrop {
-        box-shadow: none; }
     .notebook tab.reorderable-page.left {
       border-color: transparent; }
       .notebook tab.reorderable-page.left:hover, .notebook tab.reorderable-page.left.prelight-page {
@@ -1898,8 +1838,6 @@ column-header.button.dnd, column-header .button.dnd {
         border-right-color: #FFFFFF;
         background-color: #FFFFFF;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-      .notebook tab.reorderable-page.left:backdrop {
-        box-shadow: none; }
     .notebook tab.reorderable-page.right {
       border-color: transparent; }
       .notebook tab.reorderable-page.right:hover, .notebook tab.reorderable-page.right.prelight-page {
@@ -1914,8 +1852,6 @@ column-header.button.dnd, column-header .button.dnd {
         border-left-color: #FFFFFF;
         background-color: #FFFFFF;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-      .notebook tab.reorderable-page.right:backdrop {
-        box-shadow: none; }
     .notebook tab .label {
       padding: 0.6em;
       font-weight: bold;
@@ -3767,10 +3703,6 @@ GtkVolumeButton.button {
   animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   color: #FFFFFF;
   background-color: #00BCD4; }
-.header-bar .button.titlebutton.close:backdrop, .header-bar.selection-mode .button.titlebutton.close:backdrop,
-.titlebar .button.titlebutton.close:backdrop,
-.titlebar.selection-mode .button.titlebutton.close:backdrop {
-  opacity: 0.5; }
 
 .view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, GtkTreeView .entry.flat:focus:selected, GtkTreeView .linked > .entry:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, #sidebar-toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
@@ -3948,13 +3880,6 @@ PanelApplet,
 PanelToplevel {
   color: rgba(236, 239, 241, 0.75);
   background-color: #000000; }
-  PanelWidget:backdrop,
-  PanelWidget *:backdrop,
-  PanelApplet:backdrop,
-  PanelApplet *:backdrop,
-  PanelToplevel:backdrop,
-  PanelToplevel *:backdrop {
-    opacity: 1.0; }
 
 PanelSeparator {
   border-width: 0;
@@ -3967,10 +3892,6 @@ ClockBox {
   font: bold;
   color: rgba(236, 239, 241, 0.75);
   background-color: transparent; }
-  .gnome-panel-menu-bar:backdrop,
-  PanelApplet > GtkMenuBar.menubar:backdrop,
-  ClockBox:backdrop {
-    opacity: 1.0; }
 
 .gnome-panel-menu-bar,
 PanelApplet > GtkMenuBar.menubar {
@@ -3983,9 +3904,6 @@ PanelApplet > GtkMenuBar.menubar {
     PanelApplet > GtkMenuBar.menubar .menuitem:hover {
       color: #FFFFFF;
       box-shadow: inset 0 -2px #00BCD4; }
-    .gnome-panel-menu-bar .menuitem:backdrop,
-    PanelApplet > GtkMenuBar.menubar .menuitem:backdrop {
-      opacity: 1.0; }
   .gnome-panel-menu-bar .menu,
   PanelApplet > GtkMenuBar.menubar .menu {
     font: regular; }
@@ -4024,19 +3942,13 @@ PanelApplet GtkButton#tasklist-button, PanelApplet GtkButton#clock-applet-button
     color: #FFFFFF;
     background-color: transparent;
     box-shadow: inset 0 -2px #00BCD4; }
-  PanelApplet GtkButton#tasklist-button:backdrop, PanelApplet GtkButton#clock-applet-button:backdrop, PanelApplet GtkButton#showdesktop-button:backdrop {
-    opacity: 1.0; }
 
 WnckPager:selected {
   box-shadow: inset 0 -2px #00BCD4; }
-WnckPager:backdrop {
-  opacity: 1.0; }
 
 NaTrayApplet {
   -NaTrayApplet-icon-padding: 2;
   -NaTrayApplet-icon-size: 16; }
-  NaTrayApplet:backdrop {
-    opacity: 1.0; }
 
 /**************
  * Tweak-tool *
@@ -4199,10 +4111,6 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
 /******************
  * Budgie Desktop *
  ******************/
-.budgie-panel:backdrop,
-.budgie-panel *:backdrop {
-  opacity: 1.0; }
-
 .budgie-panel {
   color: rgba(236, 239, 241, 0.75);
   background-color: #000000; }
@@ -4338,8 +4246,6 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
   color: rgba(236, 239, 241, 0.75);
   font-weight: bold;
   opacity: 0.9; }
-  .budgie-session-dialog:backdrop, .budgie-polkit-dialog:backdrop {
-    opacity: 1.0; }
   .budgie-session-dialog .button, .budgie-polkit-dialog .button,
   .budgie-session-dialog .linked > .button,
   .budgie-polkit-dialog .linked > .button {
@@ -4428,11 +4334,9 @@ UnityDecoration {
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.07); }
     UnityDecoration.top:backdrop {
       border-bottom-width: 0;
-      color: rgba(236, 239, 241, 0.3);
-      opacity: 1.0; }
+      color: rgba(236, 239, 241, 0.3); }
   UnityDecoration.left, UnityDecoration.left:backdrop, UnityDecoration.right, UnityDecoration.right:backdrop, UnityDecoration.bottom, UnityDecoration.bottom:backdrop {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09));
-    opacity: 1.0; }
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09)); }
 
 UnityPanelWidget,
 .unity-panel {
@@ -4440,19 +4344,12 @@ UnityPanelWidget,
   background-color: rgba(42, 55, 62, 0.88);
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.07);
   border-bottom: 1px solid rgba(0, 0, 0, 0.09); }
-  UnityPanelWidget:backdrop,
-  UnityPanelWidget *:backdrop,
-  .unity-panel:backdrop,
-  .unity-panel *:backdrop {
-    opacity: 1.0; }
 
 .unity-panel.menubar.menuitem, .unity-panel.menubar .menuitem * {
   border-radius: 0;
   color: #ECEFF1;
   background-color: transparent;
   border-bottom: 1px solid transparent; }
-  .unity-panel.menubar.menuitem:backdrop, .unity-panel.menubar .menuitem *:backdrop {
-    opacity: 1.0; }
 .unity-panel.menubar.menuitem:hover, .unity-panel.menubar .menuitem *:hover {
   color: #FFFFFF;
   box-shadow: inset 0 -2px #00BCD4; }
