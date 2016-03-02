@@ -58,7 +58,10 @@
     border-color: transparent;
     box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc, $selected_bg_color);
   }
-  @if $t==hover { }
+  @if $t==hover {
+    border-color: transparent;
+    box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc, $fill_color);
+  }
   @if $t==insensitive {
     color: $insensitive_fg_color;
     border-color: transparent;
@@ -102,7 +105,6 @@
     text-shadow: none;
     icon-shadow: none;
     box-shadow: 0 0 transparent;
-  //  box-shadow: inset 0px 0px 0px 2px $fill_color;
   }
 
   @else if $t==hover {

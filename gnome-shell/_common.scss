@@ -112,9 +112,9 @@ StEntry {
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
   @include entry(normal);
-  //&:hover { @include entry(hover);}
-  &:focus { @include entry(focus);}
-  &:insensitive { @include entry(insensitive);}
+  &:hover { @include entry(hover); }
+  &:focus { @include entry(focus); }
+  &:insensitive { @include entry(insensitive); }
 
   StIcon.capslock-warning {
     icon-size: 16px;
@@ -1353,6 +1353,12 @@ StScrollBar {
   selection-background-color: $osd_fill_color;
   selected-color: $osd_fg_color;
   @include entry(normal,$fc:$osd_semi_fill_color);
+  &:hover {
+    @include entry(hover,$fc:$osd_fill_color);
+    padding: 7px 8px 8px;
+    border-width: 0;
+    color: $osd_fg_color;
+  }
   &:focus {
     @include entry(focus,$fc:$osd_indicator_color);
     padding: 7px 8px 8px;
@@ -2154,11 +2160,11 @@ $legacy_icon_size: 24px;
     &:active { @include button(flat-active, $c:$osd_fill_color, $tc:$osd_fg_color); }
     &:insensitive { @include button(flat-insensitive, $tc:$insensitive_osd_secondary_fg_color); }
     &:default {
-      @include button(normal, $c:$selected_bg_color, $tc:$osd_fg_color);
+      @include button(normal, $c:$base_color, $tc:$fg_color);
       &:hover,
-      &:focus { @include button(hover, $c:$selected_bg_color, $tc:$osd_fg_color); }
-      &:active { @include button(active, $c:$selected_bg_color, $tc:$osd_fg_color); }
-      &:insensitive { @include button(insensitive, $c:$insensitive_osd_fill_color, $tc:$insensitive_osd_fg_color); }
+      &:focus { @include button(hover, $c:$selected_bg_color, $tc:$selected_fg_color); }
+      &:active { @include button(active, $c:$selected_bg_color, $tc:$selected_fg_color); }
+      &:insensitive { @include button(flat-insensitive, $c:$insensitive_osd_fill_color, $tc:$insensitive_fg_color); }
     }
   }
 }
