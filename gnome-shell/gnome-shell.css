@@ -1159,8 +1159,8 @@ StScrollBar {
   padding: 7px 8px 8px;
   border-radius: 0;
   color: rgba(236, 239, 241, 0.5);
-  selection-background-color: rgba(236, 239, 241, 0.4);
-  selected-color: #ECEFF1;
+  selection-background-color: #00BCD4;
+  selected-color: #FFFFFF;
   background-color: rgba(0, 0, 0, 0.01);
   border-color: transparent;
   box-shadow: inset 0 -1px rgba(236, 239, 241, 0.2); }
@@ -1851,11 +1851,14 @@ StScrollBar {
   background-color: transparent; }
   .login-dialog StEntry {
     color: #ECEFF1;
-    selection-background-color: rgba(236, 239, 241, 0.4);
-    selected-color: #ECEFF1;
+    selection-background-color: #00BCD4;
+    selected-color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.01);
     border-color: transparent;
     box-shadow: inset 0 -1px rgba(236, 239, 241, 0.2); }
+    .login-dialog StEntry:hover {
+      border-color: transparent;
+      box-shadow: inset 0 -2px rgba(236, 239, 241, 0.4); }
     .login-dialog StEntry:focus {
       border-color: transparent;
       box-shadow: inset 0 -2px #00BCD4; }
@@ -2107,14 +2110,15 @@ StScrollBar {
   padding: 0;
   border: none;
   border-radius: 2px;
-  background-color: #37474F;
+  background-color: rgba(55, 71, 79, 0.9);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.375), 0 10px 10px rgba(0, 0, 0, 0.33); }
   #LookingGlassDialog > #Toolbar {
     padding: 0 8px;
     border: none;
     border-radius: 0;
-    background-color: rgba(0, 0, 0, 0.01);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.12); }
+    background-color: #2a373e;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   #LookingGlassDialog .labels {
     spacing: 0; }
   #LookingGlassDialog .notebook-tab {
@@ -2124,9 +2128,13 @@ StScrollBar {
     padding-right: .3em;
     padding: 7px 32px 8px;
     font-weight: bold;
-    color: rgba(236, 239, 241, 0.4);
+    color: rgba(236, 239, 241, 0.75);
     transition-duration: 0.2s; }
     #LookingGlassDialog .notebook-tab:hover {
+      border-bottom-width: 0;
+      border-color: transparent;
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 -2px 0 rgba(236, 239, 241, 0.4);
       color: #ECEFF1;
       text-shadow: none; }
     #LookingGlassDialog .notebook-tab:selected {
@@ -2158,7 +2166,7 @@ StScrollBar {
   spacing: 4px; }
 
 .lg-obj-inspector-button {
-  border: 1px solid gray;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 4px;
   border-radius: 2px; }
   .lg-obj-inspector-button:hover {
