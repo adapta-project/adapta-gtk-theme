@@ -2153,27 +2153,41 @@ $legacy_icon_size: 24px;
     }
   }
 
-  .modal-dialog-button-box { spacing: 3px; }
+  .modal-dialog-button-box { spacing: 1em; }
   .modal-dialog-button {
-    padding: 7px 16px 8px;
+    padding: 0.7em 1.5em 0.8em;
+    font-weight: bold;
+    font-size: 1.09em;
     @include button(flat-normal, $tc:$osd_secondary_fg_color);
     &:hover,
-    &:focus { @include button(flat-hover, $c:$osd_semi_fill_color, $tc:$osd_fg_color); }
-    &:active { @include button(flat-active, $c:$osd_fill_color, $tc:$osd_fg_color); }
-    &:insensitive { @include button(flat-insensitive, $tc:$insensitive_osd_secondary_fg_color); }
+    &:focus { @include button(flat-hover, $c:$osd_semi_fill_color,
+                                          $tc:$osd_fg_color);
+    }
+    &:active { @include button(flat-active, $c:$osd_fill_color,
+                                            $tc:$osd_fg_color);
+    }
+    &:insensitive { @include button(flat-insensitive,
+                                    $tc:$insensitive_secondary_fg_color);
+    }
     &:default {
-      @include button(normal, $c:$base_color, $tc:$fg_color);
+      @include button(normal, $c:$destructive_color, $tc:$fg_color);
       &:hover,
-      &:focus { @include button(hover, $c:$selected_bg_color, $tc:$selected_fg_color); }
-      &:active { @include button(active, $c:$selected_bg_color, $tc:$selected_fg_color); }
-      &:insensitive { @include button(flat-insensitive, $c:$insensitive_osd_fill_color, $tc:$insensitive_fg_color); }
+      &:focus { @include button(hover, $c:$destructive_color,
+                                       $tc:$selected_fg_color);
+      }
+      &:active { @include button(active, $c:$selected_bg_color,
+                                         $tc:$selected_fg_color);
+      }
+      &:insensitive { @include button(flat-insensitive,
+                                       $tc:$insensitive_secondary_fg_color);
+      }
     }
   }
 }
 
 .login-dialog-logo-bin { padding: 24px 0; }
 .login-dialog-banner { color: $osd_secondary_fg_color; }
-.login-dialog-button-box { spacing: 5px; }
+.login-dialog-button-box { spacing: 1em; }
 .login-dialog-message-warning { color: $warning_color; }
 .login-dialog-message-hint {
   padding-top: 0;
@@ -2192,7 +2206,7 @@ $legacy_icon_size: 24px;
 
 .login-dialog-not-listed-label {
   padding-top: 1em;
-  font-size: 90%;
+  font-size: 0.9em;
   font-weight: bold;
   color: $osd_secondary_fg_color;
   &:hover { color: $osd_fg_color; }
@@ -2203,7 +2217,7 @@ $legacy_icon_size: 24px;
 
 .login-dialog-user-list {
   spacing: 12px;
-  padding: .2em;
+  padding: 0.2em;
   width: 23em;
   &:expanded .login-dialog-user-list-item {
     &:focus {
@@ -2224,7 +2238,7 @@ $legacy_icon_size: 24px;
 
 .login-dialog-user-list-item {
   border-radius: 2px;
-  padding: .2em;
+  padding: 0.2em;
   color: $osd_secondary_fg_color;
   &:ltr { padding-right: 1em; }
   &:rtl { padding-left: 1em; }
@@ -2251,20 +2265,20 @@ $legacy_icon_size: 24px;
 .login-dialog-username,
 .user-widget-label {
   padding-left: 15px;
-  font-size: 120%;
+  font-size: 1.2em;
   font-weight: bold;
   text-align: left;
   color: $osd_fg_color;
 }
 
 .user-widget-label {
-  &:ltr { padding-left: 18px; }
-  &:rtl { padding-right: 18px; }
+  &:ltr { padding-left: 1.5em; }
+  &:rtl { padding-right: 1.5em; }
 }
 
 .login-dialog-prompt-layout {
   width: 23em;
-  spacing: 8px;
+  spacing: 1em;
   padding-top: 24px;
   padding-bottom: 12px;
 }
@@ -2280,8 +2294,8 @@ $legacy_icon_size: 24px;
 .login-dialog-session-list-button {
   color: $osd_secondary_fg_color;
   &:hover,
-  &:focus { color: $osd_fg_color; }
-  &:active { color: $osd_fg_color; }
+  &:focus { color: $selected_fg_color; }
+  &:active { color: $selected_fg_color; }
 }
 
 
