@@ -1693,8 +1693,8 @@ column-header.button.dnd { // for treeview-like derive widgets
       -GtkNotebook-tab-overlap: 1;
       &.top,
       &.bottom {
-        padding-left: 1em;  // for a nicer close button
-        padding-right: 1em; // placement
+        padding-left: 1.2em;  // for a nicer close button
+        padding-right: 1.2em; // placement
         border-left-width: 1px;
         border-right-width: 1px;
       }
@@ -1747,8 +1747,8 @@ column-header.button.dnd { // for treeview-like derive widgets
     .label { // tab text
       // needed for a nicer focus ring
       // and to prevent unexpected offset on reorderable-page,
-      // set larger padding than .button > GtkImage?
-      padding: 0.6em;
+      // set same padding with .button > GtkImage
+      padding: 0.5em;
       font-weight: bold;
       color: $tertiary_fg_color;
     }
@@ -1762,9 +1762,9 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
 
     .button { // tab close button
-      padding: 0;
       @extend %image_button;
-      background-size: 2em * 1 / 0.8 2em * 1 / 0.8, auto;
+      padding: 0;
+      background-size: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
       // @extend .button.flat;
       @include button(flat);
       color: $tertiary_fg_color;
@@ -1772,7 +1772,7 @@ column-header.button.dnd { // for treeview-like derive widgets
       &:active { @include button(flat-active); }
       &:insensitive { @include button(flat-insensitive); }
       & > GtkImage { // this is a hack which makes tabs grow
-        padding: 4px;
+        padding: 0.5em;
       }
     }
     .prelight-page .button,
