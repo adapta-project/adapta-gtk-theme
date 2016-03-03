@@ -1739,7 +1739,8 @@ column-header.button.dnd { // for treeview-like derive widgets
           border-#{$_border}-width: 1px;
           border-#{$_border}-color: $base_color;
           background-color: $base_color;
-          box-shadow: $z-depth-1;
+          box-shadow: if($variant=='light', $tab-shadow-light,
+                                            $tab-shadow-dark);
         }
       }
     }
@@ -2704,7 +2705,7 @@ GtkInfoBar {
   border-style: solid;
   // do not use transparentize
   border-color: if($variant=='light', $solid_light_borders_color,
-                                      $solid_dark_borders_color);
+                                      $bg_color);
   background-color: $secondary_dark_color;
 }
 
