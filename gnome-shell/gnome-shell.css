@@ -1288,7 +1288,6 @@ StScrollBar {
 #dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
 #dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
   padding: 6px 6px 3px 6px; }
-
 #dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
 #dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
   padding: 3px 6px 6px 6px; }
@@ -1302,40 +1301,114 @@ StScrollBar {
 #dashtodockContainer.extended.top .dash-item-container:first-child > StWidget,
 #dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget {
   padding: 6px 3px 6px 6px; }
-
 #dashtodockContainer.extended.top .dash-item-container:last-child > StWidget,
 #dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget {
   padding: 6px 6px 6px 3px; }
 
 #dashtodockContainer .app-well-app-running-dot {
-  background-color: #2a373e; }
-
+  background: transparent; }
 #dashtodockContainer .app-well-app .overview-icon {
   background-size: contain; }
 
-#dashtodockContainer .app-well-app.running1 .overview-icon {
-  background-image: url("assets/running1.svg"); }
+#dashtodockContainer.top .app-well-app.running1 .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running1 .overview-icon {
+  background-image: url("assets/dot/running1-vert.svg"); }
+#dashtodockContainer.top .app-well-app.running1.focused .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running1.focused .overview-icon {
+  background-image: url("assets/dot/running1-vert-focused.svg"); }
+#dashtodockContainer.top .app-well-app.running2 .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running2 .overview-icon {
+  background-image: url("assets/dot/running2-vert.svg"); }
+#dashtodockContainer.top .app-well-app.running2.focused .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running2.focused .overview-icon {
+  background-image: url("assets/dot/running2-vert-focused.svg"); }
+#dashtodockContainer.top .app-well-app.running3 .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running3 .overview-icon {
+  background-image: url("assets/dot/running3-vert.svg"); }
+#dashtodockContainer.top .app-well-app.running3.focused .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running3.focused .overview-icon {
+  background-image: url("assets/dot/running3-vert-focused.svg"); }
+#dashtodockContainer.top .app-well-app.running4 .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running4 .overview-icon {
+  background-image: url("assets/dot/running4-vert.svg"); }
+#dashtodockContainer.top .app-well-app.running4.focused .overview-icon,
+#dashtodockContainer.extended.top .app-well-app.running4.focused .overview-icon {
+  background-image: url("assets/dot/running4-vert-focused.svg"); }
 
-#dashtodockContainer .app-well-app.running1.focused .overview-icon {
-  background-image: url("assets/running1-focused.svg"); }
+#dashtodockContainer.bottom .app-well-app.running1 .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running1 .overview-icon {
+  background-image: url("assets/dot/running1-vert.svg"); }
+#dashtodockContainer.bottom .app-well-app.running1.focused .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running1.focused .overview-icon {
+  background-image: url("assets/dot/running1-vert-focused.svg"); }
+#dashtodockContainer.bottom .app-well-app.running2 .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running2 .overview-icon {
+  background-image: url("assets/dot/running2-vert.svg"); }
+#dashtodockContainer.bottom .app-well-app.running2.focused .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running2.focused .overview-icon {
+  background-image: url("assets/dot/running2-vert-focused.svg"); }
+#dashtodockContainer.bottom .app-well-app.running3 .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running3 .overview-icon {
+  background-image: url("assets/dot/running3-vert.svg"); }
+#dashtodockContainer.bottom .app-well-app.running3.focused .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running3.focused .overview-icon {
+  background-image: url("assets/dot/running3-vert-focused.svg"); }
+#dashtodockContainer.bottom .app-well-app.running4 .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running4 .overview-icon {
+  background-image: url("assets/dot/running4-vert.svg"); }
+#dashtodockContainer.bottom .app-well-app.running4.focused .overview-icon,
+#dashtodockContainer.extended.bottom .app-well-app.running4.focused .overview-icon {
+  background-image: url("assets/dot/running4-vert-focused.svg"); }
 
-#dashtodockContainer .app-well-app.running2 .overview-icon {
-  background-image: url("assets/running2.svg"); }
+#dashtodockContainer.left .app-well-app.running1 .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running1 .overview-icon {
+  background-image: url("assets/dot/running1.svg"); }
+#dashtodockContainer.left .app-well-app.running1.focused .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running1.focused .overview-icon {
+  background-image: url("assets/dot/running1-focused.svg"); }
+#dashtodockContainer.left .app-well-app.running2 .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running2 .overview-icon {
+  background-image: url("assets/dot/running2.svg"); }
+#dashtodockContainer.left .app-well-app.running2.focused .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running2.focused .overview-icon {
+  background-image: url("assets/dot/running2-focused.svg"); }
+#dashtodockContainer.left .app-well-app.running3 .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running3 .overview-icon {
+  background-image: url("assets/dot/running3.svg"); }
+#dashtodockContainer.left .app-well-app.running3.focused .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running3.focused .overview-icon {
+  background-image: url("assets/dot/running3-focused.svg"); }
+#dashtodockContainer.left .app-well-app.running4 .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running4 .overview-icon {
+  background-image: url("assets/dot/running4.svg"); }
+#dashtodockContainer.left .app-well-app.running4.focused .overview-icon,
+#dashtodockContainer.extended.left .app-well-app.running4.focused .overview-icon {
+  background-image: url("assets/dot/running4-focused.svg"); }
 
-#dashtodockContainer .app-well-app.running2.focused .overview-icon {
-  background-image: url("assets/running2-focused.svg"); }
-
-#dashtodockContainer .app-well-app.running3 .overview-icon {
-  background-image: url("assets/running3.svg"); }
-
-#dashtodockContainer .app-well-app.running3.focused .overview-icon {
-  background-image: url("assets/running3-focused.svg"); }
-
-#dashtodockContainer .app-well-app.running4 .overview-icon {
-  background-image: url("assets/running4.svg"); }
-
-#dashtodockContainer .app-well-app.running4.focused .overview-icon {
-  background-image: url("assets/running4-focused.svg"); }
+#dashtodockContainer.right .app-well-app.running1 .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running1 .overview-icon {
+  background-image: url("assets/dot/running1.svg"); }
+#dashtodockContainer.right .app-well-app.running1.focused .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running1.focused .overview-icon {
+  background-image: url("assets/dot/running1-focused.svg"); }
+#dashtodockContainer.right .app-well-app.running2 .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running2 .overview-icon {
+  background-image: url("assets/dot/running2.svg"); }
+#dashtodockContainer.right .app-well-app.running2.focused .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running2.focused .overview-icon {
+  background-image: url("assets/dot/running2-focused.svg"); }
+#dashtodockContainer.right .app-well-app.running3 .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running3 .overview-icon {
+  background-image: url("assets/dot/running3.svg"); }
+#dashtodockContainer.right .app-well-app.running3.focused .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running3.focused .overview-icon {
+  background-image: url("assets/dot/running3-focused.svg"); }
+#dashtodockContainer.right .app-well-app.running4 .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running4 .overview-icon {
+  background-image: url("assets/dot/running4.svg"); }
+#dashtodockContainer.right .app-well-app.running4.focused .overview-icon,
+#dashtodockContainer.extended.right .app-well-app.running4.focused .overview-icon {
+  background-image: url("assets/dot/running4-focused.svg"); }
 
 #dash:desktop {
   background-color: #2a373e;

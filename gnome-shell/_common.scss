@@ -1500,14 +1500,10 @@ StScrollBar {
    padding: 3px 6px;
 }
 
-#dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
-   padding: 6px 6px 3px 6px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
-   padding: 3px 6px 6px 6px;
+#dashtodockContainer.extended.left .dash-item-container,
+#dashtodockContainer.extended.right .dash-item-container {
+  &:first-child > StWidget { padding: 6px 6px 3px 6px; }
+  &:last-child > StWidget { padding: 3px 6px 6px 6px; }
 }
 
 #dashtodockContainer.extended.top .dash-item-container > StWidget,
@@ -1517,54 +1513,49 @@ StScrollBar {
    padding: 6px 3px;
 }
 
-#dashtodockContainer.extended.top .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget {
-   padding: 6px 3px 6px 6px;
+#dashtodockContainer.extended.top .dash-item-container,
+#dashtodockContainer.extended.bottom .dash-item-container {
+  &:first-child > StWidget { padding: 6px 3px 6px 6px; }
+  &:last-child > StWidget { padding: 6px 6px 6px 3px; }
 }
 
-#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget {
-   padding: 6px 6px 6px 3px;
+#dashtodockContainer {
+  .app-well-app-running-dot { background: transparent; }
+  .app-well-app .overview-icon { background-size: contain; }
 }
 
-#dashtodockContainer .app-well-app-running-dot {
-    background-color: $osd_bg_color;
-}
-
-#dashtodockContainer .app-well-app .overview-icon {
-    background-size: contain;
-}
-
-#dashtodockContainer .app-well-app.running1 .overview-icon {
-    background-image: url("assets/running1.svg");
-}
-
-#dashtodockContainer .app-well-app.running1.focused .overview-icon {
-    background-image: url("assets/running1-focused.svg");
-}
-
-#dashtodockContainer .app-well-app.running2 .overview-icon {
-    background-image: url("assets/running2.svg");
-}
-
-#dashtodockContainer .app-well-app.running2.focused .overview-icon {
-    background-image: url("assets/running2-focused.svg");
-}
-
-#dashtodockContainer .app-well-app.running3 .overview-icon {
-    background-image: url("assets/running3.svg");
-}
-
-#dashtodockContainer .app-well-app.running3.focused .overview-icon {
-    background-image: url("assets/running3-focused.svg");
-}
-
-#dashtodockContainer .app-well-app.running4 .overview-icon {
-    background-image: url("assets/running4.svg");
-}
-
-#dashtodockContainer .app-well-app.running4.focused .overview-icon {
-    background-image: url("assets/running4-focused.svg");
+// running-dot styling
+@each $_dock, $_dot in (top, -vert),
+                       (bottom, -vert),
+		       (left, ),
+		       (right, ) {
+  #dashtodockContainer.#{$_dock},
+  #dashtodockContainer.extended.#{$_dock} {
+    .app-well-app.running1 {
+      .overview-icon { background-image: url("assets/dot/running1#{$_dot}.svg"); }
+      &.focused {
+        .overview-icon { background-image: url("assets/dot/running1#{$_dot}-focused.svg"); }
+      }
+    }
+    .app-well-app.running2 {
+      .overview-icon { background-image: url("assets/dot/running2#{$_dot}.svg"); }
+      &.focused {
+        .overview-icon { background-image: url("assets/dot/running2#{$_dot}-focused.svg"); }
+      }
+    }
+    .app-well-app.running3 {
+      .overview-icon { background-image: url("assets/dot/running3#{$_dot}.svg"); }
+      &.focused  {
+        .overview-icon { background-image: url("assets/dot/running3#{$_dot}-focused.svg"); }
+      }
+    }
+    .app-well-app.running4 {
+      .overview-icon { background-image: url("assets/dot/running4#{$_dot}.svg"); }
+      &.focused {
+        .overview-icon { background-image: url("assets/dot/running4#{$_dot}-focused.svg"); }
+      }
+    }
+  }
 }
 
 // Add Simple Dock Support
