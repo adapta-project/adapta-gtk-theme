@@ -1656,15 +1656,15 @@ StScrollBar {
 
 // set circle dock buttons on dash
 #dash {
-  .overview-icon {
-    border-radius: 100px;
-  }
-  *:hover .overview-icon { // more lighter fill than osd_semi_fill!
-    background-color: $osd_slight_fill_color;
-  }
-  *:active .overview-icon,
-  *:checked .overview-icon {
-    background-color: $osd_indicator_color;
+  .app-well-app,
+  .show-apps {
+    .overview-icon { border-radius: 100px; }
+    &:hover .overview-icon { // more lighter fill than osd_semi_fill!
+      background-color: $osd_slight_fill_color;
+    }
+    &:active .overview-icon,
+    &:focus .overview-icon,
+    &:checked .overview-icon { background-color: $osd_indicator_color; }
   }
 }
 

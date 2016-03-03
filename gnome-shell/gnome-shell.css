@@ -1494,12 +1494,16 @@ StScrollBar {
   box-shadow: 0 0 transparent;
   transition-duration: 0.2s; }
 
-#dash .overview-icon {
+#dash .app-well-app .overview-icon,
+#dash .show-apps .overview-icon {
   border-radius: 100px; }
-#dash *:hover .overview-icon {
+#dash .app-well-app:hover .overview-icon,
+#dash .show-apps:hover .overview-icon {
   background-color: rgba(236, 239, 241, 0.12); }
-#dash *:active .overview-icon,
-#dash *:checked .overview-icon {
+#dash .app-well-app:active .overview-icon, #dash .app-well-app:focus .overview-icon, #dash .app-well-app:checked .overview-icon,
+#dash .show-apps:active .overview-icon,
+#dash .show-apps:focus .overview-icon,
+#dash .show-apps:checked .overview-icon {
   background-color: #00BCD4; }
 
 .app-well-app-running-dot {
