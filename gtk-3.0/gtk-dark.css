@@ -760,25 +760,37 @@ GtkButtonBox > .button {
 /*********
  * Links *
  *********/
-*:link, .button:link, .button:visited {
+*:link, .button:link,
+.button:visited {
   color: #03A9F4; }
-  *:link:hover, .button:hover:link, .button:hover:visited, *:link:active, .button:active:link, .button:active:visited {
+  *:link:hover, .button:hover:link,
+  .button:hover:visited, *:link:active, .button:active:link,
+  .button:active:visited {
     color: #03A9F4; }
-  *:link:visited, .button:visited {
+  *:link:visited,
+  .button:visited {
     color: #9C27B0; }
-    *:link:visited:hover, .button:visited:hover, *:link:visited:active, .button:visited:active {
+    *:link:visited:hover,
+    .button:visited:hover, *:link:visited:active,
+    .button:visited:active {
       color: #9C27B0; }
-    *:selected *:link:visited, *:selected .button:visited {
+    *:selected *:link:visited,
+    *:selected .button:visited {
       color: #99e4ee; }
-  *:link:selected, .button:selected:link, .button:selected:visited, .titlebar.selection-mode .subtitle:link,
-  .header-bar.selection-mode .subtitle:link, *:selected *:link, *:selected .button:link, *:selected .button:visited {
+  *:link:selected, .button:selected:link,
+  .button:selected:visited, .titlebar.selection-mode .subtitle:link,
+  .header-bar.selection-mode .subtitle:link, *:selected *:link, *:selected .button:link,
+  *:selected .button:visited {
     color: #ccf2f6; }
-  *:link:insensitive, .button:insensitive:link, .button:insensitive:visited {
+  *:link:insensitive, .button:insensitive:link,
+  .button:insensitive:visited {
     opacity: 0.4; }
-  *:link:backdrop, .button:backdrop:link, .button:backdrop:visited {
+  *:link:backdrop, .button:backdrop:link,
+  .button:backdrop:visited {
     opacity: 0.8; }
 
-.button:link > .label, .button:visited > .label {
+.button:link > .label,
+.button:visited > .label {
   text-decoration-line: underline; }
 
 /*****************
@@ -1799,11 +1811,11 @@ column-header.button.dnd, column-header .button.dnd {
     .notebook.header.right {
       box-shadow: inset 1px 0 rgba(0, 0, 0, 0.09); }
   .notebook tab {
+    outline-offset: 0;
     border-width: 0;
     border-style: solid;
     border-color: transparent;
-    background-color: transparent;
-    outline-offset: 0; }
+    background-color: transparent; }
     .notebook tab.top, .notebook tab.bottom {
       padding: 0.5em 1.2em; }
     .notebook tab.left, .notebook tab.right {
@@ -2002,8 +2014,7 @@ GtkSwitch {
   -GtkSwitch-slider-height: 20px;
   outline-offset: -4px;
   outline-radius: 100px;
-  font-size: 0;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0; }
+  font-size: 0; }
   GtkSwitch.trough {
     border: 8px solid transparent;
     border-radius: 100px;
@@ -2847,8 +2858,6 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
  *************/
 .expander {
   -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
-  .expander:dir(rtl) {
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
   .expander:checked {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
   .expander:not(:hover):not(:active) {
@@ -2857,6 +2866,8 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
     color: #FFFFFF; }
   .expander:backdrop {
     opacity: 0.8; }
+  .expander:dir(rtl) {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
 
 /************
  * Calendar *
@@ -2892,9 +2903,6 @@ GtkCalendar {
 /***********
  * Dialogs *
  ***********/
-.message-dialog .dialog-action-area .button {
-  padding: 0.6em; }
-
 .message-dialog {
   color: rgba(236, 239, 241, 0.75); }
   .message-dialog.background {

@@ -130,7 +130,6 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   &.separator {
     color: $fg_color;
     @extend .dim-label;
-    // &:backdrop { color: $backdrop_fg_color; }
   }
   &:selected { @extend %selected_items; }
   &:insensitive { color: $insensitive_fg_color; }
@@ -696,14 +695,16 @@ GtkButtonBox > .button {
     &:hover, &:active { color: $link_visited_color; }
     *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
   }
-  &:selected, *:selected & {
+  &:selected,
+  *:selected & {
     color: mix($selected_fg_color, $selected_bg_color, 80%);
   }
   &:insensitive { opacity: 0.4; }
   &:backdrop { opacity: 0.8; }
 }
 
-.button:link, .button:visited {
+.button:link,
+.button:visited {
   @extend *:link;
   & > .label { text-decoration-line: underline; }
 }
@@ -834,8 +835,9 @@ GtkButtonBox > .button {
 GtkComboBox {
   @extend %fade_effect;
 
-  > .the-button-in-the-combobox { // Otherwise combos
-    padding: 0.35em 0.5em 0.45em; // are bigger than buttons
+  > .the-button-in-the-combobox {
+    // Otherwise combos are bigger than buttons
+    padding: 0.35em 0.5em 0.45em;
   }
 
   -GtkComboBox-arrow-scaling: 0.5;
@@ -929,6 +931,7 @@ GtkComboBox {
   @extend %fade_effect;
 
   -GtkWidget-window-dragging: true;
+
   padding: 4px;
   border-style: solid;
   border-width: 0 0 1px;
@@ -1033,8 +1036,8 @@ GtkComboBox {
 // searchbar, location-bar & inline-toolbar
 .inline-toolbar {
   @extend %fade_effect;
-
   padding: 0;
+
   &.toolbar {
     padding: 0.4em;
     border-style: solid;
@@ -1050,7 +1053,6 @@ GtkComboBox {
 .search-bar,
 .location-bar {
   @extend %fade_effect;
-
   padding: 0.4em;
   border-style: solid;
   border-width: 0 0 1px;
@@ -1390,7 +1392,6 @@ GtkComboBox {
 
 .path-bar .button {
   @extend %fade_effect;
-
   padding: 0.3em 0.7em 0.4em;
 
   &.image-button { padding: 0.7em; }
@@ -1474,7 +1475,6 @@ GtkTreeView.view {
 
   &, GtkPaned & { // redraw some stuff for RhythmBox
     @extend %fade_effect;
-
     background-color: $base_color;
 
     &:selected,
@@ -1486,7 +1486,6 @@ GtkTreeView.view {
 column-header {
   .button {
     @extend %fade_effect;
-
     @extend .list-row.activatable;
     padding: 0.3em 0.4em 0.35em;
     border-style: none solid solid none;
@@ -1558,7 +1557,6 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   & > .menuitem {
     @extend %fade_effect;
-
     padding: 0.4em 0.6em;
     color: $inverted_secondary_fg_color;
     &:hover { // Seems like it :hover even with keyboard focus
@@ -1582,7 +1580,6 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   .menuitem {
     @extend %fade_effect;
-
     transition: none;
     padding: 0.4em 0.4em 0.5em;
     color: $secondary_fg_color;
@@ -1605,7 +1602,6 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   &.button { // overlow buttons
     @extend %fade_effect;
-
     border-style: none;
     border-radius: 0;
     background-color: $secondary_base_color;
@@ -1630,7 +1626,6 @@ column-header.button.dnd { // for treeview-like derive widgets
 
 .popover {
   @extend %fade_effect;
-
   padding: 2px;
   border: 1px solid;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.3);
@@ -1728,13 +1723,11 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   tab {
     @extend %fade_effect;
-
+    outline-offset: 0;
     border-width: 0;
     border-style: solid;
     border-color: transparent;
     background-color: transparent;
-
-    outline-offset: 0;
 
     $tab_indicator_size: 2px;
     // vertical tab sizing
@@ -1834,6 +1827,7 @@ column-header.button.dnd { // for treeview-like derive widgets
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:insensitive { @include button(flat-insensitive); }
+
       & > GtkImage { // this is a hack which makes tabs grow
         padding: 0.5em;
       }
@@ -1878,9 +1872,9 @@ $_slider_fine_tune_margin: 4px;
   -GtkRange-stepper-spacing: 0;
   -GtkRange-trough-under-steppers: 1;
 
-  .button { border: none; }
-
   @extend %fade_effect;
+
+  .button { border: none; }
 
   &.overlay-indicator {
     &:not(.dragging):not(.hovering) { // Overlay scrolling indicator
@@ -1995,7 +1989,6 @@ GtkSwitch {
   outline-offset: -4px;
   outline-radius: 100px;
   font-size: 0;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0;
 
   &.trough {
     // similar to the .scale
@@ -2033,6 +2026,7 @@ GtkSwitch {
     }
     &:backdrop { opacity: 0.8; }
   }
+
   .list-row:selected & { // return to monochrome
     &.trough {
       background-color: $bg_color;
@@ -2232,13 +2226,15 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
       &:insensitive { background-color: $track_color; }
     }
     &:insensitive { color: $insensitive_fg_color; }
+    &:backdrop { opacity: 0.8; }
+
     // OSD troughs
     .osd & {
     }
-    &:backdrop { opacity: 0.8; }
   }
   // marks color
   &.separator { color: $track_color; }
+
   // scales on selected list rows
   .list-row:selected & {
   }
@@ -2326,9 +2322,9 @@ GtkProgressBar {
 // moving bit
 .progressbar {
   @extend %fade_effect;
-
   border-radius: 0;
   background-color: $accent_color;
+
   &.left {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -2412,8 +2408,10 @@ GtkProgressBar {
 
 .frame {
   border: 1px solid $borders_color;
-  &.flat { border-style: none; }
   padding: 0;
+
+  &.flat { border-style: none; }
+
   &.action-bar {
     padding: 0.4em;
     border-width: 1px 0 0;
@@ -2453,9 +2451,7 @@ GtkScrolledWindow {
 }
 
 .list-row,
-.grid-child {
-  padding: 2px;
-}
+.grid-child { padding: 2px; }
 
 .list-row.activatable {
   // let's take care of background colors
@@ -2529,11 +2525,13 @@ GtkScrolledWindow {
 
 .expander {
   -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-  &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
+
   &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
   &:selected { color: $selected_fg_color; }
   &:backdrop { opacity: 0.8; }
+
+  &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
 }
 
 
@@ -2573,18 +2571,15 @@ GtkCalendar {
  * Dialogs *
  ***********/
 
-.message-dialog .dialog-action-area .button {
-  padding: 0.6em;
-}
-
 .message-dialog { // Message Dialog styling
   @extend %fade_effect;
-
   color: $inverted_secondary_fg_color;
+
   &.background {
     background-color: $inverted_dark_color;
     opacity: 0.9;
   }
+
   .titlebar {
     border-style: none;
     // box-shadow: inset 0 1px $highlight_color;
@@ -2610,6 +2605,7 @@ GtkCalendar {
         border-radius: 0;
         color: $inverted_secondary_fg_color;
         background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
+
         // &:first-child { border-bottom-left-radius: 2px; }
         // &:last-child { border-bottom-right-radius: 2px; }
         &:first-child {
@@ -2650,6 +2646,7 @@ GtkFileChooserDialog {
     // background-color: $base_color;
     // border-color: $bg_color;
   }
+
   .dialog-action-box { border-top: 1px solid $borders_color; }
 }
 
@@ -2665,6 +2662,7 @@ GtkFileChooserDialog {
   // background-image: linear-gradient(to bottom, $secondary_dark_color);
   background-color: $secondary_dark_color;
   color: $secondary_fg_color;
+
   &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
                                                  $sidebar-dark-ltr);
   }
@@ -2724,7 +2722,6 @@ GtkPlacesSidebar.sidebar {
 
   // looks like the label doesn't get all the states so work around
   .list-row:selected:insensitive .label { color: $insensitive_selected_fg_color; }
-  // .list-row:selected:backdrop:insensitive .label { @extend %selected_items:backdrop:insensitive; }
 
   .list-row:selected { // 'eject' button
     .sidebar-button.button {
@@ -2755,6 +2752,7 @@ GtkPlacesSidebar.sidebar {
     // border-radius: 100%;
     // outline-radius: 100%;
   }
+
   // this is for indicating which sidebar row generated a popover
   // see https://bugzilla.gnome.org/show_bug.cgi?id=754411
   .has-open-popup { @extend .list-row.activatable:active; transition: none; }
@@ -2766,6 +2764,7 @@ GtkPlacesSidebar.sidebar {
     padding-left: 0.4em;
     padding-right: 0.4em;
   }
+
   &.needs-attention > .label { @extend %needs_attention; }
 }
 
@@ -2808,7 +2807,6 @@ GtkPaned.wide { // this is for the paned with wide separator
 
 GtkInfoBar {
   @extend %fade_effect;
-
   padding: 0.4em;
   border-width: 0 0 1px;
   border-style: solid;
@@ -2984,6 +2982,7 @@ GtkColorSwatch {
 .content-view {
   background-color: $bg_color;
   // &:hover { -gtk-image-effect: highlight; }
+
   &.rubberband { @extend .rubberband; }
 }
 
@@ -3215,7 +3214,6 @@ GtkVolumeButton.button {
   color: $selected_fg_color;
   &:insensitive { color: $insensitive_selected_fg_color; }
   &:backdrop {
-    // color: $backdrop_selected_fg_color;
     &:insensitive { color: $insensitive_selected_fg_color; }
   }
 }
@@ -3267,7 +3265,6 @@ GtkVolumeButton.button {
 
 .touch-selection {
   @extend %fade_effect;
-
   font: initial;
   color: $fg_color;
   background-color: $base_color;

@@ -30,9 +30,6 @@ $selected_fg_color: #FFFFFF;                                    // = White
 $secondary_selected_fg_color: gtkopacity($selected_fg_color, 0.75);
 $tertiary_selected_fg_color: gtkopacity($selected_fg_color, 0.6);
 
-$inverted_fg_color: #ECEFF1;                                    // = BluGry50
-$inverted_secondary_fg_color: gtkopacity($inverted_fg_color, 0.75);
-
 $insensitive_fg_color: gtkopacity($fg_color, 0.3);
 $insensitive_secondary_fg_color: gtkopacity($secondary_fg_color, 0.3);
 $insensitive_tertiary_fg_color: gtkopacity($tertiary_fg_color, 0.3);
@@ -40,6 +37,12 @@ $insensitive_tertiary_fg_color: gtkopacity($tertiary_fg_color, 0.3);
 $insensitive_selected_fg_color: gtkopacity($fg_color, 0.4);
 $insensitive_secondary_selected_fg_color: gtkopacity($secondary_fg_color, 0.4);
 $insensitive_tertiary_selected_fg_color: gtkopacity($tertiary_fg_color, 0.4);
+
+//
+// Dark foreground colors on light variant
+//
+$inverted_fg_color: #ECEFF1;                                    // = BluGry50
+$inverted_secondary_fg_color: gtkopacity($inverted_fg_color, 0.75);
 
 $insensitive_inverted_fg_color: gtkopacity($inverted_fg_color, 0.3);
 $insensitive_inverted_secondary_fg_color: gtkopacity($inverted_secondary_fg_color, 0.3);
@@ -59,31 +62,42 @@ $dark_color: if($variant=='light', mix(#ECEFF1, #CFD8DC, 75%),  // =  50 _ 100
 $secondary_dark_color: if($variant=='light',
                           mix(#FFFFFF, #ECEFF1, 60%),           // = W _ 50
                           mix(#37474F, #455A64, 60%));          // = 800 _ 700
-$panel_bg_color: #000000;                                       // = Black
 
-$selected_bg_color: #00BCD4;                                    // = Cyan500
-$secondary_selected_bg_color: #4DD0E1;                          // = Cyan300
-
+//
+// Dark background colors on light variant
+//
 $inverted_bg_color: #37474F;                                    // = BluGry800
 $inverted_base_color: #455A64;                                  // = BluGry700
 $inverted_dark_color: mix(#263238, #37474F, 75%);               // = 900 _ 800
 
 //
-// Accent colors
+// Selection (primary) colors
+//
+$selected_bg_color: #00BCD4;                                    // = Cyan500
+$secondary_selected_bg_color: #4DD0E1;                          // = Cyan300
+
+//
+// Accent (secondary) colors
 //
 $accent_color: #1DE9B6;                                         // = TealA400
 
 //
-// Misc colors
+// Tracker colors
 //
 $track_color: gtkalpha(currentColor, 0.2);
 
+//
+// Edge colors
+//
 $borders_color: gtkopacity(#000000, 0.09);
 $solid_light_borders_color: if($variant=='light', #E5E9EC, #3B4D55);
 $solid_dark_borders_color: #242F35;
 
 $highlight_color: gtkopacity(#FFFFFF, 0.07);
 
+//
+// Misc colors
+//
 $link_color: #03A9F4;                                           // = LtBlu500
 $link_visited_color: #9C27B0;                                   // = Purple500
 
@@ -99,4 +113,9 @@ $info_bg_color: #00E5FF;                                        // = CyanA400
 $question_bg_color: #FFEA00;                                    // = YellwA400
 $warning_bg_color: #FF9100;                                     // = OrangA400
 $error_bg_color: #FF1744;                                       // = RedA400
+
+//
+// Solid panel color
+//
+$panel_bg_color: #000000;                                       // = Black
 
