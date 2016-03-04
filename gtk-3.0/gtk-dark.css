@@ -60,23 +60,15 @@
 *:insensitive {
   -gtk-image-effect: dim; }
 
-.label *:backdrop, GtkAssistant *:backdrop, GtkTextView *:backdrop, .grid-child *:backdrop, .spinner *:backdrop, .button *:backdrop, .menuitem.button.flat *:backdrop, .inline-toolbar .menuitem.button *:backdrop, GtkButtonBox > .menuitem.button *:backdrop, .app-notification .menuitem.button *:backdrop, .toolbar .menuitem.button *:backdrop, #sidebar-toolbar .menuitem.button *:backdrop, .titlebar .menuitem.button:not(.suggested-action):not(.destructive-action) *:backdrop,
+GtkAssistant *:backdrop, GtkTextView *:backdrop, .button *:backdrop, .menuitem.button.flat *:backdrop, .inline-toolbar .menuitem.button *:backdrop, GtkButtonBox > .menuitem.button *:backdrop, .app-notification .menuitem.button *:backdrop, .toolbar .menuitem.button *:backdrop, .titlebar .menuitem.button:not(.suggested-action):not(.destructive-action) *:backdrop,
 .header-bar .menuitem.button:not(.suggested-action):not(.destructive-action) *:backdrop, .message-dialog.csd .dialog-action-area .menuitem.button *:backdrop, .menuitem.sidebar-button.button *:backdrop, .info .menuitem.button *:backdrop,
 .question .menuitem.button *:backdrop,
 .warning .menuitem.button *:backdrop,
 .error .menuitem.button *:backdrop, GtkScaleButton.menuitem.button *:backdrop,
-GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:backdrop, GfCandidatePopup .menuitem.button:first-child *:backdrop, GfCandidatePopup .menuitem.button:last-child *:backdrop,
-GfCandidatePopup .linked > .menuitem.button *:backdrop, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, .budgie-session-dialog .menuitem.button *:backdrop, .budgie-polkit-dialog .menuitem.button *:backdrop, GtkColorButton.button *:backdrop, GtkButtonBox > .button *:backdrop, *:link *:backdrop, .button:link *:backdrop, .button:visited *:backdrop, .spinbutton *:backdrop, GtkComboBox *:backdrop, .toolbar *:backdrop, #sidebar-toolbar *:backdrop, .inline-toolbar *:backdrop, .search-bar *:backdrop,
+GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:backdrop, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, .budgie-session-dialog .menuitem.button *:backdrop, .budgie-polkit-dialog .menuitem.button *:backdrop, .spinbutton *:backdrop, GtkComboBox *:backdrop, .toolbar *:backdrop, #sidebar-toolbar *:backdrop, .inline-toolbar *:backdrop, .search-bar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
-.header-bar *:backdrop, .path-bar .button *:backdrop, column-header .button *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .menu.button *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop,
-.scrollbars-junction.frame *:backdrop, GtkSwitch.trough *:backdrop, GtkSwitch.slider *:backdrop, .menu .menuitem.check *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:inconsistent:insensitive *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.check:checked:insensitive *:backdrop, .menu .menuitem.radio *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:inconsistent:insensitive *:backdrop, .menu .menuitem.radio:checked *:backdrop, .menu .menuitem.radio:checked:insensitive *:backdrop, GtkCheckButton.text-button *:backdrop, GtkRadioButton.text-button *:backdrop, .scale.slider *:backdrop,
-.scale.scale-has-marks-above.scale-has-marks-below.slider *:backdrop,
-.scale.vertical.scale-has-marks-above.scale-has-marks-below.slider *:backdrop, .scale.trough *:backdrop,
-.scale.scale-has-marks-above.scale-has-marks-below.trough *:backdrop,
-.scale.vertical.scale-has-marks-above.scale-has-marks-below.trough *:backdrop, GtkProgressBar.trough *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .app-notification *:backdrop,
-.app-notification.frame *:backdrop, .expander *:backdrop, GtkCalendar *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkPlacesSidebar.sidebar *:backdrop, GtkPlacesSidebar#polari-sidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop, GtkScaleButton.button *:backdrop,
-GtkVolumeButton.button *:backdrop, .floating-bar *:backdrop, .entry.cursor-handle *:backdrop,
-.cursor-handle *:backdrop, .touch-selection *:backdrop, .tweak-categories *:backdrop, SeahorseWidget .sidebar *:backdrop, SeahorseWidget #polari-sidebar *:backdrop {
+.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
+.cursor-handle *:backdrop, .touch-selection *:backdrop, .tweak-categories *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
 
@@ -112,13 +104,12 @@ GtkVolumeButton.button *:backdrop, .floating-bar *:backdrop, .entry.cursor-handl
   color: #ECEFF1; }
 .label:insensitive {
   color: rgba(236, 239, 241, 0.3); }
-.label:backdrop {
-  opacity: 0.8;
-  transition: 0.2s; }
 
-.dim-label, .label.separator, .titlebar .subtitle,
-.header-bar .subtitle {
-  opacity: 0.6; }
+.dim-label, .label.separator, .titlebar .title:backdrop,
+.header-bar .title:backdrop, .titlebar .subtitle,
+.header-bar .subtitle, .titlebar .subtitle:backdrop,
+.header-bar .subtitle:backdrop {
+  opacity: 0.55; }
 
 GtkAssistant .sidebar, GtkAssistant #polari-sidebar {
   padding: 0.5em 0;
@@ -244,6 +235,8 @@ GtkTextView {
     animation: spin 1s linear infinite; }
     .spinner:active:insensitive {
       opacity: 0.4; }
+  .spinner:backdrop {
+    opacity: 0.8; }
 
 /****************
  * Text Entries *
@@ -752,6 +745,8 @@ GtkButtonBox > .button {
     color: #ccf2f6; }
   *:link:insensitive, .button:insensitive:link, .button:insensitive:visited {
     opacity: 0.4; }
+  *:link:backdrop, .button:backdrop:link, .button:backdrop:visited {
+    opacity: 0.8; }
 
 .button:link > .label, .button:visited > .label {
   text-decoration-line: underline; }
@@ -1000,18 +995,12 @@ GtkComboBox {
     padding-right: 1em;
     color: #ECEFF1;
     font-weight: bold; }
-    .titlebar .title:backdrop,
-    .header-bar .title:backdrop {
-      opacity: 0.55; }
   .titlebar .subtitle,
   .header-bar .subtitle {
     padding-left: 1em;
     padding-right: 1em;
     color: rgba(236, 239, 241, 0.75);
     font-size: smaller; }
-    .titlebar .subtitle:backdrop,
-    .header-bar .subtitle:backdrop {
-      opacity: 0.55; }
   .titlebar .header-bar-separator, .titlebar > GtkBox > .separator.vertical,
   .header-bar .header-bar-separator,
   .header-bar > GtkBox > .separator.vertical {
@@ -1481,7 +1470,7 @@ GtkComboBox {
       color: #ECEFF1; }
       .titlebar.default-decoration .title:backdrop,
       .header-bar.default-decoration .title:backdrop {
-        color: rgba(236, 239, 241, 0.5); }
+        color: rgba(236, 239, 241, 0.55); }
     .titlebar.default-decoration .button.titlebutton,
     .header-bar.default-decoration .button.titlebutton {
       padding: 0.4em;
@@ -1492,7 +1481,7 @@ GtkComboBox {
         color: #ECEFF1; }
       .titlebar.default-decoration .button.titlebutton:backdrop,
       .header-bar.default-decoration .button.titlebutton:backdrop {
-        color: rgba(236, 239, 241, 0.5); }
+        color: rgba(236, 239, 241, 0.55); }
 
 .csd .header-bar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -1588,6 +1577,8 @@ GtkTreeView.view {
       border-color: alpha(currentColor, 0.2); }
   GtkTreeView.view, GtkPaned GtkTreeView.view {
     background-color: #455A64; }
+    GtkTreeView.view:backdrop, GtkPaned GtkTreeView.view:backdrop {
+      opacity: 0.8; }
 
 column-header .button {
   padding: 0.3em 0.4em 0.35em;
@@ -1994,6 +1985,8 @@ GtkSwitch {
     GtkSwitch.trough:insensitive {
       color: rgba(236, 239, 241, 0.3);
       background-color: alpha(currentColor, 0.2); }
+    GtkSwitch.trough:backdrop {
+      opacity: 0.8; }
   GtkSwitch.slider {
     padding: 4px;
     border-radius: 100px;
@@ -2020,6 +2013,8 @@ GtkSwitch {
     GtkSwitch.slider:insensitive {
       box-shadow: none;
       background-color: #3F4E56; }
+    GtkSwitch.slider:backdrop {
+      opacity: 0.8; }
   .list-row:selected GtkSwitch.trough, .tweak-category:selected GtkSwitch.trough {
     background-color: #37474F; }
     .list-row:selected GtkSwitch.trough:active, .tweak-category:selected GtkSwitch.trough:active {
@@ -2385,6 +2380,8 @@ GtkSwitch {
 GtkCheckButton.text-button, GtkRadioButton.text-button {
   padding: 0.2em 0.5em;
   outline-offset: 0; }
+  GtkCheckButton.text-button:backdrop, GtkRadioButton.text-button:backdrop {
+    opacity: 0.8; }
 
 /************
  * GtkScale *
@@ -2435,6 +2432,10 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: none; }
+  .scale.slider:backdrop,
+  .scale.scale-has-marks-above.scale-has-marks-below.slider:backdrop,
+  .scale.vertical.scale-has-marks-above.scale-has-marks-below.slider:backdrop {
+    opacity: 0.8; }
   .scale.trough,
   .scale.scale-has-marks-above.scale-has-marks-below.trough,
   .scale.vertical.scale-has-marks-above.scale-has-marks-below.trough {
@@ -2453,6 +2454,10 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
     .scale.scale-has-marks-above.scale-has-marks-below.trough:insensitive,
     .scale.vertical.scale-has-marks-above.scale-has-marks-below.trough:insensitive {
       color: rgba(236, 239, 241, 0.3); }
+    .scale.trough:backdrop,
+    .scale.scale-has-marks-above.scale-has-marks-below.trough:backdrop,
+    .scale.vertical.scale-has-marks-above.scale-has-marks-below.trough:backdrop {
+      opacity: 0.8; }
   .scale.separator,
   .scale.scale-has-marks-above.scale-has-marks-below.separator,
   .scale.vertical.scale-has-marks-above.scale-has-marks-below.separator {
@@ -2602,6 +2607,8 @@ GtkProgressBar {
   GtkProgressBar.trough {
     border-radius: 0;
     background-color: rgba(29, 233, 182, 0.2); }
+    GtkProgressBar.trough:backdrop {
+      opacity: 0.8; }
     GtkProgressBar.trough.osd {
       border-style: none;
       box-shadow: none; }
@@ -2677,9 +2684,6 @@ GtkProgressBar {
     padding: 0.4em;
     border-width: 1px 0 0; }
 
-GtkScrolledWindow *:backdrop {
-  opacity: 1.0;
-  transition: none; }
 GtkScrolledWindow GtkViewport.frame {
   border-style: none; }
 
@@ -2821,6 +2825,8 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
     color: alpha(currentColor, 0.75); }
   .expander:selected {
     color: #FFFFFF; }
+  .expander:backdrop {
+    opacity: 0.8; }
 
 /************
  * Calendar *
@@ -2828,6 +2834,8 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
 GtkCalendar {
   border: 1px solid rgba(0, 0, 0, 0.09);
   color: #ECEFF1; }
+  GtkCalendar:backdrop {
+    opacity: 0.8; }
   GtkCalendar.header {
     border: 1px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.09);
@@ -3761,6 +3769,9 @@ GtkScaleButton.button,
 GtkVolumeButton.button {
   border-radius: 100px;
   outline-radius: 100px; }
+  GtkScaleButton.button:backdrop,
+  GtkVolumeButton.button:backdrop {
+    opacity: 0.8; }
 
 .floating-bar {
   padding: 0.1em 0 0.2em;
@@ -3769,6 +3780,8 @@ GtkVolumeButton.button {
   color: rgba(236, 239, 241, 0.75);
   background-color: #2a373e;
   transition: none; }
+  .floating-bar:backdrop {
+    opacity: 0.8; }
 
 .floating-bar.bottom.left {
   border-width: 1px 1px 0 0;

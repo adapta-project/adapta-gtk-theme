@@ -78,6 +78,7 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   -gtk-image-effect: dim;
 }
 
+// for backdrop, tone down element surfaces with transparentize
 %fade_effect {
   *:backdrop {
     opacity: 0.8;
@@ -126,24 +127,17 @@ $asset_suffix: if($variant=='dark', '-dark', '');
 }
 
 .label {
-  @extend %fade_effect;
   &.separator {
     color: $fg_color;
     @extend .dim-label;
     // &:backdrop { color: $backdrop_fg_color; }
   }
   &:selected { @extend %selected_items; }
-  &:insensitive {
-    color: $insensitive_fg_color;
-  }
-  &:backdrop {
-    opacity: 0.8;
-    transition: 0.2s;
-  }
+  &:insensitive { color: $insensitive_fg_color; }
 }
 
 .dim-label {
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 GtkAssistant {
@@ -194,7 +188,6 @@ GtkTextView { // This will get overridden by .view,
 }
 
 .grid-child {
-  @extend %fade_effect;
   // outline-offset: -2px;
   padding: 4px;
   border-radius: 2px;
@@ -215,8 +208,6 @@ GtkTextView { // This will get overridden by .view,
 }
 
 .spinner {
-  @extend %fade_effect;
-
   color: $accent_color;
   background-color: blue;
   background-image: none;
@@ -227,6 +218,7 @@ GtkTextView { // This will get overridden by .view,
     animation: spin 1s linear infinite;
     &:insensitive { opacity: 0.4; }
   }
+  &:backdrop { opacity: 0.8; }
 }
 
 
@@ -692,8 +684,6 @@ GtkButtonBox > .button {
  *********/
 
 *:link {
-  @extend %fade_effect;
-
   color: $link_color;
   &:hover, &:active { color: $link_color; }
   &:visited {
@@ -705,6 +695,7 @@ GtkButtonBox > .button {
     color: mix($selected_fg_color, $selected_bg_color, 80%);
   }
   &:insensitive { opacity: 0.4; }
+  &:backdrop { opacity: 0.8; }
 }
 
 .button:link, .button:visited {
@@ -1101,7 +1092,7 @@ GtkComboBox {
     padding-right: 1em;
     color: $inverted_fg_color;
     font-weight: bold;
-    &:backdrop { opacity: 0.55; }
+    &:backdrop { @extend .dim-label; }
   }
 
   .subtitle {
@@ -1110,7 +1101,7 @@ GtkComboBox {
     padding-right: 1em;
     color: $inverted_secondary_fg_color;
     font-size: smaller;
-    &:backdrop { opacity: 0.55; }
+    &:backdrop { @extend .dim-label; }
   }
 
   // separator
@@ -1330,14 +1321,14 @@ GtkComboBox {
 
     .title { // fade_effect doesn't work
       color: $inverted_fg_color;
-      &:backdrop { color: gtkopacity($inverted_fg_color, 0.5); }
+      &:backdrop { color: gtkopacity($inverted_fg_color, 0.55); }
     }
     .button.titlebutton {
       padding: 0.4em;
       color: $inverted_secondary_fg_color;
       &:hover,
       &:active { color: $inverted_fg_color; }
-      &:backdrop { color: gtkopacity($inverted_fg_color, 0.5); }
+      &:backdrop { color: gtkopacity($inverted_fg_color, 0.55); }
     }
   }
 }
@@ -1477,10 +1468,13 @@ GtkTreeView.view {
   }
 
   &, GtkPaned & { // redraw some stuff for RhythmBox
+    @extend %fade_effect;
+
     background-color: $base_color;
 
     &:selected,
     .list-row:selected { @extend %selected_items; }
+    &:backdrop { opacity: 0.8; }
   }
 }
 
@@ -1999,8 +1993,6 @@ GtkSwitch {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0;
 
   &.trough {
-    @extend %fade_effect;
-
     // similar to the .scale
     border: 8px solid transparent;
     border-radius: 100px;
@@ -2013,11 +2005,10 @@ GtkSwitch {
       color: $insensitive_fg_color;
       background-color: $track_color;
     }
+    &:backdrop { opacity: 0.8; }
   }
 
   &.slider {
-    @extend %fade_effect;
-
     padding: 4px;
     border-radius: 100px;
     @include button(normal);
@@ -2035,6 +2026,7 @@ GtkSwitch {
       box-shadow: none;
       background-color: if($variant=='light', #F0F2F3, #3F4E56);
     }
+    &:backdrop { opacity: 0.8; }
   }
   .list-row:selected & { // return to monochrome
     &.trough {
@@ -2154,8 +2146,6 @@ GtkSwitch {
 }
 
 GtkCheckButton.text-button, GtkRadioButton.text-button {
-  @extend %fade_effect;
-
   // this is for a nice focus on check and radios text
   padding: 0.2em 0.5em;
   outline-offset: 0;
@@ -2165,6 +2155,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
     // set insensitive color, which is overriden otherwise
     // color: $insensitive_fg_color;
   }
+  &:backdrop { opacity: 0.8; }
 }
 
 
@@ -2192,8 +2183,6 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
   }
 
   &.slider {
-    @extend %fade_effect;
-
     &:not(:hover):not(:active) { background-size: 80%; }
       // @include entry(normal);
       // border-radius: 50%;
@@ -2222,14 +2211,14 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
       // @include entry(insensitive);
       // border-radius: 50%;  // overridden
     }
+    &:backdrop { opacity: 0.8; }
+
     // OSD sliders
     .osd & {
     }
   }
 
   &.trough {
-    @extend %fade_effect;
-
     margin: 11px;
     border-radius: 0;
     background-color: $track_color;
@@ -2241,6 +2230,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
     // OSD troughs
     .osd & {
     }
+    &:backdrop { opacity: 0.8; }
   }
   // marks color
   &.separator { color: $track_color; }
@@ -2316,10 +2306,10 @@ GtkProgressBar {
   }
 
   &.trough { // background
-    @extend %fade_effect;
-
     border-radius: 0;
     background-color: gtkopacity($accent_color, 0.2);
+    &:backdrop { opacity: 0.8; }
+
     &.osd {
       border-style: none;
       box-shadow: none;
@@ -2426,15 +2416,11 @@ GtkProgressBar {
 }
 
 GtkScrolledWindow {
-  *:backdrop { // do not set fade_effect
-    opacity: 1.0;
-    transition: none;
-  }
-
   GtkViewport.frame { // avoid double borders when viewport inside
                       // scrolled window
     border-style: none;
   }
+  // &:backdrop { opacity: 1.0; }
 }
 
 // vbox and hbox separators
@@ -2491,6 +2477,7 @@ GtkScrolledWindow {
 }
 
 .list-row:selected {
+  @extend %fade_effect;
   @extend %selected_items;
   .button {
     &:insensitive { color: $insensitive_secondary_selected_fg_color; }
@@ -2536,13 +2523,12 @@ GtkScrolledWindow {
  *************/
 
 .expander {
-  @extend %fade_effect;
-
   -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
   &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
   &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
   &:selected { color: $selected_fg_color; }
+  &:backdrop { opacity: 0.8; }
 }
 
 
@@ -2551,11 +2537,10 @@ GtkScrolledWindow {
  ***********/
 
 GtkCalendar {
-  @extend %fade_effect;
-
   border: 1px solid $borders_color;
   color: $fg_color;
   &:selected { @extend .view:selected; }
+  &:backdrop { opacity: 0.8; }
 
   &.header {
     border: 1px solid transparent;
@@ -3093,8 +3078,6 @@ GtkColorSwatch {
 
 GtkScaleButton.button,
 GtkVolumeButton.button {
-  @extend %fade_effect;
-
   // I assume both are image-button *by default*
   // with the image-button/text-button classes automagically applied
   // depending on the button child these selectors can be deleted.
@@ -3102,13 +3085,12 @@ GtkVolumeButton.button {
   @extend .button.flat;
   border-radius: 100px;
   outline-radius: 100px;
+  &:backdrop { opacity: 0.8; }
 
   &.text-button { @extend .text-button }
 }
 
 .floating-bar {
-  @extend %fade_effect;
-
   @extend %osd;
   padding: 0.1em 0 0.2em;
   border: 1px solid transparent;
@@ -3116,6 +3098,7 @@ GtkVolumeButton.button {
   color: $inverted_secondary_fg_color;
   background-color: $inverted_dark_color;
   transition: none;
+  &:backdrop { opacity: 0.8; }
 }
 
 .floating-bar.bottom.left { // axes left border and border radius
