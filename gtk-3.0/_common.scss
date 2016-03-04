@@ -252,7 +252,12 @@ GtkTextView { // This will get overridden by .view,
   &.progressbar {
     border-style: none none solid;
     border-width: 2px;
-    border-color: $accent_color;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.5,
+                                to($accent_color),
+                                to(transparent))
+                                0 0 2 / 0 0 2px;
     border-radius: 0;
     box-shadow: none;
     background-color: transparent;
@@ -1915,7 +1920,7 @@ $_slider_fine_tune_margin: 4px;
     background-color: $base_color;
     // fix for Webkit2 2.10.5, use absolute colour codes
     // for $borders_color / $base_color;
-    border: if($variant=='light', 1px none #E5E9EC, 1px none #3B4D55);
+    border: 1px none $solid_light_borders_color;
   }
 
   // slider coloring
@@ -2808,8 +2813,7 @@ GtkInfoBar {
   border-width: 0 0 1px;
   border-style: solid;
   // do not use transparentize
-  border-color: if($variant=='light', $solid_light_borders_color,
-                                      $bg_color);
+  border-color: $solid_light_borders_color;
   background-color: $secondary_dark_color;
 }
 

@@ -169,32 +169,73 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.03),
 
   @if $t==normal {
     border-radius: 0;
-    box-shadow: inset 0 -1px $track_color;
+    outline-radius: 0;
+    border-color: $solid_light_borders_color;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.5,
+                                to($track_color),
+                                to(transparent))
+                                0 0 1 / 0 0 1px;
     background-color: transparent;
     color: $secondary_fg_color;
   }
   @if $t==focus {
-    box-shadow: inset 0 -2px $fc;
+    border-color: $solid_light_borders_color;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.5,
+                                to($fc),
+                                to(transparent))
+                                0 0 2 / 0 0 2px;
     color: $fg_color;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
   }
   @if $t==insensitive {
-    box-shadow: inset 0 -1px $track_color;
+    border-color: $solid_light_borders_color;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.5,
+                                to($track_color),
+                                to(transparent))
+                                0 0 1 / 0 0 1px;
+    background-color: transparent;
     color: $insensitive_fg_color;
   }
   @if $t==flat {
     border-radius: 0;
-    box-shadow: inset 0 -1px $track_color;
+    outline-radius: 0;
+    border-color: $solid_light_borders_color;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.5,
+                                to($track_color),
+                                to(transparent))
+                                0 0 1 / 0 0 1px;
     background-color: transparent;
     color: $secondary_fg_color;
   }
   @if $t==flat-focus {
-    box-shadow: inset 0 -2px $fc;
+    border-color: $solid_light_borders_color;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.5,
+                                to($fc),
+                                to(transparent))
+                                0 0 2 / 0 0 2px;
     color: $fg_color;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
   }
   @if $t==flat-insensitive {
-    box-shadow: inset 0 -1px $track_color;
+    border-color: $solid_light_borders_color;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.5,
+                                to($track_color),
+                                to(transparent))
+                                0 0 1 / 0 0 1px;
     color: $insensitive_fg_color;
   }
 }
