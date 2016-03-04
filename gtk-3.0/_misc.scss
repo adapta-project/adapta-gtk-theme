@@ -99,6 +99,8 @@ NaTrayApplet {
 
 // sidebar
 .tweak-categories {
+  @extend %fade_effect;
+
   background-color: $secondary_dark_color;
   color: $secondary_fg_color;
   &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
@@ -262,6 +264,8 @@ EphyWindow {
 // remove double borders
 SeahorseWidget {
   .sidebar {
+    @extend %fade_effect;
+
     .pane-separator { border: none; }
   }
 }
