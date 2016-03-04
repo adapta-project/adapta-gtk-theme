@@ -372,6 +372,8 @@ GtkTextView {
     background-color: #FFFFFF;
     color: #263238;
     box-shadow: none; }
+  GtkTreeView .entry:insensitive, GtkTreeView .entry.flat:insensitive, GtkTreeView .linked > .entry:insensitive:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:insensitive {
+    color: rgba(38, 50, 56, 0.3); }
 
 /***********
  * Buttons *
@@ -2753,6 +2755,8 @@ GtkScrolledWindow GtkViewport.frame {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.05)); }
   .list-row.activatable:active, .view:active, column-header .button:active, GtkPlacesSidebar.sidebar .has-open-popup, GtkPlacesSidebar#polari-sidebar .has-open-popup, .activatable.tweak-category:active {
     animation: list_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  .list-row.activatable:insensitive, .view:insensitive, column-header .button:insensitive, .activatable.tweak-category:insensitive {
+    color: rgba(38, 50, 56, 0.3); }
 
 .list-row:selected .button:insensitive, .tweak-category:selected .button:insensitive {
   color: rgba(38, 50, 56, 0.3); }
@@ -4564,6 +4568,7 @@ UnityPanelWidget,
 @define-color theme_unfocused_base_color #FFFFFF;
 @define-color theme_unfocused_selected_bg_color #00BCD4;
 @define-color theme_unfocused_selected_fg_color #FFFFFF;
+@define-color placeholder_text_color #CFD8DC;
 @define-color borders rgba(0, 0, 0, 0.09);
 @define-color unfocused_borders rgba(0, 0, 0, 0.09);
 @define-color warning_color #FF9800;

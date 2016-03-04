@@ -301,6 +301,8 @@ GtkTextView { // This will get overridden by .view,
       box-shadow: none;
       &:selected { @extend %selected_items; }
     }
+    &:insensitive,
+    &.flat:insensitive { color: $insensitive_fg_color; }
   }
 
   .osd & {
@@ -2475,6 +2477,7 @@ GtkScrolledWindow {
   &:active {
     animation: list_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
+  &:insensitive {color: $insensitive_fg_color; }
 }
 
 .list-row:selected {
