@@ -1591,10 +1591,14 @@ GtkTreeView.view {
   border-left-color: alpha(currentColor, 0.2);
   border-top-color: rgba(0, 0, 0, 0.11);
   border-radius: 0;
+  color: rgba(236, 239, 241, 0.75);
   background-color: transparent;
   background-image: none;
   box-shadow: none; }
-  GtkTreeView.view:hover, GtkTreeView.view:active, GtkTreeView.view:selected {
+  GtkTreeView.view:hover {
+    border-radius: 0;
+    color: #ECEFF1; }
+  GtkTreeView.view:active, GtkTreeView.view:selected {
     border-radius: 0; }
   GtkTreeView.view:insensitive {
     color: rgba(236, 239, 241, 0.3); }
@@ -1603,6 +1607,8 @@ GtkTreeView.view {
   GtkTreeView.view:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
+  GtkTreeView.view .separator, GtkTreeView.view .separator:hover {
+    color: rgba(0, 0, 0, 0.11); }
   GtkTreeView.view.dnd {
     border-style: solid none;
     border-width: 1px;
