@@ -1482,6 +1482,8 @@ GtkTreeView.view {
     @extend %fade_effect;
     background-color: $base_color;
 
+    &:hover,
+   .list-row:hover { color: $fg_color; }
     &:selected,
     .list-row:selected { @extend %selected_items; }
     &:backdrop { opacity: 0.8; }
@@ -1521,7 +1523,7 @@ column-header {
 
   GtkPaned & { // redraw some stuff for RhythmBox
     .button {
-      background-color: $bg_color;
+      background-color: $base_color;
       // background-image: linear-gradient(to bottom, $bg_color);
       &:insensitive {
         color: $insensitive_secondary_fg_color;
@@ -1593,7 +1595,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     &:hover {
       transition: none;
       color: $fg_color;
-      background-color: gtkalpha(currentColor,0.1);
+      background-color: gtkalpha(currentColor, 0.1);
     }
     &:insensitive { color: $insensitive_fg_color; }
 
@@ -1655,6 +1657,10 @@ column-header.button.dnd { // for treeview-like derive widgets
     background-size: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
     color: $secondary_fg_color;
     font: initial;
+    &:hover {
+      background-color: transparent; // remove double-bg
+      color: $fg_color;
+    }
   }
 
   .linked > .button {

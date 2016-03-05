@@ -1624,6 +1624,12 @@ GtkTreeView.view {
       border-color: alpha(currentColor, 0.2); }
   GtkTreeView.view, GtkPaned GtkTreeView.view {
     background-color: #FFFFFF; }
+    GtkTreeView.view:hover,
+    GtkTreeView.view .list-row:hover,
+    GtkTreeView.view .tweak-category:hover, GtkPaned GtkTreeView.view:hover,
+    GtkPaned GtkTreeView.view .list-row:hover,
+    GtkPaned GtkTreeView.view .tweak-category:hover {
+      color: #263238; }
     GtkTreeView.view:backdrop, GtkPaned GtkTreeView.view:backdrop {
       opacity: 0.8; }
 
@@ -1645,7 +1651,7 @@ column-header .button {
 column-header:last-child .button, column-header:last-child.button {
   border-right-style: none; }
 GtkPaned column-header .button {
-  background-color: #fafbfc; }
+  background-color: #FFFFFF; }
   GtkPaned column-header .button:insensitive {
     color: rgba(38, 50, 56, 0.225);
     background-color: #fafbfc; }
@@ -1760,6 +1766,20 @@ column-header.button.dnd, column-header .button.dnd {
     background-size: 10em 10em, auto;
     color: rgba(38, 50, 56, 0.75);
     font: initial; }
+    .popover .button.flat:hover, .popover .inline-toolbar .button:hover, .inline-toolbar .popover .button:hover, .popover GtkButtonBox > .button:hover, .popover .app-notification .button:hover, .app-notification .popover .button:hover, .popover .toolbar .button:hover, .toolbar .popover .button:hover, .popover #sidebar-toolbar .button:hover, #sidebar-toolbar .popover .button:hover, .popover .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .popover .button:hover:not(.suggested-action):not(.destructive-action),
+    .popover .header-bar .button:hover:not(.suggested-action):not(.destructive-action),
+    .header-bar .popover .button:hover:not(.suggested-action):not(.destructive-action), .popover .message-dialog.csd .dialog-action-area .button:hover, .message-dialog.csd .dialog-action-area .popover .button:hover, .popover .sidebar-button.button:hover, .popover .info .button:hover, .info .popover .button:hover,
+    .popover .question .button:hover,
+    .question .popover .button:hover,
+    .popover .warning .button:hover,
+    .warning .popover .button:hover,
+    .popover .error .button:hover,
+    .error .popover .button:hover, .popover GtkScaleButton.button:hover,
+    .popover GtkVolumeButton.button:hover, .popover GfCandidatePopup .button:hover, GfCandidatePopup .popover .button:hover, .popover GfCandidatePopup .button:hover:first-child, GfCandidatePopup .popover .button:hover:first-child, .popover GfCandidatePopup .button:hover:last-child, GfCandidatePopup .popover .button:hover:last-child,
+    .popover GfCandidatePopup .linked > .button:hover,
+    GfCandidatePopup .popover .linked > .button:hover, .popover MathWindow :not(.titlebar) .button:hover:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .popover .button:hover:not(.flat):not(.titlebutton), .popover MathWindow :not(.header-bar) .button:hover:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .popover .button:hover:not(.flat):not(.titlebutton), .popover .budgie-session-dialog .button:hover, .budgie-session-dialog .popover .button:hover, .popover .budgie-polkit-dialog .button:hover, .budgie-polkit-dialog .popover .button:hover {
+      background-color: transparent;
+      color: #263238; }
   .popover .linked > .button {
     box-shadow: none;
     background-color: transparent;
@@ -4154,15 +4174,15 @@ NaTrayApplet {
 /**************
  * Tweak-tool *
  **************/
-.tweak-categories, .tweak-categories GtkTreeView.view {
+.tweak-categories {
   background-color: #f7f9f9;
   color: rgba(38, 50, 56, 0.75); }
-.tweak-categories:dir(ltr) {
-  box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
-.tweak-categories:dir(rtl) {
-  box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
-.tweak-categories .separator {
-  -GtkWidget-wide-separators: true; }
+  .tweak-categories:dir(ltr) {
+    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
+  .tweak-categories:dir(rtl) {
+    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
+  .tweak-categories .separator {
+    -GtkWidget-wide-separators: true; }
 
 .tweak-category {
   color: rgba(38, 50, 56, 0.75);
