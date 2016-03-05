@@ -943,21 +943,24 @@ GtkComboBox {
     background-color: #2a373e; }
     .osd .toolbar:backdrop, .osd #sidebar-toolbar:backdrop, .toolbar.osd:backdrop, .app-notification:backdrop, .osd#sidebar-toolbar:backdrop {
       border-image: -gtk-scaled(url("assets/osd-shadow-backdrop.png"), url("assets/osd-shadow-backdrop@2.png")) 10/10px stretch; }
-    .osd .toolbar .button:not(:active):not(:insensitive), .osd #sidebar-toolbar .button:not(:active):not(:insensitive), .toolbar.osd .button:not(:active):not(:insensitive), .app-notification .button:not(:active):not(:insensitive),
-    .app-notification.frame .button:not(:active):not(:insensitive), .osd#sidebar-toolbar .button:not(:active):not(:insensitive) {
-      color: #1DE9B6; }
-    .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .toolbar.osd .button:active, .app-notification .button:active,
-    .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active {
-      color: #FFFFFF;
-      background-color: #1DE9B6; }
-    .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .osd .toolbar .button:checked, .osd #sidebar-toolbar .button:checked, .toolbar.osd .button:active, .app-notification .button:active,
-    .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active, .toolbar.osd .button:checked, .app-notification .button:checked,
-    .app-notification.frame .button:checked, .osd#sidebar-toolbar .button:checked {
-      border-image: none;
-      box-shadow: none; }
-    .osd .toolbar .button:insensitive, .osd #sidebar-toolbar .button:insensitive, .toolbar.osd .button:insensitive, .app-notification .button:insensitive,
-    .app-notification.frame .button:insensitive, .osd#sidebar-toolbar .button:insensitive {
-      color: rgba(29, 233, 182, 0.4); }
+    .osd .toolbar .button, .osd #sidebar-toolbar .button, .toolbar.osd .button, .app-notification .button,
+    .app-notification.frame .button, .osd#sidebar-toolbar .button {
+      color: rgba(29, 233, 182, 0.9); }
+      .osd .toolbar .button:hover, .osd #sidebar-toolbar .button:hover, .toolbar.osd .button:hover, .app-notification .button:hover,
+      .app-notification.frame .button:hover, .osd#sidebar-toolbar .button:hover {
+        color: #1DE9B6; }
+      .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .toolbar.osd .button:active, .app-notification .button:active,
+      .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active {
+        color: #1DE9B6;
+        background-color: rgba(38, 50, 56, 0.15); }
+      .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .osd .toolbar .button:checked, .osd #sidebar-toolbar .button:checked, .toolbar.osd .button:active, .app-notification .button:active,
+      .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active, .toolbar.osd .button:checked, .app-notification .button:checked,
+      .app-notification.frame .button:checked, .osd#sidebar-toolbar .button:checked {
+        border-image: none;
+        box-shadow: none; }
+      .osd .toolbar .button:insensitive, .osd #sidebar-toolbar .button:insensitive, .toolbar.osd .button:insensitive, .app-notification .button:insensitive,
+      .app-notification.frame .button:insensitive, .osd#sidebar-toolbar .button:insensitive {
+        color: rgba(29, 233, 182, 0.4); }
   .toolbar .button, #sidebar-toolbar .button {
     box-shadow: none;
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 0/0 0 0px;
@@ -2932,6 +2935,10 @@ GtkCalendar {
     .message-dialog.csd .dialog-action-area .linked > .button:first-child {
       border-radius: 0 0 0 2px;
       border-right-width: 0; }
+      .message-dialog.csd .dialog-action-area .button:first-child:hover,
+      .message-dialog.csd .dialog-action-area .linked > .button:first-child:hover {
+        color: #ECEFF1;
+        background: none; }
     .message-dialog.csd .dialog-action-area .button:last-child,
     .message-dialog.csd .dialog-action-area .linked > .button:last-child {
       box-shadow: none;
@@ -2940,24 +2947,20 @@ GtkCalendar {
       border-radius: 0 0 2px 0;
       border-left-width: 0;
       background-color: transparent;
-      color: #1DE9B6; }
+      color: rgba(29, 233, 182, 0.9); }
       .message-dialog.csd .dialog-action-area .button:last-child:hover,
       .message-dialog.csd .dialog-action-area .linked > .button:last-child:hover {
         box-shadow: none;
         background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
-        color: #1DE9B6; }
+        background: none; }
       .message-dialog.csd .dialog-action-area .button:last-child:active,
       .message-dialog.csd .dialog-action-area .linked > .button:last-child:active {
         box-shadow: none;
-        animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        color: #FFFFFF;
-        background-color: #1DE9B6; }
+        animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
       .message-dialog.csd .dialog-action-area .button:last-child:checked,
       .message-dialog.csd .dialog-action-area .linked > .button:last-child:checked {
         background-color: alpha(currentColor, 0.2);
-        color: #263238;
-        color: #FFFFFF;
-        background-color: #1DE9B6; }
+        color: #263238; }
       .message-dialog.csd .dialog-action-area .button:last-child:insensitive,
       .message-dialog.csd .dialog-action-area .linked > .button:last-child:insensitive {
         box-shadow: none;

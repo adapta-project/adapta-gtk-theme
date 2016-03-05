@@ -960,10 +960,11 @@ GtkComboBox {
 
     .button {
       @extend .button.flat;
-      &:not(:active):not(:insensitive) { color: $accent_color; }
+      color: $secondary_accent_color;
+      &:hover { color: $accent_color; }
       &:active {
-        color: $selected_fg_color;
-	background-color: $accent_color;
+        color: $accent_color;
+        background-color: $accent_fill_color;
       }
       &:active,
       &:checked {
@@ -2614,26 +2615,29 @@ GtkCalendar {
         &:first-child {
           border-radius: 0 0 0 2px;
           border-right-width: 0;
+          &:hover {
+            color: $inverted_fg_color;
+            background: none;
+          }
         }
         &:last-child { // usually 'save', 'delete' and 'OK'...
           @include button(flat);
           border-radius: 0 0 2px 0;
           border-left-width: 0;
           background-color: transparent;
-          color: $accent_color;
+          color: $secondary_accent_color;
           &:hover {
-            @include button(flat-hover);
-            color: $accent_color;
+            @include button(flat-hover, transparent,
+                                        $accent_color);
+            background: none;
           }
           &:active {
-            @include button(flat-active);
-            color: $selected_fg_color;
-            background-color: $accent_color;
+            @include button(flat-active, $accent_fill_color,
+                                         $accent_color);
           }
           &:checked {
-            @include button(flat-checked);
-            color: $selected_fg_color;
-            background-color: $accent_color;
+            @include button(flat-checked, $accent_fill_color,
+                                          $secondary_accent_color);
           }
           &:insensitive { @include button(flat-insensitive); }
         }
