@@ -943,24 +943,24 @@ GtkComboBox {
     background-color: #2a373e; }
     .osd .toolbar:backdrop, .osd #sidebar-toolbar:backdrop, .toolbar.osd:backdrop, .app-notification:backdrop, .osd#sidebar-toolbar:backdrop {
       border-image: -gtk-scaled(url("assets/osd-shadow-backdrop-dark.png"), url("assets/osd-shadow-backdrop-dark@2.png")) 10/10px stretch; }
-    .osd .toolbar .button, .osd #sidebar-toolbar .button, .toolbar.osd .button, .app-notification .button,
-    .app-notification.frame .button, .osd#sidebar-toolbar .button {
+    .osd .toolbar .button:not(:active):not(:insensitive):not(hover), .osd #sidebar-toolbar .button:not(:active):not(:insensitive):not(hover), .toolbar.osd .button:not(:active):not(:insensitive):not(hover), .app-notification .button:not(:active):not(:insensitive):not(hover),
+    .app-notification.frame .button:not(:active):not(:insensitive):not(hover), .osd#sidebar-toolbar .button:not(:active):not(:insensitive):not(hover) {
       color: rgba(29, 233, 182, 0.9); }
-      .osd .toolbar .button:hover, .osd #sidebar-toolbar .button:hover, .toolbar.osd .button:hover, .app-notification .button:hover,
-      .app-notification.frame .button:hover, .osd#sidebar-toolbar .button:hover {
-        color: #1DE9B6; }
-      .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .toolbar.osd .button:active, .app-notification .button:active,
-      .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active {
-        color: #1DE9B6;
-        background-color: rgba(236, 239, 241, 0.15); }
-      .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .osd .toolbar .button:checked, .osd #sidebar-toolbar .button:checked, .toolbar.osd .button:active, .app-notification .button:active,
-      .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active, .toolbar.osd .button:checked, .app-notification .button:checked,
-      .app-notification.frame .button:checked, .osd#sidebar-toolbar .button:checked {
-        border-image: none;
-        box-shadow: none; }
-      .osd .toolbar .button:insensitive, .osd #sidebar-toolbar .button:insensitive, .toolbar.osd .button:insensitive, .app-notification .button:insensitive,
-      .app-notification.frame .button:insensitive, .osd#sidebar-toolbar .button:insensitive {
-        color: rgba(29, 233, 182, 0.4); }
+    .osd .toolbar .button:hover, .osd #sidebar-toolbar .button:hover, .toolbar.osd .button:hover, .app-notification .button:hover,
+    .app-notification.frame .button:hover, .osd#sidebar-toolbar .button:hover {
+      color: #1DE9B6; }
+    .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .toolbar.osd .button:active, .app-notification .button:active,
+    .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active {
+      color: #1DE9B6;
+      background-color: rgba(236, 239, 241, 0.15); }
+    .osd .toolbar .button:active, .osd #sidebar-toolbar .button:active, .osd .toolbar .button:checked, .osd #sidebar-toolbar .button:checked, .toolbar.osd .button:active, .app-notification .button:active,
+    .app-notification.frame .button:active, .osd#sidebar-toolbar .button:active, .toolbar.osd .button:checked, .app-notification .button:checked,
+    .app-notification.frame .button:checked, .osd#sidebar-toolbar .button:checked {
+      border-image: none;
+      box-shadow: none; }
+    .osd .toolbar .button:insensitive, .osd #sidebar-toolbar .button:insensitive, .toolbar.osd .button:insensitive, .app-notification .button:insensitive,
+    .app-notification.frame .button:insensitive, .osd#sidebar-toolbar .button:insensitive {
+      color: rgba(29, 233, 182, 0.4); }
   .toolbar .button, #sidebar-toolbar .button {
     box-shadow: none;
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 0/0 0 0px;

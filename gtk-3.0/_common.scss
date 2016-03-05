@@ -960,7 +960,9 @@ GtkComboBox {
 
     .button {
       @extend .button.flat;
-      color: $secondary_accent_color;
+      &:not(:active):not(:insensitive):not(hover) {
+        color: $secondary_accent_color;
+      }
       &:hover { color: $accent_color; }
       &:active {
         color: $accent_color;
