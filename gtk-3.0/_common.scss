@@ -2627,17 +2627,19 @@ GtkCalendar {
           background-color: transparent;
           color: $secondary_accent_color;
           &:hover {
-            @include button(flat-hover, transparent,
-                                        $accent_color);
+            @include button(flat-hover);
+            color: $accent_color;
             background: none;
           }
           &:active {
-            @include button(flat-active, $accent_fill_color,
-                                         $accent_color);
+            @include button(flat-active);
+            color: $accent_color;
+            background: $accent_fill_color;
           }
           &:checked {
-            @include button(flat-checked, $accent_fill_color,
-                                          $secondary_accent_color);
+            @include button(flat-checked);
+            color: $secondary_accent_color;
+            background: $accent_fill_color;
           }
           &:insensitive { @include button(flat-insensitive); }
         }
