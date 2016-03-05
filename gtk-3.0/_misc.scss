@@ -101,8 +101,11 @@ NaTrayApplet {
 .tweak-categories {
   @extend %fade_effect;
 
-  background-color: $secondary_dark_color;
-  color: $secondary_fg_color;
+  &, & GtkTreeView.view {
+    background-color: $secondary_dark_color;
+    color: $secondary_fg_color;
+  }
+
   &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
                                                  $sidebar-dark-ltr);
   }
@@ -256,6 +259,10 @@ EphyWindow {
   .floating-bar { color: $secondary_fg_color; }
 }
 
+EphyNotebook.notebook GtkScrolledWindow {
+// WebKitWebView {
+  .entry { background-color: red; }
+}
 
 /************
  * Seahorse *

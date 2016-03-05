@@ -1050,8 +1050,8 @@ GtkComboBox {
     border-color: $borders_color;
     background-color: $secondary_dark_color;
     // shadows same with notebook-header
-    box-shadow: if($variant=='light', inset 0 1px 2px rgba(0, 0, 0, 0.08),
-                                      inset 0 1px 2px rgba(0, 0, 0, 0.18));
+    box-shadow: if($variant=='light', $inline-shadow-light,
+                                      $inline-shadow-dark);
   }
 }
 
@@ -1080,7 +1080,7 @@ GtkComboBox {
   border-width: 1px 0 1px;
   border-style: solid;
   // do not use transparentize
-  border-top-color: $inverted_bg_color;
+  border-top-color: $top_edge_border_color;
   border-bottom-color: $solid_dark_borders_color;
   background-color: $inverted_dark_color;
   background-clip: border-box;

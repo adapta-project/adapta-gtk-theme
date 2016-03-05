@@ -1422,7 +1422,7 @@ GtkComboBox {
       background-color: alpha(currentColor, 0.2); }
   .titlebar GtkSwitch.slider,
   .header-bar GtkSwitch.slider {
-    background-color: #37474F; }
+    background-color: #3e515a; }
     .titlebar GtkSwitch.slider:active,
     .header-bar GtkSwitch.slider:active {
       background-color: #00BCD4; }
@@ -4154,15 +4154,15 @@ NaTrayApplet {
 /**************
  * Tweak-tool *
  **************/
-.tweak-categories {
+.tweak-categories, .tweak-categories GtkTreeView.view {
   background-color: #f7f9f9;
   color: rgba(38, 50, 56, 0.75); }
-  .tweak-categories:dir(ltr) {
-    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
-  .tweak-categories:dir(rtl) {
-    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
-  .tweak-categories .separator {
-    -GtkWidget-wide-separators: true; }
+.tweak-categories:dir(ltr) {
+  box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
+.tweak-categories:dir(rtl) {
+  box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
+.tweak-categories .separator {
+  -GtkWidget-wide-separators: true; }
 
 .tweak-category {
   color: rgba(38, 50, 56, 0.75);
@@ -4196,7 +4196,7 @@ GfPopupWindow {
   opacity: 0.9; }
   FlashbackOsdWindow.background,
   GfPopupWindow.background {
-    background-color: #37474F;
+    background-color: #3e515a;
     color: rgba(236, 239, 241, 0.75); }
 
 GfInputSourcePopup #input-source {
@@ -4259,6 +4259,9 @@ GfCandidatePopup .linked > .button:last-child {
  ************/
 EphyWindow .floating-bar {
   color: rgba(38, 50, 56, 0.75); }
+
+EphyNotebook.notebook GtkScrolledWindow .entry {
+  background-color: red; }
 
 /************
  * Seahorse *
@@ -4443,7 +4446,7 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
 .budgie-session-dialog, .budgie-polkit-dialog {
   border-radius: 2px;
   border-width: 0;
-  background-color: #37474F;
+  background-color: #3e515a;
   color: rgba(236, 239, 241, 0.75);
   font-weight: bold;
   opacity: 0.9; }

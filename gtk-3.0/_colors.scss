@@ -55,7 +55,7 @@ $insensitive_inverted_secondary_fg_color: gtkopacity($inverted_secondary_fg_colo
 // Background colors
 //
 $bg_color: if($variant=='light', mix(#FFFFFF, #ECEFF1, 75%),    // = W _ 50
-                                 #37474F);                      // = BluGry800
+                                 mix(#455A64, #37474F, 50%));   // = 700 _ 800
 $base_color: if($variant=='light', #FFFFFF,                     // = White
                                    #455A64);                    // = BluGry700
 $secondary_base_color: mix($base_color, $bg_color, 50%);        // = W _ 50
@@ -65,12 +65,12 @@ $dark_color: if($variant=='light', mix(#ECEFF1, #CFD8DC, 75%),  // =  50 _ 100
                                    mix(#263238, #37474F, 75%)); // = 900 _ 800
 $secondary_dark_color: if($variant=='light',
                           mix(#FFFFFF, #ECEFF1, 60%),           // = W _ 50
-                          mix(#37474F, #455A64, 60%));          // = 800 _ 700
+                          mix(#455A64, #37474F, 25%));          // = 700 _ 800
 
 //
 // Dark background colors on light variant
 //
-$inverted_bg_color: #37474F;                                    // = BluGry800
+$inverted_bg_color: mix(#455A64, #37474F, 50%);                 // = 700 _ 800
 $inverted_base_color: #455A64;                                  // = BluGry700
 $inverted_dark_color: mix(#263238, #37474F, 75%);               // = 900 _ 800
 
@@ -95,9 +95,11 @@ $track_color: gtkalpha(currentColor, 0.2);
 //
 // Edge colors
 //
-$borders_color: gtkopacity(#000000, 0.09);
-$solid_light_borders_color: if($variant=='light', #E5E9EC, #3B4D55);
+$borders_color: if($variant=='light', gtkopacity(#000000, 0.09),
+                                      gtkopacity(#000000, 0.11));
+$solid_light_borders_color: if($variant=='light', #E5E9EC, #37474F);
 $solid_dark_borders_color: #242F35;
+$top_edge_border_color: #37474F;
 
 $highlight_color: gtkopacity(#FFFFFF, 0.07);
 
