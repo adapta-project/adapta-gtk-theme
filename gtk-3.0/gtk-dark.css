@@ -1596,6 +1596,10 @@ GtkTreeView.view {
   box-shadow: none; }
   GtkTreeView.view:hover, GtkTreeView.view:active, GtkTreeView.view:selected {
     border-radius: 0; }
+  GtkTreeView.view:insensitive {
+    color: rgba(236, 239, 241, 0.3); }
+    GtkTreeView.view:insensitive:selected {
+      color: rgba(236, 239, 241, 0.4); }
   GtkTreeView.view:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
@@ -1646,15 +1650,13 @@ column-header .button {
     color: #ECEFF1;
     box-shadow: none; }
   column-header .button:insensitive {
-    color: rgba(236, 239, 241, 0.225);
     background-color: #455A64; }
 column-header:last-child .button, column-header:last-child.button {
   border-right-style: none; }
 GtkPaned column-header .button {
   background-color: #455A64; }
   GtkPaned column-header .button:insensitive {
-    color: rgba(236, 239, 241, 0.225);
-    background-color: #3e515a; }
+    background-color: #455A64; }
 GtkPaned column-header:not(:first-child):not(:last-child).button, GtkPaned column-header:not(:first-child):not(:last-child) .button {
   border-style: none solid solid none; }
 GtkPaned column-header.button, GtkPaned column-header .button, GtkPaned column-header:only-child.button, GtkPaned column-header:only-child .button, GtkPaned column-header:first-child.button, GtkPaned column-header:first-child .button, GtkPaned column-header:last-child.button, GtkPaned column-header:last-child .button {
@@ -1724,7 +1726,7 @@ column-header.button.dnd, column-header .button.dnd {
       border-color: transparent; }
 
 .menuitem .accelerator {
-  color: alpha(currentColor, 0.6); }
+  color: alpha(currentColor, 0.55); }
 
 .menuitem .separator {
   color: rgba(0, 0, 0, 0.11); }
@@ -3925,7 +3927,7 @@ GtkVolumeButton.button {
 .titlebar.selection-mode .button.titlebutton.close:active:backdrop {
   opacity: 1.0; }
 
-.view:selected, GtkCalendar:selected, .label:selected, .grid-child:selected, .entry:selected, GtkTreeView .entry.flat:focus:selected, GtkTreeView .linked > .entry:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, #sidebar-toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
+.view:selected, GtkCalendar:selected, .label:selected, .label:selected:focus, .label:selected:hover, .grid-child:selected, .entry:selected, GtkTreeView .entry.flat:focus:selected, GtkTreeView .linked > .entry:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus:selected, .menuitem.button.flat:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, .toolbar .menuitem.button:selected, #sidebar-toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
 .question .menuitem.button:selected,
 .warning .menuitem.button:selected,

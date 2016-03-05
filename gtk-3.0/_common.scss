@@ -131,7 +131,11 @@ $asset_suffix: if($variant=='dark', '-dark', '');
     color: $fg_color;
     @extend .dim-label;
   }
-  &:selected { @extend %selected_items; }
+  &:selected,
+  &:selected:focus,
+  &:selected:hover {
+    @extend %selected_items;
+  }
   &:insensitive { color: $insensitive_fg_color; }
 }
 
@@ -1439,6 +1443,10 @@ GtkTreeView.view {
   &:hover,
   &:active,
   &:selected { border-radius: 0; }
+  &:insensitive {
+    color: $insensitive_fg_color;
+    &:selected { color: $insensitive_selected_fg_color; }
+  }
   &:backdrop {
     opacity: 0.8;
     transition: 0.2s;
@@ -1508,10 +1516,7 @@ column-header {
       color: $fg_color;
       box-shadow: none;
     }
-    &:insensitive {
-      color: $insensitive_secondary_fg_color;
-      background-color: $base_color;
-    }
+    &:insensitive { background-color: $base_color; }
     &.dnd { @extend column-header.button.dnd; }
   }
 
@@ -1525,10 +1530,7 @@ column-header {
     .button {
       background-color: $base_color;
       // background-image: linear-gradient(to bottom, $bg_color);
-      &:insensitive {
-        color: $insensitive_secondary_fg_color;
-        background-color: $bg_color;
-      }
+      &:insensitive { background-color: $base_color; }
     }
 
     &:not(:first-child):not(:last-child) {
@@ -1623,7 +1625,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 }
 
-.menuitem .accelerator { color: gtkalpha(currentColor, 0.6); }
+.menuitem .accelerator { color: gtkalpha(currentColor, 0.55); }
 .menuitem .separator { color: $borders_color; }
 
 
