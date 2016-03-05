@@ -37,8 +37,16 @@ Unsupported Gtk+ Based Desktops
 
 Installation
 ------------
-1. Extract the archive to the themes directory (`/usr/share/themes` or `~/.themes`).
-2. Use `gnome-tweak-tool` to change the theme.
+1. Check `autoconf`, `automake` and `pkg-config` (`pkgconfig`) are installed.
+2. Build and install system-wide:
+   ```
+   ./autogen.sh --prefix=/usr
+   make
+   sudo make install
+   ```
+   (Default prefix is `/usr/local`)
+
+3. Use `gnome-tweak-tool` to change the theme.
 
 Work in Progress
 ----------------
