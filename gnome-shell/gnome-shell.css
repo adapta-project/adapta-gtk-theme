@@ -83,9 +83,9 @@ stage {
   padding: 9px 16px 10px;
   border-right-width: 0;
   border: none;
-  color: #1DE9B6;
+  color: rgba(29, 233, 182, 0.8);
   font-weight: bold; }
-  .modal-dialog-linked-button:hover, .modal-dialog-linked-button:focus {
+  .modal-dialog-linked-button:hover {
     color: #ECEFF1;
     background-color: rgba(236, 239, 241, 0.07);
     border-color: transparent;
@@ -93,7 +93,9 @@ stage {
     text-shadow: none;
     icon-shadow: none;
     color: #1DE9B6;
-    background-color: rgba(29, 233, 182, 0.1); }
+    background-color: transparent; }
+  .modal-dialog-linked-button:focus {
+    color: #1DE9B6; }
   .modal-dialog-linked-button:active {
     color: #FFFFFF;
     background-color: rgba(236, 239, 241, 0.15);
@@ -101,8 +103,8 @@ stage {
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
-    color: #FFFFFF;
-    background-color: #1DE9B6; }
+    color: #1DE9B6;
+    background-color: rgba(236, 239, 241, 0.12); }
   .modal-dialog-linked-button:insensitive {
     color: rgba(236, 239, 241, 0.3);
     background-color: transparent;
@@ -587,7 +589,7 @@ StScrollBar {
   border: 2px solid rgba(236, 239, 241, 0.15); }
 
 .switcher-list .item-box:selected {
-  background-color: rgba(29, 233, 182, 0.15);
+  background-color: rgba(29, 233, 182, 0.1);
   color: #1DE9B6; }
 
 .switcher-list .thumbnail-box {
@@ -1638,22 +1640,24 @@ StScrollBar {
     padding-top: 0;
     border: transparent;
     spacing: 1px;
-    color: #1DE9B6;
+    color: rgba(29, 233, 182, 0.8);
     background-color: transparent; }
   .notification-banner .notification-button {
     padding: 9px 4px 10px;
     background-color: transparent;
-    color: #1DE9B6;
+    color: rgba(29, 233, 182, 0.8);
     font-weight: bold; }
     .notification-banner .notification-button:first-child {
       border-radius: 0 0 0 2px; }
     .notification-banner .notification-button:last-child {
       border-radius: 0 0 2px 0; }
-    .notification-banner .notification-button:hover, .notification-banner .notification-button:focus {
-      background-color: rgba(236, 239, 241, 0.2);
+    .notification-banner .notification-button:hover {
+      background-color: transparent;
+      color: #1DE9B6; }
+    .notification-banner .notification-button:focus {
       color: #1DE9B6; }
     .notification-banner .notification-button:active {
-      background-color: rgba(236, 239, 241, 0.4);
+      background-color: rgba(236, 239, 241, 0.12);
       color: #1DE9B6; }
 
 .summary-source-counter {
@@ -1887,13 +1891,13 @@ StScrollBar {
 
 .candidate-page-button {
   padding: 4px;
-  color: #1DE9B6; }
+  color: rgba(29, 233, 182, 0.8); }
   .candidate-page-button:hover {
-    background-color: rgba(29, 233, 182, 0.15);
+    background-color: rgba(29, 233, 182, 0.1);
     color: #1DE9B6; }
   .candidate-page-button:active {
-    background-color: #1DE9B6;
-    color: #FFFFFF; }
+    background-color: rgba(236, 239, 241, 0.12);
+    color: #1DE9B6; }
 
 .candidate-page-button-previous {
   border-radius: 2px;

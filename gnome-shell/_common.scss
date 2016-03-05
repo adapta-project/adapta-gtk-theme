@@ -73,18 +73,20 @@ stage {
   padding: 9px 16px 10px;
   border-right-width: 0;
   border: none;
-  color: $accent_color;
+  color: $secondary_accent_color;
   font-weight: bold;
-  &:hover,
-  &:focus {
+  &:hover {
     @include button(flat-hover);
     color: $accent_color;
-    background-color: scale-color($accent_color, $alpha: -90%);
+    background-color: transparent;
+  }
+  &:focus {
+    color: $accent_color;
   }
   &:active {
     @include button(flat-active);
-    color: $selected_fg_color;
-    background-color: $accent_color;
+    color: $accent_color;
+    background-color: $osd_slight_fill_color;
   }
   &:insensitive { @include button(flat-insensitive); }
 
@@ -647,7 +649,7 @@ StScrollBar {
 }
 
 .switcher-list .item-box:selected {
-  background-color: scale-color($accent_color, $alpha: -85%);
+  background-color: $accent_fill_color;
   color: $accent_color;
 }
 
@@ -1828,25 +1830,25 @@ StScrollBar {
     padding-top: 0;
     border: transparent;
     spacing: 1px;
-    color: $accent_color;
+    color: $secondary_accent_color;
     background-color: transparent;
   }
 
   .notification-button {
     padding: 9px 4px 10px;
     background-color: transparent;
-    color: $accent_color;
+    color: $secondary_accent_color;
     font-weight: bold;
 
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
-    &:hover,
-    &:focus {
-      background-color: $osd_semi_fill_color;
+    &:hover {
+      background-color: transparent;
       color: $accent_color;
     }
+    &:focus { color: $accent_color; }
     &:active {
-      background-color: $osd_fill_color;
+      background-color: $osd_slight_fill_color;
       color: $accent_color;
     }
   }
@@ -2081,14 +2083,14 @@ $legacy_icon_size: 24px;
 
 .candidate-page-button {
   padding: 4px;
-  color: $accent_color;
+  color: $secondary_accent_color;
   &:hover {
-    background-color: scale-color($accent_color, $alpha: -85%);
+    background-color: $accent_fill_color;
     color: $accent_color;
   }
   &:active {
-    background-color: $accent_color;
-    color: $selected_fg_color;
+    background-color: $osd_slight_fill_color;
+    color: $accent_color;
   }
 }
 
