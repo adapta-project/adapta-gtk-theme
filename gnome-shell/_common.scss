@@ -1430,10 +1430,9 @@ StScrollBar {
  *************/
 
 #dash {
-  padding: 3px 0;
+  padding: 4px 0;
   border: none;
-  border-left: 0;
-  border-radius: 0 0 0 0;
+  border-radius: 0;
   font-size: 9pt;
   color: $osd_fg_color;
   background-color: rgba(0, 0, 0, 0.01);
@@ -1453,7 +1452,7 @@ StScrollBar {
   }
 }
 
-.dash-item-container > StWidget { padding: 3px 6px; }
+.dash-item-container > StWidget { padding: 4px; }
 
 .dash-label { // osd tooltip
   border-radius: 2px;
@@ -1468,60 +1467,41 @@ StScrollBar {
 // Add Dash to Dock Support
 #dashtodockContainer {
   #dash {
-    border-radius: 0 2px 2px 0;
-    // do not use transparentize, or shine-through artifact happens.
+    padding: 0;
+    border: none;
     background-color: $osd_bg_color;
     box-shadow: none;
   }
 
-  &.extended #dash {
-    padding: 0;
-    border-radius: 0;
-  }
-
-  &:overview #dash,
+  &.extended #dash,
   &.extended:overview #dash {
-    background-color: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
   }
-}
 
-#dashtodockContainer { // set radius for solid dock
-  #dash,
-  &:overview #dash {
-    &:top { border-radius: 0 0 2px 2px; }
-    &:bottom { border-radius: 2px 2px 0 0; }
-    &:left { border-radius: 0 2px 2px 0; }
-    &:right { border-radius: 2px 0 0 2px; }
+  // FIXME: 2px seems too small and breaks when overview-ed
+  // set radius for solid dock only
+  // &.top #dash { border-radius: 0 0 2.5px 2.5px; }
+  // &.bottom #dash { border-radius: 2.5px 2.5px 0 0; }
+  // &.left #dash { border-radius: 0 2.5px 2.5px 0; }
+  // &.right #dash { border-radius: 2.5px 0 0 2.5px; }
+  &:overview #dash,
+  &.extended #dash,
+  &.extended:overview #dash { border-radius: 0; }
+
+  // draw edge if dock were not extended
+  @each $_dock, $_line in (top, 0 -1px),
+                          (bottom, 0 1px),
+                          (left, -1px 0),
+                          (right, 1px 0) {
+    &.#{$_dock}:overview #dash {
+      border-radius: 0;
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset #{$_line} 0 $osd_semi_fill_color;
+    }
   }
-}
 
-#dashtodockContainer.extended.left .dash-item-container > StWidget,
-#dashtodockContainer.extended.right .dash-item-container > StWidget,
-#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget .app-well-app,
-#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget .app-well-app {
-   padding: 3px 6px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container,
-#dashtodockContainer.extended.right .dash-item-container {
-  &:first-child > StWidget { padding: 6px 6px 3px 6px; }
-  &:last-child > StWidget { padding: 3px 6px 6px 6px; }
-}
-
-#dashtodockContainer.extended.top .dash-item-container > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container > StWidget,
-#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget .app-well-app,
-#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget .app-well-app {
-   padding: 6px 3px;
-}
-
-#dashtodockContainer.extended.top .dash-item-container,
-#dashtodockContainer.extended.bottom .dash-item-container {
-  &:first-child > StWidget { padding: 6px 3px 6px 6px; }
-  &:last-child > StWidget { padding: 6px 6px 6px 3px; }
-}
-
-#dashtodockContainer {
   .app-well-app-running-dot { background: transparent; }
   .app-well-app .overview-icon { background-size: contain; }
 }
@@ -1529,8 +1509,8 @@ StScrollBar {
 // running-dot styling
 @each $_dock, $_dot in (top, -vert),
                        (bottom, -vert),
-		       (left, ),
-		       (right, ) {
+                       (left, ),
+                       (right, ) {
   #dashtodockContainer.#{$_dock},
   #dashtodockContainer.extended.#{$_dock} {
     .app-well-app.running1 {
@@ -1563,7 +1543,6 @@ StScrollBar {
 // Add Simple Dock Support
 #dash:desktop {
   background-color: $osd_bg_color;
-  box-shadow: none;
 }
 
 // App Vault/Grid
@@ -1678,7 +1657,7 @@ StScrollBar {
 }
 
 %icon_tile {
-  padding: 6px;
+  padding: 9px;
   border: none;
   border-radius: 2px;
   color: $osd_fg_color;
@@ -1719,28 +1698,34 @@ StScrollBar {
 }
 
 .page-indicator {
-  padding: 15px 20px;
+  padding: 14px 20px;
 
   .page-indicator-icon {
     width: 12px;
     height: 12px;
+    margin: 2px;
+    padding: 0;
     border-radius: 12px;
     background-image: none;
-    background-color: transparentize($osd_fg_color, 0.7);
+    background-color: $osd_semi_fill_color;
   }
-
   &:hover .page-indicator-icon {
+    margin: 0;
+    padding: 2px;
     background-image: none;
-    background-color: transparentize($osd_fg_color, 0.6);
+    background-color: $osd_fill_color;
   }
   &:active .page-indicator-icon {
+    margin: 2px;
+    padding: 0;
     background-image: none;
-    background-color: transparentize($osd_fg_color, 0.5);
+    background-color: transparentize($osd_indicator_color, 0.25);
   }
-  &:checked .page-indicator-icon,
-  &:checked:active {
+  &:checked .page-indicator-icon {
+    margin: 0;
+    padding: 2px;
     background-image: none;
-    background-color: $osd_fg_color;
+    background-color: $osd_indicator_color;
   }
 }
 
