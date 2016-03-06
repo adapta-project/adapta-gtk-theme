@@ -2845,16 +2845,17 @@ GtkInfoBar {
 .info,
 .question,
 .warning,
-.error {
-  color: $secondary_fg_color;
+.error { // always use dark foreground colour
+  color: $secondary_fixed_fg_color;
 
   .button {
     @extend .button.flat;
-    &:insensitive { color: $insensitive_secondary_fg_color; }
+    color: $secondary_fixed_fg_color;
+    &:insensitive { color: $insensitive_fixed_fg_color; }
     &.flat {
-      color: $secondary_fg_color;
-      &:hover, &:active { color: $fg_color; }
-      &:insensitive { color: $insensitive_secondary_fg_color; }
+      color: $secondary_fixed_fg_color;
+      &:hover, &:active { color: $fixed_fg_color; }
+      &:insensitive { color: $insensitive_fixed_fg_color; }
     }
   }
 
