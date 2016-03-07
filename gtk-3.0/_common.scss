@@ -1440,20 +1440,25 @@ GtkTreeView.view {
 
   border-radius: 0; // rest border radius in lists
 
-  color: $secondary_fg_color;
-  &:hover {
-    border-radius: 0;
-    color: $fg_color;
-  }
-  &:active,
+  &:hover,
   &:selected { border-radius: 0; }
-  &:insensitive {
-    color: $insensitive_fg_color;
-    &:selected { color: $insensitive_selected_fg_color; }
-  }
-  &:backdrop {
-    opacity: 0.8;
-    transition: 0.2s;
+
+  // override foreground colours
+  &, & .entry,
+  & .entry > .label {
+    color: $secondary_fg_color;
+    &:hover,
+    &:active,
+    &:focus { color: $fg_color; }
+    &:selected { color: $selected_fg_color; }
+    &:insensitive {
+      color: $insensitive_fg_color;
+      &:selected { color: $insensitive_selected_fg_color; }
+    }
+    &:backdrop {
+      opacity: 0.8;
+      transition: 0.2s;
+    }
   }
 
   .separator {

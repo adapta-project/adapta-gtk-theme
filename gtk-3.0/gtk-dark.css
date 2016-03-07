@@ -1591,22 +1591,24 @@ GtkTreeView.view {
   border-left-color: alpha(currentColor, 0.2);
   border-top-color: rgba(0, 0, 0, 0.11);
   border-radius: 0;
-  color: rgba(236, 239, 241, 0.75);
   background-color: transparent;
   background-image: none;
   box-shadow: none; }
-  GtkTreeView.view:hover {
-    border-radius: 0;
-    color: #ECEFF1; }
-  GtkTreeView.view:active, GtkTreeView.view:selected {
+  GtkTreeView.view:hover, GtkTreeView.view:selected {
     border-radius: 0; }
-  GtkTreeView.view:insensitive {
-    color: rgba(236, 239, 241, 0.3); }
-    GtkTreeView.view:insensitive:selected {
-      color: rgba(236, 239, 241, 0.4); }
-  GtkTreeView.view:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
+  GtkTreeView.view, GtkTreeView.view .entry, GtkTreeView.view .entry > .label {
+    color: rgba(236, 239, 241, 0.75); }
+    GtkTreeView.view:hover, GtkTreeView.view:active, GtkTreeView.view:focus, GtkTreeView.view .entry:hover, GtkTreeView.view .entry:active, GtkTreeView.view .entry:focus, GtkTreeView.view .entry > .label:hover, GtkTreeView.view .entry > .label:active, GtkTreeView.view .entry > .label:focus {
+      color: #ECEFF1; }
+    GtkTreeView.view:selected, GtkTreeView.view .entry:selected, GtkTreeView.view .entry > .label:selected {
+      color: #FFFFFF; }
+    GtkTreeView.view:insensitive, GtkTreeView.view .entry:insensitive, GtkTreeView.view .entry > .label:insensitive {
+      color: rgba(236, 239, 241, 0.3); }
+      GtkTreeView.view:insensitive:selected, GtkTreeView.view .entry:insensitive:selected, GtkTreeView.view .entry > .label:insensitive:selected {
+        color: rgba(236, 239, 241, 0.4); }
+    GtkTreeView.view:backdrop, GtkTreeView.view .entry:backdrop, GtkTreeView.view .entry > .label:backdrop {
+      opacity: 0.8;
+      transition: 0.2s; }
   GtkTreeView.view .separator, GtkTreeView.view .separator:hover {
     color: rgba(0, 0, 0, 0.11); }
   GtkTreeView.view.dnd {
