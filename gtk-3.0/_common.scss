@@ -148,11 +148,8 @@ GtkAssistant {
   // sidebar styling
   .sidebar {
     padding: 0.5em 0;
-    border-top: 1px solid $borders_color;
     &:dir(ltr) { border-right: 1px solid $borders_color; }
     &:dir(rtl) { border-left: 1px solid $borders_color; }
-
-    .csd & { border-top-style: none; }
 
     .label {
       padding: 0.7em 1em 0.8em;
@@ -3244,9 +3241,7 @@ GtkVolumeButton.button {
   &.popup { box-shadow: none; }
 
   // server-side decorations as used by mutter
-  &.ssd { // just doing borders, wm draws actual shadows
-    box-shadow: 0 0 0 1px $borders_color;
-
+  &.ssd {
     .titlebar {
       // revive top-edge highlight border
       box-shadow: inset 0 1px $highlight_color;
