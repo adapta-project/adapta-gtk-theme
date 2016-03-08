@@ -1322,11 +1322,8 @@ GtkComboBox {
   }
 
   // misc
-  .tiled &,
-  .maximized & {
-    border-radius: 0; // squared corners when the window is max'd or tiled
-    border-top-color: $inverted_dark_color; // remove highlight edge
-  }
+  .tiled &  { @extend %tiled_integration; }
+  .maximized & { @extend %maxd_integration; }
 
   &.default-decoration {
     padding: 0.4em;
@@ -1350,22 +1347,39 @@ GtkComboBox {
   .csd & {
     box-shadow: if($variant=='light', $header-shadow-light,
                                       $header-shadow-dark);
+
+    .tiled &  { @extend %tiled_integration; }
+    .maximized & { @extend %maxd_integration; }
   }
 
   GtkBox &:last-child { // Remove unneeded side shadows with dirty hacks
     &:dir(ltr) {
       box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
                                         $sub-header-shadow-dark-ltr);
+      .tiled &  { @extend %tiled_integration; }
+      .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
       box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
                                         $sub-header-shadow-dark-rtl);
+      .tiled &  { @extend %tiled_integration; }
+      .maximized & { @extend %maxd_integration; }
     }
   }
 
   GtkPaned &:last-child { // draw paned-separator with border
-    &:dir(ltr) { border-left: 1px solid $solid_dark_borders_color; }
-    &:dir(rtl) { border-right: 1px solid $solid_dark_borders_color; }
+    &:dir(ltr) {
+      border-left: 1px solid $solid_dark_borders_color;
+
+      .tiled &  { @extend %tiled_integration; }
+      .maximized & { @extend %maxd_integration; }
+    }
+    &:dir(rtl) {
+      border-right: 1px solid $solid_dark_borders_color;
+
+      .tiled &  { @extend %tiled_integration; }
+      .maximized & { @extend %maxd_integration; }
+    }
   }
 }
 
@@ -1389,6 +1403,25 @@ GtkComboBox {
     &:dir(ltr) { border-top-left-radius: 0; }
     &:dir(rtl) { border-top-right-radius: 0; }
   }
+}
+
+// squared corners when the window is max'd or tiled
+%tiled_integration {
+  border-radius: 0;
+  border-color: $panel_bg_color;
+  border-width: 2px 0 0 0;
+  border-top-color: $secondary_selected_bg_color;
+  background-color: $panel_bg_color;
+  box-shadow: none;
+  &:backdrop { border-top-color: $track_color; }
+}
+
+%maxd_integration {
+  border-radius: 0;
+  border-color: $panel_bg_color;
+  border-width: 1px 0 0 0;
+  background-color: $panel_bg_color;
+  box-shadow: none;
 }
 
 
@@ -3220,6 +3253,9 @@ GtkVolumeButton.button {
       // control titlebar height with button padding
       .button.titlebutton { padding: 0.6em; }
     }
+
+    .tiled .titlebar { @extend %tiled_integration; }
+    .maximized .titlebar { @extend %maxd_integration; }
   }
 
   &.csd {
