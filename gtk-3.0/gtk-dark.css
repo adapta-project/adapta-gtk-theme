@@ -507,7 +507,33 @@ GtkTextView {
         outline-radius: 100px;
         border-radius: 100px; }
   .button.osd.image-button {
-    padding: 1.3em; }
+    box-shadow: none;
+    background-color: transparent;
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    padding: 1.3em;
+    background-color: #2a373e;
+    opacity: 0.9; }
+    .button.osd.image-button:not(:active):not(:insensitive):not(hover) {
+      color: rgba(29, 233, 182, 0.9); }
+    .button.osd.image-button:hover {
+      box-shadow: none;
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
+      color: #1DE9B6; }
+    .button.osd.image-button:active {
+      box-shadow: none;
+      animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      color: #1DE9B6;
+      background-color: #2a373e; }
+    .button.osd.image-button:checked {
+      background-color: alpha(currentColor, 0.2);
+      color: #ECEFF1;
+      border-image: none;
+      box-shadow: none; }
+    .button.osd.image-button:insensitive {
+      box-shadow: none;
+      background-color: transparent;
+      color: rgba(29, 233, 182, 0.4);
+      background-color: #2a373e; }
   .button.osd:insensitive {
     opacity: 0; }
   .button.suggested-action {
@@ -956,6 +982,9 @@ GtkComboBox {
     .osd .toolbar .button:insensitive, .osd #sidebar-toolbar .button:insensitive, .toolbar.osd .button:insensitive, .app-notification .button:insensitive,
     .app-notification.frame .button:insensitive, .osd#sidebar-toolbar .button:insensitive {
       color: rgba(29, 233, 182, 0.4); }
+    .osd .toolbar .label, .osd #sidebar-toolbar .label, .toolbar.osd .label, .app-notification .label,
+    .app-notification.frame .label, .osd#sidebar-toolbar .label {
+      padding: 0 1em; }
   .toolbar .button, #sidebar-toolbar .button {
     box-shadow: none;
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 0/0 0 0px;

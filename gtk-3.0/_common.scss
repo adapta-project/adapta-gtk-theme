@@ -366,7 +366,34 @@ GtkTextView { // This will get overridden by .view,
 
   // big standalone buttons like in Documents pager
   &.osd {
-    &.image-button { padding: 1.3em; }
+    &.image-button {
+      @include button(flat);
+      padding: 1.3em;
+      background-color: $inverted_dark_color;
+      opacity: 0.9;
+      &:not(:active):not(:insensitive):not(hover) {
+        color: $secondary_accent_color;
+      }
+      &:hover {
+        @include button(flat-hover);
+        color: $accent_color;
+      }
+      &:active {
+        @include button(flat-active);
+        color: $accent_color;
+        background-color: $inverted_dark_color;
+      }
+      &:checked {
+        @include button(flat-checked);
+        border-image: none;
+        box-shadow: none;
+      }
+      &:insensitive {
+        @include button(flat-insensitive);
+        color: gtkopacity($accent_color, 0.4);
+        background-color: $inverted_dark_color;
+      }
+    }
     &:insensitive { opacity: 0; }
   }
   // overlay / OSD style
@@ -974,6 +1001,8 @@ GtkComboBox {
       }
       &:insensitive { color: gtkopacity($accent_color, 0.4); }
     }
+
+    .label { padding: 0 1em; }
   }
 
   .button { // use flat-buttons
