@@ -67,7 +67,7 @@ GtkAssistant *:backdrop, GtkTextView *:backdrop, .button *:backdrop, .menuitem.b
 .error .menuitem.button *:backdrop, GtkScaleButton.menuitem.button *:backdrop,
 GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:backdrop, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, .budgie-session-dialog .menuitem.button *:backdrop, .budgie-polkit-dialog .menuitem.button *:backdrop, .spinbutton *:backdrop, GtkComboBox *:backdrop, .toolbar *:backdrop, #sidebar-toolbar *:backdrop, .inline-toolbar *:backdrop, .search-bar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
-.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
+.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
 .cursor-handle *:backdrop, .touch-selection *:backdrop, .tweak-categories *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -3007,12 +3007,13 @@ GtkFileChooserDialog .dialog-action-box {
  ***********/
 .sidebar, #polari-sidebar {
   border: none;
-  background-color: #f7f9f9;
   color: rgba(38, 50, 56, 0.75); }
-  .sidebar:dir(ltr), #polari-sidebar:dir(ltr) {
-    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
-  .sidebar:dir(rtl), #polari-sidebar:dir(rtl) {
-    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
+  .sidebar, #polari-sidebar, .sidebar .list, #polari-sidebar .list {
+    background-color: #f7f9f9; }
+    .sidebar:dir(ltr), #polari-sidebar:dir(ltr), .sidebar .list:dir(ltr), #polari-sidebar .list:dir(ltr) {
+      box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
+    .sidebar:dir(rtl), #polari-sidebar:dir(rtl), .sidebar .list:dir(rtl), #polari-sidebar .list:dir(rtl) {
+      box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
   .sidebar GtkTreeView.view, #polari-sidebar GtkTreeView.view {
     background-color: transparent;
     box-shadow: none; }
@@ -3068,6 +3069,29 @@ GtkPlacesSidebar.sidebar .has-open-popup, GtkPlacesSidebar#polari-sidebar .has-o
   .sidebar-item > .label {
     padding-left: 0.4em;
     padding-right: 0.4em; }
+
+GtkStackSidebar .sidebar-item {
+  padding: 0.8em 0.6em;
+  color: rgba(38, 50, 56, 0.75);
+  font-weight: bold; }
+  GtkStackSidebar .sidebar-item > .label {
+    padding-left: 0.4em;
+    padding-right: 0.4em; }
+  GtkStackSidebar .sidebar-item:hover {
+    color: #263238; }
+  GtkStackSidebar .sidebar-item:selected {
+    color: #00BCD4;
+    background-color: transparent; }
+  GtkStackSidebar .sidebar-item:backdrop {
+    opacity: 1.0; }
+GtkStackSidebar .list {
+  background-color: #f7f9f9; }
+  GtkStackSidebar .list:dir(ltr) {
+    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04), inset -2px 0 3px rgba(0, 0, 0, 0.04); }
+  GtkStackSidebar .list:dir(rtl) {
+    box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04), inset 2px 0 3px rgba(0, 0, 0, 0.04); }
+GtkStackSidebar .separator {
+  -GtkWidget-wide-separators: true; }
 
 /*********
  * Paned *

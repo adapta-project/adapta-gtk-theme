@@ -2689,14 +2689,17 @@ GtkFileChooserDialog {
 
   border: none;
   // background-image: linear-gradient(to bottom, $secondary_dark_color);
-  background-color: $secondary_dark_color;
   color: $secondary_fg_color;
 
-  &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                 $sidebar-dark-ltr);
-  }
-  &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                 $sidebar-dark-rtl);
+  &, .list { // draw shadows
+    background-color: $secondary_dark_color;
+
+    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
+    }
   }
 
   GtkTreeView.view {
@@ -2795,6 +2798,40 @@ GtkPlacesSidebar.sidebar {
   }
 
   &.needs-attention > .label { @extend %needs_attention; }
+}
+
+GtkStackSidebar {
+  @extend %fade_effect;
+
+  .sidebar-item {
+    padding: 0.8em 0.6em;
+    > .label {
+      padding-left: 0.4em;
+      padding-right: 0.4em;
+    }
+    color: $secondary_fg_color;
+    font-weight: bold;
+    &:hover { color: $fg_color; }
+    &:selected {
+      color: $selected_bg_color;
+      background-color: transparent;
+    }
+    &:backdrop { opacity: 1.0; }
+  }
+
+  .list { // draw shadows
+    background-color: $secondary_dark_color;
+
+    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
+    }
+  }
+
+  // remove unwanted separator
+  .separator { -GtkWidget-wide-separators: true; }
 }
 
 
