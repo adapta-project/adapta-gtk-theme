@@ -1348,8 +1348,14 @@ GtkComboBox {
   }
 
   // misc
-  .tiled &  { @extend %tiled_integration; }
-  .maximized & { @extend %maxd_integration; }
+  .tiled &  {
+    @extend %tiled_integration;
+    transition: none;
+  }
+  .maximized & {
+    @extend %maxd_integration;
+    transition: none;
+  }
 
   &.default-decoration {
     padding: 0.4em;
@@ -3264,6 +3270,8 @@ GtkVolumeButton.button {
   &.maximized,
   &.tiled {
     border-radius: 0;
+    transition: none;
+
     &.ssd .titlebar { box-shadow: none; }
   }
 
@@ -3278,8 +3286,14 @@ GtkVolumeButton.button {
       .button.titlebutton { padding: 0.6em; }
     }
 
-    .tiled .titlebar { @extend %tiled_integration; }
-    .maximized .titlebar { @extend %maxd_integration; }
+    .tiled .titlebar {
+      @extend %tiled_integration;
+      transition: none;
+    }
+    .maximized .titlebar {
+      @extend %maxd_integration;
+      transition: none;
+    }
   }
 
   &.csd {

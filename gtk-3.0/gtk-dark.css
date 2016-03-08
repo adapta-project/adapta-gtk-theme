@@ -1527,6 +1527,12 @@ GtkComboBox {
       .titlebar.selection-mode .selection-menu .arrow,
       .header-bar.selection-mode .selection-menu .arrow {
         -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+  .tiled .titlebar, .tiled
+  .header-bar {
+    transition: none; }
+  .maximized .titlebar, .maximized
+  .header-bar {
+    transition: none; }
   .titlebar.default-decoration,
   .header-bar.default-decoration {
     padding: 0.4em;
@@ -3950,7 +3956,8 @@ GtkVolumeButton.button {
   .window-frame:backdrop {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2); }
   .window-frame.maximized, .window-frame.tiled {
-    border-radius: 0; }
+    border-radius: 0;
+    transition: none; }
     .window-frame.maximized.ssd .titlebar, .window-frame.tiled.ssd .titlebar {
       box-shadow: none; }
   .window-frame.popup {
@@ -3959,6 +3966,10 @@ GtkVolumeButton.button {
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.07); }
     .window-frame.ssd .titlebar .button.titlebutton {
       padding: 0.6em; }
+  .window-frame.ssd .tiled .titlebar {
+    transition: none; }
+  .window-frame.ssd .maximized .titlebar {
+    transition: none; }
   .window-frame.csd.popup {
     border-radius: 0;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2); }
