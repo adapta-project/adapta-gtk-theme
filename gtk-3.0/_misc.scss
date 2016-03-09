@@ -342,3 +342,33 @@ MathWindow {
   }
 }
 
+
+/*********
+ * Gedit *
+ *********/
+
+GeditViewFrame {
+  .gedit-search-slider {
+    @extend .osd.toolbar;
+    padding: 3px;
+    border-radius: 2px;
+    border-width: 9px;
+    border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
+                              url("assets/osd-shadow#{$asset_suffix}@2.png"))
+                  10 / 10px stretch;
+    color: $inverted_fg_color;
+    opacity: 0.9;
+
+    .entry,
+    .linked > .entry {
+      &,
+      &.error,
+      &.warning {
+        color: $inverted_fg_color;
+        &:focus { color: $selected_fg_color; }
+        &:insensitive { color: $insensitive_inverted_fg_color; }
+      }
+    }
+  }
+}
+
