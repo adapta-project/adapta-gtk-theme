@@ -1793,7 +1793,8 @@ column-header.button.dnd, column-header .button.dnd {
   .popover > #sidebar-toolbar, .popover.osd > .toolbar, .popover.osd > #sidebar-toolbar {
     border-style: none;
     border-image: none;
-    background-color: transparent; }
+    background-color: transparent;
+    transition: none; }
   .popover .button.flat, .popover .button.osd.image-button, .popover .inline-toolbar .button, .inline-toolbar .popover .button, .popover GtkButtonBox > .button, .popover .app-notification .button, .app-notification .popover .button, .popover .toolbar .button, .toolbar .popover .button, .popover #sidebar-toolbar .button, #sidebar-toolbar .popover .button, .popover .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .popover .button:not(.suggested-action):not(.destructive-action),
   .popover .header-bar .button:not(.suggested-action):not(.destructive-action),
   .header-bar .popover .button:not(.suggested-action):not(.destructive-action), .popover .message-dialog.csd .dialog-action-area .button, .message-dialog.csd .dialog-action-area .popover .button, .popover .sidebar-button.button, .popover .info .button, .info .popover .button,
@@ -1844,6 +1845,13 @@ column-header.button.dnd, column-header .button.dnd {
       background-color: transparent; }
     .popover .linked > .button:checked:insensitive > .label {
       color: inherit; }
+  .popover .list-row, .popover .tweak-category, .popover .list-row.activatable, .popover .view, .popover column-header .button, column-header .popover .button, .popover .activatable.tweak-category, .popover .list-row:hover, .popover .tweak-category:hover, .popover .list-row.activatable:hover, .popover .view:hover, .popover column-header .button:hover, column-header .popover .button:hover, .popover .activatable.tweak-category:hover {
+    background-image: none;
+    background-color: #fdfdfe;
+    transition: none; }
+  .popover .scrollbar.trough {
+    background-color: transparent;
+    border: 1px none transparent; }
 
 /*****************
  * Notebooks and *

@@ -1719,6 +1719,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     border-style: none;
     border-image: none;
     background-color: transparent;
+    transition: none;
   }
 
   .button.flat {
@@ -1748,6 +1749,22 @@ column-header.button.dnd { // for treeview-like derive widgets
       background-color: transparent;
     }
     &:checked:insensitive { @include button(flat-checked-insensitive); }
+  }
+
+  .list-row { // reset background
+    &,
+    &.activatable,
+    &:hover,
+    &.activatable:hover {
+      background-image: none;
+      background-color: $secondary_base_color;
+      transition: none;
+    }
+  }
+
+  .scrollbar.trough {
+    background-color: transparent;
+    border: 1px none transparent;
   }
 
   &.osd { @extend %osd; }
