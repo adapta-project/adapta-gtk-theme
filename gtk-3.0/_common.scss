@@ -367,31 +367,22 @@ GtkTextView { // This will get overridden by .view,
   // big standalone buttons like in Documents pager
   &.osd {
     &.image-button {
-      @include button(flat);
+      @extend .button.flat;
+      @extend %image_button;
       padding: 1.3em;
       background-color: $inverted_dark_color;
-      opacity: 0.9;
       &:not(:active):not(:insensitive):not(hover) {
         color: $secondary_accent_color;
       }
       &:hover {
-        @include button(flat-hover);
         color: $accent_color;
+        background-color: gtkopacity($inverted_dark_color, 0.7);
+        background-image: linear-gradient(to bottom, $track_color);
       }
       &:active {
-        @include button(flat-active);
         color: $accent_color;
-        background-color: $inverted_dark_color;
-      }
-      &:checked {
-        @include button(flat-checked);
-        border-image: none;
-        box-shadow: none;
-      }
-      &:insensitive {
-        @include button(flat-insensitive);
-        color: gtkopacity($accent_color, 0.4);
-        background-color: $inverted_dark_color;
+        background-color: gtkopacity($inverted_dark_color, 0.7);
+        background-image: linear-gradient(to bottom, $accent_fill_color);
       }
     }
     &:insensitive { opacity: 0; }
