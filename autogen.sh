@@ -12,5 +12,5 @@ autoreconf --force --install --symlink --warnings=all
 
 if test -z "${NOCONFIGURE}"; then
     set -x
-    $srcdir/configure "$@"
+    $srcdir/configure --prefix=/usr "$@"
 fi

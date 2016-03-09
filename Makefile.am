@@ -5,6 +5,7 @@ EXTRA_DIST = \
 	gtk-3.0 \
 	index.theme \
 	metacity-1 \
+	README.md \
 	unity
 
 themedir = $(datadir)/themes

@@ -40,11 +40,12 @@ Installation
 1. Check `autoconf`, `automake` and `pkg-config` (`pkgconfig`) are installed.
 2. Build and install system-wide:
    ```
-   ./autogen.sh --prefix=/usr
+   ./autogen.sh
    make
    sudo make install
    ```
-   (Default prefix is `/usr/local`)
+   * Default prefix is `/usr`
+   * `make` actually does nothing (for future release)
 
 3. Use `gnome-tweak-tool` to change the theme.
 
