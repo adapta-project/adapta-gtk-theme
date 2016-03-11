@@ -4441,26 +4441,61 @@ SeahorseWidget .sidebar .pane-separator, SeahorseWidget #polari-sidebar .pane-se
 MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton) {
   padding: 0.75em 1em 0.75em;
   border: 0.75em solid transparent;
-  border-radius: 100px;
-  outline-radius: 100px;
+  border-radius: 2px;
   font-weight: bold; }
   MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action {
-    border-radius: 2px;
-    background-color: transparent;
-    color: rgba(255, 82, 82, 0.75);
-    font-weight: bold; }
+    color: transparent;
+    font-size: 0; }
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action {
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
+      background-color: #FFFFFF;
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+      color: rgba(38, 50, 56, 0.75);
+      border-style: none;
+      border-radius: 100px;
+      background-color: transparent;
+      background-image: -gtk-scaled(url("assets/equal.png"), url("assets/equal@2.png"));
+      background-size: 32px;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-shadow: none;
+      transition-duration: 0.2s;
+      animation: none; }
     MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:hover, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:hover {
+      border-style: none;
+      border-radius: 100px;
+      background-color: transparent;
+      background-image: -gtk-scaled(url("assets/equal-hover.png"), url("assets/equal-hover@2.png"));
+      background-size: 32px;
+      background-repeat: no-repeat;
+      background-position: center;
       box-shadow: none;
-      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
-      color: #FF5252; }
-    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:checked, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:checked {
-      background-color: alpha(currentColor, 0.2);
-      color: #263238;
-      background-color: #ff7575;
-      color: #FFFFFF; }
+      transition-duration: 0.2s;
+      animation: none; }
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:active, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:active {
+      border-style: none;
+      border-radius: 100px;
+      background-color: transparent;
+      background-image: -gtk-scaled(url("assets/equal-active.png"), url("assets/equal-active@2.png"));
+      background-size: 32px;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-shadow: none;
+      transition-duration: 0.2s;
+      animation: none; }
     MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:insensitive, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:insensitive {
+      border-style: none;
+      border-radius: 100px;
+      background-color: transparent;
+      background-image: -gtk-scaled(url("assets/equal-insensitive.png"), url("assets/equal-insensitive@2.png"));
+      background-size: 32px;
+      background-repeat: no-repeat;
+      background-position: center;
       box-shadow: none;
-      background-color: transparent; }
+      transition-duration: 0.2s;
+      animation: none; }
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:backdrop, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:backdrop {
+      opacity: 0.8; }
 
 /*********
  * Gedit *
