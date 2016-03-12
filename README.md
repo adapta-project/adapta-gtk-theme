@@ -34,6 +34,7 @@ Unsupported Gtk+ Based Desktops
 * Cinnamon
 * Mate
 * XFce4
+* Pantheon
 
 Installation
 ------------
