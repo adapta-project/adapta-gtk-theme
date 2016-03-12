@@ -37,8 +37,6 @@
   -GtkMenu-vertical-padding: 0;
   -GtkWidget-link-color: #03A9F4;
   -GtkWidget-visited-link-color: #9C27B0;
-  -GtkWidget-focus-padding: 2;
-  -GtkWidget-focus-line-width: 1;
   -GtkWidget-text-handle-width: 16;
   -GtkWidget-text-handle-height: 16;
   -GtkDialog-button-spacing: 4;
@@ -607,7 +605,7 @@ GtkTextView {
       padding: 0.7em 1em 0.8em; }
     .stack-switcher > .button.image-button {
       padding: 0.5em 0.3em; }
-    .stack-switcher > .button.needs-attention:checked > .label, .stack-switcher > .button.needs-attention:checked > GtkImage {
+    .stack-switcher > .button.needs-attention:active > .label, .stack-switcher > .button.needs-attention:active > GtkImage, .stack-switcher > .button.needs-attention:checked > .label, .stack-switcher > .button.needs-attention:checked > GtkImage {
       animation: none;
       background-image: none; }
   .primary-toolbar .button {
@@ -2038,13 +2036,19 @@ column-header.button.dnd, column-header .button.dnd {
   .scrollbar .button {
     border: none; }
   .scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
-    -GtkRange-slider-width: 13px; }
+    -GtkRange-slider-width: 12px; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) .slider {
       margin: 2px;
-      border: 2px solid rgba(255, 255, 255, 0.2); }
+      border: 1px solid transparent; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) .trough {
       border-style: none;
       background-color: transparent; }
+    .scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical .slider {
+      margin-top: 2px;
+      margin-bottom: 2px; }
+    .scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal .slider {
+      margin-left: 2px;
+      margin-right: 2px; }
   .scrollbar.overlay-indicator.dragging .trough, .scrollbar.overlay-indicator.hovering .trough {
     background-color: rgba(255, 255, 255, 0.8); }
   .scrollbar .trough {

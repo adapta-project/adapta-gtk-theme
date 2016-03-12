@@ -37,8 +37,9 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   -GtkWidget-link-color: $link_color;
   -GtkWidget-visited-link-color: $link_visited_color;
 
-  -GtkWidget-focus-padding: 2;    // FIXME: do we still need these?
-  -GtkWidget-focus-line-width: 1; //
+  // FIXME: do we still need these?
+  // -GtkWidget-focus-padding: 2;
+  // -GtkWidget-focus-line-width: 1;
 
   -GtkWidget-text-handle-width: 16;
   -GtkWidget-text-handle-height: 16;
@@ -467,6 +468,8 @@ GtkTextView { // This will get overridden by .view,
 
     &.needs-attention > .label,
     &.needs-attention > GtkImage { @extend %needs_attention; }
+    &.needs-attention:active > .label,
+    &.needs-attention:active > GtkImage,
     &.needs-attention:checked > .label,
     &.needs-attention:checked > GtkImage {
       animation: none;
@@ -1977,12 +1980,11 @@ $_slider_fine_tune_margin: 4px;
 
   &.overlay-indicator {
     &:not(.dragging):not(.hovering) { // Overlay scrolling indicator
-      -GtkRange-slider-width: 13px;
+      -GtkRange-slider-width: 12px;
 
       .slider {
         margin: 2px;
-        border: 2px solid gtkopacity($base_color, 0.2);
-        // background-clip: padding-box;
+        border: 1px solid transparent;
       }
 
       .trough {
@@ -1993,12 +1995,12 @@ $_slider_fine_tune_margin: 4px;
       // w/o the following margin tweaks the slider shrinks when
       // hovering/dragging
       &.vertical .slider {
-        // margin-top: $_slider_margin - 1px;
-        // margin-bottom: $_slider_margin - 1px;
+        margin-top: $_slider_margin - 1px;
+        margin-bottom: $_slider_margin - 1px;
       }
       &.horizontal .slider {
-        // margin-left: $_slider_margin - 1px;
-        // margin-right: $_slider_margin - 1px;
+        margin-left: $_slider_margin - 1px;
+        margin-right: $_slider_margin - 1px;
       }
     }
 
