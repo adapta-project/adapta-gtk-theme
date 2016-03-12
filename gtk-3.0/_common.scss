@@ -250,20 +250,7 @@ GtkTextView { // This will get overridden by .view,
     &.right { padding-right: 0.1em; }
   }
 
-  &.progressbar {
-    border-style: none none solid;
-    border-width: 2px;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($accent_color),
-                                to(transparent))
-                                0 0 2 / 0 0 2px;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: transparent;
-    background-image: none;
-  }
+  &.progressbar { @extend %entry_progressbar; }
 
   .linked > &:not(.flat),
   .linked.vertical > &:not(.flat) {
@@ -1543,14 +1530,13 @@ GtkTreeView.view {
   }
 
   &.progressbar { // progress bar in treeviews
-    @extend .entry.progressbar;
-    border-width: 4px;
+    @extend %treeview_progressbar;
+    border-color: $accent_color;
     &:selected { border-color: currentColor; }
   }
 
   &.trough { // progress bar trough in treeviews
-    @extend .entry.progressbar;
-    border-width: 4px;
+    @extend %treeview_progressbar;
     border-color: gtkopacity($accent_color, 0.2);
     &:selected { border-color: $track_color; }
   }
@@ -2456,6 +2442,30 @@ GtkProgressBar {
     border-style: none;
     border-radius: 0;
   }
+}
+
+%entry_progressbar { // progress inside .entry
+  border-style: none none solid;
+  border-width: 2px;
+  border-image: -gtk-gradient(radial,
+                              center bottom, 0,
+                              center bottom, 0.5,
+                              to($accent_color),
+                              to(transparent))
+                              0 0 2 / 0 0 2px;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+}
+
+%treeview_progressbar { // progress inside GtkTreeView
+  border-style: none none solid;
+  border-width: 4px;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
 }
 
 

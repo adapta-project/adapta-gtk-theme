@@ -277,14 +277,6 @@ GtkTextView {
     padding-left: 0.1em; }
   .entry.image.right {
     padding-right: 0.1em; }
-  .entry.progressbar, GtkTreeView.view.progressbar, GtkTreeView.view.trough {
-    border-style: none none solid;
-    border-width: 2px;
-    border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#1DE9B6), to(transparent)) 0 0 2/0 0 2px;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: transparent;
-    background-image: none; }
   .linked > .entry:not(.flat), .linked.vertical > .entry:not(.flat) {
     border-radius: 0;
     outline-radius: 0; }
@@ -1666,11 +1658,10 @@ GtkTreeView.view {
       GtkTreeView.view.expander:selected:hover, GtkTreeView.view.expander:selected:active {
         color: #FFFFFF; }
   GtkTreeView.view.progressbar {
-    border-width: 4px; }
+    border-color: #1DE9B6; }
     GtkTreeView.view.progressbar:selected {
       border-color: currentColor; }
   GtkTreeView.view.trough {
-    border-width: 4px;
     border-color: rgba(29, 233, 182, 0.2); }
     GtkTreeView.view.trough:selected {
       border-color: alpha(currentColor, 0.2); }
@@ -2768,6 +2759,23 @@ GtkProgressBar {
     background-color: #1DE9B6;
     border-style: none;
     border-radius: 0; }
+
+.entry.progressbar {
+  border-style: none none solid;
+  border-width: 2px;
+  border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#1DE9B6), to(transparent)) 0 0 2/0 0 2px;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none; }
+
+GtkTreeView.view.progressbar, GtkTreeView.view.trough {
+  border-style: none none solid;
+  border-width: 4px;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none; }
 
 /*************
  * Level Bar *
