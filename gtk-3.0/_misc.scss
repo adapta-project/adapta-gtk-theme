@@ -98,7 +98,7 @@ NaTrayApplet {
  **************/
 
 // sidebar
-.tweak-categories {
+.tweak-categories.list {
   @extend %fade_effect;
 
   background-color: $secondary_dark_color;
@@ -291,18 +291,43 @@ SeahorseWidget {
  * RhythmBox *
  *************/
 
-#sidebar-toolbar {
-  @extend .toolbar;
-  border-radius: 0;
-  border-top: 1px solid $borders_color;
+// add top-border to inline-toolbar
+.inline-toolbar.toolbar.horizontal.sidebar-toolbar {
+  @if $variant=='light' {
+    box-shadow: inset 0 1px $solid_light_borders_color,
+                inset 0 2px 2px rgba(0, 0, 0, 0.08),
+                inset -2px 0 2px -2px rgba(0, 0, 0, 0.03),
+                inset -3px 0 3px -2px rgba(0, 0, 0, 0.03);
+  }
+  @else {
+    box-shadow: inset 0 1px $solid_light_borders_color,
+                inset 0 2px 2px rgba(0, 0, 0, 0.04),
+                inset -2px 0 1px -2px rgba(0, 0, 0, 0.02),
+                inset -3px 0 3px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  &:dir(rtl) {
+    @if $variant=='light' {
+      box-shadow: inset 0 1px $solid_light_borders_color,
+                  inset 0 2px 2px rgba(0, 0, 0, 0.08),
+                  inset 2px 0 2px -2px rgba(0, 0, 0, 0.03),
+                  inset 3px 0 3px -2px rgba(0, 0, 0, 0.03);
+    }
+    @else {
+      box-shadow: inset 0 1px $solid_light_borders_color,
+                  inset 0 2px 2px rgba(0, 0, 0, 0.04),
+                  inset 2px 0 1px -2px rgba(0, 0, 0, 0.02),
+                  inset 3px 0 3px -2px rgba(0, 0, 0, 0.04);
+    }
+  }
 }
 
-#RBLibraryBrowser {
-  background-color: $secondary_dark_color;
-}
-
-#statusbar {
-  border-top: 1px solid $borders_color;
+// fix sidebar background colour
+.sidebar-paned GtkStack RBDisplayPageTree {
+  .sidebar {
+    background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
+                                            rgba(18, 22, 0, 0.04));
+  }
 }
 
 

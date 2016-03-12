@@ -2776,12 +2776,9 @@ GtkFileChooserDialog {
   @extend %fade_effect;
 
   border: none;
-  // background-image: linear-gradient(to bottom, $secondary_dark_color);
   color: $secondary_fg_color;
 
   &, .list { // draw shadows
-    background-color: $secondary_dark_color;
-
     &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
                                                    $sidebar-dark-ltr);
     }
@@ -2790,12 +2787,21 @@ GtkFileChooserDialog {
     }
   }
 
+  // remove background from child-elements
+  GtkTreeView.view,
+  .frame,
+  .list { background-color: transparent; }
+
   GtkTreeView.view {
-    background-color: transparent;
     box-shadow: none;
     &:selected,
     .list-row:selected { @extend %selected_items; }
   }
+
+  // fill actual background
+  background-color: $secondary_dark_color;
+  // background-image: linear-gradient(to bottom, $secondary_dark_color);
+  .frame .list { box-shadow: none; }
 
   // disable shadows on overshoot/undershoot area
   // of gtk3-demo's sidebar
@@ -2907,8 +2913,10 @@ GtkStackSidebar {
     &:backdrop { opacity: 1.0; }
   }
 
-  .list { // draw shadows
-    background-color: $secondary_dark_color;
+  .frame .list { // draw shadows
+    // FIXME: dim background with alpha-blending
+    background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
+                                            rgba(18, 22, 0, 0.04));
 
     &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
                                                    $sidebar-dark-ltr);
