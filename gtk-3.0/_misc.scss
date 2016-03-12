@@ -379,3 +379,45 @@ GeditViewFrame {
   }
 }
 
+
+/***********
+ * Builder *
+ ***********/
+
+// pane header styling
+GbViewStack GtkBox.header.notebook,
+GbEditorWorkspace > GtkPaned > GtkBox > GtkBox.header.notebook,
+GbWorkspacePane GtkBox.header.notebook {
+  border-bottom: 1px solid $borders_color;
+  background-color: transparent;
+}
+
+GbWorkspacePane {
+  GtkStackSwitcher .button { padding: 1em; }
+
+  .pane-separator { background-color: $solid_light_borders_color; }
+}
+
+// remove unwanted border
+GtkScrolledWindow.gb-linked-scroller {
+  border-top: none;
+}
+
+// force using fixed-width font
+GbSourceStyleSchemeWidget GtkSourceView,
+GtkEntry.gb-command-bar-entry {
+  font-family: Monospace;
+}
+
+GbTerminalView > GtkPaned > GtkScrolledWindow {
+  &, & > VteTerminal {
+    font-family: Monospace;
+    font-weight: normal;
+    font-size: 1em;
+  }
+}
+
+// Disable various animations that are enabled by default and really annoying
+// to the overall flow of Builder.
+GbSearchDisplayGroup GtkListBox .list-row { transition: none; }
+

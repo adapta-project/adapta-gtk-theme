@@ -4535,6 +4535,35 @@ GeditViewFrame .gedit-search-slider {
     GeditViewFrame .gedit-search-slider .linked > .entry.warning:insensitive {
       color: rgba(236, 239, 241, 0.3); }
 
+/***********
+ * Builder *
+ ***********/
+GbViewStack GtkBox.header.notebook,
+GbEditorWorkspace > GtkPaned > GtkBox > GtkBox.header.notebook,
+GbWorkspacePane GtkBox.header.notebook {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+  background-color: transparent; }
+
+GbWorkspacePane GtkStackSwitcher .button {
+  padding: 1em; }
+GbWorkspacePane .pane-separator {
+  background-color: #37474F; }
+
+GtkScrolledWindow.gb-linked-scroller {
+  border-top: none; }
+
+GbSourceStyleSchemeWidget GtkSourceView,
+GtkEntry.gb-command-bar-entry {
+  font-family: Monospace; }
+
+GbTerminalView > GtkPaned > GtkScrolledWindow, GbTerminalView > GtkPaned > GtkScrolledWindow > VteTerminal {
+  font-family: Monospace;
+  font-weight: normal;
+  font-size: 1em; }
+
+GbSearchDisplayGroup GtkListBox .list-row, GbSearchDisplayGroup GtkListBox .tweak-category {
+  transition: none; }
+
 /******************
  * Budgie Desktop *
  ******************/
