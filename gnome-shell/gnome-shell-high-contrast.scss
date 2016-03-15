@@ -1,0 +1,17 @@
+$variant: 'light';
+
+@import "_colors"; // use gtk colors
+@import "_drawing";
+@import "_common";
+
+//force symbolic icons
+stage {
+  -st-icon-style: symbolic;
+}
+
+.toggle-switch { width: 48px; }
+.toggle-switch-us,
+.toggle-switch-intl {
+  background-image: url("resource:///org/gnome/shell/theme/toggle-off.svg");
+  &:checked { background-image: url("resource:///org/gnome/shell/theme/toggle-on.svg"); }
+}
