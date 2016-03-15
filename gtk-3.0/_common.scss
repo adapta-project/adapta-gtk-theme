@@ -1365,43 +1365,43 @@ GtkComboBox {
     .maximized & { @extend %maxd_integration; }
   }
 
-  GtkBox &:last-child { // Remove unneeded side shadows with dirty hacks
-    &:dir(ltr) {
-      box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
-                                        $sub-header-shadow-dark-ltr);
-      .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
-                                        $sub-header-shadow-dark-rtl);
-      .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
+  GtkBox & {
+    &:last-child { // Remove unneeded side shadows with dirty hacks
+      &:dir(ltr) {
+        box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
+                                          $sub-header-shadow-dark-ltr);
+        .tiled &  { @extend %tiled_integration; }
+        .maximized & { @extend %maxd_integration; }
+      }
+      &:dir(rtl) {
+        box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
+                                          $sub-header-shadow-dark-rtl);
+        .tiled &  { @extend %tiled_integration; }
+        .maximized & { @extend %maxd_integration; }
+      }
     }
   }
 
-  GtkPaned &:last-child { // draw paned-separator with border
-    &:dir(ltr) {
-      border-left: 1px solid $solid_dark_borders_color;
+  GtkPaned & {
+    box-shadow: if($variant=='light', $header-shadow-light,
+                                      $header-shadow-dark);
 
-      .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
-    }
-    &:dir(rtl) {
-      border-right: 1px solid $solid_dark_borders_color;
+    .tiled &  { @extend %tiled_integration; }
+    .maximized & { @extend %maxd_integration; }
 
-      .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
+    &:last-child { // draw paned-separator with border
+      &:dir(ltr) { border-left: 1px solid $solid_dark_borders_color; }
+      &:dir(rtl) { border-right: 1px solid $solid_dark_borders_color; }
     }
   }
 }
 
+// specific rounded corners
 .header-bar,
-.titlebar { // set rounded corners
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+.titlebar { border-radius: 2px 2px 0 0; }
 
-  GtkBox &:not(:last-child):not(.titlebar) {
+.header-bar {
+  GtkBox &:not(:last-child) {
     &:dir(ltr) {
       border-top-left-radius: 2px;
       border-top-right-radius: 0;
@@ -1412,9 +1412,15 @@ GtkComboBox {
     }
   }
 
-  GtkBox &:last-child:not(.titlebar) {
-    &:dir(ltr) { border-top-left-radius: 0; }
-    &:dir(rtl) { border-top-right-radius: 0; }
+  GtkBox &:last-child {
+    &:dir(ltr) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 2px;
+    }
+    &:dir(rtl) {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 0;
+    }
   }
 }
 

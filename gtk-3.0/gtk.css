@@ -1535,37 +1535,37 @@ GtkComboBox {
         color: rgba(236, 239, 241, 0.55); }
 
 .csd .header-bar {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 8px -2px 4px rgba(0, 0, 0, 0.08), -8px -2px 4px rgba(0, 0, 0, 0.08); }
 GtkBox .header-bar:last-child:dir(ltr) {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.09); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 8px -2px 4px rgba(0, 0, 0, 0.08), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.09); }
 GtkBox .header-bar:last-child:dir(rtl) {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.09); }
-GtkPaned .header-bar:last-child:dir(ltr) {
-  border-left: 1px solid #242F35; }
-GtkPaned .header-bar:last-child:dir(rtl) {
-  border-right: 1px solid #242F35; }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), -8px -2px 4px rgba(0, 0, 0, 0.08), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.09); }
+GtkPaned .header-bar {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 8px -2px 4px rgba(0, 0, 0, 0.08), -8px -2px 4px rgba(0, 0, 0, 0.08); }
+  GtkPaned .header-bar:last-child:dir(ltr) {
+    border-left: 1px solid #242F35; }
+  GtkPaned .header-bar:last-child:dir(rtl) {
+    border-right: 1px solid #242F35; }
 
 .header-bar,
 .titlebar {
+  border-radius: 2px 2px 0 0; }
+
+GtkBox .header-bar:not(:last-child):dir(ltr) {
   border-top-left-radius: 2px;
+  border-top-right-radius: 0; }
+GtkBox .header-bar:not(:last-child):dir(rtl) {
+  border-top-left-radius: 0;
   border-top-right-radius: 2px; }
-  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(ltr), GtkBox
-  .titlebar:not(:last-child):not(.titlebar):dir(ltr) {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 0; }
-  GtkBox .header-bar:not(:last-child):not(.titlebar):dir(rtl), GtkBox
-  .titlebar:not(:last-child):not(.titlebar):dir(rtl) {
-    border-top-left-radius: 0;
-    border-top-right-radius: 2px; }
-  GtkBox .header-bar:last-child:not(.titlebar):dir(ltr), GtkBox
-  .titlebar:last-child:not(.titlebar):dir(ltr) {
-    border-top-left-radius: 0; }
-  GtkBox .header-bar:last-child:not(.titlebar):dir(rtl), GtkBox
-  .titlebar:last-child:not(.titlebar):dir(rtl) {
-    border-top-right-radius: 0; }
+GtkBox .header-bar:last-child:dir(ltr) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px; }
+GtkBox .header-bar:last-child:dir(rtl) {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0; }
 
 .tiled .titlebar, .tiled
-.header-bar, .tiled .csd .header-bar, .tiled GtkBox .header-bar:last-child:dir(ltr), .tiled GtkBox .header-bar:last-child:dir(rtl), .tiled GtkPaned .header-bar:last-child:dir(ltr), .tiled GtkPaned .header-bar:last-child:dir(rtl), .window-frame.ssd .tiled .titlebar {
+.header-bar, .tiled .csd .header-bar, .tiled GtkBox .header-bar:last-child:dir(ltr), .tiled GtkBox .header-bar:last-child:dir(rtl), .tiled GtkPaned .header-bar, .window-frame.ssd .tiled .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 2px 0 0 0;
@@ -1573,11 +1573,11 @@ GtkPaned .header-bar:last-child:dir(rtl) {
   background-color: #13191c;
   box-shadow: none; }
   .tiled .titlebar:backdrop, .tiled
-  .header-bar:backdrop, .tiled GtkBox .header-bar:backdrop:last-child:dir(ltr), .tiled GtkBox .header-bar:backdrop:last-child:dir(rtl), .tiled GtkPaned .header-bar:backdrop:last-child:dir(ltr), .tiled GtkPaned .header-bar:backdrop:last-child:dir(rtl), .window-frame.ssd .tiled .titlebar:backdrop {
+  .header-bar:backdrop, .tiled GtkBox .header-bar:backdrop:last-child:dir(ltr), .tiled GtkBox .header-bar:backdrop:last-child:dir(rtl), .window-frame.ssd .tiled .titlebar:backdrop {
     border-top-color: alpha(currentColor, 0.2); }
 
 .maximized .titlebar, .maximized
-.header-bar, .maximized .csd .header-bar, .maximized GtkBox .header-bar:last-child:dir(ltr), .maximized GtkBox .header-bar:last-child:dir(rtl), .maximized GtkPaned .header-bar:last-child:dir(ltr), .maximized GtkPaned .header-bar:last-child:dir(rtl), .window-frame.ssd .maximized .titlebar {
+.header-bar, .maximized .csd .header-bar, .maximized GtkBox .header-bar:last-child:dir(ltr), .maximized GtkBox .header-bar:last-child:dir(rtl), .maximized GtkPaned .header-bar, .window-frame.ssd .maximized .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 1px 0 0 0;
