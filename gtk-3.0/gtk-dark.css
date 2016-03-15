@@ -2493,7 +2493,12 @@ GtkSwitch {
 
 GtkCheckButton.text-button, GtkRadioButton.text-button {
   padding: 0.2em 0.5em;
-  outline-offset: 0; }
+  outline-offset: 0;
+  color: rgba(236, 239, 241, 0.75); }
+  GtkCheckButton.text-button:hover, GtkCheckButton.text-button:active, GtkCheckButton.text-button:checked, GtkRadioButton.text-button:hover, GtkRadioButton.text-button:active, GtkRadioButton.text-button:checked {
+    color: #ECEFF1; }
+  GtkCheckButton.text-button:insensitive, GtkCheckButton.text-button:insensitive:active, GtkCheckButton.text-button:insensitive:inconsistent, GtkRadioButton.text-button:insensitive, GtkRadioButton.text-button:insensitive:active, GtkRadioButton.text-button:insensitive:inconsistent {
+    color: rgba(236, 239, 241, 0.3); }
   GtkCheckButton.text-button:backdrop, GtkRadioButton.text-button:backdrop {
     opacity: 0.8; }
 
