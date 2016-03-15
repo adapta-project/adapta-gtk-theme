@@ -3320,6 +3320,10 @@ GtkVolumeButton.button {
 
   // server-side decorations as used by mutter
   &.ssd {
+    // just doing borders, wm draws actual shadows
+    // otherwise incorrect shadows are appeared
+    box-shadow: 0 0 0 1px transparent;
+
     .titlebar {
       // revive top-edge highlight border
       box-shadow: inset 0 1px $highlight_color;
