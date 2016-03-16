@@ -89,9 +89,10 @@
   //
   // normal button
   //
+    border-color: transparent;
+    border-top: 1px solid $borders_highlight;
     color: if($tc!=$fg_color, $tc, $secondary_fg_color);
     background-color: $c;
-    border-color: transparent;
     @include shadow(1);
     text-shadow: none;
     icon-shadow: none;
@@ -111,9 +112,10 @@
   //
   // hovered button
   //
+    border-color: transparent;
+    border-top: 1px solid $borders_highlight;
     color: if($tc!=$fg_color, $tc, $fg_color);
     background-color: $c;
-    border-color: transparent;
     @include shadow(2);
     text-shadow: none;
     icon-shadow: none;
@@ -123,9 +125,10 @@
   //
   // pushed button
   //
+    border-color: transparent;
+    border-top: 1px solid $borders_highlight;
     color: if($tc!=$fg_color, $tc, $selected_fg_color);
     background-color: $tc;
-    border-color: transparent;
     @include shadow(2);
     text-shadow: none;
     icon-shadow: none;
@@ -160,7 +163,7 @@
     text-shadow: none;
     icon-shadow: none;
     box-shadow: 0 0 transparent;
-  //  box-shadow: inset 0px 0px 0px 2px $fill_color;
+    // box-shadow: inset 0px 0px 0px 2px $fill_color;
   }
 
   @else if $t==flat-hover {
