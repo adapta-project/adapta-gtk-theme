@@ -696,19 +696,25 @@ StScrollBar {
   background: transparent;
 }
 
-.ws-switcher-active-up,
+.ws-switcher-active-up {
+  height: 50px;
+  background-color: $accent_fill_color;
+  background-image: url("assets/go-up.svg");
+  background-size: 24px;
+  border-radius: 2px;
+}
+
 .ws-switcher-active-down {
   height: 50px;
-  background-color: $selected_bg_color;
-  color: $selected_fg_color;
-  // background-image: url("assets/ws-switch-arrow-up.png");
-  background-size: 32px;
+  background-color: $accent_fill_color;
+  background-image: url("assets/go-down.svg");
+  background-size: 24px;
   border-radius: 2px;
 }
 
 .ws-switcher-box {
   height: 50px;
-  border: 2px solid $fill_color;
+  border: 2px solid $osd_semi_fill_color;
   border-radius: 2px;
   background: transparent;
 }
