@@ -116,7 +116,6 @@ $asset_suffix: if($variant=='dark', '-dark', '');
   &:active,
   &:selected { border-radius: 2px; }
   &:insensitive {
-    // background-color: $secondary_base_color;
     color: $insensitive_fg_color;
   }
   &:selected { @extend %selected_items; }
@@ -215,7 +214,7 @@ GtkTextView { // This will get overridden by .view,
   opacity: 0; // non spinning spinner makes no sense
   -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
   &:active {
-    opacity: 1;
+    opacity: 1.0;
     animation: spin 1s linear infinite;
     &:insensitive { opacity: 0.4; }
   }
@@ -864,7 +863,6 @@ GtkComboBox {
   .button { // combobox-button styling
     @extend %button_array;
     border-radius: 0;
-    // padding: 0.35em 0.5em 0.45em;
     padding: 0.5em 0.5em 0.55em;  // FIXME: need a bit more padding
     color: $secondary_fg_color;
     &:hover,
@@ -1008,7 +1006,6 @@ GtkComboBox {
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
-      // &:active { transition: none; }
       &:insensitive {
         box-shadow: none;
         background-color: transparent;
@@ -1092,11 +1089,7 @@ GtkComboBox {
   // basic text colours
   color: $inverted_secondary_fg_color;
   .label { // FIXME: only for insensitive state!
-    // &:hover { color: $inverted_fg_color; }
-    // &:focus,
-    // &:active,
     &:checked {
-      // color: $selected_fg_color;
       &:insensitive { color: $insensitive_inverted_fg_color; }
     }
     &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
@@ -1123,7 +1116,6 @@ GtkComboBox {
   // separator
   .header-bar-separator,
   & > GtkBox > .separator.vertical {
-    // -GtkWidget-wide-separators: true;
     -GtkWidget-separator-width: 0;
     border: 0 none transparent;
     color: transparent;
@@ -1147,7 +1139,6 @@ GtkComboBox {
                                   to($selected_bg_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
-      // box-shadow: inset 0 -2px $selected_bg_color;
       background-color: transparent;
       color: $inverted_fg_color;
       // transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
@@ -1292,7 +1283,6 @@ GtkComboBox {
                                     to($selected_fg_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
-        // box-shadow: inset 0 -2px $selected_fg_color;
         color: $selected_fg_color;
         &:insensitive {
           color: $insensitive_selected_fg_color;
@@ -1561,7 +1551,6 @@ column-header {
     box-shadow: none;
     background-color: $base_color;
     color: $tertiary_fg_color;
-    // font-weight: bold;
     &:hover,
     &:active {
       color: $fg_color;
@@ -1905,7 +1894,6 @@ column-header.button.dnd { // for treeview-like derive widgets
       @extend %image_button;
       padding: 0;
       background-size: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
-      // @extend .button.flat;
       @include button(flat);
       color: $tertiary_fg_color;
       &:hover { @include button(flat-hover); }
@@ -2401,7 +2389,6 @@ GtkProgressBar {
     &.osd {
       border-style: none;
       box-shadow: none;
-      // background-color: transparent;
     }
   }
 }
@@ -2534,7 +2521,6 @@ GtkScrolledWindow {
                       // scrolled window
     border-style: none;
   }
-  // &:backdrop { opacity: 1.0; }
 }
 
 // vbox and hbox separators
@@ -2664,7 +2650,6 @@ GtkCalendar {
   }
 
   &.button {
-    // @extend .button.flat;
     @include button(flat);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
@@ -2694,7 +2679,6 @@ GtkCalendar {
 
   .titlebar {
     border-style: none;
-    // box-shadow: inset 0 1px $highlight_color;
     color: $inverted_fg_color;
     background-color: $inverted_dark_color;
   }
@@ -2788,7 +2772,6 @@ GtkFileChooserDialog {
 
   // fill actual background
   background-color: $secondary_dark_color;
-  // background-image: linear-gradient(to bottom, $secondary_dark_color);
   .frame .list { box-shadow: none; }
 
   // disable shadows on overshoot/undershoot area
@@ -2806,8 +2789,6 @@ GtkSidebarRow {
     &:selected {
       color: $selected_bg_color;
       background-color: transparent;
-      // &:dir(ltr) { box-shadow: inset -2px 0 $selected_bg_color; }
-      // &:dir(rtl) { box-shadow: inset 2px 0 $selected_bg_color; }
     }
     &:backdrop { opacity: 1.0; }
   }
@@ -3147,7 +3128,6 @@ GtkColorSwatch {
 
   .osd & .vertical .button,
   & .vertical .button { // +/- buttons on GtkVolumeButton popup
-    // padding: 0.8em;
     border-radius: 100px;
     outline-radius: 100px;
     background-color: transparent;
@@ -3258,15 +3238,11 @@ GtkVolumeButton.button {
 .floating-bar.bottom.left { // axes left border and border radius
   border-width: 1px 1px 0 0;
   border-radius: 0 2px + 1px 0 0;
-  // border-width: 8px 8px 0 0;
-  // border-image-width: 10px 10px 0 0;
 }
 
 .floating-bar.bottom.right { // axes right border and border radius
   border-width: 1px 0 0 1px;
   border-radius: 2px + 1px 0 0 0;
-  // border-width: 8px 0 0 8px;
-  // border-image-width: 10px 0 0 10px;
 }
 
 
@@ -3349,7 +3325,6 @@ GtkVolumeButton.button {
 .titlebar {
   & .button.titlebutton,
   &.selection-mode .button.titlebutton {
-    // @extend .button.flat;
     @extend %image_button;
 
     // raised 'Close' button
