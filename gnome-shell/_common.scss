@@ -78,7 +78,7 @@ stage {
   &:hover {
     @include button(flat-hover);
     color: $accent_color;
-    background-color: transparent;
+    background-color: $accent_fill_color;
   }
   &:focus {
     color: $accent_color;
@@ -86,7 +86,7 @@ stage {
   &:active {
     @include button(flat-active);
     color: $accent_color;
-    background-color: $osd_slight_fill_color;
+    background-color: $accent_active_fill_color;
   }
   &:insensitive { @include button(flat-insensitive); }
 
@@ -1837,13 +1837,13 @@ StScrollBar {
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
     &:hover {
-      background-color: transparent;
       color: $accent_color;
+      background-color: $accent_fill_color;
     }
     &:focus { color: $accent_color; }
     &:active {
-      background-color: $osd_slight_fill_color;
       color: $accent_color;
+      background-color: $accent_active_fill_color;
     }
   }
 }
@@ -2083,7 +2083,7 @@ $legacy_icon_size: 24px;
     color: $accent_color;
   }
   &:active {
-    background-color: $osd_slight_fill_color;
+    background-color: $accent_active_fill_color;
     color: $accent_color;
   }
 }
