@@ -1356,12 +1356,8 @@ GtkComboBox {
   .csd & {
     box-shadow: if($variant=='light', $header-shadow-light,
                                       $header-shadow-dark);
-    &:backdrop {
-      box-shadow: if($variant=='light', $header-shadow-light-backdrop,
-                                        $header-shadow-dark-backdrop);
-    }
 
-    .tiled & { @extend %tiled_integration; }
+    .tiled &  { @extend %tiled_integration; }
     .maximized & { @extend %maxd_integration; }
   }
 
@@ -1370,22 +1366,12 @@ GtkComboBox {
       &:dir(ltr) {
         box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
                                           $sub-header-shadow-dark-ltr);
-        &:backdrop {
-          box-shadow: if($variant=='light', $sub-header-shadow-light-ltr-backdrop,
-                                            $sub-header-shadow-dark-ltr-backdrop);
-        }
-
         .tiled &  { @extend %tiled_integration; }
         .maximized & { @extend %maxd_integration; }
       }
       &:dir(rtl) {
         box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
                                           $sub-header-shadow-dark-rtl);
-        &:backdrop {
-          box-shadow: if($variant=='light', $sub-header-shadow-light-rtl-backdrop,
-                                            $sub-header-shadow-dark-rtl-backdrop);
-        }
-
         .tiled &  { @extend %tiled_integration; }
         .maximized & { @extend %maxd_integration; }
       }
@@ -1395,11 +1381,6 @@ GtkComboBox {
   GtkPaned & {
     box-shadow: if($variant=='light', $header-shadow-light,
                                       $header-shadow-dark);
-
-    &:backdrop {
-      box-shadow: if($variant=='light', $header-shadow-light-backdrop,
-                                        $header-shadow-dark-backdrop);
-    }
 
     .tiled &  { @extend %tiled_integration; }
     .maximized & { @extend %maxd_integration; }
