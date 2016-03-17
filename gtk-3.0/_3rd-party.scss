@@ -117,35 +117,30 @@ $orientation: ((top, bottom),
     padding: 0.7em 1em 0.8em;
     border: 2px solid transparent;
     border-radius: 0;
-    color: $inverted_secondary_fg_color;
+    color: $secondary_accent_color;
+    background-color: transparent;
     background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
-    // &:first-child { border-bottom-left-radius: 2px; }
-    // &:last-child { border-bottom-right-radius: 2px; }
+    &:hover {
+      @include button(flat-hover);
+      color: $accent_color;
+    }
+    &:active {
+      @include button(flat-active);
+      color: $accent_color;
+    }
+    &:checked {
+     @include button(flat-checked);
+      color: $secondary_accent_color;
+    }
+    &:insensitive { @include button(flat-insensitive); }
+
     &:first-child {
-      border-radius: 0 0 0 2px;
+      border-bottom-left-radius: 2px;
       border-right-width: 0;
     }
-    &:last-child { // usually 'save', 'delete' and 'OK'...
-      @include button(flat);
-      border-radius: 0 0 2px 0;
+    &:last-child {
+      border-bottom-right-radius: 2px;
       border-left-width: 0;
-      background-color: transparent;
-      color: $accent_color;
-      &:hover {
-        @include button(flat-hover);
-        color: $accent_color;
-      }
-      &:active {
-        @include button(flat-active);
-        color: $selected_fg_color;
-        background-color: $accent_color;
-      }
-      &:checked {
-       @include button(flat-checked);
-        color: $selected_fg_color;
-        background-color: $accent_color;
-      }
-      &:insensitive { @include button(flat-insensitive); }
     }
   }
 }
