@@ -1353,13 +1353,16 @@ GtkComboBox {
 }
 
 .header-bar { // draw hilight and shadows
-  .csd:not(.tiled):not(.maximized) & {
+  .csd & {
     box-shadow: if($variant=='light', $header-shadow-light,
                                       $header-shadow-dark);
     &:backdrop {
       box-shadow: if($variant=='light', $header-shadow-light-backdrop,
                                         $header-shadow-dark-backdrop);
     }
+
+    .tiled & { @extend %tiled_integration; }
+    .maximized & { @extend %maxd_integration; }
   }
 
   GtkBox & {
