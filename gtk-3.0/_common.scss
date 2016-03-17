@@ -970,11 +970,8 @@ GtkComboBox {
       &:not(:active):not(:insensitive):not(hover) {
         color: $secondary_accent_color;
       }
-      &:hover { color: $accent_color; }
-      &:active {
-        color: $accent_color;
-        background-color: $accent_fill_color;
-      }
+      &:hover,
+      &:active { color: $accent_color; }
       &:active,
       &:checked {
         border-image: none;
@@ -2740,41 +2737,29 @@ GtkCalendar {
         padding: 0.7em 1em 0.8em;
         border: 2px solid transparent;
         border-radius: 0;
-        color: $inverted_secondary_fg_color;
+        color: $secondary_accent_color;
         background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
-
-        // &:first-child { border-bottom-left-radius: 2px; }
-        // &:last-child { border-bottom-right-radius: 2px; }
-        &:first-child {
-          border-radius: 0 0 0 2px;
-          border-right-width: 0;
-          &:hover {
-            color: $inverted_fg_color;
-            background: none;
-          }
+        &:hover {
+          @include button(flat-hover);
+          color: $accent_color;
         }
-        &:last-child { // usually 'save', 'delete' and 'OK'...
-          @include button(flat);
-          border-radius: 0 0 2px 0;
-          border-left-width: 0;
-          background-color: transparent;
+        &:active {
+          @include button(flat-active);
+          color: $accent_color;
+        }
+        &:checked {
+          @include button(flat-checked);
           color: $secondary_accent_color;
-          &:hover {
-            @include button(flat-hover);
-            color: $accent_color;
-            background: none;
-          }
-          &:active {
-            @include button(flat-active);
-            color: $accent_color;
-            background-color: $accent_fill_color;
-          }
-          &:checked {
-            @include button(flat-checked);
-            color: $secondary_accent_color;
-            background-color: $accent_fill_color;
-          }
-          &:insensitive { @include button(flat-insensitive); }
+        }
+        &:insensitive { @include button(flat-insensitive); }
+
+        &:first-child {
+          border-bottom-left-radius: 2px;
+          border-right-width: 0;
+        }
+        &:last-child {
+          border-bottom-right-radius: 2px;
+          border-left-width: 0;
         }
       }
     }
