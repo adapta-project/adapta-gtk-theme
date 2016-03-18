@@ -7,7 +7,7 @@
 // provide font size in rem, with px fallback
 @mixin fontsize($size: 24, $base: 16) {
   font-size: round($size) + pt;
-  //font-size: ($size / $base) * 1rem;
+  // font-size: ($size / $base) * 1rem;
 }
 
 
@@ -15,23 +15,16 @@
 // shadows
 //
 
-@mixin shadow($level) {
-  @if $level==1 {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  }
-  @if $level==2 {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16*1.5), 0 3px 6px rgba(0,0,0,0.23*1.5);
-  }
-  @if $level==3 {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19*1.5), 0 6px 6px rgba(0,0,0,0.23*1.5);
-  }
-  @if $level==4 {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25*1.5), 0 10px 10px rgba(0,0,0,0.22*1.5);
-  }
-  @if $level==5 {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30*1.5), 0 15px 12px rgba(0,0,0,0.22*1.5);
-  }
-}
+$z-depth-1: 0 1px 1.5px rgba(0, 0, 0, 0.12),
+            0 1px 1px rgba(0, 0, 0, 0.24);
+$z-depth-2: 0 3px 3px rgba(0, 0, 0, 0.16 * 1.5),
+            0 3px 3px rgba(0, 0, 0, 0.23 * 1.5);
+$z-depth-3: 0 10px 10px rgba(0, 0, 0, 0.19 * 1.5),
+            0 6px 3px rgba(0, 0, 0, 0.23 * 1.5);
+$z-depth-4: 0 14px 14px rgba(0, 0, 0, 0.25 * 2),
+            0 10px 5px rgba(0, 0, 0, 0.22 * 2);
+$z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30 * 2),
+            0 15px 6px rgba(0, 0, 0, 0.22 * 2);
 
 
 //
@@ -83,7 +76,9 @@
 // $tc:   optional text color for colored* types
 //
 // possible $t values:
-// normal, hover, active, insensitive, undecorated
+// normal, hover, active, insensitive, undecorated,
+// flat-normal, flat-hover, flat-active, flat-insensitive,
+// undecorated
 //
   @if $t==normal {
   //
@@ -93,7 +88,7 @@
     border-top: 1px solid $borders_highlight;
     color: if($tc!=$fg_color, $tc, $secondary_fg_color);
     background-color: $c;
-    @include shadow(1);
+    box-shadow: $z-depth-1;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -116,7 +111,7 @@
     border-top: 1px solid $borders_highlight;
     color: if($tc!=$fg_color, $tc, $fg_color);
     background-color: $c;
-    @include shadow(2);
+    box-shadow: $z-depth-2;
     text-shadow: none;
     icon-shadow: none;
 
@@ -129,7 +124,7 @@
     border-top: 1px solid $borders_highlight;
     color: if($tc!=$fg_color, $tc, $selected_fg_color);
     background-color: $tc;
-    @include shadow(2);
+    box-shadow: $z-depth-2;
     text-shadow: none;
     icon-shadow: none;
   }

@@ -245,7 +245,7 @@ StScrollBar {
   border-radius: 2px;
   color: $fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
-  @include shadow(4);
+  box-shadow: $z-depth-4;
 
   .modal-dialog-content-box { padding: 24px; }
 
@@ -573,7 +573,7 @@ StScrollBar {
   margin: 5px 8px 8px;
   border-radius: 2px;
   background-color: $bg_color;
-  @include shadow(2);
+  box-shadow: $z-depth-2;
 }
 
 .popup-separator-menu-item {
@@ -725,7 +725,7 @@ StScrollBar {
   border: none;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
-  @include shadow(4);
+  box-shadow: $z-depth-4;
 }
 
 
@@ -1344,11 +1344,11 @@ StScrollBar {
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
   -shell-caption-spacing: 12px;
-  @include shadow(1);
+  box-shadow: $z-depth-1;
   &:hover {
     color: $osd_fg_color;
     background-color: $osd_semi_fill_color;
-    @include shadow(2);
+    box-shadow: $z-depth-2;
   }
 }
 
@@ -1468,7 +1468,7 @@ StScrollBar {
   padding: 4px 12px;
   color: $fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
-  @include shadow(2);
+  box-shadow: $z-depth-2;
   text-align: center;
   -x-offset: 8px;
 }
@@ -1810,7 +1810,7 @@ StScrollBar {
   border-radius: 2px;
   font-size: 1.1em;
   background-color: transparentize($osd_bg_color, 0.1);
-  @include shadow(2);
+  box-shadow: $z-depth-2;
   &:hover,
   &:focus { background-color: transparentize($osd_bg_color, 0.1); }
 
@@ -2036,7 +2036,7 @@ $legacy_icon_size: 24px;
   -boxpointer-gap: 5px;
   background-color: $bg_color;
   color: inherit;
-  @include shadow(2);
+  box-shadow: $z-depth-2;
 }
 
 
@@ -2349,7 +2349,7 @@ $legacy_icon_size: 24px;
 
 .screen-shield-background { // just the shadow, really
   background: black;
-  @include shadow(5);
+  box-shadow: $z-depth-5;
 }
 
 #lockDialogGroup {
@@ -2377,15 +2377,16 @@ $legacy_icon_size: 24px;
   border: none;
   border-radius: 2px;
   background-color: scale-color($osd_base_color, $alpha: -10%);
-  @include shadow(4);
+  box-shadow: $z-depth-4;
 
   & > #Toolbar {
     padding: 0 8px;
     border: none;
     border-radius: 0;
     background-color: $osd_bg_color;
-    box-shadow: inset 0 -1px 0 $borders_color;
-    @include shadow(1);
+    box-shadow: inset 0 -1px 0 $borders_color,
+                      0 1px 1.5px rgba(0, 0, 0, 0.12), // z-depth-1
+		      0 1px 1px rgba(0, 0, 0, 0.24);
   }
 
   .labels { spacing: 0; }
@@ -2476,6 +2477,6 @@ $legacy_icon_size: 24px;
   border: none;
   border-radius: 2px;
   background: $bg_color;
-  @include shadow(4);
+  box-shadow: $z-depth-4;
 }
 
