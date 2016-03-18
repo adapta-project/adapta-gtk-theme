@@ -446,3 +446,88 @@ GbTerminalView > GtkPaned > GtkScrolledWindow {
 // to the overall flow of Builder.
 GbSearchDisplayGroup GtkListBox .list-row { transition: none; }
 
+
+/***************
+ * Gnome-music *
+ ***************/
+
+// side-bar styling
+// FIXME: it doesn't work properly
+.side-panel.documents-scrolledwin {
+  &:dir(ltr) { border-right: 1px solid $borders_color; }
+  &:dir(rtl) { border-left: 1px solid $borders_color; }
+  background-color: transparent;
+  box-shadow: none;
+
+  .view {
+    padding: 0;
+    background-color: $secondary_dark_color;
+    color: $secondary_fg_color;
+    font-weight: bold;
+    box-shadow: none;
+    &:hover { color: $fg_color; }
+    &:hover:selected,
+    &:selected { @extend %selected_items; }
+
+    // &:dir(ltr) {
+    //   box-shadow: if($variant=='light', $sidebar-light-ltr,
+    //                                     $sidebar-dark-ltr);
+    // }
+    // &:dir(rtl) {
+    //   box-shadow: if($variant=='light', $sidebar-light-rtl,
+    //                                     $sidebar-dark-rtl);
+    // }
+  }
+}
+
+// player-bar
+// FIXME: it doesn't work properly
+.action-bar {
+  &, &.frame { background-color: $secondary_dark_color; }
+
+  .button,
+  .linked > .button.image-button {
+    @extend .button.flat;
+    padding: 1.4em;
+    border-radius: 100px;
+    outline-radius: 100px;
+    box-shadow: none;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.001,
+                                to($track_color),
+                                to(transparent))
+                                0 0 0 / 0 0 0px;
+    color: $secondary_fg_color;
+    &:hover {
+      box-shadow: none;
+      border-image: none;
+      color: $fg_color;
+    }
+    &:checked {
+      box-shadow: none;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($selected_bg_color),
+                                  to(transparent))
+                                  0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+      &:insensitive {
+        box-shadow: none;
+        background-color: transparent;
+        color: $insensitive_fg_color;
+        border-image: none;
+        > .label { color: inherit; }
+      }
+    }
+    &:insensitive {
+      box-shadow: none;
+      background-color: transparent;
+      color: $insensitive_secondary_fg_color;
+      border-image: none;
+    }
+  }
+}
+
