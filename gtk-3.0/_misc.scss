@@ -262,6 +262,7 @@ EphyNotebook.notebook GtkScrolledWindow {
   .entry { background-color: red; }
 }
 
+
 /************
  * Seahorse *
  ************/
@@ -286,6 +287,7 @@ SeahorseWidget {
 #polari-room-list {
   .list-row:selected { @extend GtkSidebarRow.list-row:selected; }
 }
+
 
 /*************
  * RhythmBox *
@@ -528,6 +530,40 @@ GbSearchDisplayGroup GtkListBox .list-row { transition: none; }
       color: $insensitive_secondary_fg_color;
       border-image: none;
     }
+  }
+}
+
+
+/******************
+ * Gnome-contacts *
+ ******************/
+
+ContactsWindow {
+  // side-bar styling
+  ContactsListPane ContactsView { // = '.list'
+    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
+    }
+
+    .list-row.activatable {
+      color: $secondary_fg_color;
+      background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
+                                              rgba(18, 22, 0, 0.04));
+
+      &:hover { color: $fg_color; }
+      &:selected {
+        color: $selected_bg_color;
+        background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
+                                                rgba(18, 22, 0, 0.04));
+      }
+      &:backdrop { opacity: 1.0; }
+    }
+
+    // hide horizontal separator
+    .separator { -GtkWidget-wide-separators: true; }
   }
 }
 

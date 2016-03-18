@@ -4642,6 +4642,26 @@ GbSearchDisplayGroup GtkListBox .list-row, GbSearchDisplayGroup GtkListBox .twea
     border-image: none; }
 
 /******************
+ * Gnome-contacts *
+ ******************/
+ContactsWindow ContactsListPane ContactsView:dir(ltr) {
+  box-shadow: inset -2px 0 2px -2px rgba(0, 0, 0, 0.05), inset -3px 0 3px -2px rgba(0, 0, 0, 0.05); }
+ContactsWindow ContactsListPane ContactsView:dir(rtl) {
+  box-shadow: inset 2px 0 2px -2px rgba(0, 0, 0, 0.05), inset 3px 0 3px -2px rgba(0, 0, 0, 0.05); }
+ContactsWindow ContactsListPane ContactsView .list-row.activatable, ContactsWindow ContactsListPane ContactsView .view, ContactsWindow ContactsListPane ContactsView column-header .button, column-header ContactsWindow ContactsListPane ContactsView .button, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category {
+  color: rgba(38, 50, 56, 0.75);
+  background-color: rgba(12, 18, 0, 0.01); }
+  ContactsWindow ContactsListPane ContactsView .list-row.activatable:hover, ContactsWindow ContactsListPane ContactsView .view:hover, ContactsWindow ContactsListPane ContactsView column-header .button:hover, column-header ContactsWindow ContactsListPane ContactsView .button:hover, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category:hover {
+    color: #263238; }
+  ContactsWindow ContactsListPane ContactsView .list-row.activatable:selected, ContactsWindow ContactsListPane ContactsView .view:selected, ContactsWindow ContactsListPane ContactsView GtkCalendar:selected, ContactsWindow ContactsListPane ContactsView column-header .button:selected, column-header ContactsWindow ContactsListPane ContactsView .button:selected, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category:selected {
+    color: #00BCD4;
+    background-color: rgba(12, 18, 0, 0.01); }
+  ContactsWindow ContactsListPane ContactsView .list-row.activatable:backdrop, ContactsWindow ContactsListPane ContactsView .view:backdrop, ContactsWindow ContactsListPane ContactsView column-header .button:backdrop, column-header ContactsWindow ContactsListPane ContactsView .button:backdrop, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category:backdrop {
+    opacity: 1.0; }
+ContactsWindow ContactsListPane ContactsView .separator {
+  -GtkWidget-wide-separators: true; }
+
+/******************
  * Budgie Desktop *
  ******************/
 .budgie-panel {
