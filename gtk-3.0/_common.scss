@@ -1352,17 +1352,26 @@ GtkComboBox {
     .maximized & { @extend %maxd_integration; }
   }
 
+  // override unwanted side-borders
+  GtkBox &:not(:only-child):first-child,
+  GtkBox &:not(:only-child):last-child {
+    border-left-color: $inverted_dark_color;
+    border-right-color: $inverted_dark_color;
+  }
+
   // Remove unneeded side shadows with dirty hacks
   GtkBox &:not(:only-child):last-child {
     &:dir(ltr) {
       box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
                                         $sub-header-shadow-dark-ltr);
+
       .tiled &  { @extend %tiled_integration; }
       .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
       box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
                                         $sub-header-shadow-dark-rtl);
+
       .tiled &  { @extend %tiled_integration; }
       .maximized & { @extend %maxd_integration; }
     }
