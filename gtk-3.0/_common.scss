@@ -1258,7 +1258,7 @@ GtkComboBox {
 
   // selection-mode styling
   &.selection-mode {
-    box-shadow: inset 0 1px gtkopacity(white, 0.2);
+    border-top: 1px solid $highlight_color;
     background-color: $selected_bg_color;
     color: $selected_fg_color;
 
@@ -1343,7 +1343,8 @@ GtkComboBox {
 }
 
 .header-bar { // draw hilight and shadows
-  .csd & {
+  .csd &,
+  GtkBox &:only-child {
     box-shadow: if($variant=='light', $header-shadow-light,
                                       $header-shadow-dark);
 
@@ -1351,7 +1352,8 @@ GtkComboBox {
     .maximized & { @extend %maxd_integration; }
   }
 
-  GtkBox &:last-child { // Remove unneeded side shadows with dirty hacks
+  // Remove unneeded side shadows with dirty hacks
+  GtkBox &:not(:only-child):last-child {
     &:dir(ltr) {
       box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
                                         $sub-header-shadow-dark-ltr);
@@ -1366,7 +1368,8 @@ GtkComboBox {
     }
   }
 
-  GtkPaned &:last-child { // draw paned-separator with border
+  // draw paned-separator with border
+  GtkPaned &:not(:only-child):last-child {
     &:dir(ltr) {
       border-left: 1px solid $solid_dark_borders_color;
 
