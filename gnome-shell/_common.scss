@@ -2159,7 +2159,7 @@ $legacy_icon_size: 24px;
     &:insensitive { @include button(flat-insensitive,
                                     $tc:$insensitive_secondary_fg_color);
     }
-    &:default {
+    &:default { // raised button
       @include button(normal, $c:$destructive_color, $tc:$fg_color);
       &:hover,
       &:focus { @include button(hover, $c:$destructive_color,
@@ -2169,7 +2169,7 @@ $legacy_icon_size: 24px;
                                          $tc:$selected_fg_color);
       }
       &:insensitive { @include button(flat-insensitive,
-                                       $tc:$insensitive_secondary_fg_color);
+                                      $tc:$insensitive_secondary_fg_color);
       }
     }
   }
