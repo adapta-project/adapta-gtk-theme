@@ -853,6 +853,7 @@ GtkComboBox {
   -GtkComboBox-arrow-scaling: 0.5;
   -GtkComboBox-shadow-type: none;
 
+  .menu { padding: 2px 0; }
   .menu .menuitem { padding: 0.35em 0.5em 0.45em; }
 
   .separator.vertical {
@@ -1635,12 +1636,18 @@ column-header.button.dnd { // for treeview-like derive widgets
 }
 
 .menu {
-  margin: 4px;
-  padding: 0;
+  margin: 4px 0;
+  padding: 4px 0;
+  border-width: 1px; // adds borders in a non composited env
+  border-style: solid;
+  border-color: $base_color transparent transparent;
   background-color: $secondary_base_color;
-  border: 1px solid $borders_color; // adds borders in a non composited env
 
-  .csd & { border: none; }  // axes borders in a composited env
+  .csd & { // axes borders in a composited env
+    border-width: 1px;
+    border-radius: 2px;
+    border-color: $base_color transparent transparent;
+  }
 
   .menuitem {
     @extend %fade_effect;
@@ -1682,6 +1689,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 
 .menuitem .accelerator { color: gtkalpha(currentColor, 0.55); }
 .menuitem .separator { color: $borders_color; }
+.csd.popup { border-radius: 2px; }
 
 
 /***************
@@ -1692,10 +1700,10 @@ column-header.button.dnd { // for treeview-like derive widgets
   @extend %fade_effect;
   padding: 2px;
   border: 1px solid;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.3);
+  border-color: $base_color $borders_color $solid_light_borders_color;
   border-radius: 2px + 1px;
   background-color: $secondary_base_color;
-  box-shadow:  $z-depth-2;
+  box-shadow:  $z-depth-3;
   &:backdrop { box-shadow: $z-depth-1; }
 
   > .list,
@@ -3309,8 +3317,8 @@ GtkVolumeButton.button {
 
   &.csd {
     &.popup {
-      border-radius: 0;
-      box-shadow: $z-depth-2;
+      border-radius: 2px;
+      box-shadow: $z-depth-3;
     }
     &.tooltip {
       border-radius: 2px;
