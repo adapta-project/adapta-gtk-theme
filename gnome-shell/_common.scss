@@ -493,7 +493,7 @@ StScrollBar {
  *****************/
 
 .popup-menu {
-  min-width: 200px;
+  min-width: 10em;
 
   .popup-menu-arrow { // defined globally in the TOP BAR
   }
@@ -503,12 +503,14 @@ StScrollBar {
     box-shadow: 0 0 transparent;
   }
 
-  .popup-menu-content { padding: 8px 0; }
+  .popup-menu-content { padding: 0.4em 0; }
   .popup-menu-item {
-    spacing: 12px;
+    spacing: 8px;
+    color: $secondary_fg_color;
 
-    &:ltr { padding: .4em 1.75em .4em 0em; }
-    &:rtl { padding: .4em 0em .4em 1.75em; }
+    &:ltr { padding: 0.4em 1.75em 0.4em 0em; }
+    &:rtl { padding: 0.4em 0em 0.4em 1.75em; }
+
     &:checked {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
@@ -539,8 +541,8 @@ StScrollBar {
   }
 
   .popup-inactive-menu-item { //all icons and other graphical elements
-    color: $fg_color;
-    &:insensitive { color: scale-color($fg_color, $alpha: -50%); }
+    color: $secondary_fg_color;
+    &:insensitive { color: scale-color($secondary_fg_color, $alpha: -50%); }
   }
 
   // dunno what that is
@@ -570,10 +572,11 @@ StScrollBar {
   -arrow-base: 0;
   -arrow-rise: 0;
   -arrow-box-shadow: none; // dreaming. bug #689995
-  margin: 5px 8px 8px;
+  margin: 0.4em 0.5em 0.5em;
   border-radius: 2px;
+  border-top: 1px solid $base_color;
   background-color: $bg_color;
-  box-shadow: $z-depth-2;
+  box-shadow: $z-depth-3;
 }
 
 .popup-separator-menu-item {
