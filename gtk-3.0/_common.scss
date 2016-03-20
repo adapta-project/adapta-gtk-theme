@@ -1716,9 +1716,9 @@ column-header.button.dnd { // for treeview-like derive widgets
     transition: none;
   }
 
+  .button.menuitem.flat,
   .button.flat {
     transition: none;
-    padding: 0.4em 0 0.5em;
     background-color: transparent;
     background-size: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
     color: $secondary_fg_color;
@@ -1727,6 +1727,10 @@ column-header.button.dnd { // for treeview-like derive widgets
       background-color: transparent; // remove double-bg
       color: $fg_color;
     }
+
+    // FIXME: label padding is ugly
+    // an half vertical padding of GtkMenuItem
+    .label { padding: 0.2em 0 0.25em; }
   }
 
   .linked > .button {
@@ -1747,11 +1751,17 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   .list-row { // reset background
     &,
-    &.activatable,
+    &.activatable {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $secondary_fg_color;
+      transition: none;
+    }
     &:hover,
     &.activatable:hover {
       background-image: none;
       background-color: $secondary_base_color;
+      color: $fg_color;
       transition: none;
     }
   }
