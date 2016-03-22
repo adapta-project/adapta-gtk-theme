@@ -1363,6 +1363,12 @@ GtkComboBox {
   GtkBox &:not(:only-child):last-child {
     border-left-color: $inverted_dark_color;
     border-right-color: $inverted_dark_color;
+
+    .tiled &,
+    .maximized & {
+      border-left-color: $panel_bg_color;
+      border-right-color: $panel_bg_color;
+    }
   }
 
   // Remove unneeded side shadows with dirty hacks
