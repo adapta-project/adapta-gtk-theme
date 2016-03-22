@@ -1152,9 +1152,9 @@ StScrollBar {
   box-shadow: inset 0 0 0 1px rgba(236, 239, 241, 0.2); }
 
 .window-caption {
+  spacing: 25px;
   padding: 4px 8px;
   border-radius: 2px;
-  spacing: 25px;
   color: #ECEFF1;
   background-color: rgba(42, 55, 62, 0.9);
   -shell-caption-spacing: 12px;
@@ -1167,31 +1167,28 @@ StScrollBar {
 .search-entry {
   width: 320px;
   padding: 7px 8px 8px;
-  border-radius: 0;
-  color: rgba(236, 239, 241, 0.5);
-  selection-background-color: #00BCD4;
-  selected-color: #FFFFFF;
-  background-color: rgba(0, 0, 0, 0.01);
+  border-radius: 2px;
   border-color: transparent;
-  box-shadow: inset 0 -1px rgba(236, 239, 241, 0.2); }
-  .search-entry:hover {
-    border-color: transparent;
-    box-shadow: inset 0 -2px rgba(236, 239, 241, 0.4);
-    padding: 7px 8px 8px;
-    border-width: 0;
-    color: #ECEFF1; }
-  .search-entry:focus {
-    border-color: transparent;
-    box-shadow: inset 0 -2px #00BCD4;
-    padding: 7px 8px 8px;
-    border-width: 0;
-    color: #ECEFF1; }
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(236, 239, 241, 0.4);
+  background-color: rgba(250, 251, 252, 0.2);
+  font-weight: 500;
+  font-size: 1.1em;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32), 0 3px 2px rgba(0, 0, 0, 0.24);
+  selection-background-color: #00BCD4;
+  selected-color: #FFFFFF; }
+  .search-entry:hover, .search-entry:focus {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    color: #263238;
+    background-color: rgba(250, 251, 252, 0.9);
+    box-shadow: 0 9px 12px rgba(0, 0, 0, 0.4), 0 5px 5px rgba(0, 0, 0, 0.32), 0 3px 3px rgba(0, 0, 0, 0.26);
+    transition-duration: 0.2s; }
   .search-entry .search-entry-icon {
     padding: 0 2px;
-    icon-size: 1.09em;
-    color: rgba(236, 239, 241, 0.5); }
+    icon-size: 1.2em;
+    color: rgba(236, 239, 241, 0.4); }
   .search-entry:hover .search-entry-icon, .search-entry:focus .search-entry-icon {
-    color: #ECEFF1; }
+    color: #263238; }
 
 #searchResultsBin {
   max-width: 1000px; }
@@ -1262,8 +1259,8 @@ StScrollBar {
   padding: 4px; }
 
 .dash-label {
-  border-radius: 2px;
   padding: 4px 12px;
+  border-radius: 2px;
   color: #ECEFF1;
   background-color: rgba(42, 55, 62, 0.9);
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32), 0 3px 2px rgba(0, 0, 0, 0.24);

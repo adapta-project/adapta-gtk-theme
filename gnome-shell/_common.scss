@@ -1341,9 +1341,9 @@ StScrollBar {
 }
 
 .window-caption {
+  spacing: 25px;
   padding: 4px 8px;
   border-radius: 2px;
-  spacing: 25px;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
   -shell-caption-spacing: 12px;
@@ -1356,36 +1356,39 @@ StScrollBar {
 }
 
 // Search entry
-.search-entry {
+.search-entry { // use raised entry-box styling
   width: 320px;
   padding: 7px 8px 8px;
-  border-radius: 0;
-  color: $osd_dim_fg_color;
+  border-radius: 2px;
+  border-color: transparent;
+  border-top: 1px solid $borders_highlight;
+  color: $dim_fg_color;
+  background-color: $inverted_dim_bg_color;
+  font-weight: 500;
+  font-size: 1.1em;
+  box-shadow: $z-depth-2;
+
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
-  @include entry(normal, $fc:$osd_semi_fill_color);
-  &:hover {
-    @include entry(hover, $fc:$osd_fill_color);
-    padding: 7px 8px 8px;
-    border-width: 0;
-    color: $osd_fg_color;
-  }
+
+  &:hover,
   &:focus {
-    @include entry(focus, $fc:$osd_indicator_color);
-    padding: 7px 8px 8px;
-    border-width: 0;
-    color: $osd_fg_color;
+    border-top: 1px solid $borders_highlight;
+    color: $inverted_fg_color;
+    background-color: transparentize($inverted_bg_color, 0.1);
+    box-shadow: $z-depth-3;
+    transition-duration: 0.2s;
   }
 
   .search-entry-icon {
     padding: 0 2px;
-    icon-size: 1.09em;
-    color: $osd_dim_fg_color;
+    icon-size: 1.2em;
+    color: $dim_fg_color;
   }
 
   &:hover,
   &:focus {
-    .search-entry-icon { color: $osd_fg_color; }
+    .search-entry-icon { color: $inverted_fg_color; }
   }
 }
 
@@ -1467,8 +1470,8 @@ StScrollBar {
 .dash-item-container > StWidget { padding: 4px; }
 
 .dash-label { // osd tooltip
-  border-radius: 2px;
   padding: 4px 12px;
+  border-radius: 2px;
   color: $fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-2;
