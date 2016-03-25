@@ -4,30 +4,27 @@ Adapta
 An adaptive Gtk+ theme based on Material Design Guidelines.
 Lots of elements are forked from Flat-Plat: https://github.com/nana-4/Flat-Plat
 
-3.19.x conversion started, please see the progress in 3.19.x branch if you needed.
-
 Elements
 --------
 ![Materials](img/Materials.png)
 
 Required Components
 -------------------
-* Gtk+-3.0 >= 3.18.6
-* Gtk+-2.0 >= 2.24.29
-* gtk2-engines-pixbuf >= 2.24.29
+* Gtk+-3.0 >= 3.20
+* Gtk+-2.0 >= 2.24.30
+* gtk2-engines-pixbuf >= 2.24.30
+
+Legacy Gtk+ 3.18.x was moved to https://github.com/tista500/Adapta/tree/3.18.x
 
 Supported Desktop Environments
 ------------------------------
-* GNOME 3.18.x
-  * gnome-shell >= 3.18.2
-  * mutter >= 3.18.2
+* GNOME 3.20
+  * gnome-shell >= 3.19.92
+  * mutter >= 3.19.92
 * GNOME-Flashback 3.18.x
-  * gnome-flashback >= 3.18.1
-  * gnome-panel >= 3.18.1
   * metacity >= 3.18.1
-* Budgie-Desktop 10.2.2
-* Unity7 7.4.0
-  * Compiz >= 0.9.12
+  * gnome-panel >= 3.18.1
+* budgie-desktop 10.2.4
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
@@ -52,8 +49,7 @@ Installation
 
 Work in Progress
 ----------------
-* Conversion to Gtk+ 3.19.9 or git master (see progress in 3.19.x branch...)
-* Unity7 desktop integration (but unity is not my thing at all...)
+* Conversion to Gtk+ 3.20 or git master
 
 TODO
 ----
@@ -63,6 +59,6 @@ Public License
 --------------
 * License: GPLv2
 
-Special Thanks To
+Special Thanks to
 --------------
 Nana-4, the developer of Flat-Plat.

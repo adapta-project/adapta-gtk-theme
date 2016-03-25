@@ -8,6 +8,12 @@ $orientation: ((top, bottom),
 	       (left, right),
 	       (right, left));
 
+// disable backdrop transparency
+.budgie-panel {
+  &:backdrop,
+  *:backdrop { opacity: 1.0; }
+}
+
 // panel styling
 .budgie-panel {
   // Always use dark-color of dark variant
@@ -40,7 +46,7 @@ $orientation: ((top, bottom),
 
 // wnck tasklist styling
 .budgie-panel WnckTasklist {
-  .button {
+  button {
     border: none;
     background: none;
     opacity: 0.5;
@@ -59,7 +65,7 @@ $orientation: ((top, bottom),
     background-image: none;
     opacity: 0.5;
     &:hover {
-      -gtk-image-effect: highlight;
+      -gtk-icon-effect: highlight;
       opacity: 1.0;
     }
     &:active,
@@ -73,7 +79,7 @@ $orientation: ((top, bottom),
 // draw underscores
 @each $along_side, $opp_side in $orientation {
   .#{$along_side} .budgie-panel {
-    WnckTasklist .button {
+    WnckTasklist button {
       border: 2px solid transparent;
       &:hover {
         border-#{$along_side}: 2px solid gtkalpha($selected_bg_color, 0.5);
@@ -110,37 +116,43 @@ $orientation: ((top, bottom),
   color: $inverted_secondary_fg_color;
   font-weight: bold;
   opacity: 0.9;
+  &:backdrop { opacity: 1.0; }
 
-  .button,
-  .linked > .button {
-    @extend .button.flat;
+  button,
+  .linked > button {
+    @extend button.flat;
     padding: 0.7em 1em 0.8em;
     border: 2px solid transparent;
     border-radius: 0;
-    color: $secondary_accent_color;
-    background-color: transparent;
+    color: $inverted_secondary_fg_color;
     background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
-    &:hover {
-      @include button(flat-hover);
-      color: $accent_color;
-    }
-    &:active {
-      @include button(flat-active);
-      color: $accent_color;
-    }
-    &:checked {
-     @include button(flat-checked);
-      color: $secondary_accent_color;
-    }
-    &:insensitive { @include button(flat-insensitive); }
-
+    // &:first-child { border-bottom-left-radius: 2px; }
+    // &:last-child { border-bottom-right-radius: 2px; }
     &:first-child {
-      border-bottom-left-radius: 2px;
+      border-radius: 0 0 0 2px;
       border-right-width: 0;
     }
-    &:last-child {
-      border-bottom-right-radius: 2px;
+    &:last-child { // usually 'save', 'delete' and 'OK'...
+      @include button(flat);
+      border-radius: 0 0 2px 0;
       border-left-width: 0;
+      background-color: transparent;
+      color: $warning_color;
+      &:hover {
+        @include button(flat-hover);
+        color: $warning_color;
+      }
+      &:active {
+        @include button(flat-active);
+        color: $selected_fg_color;
+        background-color: $warning_bg_color;
+      }
+      &:checked {
+       @include button(flat-checked);
+        color: $selected_fg_color;
+        background-color: $warning_bg_color;
+      }
+      &:disabled { @include button(flat-insensitive); }
     }
   }
 }
@@ -150,7 +162,7 @@ $orientation: ((top, bottom),
 
   .message { color: $secondary_fg_color; }
   .failure {
-    color: $accent_color;
+    color: $warning_color;
     font-weight: bold;
   }
 }
@@ -220,17 +232,17 @@ UnityPanelWidget,
   border-bottom: 1px solid $borders_color;
 }
 
-.unity-panel.menubar {
-  &.menuitem,
-  & .menuitem * {
+.unity-panel menubar {
+  & menuitem,
+  & menuitem * {
     border-radius: 0;
     color: $inverted_fg_color;
     background-color: transparent;
     border-bottom: 1px solid transparent;
   }
 
-  &.menuitem:hover,
-  & .menuitem *:hover {
+  & menuitem:hover,
+  & menuitem *:hover {
     color: $selected_fg_color;
     box-shadow: inset 0 -2px $selected_bg_color;
   }
@@ -242,16 +254,16 @@ UnityPanelWidget,
  ************/
 
 // use normal foreground colour
-GtkStack .button.profile-button {
+stack button.profile-button {
   &:checked { color: $fg_color; }
 }
 
 // account menu button
-.titlebar.header-bar GtkBox {
-  .button.image-button.account-button {
+.titlebar headerbar box {
+  button.image-button.account-button {
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
-    outline-radius: 2px;
+    -gtk-outline-radius: 2px;
 
     .avatar-round { border-color: $borders_color; }
   }

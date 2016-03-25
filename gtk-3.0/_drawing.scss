@@ -176,7 +176,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
 
   @if $t==normal {
     border-radius: 0;
-    outline-radius: 0;
+    -gtk-outline-radius: 0;
     border-color: $solid_light_borders_color;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -212,7 +212,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
   }
   @if $t==flat {
     border-radius: 0;
-    outline-radius: 0;
+    -gtk-outline-radius: 0;
     border-color: $solid_light_borders_color;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -314,7 +314,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
     background-color: $track_color;
     color: if($tc!=$fg_color, $insensitive_fg_color,
                               $insensitive_secondary_fg_color);
-    > .label { color: inherit; }
+    > label { color: inherit; }
   }
   @else if $t==checked {
   //
@@ -332,7 +332,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
     box-shadow: none;
     background-color: $track_color;
     color: gtkopacity($selected_bg_color, 0.4);
-    > .label { color: inherit; }
+    > label { color: inherit; }
   }
 
   @else if $t==flat {
@@ -385,7 +385,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
   //
   // checked flat insensitive button
   //
-    > .label { color: inherit; }
+    > label { color: inherit; }
   }
 
   @else if $t==undecorated {
@@ -397,7 +397,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
     background-image: none;
     box-shadow: none;
     text-shadow: none;
-    icon-shadow: none;
+    -gtk-icon-shadow: none;
   }
 }
 
