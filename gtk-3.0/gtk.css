@@ -3385,8 +3385,6 @@ scrollbar {
   .scrollbar .slider,
   scrollbar slider,
   scrollbar .slider {
-    min-width: 7px;
-    min-height: 30px;
     margin: 3px;
     border-radius: 100px;
     background-color: rgba(38, 50, 56, 0.5); }
@@ -3412,6 +3410,8 @@ scrollbar {
   .scrollbar.vertical .slider,
   scrollbar.vertical slider,
   scrollbar.vertical .slider {
+    min-width: 7px;
+    min-height: 30px;
     margin-left: 4px; }
     .scrollbar.vertical slider:dir(rtl),
     .scrollbar.vertical .slider:dir(rtl),
@@ -3427,7 +3427,11 @@ scrollbar {
       margin-left: 4px;
       margin-right: 5px; }
   .scrollbar.horizontal slider,
-  scrollbar.horizontal slider {
+  .scrollbar.horizontal .slider,
+  scrollbar.horizontal slider,
+  scrollbar.horizontal .slider {
+    min-width: 30px;
+    min-height: 7px;
     margin-top: 4px; }
   .scrollbar.horizontal.fine-tune slider,
   scrollbar.horizontal.fine-tune slider {
@@ -3438,8 +3442,6 @@ scrollbar {
     background-color: transparent; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
-      min-width: 7px;
-      min-height: 30px;
       margin: 1px;
       border: 2px solid transparent; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) button,
@@ -3452,6 +3454,8 @@ scrollbar {
       -gtk-icon-source: none; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider {
+      min-width: 7px;
+      min-height: 30px;
       margin-top: 2px;
       margin-bottom: 2px; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button,
@@ -3460,6 +3464,8 @@ scrollbar {
       min-width: 12px; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
+      min-width: 30px;
+      min-height: 7px;
       margin-left: 2px;
       margin-right: 2px; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal button,

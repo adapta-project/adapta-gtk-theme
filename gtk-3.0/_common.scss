@@ -2363,8 +2363,6 @@ scrollbar {
   // slider
   slider,
   .slider {
-    min-width: $_slider_min_width;
-    min-height: $_slider_min_length;
     margin: $_slider_margin;
     border-radius: 100px;
     background-color: $tertiary_fg_color;
@@ -2378,6 +2376,8 @@ scrollbar {
   &.vertical {
     slider,
     .slider {
+      min-width: $_slider_min_width;
+      min-height: $_slider_min_length;
       margin-left: 1px + $_slider_margin;
 
       &:dir(rtl) {
@@ -2395,7 +2395,12 @@ scrollbar {
     }
   }
   &.horizontal {
-    slider { margin-top: 1px + $_slider_margin; }
+    slider,
+    .slider {
+      min-width: $_slider_min_length;
+      min-height: $_slider_min_width;
+      margin-top: 1px + $_slider_margin;
+    }
     &.fine-tune slider { margin-top: 1px + $_slider_fine_tune_margin; }
   }
 
@@ -2405,8 +2410,6 @@ scrollbar {
       background-color: transparent;
 
       slider {
-        min-width: $_slider_min_width;
-        min-height: $_slider_min_length;
 	margin: $_slider_margin - 2px;
         border: 2px solid transparent;
       }
@@ -2424,6 +2427,8 @@ scrollbar {
       // when hovering/dragging
       &.vertical {
         slider {
+          min-width: $_slider_min_width;
+          min-height: $_slider_min_length;
           margin-top: $_slider_margin - 1px;
           margin-bottom: $_slider_margin - 1px;
         }
@@ -2436,6 +2441,8 @@ scrollbar {
 
       &.horizontal {
         slider {
+          min-width: $_slider_min_length;
+          min-height: $_slider_min_width;
           margin-left: $_slider_margin - 1px;
           margin-right: $_slider_margin - 1px;
         }
