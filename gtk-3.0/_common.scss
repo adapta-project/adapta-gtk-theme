@@ -253,8 +253,9 @@ spinner {
 
 entry,
 .entry {
-  min-height: 2.5em;
-  padding: 0.1em 0.6em 0.2em;
+  min-height: 1em;
+  min-width: 2.5em;
+  padding: 0.7em 0.6em 0.8em;
   @include entry(normal);
 
   &:focus { @include entry(focus); }
@@ -360,9 +361,9 @@ button,
 .button {
   @extend %fade_effect;
 
-  min-height: 2.5em;
-  min-width: 1.6em;
-  padding: 0.1em 0.6em 0.2em;
+  min-height: 1em;
+  min-width: 2.5em;
+  padding: 0.7em 1em 0.8em;
   border-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
@@ -451,13 +452,12 @@ button,
 
   &.image-button {
     @extend %image_button;
-    min-width: 2.8em;
-    min-height: 2.8em;
+    min-width: 1em;
+    min-height: 1em;
   }
 
   &.text-button {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding: 0.7em 1em 0.8em;
     border-radius: 2px;
     font-weight: bold;
   }
@@ -467,13 +467,13 @@ button,
     // to have the image-button padding, while the text side the text-button
     // one, so we're adding the missing padding to the label depending on
     // its position inside the button
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding-left: 1em;
+    padding-right: 1em;
     border-radius: 2px;
 
     label {
-      padding-left: 0.6em;
-      padding-right: 0.6em;
+      padding-left: 0.3em;
+      padding-right: 0.3em;
     }
 
     image {
@@ -498,7 +498,10 @@ button,
   }
 
   stackswitcher & { // do not shrink buton width
-    &.text-button { min-width: 8.4em; }
+    &.text-button {
+      min-height: 2.5em;
+      min-width: 8.4em;
+    }
   }
 
   .stack-switcher > & {
@@ -523,8 +526,8 @@ button,
 
     &.text-button {
       // compensate text-button paddings
-      padding-left: 0.6em;
-      padding-right: 0.6em;
+      padding-left: 1em;
+      padding-right: 1em;
     }
 
     &.image-button {
@@ -549,11 +552,11 @@ button,
   .inline-toolbar &,
   actionbar & {
     @extend button.flat;
-    min-width: 2em;
-    min-height: 2em;
+    min-width: 1em;
+    min-height: 1em;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    padding: 0.25em;
+    padding: 0.75em;
     background-size: $image_button_small;
   }
 
@@ -567,17 +570,17 @@ button,
   .linked > & .text-button {
     @extend %linked_middle;
     @extend %button_array;
-    min-width: 2.8em;
-    padding: 0;
+    min-width: 2em;
+    padding: 0.25em;
 
     label {
-      padding-left: 0.6em;
-      padding-right: 0.6em;
+      padding-left: 0.3em;
+      padding-right: 0.3em;
     }
 
     image {
-      padding-left: 0.6em;
-      padding-right: 0.6em;
+      padding-left: 0.3em;
+      padding-right: 0.3em;
     }
   }
   // vertical array
@@ -589,7 +592,7 @@ button,
     @extend %button_vertical_array;
     min-height: 2em;
     min-width: 2em;
-    padding: 0.4em;
+    padding: 0.25em;
   }
 }
 
@@ -684,7 +687,7 @@ button,
 }
 
 %image_button {
-  padding: 0;
+  padding: 0.75em;
   -gtk-outline-radius: 100px;
   border-radius: 100px;
   background-size: $image_button_large;
@@ -771,8 +774,8 @@ modelbutton.flat arrow {
 }
 
 button.color {
-  min-width: 2.8em;
-  min-height: 1.8em;
+  min-width: 2.5em;
+  min-height: 1.5em;
   padding: 0.5em 0.6em 0.5em; // Uniform padding on the GtkColorButton
 
   > colorswatch:first-child:last-child { // :first-child:last-child for
@@ -1004,21 +1007,22 @@ combobox {
     button.combo { @extend button:drop(active); }
   }
 
-  & menu { padding: 2px 0; }
-  & menu > menuitem { padding: 0.35em 0.6em 0.45em; }
+  & menu { padding: 0.25em 0; }
+  & menu > menuitem { padding: 0.35em 0.4em 0.45em; }
 
   entry.combo {
   }
 
   button.combo { // button spacing
-    min-width: 1.6em;
-    padding: 0.1em 0.6em 0.2em;
+    min-height: 1em;
+    min-width: 1.3em;
+    padding: 0.6em 0.4em 0.65em;
 
     arrow { padding: 0 0.3em 0; }
 
     label {
-      padding-left: 0.6em;
-      padding-right: 0.6em;
+      padding-left: 0.3em;
+      padding-right: 0.3em;
     }
 
     image {
@@ -1360,9 +1364,9 @@ headerbar {
 
   .linked > button {
     .image-button {
-      min-width: 2em;
-      min-height: 2em;
-      padding: 0.4em;
+      min-width: 1em;
+      min-height: 1em;
+      padding: 0.75em;
     }
   }
 
@@ -1559,7 +1563,7 @@ headerbar {
       min-width: 2em;
       min-height: 2em;
       margin: 0;
-      padding: 0;
+      padding: 0.25em;
       color: $inverted_secondary_fg_color;
       background-size: $image_button_small;
       &:hover,
@@ -2031,7 +2035,7 @@ popover.background {
     label { padding: 0.2em 0 0.25em; }
   }
 
-  button.model.image-button { min-height: 2.8em; }
+  button.model.image-button { min-height: 2em; }
 
   .linked > button {
     @include button(flat);
@@ -4056,10 +4060,11 @@ headerbar,
 .titlebar {
   & button.titlebutton,
   &.selection-mode button.titlebutton {
+    @extend %fade_effect;
     @extend button.flat;
-    min-width: 2em;
-    min-height: 2em;
-    padding: 0.4em;
+    min-width: 1em;
+    min-height: 1em;
+    padding: 0.75em;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     
@@ -4075,7 +4080,6 @@ headerbar,
         color: $selected_fg_color;
         background-color: $selected_bg_color;
       }
-      &:backdrop { opacity: 0.5; }
     }
   }
 }
@@ -4085,7 +4089,7 @@ headerbar,
   button.titlebutton { // FIXME: it doesn't work
     min-width: 2em;
     min-height: 2em;
-    padding: 0;
+    padding: 0.25em;
   }
 }
 

@@ -65,7 +65,8 @@ menu menuitem check:indeterminate *:backdrop, menu menuitem.check:checked *:back
 menu menuitem check:checked *:backdrop, menu menuitem.radio:disabled *:backdrop,
 menu menuitem radio:disabled *:backdrop, menu menuitem.radio:indeterminate *:backdrop,
 menu menuitem radio:indeterminate *:backdrop, menu menuitem.radio:checked *:backdrop,
-menu menuitem radio:checked *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, infobar *:backdrop, NautilusTrashBar *:backdrop {
+menu menuitem radio:checked *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, infobar *:backdrop, NautilusTrashBar *:backdrop, headerbar button.titlebutton *:backdrop,
+.titlebar button.titlebutton *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
 
@@ -307,8 +308,9 @@ spinner {
  ****************/
 entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
 .entry {
-  min-height: 2.5em;
-  padding: 0.1em 0.6em 0.2em;
+  min-height: 1em;
+  min-width: 2.5em;
+  padding: 0.7em 0.6em 0.8em;
   border-radius: 0;
   -gtk-outline-radius: 0;
   border-color: #37474F;
@@ -510,9 +512,9 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#00BCD4), to(transparent)); } }
 button,
 .button {
-  min-height: 2.5em;
-  min-width: 1.6em;
-  padding: 0.1em 0.6em 0.2em;
+  min-height: 1em;
+  min-width: 2.5em;
+  padding: 0.7em 1em 0.8em;
   border-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
@@ -849,24 +851,23 @@ button,
         background-color: transparent; }
   button.image-button,
   .button.image-button {
-    min-width: 2.8em;
-    min-height: 2.8em; }
+    min-width: 1em;
+    min-height: 1em; }
   button.text-button, GtkScaleButton button.text-button,
   GtkVolumeButton button.text-button,
   .button.text-button {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding: 0.7em 1em 0.8em;
     border-radius: 2px;
     font-weight: bold; }
   button.text-button.image-button,
   .button.text-button.image-button {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding-left: 1em;
+    padding-right: 1em;
     border-radius: 2px; }
     button.text-button.image-button label,
     .button.text-button.image-button label {
-      padding-left: 0.6em;
-      padding-right: 0.6em; }
+      padding-left: 0.3em;
+      padding-right: 0.3em; }
     button.text-button.image-button image,
     .button.text-button.image-button image {
       padding-left: 0.3em;
@@ -890,6 +891,7 @@ button,
     color: transparent; }
   stackswitcher button.text-button, stackswitcher
   .button.text-button {
+    min-height: 2.5em;
     min-width: 8.4em; }
   .stack-switcher > button, .stack-switcher >
   .button {
@@ -908,8 +910,8 @@ button,
     GtkVolumeButton .stack-switcher > button.text-button, .stack-switcher >
     .button.text-button, GtkScaleButton .stack-switcher > button.button.text-button,
     GtkVolumeButton .stack-switcher > button.button.text-button {
-      padding-left: 0.6em;
-      padding-right: 0.6em; }
+      padding-left: 1em;
+      padding-right: 1em; }
     .stack-switcher > button.image-button, .stack-switcher >
     .button.image-button {
       padding-left: 0.6em;
@@ -924,11 +926,11 @@ button,
   .inline-toolbar button, actionbar button, .inline-toolbar
   .button, actionbar
   .button {
-    min-width: 2em;
-    min-height: 2em;
+    min-width: 1em;
+    min-height: 1em;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    padding: 0.25em;
+    padding: 0.75em;
     background-size: 2.5em 2.5em, auto; }
   .primary-toolbar button, .primary-toolbar
   .button {
@@ -937,27 +939,27 @@ button,
   .button, .linked >
   .button .image-button, .linked >
   .button .text-button {
-    min-width: 2.8em;
-    padding: 0; }
+    min-width: 2em;
+    padding: 0.25em; }
     .linked > button label, .linked > button .image-button label, .linked > button .text-button label, .linked >
     .button label, .linked >
     .button .image-button label, .linked >
     .button .text-button label {
-      padding-left: 0.6em;
-      padding-right: 0.6em; }
+      padding-left: 0.3em;
+      padding-right: 0.3em; }
     .linked > button image, .linked > button .image-button image, .linked > button .text-button image, .linked >
     .button image, .linked >
     .button .image-button image, .linked >
     .button .text-button image {
-      padding-left: 0.6em;
-      padding-right: 0.6em; }
+      padding-left: 0.3em;
+      padding-right: 0.3em; }
   .linked.vertical > button, .linked.vertical > button .image-button, .linked.vertical > button .text-button, .linked.vertical >
   .button, .linked.vertical >
   .button .image-button, .linked.vertical >
   .button .text-button {
     min-height: 2em;
     min-width: 2em;
-    padding: 0.4em; }
+    padding: 0.25em; }
 
 .linked > button, .linked > button .image-button, .linked > button .text-button, .linked >
 .button, .linked >
@@ -1136,7 +1138,7 @@ toolbar GtkVolumeButton .linked > button.text-button:not(.image-button), popover
 button.osd.image-button,
 .button.osd.image-button, button.image-button,
 .button.image-button {
-  padding: 0;
+  padding: 0.75em;
   -gtk-outline-radius: 100px;
   border-radius: 100px;
   background-size: 3.75em 3.75em, auto; }
@@ -1245,8 +1247,8 @@ modelbutton.flat arrow {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
 
 button.color {
-  min-width: 2.8em;
-  min-height: 1.8em;
+  min-width: 2.5em;
+  min-height: 1.5em;
   padding: 0.5em 0.6em 0.5em; }
   button.color > colorswatch:first-child:last-child {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
@@ -1413,17 +1415,18 @@ combobox arrow {
   min-height: 16px;
   min-width: 16px; }
 combobox menu {
-  padding: 2px 0; }
+  padding: 0.25em 0; }
 combobox menu > menuitem {
-  padding: 0.35em 0.6em 0.45em; }
+  padding: 0.35em 0.4em 0.45em; }
 combobox button.combo {
-  min-width: 1.6em;
-  padding: 0.1em 0.6em 0.2em; }
+  min-height: 1em;
+  min-width: 1.3em;
+  padding: 0.6em 0.4em 0.65em; }
   combobox button.combo arrow {
     padding: 0 0.3em 0; }
   combobox button.combo label {
-    padding-left: 0.6em;
-    padding-right: 0.6em; }
+    padding-left: 0.3em;
+    padding-right: 0.3em; }
   combobox button.combo image {
     min-height: 16px;
     min-width: 16px;
@@ -1633,9 +1636,9 @@ headerbar {
         background-size: 3.75em 3.75em, auto; }
   .titlebar .linked > button .image-button,
   headerbar .linked > button .image-button {
-    min-width: 2em;
-    min-height: 2em;
-    padding: 0.4em; }
+    min-width: 1em;
+    min-height: 1em;
+    padding: 0.75em; }
   .titlebar button,
   .titlebar .linked > button,
   .titlebar button.suggested-action,
@@ -2544,7 +2547,7 @@ headerbar {
       min-width: 2em;
       min-height: 2em;
       margin: 0;
-      padding: 0;
+      padding: 0.25em;
       color: rgba(236, 239, 241, 0.75);
       background-size: 2.5em 2.5em, auto; }
       .titlebar.default-decoration button.titlebutton:hover, .titlebar.default-decoration button.titlebutton:active,
@@ -3104,7 +3107,7 @@ popover.background {
     .budgie-polkit-dialog popover.background button label {
       padding: 0.2em 0 0.25em; }
   popover.background button.model.image-button {
-    min-height: 2.8em; }
+    min-height: 2em; }
   popover.background .linked > button {
     box-shadow: none;
     background-color: transparent;
@@ -6382,9 +6385,9 @@ decoration {
 headerbar button.titlebutton, headerbar.selection-mode button.titlebutton,
 .titlebar button.titlebutton,
 .titlebar.selection-mode button.titlebutton {
-  min-width: 2em;
-  min-height: 2em;
-  padding: 0.4em;
+  min-width: 1em;
+  min-height: 1em;
+  padding: 0.75em;
   border-radius: 100px;
   -gtk-outline-radius: 100px; }
   headerbar button.titlebutton.close:hover, headerbar.selection-mode button.titlebutton.close:hover,
@@ -6404,15 +6407,11 @@ headerbar button.titlebutton, headerbar.selection-mode button.titlebutton,
     animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     color: #FFFFFF;
     background-color: #00BCD4; }
-  headerbar button.titlebutton.close:backdrop, headerbar.selection-mode button.titlebutton.close:backdrop,
-  .titlebar button.titlebutton.close:backdrop,
-  .titlebar.selection-mode button.titlebutton.close:backdrop {
-    opacity: 0.5; }
 
 .ssd decoration .titlebar button.titlebutton {
   min-width: 2em;
   min-height: 2em;
-  padding: 0; }
+  padding: 0.25em; }
 
 .view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus,
 .view text:selected,
