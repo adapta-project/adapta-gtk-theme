@@ -496,6 +496,10 @@ button,
     color: transparent;
   }
 
+  stackswitcher & { // do not shrink buton width
+    &.text-button { min-width: 8.4em; }
+  }
+
   .stack-switcher > & {
     // to position the needs attention dot, padding is added to the button
     // child, a label needs just lateral padding while an icon needs vertical
@@ -2023,7 +2027,7 @@ popover.background {
 
     // FIXME: label padding is ugly
     // an half vertical padding of GtkMenuItem
-    .label { padding: 0.2em 0 0.25em; }
+    label { padding: 0.2em 0 0.25em; }
   }
 
   button.model.image-button { min-height: 2.8em; }
