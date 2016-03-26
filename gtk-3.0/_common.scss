@@ -2321,8 +2321,7 @@ notebook {
 $_slider_margin: 3px;
 $_slider_fine_tune_margin: 4px;
 $_slider_min_width: 7px; // 7px + 3px * 2 -> 13px total
-// $_slider_min_length: 24 + $_slider_margin * 2;
-$_slider_min_length: $_slider_min_width;
+$_slider_min_length: 24 + $_slider_margin * 2;
 
 .scrollbar,
 scrollbar {
@@ -2336,7 +2335,7 @@ scrollbar {
   background-color: gtkopacity($base_color, 0.9);
 
   // scrollbar border
-  // FIXME: epihy still need trough?
+  // FIXME: ephy still need trough?
   &.top {
     &, .trough { border-bottom: 1px solid $solid_light_borders_color; }
   }
