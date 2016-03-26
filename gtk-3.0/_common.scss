@@ -2720,29 +2720,35 @@ $_marks_lenght: 6px;
 $_marks_distance: 6px;
 
 scale {
-  outline-offset: -4px;
-  -gtk-outline-radius: 100px;
+  // outline-offset: -4px;
+  // -gtk-outline-radius: 100px;
+  // FIXME: ugly outlines
+  outline-offset: 0;
+  outline-width: 0;
 
   min-height: 10px;
   min-width: 10px;
   padding: 10px;
 
   &.fine-tune {
-    outline-offset: -4px;
+    // outline-offset: -4px;
+    // FIXME: ugly outlines
+    outline-offset: 0;
+    outline-width: 0;
     &.horizontal {
       padding-top: 9px;
       padding-bottom: 9px;
-      min-height: 20px;
+      min-height: 10px;
     }
 
     &.vertical {
       padding-left: 9px;
       padding-right: 9px;
-      min-width: 20px;
+      min-width: 10px;
     }
 
     // to make the trough grow in fine-tune mode
-    slider { margin: -10px; }
+    slider { margin: -9px; }
 
     highlight,
     fill,
@@ -2922,10 +2928,10 @@ scale { // marks color
 %scale_marks_below_horz { margin: -10px -10px -15px -10px; }
 %scale_marks_above_vert { margin: -10px -10px -10px -15px; }
 %scale_marks_below_vert { margin: -10px -15px -10px -10px; }
-%scale_marks_above_horz_ft { margin: -12px  -8px  -8px  -8px; }
-%scale_marks_below_horz_ft { margin:  -8px  -8px -12px  -8px; }
-%scale_marks_above_vert_ft { margin:  -8px  -8px  -8px -12px; }
-%scale_marks_below_vert_ft { margin:  -8px -12px  -8px  -8px; }
+%scale_marks_above_horz_ft { margin: -15px -10px -10px -10px; }
+%scale_marks_below_horz_ft { margin: -10px -10px -15px -10px; }
+%scale_marks_above_vert_ft { margin: -10px -10px -10px -15px; }
+%scale_marks_below_vert_ft { margin: -10px -15px -10px -10px; }
 
 
 /*****************
