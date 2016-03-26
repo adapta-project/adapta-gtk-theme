@@ -2079,30 +2079,38 @@ popover.background {
  *************/
 
 notebook {
-  > border,
-  &.frame { // remove madness borders
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($bg_color),
-                                to(transparent))
-                                1 / 1px stretch;
+  padding: 0;
+
+  &.frame {
+    border: 1px solid $borders_color;
+
+    // remove madness borders around header
+    > header {
+      &, &.frame { border-style: none; }
+      @each $_header, $_margin in (top, -1px -1px 0 -1px),
+                                  (bottom, 0 -1px -1px -1px),
+                                  (left, -1px 0 -1px -1px),
+                                  (right, -1px -1px -1px 0) {
+        &.#{$_header} { margin: #{$_margin}; }
+      }
+    }
   }
 
-  > stack { // draw actual borders
-    margin: 0;
-    background-color: $base_color;
+  > stack {
     &:only-child {
+      border: none;
       background-color: transparent;
       box-shadow: none;
     }
+
+    // the :not(:only-child) is for "hidden" notebooks
     &:not(:only-child),
     &:not(:first-child),
-    &:not(:last-child) { // FIXME: very hackish
-      box-shadow: 0 0 0 1px $borders_color;
+    &:not(:last-child) {
+      border: none;
+      background-color: $base_color;
+      box-shadow: inset 0 0 0 1px $base_color;
     }
-
-    paned & { box-shadow: none; }
   }
 
   > header {
@@ -2114,21 +2122,27 @@ notebook {
     $ht_vpadding: 0.5em;
     $ht_hpadding: 1.2em;
 
-    margin: 0;
-    background-color: transparent;
-    &, &.frame { border-style: none; }
-
+    background-color: $bg_color;
     tabs { background-color: transparent; }
+
+    @each $_header, $_border in (top, 0 1px),
+                                (bottom, 0 -1px),
+                                (left, 1px 0),
+                                (right, -1px 0) {
+      &.#{$_header} {
+        // FIXME: outset borders
+        box-shadow: #{$_border} $borders_color;
+      }
+    }
 
     &.top {
       > tabs {
-        margin: 0 4px 0 4px;
+        margin: 0 4px -1px 4px;
         > tab {
           padding: $vt_vpadding $vt_hpadding;
           border-bottom-width: $tab_indicator_size;
           box-shadow: none;
           &.reorderable-page {
-	    margin-bottom: 1px;
             padding-left: 1.2em;  // for a nicer close button
             padding-right: 1.2em; // placement
             border-left-width: 1px;
@@ -2139,7 +2153,7 @@ notebook {
     }
     &.bottom {
       > tabs {
-        margin: 0 4px 0 4px;
+        margin: -1px 4px 0 4px;
         > tab {
           padding: $vt_vpadding $vt_hpadding;
           border-top-width: $tab_indicator_size;
@@ -2155,7 +2169,7 @@ notebook {
     }
     &.left {
       > tabs {
-        margin: 4px 0 4px 0;
+        margin: 4px -1px 4px 0;
         > tab {
           padding: $ht_vpadding $ht_hpadding;
           border-right-width: $tab_indicator_size;
@@ -2169,7 +2183,7 @@ notebook {
     }
     &.right {
       > tabs {
-        margin: 4px 0 4px 0;
+        margin: 4px 0 4px -1px;
         > tab {
           padding: $ht_vpadding $ht_hpadding;
           border-left-width: $tab_indicator_size;
@@ -2188,10 +2202,11 @@ notebook {
                              (left, right),
                              (right, left) {
       &.#{$_tab} tab.reorderable-page {
-        border-color: transparent;
+        border-#{$_border}-width: 2px;
+        border-#{$_border}-color: transparent;
         &:hover {
           border-color: $borders_color;
-          border-#{$_border}-width: 1px;
+          border-#{$_border}-width: 2px;
           border-#{$_border}-color: $borders_color;
           background-color: $base_color;
           box-shadow: none;
@@ -2296,10 +2311,6 @@ notebook {
   }
 
   &:not(.reorderable-page) > entry { @extend entry.flat; }
-
-  > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
-    background-color: $bg_color;
-  }
 }
 
 
