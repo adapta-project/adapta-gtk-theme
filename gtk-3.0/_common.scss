@@ -499,7 +499,7 @@ button,
 
   stackswitcher & { // do not shrink buton width
     &.text-button {
-      min-height: 2.5em;
+      min-height: 1.3em;
       min-width: 8.4em;
     }
   }
@@ -556,7 +556,7 @@ button,
     min-height: 1em;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    padding: 0.75em;
+    padding: 0.5em;
     background-size: $image_button_small;
   }
 
@@ -570,8 +570,8 @@ button,
   .linked > & .text-button {
     @extend %linked_middle;
     @extend %button_array;
-    min-width: 2em;
-    padding: 0.25em;
+    min-width: 1em;
+    padding: 0.7em 0.6em 0.8em;
 
     label {
       padding-left: 0.3em;
@@ -590,9 +590,9 @@ button,
   .linked.vertical > & .text-button {
     @extend %linked_vertical_middle;
     @extend %button_vertical_array;
-    min-height: 2em;
-    min-width: 2em;
-    padding: 0.25em;
+    min-height: 1em;
+    min-width: 1.7em;
+    padding: 0.75em 0.4em 0.75em;
   }
 }
 
@@ -1362,11 +1362,12 @@ headerbar {
     }
   }
 
+  // adjust spacing for finer aspect-ratio
   .linked > button {
-    .image-button {
-      min-width: 1em;
-      min-height: 1em;
-      padding: 0.75em;
+    &.image-button {
+      min-width: 1.3em;
+      min-height: 2.8em;
+      padding: 0 0.6em 0;
     }
   }
 
