@@ -1130,7 +1130,7 @@ toolbar {
                     10 / 10px stretch;
     }
 
-    & button {
+    button {
       @extend button.flat;
       &:not(:active):not(:disabled):not(hover) {
         color: $secondary_accent_color;
@@ -1148,7 +1148,7 @@ toolbar {
     label { padding: 0 1em; }
   }
 
-  & button { // use flat-buttons
+  button { // use flat-buttons
     @extend button.flat;
     background-size: $text_button_small;
     box-shadow: none;
@@ -1495,7 +1495,7 @@ headerbar {
       }
     }
 
-    .button:not(.suggested-action):not(.destructive-action) {
+    button:not(.suggested-action):not(.destructive-action) {
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       &.text-button,
