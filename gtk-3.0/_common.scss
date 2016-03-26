@@ -1,6 +1,16 @@
 // Suffix
 $asset_suffix: if($variant=='dark', '-dark', '');
 
+// Background sizing
+$text_button_large: 16em * 1 / 0.8 16em * 1 / 0.8, auto;
+$text_button_small: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
+$image_button_large: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
+$image_button_small: 2em * 1 / 0.8 2em * 1 / 0.8, auto;
+$attention: 0.4em 0.4em;
+$scale: 80%;
+$separator_narrow: 1px 1px;
+$separator_wide: 1px 1px, 1px 1px;
+
 
 /*****************
  * Common States *
@@ -353,7 +363,7 @@ button,
   border-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
-  background-size: 3em * 2 / 0.8 3em * 2 / 0.8, auto;
+  background-size: $text_button_small;
   font-weight: 500;
   @include button(normal);
   &:hover {
@@ -390,6 +400,7 @@ button,
       @extend %image_button;
       padding: 1.3em;
       background-color: $inverted_dark_color;
+      background-size: $image_button_large;
       &:not(:active):not(:disabled):not(hover) {
         color: $secondary_accent_color;
       }
@@ -416,6 +427,7 @@ button,
                              (destructive-action, $destructive_color) {
     &.#{$b_type} {
       background-color: $b_color;
+      background-size: $text_button_small;
       color: $selected_fg_color;
       // @include button(normal, $b_color, white);
       // &:hover { @include button(hover, $b_color, white); }
@@ -533,6 +545,7 @@ button,
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     padding: 0.25em;
+    background-size: $image_button_small;
   }
 
   .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
@@ -665,7 +678,7 @@ button,
   padding: 0;
   -gtk-outline-radius: 100px;
   border-radius: 100px;
-  background-size: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
+  background-size: $image_button_large;
 }
 
 %needs_attention {
@@ -673,7 +686,7 @@ button,
   animation: needs_attention 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   background-repeat: no-repeat;
   background-position: right 3px;
-  background-size: 0.4em 0.4em;
+  background-size: $attention;
   &:dir(rtl) { background-position: left 3px; }
 }
 
@@ -731,6 +744,7 @@ modelbutton.flat,
   margin-left: 0.75em;
   margin-right: 0.75em;
   outline-offset: -1px;
+  background-size: $text_button_small;
   transition: none;
 
   check,
@@ -836,6 +850,7 @@ spinbutton {
       box-shadow: none;
       color: $secondary_fg_color;
       background-color: transparent;
+      background-size: $image_button_small;
 
       &:not(:last-child) { // '-' button
         &:hover {
@@ -1135,6 +1150,7 @@ toolbar {
 
   & button { // use flat-buttons
     @extend button.flat;
+    background-size: $text_button_small;
     box-shadow: none;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -1178,6 +1194,7 @@ toolbar {
       min-height: 1em;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
+      background-size: $image_button_small;
     }
   }
 
@@ -1292,6 +1309,7 @@ headerbar {
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
+    background-size: $text_button_small;
     &:hover { color: $inverted_fg_color; }
     &:checked {
       border-image: -gtk-gradient(radial,
@@ -1325,6 +1343,7 @@ headerbar {
       &.image-button {
         border-radius: 100px;
         -gtk-outline-radius: 100px;
+        background-size: $image_button_large;
       }
     }
   }
@@ -1532,6 +1551,7 @@ headerbar {
       margin: 0;
       padding: 0;
       color: $inverted_secondary_fg_color;
+      background-size: $image_button_small;
       &:hover,
       &:active { color: $inverted_fg_color; }
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.55); }
@@ -1774,7 +1794,7 @@ treeview.view {
     &:selected { box-shadow: inset 0 -4px gtkalpha($selected_fg_color, 0.2); }
   }
 
-  &, GtkPaned & { // redraw some stuff for RhythmBox
+  &, paned & { // redraw some stuff for RhythmBox
     @extend %fade_effect;
     background-color: $base_color;
 
@@ -1988,7 +2008,7 @@ popover.background {
     transition: none;
     padding: 0 0.75em 0;
     background-color: transparent;
-    background-size: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
+    background-size: $text_button_small;
     color: $secondary_fg_color;
     font: initial;
     &:hover {
@@ -2254,7 +2274,7 @@ notebook {
       @extend button.flat;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
-      background-size: 24px * 1 / 0.8 24px * 1 / 0.8, auto;
+      background-size: $image_button_small;
       // @extend button.flat;
       @include button(flat);
       color: $tertiary_fg_color;
@@ -2703,7 +2723,7 @@ scale {
     min-width: 20px;
     margin: -9px;
 
-    &:not(:hover):not(:active) { background-size: 80%; }
+    &:not(:hover):not(:active) { background-size: $scale; }
     // @include entry(normal);
     // border-radius: 50%;
     // background-color: $success_color;
@@ -3139,7 +3159,7 @@ row.activatable {
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
   background-repeat: no-repeat;
   background-position: center, center;
-  background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
+  background-size: $text_button_large;
   &.has-open-popup, // this is for indicating which sidebar row
                     // generated a popover
   &:hover {         // see https://bugzilla.gnome.org/show_bug.cgi?id=754411
@@ -3160,8 +3180,8 @@ row.activatable {
 // button spacing
 row {
   & button.image-button {
-    padding: 0.4em;
-    background-size: 2em * 1 / 0.8 2em * 1 / 0.8, auto;
+    padding: 0.6em;
+    background-size: $image_button_small;
   }
 }
 
@@ -3220,11 +3240,10 @@ expander {
 
 calendar {
   @extend %fade_effect;
+  padding: 0.4em 0.1em 0.2em;
   border: 1px solid $borders_color;
   color: $fg_color;
-  &:selected {
-    @extend .view:selected;
-  }
+  &:selected { color: $selected_bg_color; }
 
   &.header {
     border: 1px solid transparent;
@@ -3232,18 +3251,20 @@ calendar {
     border-radius: 0;
   }
 
-  &.button {
+  &.button,
+  &.header.button {
     // @extend button.flat;
     @include button(flat);
+    background-size: $image_button_small;
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
   }
 
-  &:indeterminate { color: gtkalpha(currentColor, 0.6); }
+  &:indeterminate { color: gtkalpha(currentColor, 0.55); }
   &.highlight {
     font-size: smaller;
-    color: gtkalpha(currentColor, 0.6);
+    color: gtkalpha(currentColor, 0.55);
   }
 }
 
@@ -3286,7 +3307,7 @@ messagedialog { // Message Dialog styling
         color: $inverted_secondary_fg_color;
         font-size: initial;
 	font-weight: bold;
-        background-size: contain;
+        background-size: $text_button_small;
 	box-shadow: none;
         // &:first-child { border-bottom-left-radius: 2px; }
         // &:last-child { border-bottom-right-radius: 2px; }
@@ -3538,7 +3559,7 @@ paned {
     -gtk-icon-source: none; // defeats the ugly default handle decoration
     // using background istead of a border since the border will get rendered twice (?)
     background-image: linear-gradient(to top, $borders_color);
-    background-size: 1px 1px;
+    background-size: $separator_narrow;
 
     &:selected { background-image: linear-gradient(to top, $selected_bg_color); } // FIXME is this needed?
 
@@ -3548,7 +3569,7 @@ paned {
       min-width: 6px;
       min-height: 6px;
       background-image: linear-gradient(to top, $borders_color), linear-gradient(to top, $borders_color);
-      background-size: 1px 1px, 1px 1px;
+      background-size: $separator_wide;
     }
   }
 

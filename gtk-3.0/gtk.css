@@ -90,7 +90,7 @@ iconview text,
 textview text {
   background-color: #FFFFFF;
   color: #263238; }
-  .view:hover, iconview:hover, .view:active, iconview:active, .view:selected, iconview:selected, calendar:selected,
+  .view:hover, iconview:hover, .view:active, iconview:active, .view:selected, iconview:selected,
   .view text:hover,
   iconview text:hover,
   textview text:hover,
@@ -509,7 +509,7 @@ button,
   border-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
-  background-size: 7.5em 7.5em, auto;
+  background-size: 10em 10em, auto;
   font-weight: 500;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
   background-color: #FFFFFF;
@@ -716,7 +716,8 @@ button,
   button.osd.image-button,
   .button.osd.image-button {
     padding: 1.3em;
-    background-color: #2a373e; }
+    background-color: #2a373e;
+    background-size: 3.75em 3.75em, auto; }
     button.osd.image-button:not(:active):not(:disabled):not(hover),
     .button.osd.image-button:not(:active):not(:disabled):not(hover) {
       color: rgba(29, 233, 182, 0.9); }
@@ -736,6 +737,7 @@ button,
   button.suggested-action,
   .button.suggested-action {
     background-color: #FF5252;
+    background-size: 10em 10em, auto;
     color: #FFFFFF; }
     button.suggested-action:disabled,
     .button.suggested-action:disabled {
@@ -788,6 +790,7 @@ button,
   button.destructive-action,
   .button.destructive-action {
     background-color: #FF5252;
+    background-size: 10em 10em, auto;
     color: #FFFFFF; }
     button.destructive-action:disabled,
     .button.destructive-action:disabled {
@@ -907,7 +910,8 @@ button,
     min-height: 2em;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    padding: 0.25em; }
+    padding: 0.25em;
+    background-size: 2.5em 2.5em, auto; }
   .primary-toolbar button, .primary-toolbar
   .button {
     -gtk-icon-shadow: none; }
@@ -1196,6 +1200,7 @@ modelbutton.flat,
   margin-left: 0.75em;
   margin-right: 0.75em;
   outline-offset: -1px;
+  background-size: 10em 10em, auto;
   transition: none; }
   modelbutton.flat check:first-child,
   modelbutton.flat radio:first-child,
@@ -1293,7 +1298,8 @@ spinbutton:not(.vertical), .osd spinbutton:not(.vertical) {
     background: none;
     box-shadow: none;
     color: rgba(38, 50, 56, 0.75);
-    background-color: transparent; }
+    background-color: transparent;
+    background-size: 2.5em 2.5em, auto; }
     spinbutton:not(.vertical) button:not(:last-child):hover, .osd spinbutton:not(.vertical) button:not(:last-child):hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
@@ -1468,6 +1474,7 @@ toolbar {
     .app-notification.frame label, GeditViewFrame .gedit-search-slider label {
       padding: 0 1em; }
   toolbar button {
+    background-size: 10em 10em, auto;
     box-shadow: none;
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 0/0 0 0px;
     color: rgba(38, 50, 56, 0.75); }
@@ -1496,7 +1503,8 @@ toolbar {
       min-width: 1em;
       min-height: 1em;
       border-radius: 100px;
-      -gtk-outline-radius: 100px; }
+      -gtk-outline-radius: 100px;
+      background-size: 2.5em 2.5em, auto; }
   toolbar .linked > button {
     border-radius: 100px;
     -gtk-outline-radius: 100px;
@@ -1575,7 +1583,8 @@ headerbar {
   .titlebar button:not(.suggested-action):not(.destructive-action),
   headerbar button:not(.suggested-action):not(.destructive-action) {
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(#00BCD4), to(transparent)) 0 0 0/0 0 0px;
-    color: rgba(236, 239, 241, 0.75); }
+    color: rgba(236, 239, 241, 0.75);
+    background-size: 10em 10em, auto; }
     .titlebar button:not(.suggested-action):not(.destructive-action):hover,
     headerbar button:not(.suggested-action):not(.destructive-action):hover {
       color: #ECEFF1; }
@@ -1602,7 +1611,8 @@ headerbar {
       .titlebar button:not(.suggested-action):not(.destructive-action).text-button.image-button,
       headerbar button:not(.suggested-action):not(.destructive-action).text-button.image-button {
         border-radius: 100px;
-        -gtk-outline-radius: 100px; }
+        -gtk-outline-radius: 100px;
+        background-size: 3.75em 3.75em, auto; }
   .titlebar .linked > button .image-button,
   headerbar .linked > button .image-button {
     min-width: 2em;
@@ -2345,7 +2355,8 @@ headerbar {
       min-height: 2em;
       margin: 0;
       padding: 0;
-      color: rgba(236, 239, 241, 0.75); }
+      color: rgba(236, 239, 241, 0.75);
+      background-size: 2.5em 2.5em, auto; }
       .titlebar.default-decoration button.titlebutton:hover, .titlebar.default-decoration button.titlebutton:active,
       headerbar.default-decoration button.titlebutton:hover,
       headerbar.default-decoration button.titlebutton:active {
@@ -2492,15 +2503,15 @@ treeview.view, .tweak-category {
     box-shadow: inset 0 -4px alpha(#1DE9B6, 0.2); }
     treeview.view.trough:selected, .trough.tweak-category:selected {
       box-shadow: inset 0 -4px alpha(#FFFFFF, 0.2); }
-  treeview.view, .tweak-category, GtkPaned treeview.view, GtkPaned .tweak-category {
+  treeview.view, .tweak-category, paned treeview.view, paned .tweak-category {
     background-color: #FFFFFF; }
     treeview.view:hover, .tweak-category:hover,
     treeview.view row:hover,
-    .tweak-category row:hover, GtkPaned treeview.view:hover, GtkPaned .tweak-category:hover,
-    GtkPaned treeview.view row:hover,
-    GtkPaned .tweak-category row:hover {
+    .tweak-category row:hover, paned treeview.view:hover, paned .tweak-category:hover,
+    paned treeview.view row:hover,
+    paned .tweak-category row:hover {
       color: #263238; }
-    treeview.view:backdrop, .tweak-category:backdrop, GtkPaned treeview.view:backdrop, GtkPaned .tweak-category:backdrop {
+    treeview.view:backdrop, .tweak-category:backdrop, paned treeview.view:backdrop, paned .tweak-category:backdrop {
       opacity: 0.8; }
   treeview.view header button, .tweak-category header button {
     min-height: 1.5em;
@@ -3112,7 +3123,7 @@ notebook tab {
     min-height: 16px;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    background-size: 30px 30px, auto;
+    background-size: 2.5em 2.5em, auto;
     box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
@@ -4305,7 +4316,7 @@ textview text, treeview.view header button, .tweak-category header button {
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
   background-repeat: no-repeat;
   background-position: center, center;
-  background-size: 240px 240px, auto; }
+  background-size: 20em 20em, auto; }
   row.activatable.has-open-popup, .has-open-popup.view, iconview.has-open-popup,
   .view text.has-open-popup,
   iconview text.has-open-popup,
@@ -4322,7 +4333,7 @@ textview text, treeview.view header button, .tweak-category header button {
     animation: list_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
 row button.image-button {
-  padding: 0.4em;
+  padding: 0.6em;
   background-size: 2.5em 2.5em, auto; }
 
 row:selected button:disabled {
@@ -4452,30 +4463,34 @@ expander arrow {
  * Calendar *
  ***********/
 calendar {
+  padding: 0.4em 0.1em 0.2em;
   border: 1px solid rgba(0, 0, 0, 0.09);
   color: #263238; }
+  calendar:selected {
+    color: #00BCD4; }
   calendar.header {
     border: 1px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.09);
     border-radius: 0; }
-  calendar.button {
+  calendar.button, calendar.header.button {
     box-shadow: none;
     background-color: transparent;
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
-    calendar.button:hover {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    background-size: 2.5em 2.5em, auto; }
+    calendar.button:hover, calendar.header.button:hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
-    calendar.button:active {
+    calendar.button:active, calendar.header.button:active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    calendar.button:disabled {
+    calendar.button:disabled, calendar.header.button:disabled {
       box-shadow: none;
       background-color: transparent; }
   calendar:indeterminate {
-    color: alpha(currentColor, 0.6); }
+    color: alpha(currentColor, 0.55); }
   calendar.highlight {
     font-size: smaller;
-    color: alpha(currentColor, 0.6); }
+    color: alpha(currentColor, 0.55); }
 
 /***********
  * Dialogs *
@@ -4503,7 +4518,7 @@ messagedialog.csd .dialog-action-area .linked > button {
   color: rgba(236, 239, 241, 0.75);
   font-size: initial;
   font-weight: bold;
-  background-size: contain;
+  background-size: 10em 10em, auto;
   box-shadow: none;
   background-color: transparent;
   color: rgba(29, 233, 182, 0.9); }
@@ -4639,8 +4654,6 @@ filechooserbutton:drop(active) {
     #polari-sidebar .view:selected,
     .sidebar iconview:selected,
     #polari-sidebar iconview:selected,
-    .sidebar calendar:selected,
-    #polari-sidebar calendar:selected,
     .sidebar .view text:selected,
     .view .sidebar text:selected,
     #polari-sidebar .view text:selected,
@@ -4672,8 +4685,6 @@ filechooserbutton:drop(active) {
       #polari-sidebar .view:selected label,
       .sidebar iconview:selected label,
       #polari-sidebar iconview:selected label,
-      .sidebar calendar:selected label,
-      #polari-sidebar calendar:selected label,
       .sidebar .view text:selected label,
       .view .sidebar text:selected label,
       #polari-sidebar .view text:selected label,
@@ -4753,7 +4764,6 @@ stacksidebar .tweak-category header button,
   stacksidebar row.activatable:selected,
   stacksidebar .view:selected,
   stacksidebar iconview:selected,
-  stacksidebar calendar:selected,
   stacksidebar .view text:selected,
   .view stacksidebar text:selected,
   stacksidebar iconview text:selected,
@@ -4770,7 +4780,6 @@ stacksidebar .tweak-category header button,
     stacksidebar row.activatable:selected label,
     stacksidebar .view:selected label,
     stacksidebar iconview:selected label,
-    stacksidebar calendar:selected label,
     stacksidebar .view text:selected label,
     .view stacksidebar text:selected label,
     stacksidebar iconview text:selected label,
@@ -6187,7 +6196,7 @@ headerbar button.titlebutton, headerbar.selection-mode button.titlebutton,
   min-height: 2em;
   padding: 0; }
 
-.view:selected, iconview:selected, calendar:selected, .view:selected:focus, iconview:selected:focus, calendar:focus:selected,
+.view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus,
 .view text:selected,
 iconview text:selected,
 textview text:selected,
@@ -6202,13 +6211,13 @@ label selection:focus, entry selection, spinbutton:not(.vertical) selection, .os
 .entry:selected, treeview
 .entry.flat:focus:selected, treeview .linked > entry:focus:selected:not(.flat), treeview .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:focus:selected:not(.flat), treetiew spinbutton entry:focus:selected, treetiew spinbutton spinbutton:focus:selected:not(.vertical), treeview.view:selected, .tweak-category:selected,
 treeview.view row:selected,
-.tweak-category row:selected, GtkPaned treeview.view:selected, GtkPaned .tweak-category:selected,
-GtkPaned treeview.view row:selected,
-GtkPaned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, #polari-sidebar treeview.view:selected, .sidebar .tweak-category:selected, #polari-sidebar .tweak-category:selected,
+.tweak-category row:selected, paned treeview.view:selected, paned .tweak-category:selected,
+paned treeview.view row:selected,
+paned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, #polari-sidebar treeview.view:selected, .sidebar .tweak-category:selected, #polari-sidebar .tweak-category:selected,
 .sidebar treeview.view row:selected,
 #polari-sidebar treeview.view row:selected,
 .sidebar .tweak-category row:selected,
-#polari-sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView calendar:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView calendar:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected, GdMainView .view calendar:hover:selected, GdMainView iconview calendar:hover:selected,
+#polari-sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected,
 GdMainView .view text:hover:selected,
 GdMainView iconview .view text:hover:selected,
 .view GdMainView iconview text:hover:selected,
@@ -6218,7 +6227,7 @@ GdMainView iconview text:hover:selected,
 GdMainView .view textview text:hover:selected,
 textview GdMainView .view text:hover:selected,
 GdMainView iconview textview text:hover:selected,
-textview GdMainView iconview text:hover:selected, GdMainView treeview.view header button:hover:selected, GdMainView iconview treeview.view header button:hover:selected, treeview.view header GdMainView iconview button:hover:selected, GdMainView .view .tweak-category header button:hover:selected, .tweak-category header GdMainView .view button:hover:selected, GdMainView iconview .tweak-category header button:hover:selected, .tweak-category header GdMainView iconview button:hover:selected, GdMainView .view row.activatable:selected, GdMainView iconview row.activatable:selected, GdMainView .view .view:selected, GdMainView iconview .view:selected, GdMainView .view iconview:selected, GdMainView iconview iconview:selected, GdMainView .view calendar:selected, GdMainView iconview calendar:selected,
+textview GdMainView iconview text:hover:selected, GdMainView treeview.view header button:hover:selected, GdMainView iconview treeview.view header button:hover:selected, treeview.view header GdMainView iconview button:hover:selected, GdMainView .view .tweak-category header button:hover:selected, .tweak-category header GdMainView .view button:hover:selected, GdMainView iconview .tweak-category header button:hover:selected, .tweak-category header GdMainView iconview button:hover:selected, GdMainView .view row.activatable:selected, GdMainView iconview row.activatable:selected, GdMainView .view .view:selected, GdMainView iconview .view:selected, GdMainView .view iconview:selected, GdMainView iconview iconview:selected,
 GdMainView .view text:selected,
 GdMainView iconview .view text:selected,
 .view GdMainView iconview text:selected,
@@ -6231,18 +6240,14 @@ GdMainView iconview textview text:selected,
 textview GdMainView iconview text:selected, GdMainView treeview.view header button:selected, GdMainView iconview treeview.view header button:selected, treeview.view header GdMainView iconview button:selected, GdMainView .view .tweak-category header button:selected, .tweak-category header GdMainView .view button:selected, GdMainView iconview .tweak-category header button:selected, .tweak-category header GdMainView iconview button:selected,
 .side-panel .view:hover:selected,
 .side-panel iconview:hover:selected,
-.side-panel calendar:hover:selected,
 .side-panel .view:selected,
 .side-panel iconview:selected,
-.side-panel calendar:selected,
 .side-panel .view row.activatable:hover:selected,
 .side-panel iconview row.activatable:hover:selected,
 .side-panel .view .view:hover:selected,
 .side-panel iconview .view:hover:selected,
 .side-panel .view iconview:hover:selected,
 .side-panel iconview iconview:hover:selected,
-.side-panel .view calendar:hover:selected,
-.side-panel iconview calendar:hover:selected,
 .side-panel .view text:hover:selected,
 .side-panel iconview .view text:hover:selected,
 .view .side-panel iconview text:hover:selected,
@@ -6266,8 +6271,6 @@ treeview.view header .side-panel iconview button:hover:selected,
 .side-panel iconview .view:selected,
 .side-panel .view iconview:selected,
 .side-panel iconview iconview:selected,
-.side-panel .view calendar:selected,
-.side-panel iconview calendar:selected,
 .side-panel .view text:selected,
 .side-panel iconview .view text:selected,
 .view .side-panel iconview text:selected,
@@ -6286,7 +6289,7 @@ treeview.view header .side-panel iconview button:selected,
 .side-panel iconview .tweak-category header button:selected,
 .tweak-category header .side-panel iconview button:selected {
   background-color: #00BCD4; }
-  label:selected, row:selected label, .view:selected, iconview:selected, calendar:selected, .view:selected:focus, iconview:selected:focus, calendar:focus:selected,
+  label:selected, row:selected label, .view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus,
   .view text:selected,
   iconview text:selected,
   textview text:selected,
@@ -6301,13 +6304,13 @@ treeview.view header .side-panel iconview button:selected,
   .entry:selected, treeview
   .entry.flat:focus:selected, treeview .linked > entry:focus:selected:not(.flat), treeview .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:focus:selected:not(.flat), treetiew spinbutton entry:focus:selected, treetiew spinbutton spinbutton:focus:selected:not(.vertical), treeview.view:selected, .tweak-category:selected,
   treeview.view row:selected,
-  .tweak-category row:selected, GtkPaned treeview.view:selected, GtkPaned .tweak-category:selected,
-  GtkPaned treeview.view row:selected,
-  GtkPaned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, #polari-sidebar treeview.view:selected, .sidebar .tweak-category:selected, #polari-sidebar .tweak-category:selected,
+  .tweak-category row:selected, paned treeview.view:selected, paned .tweak-category:selected,
+  paned treeview.view row:selected,
+  paned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, #polari-sidebar treeview.view:selected, .sidebar .tweak-category:selected, #polari-sidebar .tweak-category:selected,
   .sidebar treeview.view row:selected,
   #polari-sidebar treeview.view row:selected,
   .sidebar .tweak-category row:selected,
-  #polari-sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView calendar:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView calendar:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected, GdMainView .view calendar:hover:selected, GdMainView iconview calendar:hover:selected,
+  #polari-sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected,
   GdMainView .view text:hover:selected,
   GdMainView iconview .view text:hover:selected,
   .view GdMainView iconview text:hover:selected,
@@ -6317,7 +6320,7 @@ treeview.view header .side-panel iconview button:selected,
   GdMainView .view textview text:hover:selected,
   textview GdMainView .view text:hover:selected,
   GdMainView iconview textview text:hover:selected,
-  textview GdMainView iconview text:hover:selected, GdMainView treeview.view header button:hover:selected, GdMainView iconview treeview.view header button:hover:selected, treeview.view header GdMainView iconview button:hover:selected, GdMainView .view .tweak-category header button:hover:selected, .tweak-category header GdMainView .view button:hover:selected, GdMainView iconview .tweak-category header button:hover:selected, .tweak-category header GdMainView iconview button:hover:selected, GdMainView .view row.activatable:selected, GdMainView iconview row.activatable:selected, GdMainView .view .view:selected, GdMainView iconview .view:selected, GdMainView .view iconview:selected, GdMainView iconview iconview:selected, GdMainView .view calendar:selected, GdMainView iconview calendar:selected,
+  textview GdMainView iconview text:hover:selected, GdMainView treeview.view header button:hover:selected, GdMainView iconview treeview.view header button:hover:selected, treeview.view header GdMainView iconview button:hover:selected, GdMainView .view .tweak-category header button:hover:selected, .tweak-category header GdMainView .view button:hover:selected, GdMainView iconview .tweak-category header button:hover:selected, .tweak-category header GdMainView iconview button:hover:selected, GdMainView .view row.activatable:selected, GdMainView iconview row.activatable:selected, GdMainView .view .view:selected, GdMainView iconview .view:selected, GdMainView .view iconview:selected, GdMainView iconview iconview:selected,
   GdMainView .view text:selected,
   GdMainView iconview .view text:selected,
   .view GdMainView iconview text:selected,
@@ -6330,18 +6333,14 @@ treeview.view header .side-panel iconview button:selected,
   textview GdMainView iconview text:selected, GdMainView treeview.view header button:selected, GdMainView iconview treeview.view header button:selected, treeview.view header GdMainView iconview button:selected, GdMainView .view .tweak-category header button:selected, .tweak-category header GdMainView .view button:selected, GdMainView iconview .tweak-category header button:selected, .tweak-category header GdMainView iconview button:selected,
   .side-panel .view:hover:selected,
   .side-panel iconview:hover:selected,
-  .side-panel calendar:hover:selected,
   .side-panel .view:selected,
   .side-panel iconview:selected,
-  .side-panel calendar:selected,
   .side-panel .view row.activatable:hover:selected,
   .side-panel iconview row.activatable:hover:selected,
   .side-panel .view .view:hover:selected,
   .side-panel iconview .view:hover:selected,
   .side-panel .view iconview:hover:selected,
   .side-panel iconview iconview:hover:selected,
-  .side-panel .view calendar:hover:selected,
-  .side-panel iconview calendar:hover:selected,
   .side-panel .view text:hover:selected,
   .side-panel iconview .view text:hover:selected,
   .view .side-panel iconview text:hover:selected,
@@ -6365,8 +6364,6 @@ treeview.view header .side-panel iconview button:selected,
   .side-panel iconview .view:selected,
   .side-panel .view iconview:selected,
   .side-panel iconview iconview:selected,
-  .side-panel .view calendar:selected,
-  .side-panel iconview calendar:selected,
   .side-panel .view text:selected,
   .side-panel iconview .view text:selected,
   .view .side-panel iconview text:selected,
@@ -6386,7 +6383,7 @@ treeview.view header .side-panel iconview button:selected,
   .tweak-category header .side-panel iconview button:selected {
     color: #FFFFFF;
     outline-color: rgba(255, 255, 255, 0.75); }
-    label:disabled:selected, row:selected label:disabled, .view:disabled:selected, iconview:disabled:selected, calendar:disabled:selected, .view:disabled:selected:focus, iconview:disabled:selected:focus, calendar:disabled:focus:selected,
+    label:disabled:selected, row:selected label:disabled, .view:disabled:selected, iconview:disabled:selected, .view:disabled:selected:focus, iconview:disabled:selected:focus,
     .view text:disabled:selected,
     iconview text:disabled:selected,
     textview text:disabled:selected,
@@ -6401,18 +6398,18 @@ treeview.view header .side-panel iconview button:selected,
     .entry:disabled:selected, treeview
     .entry.flat:disabled:focus:selected, treeview .linked > entry:disabled:focus:selected:not(.flat), treeview .linked > spinbutton:disabled:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:disabled:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:disabled:focus:selected:not(.flat), treetiew spinbutton entry:disabled:focus:selected, treetiew spinbutton spinbutton:disabled:focus:selected:not(.vertical), treeview.view:disabled:selected, .tweak-category:disabled:selected,
     treeview.view row:disabled:selected,
-    .tweak-category row:disabled:selected, GtkPaned treeview.view:disabled:selected, GtkPaned .tweak-category:disabled:selected,
-    GtkPaned treeview.view row:disabled:selected,
-    GtkPaned .tweak-category row:disabled:selected, row:disabled:selected, .sidebar treeview.view:disabled:selected, #polari-sidebar treeview.view:disabled:selected, .sidebar .tweak-category:disabled:selected, #polari-sidebar .tweak-category:disabled:selected,
+    .tweak-category row:disabled:selected, paned treeview.view:disabled:selected, paned .tweak-category:disabled:selected,
+    paned treeview.view row:disabled:selected,
+    paned .tweak-category row:disabled:selected, row:disabled:selected, .sidebar treeview.view:disabled:selected, #polari-sidebar treeview.view:disabled:selected, .sidebar .tweak-category:disabled:selected, #polari-sidebar .tweak-category:disabled:selected,
     .sidebar treeview.view row:disabled:selected,
     #polari-sidebar treeview.view row:disabled:selected,
     .sidebar .tweak-category row:disabled:selected,
-    #polari-sidebar .tweak-category row:disabled:selected, placessidebar row:selected:disabled label, GdMainView .view:disabled:hover:selected, GdMainView iconview:disabled:hover:selected, GdMainView calendar:disabled:hover:selected, GdMainView .view:disabled:selected, GdMainView iconview:disabled:selected, GdMainView calendar:disabled:selected, GdMainView .view row.activatable:disabled:hover:selected, GdMainView iconview row.activatable:disabled:hover:selected, GdMainView .view .view:disabled:hover:selected, GdMainView iconview .view:disabled:hover:selected, GdMainView .view iconview:disabled:hover:selected, GdMainView iconview iconview:disabled:hover:selected, GdMainView .view calendar:disabled:hover:selected, GdMainView iconview calendar:disabled:hover:selected,
+    #polari-sidebar .tweak-category row:disabled:selected, placessidebar row:selected:disabled label, GdMainView .view:disabled:hover:selected, GdMainView iconview:disabled:hover:selected, GdMainView .view:disabled:selected, GdMainView iconview:disabled:selected, GdMainView .view row.activatable:disabled:hover:selected, GdMainView iconview row.activatable:disabled:hover:selected, GdMainView .view .view:disabled:hover:selected, GdMainView iconview .view:disabled:hover:selected, GdMainView .view iconview:disabled:hover:selected, GdMainView iconview iconview:disabled:hover:selected,
     GdMainView .view text:disabled:hover:selected,
     .view GdMainView iconview text:disabled:hover:selected,
     GdMainView iconview text:disabled:hover:selected,
     GdMainView iconview textview text:disabled:hover:selected,
-    textview GdMainView iconview text:disabled:hover:selected, GdMainView treeview.view header button:disabled:hover:selected, treeview.view header GdMainView iconview button:disabled:hover:selected, GdMainView .view .tweak-category header button:disabled:hover:selected, .tweak-category header GdMainView .view button:disabled:hover:selected, GdMainView iconview .tweak-category header button:disabled:hover:selected, .tweak-category header GdMainView iconview button:disabled:hover:selected, GdMainView .view row.activatable:disabled:selected, GdMainView iconview row.activatable:disabled:selected, GdMainView .view .view:disabled:selected, GdMainView iconview .view:disabled:selected, GdMainView .view iconview:disabled:selected, GdMainView iconview iconview:disabled:selected, GdMainView .view calendar:disabled:selected, GdMainView iconview calendar:disabled:selected,
+    textview GdMainView iconview text:disabled:hover:selected, GdMainView treeview.view header button:disabled:hover:selected, treeview.view header GdMainView iconview button:disabled:hover:selected, GdMainView .view .tweak-category header button:disabled:hover:selected, .tweak-category header GdMainView .view button:disabled:hover:selected, GdMainView iconview .tweak-category header button:disabled:hover:selected, .tweak-category header GdMainView iconview button:disabled:hover:selected, GdMainView .view row.activatable:disabled:selected, GdMainView iconview row.activatable:disabled:selected, GdMainView .view .view:disabled:selected, GdMainView iconview .view:disabled:selected, GdMainView .view iconview:disabled:selected, GdMainView iconview iconview:disabled:selected,
     GdMainView .view text:disabled:selected,
     .view GdMainView iconview text:disabled:selected,
     GdMainView iconview text:disabled:selected,
@@ -6420,18 +6417,14 @@ treeview.view header .side-panel iconview button:selected,
     textview GdMainView iconview text:disabled:selected, GdMainView treeview.view header button:disabled:selected, treeview.view header GdMainView iconview button:disabled:selected, GdMainView .view .tweak-category header button:disabled:selected, .tweak-category header GdMainView .view button:disabled:selected, GdMainView iconview .tweak-category header button:disabled:selected, .tweak-category header GdMainView iconview button:disabled:selected,
     .side-panel .view:disabled:hover:selected,
     .side-panel iconview:disabled:hover:selected,
-    .side-panel calendar:disabled:hover:selected,
     .side-panel .view:disabled:selected,
     .side-panel iconview:disabled:selected,
-    .side-panel calendar:disabled:selected,
     .side-panel .view row.activatable:disabled:hover:selected,
     .side-panel iconview row.activatable:disabled:hover:selected,
     .side-panel .view .view:disabled:hover:selected,
     .side-panel iconview .view:disabled:hover:selected,
     .side-panel .view iconview:disabled:hover:selected,
     .side-panel iconview iconview:disabled:hover:selected,
-    .side-panel .view calendar:disabled:hover:selected,
-    .side-panel iconview calendar:disabled:hover:selected,
     .side-panel .view text:disabled:hover:selected,
     .view .side-panel iconview text:disabled:hover:selected,
     .side-panel iconview text:disabled:hover:selected,
@@ -6449,8 +6442,6 @@ treeview.view header .side-panel iconview button:selected,
     .side-panel iconview .view:disabled:selected,
     .side-panel .view iconview:disabled:selected,
     .side-panel iconview iconview:disabled:selected,
-    .side-panel .view calendar:disabled:selected,
-    .side-panel iconview calendar:disabled:selected,
     .side-panel .view text:disabled:selected,
     .view .side-panel iconview text:disabled:selected,
     .side-panel iconview text:disabled:selected,
@@ -6463,7 +6454,7 @@ treeview.view header .side-panel iconview button:selected,
     .side-panel iconview .tweak-category header button:disabled:selected,
     .tweak-category header .side-panel iconview button:disabled:selected {
       color: rgba(255, 255, 255, 0.4); }
-    label:backdrop:disabled:selected, row:selected label:backdrop:disabled, .view:backdrop:disabled:selected, iconview:backdrop:disabled:selected, calendar:backdrop:disabled:selected, .view:backdrop:disabled:selected:focus, iconview:backdrop:disabled:selected:focus, calendar:backdrop:disabled:focus:selected,
+    label:backdrop:disabled:selected, row:selected label:backdrop:disabled, .view:backdrop:disabled:selected, iconview:backdrop:disabled:selected, .view:backdrop:disabled:selected:focus, iconview:backdrop:disabled:selected:focus,
     .view text:backdrop:disabled:selected,
     iconview text:backdrop:disabled:selected,
     textview text:backdrop:disabled:selected,
@@ -6478,31 +6469,27 @@ treeview.view header .side-panel iconview button:selected,
     .entry:backdrop:disabled:selected, treeview
     .entry.flat:backdrop:disabled:focus:selected, treeview .linked > entry:backdrop:disabled:focus:selected:not(.flat), treeview .linked > spinbutton:backdrop:disabled:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:backdrop:disabled:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:backdrop:disabled:focus:selected:not(.flat), treetiew spinbutton entry:backdrop:disabled:focus:selected, treetiew spinbutton spinbutton:backdrop:disabled:focus:selected:not(.vertical), treeview.view:backdrop:disabled:selected, .tweak-category:backdrop:disabled:selected,
     treeview.view row:backdrop:disabled:selected,
-    .tweak-category row:backdrop:disabled:selected, GtkPaned treeview.view:backdrop:disabled:selected, GtkPaned .tweak-category:backdrop:disabled:selected,
-    GtkPaned treeview.view row:backdrop:disabled:selected,
-    GtkPaned .tweak-category row:backdrop:disabled:selected, row:backdrop:disabled:selected, .sidebar treeview.view:backdrop:disabled:selected, #polari-sidebar treeview.view:backdrop:disabled:selected, .sidebar .tweak-category:backdrop:disabled:selected, #polari-sidebar .tweak-category:backdrop:disabled:selected,
+    .tweak-category row:backdrop:disabled:selected, paned treeview.view:backdrop:disabled:selected, paned .tweak-category:backdrop:disabled:selected,
+    paned treeview.view row:backdrop:disabled:selected,
+    paned .tweak-category row:backdrop:disabled:selected, row:backdrop:disabled:selected, .sidebar treeview.view:backdrop:disabled:selected, #polari-sidebar treeview.view:backdrop:disabled:selected, .sidebar .tweak-category:backdrop:disabled:selected, #polari-sidebar .tweak-category:backdrop:disabled:selected,
     .sidebar treeview.view row:backdrop:disabled:selected,
     #polari-sidebar treeview.view row:backdrop:disabled:selected,
     .sidebar .tweak-category row:backdrop:disabled:selected,
-    #polari-sidebar .tweak-category row:backdrop:disabled:selected, placessidebar row:selected:disabled label:backdrop, GdMainView .view:backdrop:disabled:hover:selected, GdMainView iconview:backdrop:disabled:hover:selected, GdMainView calendar:backdrop:disabled:hover:selected, GdMainView .view:backdrop:disabled:selected, GdMainView iconview:backdrop:disabled:selected, GdMainView calendar:backdrop:disabled:selected, GdMainView .view row.activatable:backdrop:disabled:hover:selected, GdMainView iconview row.activatable:backdrop:disabled:hover:selected, GdMainView .view .view:backdrop:disabled:hover:selected, GdMainView iconview .view:backdrop:disabled:hover:selected, GdMainView .view iconview:backdrop:disabled:hover:selected, GdMainView iconview iconview:backdrop:disabled:hover:selected, GdMainView .view calendar:backdrop:disabled:hover:selected, GdMainView iconview calendar:backdrop:disabled:hover:selected,
+    #polari-sidebar .tweak-category row:backdrop:disabled:selected, placessidebar row:selected:disabled label:backdrop, GdMainView .view:backdrop:disabled:hover:selected, GdMainView iconview:backdrop:disabled:hover:selected, GdMainView .view:backdrop:disabled:selected, GdMainView iconview:backdrop:disabled:selected, GdMainView .view row.activatable:backdrop:disabled:hover:selected, GdMainView iconview row.activatable:backdrop:disabled:hover:selected, GdMainView .view .view:backdrop:disabled:hover:selected, GdMainView iconview .view:backdrop:disabled:hover:selected, GdMainView .view iconview:backdrop:disabled:hover:selected, GdMainView iconview iconview:backdrop:disabled:hover:selected,
     GdMainView .view text:backdrop:disabled:hover:selected,
-    GdMainView iconview text:backdrop:disabled:hover:selected, GdMainView treeview.view header button:backdrop:disabled:hover:selected, treeview.view header GdMainView iconview button:backdrop:disabled:hover:selected, GdMainView .view .tweak-category header button:backdrop:disabled:hover:selected, .tweak-category header GdMainView .view button:backdrop:disabled:hover:selected, GdMainView iconview .tweak-category header button:backdrop:disabled:hover:selected, .tweak-category header GdMainView iconview button:backdrop:disabled:hover:selected, GdMainView .view row.activatable:backdrop:disabled:selected, GdMainView iconview row.activatable:backdrop:disabled:selected, GdMainView .view .view:backdrop:disabled:selected, GdMainView iconview .view:backdrop:disabled:selected, GdMainView .view iconview:backdrop:disabled:selected, GdMainView iconview iconview:backdrop:disabled:selected, GdMainView .view calendar:backdrop:disabled:selected, GdMainView iconview calendar:backdrop:disabled:selected,
+    GdMainView iconview text:backdrop:disabled:hover:selected, GdMainView treeview.view header button:backdrop:disabled:hover:selected, treeview.view header GdMainView iconview button:backdrop:disabled:hover:selected, GdMainView .view .tweak-category header button:backdrop:disabled:hover:selected, .tweak-category header GdMainView .view button:backdrop:disabled:hover:selected, GdMainView iconview .tweak-category header button:backdrop:disabled:hover:selected, .tweak-category header GdMainView iconview button:backdrop:disabled:hover:selected, GdMainView .view row.activatable:backdrop:disabled:selected, GdMainView iconview row.activatable:backdrop:disabled:selected, GdMainView .view .view:backdrop:disabled:selected, GdMainView iconview .view:backdrop:disabled:selected, GdMainView .view iconview:backdrop:disabled:selected, GdMainView iconview iconview:backdrop:disabled:selected,
     GdMainView .view text:backdrop:disabled:selected,
     GdMainView iconview text:backdrop:disabled:selected, GdMainView treeview.view header button:backdrop:disabled:selected, treeview.view header GdMainView iconview button:backdrop:disabled:selected, GdMainView .view .tweak-category header button:backdrop:disabled:selected, .tweak-category header GdMainView .view button:backdrop:disabled:selected, GdMainView iconview .tweak-category header button:backdrop:disabled:selected, .tweak-category header GdMainView iconview button:backdrop:disabled:selected,
     .side-panel .view:backdrop:disabled:hover:selected,
     .side-panel iconview:backdrop:disabled:hover:selected,
-    .side-panel calendar:backdrop:disabled:hover:selected,
     .side-panel .view:backdrop:disabled:selected,
     .side-panel iconview:backdrop:disabled:selected,
-    .side-panel calendar:backdrop:disabled:selected,
     .side-panel .view row.activatable:backdrop:disabled:hover:selected,
     .side-panel iconview row.activatable:backdrop:disabled:hover:selected,
     .side-panel .view .view:backdrop:disabled:hover:selected,
     .side-panel iconview .view:backdrop:disabled:hover:selected,
     .side-panel .view iconview:backdrop:disabled:hover:selected,
     .side-panel iconview iconview:backdrop:disabled:hover:selected,
-    .side-panel .view calendar:backdrop:disabled:hover:selected,
-    .side-panel iconview calendar:backdrop:disabled:hover:selected,
     .side-panel .view text:backdrop:disabled:hover:selected,
     .side-panel iconview text:backdrop:disabled:hover:selected,
     .side-panel treeview.view header button:backdrop:disabled:hover:selected,
@@ -6517,8 +6504,6 @@ treeview.view header .side-panel iconview button:selected,
     .side-panel iconview .view:backdrop:disabled:selected,
     .side-panel .view iconview:backdrop:disabled:selected,
     .side-panel iconview iconview:backdrop:disabled:selected,
-    .side-panel .view calendar:backdrop:disabled:selected,
-    .side-panel iconview calendar:backdrop:disabled:selected,
     .side-panel .view text:backdrop:disabled:selected,
     .side-panel iconview text:backdrop:disabled:selected,
     .side-panel treeview.view header button:backdrop:disabled:selected,
@@ -7132,7 +7117,7 @@ textview ContactsWindow list text, ContactsWindow list treeview.view header butt
   ContactsWindow list textview text:hover,
   textview ContactsWindow list text:hover, ContactsWindow list treeview.view header button:hover, treeview.view header ContactsWindow list button:hover, ContactsWindow list .tweak-category header button:hover, .tweak-category header ContactsWindow list button:hover {
     color: #263238; }
-  ContactsWindow list row.activatable:selected, ContactsWindow list .view:selected, ContactsWindow list iconview:selected, ContactsWindow list calendar:selected,
+  ContactsWindow list row.activatable:selected, ContactsWindow list .view:selected, ContactsWindow list iconview:selected,
   ContactsWindow list .view text:selected,
   .view ContactsWindow list text:selected,
   ContactsWindow list iconview text:selected,
