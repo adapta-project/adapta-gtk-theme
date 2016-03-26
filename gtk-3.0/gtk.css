@@ -482,6 +482,11 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
   entry image:disabled, spinbutton:not(.vertical) image:disabled,
   .entry image:disabled {
     color: alpha(currentColor, 0.55); }
+  entry:drop(active):focus, spinbutton:drop(active):focus:not(.vertical), entry:drop(active), spinbutton:drop(active):not(.vertical),
+  .entry:drop(active):focus,
+  .entry:drop(active) {
+    border-color: #1DE9B6;
+    box-shadow: inset 0 0 0 1px #1DE9B6; }
   treeview entry, treeview spinbutton:not(.vertical), treeview .osd spinbutton:not(.vertical), .osd treeview spinbutton:not(.vertical), treeview entry.flat:focus, treeview spinbutton.flat:focus:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus, treeview notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), treeview .osd notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), treeview
   .entry, treeview
   .entry.flat:focus, treeview .linked > entry:focus:not(.flat), treeview .linked > spinbutton:focus:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:focus:not(.flat):not(.vertical), treeview .linked > .entry:focus:not(.flat) {
@@ -863,6 +868,14 @@ button,
     .button.text-button.image-button image {
       padding-left: 0.3em;
       padding-right: 0.3em; }
+    button.text-button.image-button:drop(active), combobox:drop(active) button.text-button.image-button.combo,
+    .button.text-button.image-button:drop(active),
+    GtkScaleButton combobox:drop(active) button.button.image-button.text-button.combo,
+    combobox:drop(active) GtkScaleButton button.button.image-button.text-button.combo,
+    GtkVolumeButton combobox:drop(active) button.button.image-button.text-button.combo,
+    combobox:drop(active) GtkVolumeButton button.button.image-button.text-button.combo {
+      color: #1DE9B6;
+      background-color: rgba(29, 233, 182, 0.2); }
   button separator,
   button .separator,
   .button separator,
@@ -5040,6 +5053,12 @@ placessidebar row {
     border: solid 1px #00BCD4; }
   placessidebar row.sidebar-new-bookmark-row {
     color: #00BCD4; }
+  placessidebar row:drop(active):not(:disabled) {
+    color: #1DE9B6;
+    box-shadow: inset 0 1px #1DE9B6, inset 0 -1px #1DE9B6; }
+    placessidebar row:drop(active):not(:disabled):selected {
+      color: #FFFFFF;
+      background-color: #1DE9B6; }
 
 placesview row.activatable:hover, placesview .view:hover, placesview iconview:hover,
 placesview .view text:hover,
@@ -6757,13 +6776,14 @@ button.circular label {
 
 *:drop(active):focus,
 *:drop(active) {
-  border: 1px solid #00BCD4; }
+  border-color: #1DE9B6;
+  box-shadow: inset 0 0 0 1px #1DE9B6; }
 
-stackswitcher button.text-button {
-  min-width: 100px; }
-
-stackswitcher button.circular {
-  min-width: 0; }
+stackswitcher button.circular,
+stackswitcher button.text-button.circular {
+  min-width: 2.8em;
+  min-height: 2.8em;
+  padding: 0; }
 
 /***************
  * Gnome panel *

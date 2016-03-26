@@ -308,8 +308,10 @@ entry,
     &:disabled { color: gtkalpha(currentColor, 0.55); }
   }
 
-  &:drop(active) { // FIXME: new feature
+  &:drop(active) {
     &:focus, & {
+      border-color: $drop_target_color;
+      box-shadow: inset 0 0 0 1px $drop_target_color;
     }
   }
 
@@ -477,7 +479,9 @@ button,
       padding-right: 0.3em;
     }
 
-    &:drop(active) { // FIXME: new feature
+    &:drop(active) {
+      color: $drop_target_color;
+      background-color: $drop_target_fill_color;
     }
   }
 
@@ -990,7 +994,8 @@ combobox {
     }
   }
 
-  &:drop(active) { // FIXME: new feature
+  &:drop(active) {
+    button.combo { @extend button:drop(active); }
   }
 
   & menu { padding: 2px 0; }
@@ -3541,6 +3546,17 @@ placessidebar {
     &.sidebar-new-bookmark-row {
       color: $selected_bg_color;
     }
+
+    &:drop(active):not(:disabled) {
+      color: $drop_target_color;
+      box-shadow: inset 0 1px $drop_target_color,
+                  inset 0 -1px $drop_target_color;
+
+      &:selected {
+        color: $selected_fg_color;
+        background-color: $drop_target_color;
+      }
+    }
   }
 }
 
@@ -4144,12 +4160,19 @@ button.circular label { padding: 0; }
 frame.keycap {
 }
 
+// FIXME: needs to be done widget by widget,
+// this wildcard should really die
 *:drop(active):focus,
 *:drop(active) {
-  border: 1px solid $selected_bg_color;
+  border-color: $drop_target_color;
+  box-shadow: inset 0 0 0 1px $drop_target_color;
 }
 
-stackswitcher button.text-button { min-width: 100px; }
-
-stackswitcher button.circular { min-width: 0; }
+// FIXME: aggregate with buttons
+stackswitcher button.circular,
+stackswitcher button.text-button.circular {
+  min-width: 2.8em;
+  min-height: 2.8em;
+  padding: 0;
+}
 
