@@ -25,10 +25,10 @@ Supported Desktop Environments
   * metacity >= 3.18.1
   * gnome-panel >= 3.18.1
 * budgie-desktop 10.2.4
+* Cinnamon 2.8.x
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
-* Cinnamon
 * Mate
 * XFce4
 * Pantheon
@@ -50,10 +50,10 @@ Installation
 Work in Progress
 ----------------
 * Conversion to Gtk+ 3.20 or git master
+* Cinnamon 2.8 desktop integration
 
 TODO
 ----
-* Add Cinnamon 2.8 theme styling (regardless)
 
 Public License
 --------------
