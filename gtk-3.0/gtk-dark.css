@@ -1631,14 +1631,19 @@ headerbar {
       -gtk-outline-radius: 2px; }
       .titlebar button:not(.suggested-action):not(.destructive-action).text-button.image-button,
       headerbar button:not(.suggested-action):not(.destructive-action).text-button.image-button {
-        border-radius: 100px;
-        -gtk-outline-radius: 100px;
-        background-size: 3.75em 3.75em, auto; }
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
+        background-size: 10em 10em, auto; }
   .titlebar .linked > button.image-button,
   headerbar .linked > button.image-button {
     min-width: 1.3em;
     min-height: 2.8em;
     padding: 0 0.6em 0; }
+  .titlebar button.toggle,
+  headerbar button.toggle {
+    min-width: 1.3em;
+    min-height: 2.8em;
+    padding: 0 0.75em 0; }
   .titlebar button,
   .titlebar .linked > button,
   .titlebar button.suggested-action,
