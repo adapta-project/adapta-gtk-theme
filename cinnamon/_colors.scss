@@ -7,7 +7,7 @@
 //
 // Foreground colors
 //
-$fg_color: if($variant=='light', #263238, #ECEFF1);
+$fg_color: #ECEFF1;
 $secondary_fg_color: scale-color($fg_color, $alpha: -25%);
 
 $dim_fg_color: scale-color($fg_color, $alpha: -60%);
@@ -28,9 +28,8 @@ $inverted_dim_fg_color: scale-color($inverted_fg_color, $alpha: -60%);
 //
 // Background colors
 //
-$bg_color: if($variant=='light', mix(#FFFFFF, #ECEFF1, 75%),
-                                 mix(#455A64, #37474F, 50%));
-$base_color: if($variant=='light', #FFFFFF, #455A64);
+$bg_color: #3E515A;
+$base_color: #455A64;
 
 $fill_color: scale-color($fg_color, $alpha: -85%);
 $semi_fill_color: scale-color($fg_color, $alpha: -93%);
@@ -62,8 +61,7 @@ $accent_active_fill_color: scale-color($accent_color, $alpha: -75%);
 //
 // Misc colors
 //
-$borders_color: if($variant=='light', scale-color(#000000, $alpha: -91%),
-                                      scale-color(#000000, $alpha: -89%));
+$borders_color: scale-color(#000000, $alpha: -89%);
 $borders_edge: scale-color(#000000, $alpha: -95%);
 $top_hilight: $borders_edge;
 $borders_highlight: scale-color(#FFFFFF, $alpha: -93%);
