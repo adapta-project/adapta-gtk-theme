@@ -48,7 +48,8 @@ Installation
    * `sudo make install` installs multiple versioned themes,
      and Gtk+ automatically selects proper versioned one when running.
 
-3. Use `gnome-tweak-tool` to change the theme.
+3. Run `gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'` to enable the theme.
+   (`gnome-tweak-tool` can NOT support multiple versioned theme?)
 
 Work in Progress
 ----------------
