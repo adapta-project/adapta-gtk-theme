@@ -26,7 +26,7 @@ Supported Desktop Environments
 * Unity7 7.4.0
 * Cinnamon 2.8.x
 
-  Unity and Cinnamon are under W.I.P state.
+Unity and Cinnamon are under W.I.P state.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
