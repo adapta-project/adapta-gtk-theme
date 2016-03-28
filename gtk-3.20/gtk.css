@@ -5103,8 +5103,8 @@ paned > separator {
   -gtk-icon-source: none;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.09));
   background-size: 1px 1px; }
-  paned > separator:selected {
-    background-image: linear-gradient(to top, #00BCD4); }
+  paned > separator:selected, paned > separator:backdrop {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.09)); }
   paned > separator.wide, button paned > separator,
   button paned > .separator,
   .button paned > separator,
@@ -5116,7 +5116,7 @@ paned > separator {
     padding: 0;
     min-width: 6px;
     min-height: 6px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.09)), linear-gradient(to top, rgba(0, 0, 0, 0.09));
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.045)), linear-gradient(to top, rgba(0, 0, 0, 0.09));
     background-size: 1px 1px, 1px 1px; }
 paned.horizontal > separator {
   background-repeat: repeat-y; }

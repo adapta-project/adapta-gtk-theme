@@ -3613,18 +3613,24 @@ paned {
     color: transparent;
     background-color: transparent;
     -gtk-icon-source: none; // defeats the ugly default handle decoration
-    // using background istead of a border since the border will get rendered twice (?)
+    // using background istead of a border
+    // since the border will get rendered twice (?)
     background-image: linear-gradient(to top, $borders_color);
     background-size: $separator_narrow;
 
-    &:selected { background-image: linear-gradient(to top, $selected_bg_color); } // FIXME is this needed?
+    &:selected,
+    &:backdrop { // FIXME: is this needed?
+      background-image: linear-gradient(to top, $borders_color);
+    }
 
     &.wide {
       margin: 0;
       padding: 0;
       min-width: 6px;
       min-height: 6px;
-      background-image: linear-gradient(to top, $borders_color), linear-gradient(to top, $borders_color);
+      // FIXME: avoid double-border
+      background-image: linear-gradient(to top, gtkopacity($borders_color, 0.5)),
+                        linear-gradient(to top, $borders_color);
       background-size: $separator_wide;
     }
   }
