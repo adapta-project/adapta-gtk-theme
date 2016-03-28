@@ -1931,31 +1931,35 @@ menu {
 
     // submenu indicators
     arrow {
+      min-height: 16px;
+      min-width: 16px;
+
       &:dir(ltr) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
         margin-left: 0.8em;
-        background-color: transparent;
       }
       &:dir(rtl) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl');
         margin-right: 0.8em;
-        background-color: transparent;
       }
     }
   }
 
-  arrow { // overlow buttons
+  > arrow { // overlow buttons
     @extend button.flat;
-    border-style: none;
-    border-radius: 0;
     min-height: 1.2em;
     min-width: 1.2em;
+    padding: 4px;
+    border-style: none;
+    border-radius: 0;
     background-color: $secondary_base_color;
     &.top {
+      margin-top: -0.4em;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
       border-bottom: 1px solid $borders_color;
     }
     &.bottom {
+      margin-bottom: -0.4em;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
       border-top: 1px solid $borders_color;
     }
