@@ -311,7 +311,7 @@ StScrollBar {
   .popup-sub-menu {
     background-gradient-direction: none;
     box-shadow: 0 0 transparent;
-    border-image: url("assets/menu/submenu.svg") 9 9 9 9;
+    border-image: url("assets/menu/submenu.svg") 9 9 0 0;
 
     .popup-menu-item:ltr { padding-right: 0em; }
     .popup-menu-item:rtl { padding-left: 0em; }
@@ -327,11 +327,12 @@ StScrollBar {
   .popup-menu-item {
     padding: 0.4em 1.75em;
     spacing: 1em;
+    color: secondary_fg_color;
 
     &:active {
       color: $fg_color;
       background-color: transparent;
-      border-image: url("assets/menu/menu-hover.svg") 9 9 1 1;
+      border-image: url("assets/menu/menu-hover.svg") 9 9 0 0;
     }
     &:insensitive {
       color: scale-color($fg_color, $alpha: -50%);
@@ -938,8 +939,8 @@ $icon_size: 16px;
   border: none;
   border-radius: 2px;
   padding: 0 5px 6px 5px;
-  color: $fg_color;
-  background-color: transparentize($bg_color, 1);
+  color: $osd_fg_color;
+  background-color: transparentize($osd_bg_color, 0.1);
   border-image: url("assets/misc/modal.svg") 9 9 9 67;
 
   > StBoxLayout:first-child {
@@ -952,7 +953,7 @@ $icon_size: 16px;
     padding: 14px 10px;
     background: none;
     border: none;
-    border-image: url("assets/misc/button-box.svg") 9 9 9 9;
+    // border-image: url("assets/misc/button-box.svg") 9 9 9 9;
 
     .modal-dialog-button {
       padding-top: 0;
@@ -960,6 +961,10 @@ $icon_size: 16px;
       height: 30px;
 
       @extend %osd_button;
+      color: $osd_secondary_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $osd_fg_color; }
     }
   }
 }

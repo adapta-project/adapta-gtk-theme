@@ -284,7 +284,7 @@ StScrollBar {
   .popup-menu .popup-sub-menu {
     background-gradient-direction: none;
     box-shadow: 0 0 transparent;
-    border-image: url("assets/menu/submenu.svg") 9 9 9 9; }
+    border-image: url("assets/menu/submenu.svg") 9 9 0 0; }
     .popup-menu .popup-sub-menu .popup-menu-item:ltr {
       padding-right: 0em; }
     .popup-menu .popup-sub-menu .popup-menu-item:rtl {
@@ -298,11 +298,12 @@ StScrollBar {
     padding: 1em 0em 1em 0em; }
   .popup-menu .popup-menu-item {
     padding: 0.4em 1.75em;
-    spacing: 1em; }
+    spacing: 1em;
+    color: secondary_fg_color; }
     .popup-menu .popup-menu-item:active {
       color: #ECEFF1;
       background-color: transparent;
-      border-image: url("assets/menu/menu-hover.svg") 9 9 1 1; }
+      border-image: url("assets/menu/menu-hover.svg") 9 9 0 0; }
     .popup-menu .popup-menu-item:insensitive {
       color: rgba(236, 239, 241, 0.5);
       background: none; }
@@ -739,7 +740,7 @@ StScrollBar {
   border-radius: 2px;
   padding: 0 5px 6px 5px;
   color: #ECEFF1;
-  background-color: rgba(62, 81, 90, 0);
+  background-color: rgba(42, 55, 62, 0.9);
   border-image: url("assets/misc/modal.svg") 9 9 9 67; }
   .modal-dialog > StBoxLayout:first-child {
     padding: 20px 10px 10px 10px; }
@@ -748,12 +749,14 @@ StScrollBar {
     margin: 0px;
     padding: 14px 10px;
     background: none;
-    border: none;
-    border-image: url("assets/misc/button-box.svg") 9 9 9 9; }
+    border: none; }
     .modal-dialog-button-box .modal-dialog-button {
       padding-top: 0;
       padding-bottom: 0;
-      height: 30px; }
+      height: 30px;
+      color: rgba(236, 239, 241, 0.75); }
+      .modal-dialog-button-box .modal-dialog-button:hover, .modal-dialog-button-box .modal-dialog-button:active, .modal-dialog-button-box .modal-dialog-button:checked {
+        color: #ECEFF1; }
 
 /***************
  * Run Dialogs *
