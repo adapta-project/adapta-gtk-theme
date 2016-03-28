@@ -3,7 +3,8 @@ EXTRA_DIST = \
 	COPYING \
 	gnome-shell \
 	gtk-2.0 \
-	gtk-3.0 \
+	gtk-3.20 \
+	gtk-3.18 \
 	index.theme \
 	metacity-1 \
 	README.md \

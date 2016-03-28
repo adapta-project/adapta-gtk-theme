@@ -1,6 +1,6 @@
 AC_INIT(
 	[Adapta ],
-	3.20,
+	3.20.0,
 	[https://github.com/tista500/Adapta],
 	[adapta-gtk-theme]
 )
@@ -16,8 +16,10 @@ AC_MSG_RESULT([
         Adapta Gtk+ Theme $VERSION
         ========
 
+	supported gtk+ version: 3.20, 3.18
         prefix:                 ${prefix}
         exec_prefix:            ${exec_prefix}
         datarootdir:            ${datarootdir}
 
+	run 'make' and 'sudo make install'
 ])

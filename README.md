@@ -10,22 +10,23 @@ Elements
 
 Required Components
 -------------------
-* Gtk+-3.0 >= 3.20
-* Gtk+-2.0 >= 2.24.30
-* gtk2-engines-pixbuf >= 2.24.30
+Adapta supports Gtk+ 3.20.x (and 3.18.x)
 
-Legacy Gtk+ 3.18.x was moved to https://github.com/tista500/Adapta/tree/3.18.x
+* Gtk+-3.0 >= 3.20 (or 3.18.4)
+* Gtk+-2.0 >= 2.24.30 (or 2.24.29)
+* gtk2-engines-pixbuf >= 2.24.30 (or 2.24.29)
 
 Supported Desktop Environments
 ------------------------------
-* GNOME 3.20
-  * gnome-shell >= 3.19.92
-  * mutter >= 3.19.92
+* GNOME 3.20 (or 3.18)
+  * gnome-shell >= 3.19.92 (or 3.18.4)
+  * mutter >= 3.19.92 (or 3.18.4)
 * GNOME-Flashback 3.18.x
-  * metacity >= 3.18.1
-  * gnome-panel >= 3.18.1
-* budgie-desktop 10.2.4
+* budgie-desktop 10.2.x
+* Unity7 7.4.0
 * Cinnamon 2.8.x
+
+  Unity and Cinnamon are under W.I.P state.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
@@ -44,6 +45,8 @@ Installation
    ```
    * Default prefix is `/usr`
    * `make` actually does nothing (for future release)
+   * `sudo make install` installs multiple versioned themes,
+     and Gtk+ automatically selects proper versioned one when running.
 
 3. Use `gnome-tweak-tool` to change the theme.
 
