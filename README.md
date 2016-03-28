@@ -48,8 +48,15 @@ Installation
    * `sudo make install` installs multiple versioned themes,
      and Gtk+ automatically selects proper versioned one when running.
 
-3. Run `gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'` to enable the theme.
-   (`gnome-tweak-tool` can NOT support multiple versioned theme?)
+3. Run
+   ```
+   gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'
+   gsettings set org.gnome.desktop.wm.preferences theme 'Adapta'
+   ```
+   to enable both Gtk+ and Mutter theme.
+   (`gnome-tweak-tool` can NOT support multiple versioned theme now.
+   But pstream fix will be landed soon:
+   https://git.gnome.org/browse/gnome-tweak-tool/commit/?id=f47ba28fbb2c895a88d4e5ca8b89bc18475a86e9)
 
 Work in Progress
 ----------------
