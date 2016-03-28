@@ -52,8 +52,9 @@ Installation
    ```
    gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'
    gsettings set org.gnome.desktop.wm.preferences theme 'Adapta'
+   gsettings set org.gnome.metacity theme 'Adapta'
    ```
-   to enable both Gtk+ and Mutter theme.
+   to enable Gtk+, Mutter and Metacity theme.
    (`gnome-tweak-tool` can NOT support multiple versioned theme now.
    But pstream fix will be landed soon:
    https://git.gnome.org/browse/gnome-tweak-tool/commit/?id=f47ba28fbb2c895a88d4e5ca8b89bc18475a86e9)
