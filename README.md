@@ -56,7 +56,7 @@ Installation
    ```
    to enable Gtk+, Mutter and Metacity theme.
    (`gnome-tweak-tool` can NOT support multiple versioned theme now.
-   But pstream fix will be landed soon:
+   But upstream fix will be landed soon:
    https://git.gnome.org/browse/gnome-tweak-tool/commit/?id=f47ba28fbb2c895a88d4e5ca8b89bc18475a86e9)
 
 Work in Progress
