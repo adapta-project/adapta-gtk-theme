@@ -3455,8 +3455,10 @@ messagedialog { // Message Dialog styling
   }
 
   entry {
-    color: $inverted_fg_color;
-    caret-color: $inverted_fg_color;
+    &, &:focus {
+      color: $inverted_fg_color;
+      caret-color: $inverted_fg_color;
+    }
   }
 
   &.csd { // rounded bottom border styling for csd version
@@ -3482,9 +3484,6 @@ messagedialog { // Message Dialog styling
 	box-shadow: none;
         // &:first-child { border-bottom-left-radius: 2px; }
         // &:last-child { border-bottom-right-radius: 2px; }
-
-        // labels are not vertically centered on message dialog
-        & > label { padding: 0.7em 8em 0; }
 
         background-color: transparent;
         color: $secondary_accent_color;
