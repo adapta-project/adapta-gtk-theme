@@ -16,13 +16,17 @@
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.05)); }
   to {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.4, to(alpha(currentColor, 0.1)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); } }
+* {
+  transition-property: opacity, border-color, border-image, background-color, background-image, box-shadow, icon-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s; }
+
 /*****************
  * Common States *
  *****************/
 * {
   padding: 0;
   background-clip: padding-box;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0;
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: #F44336;
   -GtkScrolledWindow-scrollbar-spacing: 0;

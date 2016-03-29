@@ -11,15 +11,30 @@ $scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
 
+// transitions
+%transition {
+  // do not include sizing factors and text colors/shadows
+  transition-property: opacity,
+                       border-color,
+                       border-image,
+                       background-color,
+                       background-image,
+                       box-shadow,
+                       icon-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+}
+
 
 /*****************
  * Common States *
  *****************/
 
 * {
+  @extend %transition; // global transition setting
+
   padding: 0;
   background-clip: padding-box;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0;
 
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: $error_color;
