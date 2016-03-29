@@ -4008,11 +4008,15 @@ iconview.content-view check:disabled:checked:not(list) {
     opacity: 0.8;
     transition: 0.2s; }
 
-checkbutton.text-button, radiobutton.text-button {
+checkbutton.text-button,
+radiobutton.text-button {
   padding: 0.2em 0.5em;
   outline-offset: 0;
   color: rgba(38, 50, 56, 0.75); }
-  checkbutton.text-button:hover, checkbutton.text-button:active, checkbutton.text-button:checked, radiobutton.text-button:hover, radiobutton.text-button:active, radiobutton.text-button:checked {
+  checkbutton.text-button:hover, checkbutton.text-button:active, checkbutton.text-button:checked,
+  radiobutton.text-button:hover,
+  radiobutton.text-button:active,
+  radiobutton.text-button:checked {
     color: #263238; }
 
 radio,
@@ -4739,18 +4743,26 @@ row:hover {
 /*************
  * Expanders *
  *************/
-expander arrow {
-  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-  min-width: 16px;
-  min-height: 16px; }
-  expander arrow:dir(rtl) {
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
-  expander arrow:checked {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
-  expander arrow:not(:hover):not(:active) {
-    color: alpha(currentColor, 0.75); }
-  expander arrow:selected {
-    color: #FFFFFF; }
+expander {
+  padding: 0.2em 0.3em 0.25em; }
+  expander arrow {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    min-width: 16px;
+    min-height: 16px; }
+    expander arrow:dir(rtl) {
+      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
+    expander arrow:checked {
+      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+    expander arrow:not(:hover):not(:active) {
+      color: alpha(currentColor, 0.75); }
+    expander arrow:selected {
+      color: #FFFFFF; }
+  expander label {
+    color: rgba(38, 50, 56, 0.75); }
+    expander label:hover, expander label:active {
+      color: #263238; }
+    expander label:selected {
+      color: #FFFFFF; }
 
 /************
  * Calendar *

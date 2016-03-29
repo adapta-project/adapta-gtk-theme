@@ -2668,7 +2668,8 @@ row {
   }
 }
 
-checkbutton.text-button, radiobutton.text-button {
+checkbutton.text-button,
+radiobutton.text-button {
   // this is for a nice focus on check and radios text
   padding: 0.2em 0.5em;
   outline-offset: 0;
@@ -3393,13 +3394,22 @@ row {
  *************/
 
 expander {
-  & arrow {
+  padding: 0.2em 0.3em 0.25em;
+
+  arrow {
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
     min-width: 16px;
     min-height: 16px;
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
+    &:selected { color: $selected_fg_color; }
+  }
+
+  label {
+    color: $secondary_fg_color;
+    &:hover,
+    &:active { color: $fg_color; }
     &:selected { color: $selected_fg_color; }
   }
 }
