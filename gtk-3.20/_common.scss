@@ -858,6 +858,10 @@ spinbutton {
     @extend entry;
     padding: 0;
 
+    // FIXME: this should not be set at all, but otherwise it gets the wrong
+    // color
+    &:disabled { color: $insensitive_fg_color; }
+
     entry {
       margin: 0;
       background: none;
@@ -918,12 +922,12 @@ spinbutton {
 
   .osd &,
   .osd &.vertical {
-    button {
+    &,
+    button,
+    entry {
       color: $inverted_secondary_fg_color;
-      &:last-child,
-      &:not(:last-child) {
-        &:disabled { color: $insensitive_inverted_secondary_fg_color; }
-      }
+      &:focus { color: $inverted_fg_color; }
+      &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
   }
 
@@ -2940,7 +2944,7 @@ scale { // marks color
         }
       }
       &.fine-tune {
-        %#{$w}-#{$dn},
+        %#{$w}-#{$dn}-fine-tune,
         contents#{$ws} > tough > slider {
           @each $s,$as in ('',''),
                           // (':hover','-hover'),
@@ -2948,6 +2952,105 @@ scale { // marks color
                           (':disabled','-insensitive') {
             &#{$s} { @extend %#{$we}_#{$dn}_ft; }
 	  }
+        }
+      }
+    }
+  }
+}
+
+scale { // scales for colour
+  &.color {
+    min-height: 0;
+    min-width: 0;
+
+    // not actual trough colour
+    trough {
+      min-width: 2px;
+      min-height: 2px;
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    &.horizontal {
+      padding: 0 0 10px 0;
+
+      trough { padding-bottom: 5px; }
+
+      slider {
+        &, &:hover, &:disabled {
+          @extend %scale-has-marks-above-horz;
+          margin-top: 5px;
+          margin-bottom: -10px;
+        }
+      }
+    }
+
+    &.vertical {
+      &:dir(ltr) {
+        padding: 0 0 0 10px;
+
+        trough { padding-left: 5px; }
+
+        slider {
+          &, &:hover, &:disabled {
+            @extend %scale-has-marks-below-vert;
+            margin-left: -10px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      &:dir(rtl) {
+        padding: 0 10px 0 0;
+
+        trough { padding-right: 5px; }
+
+        slider {
+          &, &:hover, &:disabled {
+            @extend %scale-has-marks-above-vert;
+            margin-left: 5px;
+            margin-right: -10px;
+          }
+        }
+      }
+    }
+
+    &.fine-tune {
+      &.horizontal {
+        padding: 0 0 10px 0;
+
+        trough { padding-bottom: 5px; }
+
+        slider {
+          @extend %scale-has-marks-above-horz-fine-tune;
+          margin-top: 5px;
+          margin-bottom: -10px;
+        }
+      }
+
+      &.vertical {
+        &:dir(ltr) {
+          padding: 0 0 0 10px;
+
+          trough { padding-left: 5px; }
+
+          slider {
+            @extend %scale-has-marks-below-vert-fine-tune;
+            margin-left: -10px;
+            margin-right: 5px;
+          }
+        }
+
+        &:dir(rtl) {
+          padding: 0 10px 0 0;
+
+          trough { padding-right: 5px; }
+
+          slider {
+            @extend %scale-has-marks-above-vert-fine-tune;
+            margin-left: 5px;
+            margin-right: -10px;
+          }
         }
       }
     }
