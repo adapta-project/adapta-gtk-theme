@@ -71,7 +71,7 @@ GtkAssistant *:backdrop, GtkTextView *:backdrop, .button *:backdrop, .menuitem.b
 .error .menuitem.button *:backdrop, GtkScaleButton.menuitem.button *:backdrop,
 GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:backdrop, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, .action-bar .menuitem.button *:backdrop, .budgie-session-dialog .menuitem.button *:backdrop, .budgie-polkit-dialog .menuitem.button *:backdrop, .spinbutton *:backdrop, GtkComboBox *:backdrop, .toolbar *:backdrop, .inline-toolbar *:backdrop, .search-bar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
-.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
+.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .expander *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
 .cursor-handle *:backdrop, .touch-selection *:backdrop, .tweak-categories.list *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -2870,15 +2870,23 @@ GtkSwitch {
     opacity: 0.8;
     transition: 0.2s; }
 
-GtkCheckButton.text-button, GtkRadioButton.text-button {
+GtkCheckButton.text-button,
+GtkRadioButton.text-button {
   padding: 0.2em 0.5em;
   outline-offset: 0;
   color: rgba(236, 239, 241, 0.75); }
-  GtkCheckButton.text-button:hover, GtkCheckButton.text-button:active, GtkCheckButton.text-button:checked, GtkRadioButton.text-button:hover, GtkRadioButton.text-button:active, GtkRadioButton.text-button:checked {
+  GtkCheckButton.text-button:hover, GtkCheckButton.text-button:active, GtkCheckButton.text-button:checked,
+  GtkRadioButton.text-button:hover,
+  GtkRadioButton.text-button:active,
+  GtkRadioButton.text-button:checked {
     color: #ECEFF1; }
-  GtkCheckButton.text-button:insensitive, GtkCheckButton.text-button:insensitive:active, GtkCheckButton.text-button:insensitive:inconsistent, GtkRadioButton.text-button:insensitive, GtkRadioButton.text-button:insensitive:active, GtkRadioButton.text-button:insensitive:inconsistent {
+  GtkCheckButton.text-button:insensitive, GtkCheckButton.text-button:insensitive:active, GtkCheckButton.text-button:insensitive:inconsistent,
+  GtkRadioButton.text-button:insensitive,
+  GtkRadioButton.text-button:insensitive:active,
+  GtkRadioButton.text-button:insensitive:inconsistent {
     color: rgba(236, 239, 241, 0.3); }
-  GtkCheckButton.text-button:backdrop, GtkRadioButton.text-button:backdrop {
+  GtkCheckButton.text-button:backdrop,
+  GtkRadioButton.text-button:backdrop {
     opacity: 0.8; }
 
 /************
@@ -3340,8 +3348,6 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
     color: alpha(currentColor, 0.75); }
   .expander:selected {
     color: #FFFFFF; }
-  .expander:backdrop {
-    opacity: 0.8; }
   .expander:dir(rtl) {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
 

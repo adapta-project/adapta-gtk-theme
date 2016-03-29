@@ -2291,7 +2291,8 @@ GtkSwitch {
   }
 }
 
-GtkCheckButton.text-button, GtkRadioButton.text-button {
+GtkCheckButton.text-button,
+GtkRadioButton.text-button {
   // this is for a nice focus on check and radios text
   padding: 0.2em 0.5em;
   outline-offset: 0;
@@ -2698,12 +2699,12 @@ GtkScrolledWindow {
  *************/
 
 .expander {
+  @extend %fade_effect;
   -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
 
   &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
   &:selected { color: $selected_fg_color; }
-  &:backdrop { opacity: 0.8; }
 
   &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
 }
