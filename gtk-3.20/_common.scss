@@ -3833,6 +3833,11 @@ infobar {
   & label:selected:hover {
     background-color: darken($selected_bg_color, 10%);
   }
+
+  progressbar { // use 'white' bit and trough
+    trough { background-color: gtkopacity($selected_fg_color, 0.2); }
+    progress { background-color: $selected_fg_color; }
+  }
 }
 
 .info { background-color: $info_bg_color; }
