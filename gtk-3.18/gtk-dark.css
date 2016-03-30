@@ -71,7 +71,7 @@ GtkAssistant *:backdrop, GtkTextView *:backdrop, .button *:backdrop, .menuitem.b
 .error .menuitem.button *:backdrop, GtkScaleButton.menuitem.button *:backdrop,
 GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:backdrop, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, .action-bar .menuitem.button *:backdrop, .budgie-session-dialog .menuitem.button *:backdrop, .budgie-polkit-dialog .menuitem.button *:backdrop, .spinbutton *:backdrop, GtkComboBox *:backdrop, .toolbar *:backdrop, .inline-toolbar *:backdrop, .search-bar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
-.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .expander *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
+.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .expander *:backdrop, GtkCalendar *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
 .cursor-handle *:backdrop, .touch-selection *:backdrop, .tweak-categories.list *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -95,7 +95,7 @@ GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:
 .view {
   background-color: #455A64;
   color: #ECEFF1; }
-  .view:hover, .view:active, .view:selected, GtkCalendar:selected {
+  .view:hover, .view:active, .view:selected {
     border-radius: 2px; }
   .view:insensitive {
     color: rgba(236, 239, 241, 0.3); }
@@ -3355,10 +3355,12 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
  * Calendar *
  ***********/
 GtkCalendar {
+  padding: 0.3em 0.1em 0.3em;
   border: 1px solid rgba(0, 0, 0, 0.11);
   color: #ECEFF1; }
-  GtkCalendar:backdrop {
-    opacity: 0.8; }
+  GtkCalendar:selected {
+    color: #00BCD4;
+    background-color: transparent; }
   GtkCalendar.header {
     border: 1px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.11);
@@ -4462,7 +4464,7 @@ GtkVolumeButton.button {
 .titlebar.selection-mode .button.titlebutton.close:active:backdrop {
   opacity: 1.0; }
 
-.view:selected, GtkCalendar:selected, .label:selected, .label:selected:focus, .label:selected:hover, .grid-child:selected, .entry:selected, GtkTreeView .entry.flat:focus:selected, GtkTreeView .linked > .entry:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus:selected, .menuitem.button.flat:selected, .menuitem.button.osd.image-button:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, GeditViewFrame .gedit-search-slider .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
+.view:selected, .label:selected, .label:selected:focus, .label:selected:hover, .grid-child:selected, .entry:selected, GtkTreeView .entry.flat:focus:selected, GtkTreeView .linked > .entry:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus:selected, .menuitem.button.flat:selected, .menuitem.button.osd.image-button:selected, .inline-toolbar .menuitem.button:selected, GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, GeditViewFrame .gedit-search-slider .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
 .question .menuitem.button:selected,
 .warning .menuitem.button:selected,
@@ -4476,32 +4478,20 @@ GtkPaned GtkTreeView.view .tweak-category:selected, .list-row:selected, .tweak-c
 .sidebar GtkTreeView.view .list-row:selected,
 #polari-sidebar GtkTreeView.view .list-row:selected,
 .sidebar GtkTreeView.view .tweak-category:selected,
-#polari-sidebar GtkTreeView.view .tweak-category:selected, GdMainView .view:hover:selected, GdMainView GtkCalendar:hover:selected, GdMainView .view:selected, GdMainView GtkCalendar:selected, GdMainView .view.list-row.activatable:hover:selected, GdMainView column-header .view.button:hover:selected, column-header GdMainView .view.button:hover:selected, GdMainView column-header GtkCalendar.button:hover:selected, column-header GdMainView GtkCalendar.button:hover:selected, GdMainView GtkCalendar.list-row.activatable:hover:selected, GdMainView GtkCalendar.view:hover:selected, GdMainView GtkCalendar.activatable.tweak-category:hover:selected, GdMainView .view.activatable.tweak-category:hover:selected, GdMainView .view.list-row.activatable:selected, GdMainView column-header .view.button:selected, column-header GdMainView .view.button:selected, GdMainView column-header GtkCalendar.button:selected, column-header GdMainView GtkCalendar.button:selected, GdMainView GtkCalendar.list-row.activatable:selected, GdMainView GtkCalendar.view:selected, GdMainView GtkCalendar.activatable.tweak-category:selected, GdMainView .view.activatable.tweak-category:selected,
+#polari-sidebar GtkTreeView.view .tweak-category:selected, GdMainView .view:hover:selected, GdMainView .view:selected, GdMainView .view.list-row.activatable:hover:selected, GdMainView column-header .view.button:hover:selected, column-header GdMainView .view.button:hover:selected, GdMainView .view.activatable.tweak-category:hover:selected, GdMainView .view.list-row.activatable:selected, GdMainView column-header .view.button:selected, column-header GdMainView .view.button:selected, GdMainView .view.activatable.tweak-category:selected,
 .side-panel .view:hover:selected,
-.side-panel GtkCalendar:hover:selected,
 .side-panel .view:selected,
-.side-panel GtkCalendar:selected,
 .side-panel .view.list-row.activatable:hover:selected,
 .side-panel column-header .view.button:hover:selected,
 column-header .side-panel .view.button:hover:selected,
-.side-panel column-header GtkCalendar.button:hover:selected,
-column-header .side-panel GtkCalendar.button:hover:selected,
-.side-panel GtkCalendar.list-row.activatable:hover:selected,
-.side-panel GtkCalendar.view:hover:selected,
-.side-panel GtkCalendar.activatable.tweak-category:hover:selected,
 .side-panel .view.activatable.tweak-category:hover:selected,
 .side-panel .view.list-row.activatable:selected,
 .side-panel column-header .view.button:selected,
 column-header .side-panel .view.button:selected,
-.side-panel column-header GtkCalendar.button:selected,
-column-header .side-panel GtkCalendar.button:selected,
-.side-panel GtkCalendar.list-row.activatable:selected,
-.side-panel GtkCalendar.view:selected,
-.side-panel GtkCalendar.activatable.tweak-category:selected,
 .side-panel .view.activatable.tweak-category:selected {
   background-color: #00BCD4;
   color: #FFFFFF; }
-  .view:insensitive:selected, GtkCalendar:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, GtkTreeView .entry.flat:insensitive:focus:selected, GtkTreeView .linked > .entry:insensitive:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:insensitive:focus:selected, .menuitem.button.flat:insensitive:selected, .menuitem.button.osd.image-button:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, GtkButtonBox > .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, GeditViewFrame .gedit-search-slider .menuitem.button:insensitive:selected, .toolbar .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
+  .view:insensitive:selected, .label:insensitive:selected, .grid-child:insensitive:selected, .entry:insensitive:selected, GtkTreeView .entry.flat:insensitive:focus:selected, GtkTreeView .linked > .entry:insensitive:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:insensitive:focus:selected, .menuitem.button.flat:insensitive:selected, .menuitem.button.osd.image-button:insensitive:selected, .inline-toolbar .menuitem.button:insensitive:selected, GtkButtonBox > .menuitem.button:insensitive:selected, .app-notification .menuitem.button:insensitive:selected, GeditViewFrame .gedit-search-slider .menuitem.button:insensitive:selected, .toolbar .menuitem.button:insensitive:selected, .titlebar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:insensitive:selected, .menuitem.sidebar-button.button:insensitive:selected, .info .menuitem.button:insensitive:selected,
   .question .menuitem.button:insensitive:selected,
   .warning .menuitem.button:insensitive:selected,
@@ -4510,27 +4500,15 @@ column-header .side-panel GtkCalendar.button:selected,
   GtkTreeView.view .list-row:insensitive:selected,
   GtkTreeView.view .tweak-category:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected, .sidebar GtkTreeView.view:insensitive:selected, #polari-sidebar GtkTreeView.view:insensitive:selected,
   #polari-sidebar GtkTreeView.view .list-row:insensitive:selected,
-  #polari-sidebar GtkTreeView.view .tweak-category:insensitive:selected, GdMainView GtkCalendar:insensitive:hover:selected, GdMainView column-header .view.button:insensitive:hover:selected, column-header GdMainView .view.button:insensitive:hover:selected, GdMainView column-header GtkCalendar.button:insensitive:hover:selected, column-header GdMainView GtkCalendar.button:insensitive:hover:selected, GdMainView GtkCalendar.list-row.activatable:insensitive:hover:selected, GdMainView GtkCalendar.view:insensitive:hover:selected, GdMainView GtkCalendar.activatable.tweak-category:insensitive:hover:selected, GdMainView .view.list-row.activatable:insensitive:selected, GdMainView column-header .view.button:insensitive:selected, column-header GdMainView .view.button:insensitive:selected, GdMainView column-header GtkCalendar.button:insensitive:selected, column-header GdMainView GtkCalendar.button:insensitive:selected, GdMainView GtkCalendar.list-row.activatable:insensitive:selected, GdMainView GtkCalendar.view:insensitive:selected, GdMainView GtkCalendar.activatable.tweak-category:insensitive:selected, GdMainView .view.activatable.tweak-category:insensitive:selected,
-  .side-panel GtkCalendar:insensitive:hover:selected,
-  .side-panel GtkCalendar:insensitive:selected,
+  #polari-sidebar GtkTreeView.view .tweak-category:insensitive:selected, GdMainView column-header .view.button:insensitive:hover:selected, column-header GdMainView .view.button:insensitive:hover:selected, GdMainView .view.list-row.activatable:insensitive:selected, GdMainView column-header .view.button:insensitive:selected, column-header GdMainView .view.button:insensitive:selected, GdMainView .view.activatable.tweak-category:insensitive:selected,
   .side-panel column-header .view.button:insensitive:hover:selected,
   column-header .side-panel .view.button:insensitive:hover:selected,
-  .side-panel column-header GtkCalendar.button:insensitive:hover:selected,
-  column-header .side-panel GtkCalendar.button:insensitive:hover:selected,
-  .side-panel GtkCalendar.list-row.activatable:insensitive:hover:selected,
-  .side-panel GtkCalendar.view:insensitive:hover:selected,
-  .side-panel GtkCalendar.activatable.tweak-category:insensitive:hover:selected,
   .side-panel .view.list-row.activatable:insensitive:selected,
   .side-panel column-header .view.button:insensitive:selected,
   column-header .side-panel .view.button:insensitive:selected,
-  .side-panel column-header GtkCalendar.button:insensitive:selected,
-  column-header .side-panel GtkCalendar.button:insensitive:selected,
-  .side-panel GtkCalendar.list-row.activatable:insensitive:selected,
-  .side-panel GtkCalendar.view:insensitive:selected,
-  .side-panel GtkCalendar.activatable.tweak-category:insensitive:selected,
   .side-panel .view.activatable.tweak-category:insensitive:selected {
     color: rgba(255, 255, 255, 0.4); }
-  .view:backdrop:insensitive:selected, GtkCalendar:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, GtkTreeView .entry.flat:backdrop:insensitive:focus:selected, GtkTreeView .linked > .entry:backdrop:insensitive:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:backdrop:insensitive:focus:selected, .menuitem.button.flat:backdrop:insensitive:selected, .menuitem.button.osd.image-button:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox > .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, GeditViewFrame .gedit-search-slider .menuitem.button:backdrop:insensitive:selected, .toolbar .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
+  .view:backdrop:insensitive:selected, .label:backdrop:insensitive:selected, .grid-child:backdrop:insensitive:selected, .entry:backdrop:insensitive:selected, GtkTreeView .entry.flat:backdrop:insensitive:focus:selected, GtkTreeView .linked > .entry:backdrop:insensitive:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:backdrop:insensitive:focus:selected, .menuitem.button.flat:backdrop:insensitive:selected, .menuitem.button.osd.image-button:backdrop:insensitive:selected, .inline-toolbar .menuitem.button:backdrop:insensitive:selected, GtkButtonBox > .menuitem.button:backdrop:insensitive:selected, .app-notification .menuitem.button:backdrop:insensitive:selected, GeditViewFrame .gedit-search-slider .menuitem.button:backdrop:insensitive:selected, .toolbar .menuitem.button:backdrop:insensitive:selected, .titlebar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action),
   .header-bar .menuitem.button:backdrop:insensitive:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:backdrop:insensitive:selected, .menuitem.sidebar-button.button:backdrop:insensitive:selected, .info .menuitem.button:backdrop:insensitive:selected,
   .question .menuitem.button:backdrop:insensitive:selected,
   .warning .menuitem.button:backdrop:insensitive:selected,
@@ -4539,13 +4517,7 @@ column-header .side-panel GtkCalendar.button:selected,
   .sidebar GtkTreeView.view .list-row:backdrop:insensitive:selected,
   #polari-sidebar GtkTreeView.view .list-row:backdrop:insensitive:selected,
   .sidebar GtkTreeView.view .tweak-category:backdrop:insensitive:selected,
-  #polari-sidebar GtkTreeView.view .tweak-category:backdrop:insensitive:selected, GdMainView column-header GtkCalendar.button:backdrop:insensitive:hover:selected, column-header GdMainView GtkCalendar.button:backdrop:insensitive:hover:selected, GdMainView column-header GtkCalendar.button:backdrop:insensitive:selected, column-header GdMainView GtkCalendar.button:backdrop:insensitive:selected, GdMainView GtkCalendar.list-row.activatable:backdrop:insensitive:selected, GdMainView GtkCalendar.activatable.tweak-category:backdrop:insensitive:selected,
-  .side-panel column-header GtkCalendar.button:backdrop:insensitive:hover:selected,
-  column-header .side-panel GtkCalendar.button:backdrop:insensitive:hover:selected,
-  .side-panel column-header GtkCalendar.button:backdrop:insensitive:selected,
-  column-header .side-panel GtkCalendar.button:backdrop:insensitive:selected,
-  .side-panel GtkCalendar.list-row.activatable:backdrop:insensitive:selected,
-  .side-panel GtkCalendar.activatable.tweak-category:backdrop:insensitive:selected {
+  #polari-sidebar GtkTreeView.view .tweak-category:backdrop:insensitive:selected {
     color: rgba(255, 255, 255, 0.4); }
 
 .monospace {
@@ -5135,7 +5107,7 @@ ContactsWindow ContactsListPane ContactsView .list-row.activatable, ContactsWind
   background-color: rgba(18, 22, 0, 0.04); }
   ContactsWindow ContactsListPane ContactsView .list-row.activatable:hover, ContactsWindow ContactsListPane ContactsView .view:hover, ContactsWindow ContactsListPane ContactsView column-header .button:hover, column-header ContactsWindow ContactsListPane ContactsView .button:hover, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category:hover {
     color: #ECEFF1; }
-  ContactsWindow ContactsListPane ContactsView .list-row.activatable:selected, ContactsWindow ContactsListPane ContactsView .view:selected, ContactsWindow ContactsListPane ContactsView GtkCalendar:selected, ContactsWindow ContactsListPane ContactsView column-header .button:selected, column-header ContactsWindow ContactsListPane ContactsView .button:selected, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category:selected {
+  ContactsWindow ContactsListPane ContactsView .list-row.activatable:selected, ContactsWindow ContactsListPane ContactsView .view:selected, ContactsWindow ContactsListPane ContactsView column-header .button:selected, column-header ContactsWindow ContactsListPane ContactsView .button:selected, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category:selected {
     color: #00BCD4;
     background-color: rgba(18, 22, 0, 0.04); }
   ContactsWindow ContactsListPane ContactsView .list-row.activatable:backdrop, ContactsWindow ContactsListPane ContactsView .view:backdrop, ContactsWindow ContactsListPane ContactsView column-header .button:backdrop, column-header ContactsWindow ContactsListPane ContactsView .button:backdrop, ContactsWindow ContactsListPane ContactsView .activatable.tweak-category:backdrop {

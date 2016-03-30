@@ -2715,10 +2715,14 @@ GtkScrolledWindow {
  ***********/
 
 GtkCalendar {
+  @extend %fade_effect;
+  padding: 0.3em 0.1em 0.3em;
   border: 1px solid $borders_color;
   color: $fg_color;
-  &:selected { @extend .view:selected; }
-  &:backdrop { opacity: 0.8; }
+  &:selected {
+    color: $selected_bg_color;
+    background-color: transparent;
+  }
 
   &.header {
     border: 1px solid transparent;
