@@ -42,7 +42,7 @@ Installation from PPA (Ubuntu 16.04 LTS only)
   sudo apt-get update
   sudo apt-get install adapta-gtk-theme
   ```
-  to install theme (it also upgrades your Gnome-Tweak-Tool, too).
+  to install theme (it also upgrades your Gnome-Tweak-Tool).
 
 2. select `Adapta` via Gnome-Tweak-Tool.
 
