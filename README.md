@@ -34,7 +34,22 @@ Unsupported Gtk+ Based Desktops
 * XFce4
 * Pantheon
 
-Installation
+Installation from PPA (Ubuntu 16.04 LTS only)
+------------
+1. Run
+  ```
+  sudo apt-add-repository ppa:tista/adapta -y
+  sudo apt-get update
+  sudo apt-get install adapta-gtk-theme
+  ```
+  to install theme (it also upgrade your Gnome-Tweak-Tool, too).
+
+2. select `Adapta` via Gnome-Tweal-Tool.
+
+My PPA also has the latest Gnome-Tweak-Tool 3.20.0, so it already solved multiple versioned theme issue.
+(Gnome-Tweal-Tool 3.20.0 surely works with stock Gtk+ 3.18.x and Gnome-shell 3.18.x.)
+
+Installation from Git Source
 ------------
 1. Check `autoconf`, `automake` and `pkg-config` (`pkgconfig`) are installed.
 2. Build and install system-wide:
