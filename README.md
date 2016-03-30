@@ -44,10 +44,10 @@ Installation from PPA (Ubuntu 16.04 LTS only)
   ```
   to install theme (it also upgrades your Gnome-Tweak-Tool, too).
 
-2. select `Adapta` via Gnome-Tweal-Tool.
+2. select `Adapta` via Gnome-Tweak-Tool.
 
 My PPA also has the latest Gnome-Tweak-Tool 3.20.0, so it already solved multiple versioned theme issue.
- (Gnome-Tweal-Tool 3.20.0 surely works with stock Gtk+ 3.18.x and Gnome-shell 3.18.x.)
+ (Gnome-Tweak-Tool 3.20.0 surely works with stock Gtk+ 3.18.x and Gnome-shell 3.18.x.)
 
 Installation from Git Source
 ------------
