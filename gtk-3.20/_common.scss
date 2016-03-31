@@ -1698,7 +1698,10 @@ headerbar,
 
 // revive top-edge highlight border for SSDs
 .ssd decoration {
-  .titlebar { border-top: 1px solid $highlight_color; }
+  .titlebar {
+    border-top: 1px solid $highlight_color;
+    box-shadow: none;
+  }
 }
 
 // squared corners when the window is max'd or tiled
@@ -4155,15 +4158,12 @@ decoration {
   // this is used for the resize cursor area
   margin: 8px;
 
-  &:backdrop { // z-depth-2 shadow + z-depth-4 areas
+  &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: 0 10px 6px transparent,
-                0 6px 8px -4px transparent,
-                0 2px 2px rgba(0, 0, 0, 0.12),
-                0 3px 4px rgba(0, 0, 0, 0.20);
+    box-shadow: $z-depth-2-backdrop;
     transition: none;
   }
 
@@ -4185,7 +4185,7 @@ decoration {
     }
     // just doing borders, wm draws actual shadows
     // otherwise incorrect shadows are appeared
-    box-shadow: 0 0 0 1px transparent;
+    box-shadow: $z-depth-1-backdrop;
 
     .tiled & .titlebar {
       @extend %tiled_integration;
@@ -4209,10 +4209,7 @@ decoration {
     border-radius: 2px;
     box-shadow: $z-depth-4;
     &:backdrop {
-      box-shadow: 0 10px 6px transparent,
-                  0 6px 8px -4px transparent,
-                  0 2px 2px rgba(0, 0, 0, 0.12),
-                  0 3px 4px rgba(0, 0, 0, 0.20);
+      box-shadow: $z-depth-2-backdrop;
       transition: none;
     }
   }

@@ -2612,7 +2612,8 @@ headerbar,
     border-top-right-radius: 0; }
 
 .ssd decoration .titlebar {
-  border-top: 1px solid rgba(255, 255, 255, 0.07); }
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: none; }
 
 .tiled .titlebar, .tiled
 headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerbar:only-child, .tiled box headerbar:not(:only-child):last-child:dir(ltr), .tiled box headerbar:not(:only-child):last-child:dir(rtl), .tiled GtkPaned headerbar:not(:only-child):last-child:dir(ltr), .tiled GtkPaned headerbar:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar {
@@ -6431,7 +6432,7 @@ decoration {
   .popup decoration {
     box-shadow: none; }
   .ssd decoration {
-    box-shadow: 0 0 0 1px transparent; }
+    box-shadow: 0 2px 2px transparent, 0 3px 4px transparent, 0 3px 3px -1px rgba(0, 0, 0, 0.08); }
     .ssd decoration .button {
       -gtk-outline-radius: 100px;
       border-radius: 100px; }
