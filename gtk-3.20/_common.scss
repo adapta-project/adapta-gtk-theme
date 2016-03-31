@@ -1696,6 +1696,11 @@ headerbar,
   }
 }
 
+// revive top-edge highlight border for SSDs
+.ssd decoration {
+  .titlebar { border-top: 1px solid $highlight_color; }
+}
+
 // squared corners when the window is max'd or tiled
 %tiled_integration {
   border-radius: 0;
@@ -4182,18 +4187,12 @@ decoration {
     // otherwise incorrect shadows are appeared
     box-shadow: 0 0 0 1px transparent;
 
-    .titlebar {
-      // revive top-edge highlight border
-      box-shadow: inset 0 1px $highlight_color;
-    }
-
     .tiled & .titlebar {
       @extend %tiled_integration;
       transition: none;
     }
     .maximized & .titlebar {
       @extend %maxd_integration;
-      box-shadow: inset 0 1px $panel_bg_color;
       transition: none;
     }
   }

@@ -2611,6 +2611,9 @@ headerbar,
   .titlebar:last-child:not(.titlebar):dir(rtl) {
     border-top-right-radius: 0; }
 
+.ssd decoration .titlebar {
+  border-top: 1px solid rgba(255, 255, 255, 0.07); }
+
 .tiled .titlebar, .tiled
 headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerbar:only-child, .tiled box headerbar:not(:only-child):last-child:dir(ltr), .tiled box headerbar:not(:only-child):last-child:dir(rtl), .tiled GtkPaned headerbar:not(:only-child):last-child:dir(ltr), .tiled GtkPaned headerbar:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar {
   border-radius: 0;
@@ -6432,12 +6435,9 @@ decoration {
     .ssd decoration .button {
       -gtk-outline-radius: 100px;
       border-radius: 100px; }
-    .ssd decoration .titlebar {
-      box-shadow: inset 0 1px rgba(255, 255, 255, 0.07); }
     .tiled .ssd decoration .titlebar {
       transition: none; }
     .maximized .ssd decoration .titlebar {
-      box-shadow: inset 0 1px #13191c;
       transition: none; }
   .csd.popup decoration {
     border-radius: 2px;
