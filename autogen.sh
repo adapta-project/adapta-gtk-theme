@@ -8,7 +8,7 @@ test -z "$srcdir" && srcdir=.
 cwd=$(pwd)
 cd "$srcdir"
 
-autoreconf --force --install --symlink --warnings=all
+autoreconf --force --install --warnings=all
 
 if test -z "${NOCONFIGURE}"; then
     set -x
