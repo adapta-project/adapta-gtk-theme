@@ -1518,6 +1518,27 @@ toolbar {
     .osd toolbar button:disabled, toolbar.osd button:disabled, .app-notification button:disabled,
     .app-notification.frame button:disabled, GeditViewFrame .gedit-search-slider button:disabled {
       color: rgba(29, 233, 182, 0.4); }
+    .osd toolbar .linked > button, .osd toolbar .linked > button.image-button, toolbar.osd .linked > button, .app-notification .linked > button,
+    .app-notification.frame .linked > button, GeditViewFrame .gedit-search-slider .linked > button, toolbar.osd .linked > button.image-button, .app-notification .linked > button.image-button,
+    .app-notification.frame .linked > button.image-button, GeditViewFrame .gedit-search-slider .linked > button.image-button {
+      border-image: none;
+      box-shadow: none; }
+      .osd toolbar .linked > button:hover, .osd toolbar .linked > button.image-button:hover, toolbar.osd .linked > button:hover, .app-notification .linked > button:hover,
+      .app-notification.frame .linked > button:hover, GeditViewFrame .gedit-search-slider .linked > button:hover, toolbar.osd .linked > button.image-button:hover, .app-notification .linked > button.image-button:hover,
+      .app-notification.frame .linked > button.image-button:hover, GeditViewFrame .gedit-search-slider .linked > button.image-button:hover {
+        background-color: transparent; }
+      .osd toolbar .linked > button:not(:checked), .osd toolbar .linked > button.image-button:not(:checked), toolbar.osd .linked > button:not(:checked), .app-notification .linked > button:not(:checked),
+      .app-notification.frame .linked > button:not(:checked), GeditViewFrame .gedit-search-slider .linked > button:not(:checked), toolbar.osd .linked > button.image-button:not(:checked), .app-notification .linked > button.image-button:not(:checked),
+      .app-notification.frame .linked > button.image-button:not(:checked), GeditViewFrame .gedit-search-slider .linked > button.image-button:not(:checked) {
+        border-radius: 100px;
+        -gtk-outline-radius: 100px; }
+    .osd toolbar .linked > button.image-button, toolbar.osd .linked > button.image-button, .app-notification .linked > button.image-button,
+    .app-notification.frame .linked > button.image-button, GeditViewFrame .gedit-search-slider .linked > button.image-button {
+      min-width: 1em;
+      min-height: 2.2em;
+      padding: 0 0.6em 0;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px; }
     .osd toolbar label, toolbar.osd label, .app-notification label,
     .app-notification.frame label, GeditViewFrame .gedit-search-slider label {
       padding: 0 1em; }
@@ -1549,19 +1570,28 @@ toolbar {
       border-image: none; }
     toolbar button .image-button {
       min-width: 1em;
-      min-height: 1em;
+      min-height: 2.2em;
+      padding: 0 0.6em 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: 2.5em 2.5em, auto; }
-  toolbar .linked > button {
+  toolbar .linked > button, toolbar .linked > button.image-button {
+    border-image: none;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     box-shadow: none; }
-    toolbar .linked > button:hover {
-      background-color: transparent; }
-    toolbar .linked > button:not(:checked) {
+    toolbar .linked > button:hover, toolbar .linked > button:active, toolbar .linked > button.image-button:hover, toolbar .linked > button.image-button:active {
+      border-image: none;
       border-radius: 100px;
-      -gtk-outline-radius: 100px; }
+      -gtk-outline-radius: 100px;
+      background-color: transparent;
+      box-shadow: none; }
+  toolbar .linked > button .image-button {
+    min-width: 1em;
+    min-height: 2.2em;
+    padding: 0 0.6em 0;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px; }
   toolbar separator {
     color: transparent;
     background: none; }

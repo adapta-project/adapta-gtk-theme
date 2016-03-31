@@ -1187,6 +1187,26 @@ toolbar {
       &:disabled { color: gtkopacity($accent_color, 0.4); }
     }
 
+    .linked > button {
+      &, &.image-button {
+        border-image: none;
+        box-shadow: none;
+        &:hover { background-color: transparent; }
+        &:not(:checked) {
+          border-radius: 100px;
+          -gtk-outline-radius: 100px;
+        }
+      }
+
+      &.image-button {
+        min-width: 1em;
+        min-height: 2.2em;
+	padding: 0 0.6em 0;
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+      }
+    }
+
     label { padding: 0 1em; }
   }
 
@@ -1233,7 +1253,8 @@ toolbar {
 
     .image-button {
       min-width: 1em;
-      min-height: 1em;
+      min-height: 2.2em;
+      padding: 0 0.6em 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
@@ -1241,14 +1262,29 @@ toolbar {
   }
 
   .linked > button { // remove double-background and underlines
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-    &:hover { background-color: transparent; }
-    box-shadow: none;
-    &:not(:checked) {
+    &, &.image-button {
+      border-image: none;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+      box-shadow: none;
+      &:hover,
+      &:active {
+        border-image: none;
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+
+    .image-button {
+      min-width: 1em;
+      min-height: 2.2em;
+      padding: 0 0.6em 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
+
   }
   .linked > button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
