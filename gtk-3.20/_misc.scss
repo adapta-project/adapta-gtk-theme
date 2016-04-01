@@ -426,42 +426,187 @@ GeditViewFrame {
  * Builder *
  ***********/
 
-// pane header styling
-GbViewStack GtkBox.header.notebook,
-GbEditorWorkspace > GtkPaned > GtkBox > GtkBox.header.notebook,
-GbWorkspacePane GtkBox.header.notebook {
+// work around some gtk padding issue
+filechooser actionbar button.combo {
+  padding: 0;
+}
+
+// styling for editor search
+frame.gb-search-frame {
+  background-image: linear-gradient(to bottom, $bg_color);
+  padding: 6px;
+  border-style: solid;
+  border-color: $borders_color;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-radius: 0;
+}
+
+frame.gb-search-frame border { border: none; }
+
+.gb-search-entry-occurrences-tag {
+  color: $insensitive_fg_color;
+  margin: 2px;
+  padding: 2px;
+  border-width: 0;
+}
+
+// Tweaks for the editortweak popover in the editor.
+editortweak button { padding: 0 6px 0 6px; }
+editortweak list row { padding: 0; }
+
+// Keep search bar and layouttab height in sync.
+layouttabbar > box { min-height: 39px; }
+eggsearchbar > revealer > box { min-height: 39px; }
+eggsearchbar entry { min-height: 24px; }
+
+// Pillbox is used to render "languages" in the greeter.
+pillbox { border-radius: 2px; }
+
+// Styling in the genesis (create project) perspective.
+genesisperspective stack > box:first-child list row {
+  padding: 10px;
   border-bottom: 1px solid $borders_color;
-  background-color: transparent;
+  &:last-child { border-bottom: none; }
 }
 
-GbWorkspacePane {
-  GtkStackSwitcher button { padding: 1em; }
+// Perspectives switcher
+//
+// The following tweaks the left-most sidebar containing
+// the list of perspectives.
+perspectiveswitcher {
+  padding: 0 0.3em;
+  border-right: 1px solid $borders_color;
+  background-color: $secondary_dark_color;
+  box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                    $sidebar-dark-ltr);
 
-  separator { background-color: $solid_light_borders_color; }
-}
+  button {
+    padding: 6px;
+    border-radius: 100px;
+    border: none;
+    background: none;
+    color: $tertiary_fg_color;
+    box-shadow: none;
 
-// remove unwanted border
-GtkScrolledWindow.gb-linked-scroller {
-  border-top: none;
-}
-
-// force using fixed-width font
-GbSourceStyleSchemeWidget GtkSourceView,
-GtkEntry.gb-command-bar-entry {
-  font-family: Monospace;
-}
-
-GbTerminalView > GtkPaned > GtkScrolledWindow {
-  &, & > VteTerminal {
-    font-family: Monospace;
-    font-weight: 500;
-    font-size: 1em;
+    image { opacity: 0.55; }
+    &:hover {
+      background: none;
+      image { opacity: 0.75; }
+    }
+    &:active,
+    &:checked {
+      background: none;
+      image { opacity: 1.0; }
+    }
   }
 }
 
-// Disable various animations that are enabled by default and really annoying
-// to the overall flow of Builder.
-GbSearchDisplayGroup GtkListBox row { transition: none; }
+// Layout tab and tab bar tweaks
+//
+// The following makes the layout stack header look similar to a tab bar.
+layouttabbar {
+  @extend %fade_effect;
+  min-height: 2.8em;
+  padding: 0.4em;
+  border-bottom: 1px solid $borders_color;
+  background-color: $secondary_dark_color;
+  box-shadow: $inline-shadow;
+
+  > box > button {
+    opacity: 0.55;
+    &:hover { opacity: 0.75; }
+    &:active { opacity: 1.0; }
+  }
+
+  button {
+    @extend button.flat;
+    padding: 0.3em 0.4em 0.4em;
+    margin: 0.2em;
+    border-radius: 2px;
+    background-color: transparent;
+  }
+}
+
+layouttab {
+  @extend %fade_effect;
+  margin: 0.2em;
+  padding: 0.4em;
+  background-color: transparent;
+
+  label { padding: 0.3em; }
+
+  separator.vertical {
+    margin: 0.2em;
+    color: transparent;
+    background-color: $borders_color;
+  }
+
+  button {
+    @extend button.flat;
+    margin: 0.2em;
+    border-radius: 2px;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+  }
+}
+
+// Close button styling for layouttab.
+layouttab > box {
+  > button:last-child {
+    min-height: 1em;
+    min-width: 1em;
+    padding: 0.5em;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    @include button(flat);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
+  }
+
+  > button:last-child image { opacity: 0.55; }
+  > button:last-child:hover image { opacity: 0.75; }
+  > button:last-child:active image { opacity: 1.0; }
+}
+
+layout {
+  border: 1px solid $borders_color;
+  -PnlDockBin-handle-size: 1;
+}
+
+eggsearchbar box.search-bar {
+  @extend %fade_effect;
+  background-color: $secondary_dark_color;
+}
+
+pillbox {
+  background-color: $bg_color;
+  border-radius: 2px;
+}
+
+tabstrip {
+  min-height: 2.6em;
+  padding: 0.4em 1.2em;
+  border-bottom: 1px solid $borders_color;
+  background-color: $secondary_dark_color;
+  box-shadow: $inline-shadow;
+
+  tab {
+    color: $tertiary_fg_color;
+    font-weight: bold;
+    box-shadow: inset 0 -1px $track_color;
+    &:hover {
+      color: $fg_color;
+      box-shadow: inset 0 -2px $track_color;
+    }
+    &:checked {
+      color: $fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+  }
+}
 
 
 /***************
