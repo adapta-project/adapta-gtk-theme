@@ -56,7 +56,7 @@
 *:disabled {
   -gtk-icon-effect: dim; }
 
-assistant *:backdrop, textview *:backdrop, button *:backdrop,
+textview border *:backdrop, assistant *:backdrop, button *:backdrop,
 .button *:backdrop, combobox *:backdrop, toolbar *:backdrop, .inline-toolbar *:backdrop, searchbar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
 headerbar *:backdrop, treeview.view *:backdrop, .tweak-category *:backdrop, .menubar > menuitem *:backdrop,
@@ -113,6 +113,23 @@ textview text {
   iconview text:disabled,
   textview text:disabled {
     color: rgba(236, 239, 241, 0.3); }
+
+textview border {
+  background-color: #3e515a;
+  background-image: image(rgba(0, 0, 0, 0.11));
+  background-repeat: no-repeat; }
+  textview border.bottom {
+    background-size: 100% 1px;
+    background-position: top; }
+  textview border.top {
+    background-size: 100% 1px;
+    background-position: bottom; }
+  textview border.left {
+    background-size: 1px 100%;
+    background-position: right; }
+  textview border.right {
+    background-size: 1px 100%;
+    background-position: left; }
 
 rubberband, flowbox rubberband, treeview.view rubberband, .tweak-category rubberband, .content-view rubberband,
 .rubberband {
@@ -264,9 +281,6 @@ GfCandidatePopup assistant headerbar .linked > button:not(:last-child), assistan
     assistant headerbar .budgie-polkit-dialog .linked > button:not(:last-child):disabled > label,
     .budgie-polkit-dialog assistant headerbar .linked > button:not(:last-child):disabled > label {
       color: inherit; }
-
-textview {
-  background-color: #3b4c54; }
 
 .csd popover.background.touch-selection, .csd popover.background.magnifier, popover.background.touch-selection, popover.background.magnifier, popover.background.osd, .app-notification,
 .app-notification.frame, .osd .scale-popup, .nautilus-window .floating-bar, .osd {
