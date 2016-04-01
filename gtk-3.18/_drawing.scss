@@ -1,14 +1,14 @@
 //
 // Drawing mixins
 //
-
-//
 // Generic drawing of more complex things
 //
+
 
 //
 // Default shadows
 //
+
 $z-depth-1: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
 $z-depth-2: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.20);
 $z-depth-3: 0 5px 5px rgba(0, 0, 0, 0.16), 0 4px 4px rgba(0, 0, 0, 0.20);
@@ -17,17 +17,21 @@ $z-depth-4: 0 6px 8px -4px rgba(0, 0, 0, 0.16),
 $z-depth-5: 0 8px 10px -4px rgba(0, 0, 0, 0.20),
             0 12px 8px rgba(0, 0, 0, 0.24);
 
+
 //
 // Check and radio shadows
 //
+
 $check-radio-depth-1: 0 1px 1px rgba(0, 0, 0, 0.08),
                       0 1px 2px rgba(0, 0, 0, 0.16);
 $check-radio-depth-2: 0 1px 2px rgba(0, 0, 0, 0.12),
                       0 2px 2px rgba(0, 0, 0, 0.20);
 
+
 //
 // Header-bar shadows
 //
+
 $header-shadow-light: 0 1px 1px rgba(0, 0, 0, 0.16),
                       0 1px 2px rgba(0, 0, 0, 0.26),
                       0 2px 3px rgba(0, 0, 0, 0.32);
@@ -55,9 +59,11 @@ $sub-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.06),
                              5px 0 0 -1px $inverted_dark_color,
                              2px 0 0 -1px $borders_color;
 
+
 //
 // Side-bar shadows
 //
+
 $sidebar-light-ltr: inset -2px 0 2px -2px rgba(0, 0, 0, 0.05),
                     inset -3px 0 3px -2px rgba(0, 0, 0, 0.05);
 $sidebar-light-rtl: inset 2px 0 2px -2px rgba(0, 0, 0, 0.05),
@@ -67,10 +73,13 @@ $sidebar-dark-ltr: inset -2px 0 1px -2px rgba(0, 0, 0, 0.02),
 $sidebar-dark-rtl: inset 2px 0 1px -2px rgba(0, 0, 0, 0.02),
                    inset 3px 0 3px -2px rgba(0, 0, 0, 0.06);
 
+
 //
 // Inline-toolbar shadows
 //
+
 $inline-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+
 
 //
 // Info-bar shadows
@@ -78,9 +87,11 @@ $inline-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 // $infobar-shadow-light: inset 0 1px 2px rgba(0, 0, 0, 0.08);
 // $infobar-shadow-dark: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 
+
 //
 // Reorderable-tab shadows
 //
+
 $tab-shadow-light: -1px 0 2px rgba(0, 0, 0, 0.02),
                   -1px 0 4px rgba(0, 0, 0, 0.02),
                   1px 0 2px rgba(0, 0, 0, 0.02),
@@ -98,6 +109,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
 //
 // Ripple effects
 //
+
 @keyframes ripple_effect {
 //
 // Ripple effect drawing function
@@ -163,6 +175,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
 //
 // Entries
 //
+
 @mixin entry($t, $fc:$selected_bg_color) {
 //
 // Entries drawing function
@@ -251,6 +264,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
 //
 // Buttons
 //
+
 @mixin button($t, $c:$light_color, $tc:$fg_color) {
 //
 // Button drawing function
@@ -405,6 +419,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
 //
 // Overshoot
 //
+
 @mixin overshoot($p, $t:normal, $c:$secondary_selected_bg_color) {
 //
 // Overshoot drawing function
@@ -445,6 +460,7 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
 //
 // Undershoot
 //
+
 @mixin undershoot($p) {
 //
 // Undershoot drawing function
