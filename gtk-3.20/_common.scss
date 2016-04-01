@@ -1,7 +1,14 @@
+//
 // Suffix
+//
+
 $asset_suffix: if($variant=='dark', '-dark', '');
 
+
+//
 // Background sizing
+//
+
 $text_button_large: 16em * 1 / 0.8 16em * 1 / 0.8, auto;
 $text_button_small: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
 $image_button_large: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
@@ -11,7 +18,11 @@ $scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
 
+
+//
 // transitions
+//
+
 %transition {
   // do not include sizing factors and text colors/shadows
   transition-property: opacity,
@@ -169,7 +180,6 @@ label {
   &.separator {
     @extend .dim-label;
     color: transparent;
-    // &:backdrop { color: $backdrop_fg_color; }
   }
 
   &:selected,
@@ -191,6 +201,7 @@ label {
 
 assistant {
   @extend %fade_effect;
+
   // sidebar styling
   .sidebar {
     padding: 0.5em 0;
@@ -222,7 +233,7 @@ assistant {
       }
       &:checked {
         @include button(checked);
-	background-color: $suggested_color;
+        background-color: $suggested_color;
         color: $inverted_fg_color;
       }
       &:disabled { @include button(insensitive); }
@@ -968,7 +979,7 @@ spinbutton {
           @include button(flat-hover);
           background: none;
           color: $success_color;
-	}
+        }
         &:active {
           @include button(flat-active);
           background-color: $track_color;
@@ -985,7 +996,7 @@ spinbutton {
           @include button(flat-hover);
           background: none;
           color: $error_color;
-	}
+        }
         &:active {
           @include button(flat-active);
           background-color: $track_color;
@@ -1205,7 +1216,7 @@ toolbar {
       &.image-button {
         min-width: 1em;
         min-height: 2.2em;
-	padding: 0 0.6em 0;
+        padding: 0 0.6em 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
@@ -1921,7 +1932,6 @@ treeview.view {
   &, paned & { // redraw some stuff for RhythmBox
     @extend %fade_effect;
     background-color: $base_color;
-
     &:hover,
     row:hover { color: $fg_color; }
     &:selected,
@@ -2843,9 +2853,9 @@ $_marks_lenght: 6px;
 $_marks_distance: 6px;
 
 scale {
+  // FIXME: ugly outlines
   // outline-offset: -4px;
   // -gtk-outline-radius: 100px;
-  // FIXME: ugly outlines
   outline-offset: 0;
   outline-width: 0;
 
@@ -2854,8 +2864,8 @@ scale {
   padding: 10px;
 
   &.fine-tune {
-    // outline-offset: -4px;
     // FIXME: ugly outlines
+    // outline-offset: -4px;
     outline-offset: 0;
     outline-width: 0;
     &.horizontal {
@@ -3577,9 +3587,9 @@ messagedialog { // Message Dialog styling
         border-radius: 0;
         color: $inverted_secondary_fg_color;
         font-size: initial;
-	font-weight: bold;
+        font-weight: bold;
         background-size: $text_button_small;
-	box-shadow: none;
+        box-shadow: none;
         // &:first-child { border-bottom-left-radius: 2px; }
         // &:last-child { border-bottom-right-radius: 2px; }
 
@@ -3600,7 +3610,7 @@ messagedialog { // Message Dialog styling
         &:disabled { @include button(flat-insensitive); }
 
         &:first-child {
-	  border-radius: 0 0 0 2px;
+          border-radius: 0 0 0 2px;
           border-right-width: 0;
         }
         &:last-child {
