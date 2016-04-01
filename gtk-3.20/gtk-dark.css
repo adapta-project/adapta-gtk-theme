@@ -2237,11 +2237,11 @@ headerbar {
   headerbar switch {
     color: rgba(236, 239, 241, 0.75);
     background-color: rgba(236, 239, 241, 0.075); }
-    .titlebar switch:active,
-    headerbar switch:active {
+    .titlebar switch:checked,
+    headerbar switch:checked {
       background-color: rgba(0, 188, 212, 0.2); }
-      .titlebar switch:active:disabled,
-      headerbar switch:active:disabled {
+      .titlebar switch:checked:disabled,
+      headerbar switch:checked:disabled {
         background-color: rgba(0, 188, 212, 0.2); }
     .titlebar switch:disabled,
     headerbar switch:disabled {
@@ -2250,11 +2250,11 @@ headerbar {
     .titlebar switch slider,
     headerbar switch slider {
       background-color: #3e515a; }
-    .titlebar switch:active slider,
-    headerbar switch:active slider {
+    .titlebar switch:checked slider,
+    headerbar switch:checked slider {
       background-color: #00BCD4; }
-      .titlebar switch:active slider:disabled,
-      headerbar switch:active slider:disabled {
+      .titlebar switch:checked slider:disabled,
+      headerbar switch:checked slider:disabled {
         background-color: #3F4E56; }
     .titlebar switch:disabled slider,
     headerbar switch:disabled slider {
@@ -3553,9 +3553,9 @@ switch {
   background-color: alpha(currentColor, 0.2); }
   switch:disabled {
     color: rgba(236, 239, 241, 0.3); }
-  switch:active {
+  switch:checked {
     background-color: rgba(0, 188, 212, 0.2); }
-    switch:active:disabled {
+    switch:checked:disabled {
       background-color: rgba(0, 188, 212, 0.2); }
   switch:disabled {
     color: rgba(236, 239, 241, 0.3);
@@ -3574,37 +3574,37 @@ switch {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
     color: #ECEFF1; }
-  switch:active slider {
+  switch:checked slider {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
     background-color: #00BCD4;
     color: #FFFFFF; }
-  switch:active:hover slider {
+  switch:checked:hover slider {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
     background-color: #00BCD4;
     color: #FFFFFF;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07); }
-  switch:active:disabled slider {
+  switch:checked:disabled slider {
     box-shadow: none;
     background-color: alpha(currentColor, 0.2);
     color: rgba(0, 188, 212, 0.4);
     box-shadow: none;
     background-color: #3F4E56; }
-    switch:active:disabled slider > label {
+    switch:checked:disabled slider > label {
       color: inherit; }
   switch:disabled slider {
     box-shadow: none;
     background-color: #3F4E56; }
   row:selected switch {
     background-color: #3e515a; }
-    row:selected switch:active {
+    row:selected switch:checked {
       background-color: #3b4c54; }
-      row:selected switch:active:disabled {
+      row:selected switch:checked:disabled {
         background-color: #3b4c54; }
     row:selected switch slider {
       background-color: #3e515a; }
-    row:selected switch:active slider {
+    row:selected switch:checked slider {
       background-color: #455A64; }
-    row:selected switch:active:disabled slider {
+    row:selected switch:checked:disabled slider {
       background-color: #3b4c54; }
 
 /*************************

@@ -1517,7 +1517,7 @@ headerbar {
   switch {
     color: $inverted_secondary_fg_color;
     background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
-    &:active {
+    &:checked {
       background-color: gtkopacity($selected_bg_color, 0.2);
       &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
     }
@@ -1527,7 +1527,7 @@ headerbar {
     }
 
     slider { background-color: $inverted_bg_color; }
-    &:active slider {
+    &:checked slider {
       background-color: $selected_bg_color;
       &:disabled { background-color: #3F4E56; }
     }
@@ -2571,7 +2571,7 @@ switch {
   background-color: $track_color;
 
   &:disabled { color: $insensitive_fg_color; }
-  &:active {
+  &:checked {
     background-color: gtkopacity($selected_bg_color, 0.2);
     &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
   }
@@ -2592,13 +2592,13 @@ switch {
     border-radius: 100px;
   }
   &:hover slider { @include button(hover); }
-  &:active slider { @include button(checked); }
-  &:active:hover slider {
+  &:checked slider { @include button(checked); }
+  &:checked:hover slider {
     @include button(checked);
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
-  &:active:disabled slider {
+  &:checked:disabled slider {
     @include button(checked-insensitive);
     box-shadow: none;
     // do not use any transparentize
@@ -2611,14 +2611,14 @@ switch {
 
   row:selected & { // return to monochrome
     background-color: $bg_color;
-    &:active {
+    &:checked {
       background-color: $secondary_dark_color;
       &:disabled { background-color: $secondary_dark_color; }
     }
 
     slider { background-color: $bg_color; }
-    &:active slider { background-color: $base_color; }
-    &:active:disabled slider { background-color: $secondary_dark_color; }
+    &:checked slider { background-color: $base_color; }
+    &:checked:disabled slider { background-color: $secondary_dark_color; }
   }
 }
 
