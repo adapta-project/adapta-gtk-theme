@@ -426,6 +426,10 @@ GeditViewFrame {
  * Builder *
  ***********/
 
+//
+// do not use box-shadows. it's too problematic!
+//
+
 // work around some gtk padding issue
 filechooser actionbar button.combo {
   padding: 0;
@@ -467,7 +471,7 @@ pillbox { border-radius: 2px; }
 // Styling in the genesis (create project) perspective.
 genesisperspective stack > box:first-child list row {
   padding: 10px;
-  border-bottom: 1px solid $borders_color;
+  border-bottom: 1px solid $solid_light_borders_color;
   &:last-child { border-bottom: none; }
 }
 
@@ -477,10 +481,8 @@ genesisperspective stack > box:first-child list row {
 // the list of perspectives.
 perspectiveswitcher {
   padding: 0 0.3em;
-  border-right: 1px solid $borders_color;
+  border-right: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
-  box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                    $sidebar-dark-ltr);
 
   button {
     padding: 6px;
@@ -510,9 +512,8 @@ layouttabbar {
   @extend %fade_effect;
   min-height: 2.8em;
   padding: 0.4em;
-  border-bottom: 1px solid $borders_color;
+  border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
-  box-shadow: $inline-shadow;
 
   > box > button {
     opacity: 0.55;
@@ -572,7 +573,7 @@ layouttab > box {
 }
 
 layout {
-  border: 1px solid $borders_color;
+  border: 1px solid $solid_light_borders_color;
   -PnlDockBin-handle-size: 1;
 }
 
@@ -589,9 +590,8 @@ pillbox {
 tabstrip {
   min-height: 2.6em;
   padding: 0.4em 1.2em;
-  border-bottom: 1px solid $borders_color;
+  border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
-  box-shadow: $inline-shadow;
 
   tab {
     color: $tertiary_fg_color;
