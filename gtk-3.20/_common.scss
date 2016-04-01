@@ -574,14 +574,18 @@ button,
 
   // inline-toolbar and action-bar buttons
   .inline-toolbar &,
-  actionbar & {
-    @extend button.flat;
-    min-width: 1em;
-    min-height: 1em;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-    padding: 0.5em;
-    background-size: $image_button_small;
+  actionbar &,
+  .inline-toolbar .linked > &,
+  actionbar .linked > & {
+    &, &:not(.text-button).image-button {
+      @extend button.flat;
+      min-width: 1em;
+      min-height: 1em;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+      padding: 0.75em;
+      background-size: $image_button_small;
+    }
   }
 
   .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
