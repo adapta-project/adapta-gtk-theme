@@ -2460,6 +2460,7 @@ scrollbar {
   .slider {
     margin: $_slider_margin;
     border-radius: 100px;
+    border: 0 none transparent;
     background-color: $tertiary_fg_color;
     &:hover { background-color: $secondary_fg_color; }
     &:active { background-color: $fg_color; }
@@ -2501,12 +2502,12 @@ scrollbar {
 
   &.overlay-indicator {
     &:not(.dragging):not(.hovering) { // Overlay scrolling indicator
-      border-style: none;
+      border-color: transparent;
       background-color: transparent;
 
       slider {
-	margin: $_slider_margin - 2px;
-        border: 2px solid transparent;
+        margin: $_slider_margin;
+        border: 0 none transparent;
       }
 
       button {
@@ -2524,8 +2525,8 @@ scrollbar {
         slider {
           min-width: $_slider_min_width;
           min-height: $_slider_min_length;
-          margin-top: $_slider_margin - 1px;
-          margin-bottom: $_slider_margin - 1px;
+          margin-top: $_slider_margin;
+          margin-bottom: $_slider_margin;
         }
 
         button {
@@ -2538,8 +2539,8 @@ scrollbar {
         slider {
           min-width: $_slider_min_length;
           min-height: $_slider_min_width;
-          margin-left: $_slider_margin - 1px;
-          margin-right: $_slider_margin - 1px;
+          margin-left: $_slider_margin;
+          margin-right: $_slider_margin;
         }
 
         button {
