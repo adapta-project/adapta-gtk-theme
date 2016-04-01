@@ -489,6 +489,11 @@ GbTerminalView > GtkPaned > GtkScrolledWindow {
   }
 }
 
+GbTerminalView { // always use dark variant
+  background-color: $inverted_dark_color;
+  color: $inverted_fg_color;
+}
+
 // Disable various animations that are enabled by default and really annoying
 // to the overall flow of Builder.
 GbSearchDisplayGroup GtkListBox .list-row { transition: none; }
