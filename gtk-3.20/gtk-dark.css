@@ -2326,103 +2326,77 @@ headerbar {
     background-color: #00BCD4;
     color: #FFFFFF; }
     .titlebar.selection-mode button,
-    .titlebar.selection-mode .flat.selection-menu,
     .titlebar.selection-mode button.image-button,
     headerbar.selection-mode button,
-    headerbar.selection-mode .flat.selection-menu,
     headerbar.selection-mode button.image-button {
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(#FFFFFF), to(transparent)) 0 0 0/0 0 0px;
       color: rgba(255, 255, 255, 0.75); }
       .titlebar.selection-mode button:hover, .titlebar.selection-mode button:active, .titlebar.selection-mode button:checked,
-      .titlebar.selection-mode .flat.selection-menu:hover,
-      .titlebar.selection-mode .flat.selection-menu:active,
-      .titlebar.selection-mode .flat.selection-menu:checked,
       .titlebar.selection-mode button.image-button:hover,
       .titlebar.selection-mode button.image-button:active,
       .titlebar.selection-mode button.image-button:checked,
       headerbar.selection-mode button:hover,
       headerbar.selection-mode button:active,
       headerbar.selection-mode button:checked,
-      headerbar.selection-mode .flat.selection-menu:hover,
-      headerbar.selection-mode .flat.selection-menu:active,
-      headerbar.selection-mode .flat.selection-menu:checked,
       headerbar.selection-mode button.image-button:hover,
       headerbar.selection-mode button.image-button:active,
       headerbar.selection-mode button.image-button:checked {
         color: #FFFFFF; }
       .titlebar.selection-mode button:disabled,
-      .titlebar.selection-mode .flat.selection-menu:disabled,
       .titlebar.selection-mode button.image-button:disabled,
       headerbar.selection-mode button:disabled,
-      headerbar.selection-mode .flat.selection-menu:disabled,
       headerbar.selection-mode button.image-button:disabled {
         color: rgba(236, 239, 241, 0.225); }
       .titlebar.selection-mode button:checked,
-      .titlebar.selection-mode .flat.selection-menu:checked,
       .titlebar.selection-mode button.image-button:checked,
       headerbar.selection-mode button:checked,
-      headerbar.selection-mode .flat.selection-menu:checked,
       headerbar.selection-mode button.image-button:checked {
         border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#FFFFFF), to(transparent)) 0 0 2/0 0 2px;
         color: #FFFFFF;
         background-color: transparent; }
         .titlebar.selection-mode button:checked:disabled,
-        .titlebar.selection-mode .flat.selection-menu:checked:disabled,
         .titlebar.selection-mode button.image-button:checked:disabled,
         headerbar.selection-mode button:checked:disabled,
-        headerbar.selection-mode .flat.selection-menu:checked:disabled,
         headerbar.selection-mode button.image-button:checked:disabled {
           color: rgba(255, 255, 255, 0.4); }
           .titlebar.selection-mode button:checked:disabled > label,
-          .titlebar.selection-mode .flat.selection-menu:checked:disabled > label,
           .titlebar.selection-mode button.image-button:checked:disabled > label,
           headerbar.selection-mode button:checked:disabled > label,
-          headerbar.selection-mode .flat.selection-menu:checked:disabled > label,
           headerbar.selection-mode button.image-button:checked:disabled > label {
             color: inherit; }
       .titlebar.selection-mode button.suggested-action,
-      .titlebar.selection-mode .flat.selection-menu.suggested-action,
       .titlebar.selection-mode button.image-button.suggested-action,
       headerbar.selection-mode button.suggested-action,
-      headerbar.selection-mode .flat.selection-menu.suggested-action,
       headerbar.selection-mode button.image-button.suggested-action {
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
         background-color: #546E7A;
         background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
         color: rgba(236, 239, 241, 0.75); }
         .titlebar.selection-mode button.suggested-action:hover,
-        .titlebar.selection-mode .flat.selection-menu.suggested-action:hover,
         .titlebar.selection-mode button.image-button.suggested-action:hover,
         headerbar.selection-mode button.suggested-action:hover,
-        headerbar.selection-mode .flat.selection-menu.suggested-action:hover,
         headerbar.selection-mode button.image-button.suggested-action:hover {
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
           background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
           color: #ECEFF1; }
         .titlebar.selection-mode button.suggested-action:active,
-        .titlebar.selection-mode .flat.selection-menu.suggested-action:active,
         .titlebar.selection-mode button.image-button.suggested-action:active,
         headerbar.selection-mode button.suggested-action:active,
-        headerbar.selection-mode .flat.selection-menu.suggested-action:active,
         headerbar.selection-mode button.image-button.suggested-action:active {
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
           color: #ECEFF1;
           transition-duration: 0;
           animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
         .titlebar.selection-mode button.suggested-action:disabled,
-        .titlebar.selection-mode .flat.selection-menu.suggested-action:disabled,
         .titlebar.selection-mode button.image-button.suggested-action:disabled,
         headerbar.selection-mode button.suggested-action:disabled,
-        headerbar.selection-mode .flat.selection-menu.suggested-action:disabled,
         headerbar.selection-mode button.image-button.suggested-action:disabled {
           box-shadow: none;
           background-color: alpha(currentColor, 0.2);
           color: rgba(236, 239, 241, 0.225); }
           .titlebar.selection-mode button.suggested-action:disabled > label,
-          .titlebar.selection-mode .flat.selection-menu.suggested-action:disabled > label,
           .titlebar.selection-mode button.image-button.suggested-action:disabled > label,
           headerbar.selection-mode button.suggested-action:disabled > label,
-          headerbar.selection-mode .flat.selection-menu.suggested-action:disabled > label,
           headerbar.selection-mode button.image-button.suggested-action:disabled > label {
             color: inherit; }
     .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action),
@@ -2621,16 +2595,45 @@ headerbar {
       headerbar.selection-mode entry:disabled,
       headerbar.selection-mode spinbutton:disabled:not(.vertical) {
         color: rgba(236, 239, 241, 0.225); }
-    .titlebar.selection-mode .selection-menu,
-    headerbar.selection-mode .selection-menu {
+    .titlebar.selection-mode .selection-menu, .titlebar.selection-mode .selection-menu.popup,
+    headerbar.selection-mode .selection-menu,
+    headerbar.selection-mode .selection-menu.popup {
       padding-left: 1.2em;
-      padding-right: 1.2em; }
-      .titlebar.selection-mode .selection-menu GtkArrow,
-      headerbar.selection-mode .selection-menu GtkArrow {
-        -GtkArrow-arrow-scaling: 1.0; }
-      .titlebar.selection-mode .selection-menu arrow,
-      headerbar.selection-mode .selection-menu arrow {
-        -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+      padding-right: 1.2em;
+      color: rgba(255, 255, 255, 0.75); }
+      .titlebar.selection-mode .selection-menu:hover, .titlebar.selection-mode .selection-menu:active, .titlebar.selection-mode .selection-menu:checked, .titlebar.selection-mode .selection-menu.popup:hover, .titlebar.selection-mode .selection-menu.popup:active, .titlebar.selection-mode .selection-menu.popup:checked,
+      headerbar.selection-mode .selection-menu:hover,
+      headerbar.selection-mode .selection-menu:active,
+      headerbar.selection-mode .selection-menu:checked,
+      headerbar.selection-mode .selection-menu.popup:hover,
+      headerbar.selection-mode .selection-menu.popup:active,
+      headerbar.selection-mode .selection-menu.popup:checked {
+        color: #FFFFFF; }
+      .titlebar.selection-mode .selection-menu:disabled, .titlebar.selection-mode .selection-menu.popup:disabled,
+      headerbar.selection-mode .selection-menu:disabled,
+      headerbar.selection-mode .selection-menu.popup:disabled {
+        color: rgba(236, 239, 241, 0.225); }
+      .titlebar.selection-mode .selection-menu:checked, .titlebar.selection-mode .selection-menu.popup:checked,
+      headerbar.selection-mode .selection-menu:checked,
+      headerbar.selection-mode .selection-menu.popup:checked {
+        border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#FFFFFF), to(transparent)) 0 0 2/0 0 2px;
+        color: #FFFFFF;
+        background-color: transparent; }
+        .titlebar.selection-mode .selection-menu:checked:disabled, .titlebar.selection-mode .selection-menu.popup:checked:disabled,
+        headerbar.selection-mode .selection-menu:checked:disabled,
+        headerbar.selection-mode .selection-menu.popup:checked:disabled {
+          color: rgba(255, 255, 255, 0.4); }
+          .titlebar.selection-mode .selection-menu:checked:disabled > label, .titlebar.selection-mode .selection-menu.popup:checked:disabled > label,
+          headerbar.selection-mode .selection-menu:checked:disabled > label,
+          headerbar.selection-mode .selection-menu.popup:checked:disabled > label {
+            color: inherit; }
+    .titlebar.selection-mode .selection-menu GtkArrow,
+    headerbar.selection-mode .selection-menu GtkArrow {
+      -GtkArrow-arrow-scaling: 1.0; }
+    .titlebar.selection-mode .selection-menu .arrow,
+    headerbar.selection-mode .selection-menu .arrow {
+      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+      color: rgba(255, 255, 255, 0.75); }
   .tiled .titlebar, .tiled
   headerbar {
     transition: none; }

@@ -1549,7 +1549,6 @@ headerbar {
     .subtitle:link { @extend *:link:selected;  }
 
     button,
-    .flat.selection-menu,
     button.image-button {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
@@ -1606,12 +1605,36 @@ headerbar {
     }
 
     .selection-menu {
-      padding-left: 1.2em;
-      padding-right: 1.2em;
+      &, &.popup {
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+        color: $secondary_selected_fg_color;
+        &:hover,
+        &:active,
+        &:checked { color: $selected_fg_color; }
+        &:disabled { color: $insensitive_inverted_secondary_fg_color; }
+        &:checked {
+          border-image: -gtk-gradient(radial,
+                                      center bottom, 0,
+                                      center bottom, 0.5,
+                                      to($selected_fg_color),
+                                      to(transparent))
+                                      0 0 2 / 0 0 2px;
+          color: $selected_fg_color;
+          background-color: transparent;
+          &:disabled {
+            color: $insensitive_selected_fg_color;
+            > label { color: inherit; }
+          }
+        }
+      }
 
       GtkArrow { -GtkArrow-arrow-scaling: 1.0; }
 
-      arrow { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+      .arrow {
+        -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+        color: $secondary_selected_fg_color;
+      }
     }
   }
 
