@@ -1722,7 +1722,10 @@ headerbar {
     padding: 0 0.75em 0; }
     .titlebar button.toggle label,
     headerbar button.toggle label {
-      padding: 0.7em 0 0.8em; }
+      padding: 0.7em 0.6em 0.8em; }
+    .titlebar button.toggle menu menuitem label,
+    headerbar button.toggle menu menuitem label {
+      padding: 0; }
   .titlebar button,
   .titlebar .linked > button,
   .titlebar button.suggested-action,
@@ -2595,23 +2598,18 @@ headerbar {
       headerbar.selection-mode entry:disabled,
       headerbar.selection-mode spinbutton:disabled:not(.vertical) {
         color: rgba(236, 239, 241, 0.225); }
-    .titlebar.selection-mode .selection-menu, .titlebar.selection-mode .selection-menu.popup,
-    headerbar.selection-mode .selection-menu,
-    headerbar.selection-mode .selection-menu.popup {
+    .titlebar.selection-mode .selection-menu,
+    headerbar.selection-mode .selection-menu {
       padding-left: 1.2em;
       padding-right: 1.2em;
       color: rgba(255, 255, 255, 0.75); }
-      .titlebar.selection-mode .selection-menu:hover, .titlebar.selection-mode .selection-menu:active, .titlebar.selection-mode .selection-menu:checked, .titlebar.selection-mode .selection-menu.popup:hover, .titlebar.selection-mode .selection-menu.popup:active, .titlebar.selection-mode .selection-menu.popup:checked,
+      .titlebar.selection-mode .selection-menu:hover, .titlebar.selection-mode .selection-menu:active, .titlebar.selection-mode .selection-menu:checked,
       headerbar.selection-mode .selection-menu:hover,
       headerbar.selection-mode .selection-menu:active,
-      headerbar.selection-mode .selection-menu:checked,
-      headerbar.selection-mode .selection-menu.popup:hover,
-      headerbar.selection-mode .selection-menu.popup:active,
-      headerbar.selection-mode .selection-menu.popup:checked {
+      headerbar.selection-mode .selection-menu:checked {
         color: #FFFFFF; }
-      .titlebar.selection-mode .selection-menu:disabled, .titlebar.selection-mode .selection-menu.popup:disabled,
-      headerbar.selection-mode .selection-menu:disabled,
-      headerbar.selection-mode .selection-menu.popup:disabled {
+      .titlebar.selection-mode .selection-menu:disabled,
+      headerbar.selection-mode .selection-menu:disabled {
         color: rgba(236, 239, 241, 0.225); }
       .titlebar.selection-mode .selection-menu:checked, .titlebar.selection-mode .selection-menu.popup:checked,
       headerbar.selection-mode .selection-menu:checked,
@@ -2627,13 +2625,13 @@ headerbar {
           headerbar.selection-mode .selection-menu:checked:disabled > label,
           headerbar.selection-mode .selection-menu.popup:checked:disabled > label {
             color: inherit; }
-    .titlebar.selection-mode .selection-menu GtkArrow,
-    headerbar.selection-mode .selection-menu GtkArrow {
-      -GtkArrow-arrow-scaling: 1.0; }
-    .titlebar.selection-mode .selection-menu .arrow,
-    headerbar.selection-mode .selection-menu .arrow {
-      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-      color: rgba(255, 255, 255, 0.75); }
+      .titlebar.selection-mode .selection-menu GtkArrow,
+      headerbar.selection-mode .selection-menu GtkArrow {
+        -GtkArrow-arrow-scaling: 1.0; }
+      .titlebar.selection-mode .selection-menu .arrow,
+      headerbar.selection-mode .selection-menu .arrow {
+        -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+        color: rgba(255, 255, 255, 0.75); }
   .tiled .titlebar, .tiled
   headerbar {
     transition: none; }

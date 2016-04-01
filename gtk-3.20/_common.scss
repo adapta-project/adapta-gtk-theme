@@ -1439,11 +1439,14 @@ headerbar {
     }
   }
   button.toggle {
-      min-width: 1.3em;
-      min-height: 2.8em;
-      padding: 0 0.75em 0;
+    min-width: 1.3em;
+    min-height: 2.8em;
+    padding: 0 0.75em 0;
 
-    label { padding: 0.7em 0 0.8em; }
+    label { padding: 0.7em 0.6em 0.8em; }
+    menu menuitem { // reset padding
+      label { padding: 0; }
+    }
   }
 
   button,
@@ -1605,14 +1608,14 @@ headerbar {
     }
 
     .selection-menu {
+      padding-left: 1.2em;
+      padding-right: 1.2em;
+      color: $secondary_selected_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $selected_fg_color; }
+      &:disabled { color: $insensitive_inverted_secondary_fg_color; }
       &, &.popup {
-        padding-left: 1.2em;
-        padding-right: 1.2em;
-        color: $secondary_selected_fg_color;
-        &:hover,
-        &:active,
-        &:checked { color: $selected_fg_color; }
-        &:disabled { color: $insensitive_inverted_secondary_fg_color; }
         &:checked {
           border-image: -gtk-gradient(radial,
                                       center bottom, 0,
