@@ -1490,13 +1490,19 @@ headerbar {
   .linked > button,
   button.suggested-action,
   button.destructive-action {
-    color: $inverted_secondary_fg_color;
-    &:hover { color: $inverted_fg_color; }
-    &:checked {
-      color: $inverted_fg_color;
-      &:disabled { color: $insensitive_inverted_fg_color; }
+    &, & label.text-button {
+      color: $inverted_secondary_fg_color;
+      &:hover { color: $inverted_fg_color; }
+      &:checked {
+        color: $inverted_fg_color;
+        &:disabled { color: $insensitive_inverted_fg_color; }
+      }
+      &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
-    &:disabled { color: $insensitive_inverted_secondary_fg_color; }
+    label.text-button { // FIXME: stupid Gnome-Software
+      border-image: none;
+      box-shadow: none;
+    }
   }
 
   // entry styling
