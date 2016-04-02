@@ -248,12 +248,13 @@ GtkStack .button.profile-button {
 
 // account menu button
 .titlebar.header-bar GtkBox {
-  .button.image-button.account-button {
+  .button.account-button { // left-most account-button
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     outline-radius: 2px;
 
-    .avatar-round { border-color: $borders_color; }
+    // FIXME: it can't override its own styleshoot
+    .avatar-round { border-color: transparent; }
   }
 }
 
