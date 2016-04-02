@@ -258,14 +258,24 @@ stack button.profile-button {
   &:checked { color: $fg_color; }
 }
 
-// account menu button
-.titlebar headerbar box {
-  button.image-button.account-button {
+headerbar.titlebar box {
+  button.toggle.account-button { // left-most account-button
+    min-width: 1em;
+    min-height: 1em;
+    // FIXME: it can't override its own styleshoot
+    padding: 0.5em 0.75em 0.5em;
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
 
-    .avatar-round { border-color: $borders_color; }
+    // FIXME: it can't override its own styleshoot
+    .avatar-round { border-color: transparent; }
+  }
+
+  button.image-button.toggle { // tweet button
+    min-width: 1em;
+    min-height: 1em;
+    padding: 0.5em 0.75em 0.5em;
   }
 }
 
