@@ -1179,13 +1179,19 @@ GtkComboBox {
   .linked > .button,
   .button.suggested-action,
   .button.destructive-action {
-    color: $inverted_secondary_fg_color;
-    &:hover { color: $inverted_fg_color; }
-    &:checked {
-      color: $inverted_fg_color;
-      &:insensitive { color: $insensitive_inverted_fg_color; }
+    &, & .label.text-button {
+      color: $inverted_secondary_fg_color;
+      &:hover { color: $inverted_fg_color; }
+      &:checked {
+        color: $inverted_fg_color;
+        &:insensitive { color: $insensitive_inverted_fg_color; }
+      }
+      &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     }
-    &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+    .label.text-button { // FIXME: stupid Gnome-Software
+      border-image: none;
+      box-shadow: none;
+    }
   }
 
   // force to draw circle flat buttons as default
