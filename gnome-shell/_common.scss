@@ -1550,29 +1550,14 @@ StScrollBar {
 
 // Add Dash to Dock Support
 #dashtodockContainer {
-  #dash {
-    padding: 0;
-    border: none;
-    background-color: $osd_bg_color;
-    box-shadow: none;
-  }
-
+  #dash,
+  &:overview #dash,
   &.extended #dash,
   &.extended:overview #dash {
     padding: 0;
-    border: none;
+    border-radius: 0;
     box-shadow: none;
   }
-
-  // FIXME: 2px seems too small and breaks when overview-ed
-  // set radius for solid dock only
-  // &.top #dash { border-radius: 0 0 2.5px 2.5px; }
-  // &.bottom #dash { border-radius: 2.5px 2.5px 0 0; }
-  // &.left #dash { border-radius: 0 2.5px 2.5px 0; }
-  // &.right #dash { border-radius: 2.5px 0 0 2.5px; }
-  &:overview #dash,
-  &.extended #dash,
-  &.extended:overview #dash { border-radius: 0; }
 
   // draw edge if dock were not extended
   @each $_dock, $_line in (top, 0 -1px),
@@ -1580,9 +1565,12 @@ StScrollBar {
                           (left, -1px 0),
                           (right, 1px 0) {
     &.#{$_dock}:overview #dash {
-      border-radius: 0;
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset #{$_line} 0 $osd_semi_fill_color;
+    }
+    &.#{$_dock} #dash {
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset #{$_line} 0 $osd_fill_color;
     }
   }
 
@@ -1754,14 +1742,19 @@ StScrollBar {
 }
 
 .show-apps .show-apps-icon {
-  color: $osd_secondary_fg_color;
+  // margin: 6px;
+  border: none;
+  background-image: url("assets/show-apps.svg");
+  background-size: contain;
+  color: transparent;
 }
 
 .show-apps:hover .show-apps-icon,
 .show-apps:active .show-apps-icon,
 .show-apps:checked .show-apps-icon,
 .show-apps:focus .show-apps-icon {
-  color: $osd_fg_color;
+  color: transparent;
+  background-image: url("assets/show-apps-active.svg");
   transition-duration: 0.2s;
 }
 
