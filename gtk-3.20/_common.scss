@@ -1772,16 +1772,16 @@ headerbar {
     }
   }
 
-  // draw paned-separator with border
-  GtkPaned &:not(:only-child):last-child {
+  // paned-separator is actually drawn by paned itself
+  paned &:not(:only-child):last-child {
     &:dir(ltr) {
-      border-left: 1px solid $solid_dark_borders_color;
+      // border-left: 1px solid $solid_dark_borders_color;
 
       .tiled &  { @extend %tiled_integration; }
       .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
-      border-right: 1px solid $solid_dark_borders_color;
+      // border-right: 1px solid $solid_dark_borders_color;
 
       .tiled &  { @extend %tiled_integration; }
       .maximized & { @extend %maxd_integration; }
@@ -3892,6 +3892,14 @@ paned {
 
     &:not(:disabled) { // FIXME: is this needed?
       background-image: linear-gradient(to top, $solid_light_borders_color);
+    }
+
+    window & {
+      // do not across over GtkHeaderBar with solid border
+      &, &:not(.disabled) {
+        // FIXME: still happaned double-border though
+        background-image: linear-gradient(to top, $paned_borders_color);
+      }
     }
 
     &.wide {

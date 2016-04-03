@@ -2767,10 +2767,6 @@ headerbar {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), -5px 0 0 -1px #2a373e, -2px 0 0 -1px rgba(0, 0, 0, 0.09); }
   box headerbar:not(:only-child):last-child:dir(rtl) {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.09); }
-  GtkPaned headerbar:not(:only-child):last-child:dir(ltr) {
-    border-left: 1px solid #242F35; }
-  GtkPaned headerbar:not(:only-child):last-child:dir(rtl) {
-    border-right: 1px solid #242F35; }
 
 headerbar,
 .titlebar {
@@ -2796,7 +2792,7 @@ headerbar,
   box-shadow: none; }
 
 .tiled .titlebar, .tiled
-headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerbar:only-child, .tiled box headerbar:not(:only-child):last-child:dir(ltr), .tiled box headerbar:not(:only-child):last-child:dir(rtl), .tiled GtkPaned headerbar:not(:only-child):last-child:dir(ltr), .tiled GtkPaned headerbar:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar {
+headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerbar:only-child, .tiled box headerbar:not(:only-child):last-child:dir(ltr), .tiled box headerbar:not(:only-child):last-child:dir(rtl), .tiled paned headerbar:not(:only-child):last-child:dir(ltr), .tiled paned headerbar:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 2px 0 0 0;
@@ -2804,11 +2800,11 @@ headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerba
   background-color: #13191c;
   box-shadow: none; }
   .tiled .titlebar:backdrop, .tiled
-  headerbar:backdrop, .tiled box headerbar:backdrop:only-child, .tiled box headerbar:backdrop:not(:only-child):last-child:dir(ltr), .tiled box headerbar:backdrop:not(:only-child):last-child:dir(rtl), .tiled GtkPaned headerbar:backdrop:not(:only-child):last-child:dir(ltr), .tiled GtkPaned headerbar:backdrop:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar:backdrop {
+  headerbar:backdrop, .tiled box headerbar:backdrop:only-child, .tiled box headerbar:backdrop:not(:only-child):last-child:dir(ltr), .tiled box headerbar:backdrop:not(:only-child):last-child:dir(rtl), .tiled paned headerbar:backdrop:not(:only-child):last-child:dir(ltr), .tiled paned headerbar:backdrop:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar:backdrop {
     border-top-color: alpha(currentColor, 0.2); }
 
 .maximized .titlebar, .maximized
-headerbar, .maximized headerbar.titlebar, .maximized .csd headerbar, .maximized box headerbar:only-child, .maximized box headerbar:not(:only-child):last-child:dir(ltr), .maximized box headerbar:not(:only-child):last-child:dir(rtl), .maximized GtkPaned headerbar:not(:only-child):last-child:dir(ltr), .maximized GtkPaned headerbar:not(:only-child):last-child:dir(rtl), .maximized .ssd decoration .titlebar {
+headerbar, .maximized headerbar.titlebar, .maximized .csd headerbar, .maximized box headerbar:only-child, .maximized box headerbar:not(:only-child):last-child:dir(ltr), .maximized box headerbar:not(:only-child):last-child:dir(rtl), .maximized paned headerbar:not(:only-child):last-child:dir(ltr), .maximized paned headerbar:not(:only-child):last-child:dir(rtl), .maximized .ssd decoration .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 1px 0 0 0;
@@ -5407,6 +5403,8 @@ paned > separator {
   transition: none; }
   paned > separator:not(:disabled) {
     background-image: linear-gradient(to top, #E5E9EC); }
+  window paned > separator, window paned > separator:not(.disabled) {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.05)); }
   paned > separator.wide, button paned > separator,
   button paned > .separator,
   .button paned > separator,
@@ -7548,10 +7546,6 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
 /*********
  * Gedit *
  *********/
-.gedit-headerbar-paned {
-  color: transparent;
-  background-color: #2a373e; }
-
 GeditViewFrame .gedit-search-slider {
   padding: 3px;
   border-radius: 2px;
