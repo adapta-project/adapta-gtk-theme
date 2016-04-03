@@ -3888,7 +3888,9 @@ paned {
     // since the border will get rendered twice (?)
     background-image: linear-gradient(to top, $borders_color);
     background-size: $separator_narrow;
+    transition: none;
 
+    &:hover,
     &:selected,
     &:backdrop { // FIXME: is this needed?
       background-image: linear-gradient(to top, $borders_color);
@@ -3899,10 +3901,18 @@ paned {
       padding: 0;
       min-width: 6px;
       min-height: 6px;
-      // FIXME: avoid double-border
-      background-image: linear-gradient(to top, gtkopacity($borders_color, 0.5)),
-                        linear-gradient(to top, $borders_color);
+      // FIXME: use opaque borders to avoid double-border
+      background-image: linear-gradient(to top, $solid_light_borders_color),
+                        linear-gradient(to top, $solid_light_borders_color);
       background-size: $separator_wide;
+
+      &:hover,
+      &:selected,
+      &:backdrop { // FIXME: is this needed?
+        // background-image: none;
+        background-image: linear-gradient(to top, $solid_light_borders_color),
+                          linear-gradient(to top, $solid_light_borders_color);
+      }
     }
   }
 

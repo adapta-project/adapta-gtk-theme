@@ -5403,8 +5403,9 @@ paned > separator {
   background-color: transparent;
   -gtk-icon-source: none;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.11));
-  background-size: 1px 1px; }
-  paned > separator:selected, paned > separator:backdrop {
+  background-size: 1px 1px;
+  transition: none; }
+  paned > separator:hover, paned > separator:selected, paned > separator:backdrop {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.11)); }
   paned > separator.wide, button paned > separator,
   button paned > .separator,
@@ -5417,8 +5418,28 @@ paned > separator {
     padding: 0;
     min-width: 6px;
     min-height: 6px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.055)), linear-gradient(to top, rgba(0, 0, 0, 0.11));
+    background-image: linear-gradient(to top, #37474F), linear-gradient(to top, #37474F);
     background-size: 1px 1px, 1px 1px; }
+    paned > separator.wide:hover, button paned > separator:hover,
+    button paned > .separator:hover,
+    .button paned > separator:hover,
+    .button paned > .separator:hover, stacksidebar paned > separator:hover,
+    stacksidebar paned > .separator:hover, .tweak-categories paned > separator:hover,
+    .tweak-categories paned > .separator:hover, ContactsWindow list paned > .separator:hover,
+    ContactsWindow list paned > separator:hover, paned > separator.wide:selected, button paned > separator:selected,
+    button paned > .separator:selected,
+    .button paned > separator:selected,
+    .button paned > .separator:selected, stacksidebar paned > separator:selected,
+    stacksidebar paned > .separator:selected, .tweak-categories paned > separator:selected,
+    .tweak-categories paned > .separator:selected, ContactsWindow list paned > .separator:selected,
+    ContactsWindow list paned > separator:selected, paned > separator.wide:backdrop, button paned > separator:backdrop,
+    button paned > .separator:backdrop,
+    .button paned > separator:backdrop,
+    .button paned > .separator:backdrop, stacksidebar paned > separator:backdrop,
+    stacksidebar paned > .separator:backdrop, .tweak-categories paned > separator:backdrop,
+    .tweak-categories paned > .separator:backdrop, ContactsWindow list paned > .separator:backdrop,
+    ContactsWindow list paned > separator:backdrop {
+      background-image: linear-gradient(to top, #37474F), linear-gradient(to top, #37474F); }
 paned.horizontal > separator {
   background-repeat: repeat-y; }
   paned.horizontal > separator:dir(ltr) {
