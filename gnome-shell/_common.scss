@@ -236,7 +236,9 @@ StScrollBar {
  * Modal Dialogs *
  *****************/
 
-.headline { font-size: 110%; }
+.headline {
+  @include fontsize($font-size * 1.1);
+}
 .lightbox { background-color: #000000; }
 .flashspot { background-color: #FFFFFF; }
 
@@ -260,8 +262,8 @@ StScrollBar {
   }
   .run-dialog-button-box { padding-top: 1em; }
   .run-dialog-label {
+    @include fontsize($font-size * 1.1);
     padding-bottom: 0.4em;
-    font-size: 110%;
     font-weight: normal;
     color: $dim_fg_color;
   }
@@ -339,8 +341,8 @@ StScrollBar {
 .end-session-dialog-session-list-item-name { font-weight: bold; }
 
 .end-session-dialog-app-list-item-description {
+  @include fontsize($font-size * 1.0);
   color: $dim_fg_color;
-  font-size: 10pt;
 }
 
 
@@ -398,7 +400,9 @@ StScrollBar {
   &:rtl { padding-left: 17px; }
 }
 
-.show-processes-dialog-app-list-item-name { font-size: 10pt; }
+.show-processes-dialog-app-list-item-name {
+  @include fontsize($font-size * 1.0);
+}
 
 
 /*************************************
@@ -432,21 +436,21 @@ StScrollBar {
 }
 
 .prompt-dialog-error-label {
+  @include fontsize($font-size * 1.0);
   padding-bottom: 8px;
-  font-size: 10pt;
   color: $error_color;
 }
 
 .prompt-dialog-info-label {
+  @include fontsize($font-size * 1.0);
   padding-bottom: 8px;
-  font-size: 10pt;
 }
 
 .hidden { color: rgba(0,0,0,0); }
 
 .prompt-dialog-null-label {
+  @include fontsize($font-size * 1.0);
   padding-bottom: 8px;
-  font-size: 10pt;
 }
 
 
@@ -667,7 +671,9 @@ StScrollBar {
   min-width: 64px;
   min-height: 64px;
 
-  .osd-monitor-label { font-size: 300%; }
+  .osd-monitor-label {
+    @include fontsize($font-size * 3.0);
+  }
 
   .level {
     height: 3px;
@@ -731,7 +737,7 @@ StScrollBar {
 }
 
 .input-source-switcher-symbol {
-  font-size: 300%;
+  @include fontsize($font-size * 3.0);
   width: 96px;
   height: 96px;
 }
@@ -945,8 +951,8 @@ StScrollBar {
 
 // FIXME: it doesn't work
 #window-list {
+  @include fontsize($font-size * 1.0);
   spacing: 2px;
-  font-size: 10pt;
 }
 
 #window-button {
@@ -1032,7 +1038,9 @@ StScrollBar {
 .datemenu-today-button .day-label {
 }
 
-.datemenu-today-button .date-label { font-size: 150%; }
+.datemenu-today-button .date-label {
+  @include fontsize($font-size * 1.5);
+}
 
 .world-clocks-header,
 .message-list-section-title {
@@ -1071,12 +1079,12 @@ StScrollBar {
 }
 
 .calendar-day-base {
+  @include fontsize($font-size * 0.9);
   width: 32px;
   height: 32px;
   padding: 0;
   margin: 2px;
   border-radius: 32px;
-  font-size: smaller;
   text-align: center;
   &:hover,&:focus { background-color: $semi_fill_color; }
   // &:active { background-color: $fill_color; }
@@ -1086,10 +1094,10 @@ StScrollBar {
     border-color: transparent; // avoid jumparound due to today
   }
   &.calendar-day-heading {  // day of week heading
+    @include fontsize($font-size * 0.9);
     margin-top: 1em;
     font-weight: bold;
     color: $dim_fg_color;
-    font-size: smaller;
   }
   &.calendar-week-number {  // day of week heading
     font-weight: bold;
@@ -1187,14 +1195,14 @@ StScrollBar {
 }
 
 .message-title {
+  @include fontsize($font-size * 1.1);
   padding: 6px;
   font-weight: bold;
-  font-size: 110%;
 }
 
 .message-content {
+  @include fontsize($font-size * 0.9);
   padding: 8px;
-  font-size: 90%;
 }
 
 .message-content * > StIcon {
@@ -1366,10 +1374,10 @@ StScrollBar {
 .nm-dialog-header { font-weight: bold; }
 
 .nm-dialog-item {
+  @include fontsize($font-size * 1.1);
   spacing: 20px;
   padding: 12px;
   border-bottom: 1px solid $borders_color;
-  font-size: 110%;
 }
 
 .nm-dialog-item:selected {
@@ -1427,6 +1435,7 @@ StScrollBar {
 
 // Search entry
 .search-entry { // use raised entry-box styling
+  @include fontsize($font-size * 1.1);
   width: 320px;
   padding: 7px 8px 8px;
   border-radius: 2px;
@@ -1435,7 +1444,6 @@ StScrollBar {
   color: $dim_fg_color;
   background-color: $inverted_dim_bg_color;
   font-weight: 500;
-  font-size: 110%;
   box-shadow: $z-depth-2;
 
   selection-background-color: $selected_bg_color;
@@ -1493,7 +1501,7 @@ StScrollBar {
 }
 
 .list-search-result-title {
-  font-size: 150%;
+  @include fontsize($font-size * 1.5);
   color: $osd_fg_color;
 }
 
@@ -1515,10 +1523,10 @@ StScrollBar {
  *************/
 
 #dash {
+  @include fontsize($font-size * 0.9);
   padding: 4px 0;
   border: none;
   border-radius: 0;
-  font-size: 90%;
   color: $osd_fg_color;
   background-color: rgba(0, 0, 0, 0.01);
   box-shadow: inset -1px 0 0 $osd_semi_fill_color;
@@ -1850,7 +1858,7 @@ StScrollBar {
 }
 
 %status_text {
-  font-size: 200%;
+  @include fontsize($font-size * 2.0);
   font-weight: bold;
   color: $osd_dim_fg_color;
 }
@@ -1872,12 +1880,12 @@ StScrollBar {
 
 // Banners
 .notification-banner {
+  @include fontsize($font-size * 1.1);
   width: 34em;
   min-height: 4.5em;
   margin: 5px;
   border: none;
   border-radius: 2px;
-  font-size: 110%;
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-2;
   &:hover,
@@ -1918,11 +1926,11 @@ StScrollBar {
 }
 
 .summary-source-counter {
+  @include fontsize($font-size * 1.0);
   width: 1.6em;
   height: 1.6em;
   border-radius: 0.9em; // should be 0.8 but whatever; wish I could do 50%;
   border: 2px solid $osd_fg_color;
-  font-size: 10pt;
   font-weight: bold;
   -shell-counter-overlap-x: 3px;
   -shell-counter-overlap-y: 3px;
@@ -1956,8 +1964,8 @@ StScrollBar {
 }
 
 .chat-meta-message {
+  @include fontsize($font-size * 0.9);
   padding-left: 4px;
-  font-size: 90%;
   font-weight: bold;
   color: $insensitive_fg_color;
   &:rtl {
@@ -2074,11 +2082,11 @@ $legacy_icon_size: 24px;
 .keyboard-row { spacing: 15px; }
 
 .keyboard-key {
+  @include fontsize($font-size * 2.0);
   border-radius: 2px;
   border: 1px 0 0;
   min-height: 2em;
   min-width: 2em;
-  font-size: 200%;
   font-weight: bold;
   color: inherit;
   @include button(normal);
@@ -2211,9 +2219,9 @@ $legacy_icon_size: 24px;
 
   .modal-dialog-button-box { spacing: 1em; }
   .modal-dialog-button {
+    @include fontsize($font-size * 1.1);
     padding: 7px 16px 8px;
     font-weight: bold;
-    font-size: 110%;
     @include button(flat-normal, $tc:$osd_secondary_fg_color);
     &:hover,
     &:focus { @include button(flat-hover, $c:$osd_semi_fill_color,
@@ -2261,8 +2269,8 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-not-listed-label {
+  @include fontsize($font-size * 0.9);
   padding-top: 1em;
-  font-size: 90%;
   font-weight: bold;
   color: $osd_secondary_fg_color;
   &:hover { color: $osd_fg_color; }
@@ -2320,8 +2328,8 @@ $legacy_icon_size: 24px;
 
 .login-dialog-username,
 .user-widget-label {
+  @include fontsize($font-size * 1.2);
   padding-left: 15px;
-  font-size: 120%;
   font-weight: bold;
   text-align: left;
   color: $osd_fg_color;
@@ -2340,9 +2348,9 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-prompt-label {
+    @include fontsize($font-size * 1.0);
     padding-top: 1em;
     color: $osd_dim_fg_color;
-    font-size: 10pt;
 }
 
 .login-dialog-session-list-button StIcon { icon-size: 16px; }
@@ -2378,12 +2386,14 @@ $legacy_icon_size: 24px;
 }
 
 .screen-shield-clock-time {
-  font-size: 112px;
+  @include fontsize($font-size * 10.4);
   font-weight: 300;
   text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.screen-shield-clock-date { font-size: 45px; }
+.screen-shield-clock-date {
+  @include fontsize($font-size * 3.2);
+}
 
 .screen-shield-notifications-container {
   spacing: 6px;
@@ -2508,7 +2518,7 @@ $legacy_icon_size: 24px;
 }
 
 .lg-completions-text {
-    font-size: 90%;
+    @include fontsize($font-size * 0.9);
     font-style: italic;
 }
 
@@ -2535,8 +2545,8 @@ $legacy_icon_size: 24px;
 }
 
 .lg-extension-name {
+    @include fontsize($font-size * 1.5);
     font-weight: bold;
-    font-size: 150%;
 }
 
 .lg-extension-meta { spacing: 6px; }
