@@ -2255,7 +2255,7 @@ notebook {
   padding: 0;
 
   &.frame {
-    border: 1px solid $borders_color;
+    border: 1px solid $solid_light_borders_color;
 
     // remove madness borders around header
     > header {
@@ -3890,10 +3890,8 @@ paned {
     background-size: $separator_narrow;
     transition: none;
 
-    &:hover,
-    &:selected,
-    &:backdrop { // FIXME: is this needed?
-      background-image: linear-gradient(to top, $borders_color);
+    &:not(:disabled) { // FIXME: is this needed?
+      background-image: linear-gradient(to top, $solid_light_borders_color);
     }
 
     &.wide {
@@ -3906,9 +3904,7 @@ paned {
                         linear-gradient(to top, $solid_light_borders_color);
       background-size: $separator_wide;
 
-      &:hover,
-      &:selected,
-      &:backdrop { // FIXME: is this needed?
+      &:not(:disabled) { // FIXME: is this needed?
         // background-image: none;
         background-image: linear-gradient(to top, $solid_light_borders_color),
                           linear-gradient(to top, $solid_light_borders_color);
