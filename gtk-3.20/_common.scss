@@ -2699,6 +2699,40 @@ switch {
  * Check and Radio items *
  *************************/
 
+@keyframes check_radio_hover {
+  from {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.001,
+                                    to(gtkalpha($secondary_fg_color, 0.1)),
+                                    to(transparent));
+  }
+  to {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.5,
+                                    to(gtkalpha($secondary_fg_color, 0.1)),
+                                    to(transparent));
+  }
+}
+
+@keyframes check_radio_active {
+  from {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.001,
+                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(transparent));
+  }
+  to {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.5,
+                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(transparent));
+  }
+}
+
 // draw regular check and radio items using our PNG assets
 // all assets are rendered from assets.svg. never add pngs directly
 
@@ -2707,6 +2741,7 @@ switch {
 
   // standard checks and radios
   @each $s,$as in ('','-unchecked'),
+                  (':hover', '-unchecked-active'),
                   (':active', '-unchecked-active'),
                   (':disabled','-unchecked-insensitive'),
                   (':indeterminate', '-mixed'),
@@ -2718,14 +2753,10 @@ switch {
     .#{$w}#{$s}, #{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
-      -gtk-icon-shadow: $check-radio-depth-1;
-      &:hover, &:active { -gtk-icon-shadow: $check-radio-depth-2; }
-      &:disabled { -gtk-icon-shadow: none; }
+      -gtk-icon-shadow: none;
       &:backdrop {
         opacity: 0.8;
         transition: 0.2s;
-      }
-      & button.flat {
       }
     }
   }
@@ -2742,16 +2773,6 @@ switch {
                   (':checked:disabled','-checked-insensitive') {
     menu menuitem.#{$w}#{$s},
     menu menuitem #{$w}#{$s} {
-      @extend %fade_effect;
-
-      // color: gtkalpha(currentColor, 0.75);
-      // -gtk-icon-source: -gtk-icontheme('#{$a}-symbolic');
-      // &:active, &:checked { -gtk-icon-source:
-      //                       -gtk-icontheme('#{$a}-checked-symbolic');
-      // }
-      // &:indeterminate { -gtk-icon-source:
-      //                  -gtk-icontheme('#{$a}-mixed-symbolic');
-      // }
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
@@ -2770,12 +2791,53 @@ switch {
   }
 }
 
-// treeview and list-rows
-.view check,
-.view radio,
-row {
-  check,
-  radio {
+// check/radio inside treeview
+treeview.view check,
+treeview.view radio {
+  &, &:only-child {
+    // margin: -0.5em;
+    // padding: 0.5em;
+    padding: 0; // FIXME: negative margin doesn't work.
+  }
+}
+
+// check/radio inside selected-rows
+@each $w,$a in ('check', 'checkbox'),
+               ('radio','radio') {
+
+  // standard checks and radios
+  @each $s,$as in ('','-unchecked'),
+                  (':active', '-unchecked'),
+                  (':indeterminate', '-mixed'),
+                  (':indeterminate:active', '-mixed'),
+                  (':checked', '-checked'),
+                  (':checked:active', '-checked') {
+    treeview.view,
+    row,
+    row.activatable {
+      #{$w}:selected#{$s},
+      #{$w}:selected:focus#{$s} {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
+                                      url("assets/#{$a}#{$as}-selected@2.png"));
+        -gtk-icon-shadow: none;
+      }
+      // use dark variant for insensitive states
+      #{$w}:selected:disabled,
+      #{$w}:selected:focus:disabled {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
+                                      url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
+      }
+      #{$w}:selected:indeterminate:disabled,
+      #{$w}:selected:focus:indeterminate:disabled {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
+                                      url("assets/#{$a}-mixed-insensitive-dark@2.png"));
+      }
+      #{$w}:selected:checked:disabled,
+      #{$w}:selected:focus:checked:disabled {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
+                                      url("assets/#{$a}-checked-insensitive-dark@2.png"));
+      }
+    }
   }
 }
 
@@ -2817,15 +2879,24 @@ radiobutton.text-button {
 
 radio,
 check {
-  margin: 0 0.5em 0 0.5em;
-  &:only-child { margin: 0; }
-
   min-width: 16px;
   min-height: 16px;
+  // margin: 0 0.5em 0 0.5em;
+  margin: -0.75em -0.25em;
+  padding: 0.75em;
+
+  &:hover {
+    animation: check_radio_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  &:active,
+  &:hover:checked,
+  &:hover:indeterminate {
+    animation: check_radio_active 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
 
   menu menuitem & {
-    margin: 0; // this is a workaround for
-               // a menu check/radio size allocation issue
+    margin: -0.5em; // this is a workaround for
+    padding: 0.5em; // a menu check/radio size allocation issue
 
     &, &:hover, &:disabled { //FIXME: use button reset mixin
       min-height: 16px;

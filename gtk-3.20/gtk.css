@@ -64,13 +64,7 @@ menubar > menuitem *:backdrop, .menu .menuitem *:backdrop,
 .menu menuitem *:backdrop,
 menu .menuitem *:backdrop,
 menu menuitem *:backdrop, popover.background *:backdrop, notebook tab *:backdrop, .scrollbar *:backdrop,
-scrollbar *:backdrop, menu menuitem.check:disabled *:backdrop,
-menu menuitem check:disabled *:backdrop, menu menuitem.check:indeterminate *:backdrop,
-menu menuitem check:indeterminate *:backdrop, menu menuitem.check:checked *:backdrop,
-menu menuitem check:checked *:backdrop, menu menuitem.radio:disabled *:backdrop,
-menu menuitem radio:disabled *:backdrop, menu menuitem.radio:indeterminate *:backdrop,
-menu menuitem radio:indeterminate *:backdrop, menu menuitem.radio:checked *:backdrop,
-menu menuitem radio:checked *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, infobar *:backdrop, NautilusTrashBar *:backdrop, headerbar button.titlebutton *:backdrop,
+scrollbar *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, infobar *:backdrop, NautilusTrashBar *:backdrop, headerbar button.titlebutton *:backdrop,
 .titlebar button.titlebutton *:backdrop, layouttabbar *:backdrop, layouttab *:backdrop, eggsearchbar box.search-bar *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -3702,101 +3696,82 @@ switch {
 /*************************
  * Check and Radio items *
  *************************/
+@keyframes check_radio_hover {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(rgba(38, 50, 56, 0.75), 0.1)), to(transparent)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(rgba(38, 50, 56, 0.75), 0.1)), to(transparent)); } }
+@keyframes check_radio_active {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(#00BCD4, 0.1)), to(transparent)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(#00BCD4, 0.1)), to(transparent)); } }
 .check, check {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked.png"), url("assets/checkbox-unchecked@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:hover, .check:active, check:hover, check:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:disabled, check:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:backdrop, check:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.check:hover, check:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-active.png"), url("assets/checkbox-unchecked-active@2.png"));
+  -gtk-icon-shadow: none; }
+  .check:hover:backdrop, check:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:active, check:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-active.png"), url("assets/checkbox-unchecked-active@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:active:hover, .check:active:active, check:active:hover, check:active:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:active:disabled, check:active:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:active:backdrop, check:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:disabled, check:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive.png"), url("assets/checkbox-unchecked-insensitive@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:disabled:hover, .check:disabled:active, check:disabled:hover, check:disabled:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:disabled:disabled, check:disabled:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:disabled:backdrop, check:disabled:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:indeterminate, check:indeterminate {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed.png"), url("assets/checkbox-mixed@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:indeterminate:hover, .check:indeterminate:active, check:indeterminate:hover, check:indeterminate:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:indeterminate:disabled, check:indeterminate:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:indeterminate:backdrop, check:indeterminate:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:indeterminate:active, check:indeterminate:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-active.png"), url("assets/checkbox-mixed-active@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:indeterminate:active:hover, .check:indeterminate:active:active, check:indeterminate:active:hover, check:indeterminate:active:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:indeterminate:active:disabled, check:indeterminate:active:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:indeterminate:active:backdrop, check:indeterminate:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:indeterminate:disabled, check:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive.png"), url("assets/checkbox-mixed-insensitive@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:indeterminate:disabled:hover, .check:indeterminate:disabled:active, check:indeterminate:disabled:hover, check:indeterminate:disabled:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:indeterminate:disabled:disabled, check:indeterminate:disabled:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:indeterminate:disabled:backdrop, check:indeterminate:disabled:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:checked, check:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked.png"), url("assets/checkbox-checked@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:checked:hover, .check:checked:active, check:checked:hover, check:checked:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:checked:disabled, check:checked:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:checked:backdrop, check:checked:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:checked:active, check:checked:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active.png"), url("assets/checkbox-checked-active@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:checked:active:hover, .check:checked:active:active, check:checked:active:hover, check:checked:active:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:checked:active:disabled, check:checked:active:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:checked:active:backdrop, check:checked:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:checked:disabled, check:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive.png"), url("assets/checkbox-checked-insensitive@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:checked:disabled:hover, .check:checked:disabled:active, check:checked:disabled:hover, check:checked:disabled:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:checked:disabled:disabled, check:checked:disabled:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .check:checked:disabled:backdrop, check:checked:disabled:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
@@ -3893,99 +3868,70 @@ menu menuitem check:checked:disabled {
 
 .radio, radio {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked.png"), url("assets/radio-unchecked@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:hover, .radio:active, radio:hover, radio:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:disabled, radio:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:backdrop, radio:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.radio:hover, radio:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-active.png"), url("assets/radio-unchecked-active@2.png"));
+  -gtk-icon-shadow: none; }
+  .radio:hover:backdrop, radio:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:active, radio:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-active.png"), url("assets/radio-unchecked-active@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:active:hover, .radio:active:active, radio:active:hover, radio:active:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:active:disabled, radio:active:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:active:backdrop, radio:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:disabled, radio:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive.png"), url("assets/radio-unchecked-insensitive@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:disabled:hover, .radio:disabled:active, radio:disabled:hover, radio:disabled:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:disabled:disabled, radio:disabled:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:disabled:backdrop, radio:disabled:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:indeterminate, radio:indeterminate {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed.png"), url("assets/radio-mixed@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:indeterminate:hover, .radio:indeterminate:active, radio:indeterminate:hover, radio:indeterminate:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:indeterminate:disabled, radio:indeterminate:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:indeterminate:backdrop, radio:indeterminate:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:indeterminate:active, radio:indeterminate:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-active.png"), url("assets/radio-mixed-active@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:indeterminate:active:hover, .radio:indeterminate:active:active, radio:indeterminate:active:hover, radio:indeterminate:active:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:indeterminate:active:disabled, radio:indeterminate:active:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:indeterminate:active:backdrop, radio:indeterminate:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:indeterminate:disabled, radio:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive.png"), url("assets/radio-mixed-insensitive@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:indeterminate:disabled:hover, .radio:indeterminate:disabled:active, radio:indeterminate:disabled:hover, radio:indeterminate:disabled:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:indeterminate:disabled:disabled, radio:indeterminate:disabled:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:indeterminate:disabled:backdrop, radio:indeterminate:disabled:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:checked, radio:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked.png"), url("assets/radio-checked@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:checked:hover, .radio:checked:active, radio:checked:hover, radio:checked:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:checked:disabled, radio:checked:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:checked:backdrop, radio:checked:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:checked:active, radio:checked:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-active.png"), url("assets/radio-checked-active@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:checked:active:hover, .radio:checked:active:active, radio:checked:active:hover, radio:checked:active:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:checked:active:disabled, radio:checked:active:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:checked:active:backdrop, radio:checked:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:checked:disabled, radio:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive.png"), url("assets/radio-checked-insensitive@2.png"));
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:checked:disabled:hover, .radio:checked:disabled:active, radio:checked:disabled:hover, radio:checked:disabled:active {
-    -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:checked:disabled:disabled, radio:checked:disabled:disabled {
-    -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none; }
   .radio:checked:disabled:backdrop, radio:checked:disabled:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
@@ -4080,6 +4026,1093 @@ menu menuitem radio:checked:disabled {
     opacity: 0.8;
     transition: 0.2s; }
 
+treeview.view check, .tweak-category check, treeview.view check:only-child, .tweak-category check:only-child,
+treeview.view radio,
+.tweak-category radio,
+treeview.view radio:only-child,
+.tweak-category radio:only-child {
+  padding: 0; }
+
+treeview.view check:selected, .tweak-category check:selected,
+treeview.view check:selected:focus,
+.tweak-category check:selected:focus,
+row check:selected,
+row check:selected:focus,
+row.activatable check:selected,
+.view check:selected,
+iconview check:selected,
+.view text check:selected,
+iconview text check:selected,
+textview text check:selected,
+treeview.view header button check:selected,
+.tweak-category header button check:selected,
+row.activatable check:selected:focus,
+.view check:selected:focus,
+iconview check:selected:focus,
+.view text check:selected:focus,
+iconview text check:selected:focus,
+textview text check:selected:focus,
+treeview.view header button check:selected:focus,
+.tweak-category header button check:selected:focus {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-selected.png"), url("assets/checkbox-unchecked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view check:selected:disabled, .tweak-category check:selected:disabled,
+treeview.view check:selected:focus:disabled,
+.tweak-category check:selected:focus:disabled,
+row check:selected:disabled,
+row check:selected:focus:disabled,
+row.activatable check:selected:disabled,
+.view check:selected:disabled,
+iconview check:selected:disabled,
+.view text check:selected:disabled,
+iconview text check:selected:disabled,
+textview text check:selected:disabled,
+treeview.view header button check:selected:disabled,
+.tweak-category header button check:selected:disabled,
+row.activatable check:selected:focus:disabled,
+.view check:selected:focus:disabled,
+iconview check:selected:focus:disabled,
+.view text check:selected:focus:disabled,
+iconview text check:selected:focus:disabled,
+textview text check:selected:focus:disabled,
+treeview.view header button check:selected:focus:disabled,
+.tweak-category header button check:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+treeview.view check:selected:indeterminate:disabled, .tweak-category check:selected:indeterminate:disabled,
+treeview.view check:selected:focus:indeterminate:disabled,
+.tweak-category check:selected:focus:indeterminate:disabled,
+row check:selected:indeterminate:disabled,
+row check:selected:focus:indeterminate:disabled,
+row.activatable check:selected:indeterminate:disabled,
+.view check:selected:indeterminate:disabled,
+iconview check:selected:indeterminate:disabled,
+.view text check:selected:indeterminate:disabled,
+iconview text check:selected:indeterminate:disabled,
+textview text check:selected:indeterminate:disabled,
+treeview.view header button check:selected:indeterminate:disabled,
+.tweak-category header button check:selected:indeterminate:disabled,
+row.activatable check:selected:focus:indeterminate:disabled,
+.view check:selected:focus:indeterminate:disabled,
+iconview check:selected:focus:indeterminate:disabled,
+.view text check:selected:focus:indeterminate:disabled,
+iconview text check:selected:focus:indeterminate:disabled,
+textview text check:selected:focus:indeterminate:disabled,
+treeview.view header button check:selected:focus:indeterminate:disabled,
+.tweak-category header button check:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+treeview.view check:selected:checked:disabled, .tweak-category check:selected:checked:disabled,
+treeview.view check:selected:focus:checked:disabled,
+.tweak-category check:selected:focus:checked:disabled,
+row check:selected:checked:disabled,
+row check:selected:focus:checked:disabled,
+row.activatable check:selected:checked:disabled,
+.view check:selected:checked:disabled,
+iconview check:selected:checked:disabled,
+.view text check:selected:checked:disabled,
+iconview text check:selected:checked:disabled,
+textview text check:selected:checked:disabled,
+treeview.view header button check:selected:checked:disabled,
+.tweak-category header button check:selected:checked:disabled,
+row.activatable check:selected:focus:checked:disabled,
+.view check:selected:focus:checked:disabled,
+iconview check:selected:focus:checked:disabled,
+.view text check:selected:focus:checked:disabled,
+iconview text check:selected:focus:checked:disabled,
+textview text check:selected:focus:checked:disabled,
+treeview.view header button check:selected:focus:checked:disabled,
+.tweak-category header button check:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+treeview.view check:selected:active, .tweak-category check:selected:active,
+treeview.view check:selected:focus:active,
+.tweak-category check:selected:focus:active,
+row check:selected:active,
+row check:selected:focus:active,
+row.activatable check:selected:active,
+.view check:selected:active,
+iconview check:selected:active,
+.view text check:selected:active,
+iconview text check:selected:active,
+textview text check:selected:active,
+treeview.view header button check:selected:active,
+.tweak-category header button check:selected:active,
+row.activatable check:selected:focus:active,
+.view check:selected:focus:active,
+iconview check:selected:focus:active,
+.view text check:selected:focus:active,
+iconview text check:selected:focus:active,
+textview text check:selected:focus:active,
+treeview.view header button check:selected:focus:active,
+.tweak-category header button check:selected:focus:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-selected.png"), url("assets/checkbox-unchecked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view check:selected:disabled, .tweak-category check:selected:disabled,
+treeview.view check:selected:focus:disabled,
+.tweak-category check:selected:focus:disabled,
+row check:selected:disabled,
+row check:selected:focus:disabled,
+row.activatable check:selected:disabled,
+.view check:selected:disabled,
+iconview check:selected:disabled,
+.view text check:selected:disabled,
+iconview text check:selected:disabled,
+textview text check:selected:disabled,
+treeview.view header button check:selected:disabled,
+.tweak-category header button check:selected:disabled,
+row.activatable check:selected:focus:disabled,
+.view check:selected:focus:disabled,
+iconview check:selected:focus:disabled,
+.view text check:selected:focus:disabled,
+iconview text check:selected:focus:disabled,
+textview text check:selected:focus:disabled,
+treeview.view header button check:selected:focus:disabled,
+.tweak-category header button check:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+treeview.view check:selected:indeterminate:disabled, .tweak-category check:selected:indeterminate:disabled,
+treeview.view check:selected:focus:indeterminate:disabled,
+.tweak-category check:selected:focus:indeterminate:disabled,
+row check:selected:indeterminate:disabled,
+row check:selected:focus:indeterminate:disabled,
+row.activatable check:selected:indeterminate:disabled,
+.view check:selected:indeterminate:disabled,
+iconview check:selected:indeterminate:disabled,
+.view text check:selected:indeterminate:disabled,
+iconview text check:selected:indeterminate:disabled,
+textview text check:selected:indeterminate:disabled,
+treeview.view header button check:selected:indeterminate:disabled,
+.tweak-category header button check:selected:indeterminate:disabled,
+row.activatable check:selected:focus:indeterminate:disabled,
+.view check:selected:focus:indeterminate:disabled,
+iconview check:selected:focus:indeterminate:disabled,
+.view text check:selected:focus:indeterminate:disabled,
+iconview text check:selected:focus:indeterminate:disabled,
+textview text check:selected:focus:indeterminate:disabled,
+treeview.view header button check:selected:focus:indeterminate:disabled,
+.tweak-category header button check:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+treeview.view check:selected:checked:disabled, .tweak-category check:selected:checked:disabled,
+treeview.view check:selected:focus:checked:disabled,
+.tweak-category check:selected:focus:checked:disabled,
+row check:selected:checked:disabled,
+row check:selected:focus:checked:disabled,
+row.activatable check:selected:checked:disabled,
+.view check:selected:checked:disabled,
+iconview check:selected:checked:disabled,
+.view text check:selected:checked:disabled,
+iconview text check:selected:checked:disabled,
+textview text check:selected:checked:disabled,
+treeview.view header button check:selected:checked:disabled,
+.tweak-category header button check:selected:checked:disabled,
+row.activatable check:selected:focus:checked:disabled,
+.view check:selected:focus:checked:disabled,
+iconview check:selected:focus:checked:disabled,
+.view text check:selected:focus:checked:disabled,
+iconview text check:selected:focus:checked:disabled,
+textview text check:selected:focus:checked:disabled,
+treeview.view header button check:selected:focus:checked:disabled,
+.tweak-category header button check:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+treeview.view check:selected:indeterminate, .tweak-category check:selected:indeterminate,
+treeview.view check:selected:focus:indeterminate,
+.tweak-category check:selected:focus:indeterminate,
+row check:selected:indeterminate,
+row check:selected:focus:indeterminate,
+row.activatable check:selected:indeterminate,
+.view check:selected:indeterminate,
+iconview check:selected:indeterminate,
+.view text check:selected:indeterminate,
+iconview text check:selected:indeterminate,
+textview text check:selected:indeterminate,
+treeview.view header button check:selected:indeterminate,
+.tweak-category header button check:selected:indeterminate,
+row.activatable check:selected:focus:indeterminate,
+.view check:selected:focus:indeterminate,
+iconview check:selected:focus:indeterminate,
+.view text check:selected:focus:indeterminate,
+iconview text check:selected:focus:indeterminate,
+textview text check:selected:focus:indeterminate,
+treeview.view header button check:selected:focus:indeterminate,
+.tweak-category header button check:selected:focus:indeterminate {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-selected.png"), url("assets/checkbox-mixed-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view check:selected:disabled, .tweak-category check:selected:disabled,
+treeview.view check:selected:focus:disabled,
+.tweak-category check:selected:focus:disabled,
+row check:selected:disabled,
+row check:selected:focus:disabled,
+row.activatable check:selected:disabled,
+.view check:selected:disabled,
+iconview check:selected:disabled,
+.view text check:selected:disabled,
+iconview text check:selected:disabled,
+textview text check:selected:disabled,
+treeview.view header button check:selected:disabled,
+.tweak-category header button check:selected:disabled,
+row.activatable check:selected:focus:disabled,
+.view check:selected:focus:disabled,
+iconview check:selected:focus:disabled,
+.view text check:selected:focus:disabled,
+iconview text check:selected:focus:disabled,
+textview text check:selected:focus:disabled,
+treeview.view header button check:selected:focus:disabled,
+.tweak-category header button check:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+treeview.view check:selected:indeterminate:disabled, .tweak-category check:selected:indeterminate:disabled,
+treeview.view check:selected:focus:indeterminate:disabled,
+.tweak-category check:selected:focus:indeterminate:disabled,
+row check:selected:indeterminate:disabled,
+row check:selected:focus:indeterminate:disabled,
+row.activatable check:selected:indeterminate:disabled,
+.view check:selected:indeterminate:disabled,
+iconview check:selected:indeterminate:disabled,
+.view text check:selected:indeterminate:disabled,
+iconview text check:selected:indeterminate:disabled,
+textview text check:selected:indeterminate:disabled,
+treeview.view header button check:selected:indeterminate:disabled,
+.tweak-category header button check:selected:indeterminate:disabled,
+row.activatable check:selected:focus:indeterminate:disabled,
+.view check:selected:focus:indeterminate:disabled,
+iconview check:selected:focus:indeterminate:disabled,
+.view text check:selected:focus:indeterminate:disabled,
+iconview text check:selected:focus:indeterminate:disabled,
+textview text check:selected:focus:indeterminate:disabled,
+treeview.view header button check:selected:focus:indeterminate:disabled,
+.tweak-category header button check:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+treeview.view check:selected:checked:disabled, .tweak-category check:selected:checked:disabled,
+treeview.view check:selected:focus:checked:disabled,
+.tweak-category check:selected:focus:checked:disabled,
+row check:selected:checked:disabled,
+row check:selected:focus:checked:disabled,
+row.activatable check:selected:checked:disabled,
+.view check:selected:checked:disabled,
+iconview check:selected:checked:disabled,
+.view text check:selected:checked:disabled,
+iconview text check:selected:checked:disabled,
+textview text check:selected:checked:disabled,
+treeview.view header button check:selected:checked:disabled,
+.tweak-category header button check:selected:checked:disabled,
+row.activatable check:selected:focus:checked:disabled,
+.view check:selected:focus:checked:disabled,
+iconview check:selected:focus:checked:disabled,
+.view text check:selected:focus:checked:disabled,
+iconview text check:selected:focus:checked:disabled,
+textview text check:selected:focus:checked:disabled,
+treeview.view header button check:selected:focus:checked:disabled,
+.tweak-category header button check:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+treeview.view check:selected:indeterminate:active, .tweak-category check:selected:indeterminate:active,
+treeview.view check:selected:focus:indeterminate:active,
+.tweak-category check:selected:focus:indeterminate:active,
+row check:selected:indeterminate:active,
+row check:selected:focus:indeterminate:active,
+row.activatable check:selected:indeterminate:active,
+.view check:selected:indeterminate:active,
+iconview check:selected:indeterminate:active,
+.view text check:selected:indeterminate:active,
+iconview text check:selected:indeterminate:active,
+textview text check:selected:indeterminate:active,
+treeview.view header button check:selected:indeterminate:active,
+.tweak-category header button check:selected:indeterminate:active,
+row.activatable check:selected:focus:indeterminate:active,
+.view check:selected:focus:indeterminate:active,
+iconview check:selected:focus:indeterminate:active,
+.view text check:selected:focus:indeterminate:active,
+iconview text check:selected:focus:indeterminate:active,
+textview text check:selected:focus:indeterminate:active,
+treeview.view header button check:selected:focus:indeterminate:active,
+.tweak-category header button check:selected:focus:indeterminate:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-selected.png"), url("assets/checkbox-mixed-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view check:selected:disabled, .tweak-category check:selected:disabled,
+treeview.view check:selected:focus:disabled,
+.tweak-category check:selected:focus:disabled,
+row check:selected:disabled,
+row check:selected:focus:disabled,
+row.activatable check:selected:disabled,
+.view check:selected:disabled,
+iconview check:selected:disabled,
+.view text check:selected:disabled,
+iconview text check:selected:disabled,
+textview text check:selected:disabled,
+treeview.view header button check:selected:disabled,
+.tweak-category header button check:selected:disabled,
+row.activatable check:selected:focus:disabled,
+.view check:selected:focus:disabled,
+iconview check:selected:focus:disabled,
+.view text check:selected:focus:disabled,
+iconview text check:selected:focus:disabled,
+textview text check:selected:focus:disabled,
+treeview.view header button check:selected:focus:disabled,
+.tweak-category header button check:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+treeview.view check:selected:indeterminate:disabled, .tweak-category check:selected:indeterminate:disabled,
+treeview.view check:selected:focus:indeterminate:disabled,
+.tweak-category check:selected:focus:indeterminate:disabled,
+row check:selected:indeterminate:disabled,
+row check:selected:focus:indeterminate:disabled,
+row.activatable check:selected:indeterminate:disabled,
+.view check:selected:indeterminate:disabled,
+iconview check:selected:indeterminate:disabled,
+.view text check:selected:indeterminate:disabled,
+iconview text check:selected:indeterminate:disabled,
+textview text check:selected:indeterminate:disabled,
+treeview.view header button check:selected:indeterminate:disabled,
+.tweak-category header button check:selected:indeterminate:disabled,
+row.activatable check:selected:focus:indeterminate:disabled,
+.view check:selected:focus:indeterminate:disabled,
+iconview check:selected:focus:indeterminate:disabled,
+.view text check:selected:focus:indeterminate:disabled,
+iconview text check:selected:focus:indeterminate:disabled,
+textview text check:selected:focus:indeterminate:disabled,
+treeview.view header button check:selected:focus:indeterminate:disabled,
+.tweak-category header button check:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+treeview.view check:selected:checked:disabled, .tweak-category check:selected:checked:disabled,
+treeview.view check:selected:focus:checked:disabled,
+.tweak-category check:selected:focus:checked:disabled,
+row check:selected:checked:disabled,
+row check:selected:focus:checked:disabled,
+row.activatable check:selected:checked:disabled,
+.view check:selected:checked:disabled,
+iconview check:selected:checked:disabled,
+.view text check:selected:checked:disabled,
+iconview text check:selected:checked:disabled,
+textview text check:selected:checked:disabled,
+treeview.view header button check:selected:checked:disabled,
+.tweak-category header button check:selected:checked:disabled,
+row.activatable check:selected:focus:checked:disabled,
+.view check:selected:focus:checked:disabled,
+iconview check:selected:focus:checked:disabled,
+.view text check:selected:focus:checked:disabled,
+iconview text check:selected:focus:checked:disabled,
+textview text check:selected:focus:checked:disabled,
+treeview.view header button check:selected:focus:checked:disabled,
+.tweak-category header button check:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+treeview.view check:selected:checked, .tweak-category check:selected:checked,
+treeview.view check:selected:focus:checked,
+.tweak-category check:selected:focus:checked,
+row check:selected:checked,
+row check:selected:focus:checked,
+row.activatable check:selected:checked,
+.view check:selected:checked,
+iconview check:selected:checked,
+.view text check:selected:checked,
+iconview text check:selected:checked,
+textview text check:selected:checked,
+treeview.view header button check:selected:checked,
+.tweak-category header button check:selected:checked,
+row.activatable check:selected:focus:checked,
+.view check:selected:focus:checked,
+iconview check:selected:focus:checked,
+.view text check:selected:focus:checked,
+iconview text check:selected:focus:checked,
+textview text check:selected:focus:checked,
+treeview.view header button check:selected:focus:checked,
+.tweak-category header button check:selected:focus:checked {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selected.png"), url("assets/checkbox-checked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view check:selected:disabled, .tweak-category check:selected:disabled,
+treeview.view check:selected:focus:disabled,
+.tweak-category check:selected:focus:disabled,
+row check:selected:disabled,
+row check:selected:focus:disabled,
+row.activatable check:selected:disabled,
+.view check:selected:disabled,
+iconview check:selected:disabled,
+.view text check:selected:disabled,
+iconview text check:selected:disabled,
+textview text check:selected:disabled,
+treeview.view header button check:selected:disabled,
+.tweak-category header button check:selected:disabled,
+row.activatable check:selected:focus:disabled,
+.view check:selected:focus:disabled,
+iconview check:selected:focus:disabled,
+.view text check:selected:focus:disabled,
+iconview text check:selected:focus:disabled,
+textview text check:selected:focus:disabled,
+treeview.view header button check:selected:focus:disabled,
+.tweak-category header button check:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+treeview.view check:selected:indeterminate:disabled, .tweak-category check:selected:indeterminate:disabled,
+treeview.view check:selected:focus:indeterminate:disabled,
+.tweak-category check:selected:focus:indeterminate:disabled,
+row check:selected:indeterminate:disabled,
+row check:selected:focus:indeterminate:disabled,
+row.activatable check:selected:indeterminate:disabled,
+.view check:selected:indeterminate:disabled,
+iconview check:selected:indeterminate:disabled,
+.view text check:selected:indeterminate:disabled,
+iconview text check:selected:indeterminate:disabled,
+textview text check:selected:indeterminate:disabled,
+treeview.view header button check:selected:indeterminate:disabled,
+.tweak-category header button check:selected:indeterminate:disabled,
+row.activatable check:selected:focus:indeterminate:disabled,
+.view check:selected:focus:indeterminate:disabled,
+iconview check:selected:focus:indeterminate:disabled,
+.view text check:selected:focus:indeterminate:disabled,
+iconview text check:selected:focus:indeterminate:disabled,
+textview text check:selected:focus:indeterminate:disabled,
+treeview.view header button check:selected:focus:indeterminate:disabled,
+.tweak-category header button check:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+treeview.view check:selected:checked:disabled, .tweak-category check:selected:checked:disabled,
+treeview.view check:selected:focus:checked:disabled,
+.tweak-category check:selected:focus:checked:disabled,
+row check:selected:checked:disabled,
+row check:selected:focus:checked:disabled,
+row.activatable check:selected:checked:disabled,
+.view check:selected:checked:disabled,
+iconview check:selected:checked:disabled,
+.view text check:selected:checked:disabled,
+iconview text check:selected:checked:disabled,
+textview text check:selected:checked:disabled,
+treeview.view header button check:selected:checked:disabled,
+.tweak-category header button check:selected:checked:disabled,
+row.activatable check:selected:focus:checked:disabled,
+.view check:selected:focus:checked:disabled,
+iconview check:selected:focus:checked:disabled,
+.view text check:selected:focus:checked:disabled,
+iconview text check:selected:focus:checked:disabled,
+textview text check:selected:focus:checked:disabled,
+treeview.view header button check:selected:focus:checked:disabled,
+.tweak-category header button check:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+treeview.view check:selected:checked:active, .tweak-category check:selected:checked:active,
+treeview.view check:selected:focus:checked:active,
+.tweak-category check:selected:focus:checked:active,
+row check:selected:checked:active,
+row check:selected:focus:checked:active,
+row.activatable check:selected:checked:active,
+.view check:selected:checked:active,
+iconview check:selected:checked:active,
+.view text check:selected:checked:active,
+iconview text check:selected:checked:active,
+textview text check:selected:checked:active,
+treeview.view header button check:selected:checked:active,
+.tweak-category header button check:selected:checked:active,
+row.activatable check:selected:focus:checked:active,
+.view check:selected:focus:checked:active,
+iconview check:selected:focus:checked:active,
+.view text check:selected:focus:checked:active,
+iconview text check:selected:focus:checked:active,
+textview text check:selected:focus:checked:active,
+treeview.view header button check:selected:focus:checked:active,
+.tweak-category header button check:selected:focus:checked:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selected.png"), url("assets/checkbox-checked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view check:selected:disabled, .tweak-category check:selected:disabled,
+treeview.view check:selected:focus:disabled,
+.tweak-category check:selected:focus:disabled,
+row check:selected:disabled,
+row check:selected:focus:disabled,
+row.activatable check:selected:disabled,
+.view check:selected:disabled,
+iconview check:selected:disabled,
+.view text check:selected:disabled,
+iconview text check:selected:disabled,
+textview text check:selected:disabled,
+treeview.view header button check:selected:disabled,
+.tweak-category header button check:selected:disabled,
+row.activatable check:selected:focus:disabled,
+.view check:selected:focus:disabled,
+iconview check:selected:focus:disabled,
+.view text check:selected:focus:disabled,
+iconview text check:selected:focus:disabled,
+textview text check:selected:focus:disabled,
+treeview.view header button check:selected:focus:disabled,
+.tweak-category header button check:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+treeview.view check:selected:indeterminate:disabled, .tweak-category check:selected:indeterminate:disabled,
+treeview.view check:selected:focus:indeterminate:disabled,
+.tweak-category check:selected:focus:indeterminate:disabled,
+row check:selected:indeterminate:disabled,
+row check:selected:focus:indeterminate:disabled,
+row.activatable check:selected:indeterminate:disabled,
+.view check:selected:indeterminate:disabled,
+iconview check:selected:indeterminate:disabled,
+.view text check:selected:indeterminate:disabled,
+iconview text check:selected:indeterminate:disabled,
+textview text check:selected:indeterminate:disabled,
+treeview.view header button check:selected:indeterminate:disabled,
+.tweak-category header button check:selected:indeterminate:disabled,
+row.activatable check:selected:focus:indeterminate:disabled,
+.view check:selected:focus:indeterminate:disabled,
+iconview check:selected:focus:indeterminate:disabled,
+.view text check:selected:focus:indeterminate:disabled,
+iconview text check:selected:focus:indeterminate:disabled,
+textview text check:selected:focus:indeterminate:disabled,
+treeview.view header button check:selected:focus:indeterminate:disabled,
+.tweak-category header button check:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+treeview.view check:selected:checked:disabled, .tweak-category check:selected:checked:disabled,
+treeview.view check:selected:focus:checked:disabled,
+.tweak-category check:selected:focus:checked:disabled,
+row check:selected:checked:disabled,
+row check:selected:focus:checked:disabled,
+row.activatable check:selected:checked:disabled,
+.view check:selected:checked:disabled,
+iconview check:selected:checked:disabled,
+.view text check:selected:checked:disabled,
+iconview text check:selected:checked:disabled,
+textview text check:selected:checked:disabled,
+treeview.view header button check:selected:checked:disabled,
+.tweak-category header button check:selected:checked:disabled,
+row.activatable check:selected:focus:checked:disabled,
+.view check:selected:focus:checked:disabled,
+iconview check:selected:focus:checked:disabled,
+.view text check:selected:focus:checked:disabled,
+iconview text check:selected:focus:checked:disabled,
+textview text check:selected:focus:checked:disabled,
+treeview.view header button check:selected:focus:checked:disabled,
+.tweak-category header button check:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+treeview.view radio:selected, .tweak-category radio:selected,
+treeview.view radio:selected:focus,
+.tweak-category radio:selected:focus,
+row radio:selected,
+row radio:selected:focus,
+row.activatable radio:selected,
+.view radio:selected,
+iconview radio:selected,
+.view text radio:selected,
+iconview text radio:selected,
+textview text radio:selected,
+treeview.view header button radio:selected,
+.tweak-category header button radio:selected,
+row.activatable radio:selected:focus,
+.view radio:selected:focus,
+iconview radio:selected:focus,
+.view text radio:selected:focus,
+iconview text radio:selected:focus,
+textview text radio:selected:focus,
+treeview.view header button radio:selected:focus,
+.tweak-category header button radio:selected:focus {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-selected.png"), url("assets/radio-unchecked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view radio:selected:disabled, .tweak-category radio:selected:disabled,
+treeview.view radio:selected:focus:disabled,
+.tweak-category radio:selected:focus:disabled,
+row radio:selected:disabled,
+row radio:selected:focus:disabled,
+row.activatable radio:selected:disabled,
+.view radio:selected:disabled,
+iconview radio:selected:disabled,
+.view text radio:selected:disabled,
+iconview text radio:selected:disabled,
+textview text radio:selected:disabled,
+treeview.view header button radio:selected:disabled,
+.tweak-category header button radio:selected:disabled,
+row.activatable radio:selected:focus:disabled,
+.view radio:selected:focus:disabled,
+iconview radio:selected:focus:disabled,
+.view text radio:selected:focus:disabled,
+iconview text radio:selected:focus:disabled,
+textview text radio:selected:focus:disabled,
+treeview.view header button radio:selected:focus:disabled,
+.tweak-category header button radio:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+treeview.view radio:selected:indeterminate:disabled, .tweak-category radio:selected:indeterminate:disabled,
+treeview.view radio:selected:focus:indeterminate:disabled,
+.tweak-category radio:selected:focus:indeterminate:disabled,
+row radio:selected:indeterminate:disabled,
+row radio:selected:focus:indeterminate:disabled,
+row.activatable radio:selected:indeterminate:disabled,
+.view radio:selected:indeterminate:disabled,
+iconview radio:selected:indeterminate:disabled,
+.view text radio:selected:indeterminate:disabled,
+iconview text radio:selected:indeterminate:disabled,
+textview text radio:selected:indeterminate:disabled,
+treeview.view header button radio:selected:indeterminate:disabled,
+.tweak-category header button radio:selected:indeterminate:disabled,
+row.activatable radio:selected:focus:indeterminate:disabled,
+.view radio:selected:focus:indeterminate:disabled,
+iconview radio:selected:focus:indeterminate:disabled,
+.view text radio:selected:focus:indeterminate:disabled,
+iconview text radio:selected:focus:indeterminate:disabled,
+textview text radio:selected:focus:indeterminate:disabled,
+treeview.view header button radio:selected:focus:indeterminate:disabled,
+.tweak-category header button radio:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+treeview.view radio:selected:checked:disabled, .tweak-category radio:selected:checked:disabled,
+treeview.view radio:selected:focus:checked:disabled,
+.tweak-category radio:selected:focus:checked:disabled,
+row radio:selected:checked:disabled,
+row radio:selected:focus:checked:disabled,
+row.activatable radio:selected:checked:disabled,
+.view radio:selected:checked:disabled,
+iconview radio:selected:checked:disabled,
+.view text radio:selected:checked:disabled,
+iconview text radio:selected:checked:disabled,
+textview text radio:selected:checked:disabled,
+treeview.view header button radio:selected:checked:disabled,
+.tweak-category header button radio:selected:checked:disabled,
+row.activatable radio:selected:focus:checked:disabled,
+.view radio:selected:focus:checked:disabled,
+iconview radio:selected:focus:checked:disabled,
+.view text radio:selected:focus:checked:disabled,
+iconview text radio:selected:focus:checked:disabled,
+textview text radio:selected:focus:checked:disabled,
+treeview.view header button radio:selected:focus:checked:disabled,
+.tweak-category header button radio:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+treeview.view radio:selected:active, .tweak-category radio:selected:active,
+treeview.view radio:selected:focus:active,
+.tweak-category radio:selected:focus:active,
+row radio:selected:active,
+row radio:selected:focus:active,
+row.activatable radio:selected:active,
+.view radio:selected:active,
+iconview radio:selected:active,
+.view text radio:selected:active,
+iconview text radio:selected:active,
+textview text radio:selected:active,
+treeview.view header button radio:selected:active,
+.tweak-category header button radio:selected:active,
+row.activatable radio:selected:focus:active,
+.view radio:selected:focus:active,
+iconview radio:selected:focus:active,
+.view text radio:selected:focus:active,
+iconview text radio:selected:focus:active,
+textview text radio:selected:focus:active,
+treeview.view header button radio:selected:focus:active,
+.tweak-category header button radio:selected:focus:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-selected.png"), url("assets/radio-unchecked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view radio:selected:disabled, .tweak-category radio:selected:disabled,
+treeview.view radio:selected:focus:disabled,
+.tweak-category radio:selected:focus:disabled,
+row radio:selected:disabled,
+row radio:selected:focus:disabled,
+row.activatable radio:selected:disabled,
+.view radio:selected:disabled,
+iconview radio:selected:disabled,
+.view text radio:selected:disabled,
+iconview text radio:selected:disabled,
+textview text radio:selected:disabled,
+treeview.view header button radio:selected:disabled,
+.tweak-category header button radio:selected:disabled,
+row.activatable radio:selected:focus:disabled,
+.view radio:selected:focus:disabled,
+iconview radio:selected:focus:disabled,
+.view text radio:selected:focus:disabled,
+iconview text radio:selected:focus:disabled,
+textview text radio:selected:focus:disabled,
+treeview.view header button radio:selected:focus:disabled,
+.tweak-category header button radio:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+treeview.view radio:selected:indeterminate:disabled, .tweak-category radio:selected:indeterminate:disabled,
+treeview.view radio:selected:focus:indeterminate:disabled,
+.tweak-category radio:selected:focus:indeterminate:disabled,
+row radio:selected:indeterminate:disabled,
+row radio:selected:focus:indeterminate:disabled,
+row.activatable radio:selected:indeterminate:disabled,
+.view radio:selected:indeterminate:disabled,
+iconview radio:selected:indeterminate:disabled,
+.view text radio:selected:indeterminate:disabled,
+iconview text radio:selected:indeterminate:disabled,
+textview text radio:selected:indeterminate:disabled,
+treeview.view header button radio:selected:indeterminate:disabled,
+.tweak-category header button radio:selected:indeterminate:disabled,
+row.activatable radio:selected:focus:indeterminate:disabled,
+.view radio:selected:focus:indeterminate:disabled,
+iconview radio:selected:focus:indeterminate:disabled,
+.view text radio:selected:focus:indeterminate:disabled,
+iconview text radio:selected:focus:indeterminate:disabled,
+textview text radio:selected:focus:indeterminate:disabled,
+treeview.view header button radio:selected:focus:indeterminate:disabled,
+.tweak-category header button radio:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+treeview.view radio:selected:checked:disabled, .tweak-category radio:selected:checked:disabled,
+treeview.view radio:selected:focus:checked:disabled,
+.tweak-category radio:selected:focus:checked:disabled,
+row radio:selected:checked:disabled,
+row radio:selected:focus:checked:disabled,
+row.activatable radio:selected:checked:disabled,
+.view radio:selected:checked:disabled,
+iconview radio:selected:checked:disabled,
+.view text radio:selected:checked:disabled,
+iconview text radio:selected:checked:disabled,
+textview text radio:selected:checked:disabled,
+treeview.view header button radio:selected:checked:disabled,
+.tweak-category header button radio:selected:checked:disabled,
+row.activatable radio:selected:focus:checked:disabled,
+.view radio:selected:focus:checked:disabled,
+iconview radio:selected:focus:checked:disabled,
+.view text radio:selected:focus:checked:disabled,
+iconview text radio:selected:focus:checked:disabled,
+textview text radio:selected:focus:checked:disabled,
+treeview.view header button radio:selected:focus:checked:disabled,
+.tweak-category header button radio:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+treeview.view radio:selected:indeterminate, .tweak-category radio:selected:indeterminate,
+treeview.view radio:selected:focus:indeterminate,
+.tweak-category radio:selected:focus:indeterminate,
+row radio:selected:indeterminate,
+row radio:selected:focus:indeterminate,
+row.activatable radio:selected:indeterminate,
+.view radio:selected:indeterminate,
+iconview radio:selected:indeterminate,
+.view text radio:selected:indeterminate,
+iconview text radio:selected:indeterminate,
+textview text radio:selected:indeterminate,
+treeview.view header button radio:selected:indeterminate,
+.tweak-category header button radio:selected:indeterminate,
+row.activatable radio:selected:focus:indeterminate,
+.view radio:selected:focus:indeterminate,
+iconview radio:selected:focus:indeterminate,
+.view text radio:selected:focus:indeterminate,
+iconview text radio:selected:focus:indeterminate,
+textview text radio:selected:focus:indeterminate,
+treeview.view header button radio:selected:focus:indeterminate,
+.tweak-category header button radio:selected:focus:indeterminate {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-selected.png"), url("assets/radio-mixed-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view radio:selected:disabled, .tweak-category radio:selected:disabled,
+treeview.view radio:selected:focus:disabled,
+.tweak-category radio:selected:focus:disabled,
+row radio:selected:disabled,
+row radio:selected:focus:disabled,
+row.activatable radio:selected:disabled,
+.view radio:selected:disabled,
+iconview radio:selected:disabled,
+.view text radio:selected:disabled,
+iconview text radio:selected:disabled,
+textview text radio:selected:disabled,
+treeview.view header button radio:selected:disabled,
+.tweak-category header button radio:selected:disabled,
+row.activatable radio:selected:focus:disabled,
+.view radio:selected:focus:disabled,
+iconview radio:selected:focus:disabled,
+.view text radio:selected:focus:disabled,
+iconview text radio:selected:focus:disabled,
+textview text radio:selected:focus:disabled,
+treeview.view header button radio:selected:focus:disabled,
+.tweak-category header button radio:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+treeview.view radio:selected:indeterminate:disabled, .tweak-category radio:selected:indeterminate:disabled,
+treeview.view radio:selected:focus:indeterminate:disabled,
+.tweak-category radio:selected:focus:indeterminate:disabled,
+row radio:selected:indeterminate:disabled,
+row radio:selected:focus:indeterminate:disabled,
+row.activatable radio:selected:indeterminate:disabled,
+.view radio:selected:indeterminate:disabled,
+iconview radio:selected:indeterminate:disabled,
+.view text radio:selected:indeterminate:disabled,
+iconview text radio:selected:indeterminate:disabled,
+textview text radio:selected:indeterminate:disabled,
+treeview.view header button radio:selected:indeterminate:disabled,
+.tweak-category header button radio:selected:indeterminate:disabled,
+row.activatable radio:selected:focus:indeterminate:disabled,
+.view radio:selected:focus:indeterminate:disabled,
+iconview radio:selected:focus:indeterminate:disabled,
+.view text radio:selected:focus:indeterminate:disabled,
+iconview text radio:selected:focus:indeterminate:disabled,
+textview text radio:selected:focus:indeterminate:disabled,
+treeview.view header button radio:selected:focus:indeterminate:disabled,
+.tweak-category header button radio:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+treeview.view radio:selected:checked:disabled, .tweak-category radio:selected:checked:disabled,
+treeview.view radio:selected:focus:checked:disabled,
+.tweak-category radio:selected:focus:checked:disabled,
+row radio:selected:checked:disabled,
+row radio:selected:focus:checked:disabled,
+row.activatable radio:selected:checked:disabled,
+.view radio:selected:checked:disabled,
+iconview radio:selected:checked:disabled,
+.view text radio:selected:checked:disabled,
+iconview text radio:selected:checked:disabled,
+textview text radio:selected:checked:disabled,
+treeview.view header button radio:selected:checked:disabled,
+.tweak-category header button radio:selected:checked:disabled,
+row.activatable radio:selected:focus:checked:disabled,
+.view radio:selected:focus:checked:disabled,
+iconview radio:selected:focus:checked:disabled,
+.view text radio:selected:focus:checked:disabled,
+iconview text radio:selected:focus:checked:disabled,
+textview text radio:selected:focus:checked:disabled,
+treeview.view header button radio:selected:focus:checked:disabled,
+.tweak-category header button radio:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+treeview.view radio:selected:indeterminate:active, .tweak-category radio:selected:indeterminate:active,
+treeview.view radio:selected:focus:indeterminate:active,
+.tweak-category radio:selected:focus:indeterminate:active,
+row radio:selected:indeterminate:active,
+row radio:selected:focus:indeterminate:active,
+row.activatable radio:selected:indeterminate:active,
+.view radio:selected:indeterminate:active,
+iconview radio:selected:indeterminate:active,
+.view text radio:selected:indeterminate:active,
+iconview text radio:selected:indeterminate:active,
+textview text radio:selected:indeterminate:active,
+treeview.view header button radio:selected:indeterminate:active,
+.tweak-category header button radio:selected:indeterminate:active,
+row.activatable radio:selected:focus:indeterminate:active,
+.view radio:selected:focus:indeterminate:active,
+iconview radio:selected:focus:indeterminate:active,
+.view text radio:selected:focus:indeterminate:active,
+iconview text radio:selected:focus:indeterminate:active,
+textview text radio:selected:focus:indeterminate:active,
+treeview.view header button radio:selected:focus:indeterminate:active,
+.tweak-category header button radio:selected:focus:indeterminate:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-selected.png"), url("assets/radio-mixed-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view radio:selected:disabled, .tweak-category radio:selected:disabled,
+treeview.view radio:selected:focus:disabled,
+.tweak-category radio:selected:focus:disabled,
+row radio:selected:disabled,
+row radio:selected:focus:disabled,
+row.activatable radio:selected:disabled,
+.view radio:selected:disabled,
+iconview radio:selected:disabled,
+.view text radio:selected:disabled,
+iconview text radio:selected:disabled,
+textview text radio:selected:disabled,
+treeview.view header button radio:selected:disabled,
+.tweak-category header button radio:selected:disabled,
+row.activatable radio:selected:focus:disabled,
+.view radio:selected:focus:disabled,
+iconview radio:selected:focus:disabled,
+.view text radio:selected:focus:disabled,
+iconview text radio:selected:focus:disabled,
+textview text radio:selected:focus:disabled,
+treeview.view header button radio:selected:focus:disabled,
+.tweak-category header button radio:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+treeview.view radio:selected:indeterminate:disabled, .tweak-category radio:selected:indeterminate:disabled,
+treeview.view radio:selected:focus:indeterminate:disabled,
+.tweak-category radio:selected:focus:indeterminate:disabled,
+row radio:selected:indeterminate:disabled,
+row radio:selected:focus:indeterminate:disabled,
+row.activatable radio:selected:indeterminate:disabled,
+.view radio:selected:indeterminate:disabled,
+iconview radio:selected:indeterminate:disabled,
+.view text radio:selected:indeterminate:disabled,
+iconview text radio:selected:indeterminate:disabled,
+textview text radio:selected:indeterminate:disabled,
+treeview.view header button radio:selected:indeterminate:disabled,
+.tweak-category header button radio:selected:indeterminate:disabled,
+row.activatable radio:selected:focus:indeterminate:disabled,
+.view radio:selected:focus:indeterminate:disabled,
+iconview radio:selected:focus:indeterminate:disabled,
+.view text radio:selected:focus:indeterminate:disabled,
+iconview text radio:selected:focus:indeterminate:disabled,
+textview text radio:selected:focus:indeterminate:disabled,
+treeview.view header button radio:selected:focus:indeterminate:disabled,
+.tweak-category header button radio:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+treeview.view radio:selected:checked:disabled, .tweak-category radio:selected:checked:disabled,
+treeview.view radio:selected:focus:checked:disabled,
+.tweak-category radio:selected:focus:checked:disabled,
+row radio:selected:checked:disabled,
+row radio:selected:focus:checked:disabled,
+row.activatable radio:selected:checked:disabled,
+.view radio:selected:checked:disabled,
+iconview radio:selected:checked:disabled,
+.view text radio:selected:checked:disabled,
+iconview text radio:selected:checked:disabled,
+textview text radio:selected:checked:disabled,
+treeview.view header button radio:selected:checked:disabled,
+.tweak-category header button radio:selected:checked:disabled,
+row.activatable radio:selected:focus:checked:disabled,
+.view radio:selected:focus:checked:disabled,
+iconview radio:selected:focus:checked:disabled,
+.view text radio:selected:focus:checked:disabled,
+iconview text radio:selected:focus:checked:disabled,
+textview text radio:selected:focus:checked:disabled,
+treeview.view header button radio:selected:focus:checked:disabled,
+.tweak-category header button radio:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+treeview.view radio:selected:checked, .tweak-category radio:selected:checked,
+treeview.view radio:selected:focus:checked,
+.tweak-category radio:selected:focus:checked,
+row radio:selected:checked,
+row radio:selected:focus:checked,
+row.activatable radio:selected:checked,
+.view radio:selected:checked,
+iconview radio:selected:checked,
+.view text radio:selected:checked,
+iconview text radio:selected:checked,
+textview text radio:selected:checked,
+treeview.view header button radio:selected:checked,
+.tweak-category header button radio:selected:checked,
+row.activatable radio:selected:focus:checked,
+.view radio:selected:focus:checked,
+iconview radio:selected:focus:checked,
+.view text radio:selected:focus:checked,
+iconview text radio:selected:focus:checked,
+textview text radio:selected:focus:checked,
+treeview.view header button radio:selected:focus:checked,
+.tweak-category header button radio:selected:focus:checked {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-selected.png"), url("assets/radio-checked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view radio:selected:disabled, .tweak-category radio:selected:disabled,
+treeview.view radio:selected:focus:disabled,
+.tweak-category radio:selected:focus:disabled,
+row radio:selected:disabled,
+row radio:selected:focus:disabled,
+row.activatable radio:selected:disabled,
+.view radio:selected:disabled,
+iconview radio:selected:disabled,
+.view text radio:selected:disabled,
+iconview text radio:selected:disabled,
+textview text radio:selected:disabled,
+treeview.view header button radio:selected:disabled,
+.tweak-category header button radio:selected:disabled,
+row.activatable radio:selected:focus:disabled,
+.view radio:selected:focus:disabled,
+iconview radio:selected:focus:disabled,
+.view text radio:selected:focus:disabled,
+iconview text radio:selected:focus:disabled,
+textview text radio:selected:focus:disabled,
+treeview.view header button radio:selected:focus:disabled,
+.tweak-category header button radio:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+treeview.view radio:selected:indeterminate:disabled, .tweak-category radio:selected:indeterminate:disabled,
+treeview.view radio:selected:focus:indeterminate:disabled,
+.tweak-category radio:selected:focus:indeterminate:disabled,
+row radio:selected:indeterminate:disabled,
+row radio:selected:focus:indeterminate:disabled,
+row.activatable radio:selected:indeterminate:disabled,
+.view radio:selected:indeterminate:disabled,
+iconview radio:selected:indeterminate:disabled,
+.view text radio:selected:indeterminate:disabled,
+iconview text radio:selected:indeterminate:disabled,
+textview text radio:selected:indeterminate:disabled,
+treeview.view header button radio:selected:indeterminate:disabled,
+.tweak-category header button radio:selected:indeterminate:disabled,
+row.activatable radio:selected:focus:indeterminate:disabled,
+.view radio:selected:focus:indeterminate:disabled,
+iconview radio:selected:focus:indeterminate:disabled,
+.view text radio:selected:focus:indeterminate:disabled,
+iconview text radio:selected:focus:indeterminate:disabled,
+textview text radio:selected:focus:indeterminate:disabled,
+treeview.view header button radio:selected:focus:indeterminate:disabled,
+.tweak-category header button radio:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+treeview.view radio:selected:checked:disabled, .tweak-category radio:selected:checked:disabled,
+treeview.view radio:selected:focus:checked:disabled,
+.tweak-category radio:selected:focus:checked:disabled,
+row radio:selected:checked:disabled,
+row radio:selected:focus:checked:disabled,
+row.activatable radio:selected:checked:disabled,
+.view radio:selected:checked:disabled,
+iconview radio:selected:checked:disabled,
+.view text radio:selected:checked:disabled,
+iconview text radio:selected:checked:disabled,
+textview text radio:selected:checked:disabled,
+treeview.view header button radio:selected:checked:disabled,
+.tweak-category header button radio:selected:checked:disabled,
+row.activatable radio:selected:focus:checked:disabled,
+.view radio:selected:focus:checked:disabled,
+iconview radio:selected:focus:checked:disabled,
+.view text radio:selected:focus:checked:disabled,
+iconview text radio:selected:focus:checked:disabled,
+textview text radio:selected:focus:checked:disabled,
+treeview.view header button radio:selected:focus:checked:disabled,
+.tweak-category header button radio:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+treeview.view radio:selected:checked:active, .tweak-category radio:selected:checked:active,
+treeview.view radio:selected:focus:checked:active,
+.tweak-category radio:selected:focus:checked:active,
+row radio:selected:checked:active,
+row radio:selected:focus:checked:active,
+row.activatable radio:selected:checked:active,
+.view radio:selected:checked:active,
+iconview radio:selected:checked:active,
+.view text radio:selected:checked:active,
+iconview text radio:selected:checked:active,
+textview text radio:selected:checked:active,
+treeview.view header button radio:selected:checked:active,
+.tweak-category header button radio:selected:checked:active,
+row.activatable radio:selected:focus:checked:active,
+.view radio:selected:focus:checked:active,
+iconview radio:selected:focus:checked:active,
+.view text radio:selected:focus:checked:active,
+iconview text radio:selected:focus:checked:active,
+textview text radio:selected:focus:checked:active,
+treeview.view header button radio:selected:focus:checked:active,
+.tweak-category header button radio:selected:focus:checked:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-selected.png"), url("assets/radio-checked-selected@2.png"));
+  -gtk-icon-shadow: none; }
+treeview.view radio:selected:disabled, .tweak-category radio:selected:disabled,
+treeview.view radio:selected:focus:disabled,
+.tweak-category radio:selected:focus:disabled,
+row radio:selected:disabled,
+row radio:selected:focus:disabled,
+row.activatable radio:selected:disabled,
+.view radio:selected:disabled,
+iconview radio:selected:disabled,
+.view text radio:selected:disabled,
+iconview text radio:selected:disabled,
+textview text radio:selected:disabled,
+treeview.view header button radio:selected:disabled,
+.tweak-category header button radio:selected:disabled,
+row.activatable radio:selected:focus:disabled,
+.view radio:selected:focus:disabled,
+iconview radio:selected:focus:disabled,
+.view text radio:selected:focus:disabled,
+iconview text radio:selected:focus:disabled,
+textview text radio:selected:focus:disabled,
+treeview.view header button radio:selected:focus:disabled,
+.tweak-category header button radio:selected:focus:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+treeview.view radio:selected:indeterminate:disabled, .tweak-category radio:selected:indeterminate:disabled,
+treeview.view radio:selected:focus:indeterminate:disabled,
+.tweak-category radio:selected:focus:indeterminate:disabled,
+row radio:selected:indeterminate:disabled,
+row radio:selected:focus:indeterminate:disabled,
+row.activatable radio:selected:indeterminate:disabled,
+.view radio:selected:indeterminate:disabled,
+iconview radio:selected:indeterminate:disabled,
+.view text radio:selected:indeterminate:disabled,
+iconview text radio:selected:indeterminate:disabled,
+textview text radio:selected:indeterminate:disabled,
+treeview.view header button radio:selected:indeterminate:disabled,
+.tweak-category header button radio:selected:indeterminate:disabled,
+row.activatable radio:selected:focus:indeterminate:disabled,
+.view radio:selected:focus:indeterminate:disabled,
+iconview radio:selected:focus:indeterminate:disabled,
+.view text radio:selected:focus:indeterminate:disabled,
+iconview text radio:selected:focus:indeterminate:disabled,
+textview text radio:selected:focus:indeterminate:disabled,
+treeview.view header button radio:selected:focus:indeterminate:disabled,
+.tweak-category header button radio:selected:focus:indeterminate:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+treeview.view radio:selected:checked:disabled, .tweak-category radio:selected:checked:disabled,
+treeview.view radio:selected:focus:checked:disabled,
+.tweak-category radio:selected:focus:checked:disabled,
+row radio:selected:checked:disabled,
+row radio:selected:focus:checked:disabled,
+row.activatable radio:selected:checked:disabled,
+.view radio:selected:checked:disabled,
+iconview radio:selected:checked:disabled,
+.view text radio:selected:checked:disabled,
+iconview text radio:selected:checked:disabled,
+textview text radio:selected:checked:disabled,
+treeview.view header button radio:selected:checked:disabled,
+.tweak-category header button radio:selected:checked:disabled,
+row.activatable radio:selected:focus:checked:disabled,
+.view radio:selected:focus:checked:disabled,
+iconview radio:selected:focus:checked:disabled,
+.view text radio:selected:focus:checked:disabled,
+iconview text radio:selected:focus:checked:disabled,
+textview text radio:selected:focus:checked:disabled,
+treeview.view header button radio:selected:focus:checked:disabled,
+.tweak-category header button radio:selected:focus:checked:disabled {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
 .view.content-view .check:not(list), iconview.content-view .check:not(list),
 .view.content-view check:not(list),
 iconview.content-view check:not(list) {
@@ -4159,15 +5192,22 @@ radiobutton.text-button {
 
 radio,
 check {
-  margin: 0 0.5em 0 0.5em;
   min-width: 16px;
-  min-height: 16px; }
-  radio:only-child,
-  check:only-child {
-    margin: 0; }
+  min-height: 16px;
+  margin: -0.75em -0.25em;
+  padding: 0.75em; }
+  radio:hover,
+  check:hover {
+    animation: check_radio_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  radio:active, radio:hover:checked, radio:hover:indeterminate,
+  check:active,
+  check:hover:checked,
+  check:hover:indeterminate {
+    animation: check_radio_active 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   menu menuitem radio, menu menuitem
   check {
-    margin: 0; }
+    margin: -0.5em;
+    padding: 0.5em; }
     menu menuitem radio, menu menuitem radio:hover, menu menuitem radio:disabled, menu menuitem
     check, menu menuitem
     check:hover, menu menuitem
