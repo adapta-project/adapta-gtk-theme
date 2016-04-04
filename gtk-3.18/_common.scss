@@ -426,7 +426,7 @@ GtkTextView { // This will get overridden by .view,
   &.text-button {
     padding-left: 1.2em;
     padding-right: 1.2em;
-    font-weight: bold;
+    font-weight: 700;
   }
 
   &.text-button.image-button {
@@ -709,7 +709,7 @@ GtkButtonBox > .button {
   @extend %fade_effect;
 
   @extend .button.flat;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 
@@ -1121,7 +1121,7 @@ GtkComboBox {
     padding-left: 1em;
     padding-right: 1em;
     color: $inverted_fg_color;
-    font-weight: bold;
+    font-weight: 700;
     &:backdrop { @extend .dim-label; }
   }
 
@@ -1961,7 +1961,7 @@ column-header.button.dnd { // for treeview-like derive widgets
       // and to prevent unexpected offset on reorderable-page,
       // set same padding with .button > GtkImage
       padding: 0.5em;
-      font-weight: bold;
+      font-weight: 700;
       color: $tertiary_fg_color;
     }
     .prelight-page .label,
@@ -2730,6 +2730,7 @@ GtkCalendar {
   &:selected {
     color: $selected_bg_color;
     background-color: transparent;
+    font-weight: 700;
   }
 
   &.header {
@@ -2740,15 +2741,17 @@ GtkCalendar {
 
   &.button {
     @include button(flat);
+    color: gtkalpha(currentColor, 0.20);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:insensitive { @include button(flat-insensitive); }
   }
 
-  &:inconsistent { color: gtkalpha(currentColor, 0.6); }
+  &:inconsistent { color: gtkalpha(currentColor, 0.20); }
   &.highlight {
+    color: gtkalpha(currentColor, 0.55);
     font-size: smaller;
-    color: gtkalpha(currentColor, 0.6);
+    font-weight: 500;
   }
 }
 

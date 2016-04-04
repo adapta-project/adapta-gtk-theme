@@ -593,7 +593,7 @@ GtkTextView {
   GtkVolumeButton.button.text-button {
     padding-left: 1.2em;
     padding-right: 1.2em;
-    font-weight: bold; }
+    font-weight: 700; }
   .button.text-button.image-button {
     padding: 0.7em 1em 0.8em;
     outline-radius: 2px;
@@ -776,7 +776,7 @@ GtkColorButton.button {
     opacity: 0.4; }
 
 GtkButtonBox > .button {
-  font-weight: bold; }
+  font-weight: 700; }
 
 /*********
  * Links *
@@ -1060,7 +1060,7 @@ GtkComboBox {
     padding-left: 1em;
     padding-right: 1em;
     color: #ECEFF1;
-    font-weight: bold; }
+    font-weight: 700; }
   .titlebar .subtitle,
   .header-bar .subtitle {
     padding-left: 1em;
@@ -2417,7 +2417,7 @@ column-header.button.dnd, column-header .button.dnd {
         box-shadow: -1px 0 2px rgba(0, 0, 0, 0.02), -1px 0 4px rgba(0, 0, 0, 0.02), 1px 0 2px rgba(0, 0, 0, 0.02), 1px 0 4px rgba(0, 0, 0, 0.02); }
     .notebook tab .label {
       padding: 0.5em;
-      font-weight: bold;
+      font-weight: 700;
       color: rgba(38, 50, 56, 0.5); }
     .notebook tab .prelight-page .label,
     .notebook tab .label.prelight-page {
@@ -3432,7 +3432,8 @@ GtkCalendar {
   color: #263238; }
   GtkCalendar:selected {
     color: #00BCD4;
-    background-color: transparent; }
+    background-color: transparent;
+    font-weight: 700; }
   GtkCalendar.header {
     border: 1px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.09);
@@ -3440,7 +3441,8 @@ GtkCalendar {
   GtkCalendar.button {
     box-shadow: none;
     background-color: transparent;
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    color: alpha(currentColor, 0.2); }
     GtkCalendar.button:hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
@@ -3451,10 +3453,11 @@ GtkCalendar {
       box-shadow: none;
       background-color: transparent; }
   GtkCalendar:inconsistent {
-    color: alpha(currentColor, 0.6); }
+    color: alpha(currentColor, 0.2); }
   GtkCalendar.highlight {
+    color: alpha(currentColor, 0.55);
     font-size: smaller;
-    color: alpha(currentColor, 0.6); }
+    font-weight: 500; }
 
 /***********
  * Dialogs *
