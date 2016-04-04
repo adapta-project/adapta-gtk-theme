@@ -4895,7 +4895,9 @@ calendar {
   border: 1px solid rgba(0, 0, 0, 0.09);
   color: #263238; }
   calendar:selected {
-    color: #00BCD4; }
+    color: #00BCD4;
+    background-color: transparent;
+    font-weight: 700; }
   calendar.header {
     border: 1px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.09);
@@ -4904,6 +4906,7 @@ calendar {
     box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    color: alpha(currentColor, 0.2);
     background-size: 2.5em 2.5em, auto; }
     calendar.button:hover, calendar.header.button:hover {
       box-shadow: none;
@@ -4915,10 +4918,11 @@ calendar {
       box-shadow: none;
       background-color: transparent; }
   calendar:indeterminate {
-    color: alpha(currentColor, 0.55); }
+    color: alpha(currentColor, 0.2); }
   calendar.highlight {
+    color: alpha(currentColor, 0.55);
     font-size: smaller;
-    color: alpha(currentColor, 0.55); }
+    font-weight: 500; }
 
 /***********
  * Dialogs *
