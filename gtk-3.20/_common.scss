@@ -4165,11 +4165,6 @@ colorswatch {
         background: none;
         color: $success_color;
       }
-      &:active {
-        @include button(flat-active);
-        background-color: $track_color;
-        color: $success_color;
-      }
       &:disabled {
         @include button(flat-insensitive);
         background: none;
@@ -4180,11 +4175,6 @@ colorswatch {
       &:hover {
         @include button(flat-hover);
         background: none;
-        color: $error_color;
-      }
-      &:active {
-        @include button(flat-active);
-        background-color: $track_color;
         color: $error_color;
       }
       &:disabled {
@@ -4206,11 +4196,6 @@ colorswatch {
         background: none;
         color: $error_color;
       }
-      &:active {
-        @include button(flat-active);
-        background-color: $track_color;
-        color: $error_color;
-      }
       &:disabled {
         @include button(flat-insensitive);
         background: none;
@@ -4223,11 +4208,6 @@ colorswatch {
         background: none;
         color: $success_color;
       }
-      &:active {
-        @include button(flat-active);
-        background-color: $track_color;
-        color: $success_color;
-      }
       &:disabled {
         @include button(flat-insensitive);
         background: none;
@@ -4237,19 +4217,16 @@ colorswatch {
   }
 }
 
-GtkScaleButton button,
-GtkVolumeButton button {
+button.flat.scale { // standalone Speaker/Mic buttons
   // I assume both are image-button *by default*
   // with the image-button/text-button classes automagically applied
   // depending on the button child these selectors can be deleted.
   // @extend %image_button;
-  @extend button.flat;
-  min-width: 2em;
-  min-height: 2em;
+  min-width: 1.3em;
+  min-height: 1.3em;
+  padding: 0.6em;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
-
-  &.text-button { @extend .text-button }
 }
 
 .nautilus-window .floating-bar {
