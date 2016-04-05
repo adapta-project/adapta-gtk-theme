@@ -2733,6 +2733,23 @@ switch {
   }
 }
 
+@keyframes check_radio_active_reverse {
+  from {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.5,
+                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(transparent));
+  }
+  to {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.001,
+                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(transparent));
+  }
+}
+
 // draw regular check and radio items using our PNG assets
 // all assets are rendered from assets.svg. never add pngs directly
 
@@ -2888,7 +2905,9 @@ check {
   &:hover {
     animation: check_radio_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
-  &:active,
+  &:active {
+    animation: check_radio_active_reverse 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
   &:hover:checked,
   &:hover:indeterminate {
     animation: check_radio_active 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;

@@ -3706,6 +3706,11 @@ switch {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(#00BCD4, 0.1)), to(transparent)); }
   to {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(#00BCD4, 0.1)), to(transparent)); } }
+@keyframes check_radio_active_reverse {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(#00BCD4, 0.1)), to(transparent)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(#00BCD4, 0.1)), to(transparent)); } }
 .check, check {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked.png"), url("assets/checkbox-unchecked@2.png"));
   -gtk-icon-shadow: none; }
@@ -5199,8 +5204,10 @@ check {
   radio:hover,
   check:hover {
     animation: check_radio_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-  radio:active, radio:hover:checked, radio:hover:indeterminate,
-  check:active,
+  radio:active,
+  check:active {
+    animation: check_radio_active_reverse 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  radio:hover:checked, radio:hover:indeterminate,
   check:hover:checked,
   check:hover:indeterminate {
     animation: check_radio_active 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
