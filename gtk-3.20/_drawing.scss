@@ -6,6 +6,17 @@
 
 
 //
+// Scaling function
+//
+
+$ref_size: 13.3px; // = 10pt = 1em
+
+@function rem($px, $fs: $ref_size) {
+  @return ($px / $fs ) * 1rem;
+}
+
+
+//
 // Default shadows
 //
 

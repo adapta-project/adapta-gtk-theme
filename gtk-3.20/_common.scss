@@ -9,11 +9,11 @@ $asset_suffix: if($variant=='dark', '-dark', '');
 // Background sizing
 //
 
-$text_button_large: 16em * 1 / 0.8 16em * 1 / 0.8, auto;
-$text_button_small: 8em * 1 / 0.8 8em * 1 / 0.8, auto;
-$image_button_large: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
-$image_button_small: 2em * 1 / 0.8 2em * 1 / 0.8, auto;
-$attention: 0.4em 0.4em;
+$text_button_large: rem(213px) * 1 / 0.8 rem(213px) * 1 / 0.8, auto;
+$text_button_small: rem(106px) * 1 / 0.8 rem(106px) * 1 / 0.8, auto;
+$image_button_large: rem(40px) * 1 / 0.8 rem(40px) * 1 / 0.8, auto;
+$image_button_small: rem(26px) * 1 / 0.8 rem(26px) * 1 / 0.8, auto;
+$attention: rem(5.3px) rem(5.3px);
 $scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
@@ -75,7 +75,7 @@ $separator_wide: 1px 1px, 1px 1px;
   outline-style: solid;
   outline-width: 2px;
   outline-color: $track_color;
-  outline-offset: -4px;
+  outline-offset: rem(-4px);
   -gtk-outline-radius: 2px;
 
   -gtk-secondary-caret-color: $selected_bg_color;
@@ -198,11 +198,11 @@ flowbox {
   rubberband { @extend rubberband; }
 
   flowboxchild {
-    padding: 2px;
+    padding: rem(2px);
     border-radius: 2px;
     &:selected {
       @extend %selected_items;
-      outline-offset: -2px;
+      outline-offset: -rem(2px);
     }
   }
 }
@@ -235,7 +235,7 @@ assistant {
 
   // sidebar styling
   .sidebar {
-    padding: 0.5em 0;
+    padding: rem(6.7px) 0;
     background-color: $secondary_dark_color;
     &:dir(ltr) { border-right: 1px solid $borders_color; }
     &:dir(rtl) { border-left: 1px solid $borders_color; }
@@ -244,7 +244,7 @@ assistant {
   &.csd .sidebar { border-top-style: none; }
 
   .sidebar label {
-    padding: 0.4em 0.6em 0.5em;
+    padding: rem(5.3px) rem(8px) rem(6.7px);
     color: $secondary_fg_color;
     font-weight: 500;
     &.highlight { color: $selected_bg_color; }
@@ -299,7 +299,7 @@ spinner {
   min-height: 16px;
   min-width: 16px;
   // FIXME: workaround for 3.20.1. Needs vertical padding more than 4px?
-  // padding: 0.5em 0 0.5em;
+  // padding: rem(6.7px) 0 rem(6.7px);
   margin: 0;
   color: $accent_color;
   background: none;
@@ -322,9 +322,9 @@ spinner {
 
 entry,
 .entry {
-  min-height: 1em;
-  min-width: 2.5em;
-  padding: 0.7em 0.6em 0.8em;
+  min-height: rem(13.3px);
+  min-width: rem(33.3px);
+  padding: rem(9.3px) rem(8px) rem(10.7px);
   @include entry(normal);
 
   &:focus { @include entry(focus); }
@@ -346,8 +346,8 @@ entry,
   }
 
   image { // icons inside the entry
-    padding-left: 0.3em;
-    padding-right: 0.3em;
+    padding-left: rem(4px);
+    padding-right: rem(4px);
   }
 
   progress { @extend %entry_progressbar; }
@@ -389,7 +389,7 @@ entry,
 
   treeview & { // reset styling inside tree-view
     &, &.flat:focus {
-      padding: 1px;
+      padding: rem(1px);
       border-radius: 0;
       border-width: 0;
       background-color: $base_color;
@@ -434,9 +434,9 @@ button,
 .button {
   @extend %fade_effect;
 
-  min-height: 1em;
-  min-width: 2.5em;
-  padding: 0.7em 1em 0.8em;
+  min-height: rem(13.3px);
+  min-width: rem(33.3px);
+  padding: rem(9.3px) rem(13.3px) rem(10.7px);
   border-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
@@ -475,7 +475,7 @@ button,
     &.image-button {
       @extend button.flat;
       @extend %image_button;
-      padding: 1.3em;
+      padding: rem(17.3px);
       background-color: $inverted_dark_color;
       background-size: $image_button_large;
       &:not(:active):not(:disabled):not(hover) {
@@ -525,12 +525,12 @@ button,
 
   &.image-button {
     @extend %image_button;
-    min-width: 1em;
-    min-height: 1em;
+    min-width: rem(13.3px);
+    min-height: rem(13.3px);
   }
 
   &.text-button {
-    padding: 0.7em 1em 0.8em;
+    padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border-radius: 2px;
     font-weight: 700;
   }
@@ -540,18 +540,18 @@ button,
     // to have the image-button padding, while the text side the text-button
     // one, so we're adding the missing padding to the label depending on
     // its position inside the button
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: rem(13.3px);
+    padding-right: rem(13.3px);
     border-radius: 2px;
 
     label {
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+      padding-left: rem(4px);
+      padding-right: rem(4px);
     }
 
     image {
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+      padding-left: rem(4px);
+      padding-right: rem(4px);
     }
 
     &:drop(active) {
@@ -572,8 +572,8 @@ button,
 
   stackswitcher & { // do not shrink buton width
     &.text-button {
-      min-height: 1.3em;
-      min-width: 8.4em;
+      min-height: rem(17.3px);
+      min-width: rem(112px);
     }
   }
 
@@ -582,25 +582,25 @@ button,
     // child, a label needs just lateral padding while an icon needs vertical
     // padding added too.
 
-    outline-offset: -0.2em; // needs to be set or it gets overriden
-                            // by GtkRadioButton outline-offset
+    outline-offset: -rem(2.6px); // needs to be set or it gets overriden
+                                 // by GtkRadioButton outline-offset
 
     > label {
-      padding-left: 0.6em;  // label padding
-      padding-right: 0.6em; //
+      padding-left: rem(8px);  // label padding
+      padding-right: rem(8px); //
     }
 
     > image {
-      padding-left: 0.6em;   // image padding
-      padding-right: 0.6em;  //
-      padding-top: 0.2em;    //
-      padding-bottom: 0.2em; //
+      padding-left: rem(8px);     // image padding
+      padding-right: rem(8px);    //
+      padding-top: rem(2.6px);    //
+      padding-bottom: rem(2.6px); //
     }
 
     &.text-button {
       // compensate text-button paddings
-      padding-left: 1em;
-      padding-right: 1em;
+      padding-left: rem(13.3px);
+      padding-right: rem(13.3px);
       border-radius: 2px;
       -gtk-outline-radius: 2px;
     }
@@ -608,8 +608,8 @@ button,
     &.image-button {
       // we want image buttons to have a 1:1 aspect ratio, so compensation
       // of the padding added to the image is needed
-      padding-left: 0.6em;
-      padding-right: 0.6em;
+      padding-left: rem(8px);
+      padding-right: rem(8px);
     }
 
     &.needs-attention > label,
@@ -630,11 +630,11 @@ button,
   actionbar .linked > & {
     &, &:not(.text-button).image-button {
       @extend button.flat;
-      min-width: 1em;
-      min-height: 1em;
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
-      padding: 0.75em;
+      padding: rem(10px);
       background-size: $image_button_small;
     }
     &.text-button {
@@ -653,17 +653,17 @@ button,
   .linked > & .text-button {
     @extend %linked_middle;
     @extend %button_array;
-    min-width: 1em;
-    padding: 0.7em 0.6em 0.8em;
+    min-width: rem(13.3px);
+    padding: rem(9.3px) rem(8px) rem(10.7px);
 
     label {
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+      padding-left: rem(4px);
+      padding-right: rem(4px);
     }
 
     image {
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+      padding-left: rem(4px);
+      padding-right: rem(4px);
     }
   }
   // vertical array
@@ -673,9 +673,9 @@ button,
   .linked.vertical > & .text-button {
     @extend %linked_vertical_middle;
     @extend %button_vertical_array;
-    min-height: 1em;
-    min-width: 1.7em;
-    padding: 0.75em 0.4em 0.75em;
+    min-height: rem(13.3px);
+    min-width: rem(22.6px);
+    padding: rem(10px) rem(5.3px) rem(10px);
   }
 }
 
@@ -770,7 +770,7 @@ button,
 }
 
 %image_button {
-  padding: 0.75em;
+  padding: rem(10px);
   -gtk-outline-radius: 100px;
   border-radius: 100px;
   background-size: $image_button_large;
@@ -780,9 +780,9 @@ button,
   transition: none;
   animation: needs_attention 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   background-repeat: no-repeat;
-  background-position: right 3px;
+  background-position: right rem(3px);
   background-size: $attention;
-  &:dir(rtl) { background-position: left 3px; }
+  &:dir(rtl) { background-position: left rem(3px); }
 }
 
 // all the following is for the +|- buttons on inline toolbars, that way
@@ -835,17 +835,17 @@ toolbar.inline-toolbar toolbutton {
 modelbutton.flat,
 .menuitem.button.flat {
   @extend button.flat;
-  min-height: 2em;
-  margin-left: 0.75em;
-  margin-right: 0.75em;
-  outline-offset: -1px;
+  min-height: rem(26.6px);
+  margin-left: rem(10px);
+  margin-right: rem(10px);
+  outline-offset: -rem(1px);
   background-size: $text_button_small;
   transition: none;
 
   check,
   radio {
-    &:first-child { margin-right: 1em; }
-    &:last-child { margin-left: 1em; }
+    &:first-child { margin-right: rem(13.3px); }
+    &:last-child { margin-left: rem(13.3px); }
   }
 }
 
@@ -857,9 +857,9 @@ modelbutton.flat arrow {
 }
 
 button.color {
-  min-width: 2.5em;
-  min-height: 1.5em;
-  padding: 0.5em 0.6em 0.5em; // Uniform padding on the GtkColorButton
+  min-width: rem(33.3px);
+  min-height: rem(20px);
+  padding: rem(6.7px) rem(8px) rem(6.7px); // Uniform padding on the GtkColorButton
 
   > colorswatch:first-child:last-child { // :first-child:last-child for
                                          // a specificity bump, it gets
@@ -938,11 +938,11 @@ spinbutton {
     }
 
     button {
-      min-width: 1em;
-      min-height: 1em;
-      padding: 0 0.55em 0;
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
+      padding: 0 rem(7.3px) 0;
       @include button(flat);
-      border: solid 0.2em transparent;
+      border: solid rem(2.7px) transparent;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background: none;
@@ -1002,17 +1002,17 @@ spinbutton {
   &.vertical { // FIXME: try using linking templates for
                // vertically linked stuff
     entry {
-      min-width: 2.5em;
-      min-height: 2.5em;
+      min-width: rem(33.3px);
+      min-height: rem(33.3px);
       padding: 0;
       border-radius: 0;
     }
 
     button {
-      min-width: 2em;
-      min-height: 2em;
-      padding: 0.2em;
-      border: 0.2em solid transparent;
+      min-width: rem(26.7px);
+      min-height: rem(26.7px);
+      padding: rem(2.6px);
+      border: rem(2.6px) solid transparent;
       border-radius: 200px;
       -gtk-outline-radius: 200px;
       background: none;
@@ -1058,7 +1058,7 @@ spinbutton {
   // Misc
   treetiew & {
     & entry:focus {
-      padding: 1px;
+      padding: rem(1px);
       border-radius: 0;
       border-width: 0;
       background-color: $base_color;
@@ -1079,8 +1079,8 @@ combobox {
 
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
-    min-height: 16px;
-    min-width: 16px;
+    min-height: rem(16px);
+    min-width: rem(16px);
   }
 
   &.linked {
@@ -1094,29 +1094,29 @@ combobox {
     button.combo { @extend button:drop(active); }
   }
 
-  & menu { padding: 0.25em 0; }
-  & menu > menuitem { padding: 0.35em 0.4em 0.45em; }
+  & menu { padding: rem(3.3px) 0; }
+  & menu > menuitem { padding: rem(4.7px) rem(5.3px) rem(6px); }
 
   entry.combo {
   }
 
   button.combo { // button spacing
-    min-height: 1em;
-    min-width: 1.3em;
-    padding: 0.6em 0.4em 0.65em;
+    min-height: rem(13.3px);
+    min-width: rem(17.3px);
+    padding: rem(8px) rem(5.3px) rem(8.7px);
 
-    arrow { padding: 0 0.3em 0; }
+    arrow { padding: 0 rem(4px) 0; }
 
     label {
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+      padding-left: rem(4px);
+      padding-right: rem(4px);
     }
 
     image {
-      min-height: 16px;
-      min-width: 16px;
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+      min-height: rem(16px);
+      min-width: rem(16px);
+      padding-left: rem(4px);
+      padding-right: rem(4px);
     }
   }
 
@@ -1205,7 +1205,7 @@ toolbar {
 
   -GtkWidget-window-dragging: true;
 
-  padding: 0.4em;
+  padding: rem(5.3px);
   background-color: $bg_color;
   color: $secondary_fg_color;
 
@@ -1258,9 +1258,9 @@ toolbar {
       }
 
       &.image-button {
-        min-width: 1em;
-        min-height: 2.2em;
-        padding: 0 0.6em 0;
+        min-width: rem(13.3px);
+        min-height: rem(29.3px);
+        padding: 0 rem(8px) 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
@@ -1311,9 +1311,9 @@ toolbar {
     }
 
     .image-button {
-      min-width: 1em;
-      min-height: 2.2em;
-      padding: 0 0.6em 0;
+      min-width: rem(13.3px);
+      min-height: rem(29.3px);
+      padding: 0 rem(8px) 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
@@ -1337,9 +1337,9 @@ toolbar {
     }
 
     .image-button {
-      min-width: 1em;
-      min-height: 2.2em;
-      padding: 0 0.6em 0;
+      min-width: rem(13.3px);
+      min-height: rem(29.3px);
+      padding: 0 rem(8px) 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
@@ -1355,17 +1355,17 @@ toolbar {
     background: none;
   }
   &.horizontal {
-    & separator { margin: 0 6px; }
+    & separator { margin: 0 rem(6px); }
   }
   &.vertical {
-    & separator { margin: 6px 0; }
+    & separator { margin: rem(6px) 0; }
   }
 }
 
 // searchbar, location-bar & inline-toolbar
 .inline-toolbar {
   @extend %fade_effect;
-  padding: 0.4em;
+  padding: rem(5.3px);
   border-style: solid;
   border-width: 0 1px 1px;
   border-color: $borders_color;
@@ -1376,7 +1376,7 @@ toolbar {
 searchbar,
 .location-bar {
   @extend %fade_effect;
-  padding: 0.4em;
+  padding: rem(5.3px);
   border-style: solid;
   border-width: 0 0 1px;
   border-color: $borders_color;
@@ -1412,8 +1412,8 @@ headerbar {
 
   // titles
   .title {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: rem(13.3px);
+    padding-right: rem(13.3px);
     color: $inverted_fg_color;
     font-weight: 700;
     &:backdrop { @extend .dim-label; }
@@ -1421,8 +1421,8 @@ headerbar {
 
   .subtitle {
     @extend .dim-label;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: rem(13.3px);
+    padding-right: rem(13.3px);
     color: $inverted_secondary_fg_color;
     font-size: smaller;
     &:backdrop { @extend .dim-label; }
@@ -1488,17 +1488,17 @@ headerbar {
   // adjust spacing for finer aspect-ratio
   .linked > button {
     &.image-button {
-      min-width: 1.3em;
-      min-height: 2.8em;
-      padding: 0 0.6em 0;
+      min-width: rem(17.3px);
+      min-height: rem(37.3px);
+      padding: 0 rem(8px) 0;
     }
   }
   button.toggle {
-    min-width: 1.3em;
-    min-height: 2.8em;
-    padding: 0 0.75em 0;
+    min-width: rem(17.3px);
+    min-height: rem(37.3px);
+    padding: 0 rem(10px) 0;
 
-    label { padding: 0.7em 0.6em 0.8em; }
+    label { padding: rem(9.3px) rem(8px) rem(10.7px); }
     menu menuitem { // reset padding
       label { padding: 0; }
     }
@@ -1669,8 +1669,8 @@ headerbar {
     }
 
     .selection-menu {
-      padding-left: 1.2em;
-      padding-right: 1.2em;
+      padding-left: rem(16px);
+      padding-right: rem(16px);
       color: $secondary_selected_fg_color;
       &:hover,
       &:active,
@@ -1713,8 +1713,8 @@ headerbar {
   }
 
   &.default-decoration {
-    min-height: 26.6px;
-    padding: 5.3px;
+    min-height: rem(26.6px);
+    padding: rem(5.3px);
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -1723,8 +1723,8 @@ headerbar {
     }
 
     button.titlebutton {
-      min-width: 26.6px;
-      min-height: 26.6px;
+      min-width: rem(26.6px);
+      min-height: rem(26.6px);
       margin: 0;
       padding: 0;
       color: $inverted_secondary_fg_color;
@@ -1749,7 +1749,7 @@ headerbar {
   &.titlebar,
   .csd &,
   box &:only-child {
-    padding: 0.4em;
+    padding: rem(5.3px);
     // draw hilight and shadows
     box-shadow: if($variant=='light', $header-shadow-light,
                                       $header-shadow-dark);
@@ -1884,8 +1884,8 @@ headerbar,
 
     &.slider-button, // FIXME: workaround for Nautilus 3.20.0
     &.image-button.text-button.toggle {
-      min-height: 1.3em;
-      padding: 0 0.6em 0;
+      min-height: rem(17.3px);
+      padding: 0 rem(8px) 0;
     }
   }
 }
@@ -1991,8 +1991,8 @@ treeview.view {
     button {
       @extend %fade_effect;
       @extend row.activatable;
-      min-height: 1.5em;
-      padding: 0 0.5em 0;
+      min-height: rem(20px);
+      padding: 0 rem(6.7px) 0;
       border-style: none solid solid none;
       border-width: 1px;
       border-color: $borders_color;
@@ -2017,7 +2017,7 @@ treeview.view {
   }
 
   &.separator {
-    min-height: 2px;
+    min-height: rem(2px);
     color: transparent;
     background-color: $borders_color;
   }
@@ -2044,8 +2044,8 @@ menubar {
 
   > menuitem {
     @extend %fade_effect;
-    min-height: 1.5em;
-    padding: 0.4em 1em 0.5em;
+    min-height: rem(20px);
+    padding: rem(5.3px) rem(13.3px) rem(6.7px);
     color: $inverted_secondary_fg_color;
     background-color: transparent;
     &:hover { // Seems like it :hover even with keyboard focus
@@ -2061,8 +2061,8 @@ menubar {
 
 .menu,
 menu {
-  margin: 4px 0;
-  padding: 4px 0;
+  margin: rem(4px) 0;
+  padding: rem(4px) 0;
   border-width: 1px; // adds borders in a non composited env
   border-style: solid;
   border-color: $base_color transparent transparent;
@@ -2078,9 +2078,9 @@ menu {
   menuitem {
     @extend %fade_effect;
     transition: none;
-    min-height: 1.5em;
-    min-width: 4em;
-    padding: 0.4em 0.6em 0.5em;
+    min-height: rem(20px);
+    min-width: rem(53.3px);
+    padding: rem(5.3px) rem(8px) rem(6.7px);
     color: $secondary_fg_color;
     font: initial;
     text-shadow: none;
@@ -2093,35 +2093,35 @@ menu {
 
     // submenu indicators
     arrow {
-      min-height: 16px;
-      min-width: 16px;
+      min-height: rem(16px);
+      min-width: rem(16px);
 
       &:dir(ltr) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-        margin-left: 0.8em;
+        margin-left: rem(10.7px);
       }
       &:dir(rtl) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl');
-        margin-right: 0.8em;
+        margin-right: rem(10.7px);
       }
     }
   }
 
   > arrow { // overlow buttons
     @extend button.flat;
-    min-height: 1.2em;
-    min-width: 1.2em;
-    padding: 4px;
+    min-height: rem(16px);
+    min-width: rem(16px);
+    padding: rem(4px);
     border-style: none;
     border-radius: 0;
     background-color: $secondary_base_color;
     &.top {
-      margin-top: -0.4em;
+      margin-top: -rem(5.3px);
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
       border-bottom: 1px solid $borders_color;
     }
     &.bottom {
-      margin-bottom: -0.4em;
+      margin-bottom: -rem(5.3px);
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
       border-top: 1px solid $borders_color;
     }
@@ -2139,10 +2139,10 @@ menuitem {
 
   check,
   radio {
-    min-width: 16px;
-    min-height: 16px;
-    &:dir(ltr) { margin-right: 0.6em; }
-    &:dir(rtl) { margin-left: 0.6em; }
+    min-width: rem(16px);
+    min-height: rem(16px);
+    &:dir(ltr) { margin-right: rem(8px); }
+    &:dir(rtl) { margin-left: rem(8px); }
     &:hover,
     &:checked {
       background-color: transparent;
@@ -2192,7 +2192,7 @@ popover.background {
   button menuitem.flat,
   button.flat {
     transition: none;
-    padding: 0 0.75em 0;
+    padding: 0 rem(10px) 0;
     background-color: transparent;
     background-size: $text_button_small;
     color: $secondary_fg_color;
@@ -2204,12 +2204,12 @@ popover.background {
 
     // FIXME: label padding is ugly
     // an half vertical padding of GtkMenuItem
-    label { padding: 0.2em 0 0.25em; }
+    label { padding: rem(2.6px) 0 rem(3.3px); }
   }
 
-  button.image-button { padding: 0.5em; }
+  button.image-button { padding: rem(6.7px); }
 
-  button.model.image-button { min-height: 2em; }
+  button.model.image-button { min-height: rem(26.7px); }
 
   .linked > button {
     @include button(flat);
@@ -2259,7 +2259,7 @@ popover.background {
 
   &.osd { @extend %osd; }
 
-  separator { margin: 3px 0; }
+  separator { margin: rem(3px) 0; }
 }
 
 
@@ -2305,11 +2305,11 @@ notebook {
   > header {
     $tab_indicator_size: 2px;
     // vertical tab sizing
-    $vt_vpadding: 0.5em;
-    $vt_hpadding: 1.2em;
+    $vt_vpadding: rem(6.7px);
+    $vt_hpadding: rem(16px);
     // horizontal tab sizing
-    $ht_vpadding: 0.5em;
-    $ht_hpadding: 1.2em;
+    $ht_vpadding: rem(6.7px);
+    $ht_hpadding: rem(10px);
 
     background-color: $bg_color;
     tabs { background-color: transparent; }
@@ -2326,15 +2326,15 @@ notebook {
 
     &.top {
       > tabs {
-        margin: 0 6px -1px 6px;
+        margin: 0 rem(6px) -1px rem(6px);
         > tab {
           margin: 0 -1px 0 -1px; // 1px horizontal overlap
           padding: $vt_vpadding $vt_hpadding;
           border-bottom-width: $tab_indicator_size;
           box-shadow: none;
           &.reorderable-page {
-            padding-left: 1.2em;  // for a nicer close button
-            padding-right: 1.2em; // placement
+            padding-left: rem(10px);  // for a nicer close button
+            padding-right: rem(10px); // placement
             border-left-width: 1px;
             border-right-width: 1px;
           }
@@ -2343,15 +2343,15 @@ notebook {
     }
     &.bottom {
       > tabs {
-        margin: -1px 6px 0 6px;
+        margin: -1px rem(6px) 0 rem(6px);
         > tab {
           margin: 0 -1px 0 -1px;
           padding: $vt_vpadding $vt_hpadding;
           border-top-width: $tab_indicator_size;
           box-shadow: none;
           &.reorderable-page {
-            padding-left: 1.2em;
-            padding-right: 1.2em;
+            padding-left: rem(16px);
+            padding-right: rem(16px);
             border-left-width: 1px;
             border-right-width: 1px;
           }
@@ -2360,7 +2360,7 @@ notebook {
     }
     &.left {
       > tabs {
-        margin: 6px -1px 6px 0;
+        margin: rem(6px) -1px rem(6px) 0;
         > tab {
           margin: -1px 0 -1px 0; // 1px vertical overlap
           padding: $ht_vpadding $ht_hpadding;
@@ -2375,7 +2375,7 @@ notebook {
     }
     &.right {
       > tabs {
-        margin: 6px 0 6px -1px;
+        margin: rem(6px) 0 rem(6px) -1px;
         > tab {
           margin: -1px 0 -1px 0;
           padding: $ht_vpadding $ht_hpadding;
@@ -2434,9 +2434,9 @@ notebook {
     }
     & > tabs > arrow {
       transition: none;
-      min-height: 16px;
-      min-width: 16px;
-      margin: 0 6px;
+      min-height: rem(16px);
+      min-width: rem(16px);
+      margin: 0 rem(6px);
       border-radius: 0;
       color: $tertiary_fg_color;
       &:hover,
@@ -2452,19 +2452,19 @@ notebook {
     border-color: transparent;
     background-color: transparent;
 
-    outline-offset: -6px;
+    outline-offset: -rem(6px);
 
     // here's the interesting stuff
     &:hover { border-color: $track_color; }
     &:checked { border-color: $selected_bg_color; }
 
     & label { // tab text
-      padding: 0.1em;
+      padding: rem(1.3px);
       font-weight: 700;
       color: $tertiary_fg_color;
     }
     &.reorderable-page label { // reorderable-page tab text
-      padding: 0.5em 0 0.5em;
+      padding: rem(6.7px) 0 rem(6.7px);
     }
     &:hover label {
       // hover tab text
@@ -2477,8 +2477,8 @@ notebook {
 
     button { // tab close button
       padding: 0;
-      min-width: 16px;
-      min-height: 16px;
+      min-width: rem(16px);
+      min-height: rem(16px);
       @extend button.flat;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
@@ -2490,7 +2490,7 @@ notebook {
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       & > image { // this is a hack which makes tabs grow
-        padding: 0.5em;
+        padding: rem(6.7px);
       }
     }
     &:hover button,
@@ -2512,10 +2512,10 @@ notebook {
  * Scrollbars *
  **************/
 
-$_slider_margin: 3px;
-$_slider_fine_tune_margin: 4px;
-$_slider_min_width: 7px; // 7px + 3px * 2 -> 13px total
-$_slider_min_length: 24 + $_slider_margin * 2;
+$_slider_margin: rem(3px);
+$_slider_fine_tune_margin: rem(4px);
+$_slider_min_width: rem(7px); // 7px + 3px * 2 -> 13px total
+$_slider_min_length: rem(24px) + $_slider_margin * 2;
 
 .scrollbar,
 scrollbar {
@@ -2563,19 +2563,19 @@ scrollbar {
     .slider {
       min-width: $_slider_min_width;
       min-height: $_slider_min_length;
-      margin-left: 1px + $_slider_margin;
+      margin-left: rem(1px) + $_slider_margin;
 
       &:dir(rtl) {
         margin-left: $_slider_margin;
-        margin-right: 1px + $_slider_margin;
+        margin-right: rem(1px) + $_slider_margin;
       }
     }
     &.fine-tune slider {
-      margin-left: 1px + $_slider_fine_tune_margin;
+      margin-left: rem(1px) + $_slider_fine_tune_margin;
 
       &:dir(rtl) {
         margin-left: $_slider_fine_tune_margin;
-        margin-right: 1px + $_slider_fine_tune_margin;
+        margin-right: rem(1px) + $_slider_fine_tune_margin;
       }
     }
   }
@@ -2584,9 +2584,9 @@ scrollbar {
     .slider {
       min-width: $_slider_min_length;
       min-height: $_slider_min_width;
-      margin-top: 1px + $_slider_margin;
+      margin-top: rem(1px) + $_slider_margin;
     }
-    &.fine-tune slider { margin-top: 1px + $_slider_fine_tune_margin; }
+    &.fine-tune slider { margin-top: rem(1px) + $_slider_fine_tune_margin; }
   }
 
   &.overlay-indicator {
@@ -2600,8 +2600,8 @@ scrollbar {
       }
 
       button {
-        min-width: $_slider_min_width - 1px;
-        min-height: $_slider_min_length - 1px;
+        min-width: $_slider_min_width - rem(1px);
+        min-height: $_slider_min_length - rem(1px);
         background-color: $tertiary_fg_color;
         border-radius: 100px;
         border: 1px solid $solid_light_borders_color;
@@ -2619,8 +2619,8 @@ scrollbar {
         }
 
         button {
-          margin: 1px 2px;
-          min-width: 12px;
+          margin: rem(1px) rem(2px);
+          min-width: rem(12px);
         }
       }
 
@@ -2633,8 +2633,8 @@ scrollbar {
         }
 
         button {
-          margin: 2px 1px;
-          min-height: 12px;
+          margin: rem(2px) rem(1px);
+          min-height: rem(12px);
         }
       }
     }
@@ -2650,11 +2650,11 @@ scrollbar {
  **********/
 
 switch {
-  outline-offset: -4px;
+  outline-offset: -rem(4px);
   -gtk-outline-radius: 100px;
   font-size: 0;
   // similar to the scale
-  border: 10px solid transparent;
+  border: rem(10px) solid transparent;
   border-radius: 100px;
   background-color: $track_color;
 
@@ -2673,9 +2673,9 @@ switch {
   // but relies on the switch ones
   slider {
     @include button(normal);
-    min-width: 20px;
-    min-height: 20px;
-    margin: -4px -1px;
+    min-width: rem(20px);
+    min-height: rem(20px);
+    margin: -rem(4px) -rem(1px);
     padding: 0;
     border-radius: 100px;
   }
@@ -2830,8 +2830,8 @@ switch {
 treeview.view check,
 treeview.view radio {
   &, &:only-child {
-    // margin: -0.5em;
-    // padding: 0.5em;
+    // margin: -rem(6.7px);
+    // padding: rem(6.7px);
     padding: 0; // FIXME: negative margin doesn't work.
   }
 }
@@ -2900,7 +2900,7 @@ treeview.view radio {
 checkbutton.text-button,
 radiobutton.text-button {
   // this is for a nice focus on check and radios text
-  padding: 0.2em 0.5em;
+  padding: rem(2.6px) rem(6.7px);
   outline-offset: 0;
   color: $secondary_fg_color;
   &:hover,
@@ -2916,11 +2916,11 @@ radiobutton.text-button {
 
 radio,
 check {
-  min-width: 16px;
-  min-height: 16px;
-  // margin: 0 0.5em 0 0.5em;
-  margin: -0.75em -0.25em;
-  padding: 0.75em;
+  min-width: rem(16px);
+  min-height: rem(16px);
+  // margin: 0 rem(6.7px) 0 rem(6.7px);
+  margin: -rem(10px) -rem(3.3px);
+  padding: rem(10px);
 
   &:hover {
     animation: check_radio_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -2934,12 +2934,13 @@ check {
   }
 
   menu menuitem & {
-    margin: 0 0.5em 0 0.5em;  // this is a workaround for
-    padding: 0;               // a menu check/radio size allocation issue
+    // this is a workaround for a menu check/radio size allocation issue
+    margin: 0 rem(6.7px) 0 rem(6.7px);
+    padding: 0;
 
     &, &:hover, &:disabled { //FIXME: use button reset mixin
-      min-height: 16px;
-      min-width: 16px;
+      min-height: rem(16px);
+      min-width: rem(16px);
       background-image: none;
       background-color: transparent;
       box-shadow: none;
@@ -3006,29 +3007,29 @@ scale {
   outline-offset: 0;
   outline-width: 0;
 
-  min-height: 10px;
-  min-width: 10px;
-  padding: 10px;
+  min-height: rem(10px);
+  min-width: rem(10px);
+  padding: rem(10px);
 
   &.fine-tune {
     // FIXME: ugly outlines
-    // outline-offset: -4px;
+    // outline-offset: -rem(4px);
     outline-offset: 0;
     outline-width: 0;
     &.horizontal {
-      padding-top: 9px;
-      padding-bottom: 9px;
-      min-height: 10px;
+      padding-top: rem(9px);
+      padding-bottom: rem(9px);
+      min-height: rem(10px);
     }
 
     &.vertical {
-      padding-left: 9px;
-      padding-right: 9px;
-      min-width: 10px;
+      padding-left: rem(9px);
+      padding-right: rem(9px);
+      min-width: rem(10px);
     }
 
     // to make the trough grow in fine-tune mode
-    slider { margin: -9px; }
+    slider { margin: -rem(9px); }
 
     highlight,
     fill,
@@ -3037,9 +3038,9 @@ scale {
   }
 
   slider {
-    min-height: 20px;
-    min-width: 20px;
-    margin: -9px;
+    min-height: rem(20px);
+    min-width: rem(20px);
+    margin: -rem(9px);
 
     &:not(:hover):not(:active) { background-size: $scale; }
     // @include entry(normal);
@@ -3215,44 +3216,44 @@ scale { // scales for colour
     }
 
     &.horizontal {
-      padding: 0 0 10px 0;
+      padding: 0 0 rem(10px) 0;
 
-      trough { padding-bottom: 5px; }
+      trough { padding-bottom: rem(5px); }
 
       slider {
         &, &:hover, &:disabled {
           @extend %scale-has-marks-above-horz;
-          margin-top: 5px;
-          margin-bottom: -10px;
+          margin-top: rem(5px);
+          margin-bottom: -rem(10px);
         }
       }
     }
 
     &.vertical {
       &:dir(ltr) {
-        padding: 0 0 0 10px;
+        padding: 0 0 0 rem(10px);
 
-        trough { padding-left: 5px; }
+        trough { padding-left: rem(5px); }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-below-vert;
-            margin-left: -10px;
-            margin-right: 5px;
+            margin-left: -rem(10px);
+            margin-right: rem(5px);
           }
         }
       }
 
       &:dir(rtl) {
-        padding: 0 10px 0 0;
+        padding: 0 rem(10px) 0 0;
 
-        trough { padding-right: 5px; }
+        trough { padding-right: rem(5px); }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-above-vert;
-            margin-left: 5px;
-            margin-right: -10px;
+            margin-left: rem(5px);
+            margin-right: -rem(10px);
           }
         }
       }
@@ -3260,39 +3261,39 @@ scale { // scales for colour
 
     &.fine-tune {
       &.horizontal {
-        padding: 0 0 10px 0;
+        padding: 0 0 rem(10px) 0;
 
-        trough { padding-bottom: 5px; }
+        trough { padding-bottom: rem(5px); }
 
         slider {
           @extend %scale-has-marks-above-horz-fine-tune;
-          margin-top: 5px;
-          margin-bottom: -10px;
+          margin-top: rem(5px);
+          margin-bottom: -rem(10px);
         }
       }
 
       &.vertical {
         &:dir(ltr) {
-          padding: 0 0 0 10px;
+          padding: 0 0 0 rem(10px);
 
-          trough { padding-left: 5px; }
+          trough { padding-left: rem(5px); }
 
           slider {
             @extend %scale-has-marks-below-vert-fine-tune;
-            margin-left: -10px;
-            margin-right: 5px;
+            margin-left: -rem(10px);
+            margin-right: rem(5px);
           }
         }
 
         &:dir(rtl) {
-          padding: 0 10px 0 0;
+          padding: 0 rem(10px) 0 0;
 
-          trough { padding-right: 5px; }
+          trough { padding-right: rem(5px); }
 
           slider {
             @extend %scale-has-marks-above-vert-fine-tune;
-            margin-left: 5px;
-            margin-right: -10px;
+            margin-left: rem(5px);
+            margin-right: -rem(10px);
           }
         }
       }
@@ -3300,14 +3301,14 @@ scale { // scales for colour
   }
 }
 
-%scale_marks_above_horz { margin: -15px -10px -10px -10px; }
-%scale_marks_below_horz { margin: -10px -10px -15px -10px; }
-%scale_marks_above_vert { margin: -10px -10px -10px -15px; }
-%scale_marks_below_vert { margin: -10px -15px -10px -10px; }
-%scale_marks_above_horz_ft { margin: -15px -10px -10px -10px; }
-%scale_marks_below_horz_ft { margin: -10px -10px -15px -10px; }
-%scale_marks_above_vert_ft { margin: -10px -10px -10px -15px; }
-%scale_marks_below_vert_ft { margin: -10px -15px -10px -10px; }
+%scale_marks_above_horz { margin: -rem(15px) -rem(10px) -rem(10px) -rem(10px); }
+%scale_marks_below_horz { margin: -rem(10px) -rem(10px) -rem(15px) -rem(10px); }
+%scale_marks_above_vert { margin: -rem(10px) -rem(10px) -rem(10px) -rem(15px); }
+%scale_marks_below_vert { margin: -rem(10px) -rem(15px) -rem(10px) -rem(10px); }
+%scale_marks_above_horz_ft { margin: -rem(15px) -rem(10px) -rem(10px) -rem(10px); }
+%scale_marks_below_horz_ft { margin: -rem(10px) -rem(10px) -rem(15px) -rem(10px); }
+%scale_marks_above_vert_ft { margin: -rem(10px) -rem(10px) -rem(10px) -rem(15px); }
+%scale_marks_below_vert_ft { margin: -rem(10px) -rem(15px) -rem(10px) -rem(10px); }
 
 
 /*****************
@@ -3460,7 +3461,7 @@ printdialog {
     background-color: white;
   }
 
-  .dialog-action-box { margin: 12px; }
+  .dialog-action-box { margin: rem(12px); }
 }
 
 
@@ -3481,7 +3482,7 @@ frame > border,
 actionbar > frame > border { border-width: 1px 0 0; }
 
 actionbar > revealer > box {
-  padding: 0.4em;
+  padding: rem(5.3px);
   border-top: 1px solid $borders_color;
 }
 
@@ -3594,7 +3595,7 @@ row.activatable {
 // button spacing
 row {
   & button.image-button {
-    padding: 0.6em;
+    padding: rem(8px);
     background-size: $image_button_small;
   }
 }
@@ -3640,8 +3641,8 @@ expander {
 
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-    min-width: 16px;
-    min-height: 16px;
+    min-width: rem(16px);
+    min-height: rem(16px);
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
@@ -3663,7 +3664,7 @@ expander {
 
 calendar {
   @extend %fade_effect;
-  padding: 0.4em 0.1em 0.2em;
+  padding: rem(5.3px) rem(1.3px) rem(2.6px);
   border: 1px solid $borders_color;
   color: $fg_color;
   &:selected {
@@ -3703,7 +3704,7 @@ calendar {
 
 messagedialog { // Message Dialog styling
   .titlebar {
-    min-height: 20px;
+    min-height: rem(20px);
     border-style: none;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -3843,11 +3844,11 @@ stacksidebar {
 
   row,
   row.activatable {
-    padding: 0.4em 0.6em 0.5em;
+    padding: rem(5.3px) rem(8px) rem(6.7px);
 
     > label {
-      padding-left: 0.4em;
-      padding-right: 0.4em;
+      padding-left: rem(5.3px);
+      padding-right: rem(5.3px);
     }
 
     color: $secondary_fg_color;
@@ -3905,28 +3906,28 @@ placessidebar {
 
   row {
     // Needs overriding of the GtkListBoxRow padding
-    padding: 0.4em 0 0.5em;
+    padding: rem(5.3px) 0 rem(6.7px);
 
     // Using margins/padding directly in the row
     // will make the animation of the new bookmark row jump
     & > revealer {
-      padding: 4px 14px 4px 12px;
+      padding: rem(4px) rem(14px) rem(4px) rem(12px);
     }
 
     & image.sidebar-icon {
       opacity: 0.75; // dim the device icons
-      &:dir(ltr) { padding-right: 0.5em; }
-      &:dir(rtl) { padding-left: 0.5em; }
+      &:dir(ltr) { padding-right: rem(6.7px); }
+      &:dir(rtl) { padding-left: rem(6.7px); }
     }
 
     & label.sidebar-label {
-      &:dir(ltr) { padding-right: 2px; }
-      &:dir(rtl) { padding-left: 2px; }
+      &:dir(ltr) { padding-right: rem(2px); }
+      &:dir(rtl) { padding-left: rem(2px); }
     }
 
     button {
       &.image-button { // Eject button for removable storages
-        padding: 0.5em; // Same as of placessidebar row
+        padding: rem(6.7px); // Same as of placessidebar row
         @extend button.flat;
       }
     }
@@ -3984,8 +3985,8 @@ placesview {
 
   // this selects the "connect to server" label
   > actionbar > revealer > box > label {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding-left: rem(8px);
+    padding-right: rem(8px);
   }
 }
 
@@ -4022,8 +4023,8 @@ paned {
     &.wide {
       margin: 0;
       padding: 0;
-      min-width: 6px;
-      min-height: 6px;
+      min-width: rem(6px);
+      min-height: rem(6px);
       // FIXME: use opaque borders to avoid double-border
       background-image: linear-gradient(to top, $solid_light_borders_color),
                         linear-gradient(to top, $solid_light_borders_color);
@@ -4041,12 +4042,12 @@ paned {
     background-repeat: repeat-y;
 
     &:dir(ltr) {
-      margin: 0 -8px 0 0;
-      padding: 0 8px 0 0;
+      margin: 0 -rem(8px) 0 0;
+      padding: 0 rem(8px) 0 0;
     }
     &:dir(rtl) {
-      margin: 0 0 0 -8px;
-      padding: 0 0 0 8px;
+      margin: 0 0 0 -rem(8px);
+      padding: 0 0 0 rem(8px);
     }
 
     &.wide {
@@ -4056,8 +4057,8 @@ paned {
   }
 
   &.vertical > separator {
-    margin: 0 0 -8px 0;
-    padding: 0 0 8px 0;
+    margin: 0 0 -rem(8px) 0;
+    padding: 0 0 rem(8px) 0;
     background-repeat: repeat-x;
     background-position: top;
 
@@ -4075,7 +4076,7 @@ paned {
 
 infobar {
   @extend %fade_effect;
-  padding: 0.4em;
+  padding: rem(5.3px);
   border-width: 0 0 1px;
   border-style: solid;
   // do not use transparentize
@@ -4100,9 +4101,9 @@ infobar {
     }
 
     &.image-button {
-      min-height: 1em;
-      min-width: 1em;
-      padding: 0.5em 0.2em 0.5em;
+      min-height: rem(13.3px);
+      min-width: rem(13.3px);
+      padding: rem(6.7px) rem(2.6px) rem(6.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
@@ -4145,7 +4146,7 @@ tooltip {
   }
 
   color: $inverted_fg_color;
-  padding: 4px;
+  padding: rem(4px);
   border-radius: 2px;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
 
@@ -4271,7 +4272,7 @@ colorswatch {
 
   .osd & .vertical button,
   & .vertical button { // +/- buttons on GtkVolumeButton popup
-    // padding: 0.8em;
+    // padding: rem(10.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     background-color: transparent;
@@ -4339,9 +4340,9 @@ button.flat.scale { // standalone Speaker/Mic buttons
   // with the image-button/text-button classes automagically applied
   // depending on the button child these selectors can be deleted.
   // @extend %image_button;
-  min-width: 1.3em;
-  min-height: 1.3em;
-  padding: 0.75em;
+  min-width: rem(17.3px);
+  min-height: rem(17.3px);
+  padding: rem(10px);
   border-radius: 100px;
   -gtk-outline-radius: 100px;
 }
@@ -4349,7 +4350,7 @@ button.flat.scale { // standalone Speaker/Mic buttons
 .nautilus-window .floating-bar {
   @extend %osd;
   // @extend toolbar.osd;
-  padding: 0.1em 0 0.2em;
+  padding: rem(1.3px) 0 rem(2.6px);
   border: 1px solid transparent;
   border-radius: 0;
   color: $inverted_secondary_fg_color;
@@ -4462,9 +4463,9 @@ headerbar,
   &.selection-mode button.titlebutton {
     @extend %fade_effect;
     @extend button.flat;
-    min-width: 1em;
-    min-height: 1em;
-    padding: 0.75em;
+    min-width: rem(13.3px);
+    min-height: rem(13.3px);
+    padding: rem(10px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     
@@ -4487,8 +4488,8 @@ headerbar,
 .ssd decoration .titlebar {
   // shrink titlebar height for SSD
   button.titlebutton {
-    min-width: 26.6px;
-    min-height: 26.6px;
+    min-width: rem(26.7px);
+    min-height: rem(26.7px);
     padding: 0;
   }
 }
@@ -4584,8 +4585,8 @@ frame.keycap {
 // FIXME: aggregate with buttons
 stackswitcher button.circular,
 stackswitcher button.text-button.circular {
-  min-width: 2.8em;
-  min-height: 2.8em;
+  min-width: rem(37.3px);
+  min-height: rem(37.3px);
   padding: 0;
 }
 
