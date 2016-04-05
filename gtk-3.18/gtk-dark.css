@@ -71,7 +71,7 @@ GtkAssistant *:backdrop, GtkTextView *:backdrop, .button *:backdrop, .menuitem.b
 .error .menuitem.button *:backdrop, GtkScaleButton.menuitem.button *:backdrop,
 GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:backdrop, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, .action-bar .menuitem.button *:backdrop, .budgie-session-dialog .menuitem.button *:backdrop, .budgie-polkit-dialog .menuitem.button *:backdrop, .spinbutton *:backdrop, GtkComboBox *:backdrop, .toolbar *:backdrop, .inline-toolbar *:backdrop, .search-bar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
-.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .menu .menuitem.check:insensitive *:backdrop, .menu .menuitem.check:inconsistent *:backdrop, .menu .menuitem.check:checked *:backdrop, .menu .menuitem.radio:insensitive *:backdrop, .menu .menuitem.radio:inconsistent *:backdrop, .menu .menuitem.radio:checked *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .expander *:backdrop, GtkCalendar *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
+.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .expander *:backdrop, GtkCalendar *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
 .cursor-handle *:backdrop, .touch-selection *:backdrop, .tweak-categories.list *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -2595,99 +2595,84 @@ GtkSwitch {
  *************************/
 .check {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-dark.png"), url("assets/checkbox-unchecked-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:hover, .check:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.check:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-active-dark.png"), url("assets/checkbox-unchecked-active-dark@2.png"));
+  icon-shadow: none; }
+  .check:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-active-dark.png"), url("assets/checkbox-unchecked-active-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:active:hover, .check:active:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:active:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:insensitive {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:insensitive:hover, .check:insensitive:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:insensitive:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:insensitive:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:inconsistent {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-dark.png"), url("assets/checkbox-mixed-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:inconsistent:hover, .check:inconsistent:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:inconsistent:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:inconsistent:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.check:inconsistent:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-active-dark.png"), url("assets/checkbox-mixed-active-dark@2.png"));
+  icon-shadow: none; }
+  .check:inconsistent:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:inconsistent:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-active-dark.png"), url("assets/checkbox-mixed-active-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:inconsistent:active:hover, .check:inconsistent:active:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:inconsistent:active:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:inconsistent:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:inconsistent:insensitive {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:inconsistent:insensitive:hover, .check:inconsistent:insensitive:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:inconsistent:insensitive:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:inconsistent:insensitive:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-dark.png"), url("assets/checkbox-checked-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:checked:hover, .check:checked:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:checked:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:checked:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.check:checked:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-dark.png"), url("assets/checkbox-checked-active-dark@2.png"));
+  icon-shadow: none; }
+  .check:checked:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:checked:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-dark.png"), url("assets/checkbox-checked-active-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:checked:active:hover, .check:checked:active:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:checked:active:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:checked:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .check:checked:insensitive {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .check:checked:insensitive:hover, .check:checked:insensitive:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .check:checked:insensitive:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .check:checked:insensitive:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
@@ -2748,99 +2733,84 @@ GtkSwitch {
 
 .radio {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:hover, .radio:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.radio:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-active-dark.png"), url("assets/radio-unchecked-active-dark@2.png"));
+  icon-shadow: none; }
+  .radio:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-active-dark.png"), url("assets/radio-unchecked-active-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:active:hover, .radio:active:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:active:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:insensitive {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:insensitive:hover, .radio:insensitive:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:insensitive:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:insensitive:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:inconsistent {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-dark.png"), url("assets/radio-mixed-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:inconsistent:hover, .radio:inconsistent:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:inconsistent:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:inconsistent:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.radio:inconsistent:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-active-dark.png"), url("assets/radio-mixed-active-dark@2.png"));
+  icon-shadow: none; }
+  .radio:inconsistent:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:inconsistent:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-active-dark.png"), url("assets/radio-mixed-active-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:inconsistent:active:hover, .radio:inconsistent:active:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:inconsistent:active:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:inconsistent:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:inconsistent:insensitive {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:inconsistent:insensitive:hover, .radio:inconsistent:insensitive:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:inconsistent:insensitive:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:inconsistent:insensitive:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:checked:hover, .radio:checked:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:checked:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:checked:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.radio:checked:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-active-dark.png"), url("assets/radio-checked-active-dark@2.png"));
+  icon-shadow: none; }
+  .radio:checked:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:checked:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-active-dark.png"), url("assets/radio-checked-active-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:checked:active:hover, .radio:checked:active:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:checked:active:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:checked:active:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .radio:checked:insensitive {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png"));
-  icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
-  .radio:checked:insensitive:hover, .radio:checked:insensitive:active {
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2); }
-  .radio:checked:insensitive:insensitive {
-    icon-shadow: none; }
+  icon-shadow: none; }
   .radio:checked:insensitive:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
@@ -2899,43 +2869,801 @@ GtkSwitch {
     opacity: 0.8;
     transition: 0.2s; }
 
+.view .check:selected,
+.view .check:selected:focus,
+.list-row .check:selected,
+.tweak-category .check:selected,
+.list-row .check:selected:focus,
+.tweak-category .check:selected:focus,
+.list-row.activatable .check:selected,
+.view .check:selected,
+column-header .button .check:selected,
+.activatable.tweak-category .check:selected,
+.list-row.activatable .check:selected:focus,
+.view .check:selected:focus,
+column-header .button .check:selected:focus,
+.activatable.tweak-category .check:selected:focus {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-selected.png"), url("assets/checkbox-unchecked-selected@2.png"));
+  icon-shadow: none; }
+.view check:selected:insensitive,
+.view check:selected:focus:insensitive,
+.list-row check:selected:insensitive,
+.tweak-category check:selected:insensitive,
+.list-row check:selected:focus:insensitive,
+.tweak-category check:selected:focus:insensitive,
+.list-row.activatable check:selected:insensitive,
+.view check:selected:insensitive,
+column-header .button check:selected:insensitive,
+.activatable.tweak-category check:selected:insensitive,
+.list-row.activatable check:selected:focus:insensitive,
+.view check:selected:focus:insensitive,
+column-header .button check:selected:focus:insensitive,
+.activatable.tweak-category check:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+.view check:selected:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+.list-row check:selected:inconsistent:insensitive,
+.tweak-category check:selected:inconsistent:insensitive,
+.list-row check:selected:focus:inconsistent:insensitive,
+.tweak-category check:selected:focus:inconsistent:insensitive,
+.list-row.activatable check:selected:inconsistent:insensitive,
+.view check:selected:inconsistent:insensitive,
+column-header .button check:selected:inconsistent:insensitive,
+.activatable.tweak-category check:selected:inconsistent:insensitive,
+.list-row.activatable check:selected:focus:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+column-header .button check:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category check:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+.view check:selected:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+.list-row check:selected:checked:insensitive,
+.tweak-category check:selected:checked:insensitive,
+.list-row check:selected:focus:checked:insensitive,
+.tweak-category check:selected:focus:checked:insensitive,
+.list-row.activatable check:selected:checked:insensitive,
+.view check:selected:checked:insensitive,
+column-header .button check:selected:checked:insensitive,
+.activatable.tweak-category check:selected:checked:insensitive,
+.list-row.activatable check:selected:focus:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+column-header .button check:selected:focus:checked:insensitive,
+.activatable.tweak-category check:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+.view .check:selected:active,
+.view .check:selected:focus:active,
+.list-row .check:selected:active,
+.tweak-category .check:selected:active,
+.list-row .check:selected:focus:active,
+.tweak-category .check:selected:focus:active,
+.list-row.activatable .check:selected:active,
+.view .check:selected:active,
+column-header .button .check:selected:active,
+.activatable.tweak-category .check:selected:active,
+.list-row.activatable .check:selected:focus:active,
+.view .check:selected:focus:active,
+column-header .button .check:selected:focus:active,
+.activatable.tweak-category .check:selected:focus:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-selected.png"), url("assets/checkbox-unchecked-selected@2.png"));
+  icon-shadow: none; }
+.view check:selected:insensitive,
+.view check:selected:focus:insensitive,
+.list-row check:selected:insensitive,
+.tweak-category check:selected:insensitive,
+.list-row check:selected:focus:insensitive,
+.tweak-category check:selected:focus:insensitive,
+.list-row.activatable check:selected:insensitive,
+.view check:selected:insensitive,
+column-header .button check:selected:insensitive,
+.activatable.tweak-category check:selected:insensitive,
+.list-row.activatable check:selected:focus:insensitive,
+.view check:selected:focus:insensitive,
+column-header .button check:selected:focus:insensitive,
+.activatable.tweak-category check:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+.view check:selected:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+.list-row check:selected:inconsistent:insensitive,
+.tweak-category check:selected:inconsistent:insensitive,
+.list-row check:selected:focus:inconsistent:insensitive,
+.tweak-category check:selected:focus:inconsistent:insensitive,
+.list-row.activatable check:selected:inconsistent:insensitive,
+.view check:selected:inconsistent:insensitive,
+column-header .button check:selected:inconsistent:insensitive,
+.activatable.tweak-category check:selected:inconsistent:insensitive,
+.list-row.activatable check:selected:focus:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+column-header .button check:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category check:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+.view check:selected:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+.list-row check:selected:checked:insensitive,
+.tweak-category check:selected:checked:insensitive,
+.list-row check:selected:focus:checked:insensitive,
+.tweak-category check:selected:focus:checked:insensitive,
+.list-row.activatable check:selected:checked:insensitive,
+.view check:selected:checked:insensitive,
+column-header .button check:selected:checked:insensitive,
+.activatable.tweak-category check:selected:checked:insensitive,
+.list-row.activatable check:selected:focus:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+column-header .button check:selected:focus:checked:insensitive,
+.activatable.tweak-category check:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+.view .check:selected:inconsistent,
+.view .check:selected:focus:inconsistent,
+.list-row .check:selected:inconsistent,
+.tweak-category .check:selected:inconsistent,
+.list-row .check:selected:focus:inconsistent,
+.tweak-category .check:selected:focus:inconsistent,
+.list-row.activatable .check:selected:inconsistent,
+.view .check:selected:inconsistent,
+column-header .button .check:selected:inconsistent,
+.activatable.tweak-category .check:selected:inconsistent,
+.list-row.activatable .check:selected:focus:inconsistent,
+.view .check:selected:focus:inconsistent,
+column-header .button .check:selected:focus:inconsistent,
+.activatable.tweak-category .check:selected:focus:inconsistent {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-selected.png"), url("assets/checkbox-mixed-selected@2.png"));
+  icon-shadow: none; }
+.view check:selected:insensitive,
+.view check:selected:focus:insensitive,
+.list-row check:selected:insensitive,
+.tweak-category check:selected:insensitive,
+.list-row check:selected:focus:insensitive,
+.tweak-category check:selected:focus:insensitive,
+.list-row.activatable check:selected:insensitive,
+.view check:selected:insensitive,
+column-header .button check:selected:insensitive,
+.activatable.tweak-category check:selected:insensitive,
+.list-row.activatable check:selected:focus:insensitive,
+.view check:selected:focus:insensitive,
+column-header .button check:selected:focus:insensitive,
+.activatable.tweak-category check:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+.view check:selected:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+.list-row check:selected:inconsistent:insensitive,
+.tweak-category check:selected:inconsistent:insensitive,
+.list-row check:selected:focus:inconsistent:insensitive,
+.tweak-category check:selected:focus:inconsistent:insensitive,
+.list-row.activatable check:selected:inconsistent:insensitive,
+.view check:selected:inconsistent:insensitive,
+column-header .button check:selected:inconsistent:insensitive,
+.activatable.tweak-category check:selected:inconsistent:insensitive,
+.list-row.activatable check:selected:focus:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+column-header .button check:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category check:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+.view check:selected:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+.list-row check:selected:checked:insensitive,
+.tweak-category check:selected:checked:insensitive,
+.list-row check:selected:focus:checked:insensitive,
+.tweak-category check:selected:focus:checked:insensitive,
+.list-row.activatable check:selected:checked:insensitive,
+.view check:selected:checked:insensitive,
+column-header .button check:selected:checked:insensitive,
+.activatable.tweak-category check:selected:checked:insensitive,
+.list-row.activatable check:selected:focus:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+column-header .button check:selected:focus:checked:insensitive,
+.activatable.tweak-category check:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+.view .check:selected:inconsistent:active,
+.view .check:selected:focus:inconsistent:active,
+.list-row .check:selected:inconsistent:active,
+.tweak-category .check:selected:inconsistent:active,
+.list-row .check:selected:focus:inconsistent:active,
+.tweak-category .check:selected:focus:inconsistent:active,
+.list-row.activatable .check:selected:inconsistent:active,
+.view .check:selected:inconsistent:active,
+column-header .button .check:selected:inconsistent:active,
+.activatable.tweak-category .check:selected:inconsistent:active,
+.list-row.activatable .check:selected:focus:inconsistent:active,
+.view .check:selected:focus:inconsistent:active,
+column-header .button .check:selected:focus:inconsistent:active,
+.activatable.tweak-category .check:selected:focus:inconsistent:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-selected.png"), url("assets/checkbox-mixed-selected@2.png"));
+  icon-shadow: none; }
+.view check:selected:insensitive,
+.view check:selected:focus:insensitive,
+.list-row check:selected:insensitive,
+.tweak-category check:selected:insensitive,
+.list-row check:selected:focus:insensitive,
+.tweak-category check:selected:focus:insensitive,
+.list-row.activatable check:selected:insensitive,
+.view check:selected:insensitive,
+column-header .button check:selected:insensitive,
+.activatable.tweak-category check:selected:insensitive,
+.list-row.activatable check:selected:focus:insensitive,
+.view check:selected:focus:insensitive,
+column-header .button check:selected:focus:insensitive,
+.activatable.tweak-category check:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+.view check:selected:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+.list-row check:selected:inconsistent:insensitive,
+.tweak-category check:selected:inconsistent:insensitive,
+.list-row check:selected:focus:inconsistent:insensitive,
+.tweak-category check:selected:focus:inconsistent:insensitive,
+.list-row.activatable check:selected:inconsistent:insensitive,
+.view check:selected:inconsistent:insensitive,
+column-header .button check:selected:inconsistent:insensitive,
+.activatable.tweak-category check:selected:inconsistent:insensitive,
+.list-row.activatable check:selected:focus:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+column-header .button check:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category check:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+.view check:selected:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+.list-row check:selected:checked:insensitive,
+.tweak-category check:selected:checked:insensitive,
+.list-row check:selected:focus:checked:insensitive,
+.tweak-category check:selected:focus:checked:insensitive,
+.list-row.activatable check:selected:checked:insensitive,
+.view check:selected:checked:insensitive,
+column-header .button check:selected:checked:insensitive,
+.activatable.tweak-category check:selected:checked:insensitive,
+.list-row.activatable check:selected:focus:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+column-header .button check:selected:focus:checked:insensitive,
+.activatable.tweak-category check:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+.view .check:selected:checked,
+.view .check:selected:focus:checked,
+.list-row .check:selected:checked,
+.tweak-category .check:selected:checked,
+.list-row .check:selected:focus:checked,
+.tweak-category .check:selected:focus:checked,
+.list-row.activatable .check:selected:checked,
+.view .check:selected:checked,
+column-header .button .check:selected:checked,
+.activatable.tweak-category .check:selected:checked,
+.list-row.activatable .check:selected:focus:checked,
+.view .check:selected:focus:checked,
+column-header .button .check:selected:focus:checked,
+.activatable.tweak-category .check:selected:focus:checked {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selected.png"), url("assets/checkbox-checked-selected@2.png"));
+  icon-shadow: none; }
+.view check:selected:insensitive,
+.view check:selected:focus:insensitive,
+.list-row check:selected:insensitive,
+.tweak-category check:selected:insensitive,
+.list-row check:selected:focus:insensitive,
+.tweak-category check:selected:focus:insensitive,
+.list-row.activatable check:selected:insensitive,
+.view check:selected:insensitive,
+column-header .button check:selected:insensitive,
+.activatable.tweak-category check:selected:insensitive,
+.list-row.activatable check:selected:focus:insensitive,
+.view check:selected:focus:insensitive,
+column-header .button check:selected:focus:insensitive,
+.activatable.tweak-category check:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+.view check:selected:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+.list-row check:selected:inconsistent:insensitive,
+.tweak-category check:selected:inconsistent:insensitive,
+.list-row check:selected:focus:inconsistent:insensitive,
+.tweak-category check:selected:focus:inconsistent:insensitive,
+.list-row.activatable check:selected:inconsistent:insensitive,
+.view check:selected:inconsistent:insensitive,
+column-header .button check:selected:inconsistent:insensitive,
+.activatable.tweak-category check:selected:inconsistent:insensitive,
+.list-row.activatable check:selected:focus:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+column-header .button check:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category check:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+.view check:selected:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+.list-row check:selected:checked:insensitive,
+.tweak-category check:selected:checked:insensitive,
+.list-row check:selected:focus:checked:insensitive,
+.tweak-category check:selected:focus:checked:insensitive,
+.list-row.activatable check:selected:checked:insensitive,
+.view check:selected:checked:insensitive,
+column-header .button check:selected:checked:insensitive,
+.activatable.tweak-category check:selected:checked:insensitive,
+.list-row.activatable check:selected:focus:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+column-header .button check:selected:focus:checked:insensitive,
+.activatable.tweak-category check:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+.view .check:selected:checked:active,
+.view .check:selected:focus:checked:active,
+.list-row .check:selected:checked:active,
+.tweak-category .check:selected:checked:active,
+.list-row .check:selected:focus:checked:active,
+.tweak-category .check:selected:focus:checked:active,
+.list-row.activatable .check:selected:checked:active,
+.view .check:selected:checked:active,
+column-header .button .check:selected:checked:active,
+.activatable.tweak-category .check:selected:checked:active,
+.list-row.activatable .check:selected:focus:checked:active,
+.view .check:selected:focus:checked:active,
+column-header .button .check:selected:focus:checked:active,
+.activatable.tweak-category .check:selected:focus:checked:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selected.png"), url("assets/checkbox-checked-selected@2.png"));
+  icon-shadow: none; }
+.view check:selected:insensitive,
+.view check:selected:focus:insensitive,
+.list-row check:selected:insensitive,
+.tweak-category check:selected:insensitive,
+.list-row check:selected:focus:insensitive,
+.tweak-category check:selected:focus:insensitive,
+.list-row.activatable check:selected:insensitive,
+.view check:selected:insensitive,
+column-header .button check:selected:insensitive,
+.activatable.tweak-category check:selected:insensitive,
+.list-row.activatable check:selected:focus:insensitive,
+.view check:selected:focus:insensitive,
+column-header .button check:selected:focus:insensitive,
+.activatable.tweak-category check:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png")); }
+.view check:selected:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+.list-row check:selected:inconsistent:insensitive,
+.tweak-category check:selected:inconsistent:insensitive,
+.list-row check:selected:focus:inconsistent:insensitive,
+.tweak-category check:selected:focus:inconsistent:insensitive,
+.list-row.activatable check:selected:inconsistent:insensitive,
+.view check:selected:inconsistent:insensitive,
+column-header .button check:selected:inconsistent:insensitive,
+.activatable.tweak-category check:selected:inconsistent:insensitive,
+.list-row.activatable check:selected:focus:inconsistent:insensitive,
+.view check:selected:focus:inconsistent:insensitive,
+column-header .button check:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category check:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png")); }
+.view check:selected:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+.list-row check:selected:checked:insensitive,
+.tweak-category check:selected:checked:insensitive,
+.list-row check:selected:focus:checked:insensitive,
+.tweak-category check:selected:focus:checked:insensitive,
+.list-row.activatable check:selected:checked:insensitive,
+.view check:selected:checked:insensitive,
+column-header .button check:selected:checked:insensitive,
+.activatable.tweak-category check:selected:checked:insensitive,
+.list-row.activatable check:selected:focus:checked:insensitive,
+.view check:selected:focus:checked:insensitive,
+column-header .button check:selected:focus:checked:insensitive,
+.activatable.tweak-category check:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png")); }
+
+.view .radio:selected,
+.view .radio:selected:focus,
+.list-row .radio:selected,
+.tweak-category .radio:selected,
+.list-row .radio:selected:focus,
+.tweak-category .radio:selected:focus,
+.list-row.activatable .radio:selected,
+.view .radio:selected,
+column-header .button .radio:selected,
+.activatable.tweak-category .radio:selected,
+.list-row.activatable .radio:selected:focus,
+.view .radio:selected:focus,
+column-header .button .radio:selected:focus,
+.activatable.tweak-category .radio:selected:focus {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-selected.png"), url("assets/radio-unchecked-selected@2.png"));
+  icon-shadow: none; }
+.view radio:selected:insensitive,
+.view radio:selected:focus:insensitive,
+.list-row radio:selected:insensitive,
+.tweak-category radio:selected:insensitive,
+.list-row radio:selected:focus:insensitive,
+.tweak-category radio:selected:focus:insensitive,
+.list-row.activatable radio:selected:insensitive,
+.view radio:selected:insensitive,
+column-header .button radio:selected:insensitive,
+.activatable.tweak-category radio:selected:insensitive,
+.list-row.activatable radio:selected:focus:insensitive,
+.view radio:selected:focus:insensitive,
+column-header .button radio:selected:focus:insensitive,
+.activatable.tweak-category radio:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+.view radio:selected:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+.list-row radio:selected:inconsistent:insensitive,
+.tweak-category radio:selected:inconsistent:insensitive,
+.list-row radio:selected:focus:inconsistent:insensitive,
+.tweak-category radio:selected:focus:inconsistent:insensitive,
+.list-row.activatable radio:selected:inconsistent:insensitive,
+.view radio:selected:inconsistent:insensitive,
+column-header .button radio:selected:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:inconsistent:insensitive,
+.list-row.activatable radio:selected:focus:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+column-header .button radio:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+.view radio:selected:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+.list-row radio:selected:checked:insensitive,
+.tweak-category radio:selected:checked:insensitive,
+.list-row radio:selected:focus:checked:insensitive,
+.tweak-category radio:selected:focus:checked:insensitive,
+.list-row.activatable radio:selected:checked:insensitive,
+.view radio:selected:checked:insensitive,
+column-header .button radio:selected:checked:insensitive,
+.activatable.tweak-category radio:selected:checked:insensitive,
+.list-row.activatable radio:selected:focus:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+column-header .button radio:selected:focus:checked:insensitive,
+.activatable.tweak-category radio:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+.view .radio:selected:active,
+.view .radio:selected:focus:active,
+.list-row .radio:selected:active,
+.tweak-category .radio:selected:active,
+.list-row .radio:selected:focus:active,
+.tweak-category .radio:selected:focus:active,
+.list-row.activatable .radio:selected:active,
+.view .radio:selected:active,
+column-header .button .radio:selected:active,
+.activatable.tweak-category .radio:selected:active,
+.list-row.activatable .radio:selected:focus:active,
+.view .radio:selected:focus:active,
+column-header .button .radio:selected:focus:active,
+.activatable.tweak-category .radio:selected:focus:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-selected.png"), url("assets/radio-unchecked-selected@2.png"));
+  icon-shadow: none; }
+.view radio:selected:insensitive,
+.view radio:selected:focus:insensitive,
+.list-row radio:selected:insensitive,
+.tweak-category radio:selected:insensitive,
+.list-row radio:selected:focus:insensitive,
+.tweak-category radio:selected:focus:insensitive,
+.list-row.activatable radio:selected:insensitive,
+.view radio:selected:insensitive,
+column-header .button radio:selected:insensitive,
+.activatable.tweak-category radio:selected:insensitive,
+.list-row.activatable radio:selected:focus:insensitive,
+.view radio:selected:focus:insensitive,
+column-header .button radio:selected:focus:insensitive,
+.activatable.tweak-category radio:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+.view radio:selected:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+.list-row radio:selected:inconsistent:insensitive,
+.tweak-category radio:selected:inconsistent:insensitive,
+.list-row radio:selected:focus:inconsistent:insensitive,
+.tweak-category radio:selected:focus:inconsistent:insensitive,
+.list-row.activatable radio:selected:inconsistent:insensitive,
+.view radio:selected:inconsistent:insensitive,
+column-header .button radio:selected:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:inconsistent:insensitive,
+.list-row.activatable radio:selected:focus:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+column-header .button radio:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+.view radio:selected:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+.list-row radio:selected:checked:insensitive,
+.tweak-category radio:selected:checked:insensitive,
+.list-row radio:selected:focus:checked:insensitive,
+.tweak-category radio:selected:focus:checked:insensitive,
+.list-row.activatable radio:selected:checked:insensitive,
+.view radio:selected:checked:insensitive,
+column-header .button radio:selected:checked:insensitive,
+.activatable.tweak-category radio:selected:checked:insensitive,
+.list-row.activatable radio:selected:focus:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+column-header .button radio:selected:focus:checked:insensitive,
+.activatable.tweak-category radio:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+.view .radio:selected:inconsistent,
+.view .radio:selected:focus:inconsistent,
+.list-row .radio:selected:inconsistent,
+.tweak-category .radio:selected:inconsistent,
+.list-row .radio:selected:focus:inconsistent,
+.tweak-category .radio:selected:focus:inconsistent,
+.list-row.activatable .radio:selected:inconsistent,
+.view .radio:selected:inconsistent,
+column-header .button .radio:selected:inconsistent,
+.activatable.tweak-category .radio:selected:inconsistent,
+.list-row.activatable .radio:selected:focus:inconsistent,
+.view .radio:selected:focus:inconsistent,
+column-header .button .radio:selected:focus:inconsistent,
+.activatable.tweak-category .radio:selected:focus:inconsistent {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-selected.png"), url("assets/radio-mixed-selected@2.png"));
+  icon-shadow: none; }
+.view radio:selected:insensitive,
+.view radio:selected:focus:insensitive,
+.list-row radio:selected:insensitive,
+.tweak-category radio:selected:insensitive,
+.list-row radio:selected:focus:insensitive,
+.tweak-category radio:selected:focus:insensitive,
+.list-row.activatable radio:selected:insensitive,
+.view radio:selected:insensitive,
+column-header .button radio:selected:insensitive,
+.activatable.tweak-category radio:selected:insensitive,
+.list-row.activatable radio:selected:focus:insensitive,
+.view radio:selected:focus:insensitive,
+column-header .button radio:selected:focus:insensitive,
+.activatable.tweak-category radio:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+.view radio:selected:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+.list-row radio:selected:inconsistent:insensitive,
+.tweak-category radio:selected:inconsistent:insensitive,
+.list-row radio:selected:focus:inconsistent:insensitive,
+.tweak-category radio:selected:focus:inconsistent:insensitive,
+.list-row.activatable radio:selected:inconsistent:insensitive,
+.view radio:selected:inconsistent:insensitive,
+column-header .button radio:selected:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:inconsistent:insensitive,
+.list-row.activatable radio:selected:focus:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+column-header .button radio:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+.view radio:selected:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+.list-row radio:selected:checked:insensitive,
+.tweak-category radio:selected:checked:insensitive,
+.list-row radio:selected:focus:checked:insensitive,
+.tweak-category radio:selected:focus:checked:insensitive,
+.list-row.activatable radio:selected:checked:insensitive,
+.view radio:selected:checked:insensitive,
+column-header .button radio:selected:checked:insensitive,
+.activatable.tweak-category radio:selected:checked:insensitive,
+.list-row.activatable radio:selected:focus:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+column-header .button radio:selected:focus:checked:insensitive,
+.activatable.tweak-category radio:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+.view .radio:selected:inconsistent:active,
+.view .radio:selected:focus:inconsistent:active,
+.list-row .radio:selected:inconsistent:active,
+.tweak-category .radio:selected:inconsistent:active,
+.list-row .radio:selected:focus:inconsistent:active,
+.tweak-category .radio:selected:focus:inconsistent:active,
+.list-row.activatable .radio:selected:inconsistent:active,
+.view .radio:selected:inconsistent:active,
+column-header .button .radio:selected:inconsistent:active,
+.activatable.tweak-category .radio:selected:inconsistent:active,
+.list-row.activatable .radio:selected:focus:inconsistent:active,
+.view .radio:selected:focus:inconsistent:active,
+column-header .button .radio:selected:focus:inconsistent:active,
+.activatable.tweak-category .radio:selected:focus:inconsistent:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-selected.png"), url("assets/radio-mixed-selected@2.png"));
+  icon-shadow: none; }
+.view radio:selected:insensitive,
+.view radio:selected:focus:insensitive,
+.list-row radio:selected:insensitive,
+.tweak-category radio:selected:insensitive,
+.list-row radio:selected:focus:insensitive,
+.tweak-category radio:selected:focus:insensitive,
+.list-row.activatable radio:selected:insensitive,
+.view radio:selected:insensitive,
+column-header .button radio:selected:insensitive,
+.activatable.tweak-category radio:selected:insensitive,
+.list-row.activatable radio:selected:focus:insensitive,
+.view radio:selected:focus:insensitive,
+column-header .button radio:selected:focus:insensitive,
+.activatable.tweak-category radio:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+.view radio:selected:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+.list-row radio:selected:inconsistent:insensitive,
+.tweak-category radio:selected:inconsistent:insensitive,
+.list-row radio:selected:focus:inconsistent:insensitive,
+.tweak-category radio:selected:focus:inconsistent:insensitive,
+.list-row.activatable radio:selected:inconsistent:insensitive,
+.view radio:selected:inconsistent:insensitive,
+column-header .button radio:selected:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:inconsistent:insensitive,
+.list-row.activatable radio:selected:focus:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+column-header .button radio:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+.view radio:selected:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+.list-row radio:selected:checked:insensitive,
+.tweak-category radio:selected:checked:insensitive,
+.list-row radio:selected:focus:checked:insensitive,
+.tweak-category radio:selected:focus:checked:insensitive,
+.list-row.activatable radio:selected:checked:insensitive,
+.view radio:selected:checked:insensitive,
+column-header .button radio:selected:checked:insensitive,
+.activatable.tweak-category radio:selected:checked:insensitive,
+.list-row.activatable radio:selected:focus:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+column-header .button radio:selected:focus:checked:insensitive,
+.activatable.tweak-category radio:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+.view .radio:selected:checked,
+.view .radio:selected:focus:checked,
+.list-row .radio:selected:checked,
+.tweak-category .radio:selected:checked,
+.list-row .radio:selected:focus:checked,
+.tweak-category .radio:selected:focus:checked,
+.list-row.activatable .radio:selected:checked,
+.view .radio:selected:checked,
+column-header .button .radio:selected:checked,
+.activatable.tweak-category .radio:selected:checked,
+.list-row.activatable .radio:selected:focus:checked,
+.view .radio:selected:focus:checked,
+column-header .button .radio:selected:focus:checked,
+.activatable.tweak-category .radio:selected:focus:checked {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-selected.png"), url("assets/radio-checked-selected@2.png"));
+  icon-shadow: none; }
+.view radio:selected:insensitive,
+.view radio:selected:focus:insensitive,
+.list-row radio:selected:insensitive,
+.tweak-category radio:selected:insensitive,
+.list-row radio:selected:focus:insensitive,
+.tweak-category radio:selected:focus:insensitive,
+.list-row.activatable radio:selected:insensitive,
+.view radio:selected:insensitive,
+column-header .button radio:selected:insensitive,
+.activatable.tweak-category radio:selected:insensitive,
+.list-row.activatable radio:selected:focus:insensitive,
+.view radio:selected:focus:insensitive,
+column-header .button radio:selected:focus:insensitive,
+.activatable.tweak-category radio:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+.view radio:selected:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+.list-row radio:selected:inconsistent:insensitive,
+.tweak-category radio:selected:inconsistent:insensitive,
+.list-row radio:selected:focus:inconsistent:insensitive,
+.tweak-category radio:selected:focus:inconsistent:insensitive,
+.list-row.activatable radio:selected:inconsistent:insensitive,
+.view radio:selected:inconsistent:insensitive,
+column-header .button radio:selected:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:inconsistent:insensitive,
+.list-row.activatable radio:selected:focus:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+column-header .button radio:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+.view radio:selected:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+.list-row radio:selected:checked:insensitive,
+.tweak-category radio:selected:checked:insensitive,
+.list-row radio:selected:focus:checked:insensitive,
+.tweak-category radio:selected:focus:checked:insensitive,
+.list-row.activatable radio:selected:checked:insensitive,
+.view radio:selected:checked:insensitive,
+column-header .button radio:selected:checked:insensitive,
+.activatable.tweak-category radio:selected:checked:insensitive,
+.list-row.activatable radio:selected:focus:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+column-header .button radio:selected:focus:checked:insensitive,
+.activatable.tweak-category radio:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
+.view .radio:selected:checked:active,
+.view .radio:selected:focus:checked:active,
+.list-row .radio:selected:checked:active,
+.tweak-category .radio:selected:checked:active,
+.list-row .radio:selected:focus:checked:active,
+.tweak-category .radio:selected:focus:checked:active,
+.list-row.activatable .radio:selected:checked:active,
+.view .radio:selected:checked:active,
+column-header .button .radio:selected:checked:active,
+.activatable.tweak-category .radio:selected:checked:active,
+.list-row.activatable .radio:selected:focus:checked:active,
+.view .radio:selected:focus:checked:active,
+column-header .button .radio:selected:focus:checked:active,
+.activatable.tweak-category .radio:selected:focus:checked:active {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-selected.png"), url("assets/radio-checked-selected@2.png"));
+  icon-shadow: none; }
+.view radio:selected:insensitive,
+.view radio:selected:focus:insensitive,
+.list-row radio:selected:insensitive,
+.tweak-category radio:selected:insensitive,
+.list-row radio:selected:focus:insensitive,
+.tweak-category radio:selected:focus:insensitive,
+.list-row.activatable radio:selected:insensitive,
+.view radio:selected:insensitive,
+column-header .button radio:selected:insensitive,
+.activatable.tweak-category radio:selected:insensitive,
+.list-row.activatable radio:selected:focus:insensitive,
+.view radio:selected:focus:insensitive,
+column-header .button radio:selected:focus:insensitive,
+.activatable.tweak-category radio:selected:focus:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
+.view radio:selected:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+.list-row radio:selected:inconsistent:insensitive,
+.tweak-category radio:selected:inconsistent:insensitive,
+.list-row radio:selected:focus:inconsistent:insensitive,
+.tweak-category radio:selected:focus:inconsistent:insensitive,
+.list-row.activatable radio:selected:inconsistent:insensitive,
+.view radio:selected:inconsistent:insensitive,
+column-header .button radio:selected:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:inconsistent:insensitive,
+.list-row.activatable radio:selected:focus:inconsistent:insensitive,
+.view radio:selected:focus:inconsistent:insensitive,
+column-header .button radio:selected:focus:inconsistent:insensitive,
+.activatable.tweak-category radio:selected:focus:inconsistent:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
+.view radio:selected:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+.list-row radio:selected:checked:insensitive,
+.tweak-category radio:selected:checked:insensitive,
+.list-row radio:selected:focus:checked:insensitive,
+.tweak-category radio:selected:focus:checked:insensitive,
+.list-row.activatable radio:selected:checked:insensitive,
+.view radio:selected:checked:insensitive,
+column-header .button radio:selected:checked:insensitive,
+.activatable.tweak-category radio:selected:checked:insensitive,
+.list-row.activatable radio:selected:focus:checked:insensitive,
+.view radio:selected:focus:checked:insensitive,
+column-header .button radio:selected:focus:checked:insensitive,
+.activatable.tweak-category radio:selected:focus:checked:insensitive {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
+
 .view.content-view.check:not(.list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode.png"), url("assets/checkbox-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode-dark.png"), url("assets/checkbox-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view.check:not(.list):backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
+.view.content-view.check:hover:not(.list) {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode-dark.png"), url("assets/checkbox-active-selectionmode-dark@2.png"));
+  background-color: transparent; }
+  .view.content-view.check:hover:not(.list):backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
 .view.content-view.check:active:not(.list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode.png"), url("assets/checkbox-active-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode-dark.png"), url("assets/checkbox-active-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view.check:active:not(.list):backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .view.content-view.check:insensitive:not(.list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-selectionmode.png"), url("assets/checkbox-insensitive-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-selectionmode-dark.png"), url("assets/checkbox-insensitive-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view.check:insensitive:not(.list):backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .view.content-view.check:checked:not(.list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode.png"), url("assets/checkbox-checked-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode-dark.png"), url("assets/checkbox-checked-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view.check:checked:not(.list):backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
+.view.content-view.check:checked:hover:not(.list) {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode-dark.png"), url("assets/checkbox-checked-active-selectionmode-dark@2.png"));
+  background-color: transparent; }
+  .view.content-view.check:checked:hover:not(.list):backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
 .view.content-view.check:checked:active:not(.list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode.png"), url("assets/checkbox-checked-active-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode-dark.png"), url("assets/checkbox-checked-active-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view.check:checked:active:not(.list):backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
 .view.content-view.check:insensitive:checked:not(.list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-selectionmode.png"), url("assets/checkbox-checked-insensitive-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-selectionmode-dark.png"), url("assets/checkbox-checked-insensitive-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view.check:insensitive:checked:not(.list):backdrop {
     opacity: 0.8;

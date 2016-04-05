@@ -2210,26 +2210,24 @@ GtkSwitch {
 
   // standard checks and radios
   @each $s,$as in ('','-unchecked'),
+                  (':hover', '-unchecked-active'),
                   (':active', '-unchecked-active'),
                   (':insensitive','-unchecked-insensitive'),
                   (':inconsistent', '-mixed'),
+                  (':inconsistent:hover', '-mixed-active'),
                   (':inconsistent:active', '-mixed-active'),
                   (':inconsistent:insensitive', '-mixed-insensitive'),
                   (':checked', '-checked'),
+                  (':checked:hover', '-checked-active'),
                   (':checked:active', '-checked-active'),
                   (':checked:insensitive','-checked-insensitive') {
     .#{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
-      icon-shadow: $check-radio-depth-1;
-      &:hover,
-      &:active { icon-shadow: $check-radio-depth-2; }
-      &:insensitive { icon-shadow: none; }
+      icon-shadow: none;
       &:backdrop {
         opacity: 0.8;
         transition: 0.2s;
-      }
-      &.button.flat {
       }
     }
   }
@@ -2245,17 +2243,6 @@ GtkSwitch {
                   // (':checked:active', '-checked'),
                   (':checked:insensitive','-checked-insensitive') {
     .menu .menuitem.#{$w}#{$s} {
-      @extend %fade_effect;
-
-      // color: gtkalpha(currentColor, 0.75);
-      // -gtk-icon-source: -gtk-icontheme('#{$a}-symbolic');
-      // &:active,
-      // &:checked {
-      //   -gtk-icon-source: -gtk-icontheme('#{$a}-checked-symbolic');
-      // }
-      // &:inconsistent {
-      //   -gtk-icon-source: -gtk-icontheme('#{$a}-mixed-symbolic');
-      // }
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
       icon-shadow: none;
@@ -2271,25 +2258,58 @@ GtkSwitch {
   }
 }
 
-// treeview and list-rows
-.view.check,
-.view.radio,
-.list-row {
-  .check,
-  .radio {
+// check/radio inside selected-rows
+@each $w,$a in ('check', 'checkbox'),
+               ('radio','radio') {
+
+  // standard checks and radios
+  @each $s,$as in ('','-unchecked'),
+                  (':active', '-unchecked'),
+                  (':inconsistent', '-mixed'),
+                  (':inconsistent:active', '-mixed'),
+                  (':checked', '-checked'),
+                  (':checked:active', '-checked') {
+    .view,
+    .list-row,
+    .list-row.activatable {
+      .#{$w}:selected#{$s},
+      .#{$w}:selected:focus#{$s} {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
+                                      url("assets/#{$a}#{$as}-selected@2.png"));
+        icon-shadow: none;
+      }
+      // use dark variant for insensitive states
+      #{$w}:selected:insensitive,
+      #{$w}:selected:focus:insensitive {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
+                                      url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
+      }
+      #{$w}:selected:inconsistent:insensitive,
+      #{$w}:selected:focus:inconsistent:insensitive {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
+                                      url("assets/#{$a}-mixed-insensitive-dark@2.png"));
+      }
+      #{$w}:selected:checked:insensitive,
+      #{$w}:selected:focus:checked:insensitive {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
+                                      url("assets/#{$a}-checked-insensitive-dark@2.png"));
+      }
+    }
   }
 }
 
 // selection-mode
 @each $s,$as in ('','-selectionmode'),
+                  (':hover', '-active-selectionmode'),
                   (':active', '-active-selectionmode'),
                   (':insensitive', '-insensitive-selectionmode'),
                   (':checked', '-checked-selectionmode'),
+                  (':checked:hover', '-checked-active-selectionmode'),
                   (':checked:active', '-checked-active-selectionmode'),
                   (':insensitive:checked', '-checked-insensitive-selectionmode') {
   .view.content-view.check#{$s}:not(.list) {
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}.png"),
-                                  url("assets/checkbox#{$as}@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
+                                  url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
     &:backdrop {
       opacity: 0.8;
