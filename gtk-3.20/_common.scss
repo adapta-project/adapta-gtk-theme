@@ -272,6 +272,18 @@ assistant {
   }
 }
 
+// button box is always shown with flat-buttons
+buttonbox {
+  &, &.dialog-action-area {
+    button {
+      @extend %fade_effect;
+
+      @extend button.flat;
+      font-weight: 700;
+    }
+  }
+}
+
 %osd, .osd { opacity: 0.9; }
 
 
