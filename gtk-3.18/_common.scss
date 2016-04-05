@@ -428,7 +428,7 @@ GtkTextView { // This will get overridden by .view,
     &:hover { @include button(hover, $suggested_color, $selected_fg_color); }
     &:active { @include button(active, $suggested_color, $selected_fg_color); }
     &:checked { @include button(checked, $suggested_color, $selected_fg_color); }
-    &:disabled { @include button(flat-insensitive); }
+    &:insensitive { @include button(flat-insensitive); }
   }
 
   &.image-button { @extend %image_button; }
@@ -494,9 +494,19 @@ GtkTextView { // This will get overridden by .view,
   }
 
   // inline-toolbar buttons
-  .inline-toolbar & {
-    @extend .button.flat;
-    @extend %image_button;
+  .inline-toolbar &,
+  .action-bar &,
+  .inline-toolbar .linked > &,
+  .action-bar .linked > & {
+    &, &:not(.text-button).image-button {
+      @extend .button.flat;
+      border-radius: 100px;
+      outline-radius: 100px;
+    }
+    &.text-button {
+      border-radius: 2px;
+      outline-radius: 2px;
+    }
   }
 
   .primary-toolbar & { icon-shadow: none; } // tango icons don't need shadows
@@ -3327,7 +3337,10 @@ GtkVolumeButton.button {
   outline-radius: 100px;
   &:backdrop { opacity: 0.8; }
 
-  &.text-button { @extend .text-button }
+  &.text-button {
+    border-radius: 2px;
+    outline-radius: 2px;
+  }
 }
 
 .floating-bar {
