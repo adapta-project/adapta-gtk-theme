@@ -511,17 +511,6 @@ button,
     }
   }
 
-  // force using 'raised' styling for 'save', 'open' and some more right-most
-  // text-buttons appeared on GtkfileChooserDialogs.
-  &.flat.default {
-    @include button(normal, $suggested_color, $secondary_selected_fg_color);
-    background-size: $text_button_small;
-    &:hover { @include button(hover, $suggested_color, $selected_fg_color); }
-    &:active { @include button(active, $suggested_color, $selected_fg_color); }
-    &:checked { @include button(checked, $suggested_color, $selected_fg_color); }
-    &:disabled { @include button(flat-insensitive); }
-  }
-
   &.image-button {
     @extend %image_button;
     min-width: 1em;
