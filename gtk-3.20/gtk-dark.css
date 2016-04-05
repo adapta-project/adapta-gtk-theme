@@ -3855,6 +3855,13 @@ switch {
     opacity: 0.8;
     transition: 0.2s; }
 
+.check:indeterminate:hover, check:indeterminate:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-active-dark.png"), url("assets/checkbox-mixed-active-dark@2.png"));
+  -gtk-icon-shadow: none; }
+  .check:indeterminate:hover:backdrop, check:indeterminate:hover:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
 .check:indeterminate:active, check:indeterminate:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-active-dark.png"), url("assets/checkbox-mixed-active-dark@2.png"));
   -gtk-icon-shadow: none; }
@@ -3873,6 +3880,13 @@ switch {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-dark.png"), url("assets/checkbox-checked-dark@2.png"));
   -gtk-icon-shadow: none; }
   .check:checked:backdrop, check:checked:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.check:checked:hover, check:checked:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-dark.png"), url("assets/checkbox-checked-active-dark@2.png"));
+  -gtk-icon-shadow: none; }
+  .check:checked:hover:backdrop, check:checked:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
@@ -4015,6 +4029,13 @@ menu menuitem check:checked:disabled {
     opacity: 0.8;
     transition: 0.2s; }
 
+.radio:indeterminate:hover, radio:indeterminate:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-active-dark.png"), url("assets/radio-mixed-active-dark@2.png"));
+  -gtk-icon-shadow: none; }
+  .radio:indeterminate:hover:backdrop, radio:indeterminate:hover:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
 .radio:indeterminate:active, radio:indeterminate:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-active-dark.png"), url("assets/radio-mixed-active-dark@2.png"));
   -gtk-icon-shadow: none; }
@@ -4033,6 +4054,13 @@ menu menuitem check:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png"));
   -gtk-icon-shadow: none; }
   .radio:checked:backdrop, radio:checked:backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
+.radio:checked:hover, radio:checked:hover {
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-active-dark.png"), url("assets/radio-checked-active-dark@2.png"));
+  -gtk-icon-shadow: none; }
+  .radio:checked:hover:backdrop, radio:checked:hover:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
 
@@ -5230,7 +5258,7 @@ treeview.view header button radio:selected:focus:checked:disabled,
 .view.content-view .check:not(list), iconview.content-view .check:not(list),
 .view.content-view check:not(list),
 iconview.content-view check:not(list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode.png"), url("assets/checkbox-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode-dark.png"), url("assets/checkbox-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view .check:not(list):backdrop, iconview.content-view .check:not(list):backdrop,
   .view.content-view check:not(list):backdrop,
@@ -5238,10 +5266,21 @@ iconview.content-view check:not(list) {
     opacity: 0.8;
     transition: 0.2s; }
 
+.view.content-view .check:hover:not(list), iconview.content-view .check:hover:not(list),
+.view.content-view check:hover:not(list),
+iconview.content-view check:hover:not(list) {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode-dark.png"), url("assets/checkbox-active-selectionmode-dark@2.png"));
+  background-color: transparent; }
+  .view.content-view .check:hover:not(list):backdrop, iconview.content-view .check:hover:not(list):backdrop,
+  .view.content-view check:hover:not(list):backdrop,
+  iconview.content-view check:hover:not(list):backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
 .view.content-view .check:active:not(list), iconview.content-view .check:active:not(list),
 .view.content-view check:active:not(list),
 iconview.content-view check:active:not(list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode.png"), url("assets/checkbox-active-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode-dark.png"), url("assets/checkbox-active-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view .check:active:not(list):backdrop, iconview.content-view .check:active:not(list):backdrop,
   .view.content-view check:active:not(list):backdrop,
@@ -5252,7 +5291,7 @@ iconview.content-view check:active:not(list) {
 .view.content-view .check:disabled:not(list), iconview.content-view .check:disabled:not(list),
 .view.content-view check:disabled:not(list),
 iconview.content-view check:disabled:not(list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-selectionmode.png"), url("assets/checkbox-insensitive-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-selectionmode-dark.png"), url("assets/checkbox-insensitive-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view .check:disabled:not(list):backdrop, iconview.content-view .check:disabled:not(list):backdrop,
   .view.content-view check:disabled:not(list):backdrop,
@@ -5263,7 +5302,7 @@ iconview.content-view check:disabled:not(list) {
 .view.content-view .check:checked:not(list), iconview.content-view .check:checked:not(list),
 .view.content-view check:checked:not(list),
 iconview.content-view check:checked:not(list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode.png"), url("assets/checkbox-checked-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode-dark.png"), url("assets/checkbox-checked-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view .check:checked:not(list):backdrop, iconview.content-view .check:checked:not(list):backdrop,
   .view.content-view check:checked:not(list):backdrop,
@@ -5271,10 +5310,21 @@ iconview.content-view check:checked:not(list) {
     opacity: 0.8;
     transition: 0.2s; }
 
+.view.content-view .check:checked:hover:not(list), iconview.content-view .check:checked:hover:not(list),
+.view.content-view check:checked:hover:not(list),
+iconview.content-view check:checked:hover:not(list) {
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode-dark.png"), url("assets/checkbox-checked-active-selectionmode-dark@2.png"));
+  background-color: transparent; }
+  .view.content-view .check:checked:hover:not(list):backdrop, iconview.content-view .check:checked:hover:not(list):backdrop,
+  .view.content-view check:checked:hover:not(list):backdrop,
+  iconview.content-view check:checked:hover:not(list):backdrop {
+    opacity: 0.8;
+    transition: 0.2s; }
+
 .view.content-view .check:checked:active:not(list), iconview.content-view .check:checked:active:not(list),
 .view.content-view check:checked:active:not(list),
 iconview.content-view check:checked:active:not(list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode.png"), url("assets/checkbox-checked-active-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode-dark.png"), url("assets/checkbox-checked-active-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view .check:checked:active:not(list):backdrop, iconview.content-view .check:checked:active:not(list):backdrop,
   .view.content-view check:checked:active:not(list):backdrop,
@@ -5285,7 +5335,7 @@ iconview.content-view check:checked:active:not(list) {
 .view.content-view .check:disabled:checked:not(list), iconview.content-view .check:disabled:checked:not(list),
 .view.content-view check:disabled:checked:not(list),
 iconview.content-view check:disabled:checked:not(list) {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-selectionmode.png"), url("assets/checkbox-checked-insensitive-selectionmode@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-selectionmode-dark.png"), url("assets/checkbox-checked-insensitive-selectionmode-dark@2.png"));
   background-color: transparent; }
   .view.content-view .check:disabled:checked:not(list):backdrop, iconview.content-view .check:disabled:checked:not(list):backdrop,
   .view.content-view check:disabled:checked:not(list):backdrop,
@@ -5322,8 +5372,8 @@ check {
     animation: check_radio_active 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   menu menuitem radio, menu menuitem
   check {
-    margin: -0.5em;
-    padding: 0.5em; }
+    margin: 0 0.5em 0 0.5em;
+    padding: 0; }
     menu menuitem radio, menu menuitem radio:hover, menu menuitem radio:disabled, menu menuitem
     check, menu menuitem
     check:hover, menu menuitem

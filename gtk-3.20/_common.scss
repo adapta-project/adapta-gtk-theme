@@ -2779,9 +2779,11 @@ switch {
                   (':active', '-unchecked-active'),
                   (':disabled','-unchecked-insensitive'),
                   (':indeterminate', '-mixed'),
+                  (':indeterminate:hover', '-mixed-active'),
                   (':indeterminate:active', '-mixed-active'),
                   (':indeterminate:disabled', '-mixed-insensitive'),
                   (':checked', '-checked'),
+                  (':checked:hover', '-checked-active'),
                   (':checked:active', '-checked-active'),
                   (':checked:disabled','-checked-insensitive') {
     .#{$w}#{$s}, #{$w}#{$s} {
@@ -2877,15 +2879,17 @@ treeview.view radio {
 
 // selection-mode
 @each $s,$as in ('','-selectionmode'),
+                  (':hover', '-active-selectionmode'),
                   (':active', '-active-selectionmode'),
                   (':disabled', '-insensitive-selectionmode'),
                   (':checked', '-checked-selectionmode'),
+                  (':checked:hover', '-checked-active-selectionmode'),
                   (':checked:active', '-checked-active-selectionmode'),
                   (':disabled:checked', '-checked-insensitive-selectionmode') {
   .view.content-view .check#{$s}:not( list),
   .view.content-view check#{$s}:not( list) {
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}.png"),
-                                  url("assets/checkbox#{$as}@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
+                                  url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
     &:backdrop {
       opacity: 0.8;
@@ -2931,8 +2935,8 @@ check {
   }
 
   menu menuitem & {
-    margin: -0.5em; // this is a workaround for
-    padding: 0.5em; // a menu check/radio size allocation issue
+    margin: 0 0.5em 0 0.5em;  // this is a workaround for
+    padding: 0;               // a menu check/radio size allocation issue
 
     &, &:hover, &:disabled { //FIXME: use button reset mixin
       min-height: 16px;
