@@ -589,55 +589,6 @@ GtkTextView {
       GtkVolumeButton.destructive-action.button:insensitive, GfCandidatePopup .destructive-action.button:insensitive, MathWindow :not(.titlebar) .destructive-action.button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .destructive-action.button:insensitive:not(.flat):not(.titlebutton), .action-bar .destructive-action.button:insensitive, .budgie-session-dialog .destructive-action.button:insensitive, .budgie-polkit-dialog .destructive-action.button:insensitive {
         box-shadow: none;
         background-color: transparent; }
-  .button.flat.default, .default.button.osd.image-button, .inline-toolbar .default.button, GtkButtonBox > .default.button, .app-notification .default.button, GeditViewFrame .gedit-search-slider .default.button, .toolbar .default.button, .titlebar .default.button:not(.suggested-action):not(.destructive-action),
-  .header-bar .default.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .default.button, .default.sidebar-button.button, .info .default.button,
-  .question .default.button,
-  .warning .default.button,
-  .error .default.button, GtkScaleButton.default.button,
-  GtkVolumeButton.default.button, GfCandidatePopup .default.button,
-  GfCandidatePopup .linked > .default.button:first-child,
-  GfCandidatePopup .linked > .default.button:last-child, MathWindow :not(.titlebar) .default.button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .default.button:not(.flat):not(.titlebutton), .action-bar .default.button,
-  .action-bar .linked > .default.button.image-button, .budgie-session-dialog .default.button, .budgie-polkit-dialog .default.button {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
-    background-color: #FF5252;
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
-    color: rgba(236, 239, 241, 0.75); }
-    .button.flat.default:hover, .default.button.osd.image-button:hover, .inline-toolbar .default.button:hover, GtkButtonBox > .default.button:hover, .app-notification .default.button:hover, GeditViewFrame .gedit-search-slider .default.button:hover, .toolbar .default.button:hover, .titlebar .default.button:hover:not(.suggested-action):not(.destructive-action),
-    .header-bar .default.button:hover:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .default.button:hover, .default.sidebar-button.button:hover, .info .default.button:hover,
-    .question .default.button:hover,
-    .warning .default.button:hover,
-    .error .default.button:hover, GtkScaleButton.default.button:hover,
-    GtkVolumeButton.default.button:hover, GfCandidatePopup .default.button:hover, MathWindow :not(.titlebar) .default.button:hover:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .default.button:hover:not(.flat):not(.titlebutton), .action-bar .default.button:hover, .budgie-session-dialog .default.button:hover, .budgie-polkit-dialog .default.button:hover {
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
-      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
-      color: #ECEFF1; }
-    .button.flat.default:active, .default.button.osd.image-button:active, .inline-toolbar .default.button:active, GtkButtonBox > .default.button:active, .app-notification .default.button:active, GeditViewFrame .gedit-search-slider .default.button:active, .toolbar .default.button:active, .titlebar .default.button:active:not(.suggested-action):not(.destructive-action),
-    .header-bar .default.button:active:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .default.button:active, .default.sidebar-button.button:active, .info .default.button:active,
-    .question .default.button:active,
-    .warning .default.button:active,
-    .error .default.button:active, GtkScaleButton.default.button:active,
-    GtkVolumeButton.default.button:active, GfCandidatePopup .default.button:active, MathWindow :not(.titlebar) .default.button:active:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .default.button:active:not(.flat):not(.titlebutton), .action-bar .default.button:active, .budgie-session-dialog .default.button:active, .budgie-polkit-dialog .default.button:active {
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
-      color: #ECEFF1;
-      transition-duration: 0;
-      animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    .button.flat.default:checked, .default.button.osd.image-button:checked, .inline-toolbar .default.button:checked, GtkButtonBox > .default.button:checked, .app-notification .default.button:checked, GeditViewFrame .gedit-search-slider .default.button:checked, .toolbar .default.button:checked, .titlebar .default.button:checked:not(.suggested-action):not(.destructive-action),
-    .header-bar .default.button:checked:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .default.button:checked, .default.sidebar-button.button:checked, .info .default.button:checked,
-    .question .default.button:checked,
-    .warning .default.button:checked,
-    .error .default.button:checked, GtkScaleButton.default.button:checked,
-    GtkVolumeButton.default.button:checked, GfCandidatePopup .default.button:checked, MathWindow :not(.titlebar) .default.button:checked:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .default.button:checked:not(.flat):not(.titlebutton), .action-bar .default.button:checked, .budgie-session-dialog .default.button:checked, .budgie-polkit-dialog .default.button:checked {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
-      background-color: #00BCD4;
-      color: #FFFFFF; }
-    .button.flat.default:disabled, .default.button.osd.image-button:disabled, .inline-toolbar .default.button:disabled, GtkButtonBox > .default.button:disabled, .app-notification .default.button:disabled, GeditViewFrame .gedit-search-slider .default.button:disabled, .toolbar .default.button:disabled, .titlebar .default.button:disabled:not(.suggested-action):not(.destructive-action),
-    .header-bar .default.button:disabled:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .default.button:disabled, .default.sidebar-button.button:disabled, .info .default.button:disabled,
-    .question .default.button:disabled,
-    .warning .default.button:disabled,
-    .error .default.button:disabled, GtkScaleButton.default.button:disabled,
-    GtkVolumeButton.default.button:disabled, GfCandidatePopup .default.button:disabled, MathWindow :not(.titlebar) .default.button:disabled:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .default.button:disabled:not(.flat):not(.titlebutton), .action-bar .default.button:disabled, .budgie-session-dialog .default.button:disabled, .budgie-polkit-dialog .default.button:disabled {
-      box-shadow: none;
-      background-color: transparent; }
   .button.text-button, GtkScaleButton.button.text-button,
   GtkVolumeButton.button.text-button {
     padding-left: 1.2em;
