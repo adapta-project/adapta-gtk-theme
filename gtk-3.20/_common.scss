@@ -2936,6 +2936,11 @@ check {
  * GtkScale *
  ************/
 
+@keyframes scale_enlarge {
+  from { background-size: $scale; }
+  to { background-size: 100%; }
+}
+
 %scale_trough {
   border: 1px solid transparent;
   border-radius: 0;
@@ -3037,12 +3042,9 @@ scale {
       }
     }
     &:hover {
-      // @include entry(focus);
-      // border-radius: 50%; // needed for double marks scales
+      animation: scale_enlarge 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
     &:disabled {
-      // @include entry(insensitive);
-      // border-radius: 50%; // overridden
     }
     // OSD sliders
     .osd & {

@@ -5232,6 +5232,11 @@ check {
 /************
  * GtkScale *
  ************/
+@keyframes scale_enlarge {
+  from {
+    background-size: 80%; }
+  to {
+    background-size: 100%; } }
 scale trough, scale fill {
   border: 1px solid transparent;
   border-radius: 0;
@@ -5298,6 +5303,8 @@ scale {
       background-repeat: no-repeat;
       background-position: center;
       box-shadow: none; }
+    scale slider:hover {
+      animation: scale_enlarge 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   scale trough,
   scale fill,
   scale highlight {
