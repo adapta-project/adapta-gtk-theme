@@ -1861,34 +1861,32 @@ headerbar,
  * Pathbars *
  ************/
 
-.path-bar button {
-  &,
-  &.text-button,
-  &.image-button {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
-  }
+.path-bar {
+  button {
+    &.text-button,
+    &.image-button { padding: 0 0.6em 0; }
 
-  &.text-button.image-button {
-    label {
-      padding-left: 0;
-      padding-right: 0;
+    &.text-button.image-button {
+      label {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
-  }
 
-  &,
-  &.text-button.image-button {
-    label { // FIXME: is it still needed?
-      &:last-child { padding-right: 0.6em; }
-      &:first-child { padding-left: 0.6em; }
+    &.text-button.image-button {
+      label { // FIXME: is it still needed?
+        &:last-child { padding-right: 0.6em; }
+        &:first-child { padding-left: 0.6em; }
+      }
     }
-  }
 
-  image { padding: 1px 4px 0; }
+    image { padding: 1px 4px 0; }
 
-  &.slider-button {
-    padding-left: 0;
-    padding-right: 0;
+    &.slider-button, // FIXME: workaround for Nautilus 3.20.0
+    &.image-button.text-button.toggle {
+      min-height: 1.3em;
+      padding: 0 0.6em 0;
+    }
   }
 }
 

@@ -2772,21 +2772,20 @@ headerbar, .maximized headerbar.titlebar, .maximized .csd headerbar, .maximized 
 /************
  * Pathbars *
  ************/
-.path-bar button, .path-bar button.text-button, .path-bar button.image-button {
-  padding-left: 0.6em;
-  padding-right: 0.6em; }
+.path-bar button.text-button, .path-bar button.image-button {
+  padding: 0 0.6em 0; }
 .path-bar button.text-button.image-button label {
   padding-left: 0;
   padding-right: 0; }
-.path-bar button label:last-child, .path-bar button.text-button.image-button label:last-child {
+.path-bar button.text-button.image-button label:last-child {
   padding-right: 0.6em; }
-.path-bar button label:first-child, .path-bar button.text-button.image-button label:first-child {
+.path-bar button.text-button.image-button label:first-child {
   padding-left: 0.6em; }
 .path-bar button image {
   padding: 1px 4px 0; }
-.path-bar button.slider-button {
-  padding-left: 0;
-  padding-right: 0; }
+.path-bar button.slider-button, .path-bar button.image-button.text-button.toggle {
+  min-height: 1.3em;
+  padding: 0 0.6em 0; }
 
 /**************
  * Tree Views *
