@@ -909,7 +909,9 @@ button,
     .stack-switcher > button.text-button, .stack-switcher >
     .button.text-button {
       padding-left: 1em;
-      padding-right: 1em; }
+      padding-right: 1em;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px; }
     .stack-switcher > button.image-button, .stack-switcher >
     .button.image-button {
       padding-left: 0.6em;
@@ -936,6 +938,13 @@ button,
     -gtk-outline-radius: 100px;
     padding: 0.75em;
     background-size: 2.5em 2.5em, auto; }
+  .inline-toolbar button.text-button, actionbar button.text-button, .inline-toolbar .linked > button.text-button, actionbar .linked > button.text-button, .inline-toolbar
+  .button.text-button, actionbar
+  .button.text-button, .inline-toolbar .linked >
+  .button.text-button, actionbar .linked >
+  .button.text-button {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px; }
   .primary-toolbar button, .primary-toolbar
   .button {
     -gtk-icon-shadow: none; }
