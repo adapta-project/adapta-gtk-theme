@@ -623,28 +623,6 @@ button,
     }
   }
 
-  // inline-toolbar and action-bar buttons
-  .inline-toolbar &,
-  actionbar &,
-  .inline-toolbar .linked > &,
-  actionbar .linked > & {
-    &, &:not(.text-button).image-button {
-      @extend button.flat;
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
-      padding: rem(10px);
-      background-size: $image_button_small;
-    }
-    &.text-button {
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
-    }
-  }
-
-  .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
-
   // mimic tab-switcher-like button array
   // horizontal array
   .linked > &:not(.flat):not(:only-child) { @extend %linked_middle; }
@@ -654,7 +632,7 @@ button,
     @extend %linked_middle;
     @extend %button_array;
     min-width: rem(13.3px);
-    padding: rem(9.3px) rem(8px) rem(10.7px);
+    padding: rem(9.3px) rem(5.3px) rem(10.7px);
 
     label {
       padding-left: rem(4px);
@@ -675,8 +653,57 @@ button,
     @extend %button_vertical_array;
     min-height: rem(13.3px);
     min-width: rem(22.6px);
-    padding: rem(10px) rem(5.3px) rem(10px);
+    padding: rem(10px) rem(6.7px) rem(10px);
   }
+
+  // generic switcher image buttons
+  .linked > &.image-button.radio,
+  .linked.vertical > &.image-button.radio {
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
+      padding: rem(8px);
+  }
+
+  // inline-toolbar and action-bar buttons
+  .inline-toolbar &,
+  actionbar {
+    &, &:not(.text-button).image-button {
+      @extend button.flat;
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
+      padding: rem(10px);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+      background-size: $image_button_small;
+    }
+    &.text-button {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+  .inline-toolbar .linked > &,
+  actionbar .linked > & {
+    &, &:not(.text-button).image-button {
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
+      padding: rem(6.7px);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+    }
+    &.image-button.toggle {
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
+      padding: rem(8px) rem(4px) rem(8px);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+    }
+    &.text-button {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+
+  .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
 }
 
 %button_array {
@@ -1260,7 +1287,7 @@ toolbar {
       &.image-button {
         min-width: rem(13.3px);
         min-height: rem(29.3px);
-        padding: 0 rem(8px) 0;
+        padding: 0 rem(6.7px) 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
@@ -1313,7 +1340,7 @@ toolbar {
     .image-button {
       min-width: rem(13.3px);
       min-height: rem(29.3px);
-      padding: 0 rem(8px) 0;
+      padding: 0 rem(6.7px) 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
@@ -1339,11 +1366,10 @@ toolbar {
     .image-button {
       min-width: rem(13.3px);
       min-height: rem(29.3px);
-      padding: 0 rem(8px) 0;
+      padding: 0 rem(6.7px) 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
-
   }
   .linked > button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
@@ -1490,7 +1516,7 @@ headerbar {
     &.image-button {
       min-width: rem(17.3px);
       min-height: rem(37.3px);
-      padding: 0 rem(8px) 0;
+      padding: 0 rem(6.7px) 0;
     }
   }
   button.toggle {
