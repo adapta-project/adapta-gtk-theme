@@ -2679,10 +2679,14 @@ switch {
     padding: 0;
     border-radius: 100px;
   }
-  &:hover slider { @include button(hover); }
+  &:hover slider {
+    @include button(hover);
+    background-image: linear-gradient(to bottom, $highlight_color);
+  }
   &:checked slider { @include button(checked); }
   &:checked:hover slider {
     @include button(checked);
+    background-image: linear-gradient(to bottom, $highlight_color);
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
