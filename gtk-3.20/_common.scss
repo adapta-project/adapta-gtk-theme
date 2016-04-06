@@ -296,16 +296,16 @@ buttonbox {
 }
 
 spinner {
-  min-height: 16px;
-  min-width: 16px;
+  min-height: rem(16px);
+  min-width: rem(16px);
   // FIXME: workaround for 3.20.1. Needs vertical padding more than 4px?
-  // padding: rem(6.7px) 0 rem(6.7px);
+  padding: rem(6.7px) 0 rem(6.7px);
   margin: 0;
   color: $accent_color;
   background: none;
   opacity: 0; // non spinning spinner makes no sense
-  // -gtk-icon-source: -gtk-scaled(url("assets/process-working.svg"));
-  -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
+  -gtk-icon-source: -gtk-scaled(url("assets/process-working.svg"));
+  // -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
   &:checked {
     opacity: 1.0;
     animation: spin 1s linear infinite;
