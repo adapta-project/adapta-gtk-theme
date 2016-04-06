@@ -2183,7 +2183,10 @@ GtkSwitch {
         background-color: if($variant=='light', #F0F2F3, #3F4E56);
       }
     }
-    &:hover { @include button(hover); }
+    &:hover {
+      @include button(hover);
+      background-image: linear-gradient(to bottom, $highlight_color);
+    }
     &:insensitive {
       box-shadow: none;
       background-color: if($variant=='light', #F0F2F3, #3F4E56);
