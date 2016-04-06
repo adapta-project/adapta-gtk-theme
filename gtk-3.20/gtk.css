@@ -134,7 +134,7 @@ flowbox flowboxchild {
   padding: 0.15038rem;
   border-radius: 2px; }
   flowbox flowboxchild:selected {
-    outline-offset: -rem(2px); }
+    outline-offset: -0.15038rem; }
 
 label.separator {
   color: transparent; }
@@ -489,7 +489,7 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
   treeview entry, treeview spinbutton:not(.vertical), treeview .osd spinbutton:not(.vertical), .osd treeview spinbutton:not(.vertical), treeview entry.flat:focus, treeview spinbutton.flat:focus:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus, treeview notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), treeview .osd notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), treeview
   .entry, treeview
   .entry.flat:focus, treeview .linked > entry:focus:not(.flat), treeview .linked > spinbutton:focus:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:focus:not(.flat):not(.vertical), treeview .linked > .entry:focus:not(.flat) {
-    padding: 0.07519rem;
+    padding: 1px;
     border-radius: 0;
     border-width: 0;
     background-color: #FFFFFF;
@@ -898,7 +898,7 @@ button,
     min-width: 8.42105rem; }
   .stack-switcher > button, .stack-switcher >
   .button {
-    outline-offset: -rem(2.6px); }
+    outline-offset: -0.19549rem; }
     .stack-switcher > button > label, .stack-switcher >
     .button > label {
       padding-left: 0.6015rem;
@@ -1228,7 +1228,7 @@ modelbutton.flat,
   min-height: 2rem;
   margin-left: 0.75188rem;
   margin-right: 0.75188rem;
-  outline-offset: -rem(1px);
+  outline-offset: -0.07519rem;
   background-size: 9.96241rem 9.96241rem, auto;
   transition: none; }
   modelbutton.flat check:first-child,
@@ -1431,7 +1431,7 @@ spinbutton.vertical button {
     background: none;
     color: rgba(38, 50, 56, 0.3); }
 treetiew spinbutton entry:focus, treetiew spinbutton spinbutton:focus:not(.vertical) {
-  padding: 0.07519rem;
+  padding: 1px;
   border-radius: 0;
   border-width: 0;
   background-color: #FFFFFF;
@@ -2970,12 +2970,12 @@ menu {
     background-color: #fdfdfe; }
     .menu > arrow.top,
     menu > arrow.top {
-      margin-top: -rem(5.3px);
+      margin-top: -0.3985rem;
       -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
       border-bottom: 1px solid rgba(0, 0, 0, 0.09); }
     .menu > arrow.bottom,
     menu > arrow.bottom {
-      margin-bottom: -rem(5.3px);
+      margin-bottom: -0.3985rem;
       -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
       border-top: 1px solid rgba(0, 0, 0, 0.09); }
     .menu > arrow:hover,
@@ -3505,7 +3505,7 @@ notebook {
     border-style: solid;
     border-color: transparent;
     background-color: transparent;
-    outline-offset: -rem(6px); }
+    outline-offset: -0.45113rem; }
     notebook tab:hover {
       border-color: alpha(currentColor, 0.2); }
     notebook tab:checked {
@@ -3678,7 +3678,7 @@ scrollbar {
  * Switch *
  **********/
 switch {
-  outline-offset: -rem(4px);
+  outline-offset: -0.30075rem;
   -gtk-outline-radius: 100px;
   font-size: 0;
   border: 0.75188rem solid transparent;
@@ -3700,7 +3700,7 @@ switch {
     color: rgba(38, 50, 56, 0.75);
     min-width: 1.50376rem;
     min-height: 1.50376rem;
-    margin: -rem(4px) -rem(1px);
+    margin: -0.30075rem -0.07519rem;
     padding: 0;
     border-radius: 100px; }
   switch:hover slider {
@@ -5296,7 +5296,7 @@ radio,
 check {
   min-width: 1.20301rem;
   min-height: 1.20301rem;
-  margin: -rem(10px) -rem(3.3px);
+  margin: -0.75188rem -0.24812rem;
   padding: 0.75188rem; }
   radio:hover,
   check:hover {
@@ -5354,26 +5354,26 @@ scale highlight {
 scale {
   outline-offset: 0;
   outline-width: 0;
-  min-height: 0.75188rem;
-  min-width: 0.75188rem;
-  padding: 0.75188rem; }
+  min-height: 10px;
+  min-width: 10px;
+  padding: 10px; }
   scale.fine-tune {
     outline-offset: 0;
     outline-width: 0; }
     scale.fine-tune.horizontal {
-      padding-top: 0.67669rem;
-      padding-bottom: 0.67669rem;
-      min-height: 0.75188rem; }
+      padding-top: 9px;
+      padding-bottom: 9px;
+      min-height: 10px; }
     scale.fine-tune.vertical {
-      padding-left: 0.67669rem;
-      padding-right: 0.67669rem;
-      min-width: 0.75188rem; }
+      padding-left: 9px;
+      padding-right: 9px;
+      min-width: 10px; }
     scale.fine-tune slider {
-      margin: -rem(9px); }
+      margin: -9px; }
   scale slider {
-    min-height: 1.50376rem;
-    min-width: 1.50376rem;
-    margin: -rem(9px); }
+    min-height: 20px;
+    min-width: 20px;
+    margin: -9px; }
     scale slider:not(:hover):not(:active) {
       background-size: 80%; }
     scale slider {
@@ -5575,93 +5575,93 @@ scale.color {
     border-radius: 0;
     background-color: transparent; }
   scale.color.horizontal {
-    padding: 0 0 0.75188rem 0; }
+    padding: 0 0 10px 0; }
     scale.color.horizontal trough {
-      padding-bottom: 0.37594rem; }
+      padding-bottom: 5px; }
     scale.color.horizontal slider, scale.color.horizontal slider:hover, scale.color.horizontal slider:disabled {
-      margin-top: 0.37594rem;
-      margin-bottom: -rem(10px); }
+      margin-top: 5px;
+      margin-bottom: -10px; }
   scale.color.vertical:dir(ltr) {
-    padding: 0 0 0 0.75188rem; }
+    padding: 0 0 0 10px; }
     scale.color.vertical:dir(ltr) trough {
-      padding-left: 0.37594rem; }
+      padding-left: 5px; }
     scale.color.vertical:dir(ltr) slider, scale.color.vertical:dir(ltr) slider:hover, scale.color.vertical:dir(ltr) slider:disabled {
-      margin-left: -rem(10px);
-      margin-right: 0.37594rem; }
+      margin-left: -10px;
+      margin-right: 5px; }
   scale.color.vertical:dir(rtl) {
-    padding: 0 0.75188rem 0 0; }
+    padding: 0 10px 0 0; }
     scale.color.vertical:dir(rtl) trough {
-      padding-right: 0.37594rem; }
+      padding-right: 5px; }
     scale.color.vertical:dir(rtl) slider, scale.color.vertical:dir(rtl) slider:hover, scale.color.vertical:dir(rtl) slider:disabled {
-      margin-left: 0.37594rem;
-      margin-right: -rem(10px); }
+      margin-left: 5px;
+      margin-right: -10px; }
   scale.color.fine-tune.horizontal {
-    padding: 0 0 0.75188rem 0; }
+    padding: 0 0 10px 0; }
     scale.color.fine-tune.horizontal trough {
-      padding-bottom: 0.37594rem; }
+      padding-bottom: 5px; }
     scale.color.fine-tune.horizontal slider {
-      margin-top: 0.37594rem;
-      margin-bottom: -rem(10px); }
+      margin-top: 5px;
+      margin-bottom: -10px; }
   scale.color.fine-tune.vertical:dir(ltr) {
-    padding: 0 0 0 0.75188rem; }
+    padding: 0 0 0 10px; }
     scale.color.fine-tune.vertical:dir(ltr) trough {
-      padding-left: 0.37594rem; }
+      padding-left: 5px; }
     scale.color.fine-tune.vertical:dir(ltr) slider {
-      margin-left: -rem(10px);
-      margin-right: 0.37594rem; }
+      margin-left: -10px;
+      margin-right: 5px; }
   scale.color.fine-tune.vertical:dir(rtl) {
-    padding: 0 0.75188rem 0 0; }
+    padding: 0 10px 0 0; }
     scale.color.fine-tune.vertical:dir(rtl) trough {
-      padding-right: 0.37594rem; }
+      padding-right: 5px; }
     scale.color.fine-tune.vertical:dir(rtl) slider {
-      margin-left: 0.37594rem;
-      margin-right: -rem(10px); }
+      margin-left: 5px;
+      margin-right: -10px; }
 
 scale.color.horizontal slider, scale.color.horizontal slider:hover, scale.color.horizontal slider:disabled,
 scale.horizontal contents:last-child:not(:only-child) > trough > slider, scale.color.horizontal slider:active,
 scale.horizontal contents:last-child:not(:only-child) > trough > slider:active,
 scale.horizontal contents:last-child:not(:only-child) > trough > slider:disabled {
-  margin: -rem(15px) -rem(10px) -rem(10px) -rem(10px); }
+  margin: -15px -10px -10px -10px; }
 
 scale.horizontal contents:first-child:not(:only-child) > trough > slider,
 scale.horizontal contents:first-child:not(:only-child) > trough > slider:active,
 scale.horizontal contents:first-child:not(:only-child) > trough > slider:disabled {
-  margin: -rem(10px) -rem(10px) -rem(15px) -rem(10px); }
+  margin: -10px -10px -15px -10px; }
 
 scale.color.vertical:dir(rtl) slider, scale.color.vertical:dir(rtl) slider:hover, scale.color.vertical:dir(rtl) slider:disabled,
 scale.vertical contents:last-child:not(:only-child) > trough > slider,
 scale.vertical contents:last-child:not(:only-child) > trough > slider:active,
 scale.vertical contents:last-child:not(:only-child) > trough > slider:disabled {
-  margin: -rem(10px) -rem(10px) -rem(10px) -rem(15px); }
+  margin: -10px -10px -10px -15px; }
 
 scale.color.vertical:dir(ltr) slider, scale.color.vertical:dir(ltr) slider:hover, scale.color.vertical:dir(ltr) slider:disabled,
 scale.vertical contents:first-child:not(:only-child) > trough > slider,
 scale.vertical contents:first-child:not(:only-child) > trough > slider:active,
 scale.vertical contents:first-child:not(:only-child) > trough > slider:disabled {
-  margin: -rem(10px) -rem(15px) -rem(10px) -rem(10px); }
+  margin: -10px -15px -10px -10px; }
 
 scale.color.fine-tune.horizontal slider,
 scale.horizontal.fine-tune contents:last-child:not(:only-child) > tough > slider, scale.color.fine-tune.horizontal slider:active,
 scale.horizontal.fine-tune contents:last-child:not(:only-child) > tough > slider:active, scale.color.fine-tune.horizontal slider:disabled,
 scale.horizontal.fine-tune contents:last-child:not(:only-child) > tough > slider:disabled {
-  margin: -rem(15px) -rem(10px) -rem(10px) -rem(10px); }
+  margin: -15px -10px -10px -10px; }
 
 scale.horizontal.fine-tune contents:first-child:not(:only-child) > tough > slider,
 scale.horizontal.fine-tune contents:first-child:not(:only-child) > tough > slider:active,
 scale.horizontal.fine-tune contents:first-child:not(:only-child) > tough > slider:disabled {
-  margin: -rem(10px) -rem(10px) -rem(15px) -rem(10px); }
+  margin: -10px -10px -15px -10px; }
 
 scale.color.fine-tune.vertical:dir(rtl) slider,
 scale.vertical.fine-tune contents:last-child:not(:only-child) > tough > slider,
 scale.vertical.fine-tune contents:last-child:not(:only-child) > tough > slider:active,
 scale.vertical.fine-tune contents:last-child:not(:only-child) > tough > slider:disabled {
-  margin: -rem(10px) -rem(10px) -rem(10px) -rem(15px); }
+  margin: -10px -10px -10px -15px; }
 
 scale.color.fine-tune.vertical:dir(ltr) slider,
 scale.vertical.fine-tune contents:first-child:not(:only-child) > tough > slider,
 scale.vertical.fine-tune contents:first-child:not(:only-child) > tough > slider:active,
 scale.vertical.fine-tune contents:first-child:not(:only-child) > tough > slider:disabled {
-  margin: -rem(10px) -rem(15px) -rem(10px) -rem(10px); }
+  margin: -10px -15px -10px -10px; }
 
 /*****************
  * Progress bars *
@@ -6492,10 +6492,10 @@ paned > separator {
 paned.horizontal > separator {
   background-repeat: repeat-y; }
   paned.horizontal > separator:dir(ltr) {
-    margin: 0 -rem(8px) 0 0;
+    margin: 0 -0.6015rem 0 0;
     padding: 0 0.6015rem 0 0; }
   paned.horizontal > separator:dir(rtl) {
-    margin: 0 0 0 -rem(8px);
+    margin: 0 0 0 -0.6015rem;
     padding: 0 0 0 0.6015rem; }
   paned.horizontal > separator.wide, button paned.horizontal > separator,
   button paned.horizontal > .separator,
@@ -6507,7 +6507,7 @@ paned.horizontal > separator {
     background-repeat: repeat-y, repeat-y;
     background-position: left, right; }
 paned.vertical > separator {
-  margin: 0 0 -rem(8px) 0;
+  margin: 0 0 -0.6015rem 0;
   padding: 0 0 0.6015rem 0;
   background-repeat: repeat-x;
   background-position: top; }

@@ -202,7 +202,7 @@ flowbox {
     border-radius: 2px;
     &:selected {
       @extend %selected_items;
-      outline-offset: -rem(2px);
+      outline-offset: rem(-2px);
     }
   }
 }
@@ -389,7 +389,7 @@ entry,
 
   treeview & { // reset styling inside tree-view
     &, &.flat:focus {
-      padding: rem(1px);
+      padding: 1px;
       border-radius: 0;
       border-width: 0;
       background-color: $base_color;
@@ -582,7 +582,7 @@ button,
     // child, a label needs just lateral padding while an icon needs vertical
     // padding added too.
 
-    outline-offset: -rem(2.6px); // needs to be set or it gets overriden
+    outline-offset: rem(-2.6px); // needs to be set or it gets overriden
                                  // by GtkRadioButton outline-offset
 
     > label {
@@ -838,7 +838,7 @@ modelbutton.flat,
   min-height: rem(26.6px);
   margin-left: rem(10px);
   margin-right: rem(10px);
-  outline-offset: -rem(1px);
+  outline-offset: rem(-1px);
   background-size: $text_button_small;
   transition: none;
 
@@ -1058,7 +1058,7 @@ spinbutton {
   // Misc
   treetiew & {
     & entry:focus {
-      padding: rem(1px);
+      padding: 1px;
       border-radius: 0;
       border-width: 0;
       background-color: $base_color;
@@ -2116,12 +2116,12 @@ menu {
     border-radius: 0;
     background-color: $secondary_base_color;
     &.top {
-      margin-top: -rem(5.3px);
+      margin-top: rem(-5.3px);
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
       border-bottom: 1px solid $borders_color;
     }
     &.bottom {
-      margin-bottom: -rem(5.3px);
+      margin-bottom: rem(-5.3px);
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
       border-top: 1px solid $borders_color;
     }
@@ -2452,7 +2452,7 @@ notebook {
     border-color: transparent;
     background-color: transparent;
 
-    outline-offset: -rem(6px);
+    outline-offset: rem(-6px);
 
     // here's the interesting stuff
     &:hover { border-color: $track_color; }
@@ -2650,7 +2650,7 @@ scrollbar {
  **********/
 
 switch {
-  outline-offset: -rem(4px);
+  outline-offset: rem(-4px);
   -gtk-outline-radius: 100px;
   font-size: 0;
   // similar to the scale
@@ -2675,7 +2675,7 @@ switch {
     @include button(normal);
     min-width: rem(20px);
     min-height: rem(20px);
-    margin: -rem(4px) -rem(1px);
+    margin: rem(-4px) rem(-1px);
     padding: 0;
     border-radius: 100px;
   }
@@ -2830,7 +2830,7 @@ switch {
 treeview.view check,
 treeview.view radio {
   &, &:only-child {
-    // margin: -rem(6.7px);
+    // margin: rem(-6.7px);
     // padding: rem(6.7px);
     padding: 0; // FIXME: negative margin doesn't work.
   }
@@ -2919,7 +2919,7 @@ check {
   min-width: rem(16px);
   min-height: rem(16px);
   // margin: 0 rem(6.7px) 0 rem(6.7px);
-  margin: -rem(10px) -rem(3.3px);
+  margin: rem(-10px) rem(-3.3px);
   padding: rem(10px);
 
   &:hover {
@@ -3007,29 +3007,29 @@ scale {
   outline-offset: 0;
   outline-width: 0;
 
-  min-height: rem(10px);
-  min-width: rem(10px);
-  padding: rem(10px);
+  min-height: 10px;
+  min-width: 10px;
+  padding: 10px;
 
   &.fine-tune {
     // FIXME: ugly outlines
-    // outline-offset: -rem(4px);
+    // outline-offset: rem(-4px);
     outline-offset: 0;
     outline-width: 0;
     &.horizontal {
-      padding-top: rem(9px);
-      padding-bottom: rem(9px);
-      min-height: rem(10px);
+      padding-top: 9px;
+      padding-bottom: 9px;
+      min-height: 10px;
     }
 
     &.vertical {
-      padding-left: rem(9px);
-      padding-right: rem(9px);
-      min-width: rem(10px);
+      padding-left: 9px;
+      padding-right: 9px;
+      min-width: 10px;
     }
 
     // to make the trough grow in fine-tune mode
-    slider { margin: -rem(9px); }
+    slider { margin: -9px; }
 
     highlight,
     fill,
@@ -3038,9 +3038,9 @@ scale {
   }
 
   slider {
-    min-height: rem(20px);
-    min-width: rem(20px);
-    margin: -rem(9px);
+    min-height: 20px;
+    min-width: 20px;
+    margin: -9px;
 
     &:not(:hover):not(:active) { background-size: $scale; }
     // @include entry(normal);
@@ -3216,44 +3216,44 @@ scale { // scales for colour
     }
 
     &.horizontal {
-      padding: 0 0 rem(10px) 0;
+      padding: 0 0 10px 0;
 
-      trough { padding-bottom: rem(5px); }
+      trough { padding-bottom: 5px; }
 
       slider {
         &, &:hover, &:disabled {
           @extend %scale-has-marks-above-horz;
-          margin-top: rem(5px);
-          margin-bottom: -rem(10px);
+          margin-top: 5px;
+          margin-bottom: -10px;
         }
       }
     }
 
     &.vertical {
       &:dir(ltr) {
-        padding: 0 0 0 rem(10px);
+        padding: 0 0 0 10px;
 
-        trough { padding-left: rem(5px); }
+        trough { padding-left: 5px; }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-below-vert;
-            margin-left: -rem(10px);
-            margin-right: rem(5px);
+            margin-left: -10px;
+            margin-right: 5px;
           }
         }
       }
 
       &:dir(rtl) {
-        padding: 0 rem(10px) 0 0;
+        padding: 0 10px 0 0;
 
-        trough { padding-right: rem(5px); }
+        trough { padding-right: 5px; }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-above-vert;
-            margin-left: rem(5px);
-            margin-right: -rem(10px);
+            margin-left: 5px;
+            margin-right: -10px;
           }
         }
       }
@@ -3261,39 +3261,39 @@ scale { // scales for colour
 
     &.fine-tune {
       &.horizontal {
-        padding: 0 0 rem(10px) 0;
+        padding: 0 0 10px 0;
 
-        trough { padding-bottom: rem(5px); }
+        trough { padding-bottom: 5px; }
 
         slider {
           @extend %scale-has-marks-above-horz-fine-tune;
-          margin-top: rem(5px);
-          margin-bottom: -rem(10px);
+          margin-top: 5px;
+          margin-bottom: -10px;
         }
       }
 
       &.vertical {
         &:dir(ltr) {
-          padding: 0 0 0 rem(10px);
+          padding: 0 0 0 10px;
 
-          trough { padding-left: rem(5px); }
+          trough { padding-left: 5px; }
 
           slider {
             @extend %scale-has-marks-below-vert-fine-tune;
-            margin-left: -rem(10px);
-            margin-right: rem(5px);
+            margin-left: -10px;
+            margin-right: 5px;
           }
         }
 
         &:dir(rtl) {
-          padding: 0 rem(10px) 0 0;
+          padding: 0 10px 0 0;
 
-          trough { padding-right: rem(5px); }
+          trough { padding-right: 5px; }
 
           slider {
             @extend %scale-has-marks-above-vert-fine-tune;
-            margin-left: rem(5px);
-            margin-right: -rem(10px);
+            margin-left: 5px;
+            margin-right: -10px;
           }
         }
       }
@@ -3301,14 +3301,14 @@ scale { // scales for colour
   }
 }
 
-%scale_marks_above_horz { margin: -rem(15px) -rem(10px) -rem(10px) -rem(10px); }
-%scale_marks_below_horz { margin: -rem(10px) -rem(10px) -rem(15px) -rem(10px); }
-%scale_marks_above_vert { margin: -rem(10px) -rem(10px) -rem(10px) -rem(15px); }
-%scale_marks_below_vert { margin: -rem(10px) -rem(15px) -rem(10px) -rem(10px); }
-%scale_marks_above_horz_ft { margin: -rem(15px) -rem(10px) -rem(10px) -rem(10px); }
-%scale_marks_below_horz_ft { margin: -rem(10px) -rem(10px) -rem(15px) -rem(10px); }
-%scale_marks_above_vert_ft { margin: -rem(10px) -rem(10px) -rem(10px) -rem(15px); }
-%scale_marks_below_vert_ft { margin: -rem(10px) -rem(15px) -rem(10px) -rem(10px); }
+%scale_marks_above_horz { margin: -15px -10px -10px -10px; }
+%scale_marks_below_horz { margin: -10px -10px -15px -10px; }
+%scale_marks_above_vert { margin: -10px -10px -10px -15px; }
+%scale_marks_below_vert { margin: -10px -15px -10px -10px; }
+%scale_marks_above_horz_ft { margin: -15px -10px -10px -10px; }
+%scale_marks_below_horz_ft { margin: -10px -10px -15px -10px; }
+%scale_marks_above_vert_ft { margin: -10px -10px -10px -15px; }
+%scale_marks_below_vert_ft { margin: -10px -15px -10px -10px; }
 
 
 /*****************
@@ -4042,11 +4042,11 @@ paned {
     background-repeat: repeat-y;
 
     &:dir(ltr) {
-      margin: 0 -rem(8px) 0 0;
+      margin: 0 rem(-8px) 0 0;
       padding: 0 rem(8px) 0 0;
     }
     &:dir(rtl) {
-      margin: 0 0 0 -rem(8px);
+      margin: 0 0 0 rem(-8px);
       padding: 0 0 0 rem(8px);
     }
 
@@ -4057,7 +4057,7 @@ paned {
   }
 
   &.vertical > separator {
-    margin: 0 0 -rem(8px) 0;
+    margin: 0 0 rem(-8px) 0;
     padding: 0 0 rem(8px) 0;
     background-repeat: repeat-x;
     background-position: top;
