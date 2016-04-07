@@ -1238,6 +1238,11 @@ toolbar {
   box-shadow: if($variant=='light', $toolbar-shadow-light,
                                     $toolbar-shadow-dark);
 
+  paned &,
+  grid &.primary-toolbar { // stop drawing fake-shadows
+    box-shadow: none;
+  }
+
   // on OSD
   .osd & { background-color: transparent; }
 
