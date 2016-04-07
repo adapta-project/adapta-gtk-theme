@@ -1235,6 +1235,8 @@ toolbar {
   padding: rem(5.3px);
   background-color: $bg_color;
   color: $secondary_fg_color;
+  box-shadow: if($variant=='light', $toolbar-shadow-light,
+                                    $toolbar-shadow-dark);
 
   // on OSD
   .osd & { background-color: transparent; }
@@ -2078,9 +2080,16 @@ column-header.button.dnd { // for treeview-like derive widgets
 menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
-  box-shadow: inset 0 -1px $borders_color;
+  box-shadow: $menubar-shadow;
   background-color: $inverted_dark_color;
   color: $inverted_secondary_fg_color; // FIXME: Gtk+3 firefox needs this!
+
+  .tiled &,
+  .maximized & {
+    background-color: $panel_bg_color;
+    box-shadow: none;
+    transition: none;
+  }
 
   > menuitem {
     @extend %fade_effect;
