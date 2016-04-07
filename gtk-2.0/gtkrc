@@ -1712,10 +1712,11 @@ style "menubar" {
 
   engine "pixmap" {
     image {
-      function = BOX
-      file     = "Lines/h-line.svg"
-      border   = { 0, 0, 0, 1 }
-      stretch  = TRUE
+      function    = BOX
+      file        = "Shadows/z-depth-1.svg"
+      border      = { 1, 1, 1, 1 }
+      stretch     = TRUE
+      recolorable = TRUE
     }
   }
 }
@@ -2250,7 +2251,11 @@ style "handlebox" {
 style "toolbar" {
   engine "pixmap" {
     image {
-      function = SHADOW
+      function        = BOX
+      file            = "Shadows/z-depth-2.svg"
+      border          = { 1, 1, 1, 1 }
+      stretch         = TRUE
+      recolorable     = TRUE
     }
   }
 }
@@ -2261,9 +2266,12 @@ style "inline_toolbar" {
   engine "pixmap" {
     image {
       function = BOX
-      file     = "Toolbar/inline-toolbar.svg"
-      border   = { 1, 1, 0, 1 }
-      stretch  = TRUE
+      file        = "Shadows/z-depth-2.svg"
+      border      = { 1, 1, 1, 1 }
+      recolorable = TRUE
+      stretch     = TRUE
+      # file     = "Toolbar/inline-toolbar.svg"
+      # border   = { 1, 1, 0, 1 }
     }
   }
 }
