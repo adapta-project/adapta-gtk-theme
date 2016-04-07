@@ -1894,12 +1894,18 @@ headerbar,
  * Pathbars *
  ************/
 
+.linked.path-bar,
 .path-bar {
   button {
-    &.text-button,
+    &,
+    &.text-button {
+      padding: 0 rem(8px) 0;
+      -gtk-outline-radius: 2px;
+   }
     &.image-button { padding: 0 rem(8px) 0; }
 
     &.text-button.image-button {
+      -gtk-outline-radius: 2px;
       label {
         padding-left: 0;
         padding-right: 0;
@@ -1919,6 +1925,7 @@ headerbar,
     &.image-button.text-button.toggle {
       min-height: rem(17.3px);
       padding: 0 rem(1.3px) 0;
+      -gtk-outline-radius: 2px;
     }
   }
 }
