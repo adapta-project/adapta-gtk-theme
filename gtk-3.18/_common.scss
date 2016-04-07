@@ -980,6 +980,11 @@ GtkComboBox {
   box-shadow: if($variant=='light', $toolbar-shadow-light,
                                     $toolbar-shadow-dark);
 
+  GtkPaned &,
+  GtkGrid &.primary-toolbar { // stop drawing fake-shadows
+    box-shadow: none;
+  }
+
   .osd &, &.osd {
     padding: 3px;
     border-style: solid;
