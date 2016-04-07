@@ -593,8 +593,8 @@ button,
     > image {
       padding-left: rem(8px);     // image padding
       padding-right: rem(8px);    //
-      padding-top: rem(2.6px);    //
-      padding-bottom: rem(2.6px); //
+      padding-top: rem(2.7px);    //
+      padding-bottom: rem(2.7px); //
     }
 
     &.text-button {
@@ -1038,8 +1038,8 @@ spinbutton {
     button {
       min-width: rem(26.7px);
       min-height: rem(26.7px);
-      padding: rem(2.6px);
-      border: rem(2.6px) solid transparent;
+      padding: rem(2.7px);
+      border: rem(2.7px) solid transparent;
       border-radius: 200px;
       -gtk-outline-radius: 200px;
       background: none;
@@ -2078,7 +2078,7 @@ menubar {
   > menuitem {
     @extend %fade_effect;
     min-height: rem(20px);
-    padding: rem(5.3px) rem(13.3px) rem(6.7px);
+    padding: rem(5.3px) rem(8px) rem(6.7px);
     color: $inverted_secondary_fg_color;
     background-color: transparent;
     &:hover { // Seems like it :hover even with keyboard focus
@@ -2110,17 +2110,17 @@ menu {
   .menuitem,
   menuitem {
     @extend %fade_effect;
-    transition: none;
     min-height: rem(20px);
-    min-width: rem(53.3px);
+    min-width: rem(40px);
     padding: rem(5.3px) rem(8px) rem(6.7px);
     color: $secondary_fg_color;
     font: initial;
     text-shadow: none;
+    transition: none;
     &:hover {
-      transition: none;
       color: $fg_color;
-      background-color: gtkalpha(currentColor,0.1);
+      background-color: gtkalpha(currentColor, 0.1);
+      transition: none;
     }
     &:disabled { color: $insensitive_fg_color; }
 
@@ -2165,29 +2165,22 @@ menu {
       border-color: transparent ;
     }
   }
+
+  separator {
+    &:dir(ltr) { margin-left: rem(32px); }
+    &:dir(rtl) { margin-right: rem(32px); }
+  }
 }
 
 menuitem {
   accelerator { color: gtkalpha(currentColor, 0.55); }
 
-  check,
-  radio {
-    min-width: rem(16px);
-    min-height: rem(16px);
-    &:dir(ltr) { margin-right: rem(8px); }
-    &:dir(rtl) { margin-left: rem(8px); }
-    &:hover,
-    &:checked {
-      background-color: transparent;
-      box-shadow: none;
-      -gtk-icon-shadow: none;
-    }
-  }
-
   separator {
     color: transparent;
     background: none;
     border-top: 1px solid $borders_color;
+    &:dir(ltr) { margin-left: rem(32px); }
+    &:dir(rtl) { margin-right: rem(32px); }
   }
 }
 
@@ -2237,7 +2230,7 @@ popover.background {
 
     // FIXME: label padding is ugly
     // an half vertical padding of GtkMenuItem
-    label { padding: rem(2.6px) 0 rem(3.3px); }
+    label { padding: rem(2.7px) 0 rem(3.3px); }
   }
 
   button.image-button { padding: rem(6.7px); }
@@ -2939,7 +2932,7 @@ treeview.view radio {
 checkbutton.text-button,
 radiobutton.text-button {
   // this is for a nice focus on check and radios text
-  padding: rem(2.6px) rem(6.7px);
+  padding: rem(2.7px) rem(6.7px);
   outline-offset: 0;
   color: $secondary_fg_color;
   &:hover,
@@ -2973,19 +2966,20 @@ check {
   }
 
   menu menuitem & {
-    // this is a workaround for a menu check/radio size allocation issue
-    margin: 0 rem(6.7px) 0 rem(6.7px);
+    min-width: rem(16px);
+    min-height: rem(16px);
+    margin: 0;
     padding: 0;
+    &:dir(ltr) { margin-right: rem(8px); }
+    &:dir(rtl) { margin-left: rem(8px); }
 
     &, &:hover, &:disabled { //FIXME: use button reset mixin
-      min-height: rem(16px);
-      min-width: rem(16px);
+      border-color: transparent;
       background-image: none;
       background-color: transparent;
       box-shadow: none;
       -gtk-icon-shadow: none;
       color: inherit;
-      border-color: transparent;
       animation: none;
     }
   }
@@ -3703,7 +3697,7 @@ expander {
 
 calendar {
   @extend %fade_effect;
-  padding: rem(5.3px) rem(1.3px) rem(2.6px);
+  padding: rem(5.3px) rem(1.3px) rem(2.7px);
   border: 1px solid $borders_color;
   color: $fg_color;
   &:selected {
@@ -4142,7 +4136,7 @@ infobar {
     &.image-button {
       min-height: rem(13.3px);
       min-width: rem(13.3px);
-      padding: rem(6.7px) rem(2.6px) rem(6.7px);
+      padding: rem(6.7px) rem(2.7px) rem(6.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
@@ -4389,7 +4383,7 @@ button.flat.scale { // standalone Speaker/Mic buttons
 .nautilus-window .floating-bar {
   @extend %osd;
   // @extend toolbar.osd;
-  padding: rem(1.3px) 0 rem(2.6px);
+  padding: rem(1.3px) 0 rem(2.7px);
   border: 1px solid transparent;
   border-radius: 0;
   color: $inverted_secondary_fg_color;

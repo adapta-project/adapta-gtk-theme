@@ -966,8 +966,8 @@ button,
     .button > image {
       padding-left: 0.6015rem;
       padding-right: 0.6015rem;
-      padding-top: 0.19549rem;
-      padding-bottom: 0.19549rem; }
+      padding-top: 0.20301rem;
+      padding-bottom: 0.20301rem; }
     .stack-switcher > button.text-button, .stack-switcher >
     .button.text-button {
       padding-left: 1rem;
@@ -1478,8 +1478,8 @@ spinbutton.vertical entry, spinbutton.vertical spinbutton:not(.vertical) {
 spinbutton.vertical button {
   min-width: 2.00752rem;
   min-height: 2.00752rem;
-  padding: 0.19549rem;
-  border: 0.19549rem solid transparent;
+  padding: 0.20301rem;
+  border: 0.20301rem solid transparent;
   border-radius: 200px;
   -gtk-outline-radius: 200px;
   background: none;
@@ -3030,7 +3030,7 @@ menubar {
   .menubar > menuitem,
   menubar > menuitem {
     min-height: 1.50376rem;
-    padding: 0.3985rem 1rem 0.50376rem;
+    padding: 0.3985rem 0.6015rem 0.50376rem;
     color: rgba(236, 239, 241, 0.75);
     background-color: transparent; }
     .menubar > menuitem:hover,
@@ -3059,20 +3059,20 @@ menu {
   .menu menuitem,
   menu .menuitem,
   menu menuitem {
-    transition: none;
     min-height: 1.50376rem;
-    min-width: 4.00752rem;
+    min-width: 3.00752rem;
     padding: 0.3985rem 0.6015rem 0.50376rem;
     color: rgba(38, 50, 56, 0.75);
     font: initial;
-    text-shadow: none; }
+    text-shadow: none;
+    transition: none; }
     .menu .menuitem:hover,
     .menu menuitem:hover,
     menu .menuitem:hover,
     menu menuitem:hover {
-      transition: none;
       color: #263238;
-      background-color: alpha(currentColor, 0.1); }
+      background-color: alpha(currentColor, 0.1);
+      transition: none; }
     .menu .menuitem:disabled,
     .menu menuitem:disabled,
     menu .menuitem:disabled,
@@ -3122,29 +3122,23 @@ menu {
       color: transparent;
       background-color: transparent;
       border-color: transparent; }
+  .menu separator:dir(ltr),
+  menu separator:dir(ltr) {
+    margin-left: 2.40602rem; }
+  .menu separator:dir(rtl),
+  menu separator:dir(rtl) {
+    margin-right: 2.40602rem; }
 
 menuitem accelerator {
   color: alpha(currentColor, 0.55); }
-menuitem check,
-menuitem radio {
-  min-width: 1.20301rem;
-  min-height: 1.20301rem; }
-  menuitem check:dir(ltr),
-  menuitem radio:dir(ltr) {
-    margin-right: 0.6015rem; }
-  menuitem check:dir(rtl),
-  menuitem radio:dir(rtl) {
-    margin-left: 0.6015rem; }
-  menuitem check:hover, menuitem check:checked,
-  menuitem radio:hover,
-  menuitem radio:checked {
-    background-color: transparent;
-    box-shadow: none;
-    -gtk-icon-shadow: none; }
 menuitem separator {
   color: transparent;
   background: none;
   border-top: 1px solid rgba(0, 0, 0, 0.09); }
+  menuitem separator:dir(ltr) {
+    margin-left: 2.40602rem; }
+  menuitem separator:dir(rtl) {
+    margin-right: 2.40602rem; }
 
 .csd.popup {
   border-radius: 2px; }
@@ -3426,7 +3420,7 @@ popover.background {
     .budgie-session-dialog popover.background button label,
     popover.background .budgie-polkit-dialog button label,
     .budgie-polkit-dialog popover.background button label {
-      padding: 0.19549rem 0 0.24812rem; }
+      padding: 0.20301rem 0 0.24812rem; }
   popover.background button.image-button {
     padding: 0.50376rem; }
   popover.background button.model.image-button {
@@ -5424,7 +5418,7 @@ iconview.content-view check:disabled:checked:not(list) {
 
 checkbutton.text-button,
 radiobutton.text-button {
-  padding: 0.19549rem 0.50376rem;
+  padding: 0.20301rem 0.50376rem;
   outline-offset: 0;
   color: rgba(38, 50, 56, 0.75); }
   checkbutton.text-button:hover, checkbutton.text-button:active, checkbutton.text-button:checked,
@@ -5451,20 +5445,26 @@ check {
     animation: check_radio_active 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   menu menuitem radio, menu menuitem
   check {
-    margin: 0 0.50376rem 0 0.50376rem;
+    min-width: 1.20301rem;
+    min-height: 1.20301rem;
+    margin: 0;
     padding: 0; }
+    menu menuitem radio:dir(ltr), menu menuitem
+    check:dir(ltr) {
+      margin-right: 0.6015rem; }
+    menu menuitem radio:dir(rtl), menu menuitem
+    check:dir(rtl) {
+      margin-left: 0.6015rem; }
     menu menuitem radio, menu menuitem radio:hover, menu menuitem radio:disabled, menu menuitem
     check, menu menuitem
     check:hover, menu menuitem
     check:disabled {
-      min-height: 1.20301rem;
-      min-width: 1.20301rem;
+      border-color: transparent;
       background-image: none;
       background-color: transparent;
       box-shadow: none;
       -gtk-icon-shadow: none;
       color: inherit;
-      border-color: transparent;
       animation: none; }
 
 /************
@@ -6217,7 +6217,7 @@ expander {
  * Calendar *
  ***********/
 calendar {
-  padding: 0.3985rem 0.09774rem 0.19549rem;
+  padding: 0.3985rem 0.09774rem 0.20301rem;
   border: 1px solid rgba(0, 0, 0, 0.09);
   color: #263238; }
   calendar:selected {
@@ -7801,7 +7801,7 @@ infobar, NautilusTrashBar {
     .error button.image-button {
       min-height: 1rem;
       min-width: 1rem;
-      padding: 0.50376rem 0.19549rem 0.50376rem;
+      padding: 0.50376rem 0.20301rem 0.50376rem;
       border-radius: 100px;
       -gtk-outline-radius: 100px; }
   .info label:selected, .info label:selected:focus, .info label:selected:hover,
@@ -7992,7 +7992,7 @@ actionbar .linked > button.scale.image-button, .budgie-session-dialog button.sca
   -gtk-outline-radius: 100px; }
 
 .nautilus-window .floating-bar {
-  padding: 0.09774rem 0 0.19549rem;
+  padding: 0.09774rem 0 0.20301rem;
   border: 1px solid transparent;
   border-radius: 0;
   color: rgba(236, 239, 241, 0.75);
