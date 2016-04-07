@@ -3342,6 +3342,16 @@ GtkVolumeButton.button {
   background-color: $inverted_dark_color;
   transition: none;
   &:backdrop { opacity: 0.8; }
+
+  .button {
+    padding: 0.3em;
+    margin: 0 0.3em;
+    color: $secondary_accent_color;
+    &:hover,
+    &:active,
+    &:checked { color: $accent_color; }
+    &:disabled { color: gtkopacity($accent_color, 0.4); }
+  }
 }
 
 .floating-bar.bottom.left { // axes left border and border radius
