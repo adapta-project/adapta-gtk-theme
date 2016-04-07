@@ -1897,7 +1897,7 @@ headerbar,
 .path-bar {
   button {
     &.text-button,
-    &.image-button { padding: 0 0.6em 0; }
+    &.image-button { padding: 0 rem(8px) 0; }
 
     &.text-button.image-button {
       label {
@@ -1908,17 +1908,17 @@ headerbar,
 
     &.text-button.image-button {
       label { // FIXME: is it still needed?
-        &:last-child { padding-right: 0.6em; }
-        &:first-child { padding-left: 0.6em; }
+        &:last-child { padding-right: rem(8px); }
+        &:first-child { padding-left: rem(8px); }
       }
     }
 
-    image { padding: 1px 4px 0; }
+    image { padding: rem(1.3px) rem(4px) 0; }
 
     &.slider-button, // FIXME: workaround for Nautilus 3.20.0
     &.image-button.text-button.toggle {
       min-height: rem(17.3px);
-      padding: 0 rem(8px) 0;
+      padding: 0 rem(1.3px) 0;
     }
   }
 }
