@@ -1745,6 +1745,18 @@ column-header.button.dnd { // for treeview-like derive widgets
       border-color: transparent ;
     }
   }
+
+  // use asymmetric separators
+  GtkSeparatorMenuItem {
+    &:dir(ltr) {
+      padding-left: 2.4em;
+      padding-right: 0;
+    }
+    &:dir(rtl) {
+      padding-left: 0;
+      padding-right: 2.4em;
+    }
+  }
 }
 
 .menuitem .accelerator { color: gtkalpha(currentColor, 0.55); }
