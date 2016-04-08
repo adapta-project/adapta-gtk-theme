@@ -389,6 +389,11 @@ SeahorseWidget {
   }
 }
 
+// stop drawing fake-shadows when enabling header-bar extension
+GtkBox.vertical > GtkBox.vertical > .toolbar {
+  box-shadow: none;
+}
+
 
 /**************
  * Calculator *
