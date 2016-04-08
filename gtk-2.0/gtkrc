@@ -2251,11 +2251,7 @@ style "handlebox" {
 style "toolbar" {
   engine "pixmap" {
     image {
-      function        = BOX
-      file            = "Shadows/z-depth-2.svg"
-      border          = { 7, 0, 0, 0 }
-      stretch         = TRUE
-      recolorable     = TRUE
+      function = SHADOW
     }
   }
 }
@@ -2265,9 +2261,7 @@ style "inline_toolbar" {
 
   engine "pixmap" {
     image {
-      function = BOX
-      # file        = "Shadows/z-depth-2.svg"
-      # border      = { 1, 0, 0, 0 }
+      function    = BOX
       file        = "Toolbar/inline-toolbar.svg"
       border      = { 1, 1, 0, 1 }
       recolorable = TRUE
@@ -2430,6 +2424,7 @@ widget "*swt-toolbar-flat" style "null"
 # Openoffice, Libreoffice
 class "GtkWindow"                              style "toplevel_hack"
 widget "*openoffice-toplevel*"                 style "ooo_stepper_hack"
+widget "*openoffice-toplevel*GtkToolbar"       style "inline_toolbar"
 # widget "*openoffice-toplevel*GtkEntry"       style "libreoffice_entry"
 # widget "*openoffice-toplevel*GtkSpinButton"  style "libreoffice_entry"
 # widget "*libreoffice-toplevel*GtkEntry"      style "libreoffice_entry"
