@@ -359,11 +359,12 @@ SeahorseWidget {
  * Calculator *
  **************/
 
-MathWindow {
-  & :not(.titlebar),
-  & :not( headerbar) {
-    .button:not(.flat):not(.titlebutton) {
+window {
+  > grid.vertical > box.vertical > widget {
+    button {
       @extend button.flat;
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
       padding: 0.75em 1em 0.75em;  // FIXME: broken in 12pt fonts?
       border: 0.75em solid transparent;
       border-radius: 2px;
