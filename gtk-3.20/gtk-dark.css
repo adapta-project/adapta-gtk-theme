@@ -64,7 +64,7 @@ menubar > menuitem *:backdrop, .menu .menuitem *:backdrop,
 .menu menuitem *:backdrop,
 menu .menuitem *:backdrop,
 menu menuitem *:backdrop, popover.background *:backdrop, notebook tab *:backdrop, .scrollbar *:backdrop,
-scrollbar *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, infobar *:backdrop, NautilusTrashBar *:backdrop, headerbar button.titlebutton *:backdrop,
+scrollbar *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, infobar *:backdrop, NautilusTrashBar *:backdrop, colorchooser .popover.osd *:backdrop, headerbar button.titlebutton *:backdrop,
 .titlebar button.titlebutton *:backdrop, layouttabbar *:backdrop, layouttab *:backdrop, eggsearchbar box.search-bar *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -343,7 +343,7 @@ spinner {
 /****************
  * Text Entries *
  ****************/
-entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
+entry, spinbutton:not(.vertical),
 .entry {
   min-height: 1rem;
   min-width: 2.50376rem;
@@ -370,11 +370,10 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
   .entry:backdrop {
     opacity: 0.8;
     transition: 0.2s; }
-  entry.flat, spinbutton.flat:not(.vertical), notebook:not(.reorderable-page) > entry, notebook:not(.reorderable-page) > spinbutton:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton:not(.vertical),
+  entry.flat, spinbutton.flat:not(.vertical), notebook:not(.reorderable-page) > entry, notebook:not(.reorderable-page) > spinbutton:not(.vertical),
   .entry.flat,
   .linked > entry:not(.flat),
   .linked > spinbutton:not(.flat):not(.vertical),
-  .osd .linked > spinbutton:not(.flat):not(.vertical),
   .linked.vertical > entry:not(.flat),
   .linked > .entry:not(.flat),
   .linked.vertical > .entry:not(.flat) {
@@ -385,30 +384,28 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
     background-color: transparent;
     color: rgba(236, 239, 241, 0.75); }
-    entry.flat:focus, spinbutton.flat:focus:not(.vertical), notebook:not(.reorderable-page) > entry:focus, notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical),
+    entry.flat:focus, spinbutton.flat:focus:not(.vertical), notebook:not(.reorderable-page) > entry:focus, notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical),
     .entry.flat:focus,
     .linked > entry:focus:not(.flat),
     .linked > spinbutton:focus:not(.flat):not(.vertical),
-    .osd .linked > spinbutton:focus:not(.flat):not(.vertical),
     .linked > .entry:focus:not(.flat) {
       border-color: #37474F;
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#00BCD4), to(transparent)) 0 0 2/0 0 2px;
       color: #ECEFF1;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0; }
-    entry.flat:disabled, spinbutton.flat:disabled:not(.vertical), notebook:not(.reorderable-page) > entry:disabled, notebook:not(.reorderable-page) > spinbutton:disabled:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton:disabled:not(.vertical),
+    entry.flat:disabled, spinbutton.flat:disabled:not(.vertical), notebook:not(.reorderable-page) > entry:disabled, notebook:not(.reorderable-page) > spinbutton:disabled:not(.vertical),
     .entry.flat:disabled,
     .linked > entry:disabled:not(.flat),
     .linked > spinbutton:disabled:not(.flat):not(.vertical),
-    .osd .linked > spinbutton:disabled:not(.flat):not(.vertical),
     .linked > .entry:disabled:not(.flat) {
       border-color: #37474F;
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
       color: rgba(236, 239, 241, 0.3); }
-  entry image, spinbutton:not(.vertical) image, .osd spinbutton:not(.vertical) image,
+  entry image, spinbutton:not(.vertical) image,
   .entry image {
     padding-left: 0.30075rem;
     padding-right: 0.30075rem; }
-  .linked > entry:not(.flat), .linked > spinbutton:not(.flat):not(.vertical), .osd .linked > spinbutton:not(.flat):not(.vertical), .linked.vertical > entry:not(.flat), .linked.vertical > spinbutton:not(.flat):not(.vertical), .osd .linked.vertical > spinbutton:not(.flat):not(.vertical), .linked >
+  .linked > entry:not(.flat), .linked > spinbutton:not(.flat):not(.vertical), .linked.vertical > entry:not(.flat), .linked.vertical > spinbutton:not(.flat):not(.vertical), .linked >
   .entry:not(.flat), .linked.vertical >
   .entry:not(.flat) {
     border-radius: 0;
@@ -433,11 +430,10 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
       background-color: transparent;
       color: rgba(236, 239, 241, 0.3); }
-    entry.error.flat, spinbutton.error.flat:not(.vertical), notebook:not(.reorderable-page) > entry.error, notebook:not(.reorderable-page) > spinbutton.error:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton.error:not(.vertical),
+    entry.error.flat, spinbutton.error.flat:not(.vertical), notebook:not(.reorderable-page) > entry.error, notebook:not(.reorderable-page) > spinbutton.error:not(.vertical),
     .entry.error.flat,
     .linked > entry.error:not(.flat),
     .linked > spinbutton.error:not(.flat):not(.vertical),
-    .osd .linked > spinbutton.error:not(.flat):not(.vertical),
     .linked > .error.entry:not(.flat) {
       border-radius: 0;
       -gtk-outline-radius: 0;
@@ -445,21 +441,19 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
       background-color: transparent;
       color: rgba(236, 239, 241, 0.75); }
-      entry.error.flat:focus, spinbutton.error.flat:focus:not(.vertical), notebook:not(.reorderable-page) > entry.error:focus, notebook:not(.reorderable-page) > spinbutton.error:focus:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton.error:focus:not(.vertical),
+      entry.error.flat:focus, spinbutton.error.flat:focus:not(.vertical), notebook:not(.reorderable-page) > entry.error:focus, notebook:not(.reorderable-page) > spinbutton.error:focus:not(.vertical),
       .entry.error.flat:focus,
       .linked > entry.error:focus:not(.flat),
       .linked > spinbutton.error:focus:not(.flat):not(.vertical),
-      .osd .linked > spinbutton.error:focus:not(.flat):not(.vertical),
       .linked > .error.entry:focus:not(.flat) {
         border-color: #37474F;
         border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#F44336), to(transparent)) 0 0 2/0 0 2px;
         color: #ECEFF1;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0; }
-      entry.error.flat:disabled, spinbutton.error.flat:disabled:not(.vertical), notebook:not(.reorderable-page) > entry.error:disabled, notebook:not(.reorderable-page) > spinbutton.error:disabled:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton.error:disabled:not(.vertical),
+      entry.error.flat:disabled, spinbutton.error.flat:disabled:not(.vertical), notebook:not(.reorderable-page) > entry.error:disabled, notebook:not(.reorderable-page) > spinbutton.error:disabled:not(.vertical),
       .entry.error.flat:disabled,
       .linked > entry.error:disabled:not(.flat),
       .linked > spinbutton.error:disabled:not(.flat):not(.vertical),
-      .osd .linked > spinbutton.error:disabled:not(.flat):not(.vertical),
       .linked > .error.entry:disabled:not(.flat) {
         border-color: #37474F;
         border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
@@ -484,11 +478,10 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
       background-color: transparent;
       color: rgba(236, 239, 241, 0.3); }
-    entry.warning.flat, spinbutton.warning.flat:not(.vertical), notebook:not(.reorderable-page) > entry.warning, notebook:not(.reorderable-page) > spinbutton.warning:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton.warning:not(.vertical),
+    entry.warning.flat, spinbutton.warning.flat:not(.vertical), notebook:not(.reorderable-page) > entry.warning, notebook:not(.reorderable-page) > spinbutton.warning:not(.vertical),
     .entry.warning.flat,
     .linked > entry.warning:not(.flat),
     .linked > spinbutton.warning:not(.flat):not(.vertical),
-    .osd .linked > spinbutton.warning:not(.flat):not(.vertical),
     .linked > .warning.entry:not(.flat) {
       border-radius: 0;
       -gtk-outline-radius: 0;
@@ -496,21 +489,19 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
       background-color: transparent;
       color: rgba(236, 239, 241, 0.75); }
-      entry.warning.flat:focus, spinbutton.warning.flat:focus:not(.vertical), notebook:not(.reorderable-page) > entry.warning:focus, notebook:not(.reorderable-page) > spinbutton.warning:focus:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton.warning:focus:not(.vertical),
+      entry.warning.flat:focus, spinbutton.warning.flat:focus:not(.vertical), notebook:not(.reorderable-page) > entry.warning:focus, notebook:not(.reorderable-page) > spinbutton.warning:focus:not(.vertical),
       .entry.warning.flat:focus,
       .linked > entry.warning:focus:not(.flat),
       .linked > spinbutton.warning:focus:not(.flat):not(.vertical),
-      .osd .linked > spinbutton.warning:focus:not(.flat):not(.vertical),
       .linked > .warning.entry:focus:not(.flat) {
         border-color: #37474F;
         border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#FF9800), to(transparent)) 0 0 2/0 0 2px;
         color: #ECEFF1;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0; }
-      entry.warning.flat:disabled, spinbutton.warning.flat:disabled:not(.vertical), notebook:not(.reorderable-page) > entry.warning:disabled, notebook:not(.reorderable-page) > spinbutton.warning:disabled:not(.vertical), .osd notebook:not(.reorderable-page) > spinbutton.warning:disabled:not(.vertical),
+      entry.warning.flat:disabled, spinbutton.warning.flat:disabled:not(.vertical), notebook:not(.reorderable-page) > entry.warning:disabled, notebook:not(.reorderable-page) > spinbutton.warning:disabled:not(.vertical),
       .entry.warning.flat:disabled,
       .linked > entry.warning:disabled:not(.flat),
       .linked > spinbutton.warning:disabled:not(.flat):not(.vertical),
-      .osd .linked > spinbutton.warning:disabled:not(.flat):not(.vertical),
       .linked > .warning.entry:disabled:not(.flat) {
         border-color: #37474F;
         border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
@@ -529,9 +520,9 @@ entry, spinbutton:not(.vertical), .osd spinbutton:not(.vertical),
   .entry:drop(active) {
     border-color: #1DE9B6;
     box-shadow: inset 0 0 0 1px #1DE9B6; }
-  treeview entry, treeview spinbutton:not(.vertical), treeview .osd spinbutton:not(.vertical), .osd treeview spinbutton:not(.vertical), treeview entry.flat:focus, treeview spinbutton.flat:focus:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus, treeview notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), treeview .osd notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), treeview
+  treeview entry, treeview spinbutton:not(.vertical), treeview entry.flat:focus, treeview spinbutton.flat:focus:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus, treeview notebook:not(.reorderable-page) > spinbutton:focus:not(.vertical), treeview
   .entry, treeview
-  .entry.flat:focus, treeview .linked > entry:focus:not(.flat), treeview .linked > spinbutton:focus:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:focus:not(.flat):not(.vertical), treeview .linked > .entry:focus:not(.flat) {
+  .entry.flat:focus, treeview .linked > entry:focus:not(.flat), treeview .linked > spinbutton:focus:not(.flat):not(.vertical), treeview .linked > .entry:focus:not(.flat) {
     padding: 1px;
     border-radius: 0;
     border-width: 0;
@@ -1399,16 +1390,16 @@ button:visited > label {
 /*****************
  * GtkSpinButton *
  *****************/
-spinbutton:not(.vertical), .osd spinbutton:not(.vertical) {
+spinbutton:not(.vertical) {
   padding: 0; }
-  spinbutton:not(.vertical):disabled, .osd spinbutton:not(.vertical):disabled {
+  spinbutton:not(.vertical):disabled {
     color: rgba(236, 239, 241, 0.3); }
-  spinbutton:not(.vertical) entry, spinbutton:not(.vertical) spinbutton:not(.vertical), .osd spinbutton:not(.vertical) entry, .osd spinbutton:not(.vertical) spinbutton:not(.vertical) {
+  spinbutton:not(.vertical) entry, spinbutton:not(.vertical) spinbutton:not(.vertical) {
     margin: 0;
     background: none;
     border: none;
     box-shadow: none; }
-  spinbutton:not(.vertical) button, .osd spinbutton:not(.vertical) button {
+  spinbutton:not(.vertical) button {
     min-width: 1rem;
     min-height: 1rem;
     padding: 0 0.54887rem 0;
@@ -1423,32 +1414,32 @@ spinbutton:not(.vertical), .osd spinbutton:not(.vertical) {
     color: rgba(236, 239, 241, 0.75);
     background-color: transparent;
     background-size: 2.44361rem 2.44361rem, auto; }
-    spinbutton:not(.vertical) button:not(:last-child):hover, .osd spinbutton:not(.vertical) button:not(:last-child):hover {
+    spinbutton:not(.vertical) button:not(:last-child):hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
       background: none;
       color: #F44336; }
-    spinbutton:not(.vertical) button:not(:last-child):active, .osd spinbutton:not(.vertical) button:not(:last-child):active {
+    spinbutton:not(.vertical) button:not(:last-child):active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       background-color: alpha(currentColor, 0.2);
       color: #F44336; }
-    spinbutton:not(.vertical) button:not(:last-child):disabled, .osd spinbutton:not(.vertical) button:not(:last-child):disabled {
+    spinbutton:not(.vertical) button:not(:last-child):disabled {
       box-shadow: none;
       background-color: transparent;
       background: none;
       color: rgba(236, 239, 241, 0.3); }
-    spinbutton:not(.vertical) button:last-child:hover, .osd spinbutton:not(.vertical) button:last-child:hover {
+    spinbutton:not(.vertical) button:last-child:hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
       background: none;
       color: #00E676; }
-    spinbutton:not(.vertical) button:last-child:active, .osd spinbutton:not(.vertical) button:last-child:active {
+    spinbutton:not(.vertical) button:last-child:active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       background-color: alpha(currentColor, 0.2);
       color: #00E676; }
-    spinbutton:not(.vertical) button:last-child:disabled, .osd spinbutton:not(.vertical) button:last-child:disabled {
+    spinbutton:not(.vertical) button:last-child:disabled {
       box-shadow: none;
       background-color: transparent;
       background: none;
@@ -1477,6 +1468,14 @@ spinbutton:not(.vertical), .osd spinbutton:not(.vertical) {
   .osd spinbutton.vertical entry:disabled,
   .osd spinbutton.vertical spinbutton:disabled:not(.vertical) {
     color: rgba(236, 239, 241, 0.225); }
+  .osd spinbutton:backdrop,
+  .osd spinbutton button:backdrop,
+  .osd spinbutton entry:backdrop,
+  .osd spinbutton spinbutton:backdrop:not(.vertical), .osd spinbutton.vertical:backdrop,
+  .osd spinbutton.vertical button:backdrop,
+  .osd spinbutton.vertical entry:backdrop,
+  .osd spinbutton.vertical spinbutton:backdrop:not(.vertical) {
+    color: rgba(236, 239, 241, 0.6); }
 spinbutton.vertical entry, spinbutton.vertical spinbutton:not(.vertical) {
   min-width: 2.50376rem;
   min-height: 2.50376rem;
@@ -1595,9 +1594,8 @@ toolbar {
     padding: 3px;
     border-style: solid;
     border-width: 9px;
-    border-radius: 0 0 2px 2px;
-    border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"), url("assets/osd-shadow-dark@2.png")) 10/10px stretch;
     border-radius: 2px;
+    border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"), url("assets/osd-shadow-dark@2.png")) 10/10px stretch;
     box-shadow: none;
     color: #ECEFF1;
     background-color: #2a373e; }
@@ -2244,72 +2242,60 @@ headerbar {
   .titlebar entry, .titlebar spinbutton:not(.vertical),
   .titlebar .linked > entry,
   .titlebar .linked > spinbutton:not(.vertical),
-  .titlebar .osd .linked > spinbutton:not(.vertical),
   headerbar entry,
   headerbar spinbutton:not(.vertical),
-  headerbar .osd spinbutton:not(.vertical),
-  .osd headerbar spinbutton:not(.vertical),
   headerbar .linked > entry,
-  headerbar .linked > spinbutton:not(.vertical),
-  headerbar .osd .linked > spinbutton:not(.vertical) {
+  headerbar .linked > spinbutton:not(.vertical) {
     color: rgba(236, 239, 241, 0.75);
     caret-color: rgba(236, 239, 241, 0.75); }
     .titlebar entry:focus, .titlebar spinbutton:focus:not(.vertical),
     .titlebar .linked > entry:focus,
     .titlebar .linked > spinbutton:focus:not(.vertical),
-    .titlebar .osd .linked > spinbutton:focus:not(.vertical),
     headerbar entry:focus,
     headerbar spinbutton:focus:not(.vertical),
     headerbar .linked > entry:focus,
-    headerbar .linked > spinbutton:focus:not(.vertical),
-    headerbar .osd .linked > spinbutton:focus:not(.vertical) {
+    headerbar .linked > spinbutton:focus:not(.vertical) {
       color: #ECEFF1;
       caret-color: #ECEFF1; }
     .titlebar entry:disabled, .titlebar spinbutton:disabled:not(.vertical),
     .titlebar .linked > entry:disabled,
     .titlebar .linked > spinbutton:disabled:not(.vertical),
-    .titlebar .osd .linked > spinbutton:disabled:not(.vertical),
     headerbar entry:disabled,
     headerbar spinbutton:disabled:not(.vertical),
     headerbar .linked > entry:disabled,
-    headerbar .linked > spinbutton:disabled:not(.vertical),
-    headerbar .osd .linked > spinbutton:disabled:not(.vertical) {
+    headerbar .linked > spinbutton:disabled:not(.vertical) {
       color: rgba(236, 239, 241, 0.225); }
-  .titlebar combobox > entry.combo, .titlebar combobox > spinbutton.combo:not(.vertical), .titlebar .osd combobox > spinbutton.combo:not(.vertical),
+  .titlebar combobox > entry.combo, .titlebar combobox > spinbutton.combo:not(.vertical),
   .titlebar .linked > combobox > entry.combo,
   .titlebar .linked > combobox > spinbutton.combo:not(.vertical),
   headerbar combobox > entry.combo,
   headerbar combobox > spinbutton.combo:not(.vertical),
-  headerbar .osd combobox > spinbutton.combo:not(.vertical),
   headerbar .linked > combobox > entry.combo,
   headerbar .linked > combobox > spinbutton.combo:not(.vertical) {
     color: rgba(236, 239, 241, 0.75);
     caret-color: rgba(236, 239, 241, 0.75); }
-    .titlebar combobox > entry.combo:focus, .titlebar combobox > spinbutton.combo:focus:not(.vertical), .titlebar .osd combobox > spinbutton.combo:focus:not(.vertical),
+    .titlebar combobox > entry.combo:focus, .titlebar combobox > spinbutton.combo:focus:not(.vertical),
     .titlebar .linked > combobox > entry.combo:focus,
     .titlebar .linked > combobox > spinbutton.combo:focus:not(.vertical),
     headerbar combobox > entry.combo:focus,
     headerbar combobox > spinbutton.combo:focus:not(.vertical),
-    headerbar .osd combobox > spinbutton.combo:focus:not(.vertical),
     headerbar .linked > combobox > entry.combo:focus,
     headerbar .linked > combobox > spinbutton.combo:focus:not(.vertical) {
       color: #ECEFF1;
       caret-color: #ECEFF1; }
-    .titlebar combobox > entry.combo:disabled, .titlebar combobox > spinbutton.combo:disabled:not(.vertical), .titlebar .osd combobox > spinbutton.combo:disabled:not(.vertical),
+    .titlebar combobox > entry.combo:disabled, .titlebar combobox > spinbutton.combo:disabled:not(.vertical),
     .titlebar .linked > combobox > entry.combo:disabled,
     .titlebar .linked > combobox > spinbutton.combo:disabled:not(.vertical),
     headerbar combobox > entry.combo:disabled,
     headerbar combobox > spinbutton.combo:disabled:not(.vertical),
-    headerbar .osd combobox > spinbutton.combo:disabled:not(.vertical),
     headerbar .linked > combobox > entry.combo:disabled,
     headerbar .linked > combobox > spinbutton.combo:disabled:not(.vertical) {
       color: rgba(236, 239, 241, 0.225); }
-    .titlebar combobox > entry.combo:backdrop, .titlebar combobox > spinbutton.combo:backdrop:not(.vertical), .titlebar .osd combobox > spinbutton.combo:backdrop:not(.vertical),
+    .titlebar combobox > entry.combo:backdrop, .titlebar combobox > spinbutton.combo:backdrop:not(.vertical),
     .titlebar .linked > combobox > entry.combo:backdrop,
     .titlebar .linked > combobox > spinbutton.combo:backdrop:not(.vertical),
     headerbar combobox > entry.combo:backdrop,
     headerbar combobox > spinbutton.combo:backdrop:not(.vertical),
-    headerbar .osd combobox > spinbutton.combo:backdrop:not(.vertical),
     headerbar .linked > combobox > entry.combo:backdrop,
     headerbar .linked > combobox > spinbutton.combo:backdrop:not(.vertical) {
       opacity: 0.5; }
@@ -3316,17 +3302,17 @@ treeview.view, .tweak-category {
     border-radius: 0; }
   treeview.view:selected, .tweak-category:selected {
     border-radius: 0; }
-  treeview.view, .tweak-category, treeview.view entry, .tweak-category entry, treeview.view spinbutton:not(.vertical), .tweak-category spinbutton:not(.vertical), treeview.view entry > label, .tweak-category entry > label, treeview.view spinbutton:not(.vertical) > label, .tweak-category spinbutton:not(.vertical) > label, treeview.view .osd spinbutton:not(.vertical) > label, .tweak-category .osd spinbutton:not(.vertical) > label {
+  treeview.view, .tweak-category, treeview.view entry, .tweak-category entry, treeview.view spinbutton:not(.vertical), .tweak-category spinbutton:not(.vertical), treeview.view entry > label, .tweak-category entry > label, treeview.view spinbutton:not(.vertical) > label, .tweak-category spinbutton:not(.vertical) > label {
     color: rgba(236, 239, 241, 0.75); }
-    treeview.view:hover, .tweak-category:hover, treeview.view:active, .tweak-category:active, treeview.view:focus, .tweak-category:focus, treeview.view entry:hover, .tweak-category entry:hover, treeview.view spinbutton:hover:not(.vertical), .tweak-category spinbutton:hover:not(.vertical), treeview.view entry:active, .tweak-category entry:active, treeview.view spinbutton:active:not(.vertical), .tweak-category spinbutton:active:not(.vertical), treeview.view entry:focus, .tweak-category entry:focus, treeview.view spinbutton:focus:not(.vertical), .tweak-category spinbutton:focus:not(.vertical), treeview.view entry > label:hover, .tweak-category entry > label:hover, treeview.view spinbutton:not(.vertical) > label:hover, .tweak-category spinbutton:not(.vertical) > label:hover, treeview.view .osd spinbutton:not(.vertical) > label:hover, .tweak-category .osd spinbutton:not(.vertical) > label:hover, treeview.view entry > label:active, .tweak-category entry > label:active, treeview.view spinbutton:not(.vertical) > label:active, .tweak-category spinbutton:not(.vertical) > label:active, treeview.view .osd spinbutton:not(.vertical) > label:active, .tweak-category .osd spinbutton:not(.vertical) > label:active, treeview.view entry > label:focus, .tweak-category entry > label:focus, treeview.view spinbutton:not(.vertical) > label:focus, .tweak-category spinbutton:not(.vertical) > label:focus, treeview.view .osd spinbutton:not(.vertical) > label:focus, .tweak-category .osd spinbutton:not(.vertical) > label:focus {
+    treeview.view:hover, .tweak-category:hover, treeview.view:active, .tweak-category:active, treeview.view:focus, .tweak-category:focus, treeview.view entry:hover, .tweak-category entry:hover, treeview.view spinbutton:hover:not(.vertical), .tweak-category spinbutton:hover:not(.vertical), treeview.view entry:active, .tweak-category entry:active, treeview.view spinbutton:active:not(.vertical), .tweak-category spinbutton:active:not(.vertical), treeview.view entry:focus, .tweak-category entry:focus, treeview.view spinbutton:focus:not(.vertical), .tweak-category spinbutton:focus:not(.vertical), treeview.view entry > label:hover, .tweak-category entry > label:hover, treeview.view spinbutton:not(.vertical) > label:hover, .tweak-category spinbutton:not(.vertical) > label:hover, treeview.view entry > label:active, .tweak-category entry > label:active, treeview.view spinbutton:not(.vertical) > label:active, .tweak-category spinbutton:not(.vertical) > label:active, treeview.view entry > label:focus, .tweak-category entry > label:focus, treeview.view spinbutton:not(.vertical) > label:focus, .tweak-category spinbutton:not(.vertical) > label:focus {
       color: #ECEFF1; }
-    treeview.view:selected, .tweak-category:selected, treeview.view entry:selected, .tweak-category entry:selected, treeview.view spinbutton:selected:not(.vertical), .tweak-category spinbutton:selected:not(.vertical), treeview.view entry > label:selected, .tweak-category entry > label:selected, treeview.view spinbutton:not(.vertical) > label:selected, .tweak-category spinbutton:not(.vertical) > label:selected, treeview.view .osd spinbutton:not(.vertical) > label:selected, .tweak-category .osd spinbutton:not(.vertical) > label:selected {
+    treeview.view:selected, .tweak-category:selected, treeview.view entry:selected, .tweak-category entry:selected, treeview.view spinbutton:selected:not(.vertical), .tweak-category spinbutton:selected:not(.vertical), treeview.view entry > label:selected, .tweak-category entry > label:selected, treeview.view spinbutton:not(.vertical) > label:selected, .tweak-category spinbutton:not(.vertical) > label:selected {
       color: #FFFFFF; }
-    treeview.view:disabled, .tweak-category:disabled, treeview.view entry:disabled, .tweak-category entry:disabled, treeview.view spinbutton:disabled:not(.vertical), .tweak-category spinbutton:disabled:not(.vertical), treeview.view entry > label:disabled, .tweak-category entry > label:disabled, treeview.view spinbutton:not(.vertical) > label:disabled, .tweak-category spinbutton:not(.vertical) > label:disabled, treeview.view .osd spinbutton:not(.vertical) > label:disabled, .tweak-category .osd spinbutton:not(.vertical) > label:disabled {
+    treeview.view:disabled, .tweak-category:disabled, treeview.view entry:disabled, .tweak-category entry:disabled, treeview.view spinbutton:disabled:not(.vertical), .tweak-category spinbutton:disabled:not(.vertical), treeview.view entry > label:disabled, .tweak-category entry > label:disabled, treeview.view spinbutton:not(.vertical) > label:disabled, .tweak-category spinbutton:not(.vertical) > label:disabled {
       color: rgba(236, 239, 241, 0.3); }
-      treeview.view:disabled:selected, .tweak-category:disabled:selected, treeview.view entry:disabled:selected, .tweak-category entry:disabled:selected, treeview.view spinbutton:disabled:selected:not(.vertical), .tweak-category spinbutton:disabled:selected:not(.vertical), treeview.view entry > label:disabled:selected, .tweak-category entry > label:disabled:selected, treeview.view spinbutton:not(.vertical) > label:disabled:selected, .tweak-category spinbutton:not(.vertical) > label:disabled:selected, treeview.view .osd spinbutton:not(.vertical) > label:disabled:selected, .tweak-category .osd spinbutton:not(.vertical) > label:disabled:selected {
+      treeview.view:disabled:selected, .tweak-category:disabled:selected, treeview.view entry:disabled:selected, .tweak-category entry:disabled:selected, treeview.view spinbutton:disabled:selected:not(.vertical), .tweak-category spinbutton:disabled:selected:not(.vertical), treeview.view entry > label:disabled:selected, .tweak-category entry > label:disabled:selected, treeview.view spinbutton:not(.vertical) > label:disabled:selected, .tweak-category spinbutton:not(.vertical) > label:disabled:selected {
         color: rgba(255, 255, 255, 0.4); }
-    treeview.view:backdrop, .tweak-category:backdrop, treeview.view entry:backdrop, .tweak-category entry:backdrop, treeview.view spinbutton:backdrop:not(.vertical), .tweak-category spinbutton:backdrop:not(.vertical), treeview.view entry > label:backdrop, .tweak-category entry > label:backdrop, treeview.view spinbutton:not(.vertical) > label:backdrop, .tweak-category spinbutton:not(.vertical) > label:backdrop, treeview.view .osd spinbutton:not(.vertical) > label:backdrop, .tweak-category .osd spinbutton:not(.vertical) > label:backdrop {
+    treeview.view:backdrop, .tweak-category:backdrop, treeview.view entry:backdrop, .tweak-category entry:backdrop, treeview.view spinbutton:backdrop:not(.vertical), .tweak-category spinbutton:backdrop:not(.vertical), treeview.view entry > label:backdrop, .tweak-category entry > label:backdrop, treeview.view spinbutton:not(.vertical) > label:backdrop, .tweak-category spinbutton:not(.vertical) > label:backdrop {
       opacity: 0.8;
       transition: 0.2s; }
   treeview.view .separator, .tweak-category .separator, treeview.view .separator:hover, .tweak-category .separator:hover {
@@ -6239,7 +6225,7 @@ progressbar {
       border-style: none;
       border-radius: 0; }
 
-entry progress, spinbutton:not(.vertical) progress, .osd spinbutton:not(.vertical) progress,
+entry progress, spinbutton:not(.vertical) progress,
 .entry progress {
   margin: -10px -6px;
   border-style: none none solid;
@@ -6646,7 +6632,7 @@ messagedialog .titlebar {
   border-top-right-radius: 2px;
   color: rgba(236, 239, 241, 0.75);
   background-color: #2a373e; }
-messagedialog entry, messagedialog spinbutton:not(.vertical), messagedialog .osd spinbutton:not(.vertical), .osd messagedialog spinbutton:not(.vertical), messagedialog entry:focus, messagedialog spinbutton:focus:not(.vertical) {
+messagedialog entry, messagedialog spinbutton:not(.vertical), messagedialog entry:focus, messagedialog spinbutton:focus:not(.vertical) {
   color: #ECEFF1;
   caret-color: #ECEFF1; }
 messagedialog.csd.background {
@@ -8290,6 +8276,21 @@ colorswatch {
     background-image: linear-gradient(to right, #FF1744 25%, #FF9100 25%, #FF9100 50%, #00E5FF 50%, #00E5FF 75%, #FFEA00 75%);
     color: white; }
 
+colorchooser .popover.osd {
+  padding: 3px;
+  border-style: solid;
+  border-width: 9px;
+  border-radius: 2px;
+  border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"), url("assets/osd-shadow-dark@2.png")) 10/10px stretch;
+  box-shadow: none;
+  color: #ECEFF1;
+  background-color: #2a373e; }
+  colorchooser .popover.osd:backdrop {
+    border-image: -gtk-scaled(url("assets/osd-shadow-backdrop-dark.png"), url("assets/osd-shadow-backdrop-dark@2.png")) 10/10px stretch; }
+  colorchooser .popover.osd label {
+    color: #1DE9B6;
+    font-weight: 700; }
+
 /********
  * Misc *
  ********/
@@ -8493,11 +8494,11 @@ iconview text:selected:focus,
 textview text:selected:focus, .view text selection, iconview text selection, .view text selection:focus, iconview text selection:focus,
 textview text selection,
 textview text selection:focus, flowbox flowboxchild:selected, label selection,
-label selection:focus, entry selection, spinbutton:not(.vertical) selection, .osd spinbutton:not(.vertical) selection, entry selection:focus, spinbutton:not(.vertical) selection:focus,
+label selection:focus, entry selection, spinbutton:not(.vertical) selection, entry selection:focus, spinbutton:not(.vertical) selection:focus,
 .entry selection,
-.entry selection:focus, treeview entry:selected, treeview spinbutton:selected:not(.vertical), treeview entry.flat:focus:selected, treeview spinbutton.flat:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:focus:selected:not(.vertical), treeview .osd notebook:not(.reorderable-page) > spinbutton:focus:selected:not(.vertical), treeview
+.entry selection:focus, treeview entry:selected, treeview spinbutton:selected:not(.vertical), treeview entry.flat:focus:selected, treeview spinbutton.flat:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:focus:selected:not(.vertical), treeview
 .entry:selected, treeview
-.entry.flat:focus:selected, treeview .linked > entry:focus:selected:not(.flat), treeview .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:focus:selected:not(.flat), treetiew spinbutton entry:focus:selected, treetiew spinbutton spinbutton:focus:selected:not(.vertical), treeview.view:selected, .tweak-category:selected,
+.entry.flat:focus:selected, treeview .linked > entry:focus:selected:not(.flat), treeview .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:focus:selected:not(.flat), treetiew spinbutton entry:focus:selected, treetiew spinbutton spinbutton:focus:selected:not(.vertical), treeview.view:selected, .tweak-category:selected,
 treeview.view row:selected,
 .tweak-category row:selected, paned treeview.view:selected, paned .tweak-category:selected,
 paned treeview.view row:selected,
@@ -8586,11 +8587,11 @@ treeview.view header .side-panel iconview button:selected,
   textview text:selected:focus, .view text selection, iconview text selection, .view text selection:focus, iconview text selection:focus,
   textview text selection,
   textview text selection:focus, flowbox flowboxchild:selected, label selection,
-  label selection:focus, entry selection, spinbutton:not(.vertical) selection, .osd spinbutton:not(.vertical) selection, entry selection:focus, spinbutton:not(.vertical) selection:focus,
+  label selection:focus, entry selection, spinbutton:not(.vertical) selection, entry selection:focus, spinbutton:not(.vertical) selection:focus,
   .entry selection,
-  .entry selection:focus, treeview entry:selected, treeview spinbutton:selected:not(.vertical), treeview entry.flat:focus:selected, treeview spinbutton.flat:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:focus:selected:not(.vertical), treeview .osd notebook:not(.reorderable-page) > spinbutton:focus:selected:not(.vertical), treeview
+  .entry selection:focus, treeview entry:selected, treeview spinbutton:selected:not(.vertical), treeview entry.flat:focus:selected, treeview spinbutton.flat:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:focus:selected:not(.vertical), treeview
   .entry:selected, treeview
-  .entry.flat:focus:selected, treeview .linked > entry:focus:selected:not(.flat), treeview .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:focus:selected:not(.flat), treetiew spinbutton entry:focus:selected, treetiew spinbutton spinbutton:focus:selected:not(.vertical), treeview.view:selected, .tweak-category:selected,
+  .entry.flat:focus:selected, treeview .linked > entry:focus:selected:not(.flat), treeview .linked > spinbutton:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:focus:selected:not(.flat), treetiew spinbutton entry:focus:selected, treetiew spinbutton spinbutton:focus:selected:not(.vertical), treeview.view:selected, .tweak-category:selected,
   treeview.view row:selected,
   .tweak-category row:selected, paned treeview.view:selected, paned .tweak-category:selected,
   paned treeview.view row:selected,
@@ -8681,9 +8682,9 @@ treeview.view header .side-panel iconview button:selected,
     textview text selection:disabled:focus, flowbox flowboxchild:disabled:selected, label selection:disabled,
     label selection:disabled:focus, label:disabled selection, entry selection:disabled, spinbutton:not(.vertical) selection:disabled, entry selection:disabled:focus, spinbutton:not(.vertical) selection:disabled:focus,
     .entry selection:disabled,
-    .entry selection:disabled:focus, treeview entry:disabled:selected, treeview spinbutton:disabled:selected:not(.vertical), treeview entry.flat:disabled:focus:selected, treeview spinbutton.flat:disabled:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:disabled:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:disabled:focus:selected:not(.vertical), treeview .osd notebook:not(.reorderable-page) > spinbutton:disabled:focus:selected:not(.vertical), treeview
+    .entry selection:disabled:focus, treeview entry:disabled:selected, treeview spinbutton:disabled:selected:not(.vertical), treeview entry.flat:disabled:focus:selected, treeview spinbutton.flat:disabled:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:disabled:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:disabled:focus:selected:not(.vertical), treeview
     .entry:disabled:selected, treeview
-    .entry.flat:disabled:focus:selected, treeview .linked > entry:disabled:focus:selected:not(.flat), treeview .linked > spinbutton:disabled:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:disabled:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:disabled:focus:selected:not(.flat), treetiew spinbutton entry:disabled:focus:selected, treetiew spinbutton spinbutton:disabled:focus:selected:not(.vertical), treeview.view:disabled:selected, .tweak-category:disabled:selected,
+    .entry.flat:disabled:focus:selected, treeview .linked > entry:disabled:focus:selected:not(.flat), treeview .linked > spinbutton:disabled:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:disabled:focus:selected:not(.flat), treetiew spinbutton entry:disabled:focus:selected, treetiew spinbutton spinbutton:disabled:focus:selected:not(.vertical), treeview.view:disabled:selected, .tweak-category:disabled:selected,
     treeview.view row:disabled:selected,
     .tweak-category row:disabled:selected, paned treeview.view:disabled:selected, paned .tweak-category:disabled:selected,
     paned treeview.view row:disabled:selected,
@@ -8752,9 +8753,9 @@ treeview.view header .side-panel iconview button:selected,
     textview text selection:backdrop:disabled:focus, flowbox flowboxchild:backdrop:disabled:selected, label selection:backdrop:disabled,
     label selection:backdrop:disabled:focus, label:disabled selection:backdrop, entry selection:backdrop:disabled, spinbutton:not(.vertical) selection:backdrop:disabled, entry selection:backdrop:disabled:focus, spinbutton:not(.vertical) selection:backdrop:disabled:focus,
     .entry selection:backdrop:disabled,
-    .entry selection:backdrop:disabled:focus, treeview entry:backdrop:disabled:selected, treeview spinbutton:backdrop:disabled:selected:not(.vertical), treeview entry.flat:backdrop:disabled:focus:selected, treeview spinbutton.flat:backdrop:disabled:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:backdrop:disabled:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:backdrop:disabled:focus:selected:not(.vertical), treeview .osd notebook:not(.reorderable-page) > spinbutton:backdrop:disabled:focus:selected:not(.vertical), treeview
+    .entry selection:backdrop:disabled:focus, treeview entry:backdrop:disabled:selected, treeview spinbutton:backdrop:disabled:selected:not(.vertical), treeview entry.flat:backdrop:disabled:focus:selected, treeview spinbutton.flat:backdrop:disabled:focus:selected:not(.vertical), treeview notebook:not(.reorderable-page) > entry:backdrop:disabled:focus:selected, treeview notebook:not(.reorderable-page) > spinbutton:backdrop:disabled:focus:selected:not(.vertical), treeview
     .entry:backdrop:disabled:selected, treeview
-    .entry.flat:backdrop:disabled:focus:selected, treeview .linked > entry:backdrop:disabled:focus:selected:not(.flat), treeview .linked > spinbutton:backdrop:disabled:focus:selected:not(.flat):not(.vertical), treeview .osd .linked > spinbutton:backdrop:disabled:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:backdrop:disabled:focus:selected:not(.flat), treetiew spinbutton entry:backdrop:disabled:focus:selected, treetiew spinbutton spinbutton:backdrop:disabled:focus:selected:not(.vertical), treeview.view:backdrop:disabled:selected, .tweak-category:backdrop:disabled:selected,
+    .entry.flat:backdrop:disabled:focus:selected, treeview .linked > entry:backdrop:disabled:focus:selected:not(.flat), treeview .linked > spinbutton:backdrop:disabled:focus:selected:not(.flat):not(.vertical), treeview .linked > .entry:backdrop:disabled:focus:selected:not(.flat), treetiew spinbutton entry:backdrop:disabled:focus:selected, treetiew spinbutton spinbutton:backdrop:disabled:focus:selected:not(.vertical), treeview.view:backdrop:disabled:selected, .tweak-category:backdrop:disabled:selected,
     treeview.view row:backdrop:disabled:selected,
     .tweak-category row:backdrop:disabled:selected, paned treeview.view:backdrop:disabled:selected, paned .tweak-category:backdrop:disabled:selected,
     paned treeview.view row:backdrop:disabled:selected,
@@ -9210,35 +9211,26 @@ GeditViewFrame .gedit-search-slider {
   GeditViewFrame .gedit-search-slider entry, GeditViewFrame .gedit-search-slider spinbutton:not(.vertical), GeditViewFrame .gedit-search-slider entry.error, GeditViewFrame .gedit-search-slider spinbutton.error:not(.vertical), GeditViewFrame .gedit-search-slider entry.warning, GeditViewFrame .gedit-search-slider spinbutton.warning:not(.vertical),
   GeditViewFrame .gedit-search-slider .linked > entry,
   GeditViewFrame .gedit-search-slider .linked > spinbutton:not(.vertical),
-  GeditViewFrame .gedit-search-slider .osd .linked > spinbutton:not(.vertical),
   GeditViewFrame .gedit-search-slider .linked > entry.error,
   GeditViewFrame .gedit-search-slider .linked > spinbutton.error:not(.vertical),
-  GeditViewFrame .gedit-search-slider .osd .linked > spinbutton.error:not(.vertical),
   GeditViewFrame .gedit-search-slider .linked > entry.warning,
-  GeditViewFrame .gedit-search-slider .linked > spinbutton.warning:not(.vertical),
-  GeditViewFrame .gedit-search-slider .osd .linked > spinbutton.warning:not(.vertical) {
+  GeditViewFrame .gedit-search-slider .linked > spinbutton.warning:not(.vertical) {
     color: #ECEFF1; }
     GeditViewFrame .gedit-search-slider entry:focus, GeditViewFrame .gedit-search-slider spinbutton:focus:not(.vertical), GeditViewFrame .gedit-search-slider entry.error:focus, GeditViewFrame .gedit-search-slider spinbutton.error:focus:not(.vertical), GeditViewFrame .gedit-search-slider entry.warning:focus, GeditViewFrame .gedit-search-slider spinbutton.warning:focus:not(.vertical),
     GeditViewFrame .gedit-search-slider .linked > entry:focus,
     GeditViewFrame .gedit-search-slider .linked > spinbutton:focus:not(.vertical),
-    GeditViewFrame .gedit-search-slider .osd .linked > spinbutton:focus:not(.vertical),
     GeditViewFrame .gedit-search-slider .linked > entry.error:focus,
     GeditViewFrame .gedit-search-slider .linked > spinbutton.error:focus:not(.vertical),
-    GeditViewFrame .gedit-search-slider .osd .linked > spinbutton.error:focus:not(.vertical),
     GeditViewFrame .gedit-search-slider .linked > entry.warning:focus,
-    GeditViewFrame .gedit-search-slider .linked > spinbutton.warning:focus:not(.vertical),
-    GeditViewFrame .gedit-search-slider .osd .linked > spinbutton.warning:focus:not(.vertical) {
+    GeditViewFrame .gedit-search-slider .linked > spinbutton.warning:focus:not(.vertical) {
       color: #FFFFFF; }
     GeditViewFrame .gedit-search-slider entry:disabled, GeditViewFrame .gedit-search-slider spinbutton:disabled:not(.vertical), GeditViewFrame .gedit-search-slider entry.error:disabled, GeditViewFrame .gedit-search-slider spinbutton.error:disabled:not(.vertical), GeditViewFrame .gedit-search-slider entry.warning:disabled, GeditViewFrame .gedit-search-slider spinbutton.warning:disabled:not(.vertical),
     GeditViewFrame .gedit-search-slider .linked > entry:disabled,
     GeditViewFrame .gedit-search-slider .linked > spinbutton:disabled:not(.vertical),
-    GeditViewFrame .gedit-search-slider .osd .linked > spinbutton:disabled:not(.vertical),
     GeditViewFrame .gedit-search-slider .linked > entry.error:disabled,
     GeditViewFrame .gedit-search-slider .linked > spinbutton.error:disabled:not(.vertical),
-    GeditViewFrame .gedit-search-slider .osd .linked > spinbutton.error:disabled:not(.vertical),
     GeditViewFrame .gedit-search-slider .linked > entry.warning:disabled,
-    GeditViewFrame .gedit-search-slider .linked > spinbutton.warning:disabled:not(.vertical),
-    GeditViewFrame .gedit-search-slider .osd .linked > spinbutton.warning:disabled:not(.vertical) {
+    GeditViewFrame .gedit-search-slider .linked > spinbutton.warning:disabled:not(.vertical) {
       color: rgba(236, 239, 241, 0.3); }
 
 paned.titlebar.horizontal headerbar button.flat.toggle.popup, paned.titlebar.horizontal headerbar buttonbox button.toggle.popup, buttonbox paned.titlebar.horizontal headerbar button.toggle.popup, paned.titlebar.horizontal headerbar buttonbox.dialog-action-area button.toggle.popup, buttonbox.dialog-action-area paned.titlebar.horizontal headerbar button.toggle.popup, paned.titlebar.horizontal headerbar button.toggle.popup.osd.image-button,
@@ -9305,7 +9297,7 @@ layouttabbar > box {
 eggsearchbar > revealer > box {
   min-height: 39px; }
 
-eggsearchbar entry, eggsearchbar spinbutton:not(.vertical), eggsearchbar .osd spinbutton:not(.vertical), .osd eggsearchbar spinbutton:not(.vertical) {
+eggsearchbar entry, eggsearchbar spinbutton:not(.vertical) {
   min-height: 24px; }
 
 pillbox {
