@@ -912,6 +912,23 @@ GtkButtonBox > button {
   font-weight: 700;
 }
 
+// toolpalette buttons
+toolpalette {
+  toolitemgroup {
+    > button {
+      border-top: 1px solid $borders_color;
+      border-radius: 0;
+    }
+  }
+
+  toolbutton {
+    > button.toggle { // use square buttons
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+}
+
 
 /*********
  * Links *
