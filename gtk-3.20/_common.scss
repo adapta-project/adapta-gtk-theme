@@ -1235,8 +1235,10 @@ toolbar {
   padding: rem(5.3px);
   background-color: $bg_color;
   color: $secondary_fg_color;
-  box-shadow: if($variant=='light', $toolbar-shadow-light,
-                                    $toolbar-shadow-dark);
+  &:not(.vertical):not(.inline-toolbar) { // draw shadows
+    box-shadow: if($variant=='light', $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
+  }
 
   paned &,
   grid &.primary-toolbar { // stop drawing fake-shadows
@@ -1344,29 +1346,48 @@ toolbar {
       border-image: none;
     }
 
+    .text-button,
+    .image-button.text-button {
+      min-width: rem(13.3px);
+      min-height: rem(29.3px);
+      padding: 0 rem(13.3px) 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+      background-size: $text_button_small;
+    }
+
     .image-button {
       min-width: rem(13.3px);
       min-height: rem(29.3px);
       padding: 0 rem(6.7px) 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
-      background-size: $image_button_small;
+      background-size: $image_button_large;
+    }
+
+    &.toggle { // remove double-background
+      &:hover,
+      &:active,
+      &:checked {
+        background-color: transparent;
+        box-shadow: none;
+      }
     }
   }
 
   .linked > button { // remove double-background and underlines
     &, &.image-button {
       border-image: none;
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
       box-shadow: none;
       &:hover,
       &:active {
         border-image: none;
-        border-radius: 100px;
-        -gtk-outline-radius: 100px;
         background-color: transparent;
         box-shadow: none;
+      }
+      &:not(:disabled) { // revive roundness
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
       }
     }
 

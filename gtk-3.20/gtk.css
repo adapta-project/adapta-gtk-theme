@@ -1576,8 +1576,9 @@ toolbar {
   -GtkWidget-window-dragging: true;
   padding: 0.3985rem;
   background-color: #fafbfc;
-  color: rgba(38, 50, 56, 0.75);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.18), inset 0 4px 2px -4px rgba(0, 0, 0, 0.2), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
+  color: rgba(38, 50, 56, 0.75); }
+  toolbar:not(.vertical):not(.inline-toolbar) {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.18), inset 0 4px 2px -4px rgba(0, 0, 0, 0.2), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
   paned toolbar, grid toolbar.primary-toolbar {
     box-shadow: none; }
   .osd toolbar {
@@ -1660,24 +1661,34 @@ toolbar {
       background-color: transparent;
       color: rgba(38, 50, 56, 0.225);
       border-image: none; }
+    toolbar button .text-button,
+    toolbar button .image-button.text-button {
+      min-width: 1rem;
+      min-height: 2.20301rem;
+      padding: 0 1rem 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+      background-size: 9.96241rem 9.96241rem, auto; }
     toolbar button .image-button {
       min-width: 1rem;
       min-height: 2.20301rem;
       padding: 0 0.50376rem 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
-      background-size: 2.44361rem 2.44361rem, auto; }
+      background-size: 3.7594rem 3.7594rem, auto; }
+    toolbar button.toggle:hover, toolbar button.toggle:active, toolbar button.toggle:checked {
+      background-color: transparent;
+      box-shadow: none; }
   toolbar .linked > button, toolbar .linked > button.image-button {
     border-image: none;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
     box-shadow: none; }
     toolbar .linked > button:hover, toolbar .linked > button:active, toolbar .linked > button.image-button:hover, toolbar .linked > button.image-button:active {
       border-image: none;
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
       background-color: transparent;
       box-shadow: none; }
+    toolbar .linked > button:not(:disabled), toolbar .linked > button.image-button:not(:disabled) {
+      border-radius: 100px;
+      -gtk-outline-radius: 100px; }
   toolbar .linked > button .image-button {
     min-width: 1rem;
     min-height: 2.20301rem;
