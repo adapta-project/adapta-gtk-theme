@@ -45,9 +45,11 @@ $orientation: ((top, bottom),
 }
 
 // wnck tasklist styling
-.budgie-panel WnckTasklist {
+.budgie-panel #tasklist-button,
+.budgie-panel #tasklist-button:backdrop {
   button {
     border: none;
+    outline-color: transparent;
     background: none;
     opacity: 0.5;
     &:hover,
@@ -59,21 +61,27 @@ $orientation: ((top, bottom),
 // icon tasklist styling
 // FIXME: can not set opaque to minimized/unfocused?
 .budgie-panel {
-  .launcher {
-    transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  button.flat.launcher {
+    min-height: rem(32px);
+    min-width: rem(32px);
+    padding: 0 rem(5.3px) 0;
     border: 2px solid transparent;
     background-image: none;
     opacity: 0.5;
+    transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     &:hover {
       -gtk-icon-effect: highlight;
       opacity: 1.0;
     }
     &:active,
-    &:checked { opacity: 1.0; }
-
-    .unpinned &,
-    .pinned &.running { opacity: 1.0; }
+    &:checked {
+      opacity: 1.0;
+      background-color: transparent;
+    }
   }
+
+  .unpinned button.flat.launcher,
+  .pinned button.flat.launcher.running { opacity: 1.0; }
 }
 
 // draw underscores
@@ -114,45 +122,39 @@ $orientation: ((top, bottom),
   // Always use dark-color of dark variant
   background-color: $inverted_bg_color;
   color: $inverted_secondary_fg_color;
-  font-weight: bold;
+  font-weight: 400;
   opacity: 0.9;
   &:backdrop { opacity: 1.0; }
 
   button,
   .linked > button {
     @extend button.flat;
-    padding: 0.7em 1em 0.8em;
+    padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border: 2px solid transparent;
     border-radius: 0;
-    color: $inverted_secondary_fg_color;
-    background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
-    // &:first-child { border-bottom-left-radius: 2px; }
-    // &:last-child { border-bottom-right-radius: 2px; }
+    color: $secondary_accent_color;
+    background-size: $text_button_small;
+    font-weight: 700;
+    &:hover {
+      @include button(flat-hover);
+      color: $accent_color;
+    }
+    &:active {
+      @include button(flat-active);
+      color: $accent_color;
+    }
+    &:checked {
+     @include button(flat-checked);
+      color: $accent_color;
+    }
+    &:disabled { @include button(flat-insensitive); }
     &:first-child {
       border-radius: 0 0 0 2px;
       border-right-width: 0;
     }
-    &:last-child { // usually 'save', 'delete' and 'OK'...
-      @include button(flat);
+    &:last-child {
       border-radius: 0 0 2px 0;
       border-left-width: 0;
-      background-color: transparent;
-      color: $warning_color;
-      &:hover {
-        @include button(flat-hover);
-        color: $warning_color;
-      }
-      &:active {
-        @include button(flat-active);
-        color: $selected_fg_color;
-        background-color: $warning_bg_color;
-      }
-      &:checked {
-       @include button(flat-checked);
-        color: $selected_fg_color;
-        background-color: $warning_bg_color;
-      }
-      &:disabled { @include button(flat-insensitive); }
     }
   }
 }
@@ -162,8 +164,8 @@ $orientation: ((top, bottom),
 
   .message { color: $secondary_fg_color; }
   .failure {
-    color: $warning_color;
-    font-weight: bold;
+    color: $secondary_accent_color;
+    font-weight: 700;
   }
 }
 
