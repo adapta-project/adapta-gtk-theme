@@ -427,7 +427,7 @@ GtkTextView {
   GfCandidatePopup .linked > .button:last-child, MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton),
   .action-bar .linked > .button.image-button, .budgie-session-dialog .button, .budgie-polkit-dialog .button,
   .budgie-session-dialog .linked > .button,
-  .budgie-polkit-dialog .linked > .button {
+  .budgie-polkit-dialog .linked > .button, NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button {
     box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0)); }
@@ -439,7 +439,7 @@ GtkTextView {
     GtkVolumeButton.button:hover, GfCandidatePopup .button:hover,
     GfCandidatePopup .linked > .button:hover:first-child,
     GfCandidatePopup .linked > .button:hover:last-child, MathWindow :not(.titlebar) .button:hover:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:hover:not(.flat):not(.titlebutton),
-    .action-bar .linked > .button.image-button:hover, .budgie-session-dialog .button:hover, .budgie-polkit-dialog .button:hover {
+    .action-bar .linked > .button.image-button:hover, .budgie-session-dialog .button:hover, .budgie-polkit-dialog .button:hover, NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
     .button.flat:active, .button.osd.image-button:active, .inline-toolbar .button:active, .inline-toolbar .button.image-button:active:not(.text-button), .action-bar .button:active, .action-bar .button.image-button:active:not(.text-button), GtkButtonBox > .button:active, .app-notification .button:active, GeditViewFrame .gedit-search-slider .button:active, .toolbar .button:active, .titlebar .button:active:not(.suggested-action):not(.destructive-action),
@@ -450,7 +450,7 @@ GtkTextView {
     GtkVolumeButton.button:active, GfCandidatePopup .button:active,
     GfCandidatePopup .linked > .button:active:first-child,
     GfCandidatePopup .linked > .button:active:last-child, MathWindow :not(.titlebar) .button:active:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:active:not(.flat):not(.titlebutton),
-    .action-bar .linked > .button.image-button:active, .budgie-session-dialog .button:active, .budgie-polkit-dialog .button:active {
+    .action-bar .linked > .button.image-button:active, .budgie-session-dialog .button:active, .budgie-polkit-dialog .button:active, NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
     .button.flat:insensitive, .button.osd.image-button:insensitive, .inline-toolbar .button:insensitive, .inline-toolbar .button.image-button:insensitive:not(.text-button), .action-bar .button:insensitive, .action-bar .button.image-button:insensitive:not(.text-button), GtkButtonBox > .button:insensitive, .app-notification .button:insensitive, GeditViewFrame .gedit-search-slider .button:insensitive, .toolbar .button:insensitive, .titlebar .button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -461,7 +461,7 @@ GtkTextView {
     GtkVolumeButton.button:insensitive, GfCandidatePopup .button:insensitive,
     GfCandidatePopup .linked > .button:insensitive:first-child,
     GfCandidatePopup .linked > .button:insensitive:last-child, MathWindow :not(.titlebar) .button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:insensitive:not(.flat):not(.titlebutton),
-    .action-bar .linked > .button.image-button:insensitive, .budgie-session-dialog .button:insensitive, .budgie-polkit-dialog .button:insensitive {
+    .action-bar .linked > .button.image-button:insensitive, .budgie-session-dialog .button:insensitive, .budgie-polkit-dialog .button:insensitive, NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:insensitive {
       box-shadow: none;
       background-color: transparent; }
     .button.flat:checked, .button.osd.image-button:checked, .inline-toolbar .button:checked, .inline-toolbar .button.image-button:checked:not(.text-button), .action-bar .button:checked, .action-bar .button.image-button:checked:not(.text-button), GtkButtonBox > .button:checked, .app-notification .button:checked, GeditViewFrame .gedit-search-slider .button:checked, .toolbar .button:checked, .titlebar .button:checked:not(.suggested-action):not(.destructive-action),
@@ -472,7 +472,7 @@ GtkTextView {
     GtkVolumeButton.button:checked, GfCandidatePopup .button:checked,
     GfCandidatePopup .linked > .button:checked:first-child,
     GfCandidatePopup .linked > .button:checked:last-child, MathWindow :not(.titlebar) .button:checked:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:checked:not(.flat):not(.titlebutton),
-    .action-bar .linked > .button.image-button:checked, .budgie-session-dialog .button:checked, .budgie-polkit-dialog .button:checked {
+    .action-bar .linked > .button.image-button:checked, .budgie-session-dialog .button:checked, .budgie-polkit-dialog .button:checked, NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:checked {
       background-color: alpha(currentColor, 0.2);
       color: #ECEFF1; }
     .button.flat:checked:insensitive > .label, .button.osd.image-button:checked:insensitive > .label, .inline-toolbar .button:checked:insensitive > .label, .action-bar .button:checked:insensitive > .label, .inline-toolbar .linked > .button:checked:insensitive > .label, .action-bar .linked > .button:checked:insensitive > .label, GtkButtonBox > .button:checked:insensitive > .label, .app-notification .button:checked:insensitive > .label, GeditViewFrame .gedit-search-slider .button:checked:insensitive > .label, .toolbar .button:checked:insensitive > .label, .titlebar .button:checked:insensitive:not(.suggested-action):not(.destructive-action) > .label,
@@ -497,7 +497,7 @@ GtkTextView {
     GfCandidatePopup .linked > .button:last-child, MathWindow :not(.titlebar) .linked > .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .linked > .button:not(.flat):not(.titlebutton),
     .action-bar .linked > .button.image-button,
     .budgie-session-dialog .linked > .button,
-    .budgie-polkit-dialog .linked > .button {
+    .budgie-polkit-dialog .linked > .button, NemoWindow GtkGrid > GtkEventBox > .toolbar .linked > .button.image-button {
       border-radius: 2px; }
       .linked > .button.flat.image-button, .linked > .image-button.button.osd, .inline-toolbar .linked > .image-button.button, .inline-toolbar .linked > .image-button.button:not(.text-button), .action-bar .linked > .image-button.button, .action-bar .linked > .image-button.button:not(.text-button), GtkButtonBox.linked > .image-button.button, .app-notification .linked > .image-button.button, GeditViewFrame .gedit-search-slider .linked > .image-button.button, .toolbar .linked > .image-button.button, .titlebar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
       .header-bar .linked > .image-button.button:not(.suggested-action):not(.destructive-action),
@@ -544,7 +544,7 @@ GtkTextView {
     GtkVolumeButton.suggested-action.button, GfCandidatePopup .suggested-action.button,
     GfCandidatePopup .linked > .suggested-action.button:first-child,
     GfCandidatePopup .linked > .suggested-action.button:last-child, MathWindow :not(.titlebar) .suggested-action.button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .suggested-action.button:not(.flat):not(.titlebutton),
-    .action-bar .linked > .suggested-action.button.image-button, .budgie-session-dialog .suggested-action.button, .budgie-polkit-dialog .suggested-action.button {
+    .action-bar .linked > .suggested-action.button.image-button, .budgie-session-dialog .suggested-action.button, .budgie-polkit-dialog .suggested-action.button, NemoWindow GtkGrid > GtkEventBox > .toolbar .suggested-action.button.image-button {
       background-color: transparent;
       color: #FF5252; }
       .button.suggested-action.flat:insensitive, .suggested-action.button.osd.image-button:insensitive, .inline-toolbar .suggested-action.button:insensitive, .action-bar .suggested-action.button:insensitive, .inline-toolbar .linked > .suggested-action.button.image-button:insensitive:not(.text-button), GtkButtonBox > .suggested-action.button:insensitive, .app-notification .suggested-action.button:insensitive, GeditViewFrame .gedit-search-slider .suggested-action.button:insensitive, .toolbar .suggested-action.button:insensitive, .titlebar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -574,7 +574,7 @@ GtkTextView {
     GtkVolumeButton.destructive-action.button, GfCandidatePopup .destructive-action.button,
     GfCandidatePopup .linked > .destructive-action.button:first-child,
     GfCandidatePopup .linked > .destructive-action.button:last-child, MathWindow :not(.titlebar) .destructive-action.button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .destructive-action.button:not(.flat):not(.titlebutton),
-    .action-bar .linked > .destructive-action.button.image-button, .budgie-session-dialog .destructive-action.button, .budgie-polkit-dialog .destructive-action.button {
+    .action-bar .linked > .destructive-action.button.image-button, .budgie-session-dialog .destructive-action.button, .budgie-polkit-dialog .destructive-action.button, NemoWindow GtkGrid > GtkEventBox > .toolbar .destructive-action.button.image-button {
       background-color: transparent;
       color: #FF5252; }
       .button.destructive-action.flat:insensitive, .destructive-action.button.osd.image-button:insensitive, .inline-toolbar .destructive-action.button:insensitive, .action-bar .destructive-action.button:insensitive, .inline-toolbar .linked > .destructive-action.button.image-button:insensitive:not(.text-button), GtkButtonBox > .destructive-action.button:insensitive, .app-notification .destructive-action.button:insensitive, GeditViewFrame .gedit-search-slider .destructive-action.button:insensitive, .toolbar .destructive-action.button:insensitive, .titlebar .destructive-action.button:insensitive:not(.suggested-action):not(.destructive-action),
@@ -764,7 +764,7 @@ GtkVolumeButton.button, .header-bar .button.titlebutton, .header-bar.selection-m
 GtkVolumeButton.menuitem.button, GfCandidatePopup .menuitem.button,
 GfCandidatePopup .linked > .menuitem.button:first-child,
 GfCandidatePopup .linked > .menuitem.button:last-child, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton),
-.action-bar .linked > .menuitem.button.image-button, .budgie-session-dialog .menuitem.button, .budgie-polkit-dialog .menuitem.button {
+.action-bar .linked > .menuitem.button.image-button, .budgie-session-dialog .menuitem.button, .budgie-polkit-dialog .menuitem.button, NemoWindow GtkGrid > GtkEventBox > .toolbar .menuitem.button.image-button {
   transition: none; }
 
 GtkColorButton.button {
@@ -2150,7 +2150,9 @@ column-header.button.dnd, column-header .button.dnd {
   .popover .budgie-session-dialog .button,
   .budgie-session-dialog .popover .button,
   .popover .budgie-polkit-dialog .button,
-  .budgie-polkit-dialog .popover .button {
+  .budgie-polkit-dialog .popover .button,
+  .popover NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button,
+  NemoWindow GtkGrid > GtkEventBox > .toolbar .popover .button.image-button {
     transition: none;
     background-color: transparent;
     background-size: 10em 10em, auto;
@@ -4422,7 +4424,7 @@ GtkInfoBar, NautilusTrashBar {
     .info GfCandidatePopup .linked > .button,
     GfCandidatePopup .info .linked > .button, .info MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .info .button:not(.flat):not(.titlebutton), .info MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .info .button:not(.flat):not(.titlebutton),
     .info .action-bar .linked > .button.image-button,
-    .action-bar .info .linked > .button.image-button, .info .budgie-session-dialog .button, .budgie-session-dialog .info .button, .info .budgie-polkit-dialog .button, .budgie-polkit-dialog .info .button,
+    .action-bar .info .linked > .button.image-button, .info .budgie-session-dialog .button, .budgie-session-dialog .info .button, .info .budgie-polkit-dialog .button, .budgie-polkit-dialog .info .button, .info NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button, NemoWindow GtkGrid > GtkEventBox > .toolbar .info .button.image-button,
     .question .button.flat,
     .question .button.osd.image-button,
     .question .inline-toolbar .button,
@@ -4474,6 +4476,8 @@ GtkInfoBar, NautilusTrashBar {
     .budgie-session-dialog .question .button,
     .question .budgie-polkit-dialog .button,
     .budgie-polkit-dialog .question .button,
+    .question NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button,
+    NemoWindow GtkGrid > GtkEventBox > .toolbar .question .button.image-button,
     .warning .button.flat,
     .warning .button.osd.image-button,
     .warning .inline-toolbar .button,
@@ -4525,6 +4529,8 @@ GtkInfoBar, NautilusTrashBar {
     .budgie-session-dialog .warning .button,
     .warning .budgie-polkit-dialog .button,
     .budgie-polkit-dialog .warning .button,
+    .warning NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button,
+    NemoWindow GtkGrid > GtkEventBox > .toolbar .warning .button.image-button,
     .error .button.flat,
     .error .button.osd.image-button,
     .error .inline-toolbar .button,
@@ -4575,7 +4581,9 @@ GtkInfoBar, NautilusTrashBar {
     .error .budgie-session-dialog .button,
     .budgie-session-dialog .error .button,
     .error .budgie-polkit-dialog .button,
-    .budgie-polkit-dialog .error .button {
+    .budgie-polkit-dialog .error .button,
+    .error NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button,
+    NemoWindow GtkGrid > GtkEventBox > .toolbar .error .button.image-button {
       color: rgba(38, 50, 56, 0.75); }
       .info .button.flat:hover, .info .button.osd.image-button:hover, .info .inline-toolbar .button:hover, .inline-toolbar .info .button:hover, .info .action-bar .button:hover, .action-bar .info .button:hover, .info .inline-toolbar .linked > .button.image-button:hover:not(.text-button), .inline-toolbar .info .linked > .button.image-button:hover:not(.text-button), .info GtkButtonBox > .button:hover, .info .app-notification .button:hover, .app-notification .info .button:hover, .info GeditViewFrame .gedit-search-slider .button:hover, GeditViewFrame .gedit-search-slider .info .button:hover, .info .toolbar .button:hover, .toolbar .info .button:hover, .info .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .info .button:hover:not(.suggested-action):not(.destructive-action),
       .info .header-bar .button:hover:not(.suggested-action):not(.destructive-action),
@@ -5711,7 +5719,7 @@ EelEditableLabel.entry {
 .nautilus-desktop-window .notebook > GtkStack {
   background: transparent; }
 
-.nautilus-desktop.nautilus-canvas-item {
+.nautilus-desktop.nautilus-canvas-item, .nemo-desktop.nemo-canvas-item {
   color: #FFFFFF; }
 
 .nautilus-canvas-item {
@@ -5863,7 +5871,7 @@ GeditViewFrame .gedit-search-slider {
 .gedit-titlebar-left GfCandidatePopup .linked > .button,
 GfCandidatePopup .gedit-titlebar-left .linked > .button, .gedit-titlebar-left MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .gedit-titlebar-left .button:not(.flat):not(.titlebutton), .gedit-titlebar-left MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .gedit-titlebar-left .button:not(.flat):not(.titlebutton),
 .gedit-titlebar-left .action-bar .linked > .button.image-button,
-.action-bar .gedit-titlebar-left .linked > .button.image-button, .gedit-titlebar-left .budgie-session-dialog .button, .budgie-session-dialog .gedit-titlebar-left .button, .gedit-titlebar-left .budgie-polkit-dialog .button, .budgie-polkit-dialog .gedit-titlebar-left .button {
+.action-bar .gedit-titlebar-left .linked > .button.image-button, .gedit-titlebar-left .budgie-session-dialog .button, .budgie-session-dialog .gedit-titlebar-left .button, .gedit-titlebar-left .budgie-polkit-dialog .button, .budgie-polkit-dialog .gedit-titlebar-left .button, .gedit-titlebar-left NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button, NemoWindow GtkGrid > GtkEventBox > .toolbar .gedit-titlebar-left .button.image-button {
   border-radius: 2px;
   outline-radius: 2px; }
 
@@ -6244,6 +6252,78 @@ GtkStack .button.profile-button:checked {
   outline-radius: 2px; }
   .titlebar.header-bar GtkBox .button.account-button .avatar-round {
     border-color: transparent; }
+
+/********
+ * Nemo *
+ ********/
+NemoWindow EelEditableLabel.entry {
+  transition: none; }
+NemoWindow .toolbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11); }
+  NemoWindow .toolbar .button.toggle,
+  NemoWindow .toolbar .linked > .button {
+    padding: 0.3em 1.2em 0.4em; }
+    NemoWindow .toolbar .button.toggle.image-button,
+    NemoWindow .toolbar .linked > .button.image-button {
+      border-radius: 100px;
+      outline-radius: 100px; }
+  NemoWindow .toolbar .path-bar .button,
+  NemoWindow .toolbar .path-bar .linked > .button {
+    padding: 0.3em 1.2em 0.4em; }
+    NemoWindow .toolbar .path-bar .button, NemoWindow .toolbar .path-bar .button.image-button,
+    NemoWindow .toolbar .path-bar .linked > .button,
+    NemoWindow .toolbar .path-bar .linked > .button.image-button {
+      border-radius: 2px;
+      outline-radius: 2px; }
+      NemoWindow .toolbar .path-bar .button:insensitive, NemoWindow .toolbar .path-bar .button.image-button:insensitive,
+      NemoWindow .toolbar .path-bar .linked > .button:insensitive,
+      NemoWindow .toolbar .path-bar .linked > .button.image-button:insensitive {
+        color: rgba(236, 239, 241, 0.225); }
+NemoWindow .notebook {
+  background-color: #455A64; }
+NemoWindow .sidebar .frame, NemoWindow #polari-sidebar .frame {
+  border-width: 0; }
+NemoWindow .sidebar GtkDrawingArea, NemoWindow #polari-sidebar GtkDrawingArea {
+  background-color: transparent; }
+NemoWindow GtkGrid > GtkEventBox {
+  padding: 0.2em;
+  background-color: #3b4c54;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); }
+  NemoWindow GtkGrid > GtkEventBox > .toolbar {
+    background-color: transparent;
+    box-shadow: none; }
+  NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button {
+    border-radius: 2px;
+    outline-radius: 2px;
+    padding: 0.7em 1em 0.8em;
+    box-shadow: none;
+    border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 0/0 0 0px;
+    color: rgba(236, 239, 241, 0.75); }
+    NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:hover {
+      box-shadow: none;
+      border-image: none;
+      color: #ECEFF1; }
+    NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:checked {
+      box-shadow: none;
+      border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#00BCD4), to(transparent)) 0 0 2/0 0 2px;
+      background-color: transparent;
+      color: #ECEFF1; }
+      NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:checked:insensitive {
+        box-shadow: none;
+        background-color: transparent;
+        color: rgba(236, 239, 241, 0.3);
+        border-image: none; }
+        NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:checked:insensitive > label {
+          color: inherit; }
+    NemoWindow GtkGrid > GtkEventBox > .toolbar .button.image-button:insensitive {
+      box-shadow: none;
+      background-color: transparent;
+      color: rgba(236, 239, 241, 0.225);
+      border-image: none; }
+  NemoWindow GtkGrid > GtkEventBox > .toolbar .separator.vertical {
+    -GtkWidget-separator-width: 0;
+    border: 0 none transparent;
+    color: transparent; }
 
 /***********
  * Colours *

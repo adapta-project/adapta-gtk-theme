@@ -258,3 +258,113 @@ GtkStack .button.profile-button {
   }
 }
 
+/********
+ * Nemo *
+ ********/
+
+.nemo-desktop.nemo-canvas-item {
+  @extend .nautilus-desktop.nautilus-canvas-item;
+}
+
+NemoWindow {
+  // Workaround for invisible text in rename entry
+  EelEditableLabel.entry { transition: none; }
+
+  // draw bottom border of toolbar
+  .toolbar {
+    border-bottom: 1px solid $borders_color;
+
+    .button.toggle,
+    .linked > .button {
+      padding: 0.3em 1.2em 0.4em;
+      &.image-button {
+        border-radius: 100px;
+	outline-radius: 100px;
+      }
+    }
+
+    // tweak path-bar buttons
+    .path-bar .button,
+    .path-bar .linked > .button {
+      padding: 0.3em 1.2em 0.4em;
+      &, &.image-button {
+        border-radius: 2px;
+	outline-radius: 2px;
+	&:insensitive { color: $insensitive_secondary_fg_color; }
+      }
+    }
+  }
+
+  // tweak notebook colour
+  .notebook { background-color: $base_color; }
+
+  // tweak sidebar
+  .sidebar {
+    .frame { border-width: 0; } // remove double-border
+
+    GtkDrawingArea { background-color: transparent; }
+  }
+
+  // force using flat-style on bottom bar
+  GtkGrid > GtkEventBox {
+    padding: 0.2em;
+    background-color: $secondary_dark_color;
+    box-shadow: $inline-shadow;
+
+    > .toolbar {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    > .toolbar .button.image-button {
+      @extend .button.flat;
+      border-radius: 2px;
+      outline-radius: 2px;
+      padding: 0.7em 1em 0.8em;
+      box-shadow: none;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.001,
+                                  to($track_color),
+                                  to(transparent))
+                                  0 0 0 / 0 0 0px;
+      color: $secondary_fg_color;
+      &:hover {
+        box-shadow: none;
+        border-image: none;
+        color: $fg_color;
+      }
+      &:checked {
+        box-shadow: none;
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+        background-color: transparent;
+        color: $fg_color;
+        &:insensitive {
+          box-shadow: none;
+          background-color: transparent;
+          color: $insensitive_fg_color;
+          border-image: none;
+          > label { color: inherit; }
+        }
+      }
+      &:insensitive {
+        box-shadow: none;
+        background-color: transparent;
+        color: $insensitive_secondary_fg_color;
+        border-image: none;
+      }
+    }
+
+    > .toolbar .separator.vertical { // remove separator
+      -GtkWidget-separator-width: 0;
+      border: 0 none transparent;
+      color: transparent;
+    }
+  }
+}
+
