@@ -40,7 +40,8 @@ $orientation: ((top, bottom),
 
 // wnck tasklist styling
 .budgie-panel WnckTasklist {
-  .button {
+  .button,
+  .button:backdrop {
     border: none;
     background: none;
     opacity: 0.5;
@@ -64,10 +65,10 @@ $orientation: ((top, bottom),
     }
     &:active,
     &:checked { opacity: 1.0; }
-
-    .unpinned &,
-    .pinned &.running { opacity: 1.0; }
   }
+
+  .unpinned .launcher,
+  .pinned .launcher.running { opacity: 1.0; }
 }
 
 // draw underscores

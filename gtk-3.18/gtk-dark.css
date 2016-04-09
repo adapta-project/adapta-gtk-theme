@@ -6056,11 +6056,15 @@ ContactsWindow ContactsListPane ContactsView .separator {
   border-left: 1px solid rgba(0, 0, 0, 0.11);
   background: none; }
 
-.budgie-panel WnckTasklist .button {
+.budgie-panel WnckTasklist .button,
+.budgie-panel WnckTasklist .button:backdrop {
   border: none;
   background: none;
   opacity: 0.5; }
-  .budgie-panel WnckTasklist .button:hover, .budgie-panel WnckTasklist .button:active, .budgie-panel WnckTasklist .button:checked {
+  .budgie-panel WnckTasklist .button:hover, .budgie-panel WnckTasklist .button:active, .budgie-panel WnckTasklist .button:checked,
+  .budgie-panel WnckTasklist .button:backdrop:hover,
+  .budgie-panel WnckTasklist .button:backdrop:active,
+  .budgie-panel WnckTasklist .button:backdrop:checked {
     opacity: 1.0; }
 
 .budgie-panel .launcher {
@@ -6073,8 +6077,9 @@ ContactsWindow ContactsListPane ContactsView .separator {
     opacity: 1.0; }
   .budgie-panel .launcher:active, .budgie-panel .launcher:checked {
     opacity: 1.0; }
-  .unpinned .budgie-panel .launcher, .pinned .budgie-panel .launcher.running {
-    opacity: 1.0; }
+.budgie-panel .unpinned .launcher,
+.budgie-panel .pinned .launcher.running {
+  opacity: 1.0; }
 
 .top .budgie-panel WnckTasklist .button {
   border: 2px solid transparent; }
