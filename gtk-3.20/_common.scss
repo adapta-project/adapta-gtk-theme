@@ -1363,13 +1363,25 @@ toolbar {
       border-image: none;
     }
 
+    button,
+    button.flat { // set specific roundness
+      &,
+      &.text-button,
+      &.text-button.image-button {
+        border-radius: 2px;
+	-gtk-outline-radius: 2px;
+      }
+      &.image-button {
+        border-radius: 100px;
+	-gtk-outline-radius: 100px;
+      }
+    }
+
     .text-button,
     .image-button.text-button {
       min-width: rem(13.3px);
       min-height: rem(29.3px);
       padding: 0 rem(13.3px) 0;
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
       background-size: $text_button_small;
     }
 
@@ -1377,8 +1389,6 @@ toolbar {
       min-width: rem(13.3px);
       min-height: rem(29.3px);
       padding: 0 rem(6.7px) 0;
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
       background-size: $image_button_large;
     }
 
