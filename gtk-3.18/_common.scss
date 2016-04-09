@@ -977,8 +977,10 @@ GtkComboBox {
   border-width: 0;
   background-color: $bg_color;
   color: $secondary_fg_color;
-  box-shadow: if($variant=='light', $toolbar-shadow-light,
-                                    $toolbar-shadow-dark);
+  &:not(.vertical):not(.inline-toolbar) { // draw shadows
+    box-shadow: if($variant=='light', $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
+  }
 
   GtkPaned &,
   GtkGrid &.primary-toolbar { // stop drawing fake-shadows
