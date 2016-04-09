@@ -201,11 +201,11 @@ StScrollBar {
   background-image: url("assets/checkbox-off.svg");
   color: rgba(236, 239, 241, 0.75); }
 .check-box:focus StBin {
-  background-image: url("assets/checkbox-off.svg"); }
+  background-image: url("assets/checkbox-off-hover.svg"); }
 .check-box:checked StBin {
   background-image: url("assets/checkbox.svg"); }
 .check-box:focus:checked StBin {
-  background-image: url("assets/checkbox.svg"); }
+  background-image: url("assets/checkbox-hover.svg"); }
 
 /************
  * Switches *
@@ -220,10 +220,20 @@ StScrollBar {
   .toggle-switch-us:checked {
     background-image: url("assets/toggle-on.svg"); }
 
+.toggle-switch-us:focus {
+  background-image: url("assets/toggle-off-hover.svg"); }
+  .toggle-switch-us:focus:checked {
+    background-image: url("assets/toggle-on-hover.svg"); }
+
 .toggle-switch-intl {
   background-image: url("assets/toggle-off.svg"); }
   .toggle-switch-intl:checked {
     background-image: url("assets/toggle-on.svg"); }
+
+.toggle-switch-intl:focus {
+  background-image: url("assets/toggle-off-hover.svg"); }
+  .toggle-switch-intl:focus:checked {
+    background-image: url("assets/toggle-on-hover.svg"); }
 
 /*********
  * Links *
@@ -910,13 +920,21 @@ StScrollBar {
 
 .calendar-change-month-back {
   background-image: url("assets/calendar-arrow-left.svg"); }
+  .calendar-change-month-back:hover, .calendar-change-month-back:focus {
+    background-image: url("assets/calendar-arrow-left-hover.svg"); }
   .calendar-change-month-back:rtl {
     background-image: url("assets/calendar-arrow-right.svg"); }
+  .calendar-change-month-back:rtl:hover, .calendar-change-month-back:rtl:focus {
+    background-image: url("assets/calendar-arrow-right-hover.svg"); }
 
 .calendar-change-month-forward {
   background-image: url("assets/calendar-arrow-right.svg"); }
+  .calendar-change-month-forward:hover, .calendar-change-month-forward:focus {
+    background-image: url("assets/calendar-arrow-right-hover.svg"); }
   .calendar-change-month-forward:rtl {
     background-image: url("assets/calendar-arrow-left.svg"); }
+  .calendar-change-month-forward:rtl:hover, .calendar-change-month-forward:rtl:focus {
+    background-image: url("assets/calendar-arrow-left-hover.svg"); }
 
 .calendar-day-base {
   font-size: 9pt;

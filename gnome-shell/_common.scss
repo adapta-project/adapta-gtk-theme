@@ -191,9 +191,9 @@ StScrollBar {
     background-image: url("assets/checkbox-off.svg");
     color: $secondary_fg_color;
   }
-  &:focus StBin { background-image: url("assets/checkbox-off.svg"); }
+  &:focus StBin { background-image: url("assets/checkbox-off-hover.svg"); }
   &:checked StBin { background-image: url("assets/checkbox.svg"); }
-  &:focus:checked StBin { background-image: url("assets/checkbox.svg"); }
+  &:focus:checked StBin { background-image: url("assets/checkbox-hover.svg"); }
 }
 
 
@@ -211,6 +211,10 @@ StScrollBar {
   .toggle-switch-#{$v} {
     background-image: url("assets/toggle-off.svg");
     &:checked { background-image: url("assets/toggle-on.svg"); }
+  }
+  .toggle-switch-#{$v}:focus {
+    background-image: url("assets/toggle-off-hover.svg");
+    &:checked { background-image: url("assets/toggle-on-hover.svg"); }
   }
 }
 
@@ -1071,12 +1075,22 @@ StScrollBar {
 
 .calendar-change-month-back { // arrow back
   background-image: url("assets/calendar-arrow-left.svg");
+  &:hover,
+  &:focus { background-image: url("assets/calendar-arrow-left-hover.svg"); }
+
   &:rtl { background-image: url("assets/calendar-arrow-right.svg"); }
+  &:rtl:hover,
+  &:rtl:focus { background-image: url("assets/calendar-arrow-right-hover.svg"); }
 }
 
 .calendar-change-month-forward { // arrow foreward
   background-image: url("assets/calendar-arrow-right.svg");
+  &:hover,
+  &:focus { background-image: url("assets/calendar-arrow-right-hover.svg"); }
+
   &:rtl { background-image: url("assets/calendar-arrow-left.svg"); }
+  &:rtl:hover,
+  &:rtl:focus { background-image: url("assets/calendar-arrow-left-hover.svg"); }
 }
 
 .calendar-day-base {
