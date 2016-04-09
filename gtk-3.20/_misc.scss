@@ -346,11 +346,33 @@ SeahorseWidget {
   }
 }
 
-// fix sidebar background colour
-.sidebar-paned stack {
+// tweak sidebar styling
+.sidebar-paned {
+  scrolledwindow {
+    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
+    }
+  }
+
   .sidebar {
     background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
                                             rgba(18, 22, 0, 0.04));
+  }
+}
+
+// remove unwanted drop-shadow
+window > box.vertical > box.vertical {
+  > toolbar.horizontal { box-shadow: none; }
+}
+
+// force using circle buttons for 'play/pause' etc
+window > box.vertical > box.vertical > toolbar {
+  .linked > button {
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
   }
 }
 
