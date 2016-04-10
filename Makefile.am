@@ -13,8 +13,9 @@ EXTRA_DIST = \
 themedir = $(datadir)/themes
 
 install-data-hook:
-	$(MKDIR_P) $(DESTDIR)/usr/share/themes/Adapta
-	cp -Rv $(EXTRA_DIST) $(DESTDIR)/usr/share/themes/Adapta
+	$(MKDIR_P) $(DESTDIR)$(themedir)/Adapta
+	cp -Rv $(EXTRA_DIST) $(DESTDIR)$(themedir)/Adapta
 
 uninstall-hook:
-	test -e $(DESTDIR)/usr/share/themes/Adapta && rm -rfv $(DESTDIR)/usr/share/themes/Adapta
+	test -e $(DESTDIR)$(themedir)/Adapta && \
+	rm -rfv $(DESTDIR)$(themedir)/Adapta
