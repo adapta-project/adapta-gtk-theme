@@ -2505,34 +2505,34 @@ column-header.button.dnd, column-header .button.dnd {
  * Scrollbars *
  **************/
 .scrollbar {
-  -GtkRange-slider-width: 13px;
+  -GtkRange-slider-width: 8;
   -GtkRange-trough-border: 0;
   -GtkScrollbar-has-backward-stepper: false;
   -GtkScrollbar-has-forward-stepper: false;
-  -GtkScrollbar-min-slider-length: 30px;
+  -GtkScrollbar-min-slider-length: 32;
   -GtkRange-stepper-spacing: 0;
   -GtkRange-trough-under-steppers: 1; }
   .scrollbar .button {
     border: none; }
   .scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
-    -GtkRange-slider-width: 12px; }
+    -GtkRange-slider-width: 8px; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) .slider {
-      margin: 2px;
-      border: 1px solid transparent; }
+      margin: 0;
+      border: none; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) .trough {
       border-style: none;
       background-color: transparent; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical .slider {
-      margin-top: 2px;
-      margin-bottom: 2px; }
+      margin-top: 0;
+      margin-bottom: 0; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal .slider {
-      margin-left: 2px;
-      margin-right: 2px; }
+      margin-left: 0;
+      margin-right: 0; }
   .scrollbar.overlay-indicator.dragging .trough, .scrollbar.overlay-indicator.hovering .trough {
-    background-color: rgba(255, 255, 255, 0.8); }
+    background-color: rgba(255, 255, 255, 0.55); }
   .scrollbar .trough {
-    background-color: #FFFFFF;
-    border: 1px none #E5E9EC; }
+    border: none;
+    background-color: #FFFFFF; }
   .scrollbar .slider {
     background-color: rgba(38, 50, 56, 0.5); }
     .scrollbar .slider:hover {
@@ -2542,39 +2542,23 @@ column-header.button.dnd, column-header .button.dnd {
     .scrollbar .slider:insensitive {
       opacity: 0.4; }
   .scrollbar .slider {
-    border-radius: 100px;
-    margin: 3px; }
+    border-radius: 0;
+    margin: 0; }
   .scrollbar.fine-tune .slider {
-    margin: 4px; }
+    margin: 0; }
   .scrollbar.vertical .slider {
-    margin-left: 4px; }
-    .scrollbar.vertical .slider:dir(rtl) {
-      margin-left: 3px;
-      margin-right: 4px; }
+    margin: 0; }
   .scrollbar.vertical.fine-tune .slider {
-    margin-left: 5px; }
-    .scrollbar.vertical.fine-tune .slider:dir(rtl) {
-      margin-left: 4px;
-      margin-right: 5px; }
-  .scrollbar.vertical .trough {
-    border-left-style: solid; }
-    .scrollbar.vertical .trough:dir(rtl) {
-      border-left-style: none;
-      border-right-style: solid; }
+    margin: 0; }
   .scrollbar.horizontal .slider {
-    margin-top: 4px; }
+    margin: 0; }
   .scrollbar.horizontal.fine-tune .slider {
-    margin-top: 5px; }
-  .scrollbar.horizontal .trough {
-    border-top-style: solid; }
+    margin: 0; }
 
 .scrollbars-junction,
 .scrollbars-junction.frame {
-  border-style: solid none none solid;
+  border: none;
   background-color: #FFFFFF; }
-  .scrollbars-junction:dir(rtl),
-  .scrollbars-junction.frame:dir(rtl) {
-    border-style: solid solid none none; }
 
 /**********
  * Switch *

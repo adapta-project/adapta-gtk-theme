@@ -2077,15 +2077,12 @@ column-header.button.dnd { // for treeview-like derive widgets
  * Scrollbars *
  **************/
 
-$_slider_margin: 3px;
-$_slider_fine_tune_margin: 4px;
-
 .scrollbar {
-  -GtkRange-slider-width: 6 + $_slider_margin * 2 + 1;
+  -GtkRange-slider-width: 8;
   -GtkRange-trough-border: 0;
   -GtkScrollbar-has-backward-stepper: false;
   -GtkScrollbar-has-forward-stepper: false;
-  -GtkScrollbar-min-slider-length: 24 + $_slider_margin * 2;
+  -GtkScrollbar-min-slider-length: 32;
                                    // minimum size for the slider.
                                    // sadly can't be in '.slider'
                                    // where it belongs
@@ -2098,11 +2095,11 @@ $_slider_fine_tune_margin: 4px;
 
   &.overlay-indicator {
     &:not(.dragging):not(.hovering) { // Overlay scrolling indicator
-      -GtkRange-slider-width: 12px;
+      -GtkRange-slider-width: 8px;
 
       .slider {
-        margin: 2px;
-        border: 1px solid transparent;
+        margin: 0;
+        border: none;
       }
 
       .trough {
@@ -2113,27 +2110,25 @@ $_slider_fine_tune_margin: 4px;
       // w/o the following margin tweaks the slider shrinks when
       // hovering/dragging
       &.vertical .slider {
-        margin-top: $_slider_margin - 1px;
-        margin-bottom: $_slider_margin - 1px;
+        margin-top: 0;
+        margin-bottom: 0;
       }
       &.horizontal .slider {
-        margin-left: $_slider_margin - 1px;
-        margin-right: $_slider_margin - 1px;
+        margin-left: 0;
+        margin-right: 0;
       }
     }
 
     &.dragging,
     &.hovering {
-      .trough { background-color: gtkopacity($base_color, 0.8); }
+      .trough { background-color: gtkopacity($base_color, 0.55); }
     }
   }
 
   // trough coloring
   .trough {
+    border: none;
     background-color: $base_color;
-    // fix for Webkit2 2.10.5, use absolute colour codes
-    // for $borders_color / $base_color;
-    border: 1px none $solid_light_borders_color;
   }
 
   // slider coloring
@@ -2146,43 +2141,20 @@ $_slider_fine_tune_margin: 4px;
 
   // sizing
   .slider {
-    border-radius: 100px;
-    margin: $_slider_margin;
+    border-radius: 0;
+    margin: 0;
   }
 
-  &.fine-tune .slider { margin: $_slider_fine_tune_margin; }
+  &.fine-tune .slider { margin: 0; }
 
   &.vertical {
-    .slider {
-      margin-left: 1px + $_slider_margin;
-      &:dir(rtl) {
-        margin-left: $_slider_margin;
-        margin-right: 1px + $_slider_margin;
-      }
-    }
-
-    &.fine-tune .slider {
-      margin-left: 1px + $_slider_fine_tune_margin;
-      &:dir(rtl) {
-        margin-left: $_slider_fine_tune_margin;
-        margin-right: 1px + $_slider_fine_tune_margin;
-      }
-    }
-
-    .trough {
-      border-left-style: solid;
-      &:dir(rtl) {
-        border-left-style: none;
-        border-right-style: solid;
-      }
-    }
+    .slider { margin: 0; }
+    &.fine-tune .slider { margin: 0; }
   }
 
   &.horizontal {
-    .slider { margin-top: 1px + $_slider_margin; }
-    &.fine-tune .slider { margin-top: 1px + $_slider_fine_tune_margin; }
-
-    .trough { border-top-style: solid; }
+    .slider { margin: 0; }
+    &.fine-tune .slider { margin: 0; }
   }
 }
 
@@ -2190,9 +2162,8 @@ $_slider_fine_tune_margin: 4px;
 .scrollbars-junction.frame { // the small square between two scrollbars
   @extend %fade_effect;
 
-  border-style: solid none none solid;
+  border: none;
   background-color: $base_color;
-  &:dir(rtl) { border-style: solid solid none none; }
 }
 
 
