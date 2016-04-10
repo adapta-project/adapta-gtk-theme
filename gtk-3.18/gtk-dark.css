@@ -222,18 +222,42 @@ GtkTextView {
 /*********************
  * Spinner Animation *
  *********************/
-@keyframes spin {
-  to {
-    -gtk-icon-transform: rotate(1turn); } }
+@keyframes colorful_bar {
+  0% {
+    -gtk-icon-source: url("assets/bar-red.svg");
+    -gtk-icon-transform: scale(0, 1); }
+  24.9% {
+    -gtk-icon-source: url("assets/bar-red.svg");
+    -gtk-icon-transform: scale(1, 1); }
+  25% {
+    -gtk-icon-source: url("assets/bar-yellow.svg");
+    -gtk-icon-transform: scale(1, 1); }
+  49.9% {
+    -gtk-icon-source: url("assets/bar-yellow.svg");
+    -gtk-icon-transform: scale(0, 1); }
+  50% {
+    -gtk-icon-source: url("assets/bar-green.svg");
+    -gtk-icon-transform: scale(0, 1); }
+  74.9% {
+    -gtk-icon-source: url("assets/bar-green.svg");
+    -gtk-icon-transform: scale(1, 1); }
+  75% {
+    -gtk-icon-source: url("assets/bar-blue.svg");
+    -gtk-icon-transform: scale(1, 1); }
+  99.9% {
+    -gtk-icon-source: url("assets/bar-blue.svg");
+    -gtk-icon-transform: scale(0, 1); }
+  100% {
+    -gtk-icon-source: url("assets/bar-red.svg");
+    -gtk-icon-transform: scale(0, 1); } }
 .spinner {
-  color: #1DE9B6;
   background-color: blue;
   background-image: none;
   opacity: 0;
-  -gtk-icon-source: -gtk-scaled(url("assets/process-working.svg")); }
+  -gtk-icon-source: url("assets/bar-red.svg"); }
   .spinner:active {
     opacity: 1.0;
-    animation: spin 1s linear infinite; }
+    animation: colorful_bar 2s linear infinite; }
     .spinner:active:insensitive {
       opacity: 0.4; }
     .spinner:active:backdrop {

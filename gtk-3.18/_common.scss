@@ -222,19 +222,53 @@ GtkTextView { // This will get overridden by .view,
  * Spinner Animation *
  *********************/
 
-@keyframes spin {
-  to { -gtk-icon-transform: rotate(1turn); }
+@keyframes colorful_bar {
+  0% {
+    -gtk-icon-source: url("assets/bar-red.svg");
+    -gtk-icon-transform: scale(0, 1.0);
+  }
+  24.9% {
+    -gtk-icon-source: url("assets/bar-red.svg");
+    -gtk-icon-transform: scale(1.0, 1.0);
+  }
+  25% {
+    -gtk-icon-source: url("assets/bar-yellow.svg");
+    -gtk-icon-transform: scale(1.0, 1.0);
+  }
+  49.9% {
+    -gtk-icon-source: url("assets/bar-yellow.svg");
+    -gtk-icon-transform: scale(0, 1.0);
+  }
+  50% {
+    -gtk-icon-source: url("assets/bar-green.svg");
+    -gtk-icon-transform: scale(0, 1.0);
+  }
+  74.9% {
+    -gtk-icon-source: url("assets/bar-green.svg");
+    -gtk-icon-transform: scale(1.0, 1.0);
+  }
+  75% {
+    -gtk-icon-source: url("assets/bar-blue.svg");
+    -gtk-icon-transform: scale(1.0, 1.0);
+  }
+  99.9% {
+    -gtk-icon-source: url("assets/bar-blue.svg");
+    -gtk-icon-transform: scale(0, 1.0);
+  }
+  100% {
+    -gtk-icon-source: url("assets/bar-red.svg");
+    -gtk-icon-transform: scale(0, 1.0);
+  }
 }
 
 .spinner {
-  color: $accent_color;
   background-color: blue;
   background-image: none;
   opacity: 0; // non spinning spinner makes no sense
-  -gtk-icon-source: -gtk-scaled(url("assets/process-working.svg"));
+  -gtk-icon-source: url("assets/bar-red.svg");
   &:active {
     opacity: 1.0;
-    animation: spin 1s linear infinite;
+    animation: colorful_bar 2s linear infinite;
     &:insensitive { opacity: 0.4; }
     &:backdrop { opacity: 0.8; }
   }
