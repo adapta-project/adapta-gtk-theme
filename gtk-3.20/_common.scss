@@ -4222,7 +4222,11 @@ infobar {
 .question,
 .warning,
 .error {
-  color: $secondary_fg_color;
+  // always use dark forefground
+  &:not(.error) {
+    color: if($variant=='light', $secondary_fg_color,
+                                 $secondary_fixed_fg_color);
+  }
 
   button {
     @extend button.flat;
