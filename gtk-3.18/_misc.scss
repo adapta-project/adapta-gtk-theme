@@ -645,3 +645,21 @@ ContactsWindow {
   }
 }
 
+
+/******************
+ * Gnome-Terminal *
+ ******************/
+
+TerminalScreen,
+TerminalWindow.background { // dark variant as default
+  background-color: $inverted_dark_color;
+  color: $selected_fg_color;
+}
+
+TerminalWindow {
+  .scrollbar.trough { // hide trough
+    background-color: transparent;
+    border: 1px none transparent;
+  }
+}
+
