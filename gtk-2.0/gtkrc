@@ -1706,9 +1706,37 @@ style "menubar" {
   ythickness = 0
 
   bg[NORMAL] = "#2A373E"
+
   fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
   fg[PRELIGHT] = @selected_fg_color
   fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @fg_color)
+
+  engine "pixmap" {
+    image {
+      function    = BOX
+      file        = "Shadows/z-depth-1.svg"
+      border      = { 1, 1, 1, 1 }
+      stretch     = TRUE
+      recolorable = TRUE
+    }
+  }
+}
+
+style "menubar_libreoffice" {
+  xthickness = 0
+  ythickness = 0
+
+  bg[NORMAL] = @bg_color
+
+  fg[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
+  fg[PRELIGHT] = shade(0.96, @fg_color)
+  fg[SELECTED] = shade(0.96, @fg_color)
+  fg[INSENSITIVE] = mix(0.6, @fg_color, @selected_fg_color)
+
+  text[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
+  text[PRELIGHT] = shade(0.96, @fg_color)
+  text[SELECTED] = shade(0.96, @fg_color)
+  text[INSENSITIVE] = mix(0.6, @fg_color, @selected_fg_color)
 
   engine "pixmap" {
     image {
@@ -1730,6 +1758,35 @@ style "menubar_item" {
   fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
   fg[PRELIGHT] = @selected_fg_color
   fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @fg_color)
+
+  engine "pixmap" {
+    image {
+      function    = BOX
+      recolorable = TRUE
+      state       = PRELIGHT
+      file        = "Others/top.svg"
+      border      = { 0, 0, 0, 2 }
+      stretch     = TRUE
+    }
+  }
+}
+
+style "menubar_item_libreoffice" {
+  xthickness = 3
+  ythickness = 6
+
+  bg[PRELIGHT] = @bg_color
+  bg[SELECTED] = @bg_color
+
+  fg[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
+  fg[PRELIGHT] = shade(0.96, @fg_color)
+  fg[SELECTED] = shade(0.96, @fg_color)
+  fg[INSENSITIVE] = mix(0.6, @fg_color, @selected_fg_color)
+
+  text[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
+  text[PRELIGHT] = shade(0.96, @fg_color)
+  text[SELECTED] = shade(0.96, @fg_color)
+  text[INSENSITIVE] = mix(0.6, @fg_color, @selected_fg_color)
 
   engine "pixmap" {
     image {
@@ -1771,7 +1828,7 @@ style "menu_framed_box" {
 
 style "menu_item" {
   xthickness = 4
-  ythickness = 4
+  ythickness = 7
 
   # HACK: Gtk doesn't actually read this value
   # while rendering the menu items, but Libreoffice
@@ -1782,10 +1839,13 @@ style "menu_item" {
   # but at least it's readable.
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
   bg[SELECTED] = shade(0.94, @base_color)
-
   bg[PRELIGHT] = shade(0.94, @base_color)
+
   fg[PRELIGHT] = shade(0.96, @fg_color)
+  fg[SELECTED] = shade(0.96, @fg_color)
+
   text[PRELIGHT] = shade(0.96, @fg_color)
+  text[SELECTED] = shade(0.96, @fg_color)
 
   engine "pixmap" {
 
@@ -2422,10 +2482,10 @@ widget "gtk-tooltips*"     style "eclipse-tooltips"
 widget "*swt-toolbar-flat" style "null"
 
 # Openoffice, Libreoffice
-class "GtkWindow"                              style "toplevel_hack"
-widget "*openoffice-toplevel*"                 style "ooo_stepper_hack"
-widget "*openoffice-toplevel*GtkToolbar"       style "inline_toolbar"
-# widget "*openoffice-toplevel*GtkEntry"       style "libreoffice_entry"
-# widget "*openoffice-toplevel*GtkSpinButton"  style "libreoffice_entry"
+class "GtkWindow"                                      style "toplevel_hack"
+widget "*libreoffice-toplevel*"                        style "ooo_stepper_hack"
+widget "*libreoffice-toplevel*GtkToolbar"              style "toolbar"
+widget "*libreoffice-toplevel*GtkMenuBar"              style "menubar_libreoffice"
+widget "*libreoffice-toplevel*GtkMenuBar.*GtkMenuItem" style "menubar_item_libreoffice"
 # widget "*libreoffice-toplevel*GtkEntry"      style "libreoffice_entry"
 # widget "*libreoffice-toplevel*GtkSpinButton" style "libreoffice_entry"
