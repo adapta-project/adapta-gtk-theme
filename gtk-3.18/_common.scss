@@ -1011,12 +1011,13 @@ GtkComboBox {
   border-width: 0;
   background-color: $bg_color;
   color: $secondary_fg_color;
-  &:not(.vertical):not(.inline-toolbar) { // draw shadows
-    box-shadow: if($variant=='light', $toolbar-shadow-light,
-                                      $toolbar-shadow-dark);
-  }
-
+  // draw shadows
+  box-shadow: if($variant=='light', $toolbar-shadow-light,
+                                    $toolbar-shadow-dark);
+  &.vertical,
+  .inline-toolbar &,
   GtkPaned &,
+  GtkEventBox &,
   GtkGrid &.primary-toolbar { // stop drawing fake-shadows
     box-shadow: none;
   }
