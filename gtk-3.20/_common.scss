@@ -2641,10 +2641,8 @@ notebook {
  * Scrollbars *
  **************/
 
-$_slider_margin: rem(3px);
-$_slider_fine_tune_margin: rem(4px);
-$_slider_min_width: rem(7px); // 7px + 3px * 2 -> 13px total
-$_slider_min_length: rem(24px) + $_slider_margin * 2;
+$_slider_min_width: rem(10px);
+$_slider_min_length: rem(32px);
 
 .scrollbar,
 scrollbar {
@@ -2655,67 +2653,48 @@ scrollbar {
     -GtkScrollbar-has-forward-stepper: false;
   }
 
-  background-color: gtkopacity($base_color, 0.9);
+  background-color: gtkopacity($base_color, 0.55);
   transition-duration: 0.2s;
 
   // scrollbar border
-  // FIXME: ephy still need trough?
-  &.top {
-    &, .trough { border-bottom: 1px solid $solid_light_borders_color; }
-  }
-  &.bottom {
-    &, .trough { border-top: 1px solid $solid_light_borders_color; }
-  }
-  &.left {
-    &, .trough { border-right: 1px solid $solid_light_borders_color; }
-  }
+  &.top,
+  &.bottom,
+  &.left,
   &.right {
-    &, .trough { border-left: 1px solid $solid_light_borders_color; }
+    &, .trough { border: none; }
   }
 
   // slider
   slider,
   .slider {
-    margin: $_slider_margin;
-    border-radius: 100px;
+    margin: 0;
+    border-radius: 0;
     border: 0 none transparent;
-    background-color: $tertiary_fg_color;
-    &:hover { background-color: $secondary_fg_color; }
+    background-color: gtkopacity($tertiary_fg_color, 0.55);
+    &:hover { background-color: gtkopacity($secondary_fg_color, 0.55); }
     &:active { background-color: $fg_color; }
     &:disabled { opacity: 0.4; }
   }
 
-  &.fine-tune slider { margin: $_slider_fine_tune_margin; }
+  &.fine-tune slider { margin: 0; }
 
   &.vertical {
     slider,
     .slider {
       min-width: $_slider_min_width;
       min-height: $_slider_min_length;
-      margin-left: rem(1px) + $_slider_margin;
-
-      &:dir(rtl) {
-        margin-left: $_slider_margin;
-        margin-right: rem(1px) + $_slider_margin;
-      }
+      margin: 0;
     }
-    &.fine-tune slider {
-      margin-left: rem(1px) + $_slider_fine_tune_margin;
-
-      &:dir(rtl) {
-        margin-left: $_slider_fine_tune_margin;
-        margin-right: rem(1px) + $_slider_fine_tune_margin;
-      }
-    }
+    &.fine-tune slider { margin: 0; }
   }
   &.horizontal {
     slider,
     .slider {
       min-width: $_slider_min_length;
       min-height: $_slider_min_width;
-      margin-top: rem(1px) + $_slider_margin;
+      margin: 0;
     }
-    &.fine-tune slider { margin-top: rem(1px) + $_slider_fine_tune_margin; }
+    &.fine-tune slider { margin: 0; }
   }
 
   &.overlay-indicator {
@@ -2724,16 +2703,16 @@ scrollbar {
       background-color: transparent;
 
       slider {
-        margin: $_slider_margin;
+        margin: 0;
         border: 0 none transparent;
       }
 
       button {
-        min-width: $_slider_min_width - rem(1px);
-        min-height: $_slider_min_length - rem(1px);
-        background-color: $tertiary_fg_color;
-        border-radius: 100px;
-        border: 1px solid $solid_light_borders_color;
+        min-width: $_slider_min_width;
+        min-height: $_slider_min_width;
+        background-color: gtkopacity($tertiary_fg_color, 0.55);
+        border-radius: 0;
+        border: none;
         -gtk-icon-source: none;
       }
 
@@ -2741,29 +2720,27 @@ scrollbar {
       // when hovering/dragging
       &.vertical {
         slider {
-          min-width: $_slider_min_width;
+          min-width: $_slider_min_width - rem(4px);
           min-height: $_slider_min_length;
-          margin-top: $_slider_margin;
-          margin-bottom: $_slider_margin;
+          margin: 0;
         }
 
         button {
-          margin: rem(1px) rem(2px);
-          min-width: rem(12px);
+          min-width: rem(6px);
+          margin: 0;
         }
       }
 
       &.horizontal {
         slider {
           min-width: $_slider_min_length;
-          min-height: $_slider_min_width;
-          margin-left: $_slider_margin;
-          margin-right: $_slider_margin;
+          min-height: $_slider_min_width - rem(4px);
+          margin: 0;
         }
 
         button {
-          margin: rem(2px) rem(1px);
-          min-height: rem(12px);
+          min-height: rem(6px);
+          margin: 0;
         }
       }
     }

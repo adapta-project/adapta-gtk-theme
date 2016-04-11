@@ -4085,40 +4085,34 @@ notebook {
  **************/
 .scrollbar,
 scrollbar {
-  background-color: rgba(69, 90, 100, 0.9);
+  background-color: rgba(69, 90, 100, 0.55);
   transition-duration: 0.2s; }
   * {
     -GtkScrollbar-has-backward-stepper: false;
     -GtkScrollbar-has-forward-stepper: false; }
-  .scrollbar.top, .scrollbar.top .trough,
+  .scrollbar.top, .scrollbar.top .trough, .scrollbar.bottom, .scrollbar.bottom .trough, .scrollbar.left, .scrollbar.left .trough, .scrollbar.right, .scrollbar.right .trough,
   scrollbar.top,
-  scrollbar.top .trough {
-    border-bottom: 1px solid #37474F; }
-  .scrollbar.bottom, .scrollbar.bottom .trough,
+  scrollbar.top .trough,
   scrollbar.bottom,
-  scrollbar.bottom .trough {
-    border-top: 1px solid #37474F; }
-  .scrollbar.left, .scrollbar.left .trough,
+  scrollbar.bottom .trough,
   scrollbar.left,
-  scrollbar.left .trough {
-    border-right: 1px solid #37474F; }
-  .scrollbar.right, .scrollbar.right .trough,
+  scrollbar.left .trough,
   scrollbar.right,
   scrollbar.right .trough {
-    border-left: 1px solid #37474F; }
+    border: none; }
   .scrollbar slider,
   .scrollbar .slider,
   scrollbar slider,
   scrollbar .slider {
-    margin: 0.22556rem;
-    border-radius: 100px;
+    margin: 0;
+    border-radius: 0;
     border: 0 none transparent;
-    background-color: rgba(236, 239, 241, 0.5); }
+    background-color: rgba(236, 239, 241, 0.275); }
     .scrollbar slider:hover,
     .scrollbar .slider:hover,
     scrollbar slider:hover,
     scrollbar .slider:hover {
-      background-color: rgba(236, 239, 241, 0.75); }
+      background-color: rgba(236, 239, 241, 0.4125); }
     .scrollbar slider:active,
     .scrollbar .slider:active,
     scrollbar slider:active,
@@ -4131,73 +4125,61 @@ scrollbar {
       opacity: 0.4; }
   .scrollbar.fine-tune slider,
   scrollbar.fine-tune slider {
-    margin: 0.30075rem; }
+    margin: 0; }
   .scrollbar.vertical slider,
   .scrollbar.vertical .slider,
   scrollbar.vertical slider,
   scrollbar.vertical .slider {
-    min-width: 0.52632rem;
-    min-height: 2.25564rem;
-    margin-left: 0.30075rem; }
-    .scrollbar.vertical slider:dir(rtl),
-    .scrollbar.vertical .slider:dir(rtl),
-    scrollbar.vertical slider:dir(rtl),
-    scrollbar.vertical .slider:dir(rtl) {
-      margin-left: 0.22556rem;
-      margin-right: 0.30075rem; }
+    min-width: 0.75188rem;
+    min-height: 2.40602rem;
+    margin: 0; }
   .scrollbar.vertical.fine-tune slider,
   scrollbar.vertical.fine-tune slider {
-    margin-left: 0.37594rem; }
-    .scrollbar.vertical.fine-tune slider:dir(rtl),
-    scrollbar.vertical.fine-tune slider:dir(rtl) {
-      margin-left: 0.30075rem;
-      margin-right: 0.37594rem; }
+    margin: 0; }
   .scrollbar.horizontal slider,
   .scrollbar.horizontal .slider,
   scrollbar.horizontal slider,
   scrollbar.horizontal .slider {
-    min-width: 2.25564rem;
-    min-height: 0.52632rem;
-    margin-top: 0.30075rem; }
+    min-width: 2.40602rem;
+    min-height: 0.75188rem;
+    margin: 0; }
   .scrollbar.horizontal.fine-tune slider,
   scrollbar.horizontal.fine-tune slider {
-    margin-top: 0.37594rem; }
+    margin: 0; }
   .scrollbar.overlay-indicator:not(.dragging):not(.hovering),
   scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
     border-color: transparent;
     background-color: transparent; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
-      margin: 0.22556rem;
+      margin: 0;
       border: 0 none transparent; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering) button,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering) button {
-      min-width: 0.45113rem;
-      min-height: 2.18045rem;
-      background-color: rgba(236, 239, 241, 0.5);
-      border-radius: 100px;
-      border: 1px solid #37474F;
+      min-width: 0.75188rem;
+      min-height: 0.75188rem;
+      background-color: rgba(236, 239, 241, 0.275);
+      border-radius: 0;
+      border: none;
       -gtk-icon-source: none; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider {
-      min-width: 0.52632rem;
-      min-height: 2.25564rem;
-      margin-top: 0.22556rem;
-      margin-bottom: 0.22556rem; }
+      min-width: 0.45113rem;
+      min-height: 2.40602rem;
+      margin: 0; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button {
-      margin: 0.07519rem 0.15038rem;
-      min-width: 0.90226rem; }
+      min-width: 0.45113rem;
+      margin: 0; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
-      min-width: 2.25564rem;
-      min-height: 0.52632rem;
-      margin-left: 0.22556rem;
-      margin-right: 0.22556rem; }
+      min-width: 2.40602rem;
+      min-height: 0.45113rem;
+      margin: 0; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal button,
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal button {
-      margin: 0.15038rem 0.07519rem;
-      min-height: 0.90226rem; }
+      min-height: 0.45113rem;
+      margin: 0; }
   .scrollbar.overlay-indicator.dragging, .scrollbar.overlay-indicator.hovering,
   scrollbar.overlay-indicator.dragging,
   scrollbar.overlay-indicator.hovering {
