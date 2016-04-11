@@ -298,6 +298,17 @@ SeahorseWidget {
   }
 }
 
+window paned > box.vertical {
+  // remove drop-shadow
+  > box.vertical > toolbar.primary-toolbar {
+    box-shadow: none;
+    border-bottom: 1px solid $borders_color;
+  }
+
+  // fill with base_color
+  > scrolledwindow { background-color: $base_color; }
+}
+
 
 /**********
  * Polari *

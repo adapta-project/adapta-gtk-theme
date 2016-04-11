@@ -1609,7 +1609,7 @@ toolbar {
   color: rgba(236, 239, 241, 0.75); }
   toolbar:not(.vertical):not(.inline-toolbar) {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.22), inset 0 4px 3px -4px rgba(0, 0, 0, 0.22), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
-  paned toolbar, grid toolbar.primary-toolbar {
+  paned toolbar, paned toolbar.primary-toolbar, grid toolbar.primary-toolbar {
     box-shadow: none; }
   .osd toolbar {
     background-color: transparent; }
@@ -9114,6 +9114,12 @@ EphyWindow .nautilus-window .floating-bar {
  ************/
 SeahorseWidget .sidebar paned separator, SeahorseWidget #polari-sidebar paned separator {
   border: none; }
+
+window paned > box.vertical > box.vertical > toolbar.primary-toolbar {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11); }
+window paned > box.vertical > scrolledwindow, window paned > box.vertical > placessidebar {
+  background-color: #455A64; }
 
 /**********
  * Polari *
