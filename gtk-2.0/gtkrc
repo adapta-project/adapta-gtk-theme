@@ -44,7 +44,7 @@ style "default" {
   GtkScrollbar::activate-slider = 1
   GtkScrollbar::has-backward-stepper = 0  
   GtkScrollbar::has-forward-stepper = 0
-  GtkScrollbar::min-slider-length = 24
+  GtkScrollbar::min-slider-length = 32
   GtkScrolledWindow::scrollbar-spacing = 0
   GtkScrolledWindow::scrollbars-within-bevel = 1
 
@@ -814,7 +814,7 @@ style "range" {
 }
 
 style "ooo_stepper_hack" {
- GtkScrollbar::stepper-size         = 17
+ GtkScrollbar::stepper-size         = 8
  GtkScrollbar::has-backward-stepper = 1
  GtkScrollbar::has-forward-stepper  = 1
 }
@@ -834,7 +834,7 @@ style "scrollbar" {
       function    = BOX
       state       = INSENSITIVE
       detail      = "trough"
-      file        = "Scrollbars/h-trough-insensitive.png"
+      file        = "Scrollbars/h-trough.png"
       border      = { 0, 0, 1, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
@@ -852,7 +852,7 @@ style "scrollbar" {
       function    = BOX
       state       = INSENSITIVE
       detail      = "trough"
-      file        = "Scrollbars/v-trough-insensitive.png"
+      file        = "Scrollbars/v-trough.png"
       border      = { 1, 0, 0, 0 }
       stretch     = TRUE
       orientation = VERTICAL
@@ -865,7 +865,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = NORMAL
       file        = "Scrollbars/h-slider.png" 
-      border      = { 8, 8, 9, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
     }
@@ -873,7 +873,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = PRELIGHT
       file        = "Scrollbars/h-slider-hover.png" 
-      border      = { 8, 8, 9, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
     }
@@ -881,7 +881,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = ACTIVE
       file        = "Scrollbars/h-slider-active.png" 
-      border      = { 8, 8, 9, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
     }
@@ -890,7 +890,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = INSENSITIVE
       file        = "Scrollbars/h-slider-insensitive.png"
-      border      = { 8, 8, 9, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
     }
@@ -900,7 +900,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = NORMAL
       file        = "Scrollbars/v-slider.png" 
-      border      = { 9, 8, 8, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = VERTICAL
     }
@@ -908,7 +908,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = PRELIGHT
       file        = "Scrollbars/v-slider-hover.png"
-      border      = { 9, 8, 8, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = VERTICAL
     }
@@ -916,7 +916,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = ACTIVE
       file        = "Scrollbars/v-slider-active.png" 
-      border      = { 9, 8, 8, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = VERTICAL
     }
@@ -924,7 +924,7 @@ style "scrollbar" {
       function    = SLIDER
       state       = INSENSITIVE
       file        = "Scrollbars/v-slider-insensitive.png"
-      border      = { 9, 8, 8, 8 }
+      border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = VERTICAL
     }
