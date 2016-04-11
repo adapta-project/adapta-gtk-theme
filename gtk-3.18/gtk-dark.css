@@ -5308,6 +5308,10 @@ GtkVolumeButton.button {
     border: none;
     box-shadow: none; }
 
+@keyframes ripple_color {
+  to {
+    color: alpha(#00BCD4, 0);
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(#00BCD4, 1)), to(transparent)); } }
 .header-bar .button.titlebutton.close:hover, .header-bar.selection-mode .button.titlebutton.close:hover,
 .titlebar .button.titlebutton.close:hover,
 .titlebar.selection-mode .button.titlebutton.close:hover {
@@ -5319,12 +5323,10 @@ GtkVolumeButton.button {
 .header-bar .button.titlebutton.close:active, .header-bar.selection-mode .button.titlebutton.close:active,
 .titlebar .button.titlebutton.close:active,
 .titlebar.selection-mode .button.titlebutton.close:active {
+  color: alpha(#FFFFFF, 0.55);
+  background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(alpha(#00BCD4, 0)), to(transparent));
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
-  color: #ECEFF1;
-  transition-duration: 0;
-  animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  color: #FFFFFF;
-  background-color: #00BCD4; }
+  animation: ripple_color 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 .header-bar .button.titlebutton.close:hover:backdrop, .header-bar .button.titlebutton.close:active:backdrop, .header-bar.selection-mode .button.titlebutton.close:hover:backdrop, .header-bar.selection-mode .button.titlebutton.close:active:backdrop,
 .titlebar .button.titlebutton.close:hover:backdrop,
 .titlebar .button.titlebutton.close:active:backdrop,

@@ -3480,6 +3480,18 @@ GtkVolumeButton.button {
 }
 
 // Window manager buttons
+
+@keyframes ripple_color {
+  to {
+    color: gtkalpha($selected_bg_color, 0.0);
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.5,
+                                    to(gtkalpha($selected_bg_color, 1.0)),
+                                    to(transparent));
+  }
+}
+
 .header-bar,
 .titlebar {
   & .button.titlebutton,
@@ -3494,9 +3506,15 @@ GtkVolumeButton.button {
         background-color: $destructive_color;
       }
       &:active {
-        @include button(active);
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        color: gtkalpha($selected_fg_color, 0.55);
+        background-image: -gtk-gradient(radial,
+                                        center center, 0,
+                                        center center, 0.01,
+                                        to(gtkalpha($selected_bg_color, 0.0)),
+                                        to(transparent));
+        box-shadow: $z-depth-2,
+                    inset 0 1px $highlight_color;
+        animation: ripple_color 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
       &:hover:backdrop,
       &:active:backdrop { opacity: 1.0; }
