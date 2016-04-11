@@ -2078,7 +2078,7 @@ column-header.button.dnd { // for treeview-like derive widgets
  **************/
 
 .scrollbar {
-  -GtkRange-slider-width: 8;
+  -GtkRange-slider-width: 10;
   -GtkRange-trough-border: 0;
   -GtkScrollbar-has-backward-stepper: false;
   -GtkScrollbar-has-forward-stepper: false;
@@ -2095,7 +2095,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   &.overlay-indicator {
     &:not(.dragging):not(.hovering) { // Overlay scrolling indicator
-      -GtkRange-slider-width: 8px;
+      -GtkRange-slider-width: 10px; // actually 10 - 4 -> 6px slider
 
       .slider {
         margin: 0;
@@ -2112,8 +2112,18 @@ column-header.button.dnd { // for treeview-like derive widgets
       &.vertical .slider {
         margin-top: 0;
         margin-bottom: 0;
+        &:dir(ltr) {
+          margin-left: 0;
+          margin-right: 4px;
+        }
+        &:dir(ltr) {
+          margin-left: 4px;
+          margin-right: 0;
+        }
       }
       &.horizontal .slider {
+        margin-top: 0;
+        margin-bottom: 4px;
         margin-left: 0;
         margin-right: 0;
       }
