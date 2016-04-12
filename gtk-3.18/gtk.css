@@ -1545,17 +1545,22 @@ GtkComboBox {
     background-color: #00BCD4;
     color: #FFFFFF; }
     .titlebar.selection-mode .button,
+    .titlebar.selection-mode .button.text-button,
     .titlebar.selection-mode .flat.selection-menu,
     .titlebar.selection-mode .text-button.selection-menu,
     .titlebar.selection-mode .button.image-button,
     .header-bar.selection-mode .button,
+    .header-bar.selection-mode .button.text-button,
     .header-bar.selection-mode .flat.selection-menu,
     .header-bar.selection-mode .text-button.selection-menu,
     .header-bar.selection-mode .button.image-button {
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(#FFFFFF), to(transparent)) 0 0 0/0 0 0px;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.85);
       background-color: transparent; }
       .titlebar.selection-mode .button:hover, .titlebar.selection-mode .button:active, .titlebar.selection-mode .button:checked,
+      .titlebar.selection-mode .button.text-button:hover,
+      .titlebar.selection-mode .button.text-button:active,
+      .titlebar.selection-mode .button.text-button:checked,
       .titlebar.selection-mode .flat.selection-menu:hover,
       .titlebar.selection-mode .flat.selection-menu:active,
       .titlebar.selection-mode .flat.selection-menu:checked,
@@ -1568,6 +1573,9 @@ GtkComboBox {
       .header-bar.selection-mode .button:hover,
       .header-bar.selection-mode .button:active,
       .header-bar.selection-mode .button:checked,
+      .header-bar.selection-mode .button.text-button:hover,
+      .header-bar.selection-mode .button.text-button:active,
+      .header-bar.selection-mode .button.text-button:checked,
       .header-bar.selection-mode .flat.selection-menu:hover,
       .header-bar.selection-mode .flat.selection-menu:active,
       .header-bar.selection-mode .flat.selection-menu:checked,
@@ -1579,19 +1587,23 @@ GtkComboBox {
       .header-bar.selection-mode .button.image-button:checked {
         color: #FFFFFF; }
       .titlebar.selection-mode .button:insensitive,
+      .titlebar.selection-mode .button.text-button:insensitive,
       .titlebar.selection-mode .flat.selection-menu:insensitive,
       .titlebar.selection-mode .text-button.selection-menu:insensitive,
       .titlebar.selection-mode .button.image-button:insensitive,
       .header-bar.selection-mode .button:insensitive,
+      .header-bar.selection-mode .button.text-button:insensitive,
       .header-bar.selection-mode .flat.selection-menu:insensitive,
       .header-bar.selection-mode .text-button.selection-menu:insensitive,
       .header-bar.selection-mode .button.image-button:insensitive {
         color: rgba(236, 239, 241, 0.225); }
       .titlebar.selection-mode .button:checked,
+      .titlebar.selection-mode .button.text-button:checked,
       .titlebar.selection-mode .flat.selection-menu:checked,
       .titlebar.selection-mode .text-button.selection-menu:checked,
       .titlebar.selection-mode .button.image-button:checked,
       .header-bar.selection-mode .button:checked,
+      .header-bar.selection-mode .button.text-button:checked,
       .header-bar.selection-mode .flat.selection-menu:checked,
       .header-bar.selection-mode .text-button.selection-menu:checked,
       .header-bar.selection-mode .button.image-button:checked {
@@ -1599,28 +1611,34 @@ GtkComboBox {
         color: #FFFFFF;
         background-color: transparent; }
         .titlebar.selection-mode .button:checked:insensitive,
+        .titlebar.selection-mode .button.text-button:checked:insensitive,
         .titlebar.selection-mode .flat.selection-menu:checked:insensitive,
         .titlebar.selection-mode .text-button.selection-menu:checked:insensitive,
         .titlebar.selection-mode .button.image-button:checked:insensitive,
         .header-bar.selection-mode .button:checked:insensitive,
+        .header-bar.selection-mode .button.text-button:checked:insensitive,
         .header-bar.selection-mode .flat.selection-menu:checked:insensitive,
         .header-bar.selection-mode .text-button.selection-menu:checked:insensitive,
         .header-bar.selection-mode .button.image-button:checked:insensitive {
           color: rgba(255, 255, 255, 0.4); }
           .titlebar.selection-mode .button:checked:insensitive > .label,
+          .titlebar.selection-mode .button.text-button:checked:insensitive > .label,
           .titlebar.selection-mode .flat.selection-menu:checked:insensitive > .label,
           .titlebar.selection-mode .text-button.selection-menu:checked:insensitive > .label,
           .titlebar.selection-mode .button.image-button:checked:insensitive > .label,
           .header-bar.selection-mode .button:checked:insensitive > .label,
+          .header-bar.selection-mode .button.text-button:checked:insensitive > .label,
           .header-bar.selection-mode .flat.selection-menu:checked:insensitive > .label,
           .header-bar.selection-mode .text-button.selection-menu:checked:insensitive > .label,
           .header-bar.selection-mode .button.image-button:checked:insensitive > .label {
             color: inherit; }
       .titlebar.selection-mode .button.suggested-action,
+      .titlebar.selection-mode .button.text-button.suggested-action,
       .titlebar.selection-mode .flat.selection-menu.suggested-action,
       .titlebar.selection-mode .text-button.selection-menu.suggested-action,
       .titlebar.selection-mode .button.image-button.suggested-action,
       .header-bar.selection-mode .button.suggested-action,
+      .header-bar.selection-mode .button.text-button.suggested-action,
       .header-bar.selection-mode .flat.selection-menu.suggested-action,
       .header-bar.selection-mode .text-button.selection-menu.suggested-action,
       .header-bar.selection-mode .button.image-button.suggested-action {
@@ -1629,10 +1647,12 @@ GtkComboBox {
         background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
         color: rgba(38, 50, 56, 0.75); }
         .titlebar.selection-mode .button.suggested-action:hover,
+        .titlebar.selection-mode .button.text-button.suggested-action:hover,
         .titlebar.selection-mode .flat.selection-menu.suggested-action:hover,
         .titlebar.selection-mode .text-button.selection-menu.suggested-action:hover,
         .titlebar.selection-mode .button.image-button.suggested-action:hover,
         .header-bar.selection-mode .button.suggested-action:hover,
+        .header-bar.selection-mode .button.text-button.suggested-action:hover,
         .header-bar.selection-mode .flat.selection-menu.suggested-action:hover,
         .header-bar.selection-mode .text-button.selection-menu.suggested-action:hover,
         .header-bar.selection-mode .button.image-button.suggested-action:hover {
@@ -1640,10 +1660,12 @@ GtkComboBox {
           background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
           color: #263238; }
         .titlebar.selection-mode .button.suggested-action:active,
+        .titlebar.selection-mode .button.text-button.suggested-action:active,
         .titlebar.selection-mode .flat.selection-menu.suggested-action:active,
         .titlebar.selection-mode .text-button.selection-menu.suggested-action:active,
         .titlebar.selection-mode .button.image-button.suggested-action:active,
         .header-bar.selection-mode .button.suggested-action:active,
+        .header-bar.selection-mode .button.text-button.suggested-action:active,
         .header-bar.selection-mode .flat.selection-menu.suggested-action:active,
         .header-bar.selection-mode .text-button.selection-menu.suggested-action:active,
         .header-bar.selection-mode .button.image-button.suggested-action:active {
@@ -1652,10 +1674,12 @@ GtkComboBox {
           transition-duration: 0;
           animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
         .titlebar.selection-mode .button.suggested-action:insensitive,
+        .titlebar.selection-mode .button.text-button.suggested-action:insensitive,
         .titlebar.selection-mode .flat.selection-menu.suggested-action:insensitive,
         .titlebar.selection-mode .text-button.selection-menu.suggested-action:insensitive,
         .titlebar.selection-mode .button.image-button.suggested-action:insensitive,
         .header-bar.selection-mode .button.suggested-action:insensitive,
+        .header-bar.selection-mode .button.text-button.suggested-action:insensitive,
         .header-bar.selection-mode .flat.selection-menu.suggested-action:insensitive,
         .header-bar.selection-mode .text-button.selection-menu.suggested-action:insensitive,
         .header-bar.selection-mode .button.image-button.suggested-action:insensitive {
@@ -1663,10 +1687,12 @@ GtkComboBox {
           background-color: alpha(currentColor, 0.2);
           color: rgba(38, 50, 56, 0.225); }
           .titlebar.selection-mode .button.suggested-action:insensitive > .label,
+          .titlebar.selection-mode .button.text-button.suggested-action:insensitive > .label,
           .titlebar.selection-mode .flat.selection-menu.suggested-action:insensitive > .label,
           .titlebar.selection-mode .text-button.selection-menu.suggested-action:insensitive > .label,
           .titlebar.selection-mode .button.image-button.suggested-action:insensitive > .label,
           .header-bar.selection-mode .button.suggested-action:insensitive > .label,
+          .header-bar.selection-mode .button.text-button.suggested-action:insensitive > .label,
           .header-bar.selection-mode .flat.selection-menu.suggested-action:insensitive > .label,
           .header-bar.selection-mode .text-button.selection-menu.suggested-action:insensitive > .label,
           .header-bar.selection-mode .button.image-button.suggested-action:insensitive > .label {
@@ -4078,7 +4104,7 @@ GtkScrolledWindow GtkViewport.frame {
     color: rgba(38, 50, 56, 0.3); }
 
 .list-row:selected .button:insensitive, .tweak-category:selected .button:insensitive {
-  color: rgba(255, 255, 255, 0.3); }
+  color: rgba(255, 255, 255, 0.34); }
 .list-row:selected .button.flat, .tweak-category:selected .button.flat, .list-row:selected .button.osd.image-button, .tweak-category:selected .button.osd.image-button, .list-row:selected .inline-toolbar .button, .inline-toolbar .list-row:selected .button, .tweak-category:selected .inline-toolbar .button, .inline-toolbar .tweak-category:selected .button, .list-row:selected .action-bar .button, .action-bar .list-row:selected .button, .tweak-category:selected .action-bar .button, .action-bar .tweak-category:selected .button, .list-row:selected .inline-toolbar .linked > .button.image-button:not(.text-button), .inline-toolbar .list-row:selected .linked > .button.image-button:not(.text-button), .tweak-category:selected .inline-toolbar .linked > .button.image-button:not(.text-button), .inline-toolbar .tweak-category:selected .linked > .button.image-button:not(.text-button), .list-row:selected GtkButtonBox > .button, .tweak-category:selected GtkButtonBox > .button, .list-row:selected .app-notification .button, .app-notification .list-row:selected .button, .tweak-category:selected .app-notification .button, .app-notification .tweak-category:selected .button, .list-row:selected GeditViewFrame .gedit-search-slider .button, GeditViewFrame .gedit-search-slider .list-row:selected .button, .tweak-category:selected GeditViewFrame .gedit-search-slider .button, GeditViewFrame .gedit-search-slider .tweak-category:selected .button, .list-row:selected .toolbar .button, .toolbar .list-row:selected .button, .tweak-category:selected .toolbar .button, .toolbar .tweak-category:selected .button, .list-row:selected .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:not(.suggested-action):not(.destructive-action), .tweak-category:selected .titlebar .button:not(.suggested-action):not(.destructive-action), .titlebar .tweak-category:selected .button:not(.suggested-action):not(.destructive-action),
 .list-row:selected .header-bar .button:not(.suggested-action):not(.destructive-action),
 .header-bar .list-row:selected .button:not(.suggested-action):not(.destructive-action),
@@ -4100,7 +4126,7 @@ GtkScrolledWindow GtkViewport.frame {
 .tweak-category:selected GtkVolumeButton.button, .list-row:selected GfCandidatePopup .button, GfCandidatePopup .list-row:selected .button, .tweak-category:selected GfCandidatePopup .button, GfCandidatePopup .tweak-category:selected .button, .list-row:selected GfCandidatePopup .button:first-child, GfCandidatePopup .list-row:selected .button:first-child, .list-row:selected GfCandidatePopup .button:last-child, GfCandidatePopup .list-row:selected .button:last-child,
 .list-row:selected GfCandidatePopup .linked > .button,
 GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .list-row:selected .button:not(.flat):not(.titlebutton), .tweak-category:selected MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .tweak-category:selected .button:not(.flat):not(.titlebutton), .list-row:selected MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .list-row:selected .button:not(.flat):not(.titlebutton), .tweak-category:selected MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .tweak-category:selected .button:not(.flat):not(.titlebutton), .list-row:selected .budgie-session-dialog .button, .budgie-session-dialog .list-row:selected .button, .tweak-category:selected .budgie-session-dialog .button, .budgie-session-dialog .tweak-category:selected .button, .list-row:selected .budgie-polkit-dialog .button, .budgie-polkit-dialog .list-row:selected .button, .tweak-category:selected .budgie-polkit-dialog .button, .budgie-polkit-dialog .tweak-category:selected .button {
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.85); }
   .list-row:selected .button.flat:hover, .tweak-category:selected .button.flat:hover, .list-row:selected .button.osd.image-button:hover, .tweak-category:selected .button.osd.image-button:hover, .list-row:selected .inline-toolbar .button:hover, .inline-toolbar .list-row:selected .button:hover, .tweak-category:selected .inline-toolbar .button:hover, .inline-toolbar .tweak-category:selected .button:hover, .list-row:selected .action-bar .button:hover, .action-bar .list-row:selected .button:hover, .tweak-category:selected .action-bar .button:hover, .action-bar .tweak-category:selected .button:hover, .list-row:selected GtkButtonBox > .button:hover, .tweak-category:selected GtkButtonBox > .button:hover, .list-row:selected .app-notification .button:hover, .app-notification .list-row:selected .button:hover, .tweak-category:selected .app-notification .button:hover, .app-notification .tweak-category:selected .button:hover, .list-row:selected GeditViewFrame .gedit-search-slider .button:hover, GeditViewFrame .gedit-search-slider .list-row:selected .button:hover, .tweak-category:selected GeditViewFrame .gedit-search-slider .button:hover, GeditViewFrame .gedit-search-slider .tweak-category:selected .button:hover, .list-row:selected .toolbar .button:hover, .toolbar .list-row:selected .button:hover, .tweak-category:selected .toolbar .button:hover, .toolbar .tweak-category:selected .button:hover, .list-row:selected .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .list-row:selected .button:hover:not(.suggested-action):not(.destructive-action), .tweak-category:selected .titlebar .button:hover:not(.suggested-action):not(.destructive-action), .titlebar .tweak-category:selected .button:hover:not(.suggested-action):not(.destructive-action),
   .list-row:selected .header-bar .button:hover:not(.suggested-action):not(.destructive-action),
   .header-bar .list-row:selected .button:hover:not(.suggested-action):not(.destructive-action),
@@ -4164,7 +4190,7 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
   .tweak-category:selected GtkVolumeButton.button:insensitive, .list-row:selected GfCandidatePopup .button:insensitive, GfCandidatePopup .list-row:selected .button:insensitive, .tweak-category:selected GfCandidatePopup .button:insensitive, GfCandidatePopup .tweak-category:selected .button:insensitive, .list-row:selected GfCandidatePopup .button:insensitive:first-child, GfCandidatePopup .list-row:selected .button:insensitive:first-child, .list-row:selected GfCandidatePopup .button:insensitive:last-child, GfCandidatePopup .list-row:selected .button:insensitive:last-child,
   .list-row:selected GfCandidatePopup .linked > .button:insensitive,
   GfCandidatePopup .list-row:selected .linked > .button:insensitive, .list-row:selected MathWindow :not(.titlebar) .button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .list-row:selected .button:insensitive:not(.flat):not(.titlebutton), .tweak-category:selected MathWindow :not(.titlebar) .button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .tweak-category:selected .button:insensitive:not(.flat):not(.titlebutton), .list-row:selected MathWindow :not(.header-bar) .button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .list-row:selected .button:insensitive:not(.flat):not(.titlebutton), .tweak-category:selected MathWindow :not(.header-bar) .button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .tweak-category:selected .button:insensitive:not(.flat):not(.titlebutton), .list-row:selected .budgie-session-dialog .button:insensitive, .budgie-session-dialog .list-row:selected .button:insensitive, .tweak-category:selected .budgie-session-dialog .button:insensitive, .budgie-session-dialog .tweak-category:selected .button:insensitive, .list-row:selected .budgie-polkit-dialog .button:insensitive, .budgie-polkit-dialog .list-row:selected .button:insensitive, .tweak-category:selected .budgie-polkit-dialog .button:insensitive, .budgie-polkit-dialog .tweak-category:selected .button:insensitive {
-    color: rgba(255, 255, 255, 0.3); }
+    color: rgba(255, 255, 255, 0.34); }
 
 .list-row .button.image-button, .tweak-category .button.image-button {
   padding: 0.4em;
