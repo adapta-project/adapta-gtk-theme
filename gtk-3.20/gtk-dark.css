@@ -2855,7 +2855,7 @@ headerbar {
     headerbar.selection-mode button,
     headerbar.selection-mode button.image-button {
       border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(#FFFFFF), to(transparent)) 0 0 0/0 0 0px;
-      color: rgba(255, 255, 255, 0.75); }
+      color: rgba(255, 255, 255, 0.85); }
       .titlebar.selection-mode button:hover, .titlebar.selection-mode button:active, .titlebar.selection-mode button:checked,
       .titlebar.selection-mode button.image-button:hover,
       .titlebar.selection-mode button.image-button:active,
@@ -2924,6 +2924,42 @@ headerbar {
           headerbar.selection-mode button.suggested-action:disabled > label,
           headerbar.selection-mode button.image-button.suggested-action:disabled > label {
             color: inherit; }
+      .titlebar.selection-mode button.text-button, .titlebar.selection-mode button.suggested-action,
+      .titlebar.selection-mode button.image-button.text-button,
+      .titlebar.selection-mode button.image-button.suggested-action,
+      headerbar.selection-mode button.text-button,
+      headerbar.selection-mode button.suggested-action,
+      headerbar.selection-mode button.image-button.text-button,
+      headerbar.selection-mode button.image-button.suggested-action {
+        color: rgba(255, 255, 255, 0.85); }
+        .titlebar.selection-mode button.text-button:hover, .titlebar.selection-mode button.text-button:active, .titlebar.selection-mode button.text-button:checked, .titlebar.selection-mode button.suggested-action:hover, .titlebar.selection-mode button.suggested-action:active, .titlebar.selection-mode button.suggested-action:checked,
+        .titlebar.selection-mode button.image-button.text-button:hover,
+        .titlebar.selection-mode button.image-button.text-button:active,
+        .titlebar.selection-mode button.image-button.text-button:checked,
+        .titlebar.selection-mode button.image-button.suggested-action:hover,
+        .titlebar.selection-mode button.image-button.suggested-action:active,
+        .titlebar.selection-mode button.image-button.suggested-action:checked,
+        headerbar.selection-mode button.text-button:hover,
+        headerbar.selection-mode button.text-button:active,
+        headerbar.selection-mode button.text-button:checked,
+        headerbar.selection-mode button.suggested-action:hover,
+        headerbar.selection-mode button.suggested-action:active,
+        headerbar.selection-mode button.suggested-action:checked,
+        headerbar.selection-mode button.image-button.text-button:hover,
+        headerbar.selection-mode button.image-button.text-button:active,
+        headerbar.selection-mode button.image-button.text-button:checked,
+        headerbar.selection-mode button.image-button.suggested-action:hover,
+        headerbar.selection-mode button.image-button.suggested-action:active,
+        headerbar.selection-mode button.image-button.suggested-action:checked {
+          color: #FFFFFF; }
+        .titlebar.selection-mode button.text-button:disabled, .titlebar.selection-mode button.suggested-action:disabled,
+        .titlebar.selection-mode button.image-button.text-button:disabled,
+        .titlebar.selection-mode button.image-button.suggested-action:disabled,
+        headerbar.selection-mode button.text-button:disabled,
+        headerbar.selection-mode button.suggested-action:disabled,
+        headerbar.selection-mode button.image-button.text-button:disabled,
+        headerbar.selection-mode button.image-button.suggested-action:disabled {
+          color: rgba(255, 255, 255, 0.4); }
     .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action),
     headerbar.selection-mode button:not(.suggested-action):not(.destructive-action) {
       border-radius: 100px;
@@ -3148,7 +3184,7 @@ headerbar {
     headerbar.selection-mode .selection-menu {
       padding-left: 1.20301rem;
       padding-right: 1.20301rem;
-      color: rgba(255, 255, 255, 0.75); }
+      color: rgba(255, 255, 255, 0.85); }
       .titlebar.selection-mode .selection-menu:hover, .titlebar.selection-mode .selection-menu:active, .titlebar.selection-mode .selection-menu:checked,
       headerbar.selection-mode .selection-menu:hover,
       headerbar.selection-mode .selection-menu:active,
@@ -3177,7 +3213,7 @@ headerbar {
       .titlebar.selection-mode .selection-menu .arrow,
       headerbar.selection-mode .selection-menu .arrow {
         -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-        color: rgba(255, 255, 255, 0.75); }
+        color: rgba(255, 255, 255, 0.85); }
   .tiled .titlebar, .tiled
   headerbar {
     transition: none; }
@@ -6463,7 +6499,7 @@ row button.image-button {
   background-size: 2.44361rem 2.44361rem, auto; }
 
 row:selected button:disabled {
-  color: rgba(255, 255, 255, 0.3); }
+  color: rgba(255, 255, 255, 0.34); }
 row:selected button.flat, row:selected buttonbox button, buttonbox row:selected button, row:selected buttonbox.dialog-action-area button, buttonbox.dialog-action-area row:selected button, row:selected button.osd.image-button,
 row:selected .button.osd.image-button, row:selected .inline-toolbar button, .inline-toolbar row:selected button, row:selected .inline-toolbar button.image-button:not(.text-button), .inline-toolbar row:selected button.image-button:not(.text-button),
 row:selected button actionbar,
@@ -6492,7 +6528,7 @@ row:selected GfCandidatePopup .linked > button,
 GfCandidatePopup row:selected .linked > button, row:selected window > grid.vertical > box.vertical > widget button, window > grid.vertical > box.vertical > widget row:selected button, row:selected layouttabbar button, layouttabbar row:selected button, row:selected layouttab button, layouttab row:selected button, row:selected actionbar button, actionbar row:selected button,
 row:selected actionbar .linked > button.image-button,
 actionbar row:selected .linked > button.image-button, row:selected .budgie-session-dialog button, .budgie-session-dialog row:selected button, row:selected .budgie-polkit-dialog button, .budgie-polkit-dialog row:selected button, row:selected window grid > widget > box > button.image-button, window row:selected grid > widget > box > button.image-button {
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.85); }
   row:selected button.flat:hover, row:selected buttonbox button:hover, buttonbox row:selected button:hover, row:selected buttonbox.dialog-action-area button:hover, buttonbox.dialog-action-area row:selected button:hover, row:selected button.osd.image-button:hover,
   row:selected .button.osd.image-button:hover, row:selected .inline-toolbar button:hover, .inline-toolbar row:selected button:hover,
   row:selected button actionbar:hover,
@@ -6571,7 +6607,7 @@ actionbar row:selected .linked > button.image-button, row:selected .budgie-sessi
   GfCandidatePopup row:selected .linked > button:disabled, row:selected window > grid.vertical > box.vertical > widget button:disabled, window > grid.vertical > box.vertical > widget row:selected button:disabled, row:selected layouttabbar button:disabled, layouttabbar row:selected button:disabled, row:selected layouttab button:disabled, layouttab row:selected button:disabled, row:selected actionbar button:disabled, actionbar row:selected button:disabled,
   row:selected actionbar .linked > button.image-button:disabled,
   actionbar row:selected .linked > button.image-button:disabled, row:selected .budgie-session-dialog button:disabled, .budgie-session-dialog row:selected button:disabled, row:selected .budgie-polkit-dialog button:disabled, .budgie-polkit-dialog row:selected button:disabled, row:selected window grid > widget > box > button.image-button:disabled, window row:selected grid > widget > box > button.image-button:disabled {
-    color: rgba(255, 255, 255, 0.3); }
+    color: rgba(255, 255, 255, 0.34); }
 
 row:hover {
   transition: none; }
