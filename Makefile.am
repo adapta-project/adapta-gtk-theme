@@ -1,5 +1,4 @@
 EXTRA_DIST = \
-	cinnamon \
 	COPYING \
 	gnome-shell \
 	gtk-2.0 \
