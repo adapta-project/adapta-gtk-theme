@@ -3272,6 +3272,11 @@ headerbar {
   box headerbar:not(:only-child):last-child:dir(rtl) {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 5px 0 0 -1px #2a373e, 2px 0 0 -1px rgba(0, 0, 0, 0.09); }
 
+box headerbar.selection-mode:not(:only-child):last-child:dir(ltr) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), -5px 0 0 -1px #00BCD4; }
+box headerbar.selection-mode:not(:only-child):last-child:dir(rtl) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.26), 0 2px 3px rgba(0, 0, 0, 0.32), 5px 0 0 -1px #00BCD4; }
+
 headerbar,
 .titlebar {
   border-top-left-radius: 2px;
@@ -3296,7 +3301,7 @@ headerbar,
   box-shadow: none; }
 
 .tiled .titlebar, .tiled
-headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerbar:only-child, .tiled box headerbar:not(:only-child):last-child:dir(ltr), .tiled box headerbar:not(:only-child):last-child:dir(rtl), .tiled paned headerbar:not(:only-child):last-child:dir(ltr), .tiled paned headerbar:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar {
+headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerbar:only-child, .tiled box headerbar:not(:only-child):last-child:dir(ltr), .tiled box headerbar:not(:only-child):last-child:dir(rtl), .tiled paned headerbar:not(:only-child):last-child:dir(ltr), .tiled paned headerbar:not(:only-child):last-child:dir(rtl), .tiled box headerbar.selection-mode:not(:only-child):last-child:dir(ltr), .tiled box headerbar.selection-mode:not(:only-child):last-child:dir(rtl), .tiled .ssd decoration .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 2px 0 0 0;
@@ -3308,7 +3313,7 @@ headerbar, .tiled headerbar.titlebar, .tiled .csd headerbar, .tiled box headerba
     border-top-color: alpha(currentColor, 0.2); }
 
 .maximized .titlebar, .maximized
-headerbar, .maximized headerbar.titlebar, .maximized .csd headerbar, .maximized box headerbar:only-child, .maximized box headerbar:not(:only-child):last-child:dir(ltr), .maximized box headerbar:not(:only-child):last-child:dir(rtl), .maximized paned headerbar:not(:only-child):last-child:dir(ltr), .maximized paned headerbar:not(:only-child):last-child:dir(rtl), .maximized .ssd decoration .titlebar {
+headerbar, .maximized headerbar.titlebar, .maximized .csd headerbar, .maximized box headerbar:only-child, .maximized box headerbar:not(:only-child):last-child:dir(ltr), .maximized box headerbar:not(:only-child):last-child:dir(rtl), .maximized paned headerbar:not(:only-child):last-child:dir(ltr), .maximized paned headerbar:not(:only-child):last-child:dir(rtl), .maximized box headerbar.selection-mode:not(:only-child):last-child:dir(ltr), .maximized box headerbar.selection-mode:not(:only-child):last-child:dir(rtl), .maximized .ssd decoration .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 1px 0 0 0;
