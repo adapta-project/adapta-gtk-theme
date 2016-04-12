@@ -2645,6 +2645,16 @@ notebook {
 $_slider_min_width: rem(10px);
 $_slider_min_length: rem(32px);
 
+@keyframes slow_down_vert {
+  from {min-width: $_slider_min_width - rem(4px); }
+  to { min-width: $_slider_min_width; }
+}
+
+@keyframes slow_down_horz {
+  from {min-height: $_slider_min_width - rem(4px); }
+  to { min-height: $_slider_min_width; }
+}
+
 .scrollbar,
 scrollbar {
   @extend %fade_effect;
@@ -2748,6 +2758,11 @@ scrollbar {
 
     &.dragging,
     &.hovering { opacity: 0.8; }
+
+    &.hovering { // slow-down when deforming
+      &.vertical slider { animation: slow_down_vert 0.2s linear forwards; }
+      &.horizontal slider { animation: slow_down_horz 0.2s linear forwards; }
+    }
   }
 }
 

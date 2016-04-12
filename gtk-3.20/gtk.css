@@ -4083,6 +4083,16 @@ notebook {
 /**************
  * Scrollbars *
  **************/
+@keyframes slow_down_vert {
+  from {
+    min-width: 0.45113rem; }
+  to {
+    min-width: 0.75188rem; } }
+@keyframes slow_down_horz {
+  from {
+    min-height: 0.45113rem; }
+  to {
+    min-height: 0.75188rem; } }
 .scrollbar,
 scrollbar {
   background-color: rgba(255, 255, 255, 0.55);
@@ -4184,6 +4194,12 @@ scrollbar {
   scrollbar.overlay-indicator.dragging,
   scrollbar.overlay-indicator.hovering {
     opacity: 0.8; }
+  .scrollbar.overlay-indicator.hovering.vertical slider,
+  scrollbar.overlay-indicator.hovering.vertical slider {
+    animation: slow_down_vert 0.2s linear forwards; }
+  .scrollbar.overlay-indicator.hovering.horizontal slider,
+  scrollbar.overlay-indicator.hovering.horizontal slider {
+    animation: slow_down_horz 0.2s linear forwards; }
 
 /**********
  * Switch *
