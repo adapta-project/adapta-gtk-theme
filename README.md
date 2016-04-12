@@ -24,12 +24,12 @@ Supported Desktop Environments
 * GNOME-Flashback 3.18.x
 * budgie-desktop 10.2.x
 * Unity7 7.4.0
-* Cinnamon 2.8.x
 
-Unity and Cinnamon are under W.I.P state.
+Unity is under W.I.P state.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
+* Cinnamon
 * Mate
 * XFce4
 * Pantheon
