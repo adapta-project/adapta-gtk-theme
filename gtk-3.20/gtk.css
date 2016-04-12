@@ -3183,30 +3183,36 @@ headerbar {
     .titlebar.selection-mode .selection-menu,
     headerbar.selection-mode .selection-menu {
       padding-left: 1.20301rem;
-      padding-right: 1.20301rem;
-      color: rgba(255, 255, 255, 0.85); }
-      .titlebar.selection-mode .selection-menu:hover, .titlebar.selection-mode .selection-menu:active, .titlebar.selection-mode .selection-menu:checked,
-      headerbar.selection-mode .selection-menu:hover,
-      headerbar.selection-mode .selection-menu:active,
-      headerbar.selection-mode .selection-menu:checked {
-        color: #FFFFFF; }
-      .titlebar.selection-mode .selection-menu:disabled,
-      headerbar.selection-mode .selection-menu:disabled {
-        color: rgba(236, 239, 241, 0.225); }
-      .titlebar.selection-mode .selection-menu:checked, .titlebar.selection-mode .selection-menu.popup:checked,
-      headerbar.selection-mode .selection-menu:checked,
-      headerbar.selection-mode .selection-menu.popup:checked {
-        border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#FFFFFF), to(transparent)) 0 0 2/0 0 2px;
-        color: #FFFFFF;
-        background-color: transparent; }
-        .titlebar.selection-mode .selection-menu:checked:disabled, .titlebar.selection-mode .selection-menu.popup:checked:disabled,
-        headerbar.selection-mode .selection-menu:checked:disabled,
-        headerbar.selection-mode .selection-menu.popup:checked:disabled {
-          color: rgba(255, 255, 255, 0.4); }
-          .titlebar.selection-mode .selection-menu:checked:disabled > label, .titlebar.selection-mode .selection-menu.popup:checked:disabled > label,
-          headerbar.selection-mode .selection-menu:checked:disabled > label,
-          headerbar.selection-mode .selection-menu.popup:checked:disabled > label {
-            color: inherit; }
+      padding-right: 1.20301rem; }
+      .titlebar.selection-mode .selection-menu, .titlebar.selection-mode .selection-menu.popup,
+      headerbar.selection-mode .selection-menu,
+      headerbar.selection-mode .selection-menu.popup {
+        color: rgba(255, 255, 255, 0.85); }
+        .titlebar.selection-mode .selection-menu:hover, .titlebar.selection-mode .selection-menu:active, .titlebar.selection-mode .selection-menu:checked, .titlebar.selection-mode .selection-menu.popup:hover, .titlebar.selection-mode .selection-menu.popup:active, .titlebar.selection-mode .selection-menu.popup:checked,
+        headerbar.selection-mode .selection-menu:hover,
+        headerbar.selection-mode .selection-menu:active,
+        headerbar.selection-mode .selection-menu:checked,
+        headerbar.selection-mode .selection-menu.popup:hover,
+        headerbar.selection-mode .selection-menu.popup:active,
+        headerbar.selection-mode .selection-menu.popup:checked {
+          color: #FFFFFF; }
+        .titlebar.selection-mode .selection-menu:disabled, .titlebar.selection-mode .selection-menu.popup:disabled,
+        headerbar.selection-mode .selection-menu:disabled,
+        headerbar.selection-mode .selection-menu.popup:disabled {
+          color: rgba(236, 239, 241, 0.225); }
+        .titlebar.selection-mode .selection-menu:checked, .titlebar.selection-mode .selection-menu.popup:checked,
+        headerbar.selection-mode .selection-menu:checked,
+        headerbar.selection-mode .selection-menu.popup:checked {
+          border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#FFFFFF), to(transparent)) 0 0 2/0 0 2px;
+          background-color: transparent; }
+          .titlebar.selection-mode .selection-menu:checked:disabled, .titlebar.selection-mode .selection-menu.popup:checked:disabled,
+          headerbar.selection-mode .selection-menu:checked:disabled,
+          headerbar.selection-mode .selection-menu.popup:checked:disabled {
+            color: rgba(255, 255, 255, 0.4); }
+            .titlebar.selection-mode .selection-menu:checked:disabled > label, .titlebar.selection-mode .selection-menu.popup:checked:disabled > label,
+            headerbar.selection-mode .selection-menu:checked:disabled > label,
+            headerbar.selection-mode .selection-menu.popup:checked:disabled > label {
+              color: inherit; }
       .titlebar.selection-mode .selection-menu GtkArrow,
       headerbar.selection-mode .selection-menu GtkArrow {
         -GtkArrow-arrow-scaling: 1.0; }
