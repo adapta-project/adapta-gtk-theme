@@ -1885,6 +1885,11 @@ GtkPaned .header-bar:not(:only-child):last-child:dir(ltr) {
 GtkPaned .header-bar:not(:only-child):last-child:dir(rtl) {
   border-right: 1px solid #242F35; }
 
+GtkBox .header-bar.selection-mode:not(:only-child):last-child:dir(ltr) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), -5px 0 0 -1px #00BCD4, -2px 0 0 -1px #242F35; }
+GtkBox .header-bar.selection-mode:not(:only-child):last-child:dir(rtl) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.14), 0 2px 3px rgba(0, 0, 0, 0.2), 5px 0 0 -1px #00BCD4, 2px 0 0 -1px #242F35; }
+
 .header-bar,
 .titlebar {
   border-top-left-radius: 2px;
@@ -1905,7 +1910,7 @@ GtkPaned .header-bar:not(:only-child):last-child:dir(rtl) {
     border-top-right-radius: 0; }
 
 .tiled .titlebar, .tiled
-.header-bar, .tiled .csd .header-bar, .tiled GtkBox .header-bar:only-child, .tiled GtkBox .header-bar:not(:only-child):last-child:dir(ltr), .tiled GtkBox .header-bar:not(:only-child):last-child:dir(rtl), .tiled GtkPaned .header-bar:not(:only-child):last-child:dir(ltr), .tiled GtkPaned .header-bar:not(:only-child):last-child:dir(rtl), .window-frame.ssd .tiled .titlebar {
+.header-bar, .tiled .csd .header-bar, .tiled GtkBox .header-bar:only-child, .tiled GtkBox .header-bar:not(:only-child):last-child:dir(ltr), .tiled GtkBox .header-bar:not(:only-child):last-child:dir(rtl), .tiled GtkPaned .header-bar:not(:only-child):last-child:dir(ltr), .tiled GtkPaned .header-bar:not(:only-child):last-child:dir(rtl), .tiled GtkBox .header-bar.selection-mode:not(:only-child):last-child:dir(ltr), .tiled GtkBox .header-bar.selection-mode:not(:only-child):last-child:dir(rtl), .window-frame.ssd .tiled .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 2px 0 0 0;
@@ -1917,7 +1922,7 @@ GtkPaned .header-bar:not(:only-child):last-child:dir(rtl) {
     border-top-color: alpha(currentColor, 0.2); }
 
 .maximized .titlebar, .maximized
-.header-bar, .maximized .csd .header-bar, .maximized GtkBox .header-bar:only-child, .maximized GtkBox .header-bar:not(:only-child):last-child:dir(ltr), .maximized GtkBox .header-bar:not(:only-child):last-child:dir(rtl), .maximized GtkPaned .header-bar:not(:only-child):last-child:dir(ltr), .maximized GtkPaned .header-bar:not(:only-child):last-child:dir(rtl), .window-frame.ssd .maximized .titlebar {
+.header-bar, .maximized .csd .header-bar, .maximized GtkBox .header-bar:only-child, .maximized GtkBox .header-bar:not(:only-child):last-child:dir(ltr), .maximized GtkBox .header-bar:not(:only-child):last-child:dir(rtl), .maximized GtkPaned .header-bar:not(:only-child):last-child:dir(ltr), .maximized GtkPaned .header-bar:not(:only-child):last-child:dir(rtl), .maximized GtkBox .header-bar.selection-mode:not(:only-child):last-child:dir(ltr), .maximized GtkBox .header-bar.selection-mode:not(:only-child):last-child:dir(rtl), .window-frame.ssd .maximized .titlebar {
   border-radius: 0;
   border-color: #13191c;
   border-width: 1px 0 0 0;
