@@ -289,9 +289,11 @@ window {
   // Workaround for invisible text in rename entry
   EelEditableLabel { transition: none; }
 
-  // draw bottom border of toolbar
+  // draw bottom border and shadows
   grid > box > box > toolbar.primary-toolbar {
     border-bottom: 1px solid $borders_color;
+    box-shadow: if($variant=='light', $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
   }
 
   // tweak notebook colour
