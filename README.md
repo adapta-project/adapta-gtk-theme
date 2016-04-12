@@ -39,8 +39,8 @@ Installation from PPA (Ubuntu 16.04 LTS only)
 1. Run
   ```
   sudo apt-add-repository ppa:tista/adapta -y
-  sudo apt-get update
-  sudo apt-get install adapta-gtk-theme
+  sudo apt update
+  sudo apt install adapta-gtk-theme
   ```
   to install theme (it also upgrades your Gnome-Tweak-Tool).
 
