@@ -2534,6 +2534,15 @@ column-header.button.dnd, column-header .button.dnd {
 /**************
  * Scrollbars *
  **************/
+@keyframes slow_down_ltr {
+  to {
+    margin-right: 0; } }
+@keyframes slow_down_rtl {
+  to {
+    margin-left: 0; } }
+@keyframes slow_down_horz {
+  to {
+    margin-top: 0; } }
 .scrollbar {
   -GtkRange-slider-width: 10;
   -GtkRange-trough-border: 0;
@@ -2568,6 +2577,12 @@ column-header.button.dnd, column-header .button.dnd {
       margin-right: 0; }
   .scrollbar.overlay-indicator.dragging .trough, .scrollbar.overlay-indicator.hovering .trough {
     background-color: rgba(255, 255, 255, 0.55); }
+  .scrollbar.overlay-indicator.hovering.vertical .slider:dir(ltr) {
+    animation: slow_down_ltr 0.2s linear forwards; }
+  .scrollbar.overlay-indicator.hovering.vertical .slider:dir(rtl) {
+    animation: slow_down_rtl 0.2s linear forwards; }
+  .scrollbar.overlay-indicator.hovering.horizontal .slider {
+    animation: slow_down_horz 0.2s linear forwards; }
   .scrollbar .trough {
     border: none;
     background-color: #FFFFFF; }

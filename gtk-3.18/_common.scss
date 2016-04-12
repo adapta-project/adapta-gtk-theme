@@ -2100,6 +2100,18 @@ column-header.button.dnd { // for treeview-like derive widgets
  * Scrollbars *
  **************/
 
+@keyframes slow_down_ltr {
+  to { margin-right: 0; }
+}
+
+@keyframes slow_down_rtl {
+  to { margin-left: 0; }
+}
+
+@keyframes slow_down_horz {
+  to { margin-top: 0; }
+}
+
 .scrollbar {
   -GtkRange-slider-width: 10;
   -GtkRange-trough-border: 0;
@@ -2155,6 +2167,14 @@ column-header.button.dnd { // for treeview-like derive widgets
     &.dragging,
     &.hovering {
       .trough { background-color: gtkopacity($base_color, 0.55); }
+    }
+
+    &.hovering { // slow-down when deforming
+      &.vertical .slider {
+        &:dir(ltr) { animation: slow_down_ltr 0.2s linear forwards; }
+        &:dir(rtl) { animation: slow_down_rtl 0.2s linear forwards; }
+      }
+      &.horizontal .slider { animation: slow_down_horz 0.2s linear forwards; }
     }
   }
 
