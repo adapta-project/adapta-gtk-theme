@@ -2385,7 +2385,9 @@ style "chrome-gtk-frame" {
 }
 
 style "chrome_menu_item" {
-  bg[SELECTED] = @selected_bg_color
+  bg[SELECTED] = shade(0.94, @base_color)
+
+  fg[SELECTED] = shade(0.96, @fg_color)
 }
 
 style "null" {
