@@ -939,8 +939,8 @@ $icon_size: 16px;
   border: none;
   border-radius: 2px;
   padding: 0 5px 6px 5px;
-  color: $inverted_secondary_fg_color;
-  background-color: transparentize($inverted_bg_color, 0.1);
+  color: $osd_fg_color;
+  background-color: transparentize($osd_bg_color, 0.1);
   border-image: url("assets/misc/modal.svg") 9 9 9 67;
 
   > StBoxLayout:first-child {
@@ -961,10 +961,10 @@ $icon_size: 16px;
       height: 30px;
 
       @extend %osd_button;
-      color: $inverted_secondary_fg_color;
+      color: $osd_secondary_fg_color;
       &:hover,
       &:active,
-      &:checked { color: $inverted_fg_color; }
+      &:checked { color: $osd_fg_color; }
     }
   }
 }
@@ -977,14 +977,13 @@ $icon_size: 16px;
 .run-dialog {
   padding: 0px 15px 10px 15px;
   border-image: url("assets/misc/bg.svg") 9 9 9 9;
-  background-color: $inverted_bg_color;
 
   > * { padding: 0; }
 
   &-label {
     font-size: 0;
     font-weight: bold;
-    color: $inverted_fg_color;
+    color: $osd_fg_color;
     padding-bottom: 0;
   }
 
@@ -1002,8 +1001,8 @@ $icon_size: 16px;
     width: 20em;
     padding: 7px;
     border-radius: 0;
-    color: $inverted_fg_color;
-    caret-color: $inverted_fg_color;
+    color: $osd_fg_color;
+    caret-color: $osd_fg_color;
     selected-color: $selected_fg_color;
     selection-background-color: $selected_bg_color;
 
@@ -1062,9 +1061,9 @@ $icon_size: 16px;
   }
 
   &-item {
-    color: $inverted_secondary_fg_color;
+    color: $osd_secondary_fg_color;
 
-    &:hover { color: $inverted_fg_color; }
+    &:hover { color: $selected_fg_color; }
 
     &:ltr { padding-right: 1em; }
     &:rtl { padding-left: 1em; }
