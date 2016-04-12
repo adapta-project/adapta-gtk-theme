@@ -1606,10 +1606,9 @@ toolbar {
   -GtkWidget-window-dragging: true;
   padding: 0.3985rem;
   background-color: #3e515a;
-  color: rgba(236, 239, 241, 0.75); }
-  toolbar:not(.vertical):not(.inline-toolbar) {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.22), inset 0 4px 3px -4px rgba(0, 0, 0, 0.22), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
-  paned toolbar, paned toolbar.primary-toolbar, grid toolbar.primary-toolbar {
+  color: rgba(236, 239, 241, 0.75);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.22), inset 0 4px 3px -4px rgba(0, 0, 0, 0.22), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
+  toolbar.vertical, .inline-toolbar toolbar, paned toolbar, paned toolbar.primary-toolbar, grid toolbar.primary-toolbar {
     box-shadow: none; }
   .osd toolbar {
     background-color: transparent; }
@@ -7089,8 +7088,7 @@ paned > separator {
   .button paned > separator,
   .button paned > .separator, stacksidebar paned > separator,
   stacksidebar paned > .separator, .tweak-categories paned > separator,
-  .tweak-categories paned > .separator, ContactsWindow list paned > .separator,
-  ContactsWindow list paned > separator {
+  .tweak-categories paned > .separator, window overlay > grid > frame > grid list paned > separator {
     margin: 0;
     padding: 0;
     min-width: 0.45113rem;
@@ -7102,8 +7100,7 @@ paned > separator {
     .button paned > separator:not(:disabled),
     .button paned > .separator:not(:disabled), stacksidebar paned > separator:not(:disabled),
     stacksidebar paned > .separator:not(:disabled), .tweak-categories paned > separator:not(:disabled),
-    .tweak-categories paned > .separator:not(:disabled), ContactsWindow list paned > .separator:not(:disabled),
-    ContactsWindow list paned > separator:not(:disabled) {
+    .tweak-categories paned > .separator:not(:disabled), window overlay > grid > frame > grid list paned > separator:not(:disabled) {
       background-image: linear-gradient(to top, #37474F), linear-gradient(to top, #37474F); }
 paned.horizontal > separator {
   background-repeat: repeat-y; }
@@ -7118,8 +7115,7 @@ paned.horizontal > separator {
   .button paned.horizontal > separator,
   .button paned.horizontal > .separator, stacksidebar paned.horizontal > separator,
   stacksidebar paned.horizontal > .separator, .tweak-categories paned.horizontal > separator,
-  .tweak-categories paned.horizontal > .separator, ContactsWindow list paned.horizontal > .separator,
-  ContactsWindow list paned.horizontal > separator {
+  .tweak-categories paned.horizontal > .separator, window overlay > grid > frame > grid list paned.horizontal > separator {
     background-repeat: repeat-y, repeat-y;
     background-position: left, right; }
 paned.vertical > separator {
@@ -7132,8 +7128,7 @@ paned.vertical > separator {
   .button paned.vertical > separator,
   .button paned.vertical > .separator, stacksidebar paned.vertical > separator,
   stacksidebar paned.vertical > .separator, .tweak-categories paned.vertical > separator,
-  .tweak-categories paned.vertical > .separator, ContactsWindow list paned.vertical > .separator,
-  ContactsWindow list paned.vertical > separator {
+  .tweak-categories paned.vertical > .separator, window overlay > grid > frame > grid list paned.vertical > separator {
     background-repeat: repeat-x, repeat-x;
     background-position: bottom, top; }
 
@@ -9623,46 +9618,42 @@ actionbar {
 /******************
  * Gnome-contacts *
  ******************/
-ContactsWindow list:dir(ltr) {
+window overlay > grid > frame > grid toolbar {
+  box-shadow: none; }
+window overlay > grid > frame > grid list:dir(ltr) {
   box-shadow: inset -2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset -3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
-ContactsWindow list:dir(rtl) {
+window overlay > grid > frame > grid list:dir(rtl) {
   box-shadow: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset 3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
-ContactsWindow list row.activatable, ContactsWindow list .view, ContactsWindow list iconview,
-ContactsWindow list .view text,
-.view ContactsWindow list text,
-ContactsWindow list iconview text,
-iconview ContactsWindow list text,
-ContactsWindow list textview text,
-textview ContactsWindow list text, ContactsWindow list treeview.view header button, treeview.view header ContactsWindow list button, ContactsWindow list .tweak-category header button, .tweak-category header ContactsWindow list button {
+window overlay > grid > frame > grid list row {
   color: rgba(236, 239, 241, 0.75);
   background-color: rgba(18, 22, 0, 0.04); }
-  ContactsWindow list row.activatable:hover, ContactsWindow list .view:hover, ContactsWindow list iconview:hover,
-  ContactsWindow list .view text:hover,
-  .view ContactsWindow list text:hover,
-  ContactsWindow list iconview text:hover,
-  iconview ContactsWindow list text:hover,
-  ContactsWindow list textview text:hover,
-  textview ContactsWindow list text:hover, ContactsWindow list treeview.view header button:hover, treeview.view header ContactsWindow list button:hover, ContactsWindow list .tweak-category header button:hover, .tweak-category header ContactsWindow list button:hover {
+  window overlay > grid > frame > grid list row:hover {
     color: #ECEFF1; }
-  ContactsWindow list row.activatable:selected, ContactsWindow list .view:selected, ContactsWindow list iconview:selected,
-  ContactsWindow list .view text:selected,
-  .view ContactsWindow list text:selected,
-  ContactsWindow list iconview text:selected,
-  iconview ContactsWindow list text:selected,
-  ContactsWindow list textview text:selected,
-  textview ContactsWindow list text:selected, ContactsWindow list treeview.view header button:selected, treeview.view header ContactsWindow list button:selected, ContactsWindow list .tweak-category header button:selected, .tweak-category header ContactsWindow list button:selected {
-    color: #00BCD4;
+  window overlay > grid > frame > grid list row:selected, window overlay > grid > frame > grid list row:selected.activatable, window overlay > grid > frame > grid list .view:selected, window overlay > grid > frame > grid list iconview:selected,
+  window overlay > grid > frame > grid list .view text:selected,
+  .view window overlay > grid > frame > grid list text:selected,
+  window overlay > grid > frame > grid list iconview text:selected,
+  iconview window overlay > grid > frame > grid list text:selected,
+  window overlay > grid > frame > grid list textview text:selected,
+  textview window overlay > grid > frame > grid list text:selected, window overlay > grid > frame > grid list treeview.view header button:selected, treeview.view header window overlay > grid > frame > grid list button:selected, window overlay > grid > frame > grid list .tweak-category header button:selected, .tweak-category header window overlay > grid > frame > grid list button:selected {
     background-color: rgba(18, 22, 0, 0.04); }
-  ContactsWindow list row.activatable:backdrop, ContactsWindow list .view:backdrop, ContactsWindow list iconview:backdrop,
-  ContactsWindow list .view text:backdrop,
-  .view ContactsWindow list text:backdrop,
-  ContactsWindow list iconview text:backdrop,
-  iconview ContactsWindow list text:backdrop,
-  ContactsWindow list textview text:backdrop,
-  textview ContactsWindow list text:backdrop, ContactsWindow list treeview.view header button:backdrop, treeview.view header ContactsWindow list button:backdrop, ContactsWindow list .tweak-category header button:backdrop, .tweak-category header ContactsWindow list button:backdrop {
+    window overlay > grid > frame > grid list row:selected, window overlay > grid > frame > grid list row:selected label, window overlay > grid > frame > grid list row:selected.activatable, window overlay > grid > frame > grid list .view:selected, window overlay > grid > frame > grid list iconview:selected,
+    window overlay > grid > frame > grid list .view text:selected,
+    .view window overlay > grid > frame > grid list text:selected,
+    window overlay > grid > frame > grid list iconview text:selected,
+    iconview window overlay > grid > frame > grid list text:selected,
+    window overlay > grid > frame > grid list textview text:selected,
+    textview window overlay > grid > frame > grid list text:selected, window overlay > grid > frame > grid list treeview.view header button:selected, treeview.view header window overlay > grid > frame > grid list button:selected, window overlay > grid > frame > grid list .tweak-category header button:selected, .tweak-category header window overlay > grid > frame > grid list button:selected, window overlay > grid > frame > grid list row:selected.activatable label, window overlay > grid > frame > grid list .view:selected label, window overlay > grid > frame > grid list iconview:selected label,
+    window overlay > grid > frame > grid list .view text:selected label,
+    .view window overlay > grid > frame > grid list text:selected label,
+    window overlay > grid > frame > grid list iconview text:selected label,
+    iconview window overlay > grid > frame > grid list text:selected label,
+    window overlay > grid > frame > grid list textview text:selected label,
+    textview window overlay > grid > frame > grid list text:selected label, window overlay > grid > frame > grid list treeview.view header button:selected label, treeview.view header window overlay > grid > frame > grid list button:selected label, window overlay > grid > frame > grid list .tweak-category header button:selected label, .tweak-category header window overlay > grid > frame > grid list button:selected label {
+      color: #00BCD4; }
+  window overlay > grid > frame > grid list row:backdrop {
     opacity: 1.0; }
-ContactsWindow list .separator,
-ContactsWindow list separator {
+window overlay > grid > frame > grid list separator {
   min-height: 0;
   border-color: transparent;
   background-color: transparent;

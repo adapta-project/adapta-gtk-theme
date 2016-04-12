@@ -1285,11 +1285,11 @@ toolbar {
   padding: rem(5.3px);
   background-color: $bg_color;
   color: $secondary_fg_color;
-  &:not(.vertical):not(.inline-toolbar) { // draw shadows
-    box-shadow: if($variant=='light', $toolbar-shadow-light,
-                                      $toolbar-shadow-dark);
-  }
+  box-shadow: if($variant=='light', $toolbar-shadow-light,
+                                    $toolbar-shadow-dark);
 
+  &.vertical,
+  .inline-toolbar &,
   paned &,
   paned &.primary-toolbar,
   grid &.primary-toolbar { // stop drawing fake-shadows

@@ -747,7 +747,9 @@ actionbar {
  * Gnome-contacts *
  ******************/
 
-ContactsWindow {
+window overlay > grid > frame > grid {
+  toolbar { box-shadow: none; }
+
   // side-bar styling
   list {
     &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
@@ -757,14 +759,15 @@ ContactsWindow {
                                                    $sidebar-dark-rtl);
     }
 
-    row.activatable {
+    row {
       color: $secondary_fg_color;
       background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
                                               rgba(18, 22, 0, 0.04));
 
       &:hover { color: $fg_color; }
-      &:selected {
-        color: $selected_bg_color;
+      &:selected,
+      &:selected.activatable {
+        &, & label { color: $selected_bg_color; }
         background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
                                                 rgba(18, 22, 0, 0.04));
       }
@@ -772,7 +775,6 @@ ContactsWindow {
     }
 
     // hide horizontal separator
-    .separator,
     separator {
       @extend separator.wide;
       min-height: 0;
