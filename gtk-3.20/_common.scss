@@ -3877,6 +3877,20 @@ messagedialog { // Message Dialog styling
     &:disabled { color: $insensitive_inverted_fg_color; }
   }
 
+  button { // set foregrounds for fallback-mode
+    color: $secondary_accent_color;
+    &:hover,
+    &:active,
+    &:checked { color: $accent_color; }
+    &:disabled { color: $insensitive_inverted_fg_color; }
+  }
+  .linked > button {
+    border: 2px solid transparent;
+    border-radius: 2px;
+    border-image: none;
+    box-shadow: none;
+  }
+
   &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
