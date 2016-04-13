@@ -17,8 +17,9 @@ $orientation: ((top, bottom),
 // panel styling
 .budgie-panel {
   // Always use dark-color of dark variant
-  color: $inverted_secondary_fg_color;
   background-color: $panel_bg_color;
+  color: $inverted_fg_color;
+  font-weight: 700;
 
   // panel border styling
   @each $along_side, $opp_side in $orientation {
@@ -116,7 +117,7 @@ $orientation: ((top, bottom),
   border-width: 0;
   // Always use dark-color of dark variant
   background-color: $inverted_bg_color;
-  color: $inverted_secondary_fg_color;
+  color: $inverted_fg_color;
   font-weight: 400;
   opacity: 0.9;
   &:backdrop { opacity: 1.0; }
