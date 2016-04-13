@@ -2887,7 +2887,11 @@ GtkCalendar {
     background-color: $inverted_dark_color;
   }
 
-  .entry { color: $inverted_fg_color; }
+  .entry {
+    color: $inverted_fg_color;
+    &:focus { color: $selected_fg_color; }
+    &:insensitive { color: $insensitive_inverted_fg_color; }
+  }
 
   .button { // set foregrounds for fallback-mode
     color: $secondary_accent_color;
