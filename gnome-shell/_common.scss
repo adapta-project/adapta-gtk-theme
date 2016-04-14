@@ -37,13 +37,12 @@ $panel-corner-radius: 0;
   transition-duration: 0.2s;
 }
 
-$font-size: 10;
 $font-family: Lato, Roboto, Cantarell, Sans-Serif;
 
 stage {
   font-family: $font-family;
   font-weight: 400;
-  @include fontsize($font-size);
+  @include fontscaling($ref_size);
   color: $fg_color;
 }
 
@@ -242,7 +241,7 @@ StScrollBar {
  *****************/
 
 .headline {
-  @include fontsize($font-size * 1.1);
+  @include fontscaling($ref_size * 1.1);
 }
 .lightbox { background-color: #000000; }
 .flashspot { background-color: #FFFFFF; }
@@ -267,7 +266,7 @@ StScrollBar {
   }
   .run-dialog-button-box { padding-top: 1em; }
   .run-dialog-label {
-    @include fontsize($font-size * 1.1);
+    @include fontscaling($ref_size * 1.1);
     padding-bottom: 0.4em;
     font-weight: 400;
     color: $dim_fg_color;
@@ -277,7 +276,7 @@ StScrollBar {
 .show-processes-dialog-subject,
 .mount-question-dialog-subject,
 .end-session-dialog-subject { //this should be a generic header class
-  @include fontsize($font-size * 1.3);
+  @include fontscaling($ref_size * 1.3);
 }
 
 
@@ -346,7 +345,7 @@ StScrollBar {
 .end-session-dialog-session-list-item-name { font-weight: 800; }
 
 .end-session-dialog-app-list-item-description {
-  @include fontsize($font-size * 1.0);
+  @include fontscaling($ref_size * 1.0);
   color: $dim_fg_color;
 }
 
@@ -406,7 +405,7 @@ StScrollBar {
 }
 
 .show-processes-dialog-app-list-item-name {
-  @include fontsize($font-size * 1.0);
+  @include fontscaling($ref_size * 1.0);
 }
 
 
@@ -428,7 +427,7 @@ StScrollBar {
 .prompt-dialog-message-layout { spacing: 16px; }
 
 .prompt-dialog-headline {
-  @include fontsize($font-size * 1.3);
+  @include fontscaling($ref_size * 1.3);
   font-weight: 500;
   color: $fg_color;
 }
@@ -441,20 +440,20 @@ StScrollBar {
 }
 
 .prompt-dialog-error-label {
-  @include fontsize($font-size * 1.0);
+  @include fontscaling($ref_size * 1.0);
   padding-bottom: 8px;
   color: $error_color;
 }
 
 .prompt-dialog-info-label {
-  @include fontsize($font-size * 1.0);
+  @include fontscaling($ref_size * 1.0);
   padding-bottom: 8px;
 }
 
 .hidden { color: rgba(0,0,0,0); }
 
 .prompt-dialog-null-label {
-  @include fontsize($font-size * 1.0);
+  @include fontscaling($ref_size * 1.0);
   padding-bottom: 8px;
 }
 
@@ -677,7 +676,7 @@ StScrollBar {
   min-height: 64px;
 
   .osd-monitor-label {
-    @include fontsize($font-size * 3.0);
+    @include fontscaling($ref_size * 3.0);
   }
 
   .level {
@@ -742,7 +741,7 @@ StScrollBar {
 }
 
 .input-source-switcher-symbol {
-  @include fontsize($font-size * 3.0);
+  @include fontscaling($ref_size * 3.0);
   width: 96px;
   height: 96px;
 }
@@ -956,7 +955,7 @@ StScrollBar {
 
 // FIXME: it doesn't work
 #window-list {
-  @include fontsize($font-size * 1.0);
+  @include fontscaling($ref_size * 1.0);
   spacing: 2px;
 }
 
@@ -1044,7 +1043,7 @@ StScrollBar {
 }
 
 .datemenu-today-button .date-label {
-  @include fontsize($font-size * 1.5);
+  @include fontscaling($ref_size * 1.5);
 }
 
 .world-clocks-header,
@@ -1094,7 +1093,7 @@ StScrollBar {
 }
 
 .calendar-day-base {
-  @include fontsize($font-size * 0.9);
+  @include fontscaling($ref_size * 0.9);
   width: 32px;
   height: 32px;
   padding: 0;
@@ -1109,7 +1108,7 @@ StScrollBar {
     border-color: transparent; // avoid jumparound due to today
   }
   &.calendar-day-heading {  // day of week heading
-    @include fontsize($font-size * 0.9);
+    @include fontscaling($ref_size * 0.9);
     margin-top: 1em;
     font-weight: 800;
     color: $dim_fg_color;
@@ -1210,13 +1209,13 @@ StScrollBar {
 }
 
 .message-title {
-  @include fontsize($font-size * 1.1);
+  @include fontscaling($ref_size * 1.1);
   padding: 6px;
   font-weight: 800;
 }
 
 .message-content {
-  @include fontsize($font-size * 0.9);
+  @include fontscaling($ref_size * 0.9);
   padding: 8px;
 }
 
@@ -1389,7 +1388,7 @@ StScrollBar {
 .nm-dialog-header { font-weight: 800; }
 
 .nm-dialog-item {
-  @include fontsize($font-size * 1.1);
+  @include fontscaling($ref_size * 1.1);
   spacing: 20px;
   padding: 12px;
   border-bottom: 1px solid $borders_color;
@@ -1450,7 +1449,7 @@ StScrollBar {
 
 // Search entry
 .search-entry { // use raised entry-box styling
-  @include fontsize($font-size * 1.1);
+  @include fontscaling($ref_size * 1.1);
   width: 320px;
   padding: 7px 8px 8px;
   border-radius: 2px;
@@ -1516,7 +1515,7 @@ StScrollBar {
 }
 
 .list-search-result-title {
-  @include fontsize($font-size * 1.5);
+  @include fontscaling($ref_size * 1.5);
   color: $osd_fg_color;
 }
 
@@ -1538,7 +1537,7 @@ StScrollBar {
  *************/
 
 #dash {
-  @include fontsize($font-size * 0.9);
+  @include fontscaling($ref_size * 0.9);
   padding: 4px 0;
   border: none;
   border-radius: 0;
@@ -1873,7 +1872,7 @@ StScrollBar {
 }
 
 %status_text {
-  @include fontsize($font-size * 2.0);
+  @include fontscaling($ref_size * 2.0);
   font-weight: 800;
   color: $osd_dim_fg_color;
 }
@@ -1895,7 +1894,7 @@ StScrollBar {
 
 // Banners
 .notification-banner {
-  @include fontsize($font-size * 1.1);
+  @include fontscaling($ref_size * 1.1);
   width: 34em;
   min-height: 4.5em;
   margin: 5px;
@@ -1941,7 +1940,7 @@ StScrollBar {
 }
 
 .summary-source-counter {
-  @include fontsize($font-size * 1.0);
+  @include fontscaling($ref_size * 1.0);
   width: 1.6em;
   height: 1.6em;
   border-radius: 0.9em; // should be 0.8 but whatever; wish I could do 50%;
@@ -1979,7 +1978,7 @@ StScrollBar {
 }
 
 .chat-meta-message {
-  @include fontsize($font-size * 0.9);
+  @include fontscaling($ref_size * 0.9);
   padding-left: 4px;
   font-weight: 800;
   color: $insensitive_fg_color;
@@ -2097,7 +2096,7 @@ $legacy_icon_size: 24px;
 .keyboard-row { spacing: 15px; }
 
 .keyboard-key {
-  @include fontsize($font-size * 2.0);
+  @include fontscaling($ref_size * 2.0);
   border-radius: 2px;
   border: 1px 0 0;
   min-height: 2em;
@@ -2234,7 +2233,7 @@ $legacy_icon_size: 24px;
 
   .modal-dialog-button-box { spacing: 1em; }
   .modal-dialog-button {
-    @include fontsize($font-size * 1.1);
+    @include fontscaling($ref_size * 1.1);
     padding: 7px 16px 8px;
     font-weight: 800;
     @include button(flat-normal, $tc:$osd_secondary_fg_color);
@@ -2284,7 +2283,7 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-not-listed-label {
-  @include fontsize($font-size * 0.9);
+  @include fontscaling($ref_size * 0.9);
   padding-top: 1em;
   font-weight: 800;
   color: $osd_secondary_fg_color;
@@ -2343,7 +2342,7 @@ $legacy_icon_size: 24px;
 
 .login-dialog-username,
 .user-widget-label {
-  @include fontsize($font-size * 1.2);
+  @include fontscaling($ref_size * 1.2);
   padding-left: 15px;
   font-weight: 800;
   text-align: left;
@@ -2363,7 +2362,7 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-prompt-label {
-    @include fontsize($font-size * 1.0);
+    @include fontscaling($ref_size * 1.0);
     padding-top: 1em;
     color: $osd_dim_fg_color;
 }
@@ -2399,13 +2398,13 @@ $legacy_icon_size: 24px;
 }
 
 .screen-shield-clock-time {
-  @include fontsize($font-size * 8.4);
+  @include fontscaling($ref_size * 8.4);
   font-weight: 300;
   text-shadow: none;
 }
 
 .screen-shield-clock-date {
-  @include fontsize($font-size * 1.3);
+  @include fontscaling($ref_size * 1.3);
   font-weight: 800;
   text-shadow: none;
 }
@@ -2533,7 +2532,7 @@ $legacy_icon_size: 24px;
 }
 
 .lg-completions-text {
-    @include fontsize($font-size * 0.9);
+    @include fontscaling($ref_size * 0.9);
     font-style: italic;
 }
 
@@ -2560,7 +2559,7 @@ $legacy_icon_size: 24px;
 }
 
 .lg-extension-name {
-    @include fontsize($font-size * 1.5);
+    @include fontscaling($ref_size * 1.5);
     font-weight: 800;
 }
 
