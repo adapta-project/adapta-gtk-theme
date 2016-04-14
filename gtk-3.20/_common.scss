@@ -4193,6 +4193,12 @@ paned {
       }
     }
 
+    window > grid.vertical & { // do not use transparentize
+      &, &:not(.disabled) {
+        background-image: linear-gradient(to top, $solid_light_borders_color);
+      }
+    }
+
     &.wide {
       margin: 0;
       padding: 0;
