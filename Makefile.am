@@ -4,7 +4,7 @@ EXTRA_DIST = \
 	gnome-shell \
 	gtk-2.0 \
 	gtk-3.20 \
-	gtk-3.18 \
+	gtk-3.0 \
 	index.theme \
 	metacity-1 \
 	README.md \
