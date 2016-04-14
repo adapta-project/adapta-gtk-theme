@@ -1425,7 +1425,7 @@ GtkComboBox {
     transition: none;
   }
 
-  &.default-decoration {
+  &.default-decoration { // FIXME: do not use scalable units
     padding: 5.3px;
     border-width: 0;
 
@@ -1434,7 +1434,7 @@ GtkComboBox {
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.55); }
     }
     .button.titlebutton {
-      padding: 0.4em;
+      padding: 4px;
       color: $inverted_secondary_fg_color;
       &:hover,
       &:active { color: $inverted_fg_color; }
