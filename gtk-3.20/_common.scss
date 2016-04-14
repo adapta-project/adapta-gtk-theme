@@ -2385,28 +2385,6 @@ popover.background {
     &:checked:disabled { @include button(flat-checked-insensitive); }
   }
 
-  row { // reset background
-    &,
-    &.activatable {
-      background-image: none;
-      background-color: $secondary_base_color;
-      color: $secondary_fg_color;
-      transition: none;
-    }
-    &:hover,
-    &.activatable:hover {
-      background-image: none;
-      background-color: $secondary_base_color;
-      color: $fg_color;
-      transition: none;
-    }
-  }
-
-  scrollbar trough {
-    background-color: transparent;
-    border: 1px none transparent;
-  }
-
   .csd &,
   & {
     &.touch-selection,
