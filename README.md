@@ -42,12 +42,7 @@ Installation from PPA (Ubuntu 16.04 LTS only)
   sudo apt update
   sudo apt install adapta-gtk-theme
   ```
-  to install theme (it also upgrades your Gnome-Tweak-Tool).
-
 2. select `Adapta` via Gnome-Tweak-Tool.
-
-My PPA also has the latest Gnome-Tweak-Tool 3.20.0, so it already solved multiple versioned theme issue.
- (Gnome-Tweak-Tool 3.20.0 surely works with stock Gtk+ 3.18.x and Gnome-shell 3.18.x.)
 
 Installation from Git Source
 ------------
@@ -62,17 +57,6 @@ Installation from Git Source
    * `make` actually does nothing (for future release)
    * `sudo make install` installs multiple versioned themes,
      and Gtk+ automatically selects proper versioned one when running.
-
-3. Run
-   ```
-   gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'
-   gsettings set org.gnome.desktop.wm.preferences theme 'Adapta'
-   gsettings set org.gnome.metacity theme 'Adapta'
-   ```
-   to enable Gtk+, Mutter and Metacity theme.
-   (`gnome-tweak-tool` can NOT support multiple versioned theme now.
-   But upstream fix will be landed soon:
-   https://git.gnome.org/browse/gnome-tweak-tool/commit/?id=f47ba28fbb2c895a88d4e5ca8b89bc18475a86e9)
 
 Work in Progress
 ----------------
