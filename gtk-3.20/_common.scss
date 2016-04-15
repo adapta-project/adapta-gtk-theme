@@ -937,14 +937,6 @@ button.color {
   }
 }
 
-// button box is always shown with flat-buttons
-GtkButtonBox > button {
-  @extend %fade_effect;
-
-  @extend button.flat;
-  font-weight: 700;
-}
-
 // toolpalette buttons
 toolpalette {
   toolitemgroup {
@@ -2016,11 +2008,10 @@ headerbar,
 .linked.path-bar,
 .path-bar {
   button {
-    &,
-    &.text-button {
+    &, &.text-button {
       padding: 0 rem(8px) 0;
       -gtk-outline-radius: 2px;
-   }
+    }
     &.image-button { padding: 0 rem(8px) 0; }
 
     &.text-button.image-button {
@@ -3773,7 +3764,7 @@ row {
  *************/
 
 expander {
-  padding: 0.2em 0.3em 0.25em;
+  padding: rem(2.7px) rem(4px) rem(3.3px);
 
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
