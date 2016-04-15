@@ -171,45 +171,46 @@ sn-button { padding: rem(4px); }
  *******************/
 
 // use message-dialog style for popup osd windows
-FlashbackOsdWindow,
-GfPopupWindow {
+gf-popup-window {
   border-radius: 2px;
   border: 1px solid $borders_color;
+  background-color: $inverted_dark_color;
+  color: $inverted_fg_color;
   opacity: 0.9;
-  &.background {
-    background-color: $inverted_dark_color;
-    color: $inverted_fg_color;
+
+  &.solid {
+    border-radius: 2px;
+    border: 1px solid $borders_color;
   }
 }
 
-GfInputSourcePopup {
-  #input-source {
-    color: $inverted_fg_color;
-    font-size: 2em;
-    font-weight: bold;
-    &:selected {
-      border-radius: 2px;
-      background-color: $track_color;
-      color: $accent_color;
-    }
-  }
-}
-
-FlashbackLabelWindow {
-  font-size: 4em;
+#gf-label-window {
+  font-size: rem(45px);
+  font-weight: 400;
 }
 
 // popup for inpu-source candidates
-GfCandidatePopup {
+#gf-candidate-popup {
   &, &.solid {
     border-radius: 2px;
     border: 1px solid $borders_color;
     color: $inverted_fg_color;
   }
 
-  GfCandidateBox {
+  #gf-input-source {
+    color: $inverted_fg_color;
+    font-size: rem(24px);
+    font-weight: 400;
+    &:selected {
+      border-radius: 2px;
+      background-color: $track_color;
+      color: $accent_color;
+    }
+  }
+
+  gf-candidate-box {
     transition: none;
-    label { padding: 0.2em 0.2em 0.3em; } // a half of .menuitem
+    label { padding: rem(2.7px) rem(2.7px) rem(4px); } // a half of .menuitem
 
     &:last-child { padding-left: 0; }
     &:hover,
@@ -233,6 +234,12 @@ GfCandidatePopup {
       box-shadow: none;
     }
   }
+}
+
+#gf-osd-window {
+}
+
+#gf-bubble {
 }
 
 
