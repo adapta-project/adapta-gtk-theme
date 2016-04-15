@@ -12,7 +12,7 @@ Required Components
 -------------------
 Adapta supports Gtk+ 3.20.x (and 3.18.x)
 
-* Gtk+-3.0 >= 3.20 (or 3.18.4)
+* Gtk+-3.0 >= 3.20.0 (or 3.18.4)
 * Gtk+-2.0 >= 2.24.30 (or 2.24.29)
 * gtk2-engines-pixbuf >= 2.24.30 (or 2.24.29)
 
@@ -38,13 +38,15 @@ Installation from PPA (Ubuntu 16.04 LTS only)
 ------------
 1. Run
 
-```
-sudo apt-add-repository ppa:tista/adapta -y
-sudo apt update
-sudo apt install adapta-gtk-theme
-```
+ ```
+ sudo apt-add-repository ppa:tista/adapta -y
+ sudo apt update
+ sudo apt install adapta-gtk-theme
+ ```
 
 2. select `Adapta` via Gnome-Tweak-Tool.
+
+ * No need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
 
 Installation from Git Source
 ------------
@@ -52,11 +54,11 @@ Installation from Git Source
 
 2. Build and install system-wide:
 
-```
-./autogen.sh
-make
-sudo make install
-```
+ ```
+ ./autogen.sh
+ make
+ sudo make install
+ ```
 
  * Default prefix is `/usr`
  * `make` actually does nothing (for future release)
@@ -73,7 +75,7 @@ TODO
 
 Public License
 --------------
-* License: GPLv2
+License: GPLv2
 
 Special Thanks to
 --------------
