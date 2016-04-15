@@ -37,26 +37,31 @@ Unsupported Gtk+ Based Desktops
 Installation from PPA (Ubuntu 16.04 LTS only)
 ------------
 1. Run
-  ```
-  sudo apt-add-repository ppa:tista/adapta -y
-  sudo apt update
-  sudo apt install adapta-gtk-theme
-  ```
+
+```
+sudo apt-add-repository ppa:tista/adapta -y
+sudo apt update
+sudo apt install adapta-gtk-theme
+```
+
 2. select `Adapta` via Gnome-Tweak-Tool.
 
 Installation from Git Source
 ------------
 1. Check `autoconf`, `automake` and `pkg-config` (`pkgconfig`) are installed.
+
 2. Build and install system-wide:
-   ```
-   ./autogen.sh
-   make
-   sudo make install
-   ```
-   * Default prefix is `/usr`
-   * `make` actually does nothing (for future release)
-   * `sudo make install` installs multiple versioned themes,
-     and Gtk+ automatically selects proper versioned one when running.
+
+```
+./autogen.sh
+make
+sudo make install
+```
+
+ * Default prefix is `/usr`
+ * `make` actually does nothing (for future release)
+ * `sudo make install` installs multiple versioned themes,
+   and Gtk+ automatically selects proper versioned one when running.
 
 Work in Progress
 ----------------
