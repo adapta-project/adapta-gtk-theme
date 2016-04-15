@@ -8778,112 +8778,122 @@ stackswitcher button.text-button.circular {
 /***************
  * Gnome panel *
  ***************/
-PanelWidget,
-PanelApplet,
-PanelToplevel {
+#panel-widget,
+window > grid > widget > widget {
   color: rgba(236, 239, 241, 0.75);
   background-color: #13191c;
   box-shadow: none; }
 
-PanelSeparator {
-  border-width: 0;
-  background: none;
-  background-image: none; }
-
 .gnome-panel-menu-bar,
-PanelApplet menubar,
-PanelMenuBar menubar,
-ClockBox {
-  font: bold;
+panel-applet > menubar,
+#clock-applet-button {
+  font-weight: 700;
   color: rgba(236, 239, 241, 0.75);
   background-color: transparent;
   box-shadow: none; }
   .gnome-panel-menu-bar label:backdrop, .gnome-panel-menu-bar:backdrop,
-  PanelApplet menubar label:backdrop,
-  PanelApplet menubar:backdrop,
-  PanelMenuBar menubar label:backdrop,
-  PanelMenuBar menubar:backdrop,
-  ClockBox label:backdrop,
-  ClockBox:backdrop {
+  panel-applet > menubar label:backdrop,
+  panel-applet > menubar:backdrop,
+  #clock-applet-button label:backdrop,
+  #clock-applet-button:backdrop {
     opacity: 1.0; }
 
 .gnome-panel-menu-bar,
-PanelApplet menubar,
-PanelMenuBar menubar {
+panel-applet menubar {
   box-shadow: none; }
   .gnome-panel-menu-bar menuitem,
-  PanelApplet menubar menuitem,
-  PanelMenuBar menubar menuitem {
+  panel-applet menubar menuitem {
     color: rgba(236, 239, 241, 0.75);
     background-color: transparent; }
     .gnome-panel-menu-bar menuitem:hover,
-    PanelApplet menubar menuitem:hover,
-    PanelMenuBar menubar menuitem:hover {
-      color: #FFFFFF;
+    panel-applet menubar menuitem:hover {
+      color: #ECEFF1;
       box-shadow: inset 0 -2px #00BCD4; }
     .gnome-panel-menu-bar menuitem:backdrop,
-    PanelApplet menubar menuitem:backdrop,
-    PanelMenuBar menubar menuitem:backdrop {
+    panel-applet menubar menuitem:backdrop {
       opacity: 1.0; }
   .gnome-panel-menu-bar menu,
-  PanelApplet menubar menu,
-  PanelMenuBar menubar menu {
+  panel-applet menubar menu {
     font: regular; }
     .gnome-panel-menu-bar menu menuitem,
-    PanelApplet menubar menu menuitem,
-    PanelMenuBar menubar menu menuitem {
+    panel-applet menubar menu menuitem {
       color: rgba(236, 239, 241, 0.75);
       background-color: #455A64; }
       .gnome-panel-menu-bar menu menuitem:hover,
-      PanelApplet menubar menu menuitem:hover,
-      PanelMenuBar menubar menu menuitem:hover {
+      panel-applet menubar menu menuitem:hover {
         color: #ECEFF1;
         background-color: alpha(currentColor, 0.1);
         box-shadow: none; }
       .gnome-panel-menu-bar menu menuitem:backdrop,
-      PanelApplet menubar menu menuitem:backdrop,
-      PanelMenuBar menubar menu menuitem:backdrop {
+      panel-applet menubar menu menuitem:backdrop {
         opacity: 1.0; }
     .gnome-panel-menu-bar menu separator,
-    PanelApplet menubar menu separator,
-    PanelMenuBar menubar menu separator {
+    panel-applet menubar menu separator {
       color: rgba(0, 0, 0, 0.11); }
 
-PanelAppletFrame {
-  border-width: 0;
-  background-color: transparent;
-  background-image: none; }
-
-PanelApplet button#tasklist-button, PanelApplet button#clock-applet-button, PanelApplet button#showdesktop-button {
+#tasklist-button,
+#clock-applet-button,
+#showdesktop-button {
   box-shadow: none;
   background-color: transparent;
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
-  padding: 0px 4px;
+  padding: 0px 0.30075rem;
+  border: none;
+  border-radius: 0;
   color: rgba(236, 239, 241, 0.75);
   background-color: transparent;
-  border: none;
-  border-radius: 0; }
-  PanelApplet button#tasklist-button:hover, PanelApplet button#clock-applet-button:hover, PanelApplet button#showdesktop-button:hover {
-    color: #FFFFFF;
+  font-weight: 700; }
+  #tasklist-button:hover,
+  #clock-applet-button:hover,
+  #showdesktop-button:hover {
+    color: #ECEFF1;
     background-color: transparent;
     box-shadow: inset 0 -2px alpha(currentColor, 0.2); }
-  PanelApplet button#tasklist-button:checked, PanelApplet button#tasklist-button:hover:checked, PanelApplet button#tasklist-button:disabled:checked, PanelApplet button#clock-applet-button:checked, PanelApplet button#clock-applet-button:hover:checked, PanelApplet button#clock-applet-button:disabled:checked, PanelApplet button#showdesktop-button:checked, PanelApplet button#showdesktop-button:hover:checked, PanelApplet button#showdesktop-button:disabled:checked {
-    color: #FFFFFF;
+  #tasklist-button:checked, #tasklist-button:hover:checked, #tasklist-button:disabled:checked,
+  #clock-applet-button:checked,
+  #clock-applet-button:hover:checked,
+  #clock-applet-button:disabled:checked,
+  #showdesktop-button:checked,
+  #showdesktop-button:hover:checked,
+  #showdesktop-button:disabled:checked {
+    color: #ECEFF1;
     background-color: transparent;
     box-shadow: inset 0 -2px #00BCD4; }
-  PanelApplet button#tasklist-button label:backdrop, PanelApplet button#tasklist-button:backdrop, PanelApplet button#clock-applet-button label:backdrop, PanelApplet button#clock-applet-button:backdrop, PanelApplet button#showdesktop-button label:backdrop, PanelApplet button#showdesktop-button:backdrop {
+  #tasklist-button label:backdrop, #tasklist-button:backdrop,
+  #clock-applet-button label:backdrop,
+  #clock-applet-button:backdrop,
+  #showdesktop-button label:backdrop,
+  #showdesktop-button:backdrop {
     opacity: 1.0; }
 
-WnckPager:selected {
+widget > menubar {
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, #13191c);
+  box-shadow: none; }
+
+wnck-pager:selected {
   box-shadow: inset 0 -2px #00BCD4; }
-WnckPager:backdrop {
+wnck-pager:backdrop {
   opacity: 1.0; }
 
-NaTrayApplet {
+na-tray-applet {
   -NaTrayApplet-icon-padding: 2;
   -NaTrayApplet-icon-size: 16; }
-  NaTrayApplet:backdrop {
+  na-tray-applet:backdrop {
     opacity: 1.0; }
+
+gp-arrow-button {
+  min-width: 1.50376rem;
+  min-height: 0;
+  border: 1px solid transparent;
+  background-image: none;
+  color: rgba(236, 239, 241, 0.75);
+  margin: 0.15038rem; }
+  gp-arrow-button:hover, gp-arrow-button:active {
+    color: #ECEFF1; }
+
+sn-button {
+  padding: 0.30075rem; }
 
 /**************
  * Tweak-tool *
@@ -9508,7 +9518,7 @@ window overlay > grid > frame > grid list separator {
 window > box.vertical > grid.vertical > stack stack > spinner {
   min-width: 1.80451rem;
   min-height: 1.80451rem;
-  padding: 4rem 6.0rem 4rem; }
+  padding: 4rem 6rem 4rem; }
 
 /************
  * Corebird *

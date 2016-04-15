@@ -2,26 +2,18 @@
  * Gnome panel *
  ***************/
 
-PanelWidget,
-PanelApplet,
-PanelToplevel {
+#panel-widget,
+window > grid > widget > widget {
   // Always use dark-color of dark variant
   color: $inverted_secondary_fg_color;
   background-color: $panel_bg_color;
   box-shadow: none;
 }
 
-PanelSeparator {
-  border-width: 0;
-  background: none;
-  background-image: none;
-}
-
 .gnome-panel-menu-bar,
-PanelApplet menubar,
-PanelMenuBar menubar,
-ClockBox {
-  font: bold;
+panel-applet > menubar,
+#clock-applet-button {
+  font-weight: 700;
   color: $inverted_secondary_fg_color;
   background-color: transparent;
   box-shadow: none;
@@ -30,14 +22,13 @@ ClockBox {
 }
 
 .gnome-panel-menu-bar,
-PanelApplet menubar,
-PanelMenuBar menubar {
+panel-applet menubar {
   box-shadow: none;
   & menuitem {
     color: $inverted_secondary_fg_color;
     background-color: transparent;
     &:hover {
-      color: $selected_fg_color;
+      color: $inverted_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
     &:backdrop { opacity: 1.0; }
@@ -58,51 +49,63 @@ PanelMenuBar menubar {
   }
 }
 
-PanelAppletFrame {
-  border-width: 0;
+#tasklist-button,
+#clock-applet-button,
+#showdesktop-button {
+  @include button(flat);
+  padding: 0px rem(4px);
+  border: none;
+  border-radius: 0;
+  color: $inverted_secondary_fg_color;
   background-color: transparent;
-  background-image: none;
+  font-weight: 700;
+  &:hover {
+    color: $inverted_fg_color;
+    background-color: transparent;
+    box-shadow: inset 0 -2px $track_color;
+  }
+  &:checked,
+  &:hover:checked,
+  &:disabled:checked { // 'checked' = 'active'
+    color: $inverted_fg_color;
+    background-color: transparent;
+    box-shadow: inset 0 -2px $selected_bg_color;
+  }
+  label:backdrop,
+  &:backdrop { opacity: 1.0; }
 }
 
-PanelApplet {
-  & button {
-    &#tasklist-button,
-    &#clock-applet-button,
-    &#showdesktop-button {
-      @include button(flat);
-      padding: 0px 4px;
-      color: $inverted_secondary_fg_color;
-      background-color: transparent;
-      border: none;
-      border-radius: 0;
-      &:hover {
-        color: $selected_fg_color;
-        background-color: transparent;
-        box-shadow: inset 0 -2px $track_color;
-      }
-      &:checked,
-      &:hover:checked,
-      &:disabled:checked { // 'checked' = 'active'
-        color: $selected_fg_color;
-        background-color: transparent;
-        box-shadow: inset 0 -2px $selected_bg_color;
-      }
-      label:backdrop,
-      &:backdrop { opacity: 1.0; }
-    }
+widget { // ubuntu-indicator container
+  > menubar {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, $panel_bg_color);
+    box-shadow: none;
   }
 }
 
-WnckPager {
+wnck-pager {
   &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
   &:backdrop { opacity: 1.0; }
 }
 
-NaTrayApplet {
+na-tray-applet {
   -NaTrayApplet-icon-padding: 2;
   -NaTrayApplet-icon-size: 16;
   &:backdrop { opacity: 1.0; }
 }
+
+gp-arrow-button {
+  min-width: rem(20px);
+  min-height: 0;
+  border: 1px solid transparent;
+  background-image: none;
+  color: $inverted_secondary_fg_color;
+  margin: rem(2px);
+  &:hover,
+  &:active { color: $inverted_fg_color; }
+}
+
+sn-button { padding: rem(4px); }
 
 
 /**************
