@@ -171,7 +171,7 @@ $orientation: ((top, bottom),
 
 // window decorations
 UnityDecoration { // FIXME: do not use scalable units
-  -UnityDecoration-extents: 28px 1 1 1;
+  -UnityDecoration-extents: 28px 0 0 0;
   -UnityDecoration-input-extents: 8px;
 
   -UnityDecoration-shadow-offset-x: 0;
@@ -191,13 +191,14 @@ UnityDecoration { // FIXME: do not use scalable units
   &.top {
     border-width: 1px 0 0;
     border-style: solid none none;
-    border-color: $highlight_color;
+    border-color: $borders_color;
     border-radius: 2px 2px 0 0;
     padding: 1px 6px 0 6px; // FIXME: too much tiny!
 
     background-image: linear-gradient(to bottom, $inverted_dark_color);
     // The foreground color will be used to paint the text
     color: $inverted_fg_color;
+    box-shadow: inset 0 1px $highlight_color;
 
     &:backdrop { color: $insensitive_inverted_fg_color; }
   }
