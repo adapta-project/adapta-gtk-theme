@@ -8,6 +8,9 @@ $orientation: ((top, bottom),
 	       (left, right),
 	       (right, left));
 
+// main container
+.budgie-container { background-color: transparent; }
+
 // panel styling
 .budgie-panel {
   // Always use dark-color of dark variant
@@ -96,6 +99,114 @@ $orientation: ((top, bottom),
       }
     }
   }
+}
+
+// raven styling
+.raven {
+  padding: 0;
+  border: none;
+  color: $secondary_fg_color;
+  background-color: gtkopacity($dark_color, 0.9);
+  box-shadow: inset 0 0 0 1px gtkopacity($dark_color, 0.9);
+
+  .raven-background,
+  .raven-header {
+    border: none;
+    color: $secondary_fg_color;
+    background-color: transparent;
+  }
+
+  .powerstrip .button {
+    padding: 1em;
+    color: $secondary_accent_color;
+    &:hover,
+    &:active,
+    &:checked { color: $accent_color; }
+    &:insensitive { color: gtkopacity($accent_color, 0.4); }
+  }
+
+  .option-subtitle {
+    color: $insensitive_secondary_fg_color;
+    font-size: smaller;
+  }
+
+  // used to indicate unread notifications
+  .alert { color: $accent_color; }
+
+  GtkScrolledWindow {
+    border-width: 1px 0;
+    border-color: $borders_color;
+    background: transparent;
+  }
+
+  // FIXME: why should I have to do so?
+  GtkSwitch {
+    -GtkSwitch-slider-width: 40;
+    -GtkSwitch-slider-height: 20;
+    font-size: 0;
+    outline-color: transparent;
+
+    &:insensitive { opacity: 0.4; }
+
+    &.trough,
+    &.slider { // reset all of default switches
+      padding: 0;
+      border: none;
+      color: transparent;
+      background: none;
+      background-image: none;
+      background-size: 40px 20px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      box-shadow: none;
+
+      &:dir(rtl) { background-position: left center; }
+    }
+
+    &.trough { // use ugly pixmaps
+      background-image: url("assets/toggle-off#{$asset_suffix}.svg");
+      &:hover { background-image: url("assets/toggle-off-hover#{$asset_suffix}.svg"); }
+      &:active {
+        background-image: url("assets/toggle-on.svg");
+        &:hover { background-image: url("assets/toggle-on-hover.svg"); }
+      }
+    }
+  }
+
+  // use flat-style
+  .button.image-button { @extend .button.flat; }
+
+  GtkCalendar {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+// MPRIS Applet
+.raven-mpris {
+  border: none;
+  color: $inverted_fg_color;
+  background-color: gtkopacity($dark_color, 0.9);
+
+  .button.image-button { padding: 0.6em; }
+}
+
+// Notifications
+.budgie-notification-window {
+  border-radius: 2px;
+  background: none;
+}
+
+.budgie-notification {
+  &.background { border-radius: 2px; }
+
+  .notification-title {
+    color: $inverted_secondary_fg_color;
+    font-size: 110%;
+    font-weight: 500;
+  }
+
+  .notification-body { color: $inverted_fg_color; }
 }
 
 // dialog styling
