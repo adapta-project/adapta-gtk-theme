@@ -56,7 +56,6 @@ $orientation: ((top, bottom),
 }
 
 // icon tasklist styling
-// FIXME: can not set opaque to minimized/unfocused?
 .budgie-panel {
   .launcher {
     transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -101,13 +100,22 @@ $orientation: ((top, bottom),
   }
 }
 
+
+// main menu styling
+.budgie-menu {
+  border-radius: 2px;
+}
+
 // raven styling
 .raven {
   padding: 0;
   border: none;
   color: $secondary_fg_color;
   background-color: gtkopacity($dark_color, 0.9);
-  box-shadow: inset 0 0 0 1px gtkopacity($dark_color, 0.9);
+
+  // mixin with drop-shadows to avoid the raven edge shine-through
+  &:dir(ltr) { box-shadow: -1px 0 1px rgba(0, 0, 0, 0.16); }
+  &:dir(rtl) { box-shadow: 1px 0 1px rgba(0, 0, 0, 0.16); }
 
   .raven-header {
     border: none;
@@ -198,7 +206,12 @@ $orientation: ((top, bottom),
   .button.image-button { @extend .button.flat; }
 
   .raven-header { // 'exit' button
-    > .button.text-button { @extend .button.suggested-action; }
+    > .button.text-button {
+      @extend .button.suggested-action;
+      color: $secondary_selected_fg_color;
+      &:hover,
+      &:active { color: $selected_fg_color; }
+    }
   }
 
 
@@ -295,10 +308,9 @@ $orientation: ((top, bottom),
 }
 
 .drop-shadow {
-    background-color: transparent;
-    background-image: none;
-    box-shadow: $z-depth-2;
-    border-radius: 2px;
+  background-color: $dark_color;
+  background-image: none;
+  box-shadow: $z-depth-2;
 }
 
 

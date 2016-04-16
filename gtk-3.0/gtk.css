@@ -6420,12 +6420,18 @@ TerminalWindow .scrollbar.trough {
   .right .budgie-panel .launcher:active, .right .budgie-panel .launcher:checked {
     border-right: 2px solid #00BCD4; }
 
+.budgie-menu {
+  border-radius: 2px; }
+
 .raven {
   padding: 0;
   border: none;
   color: rgba(38, 50, 56, 0.75);
-  background-color: rgba(229, 233, 236, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(229, 233, 236, 0.9); }
+  background-color: rgba(229, 233, 236, 0.9); }
+  .raven:dir(ltr) {
+    box-shadow: -1px 0 1px rgba(0, 0, 0, 0.16); }
+  .raven:dir(rtl) {
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.16); }
   .raven .raven-header {
     border: none;
     color: rgba(38, 50, 56, 0.5);
@@ -6518,6 +6524,10 @@ TerminalWindow .scrollbar.trough {
         background-image: url("assets/toggle-on.svg"); }
         .raven GtkSwitch.trough:active:hover {
           background-image: url("assets/toggle-on-hover.svg"); }
+  .raven .raven-header > .button.text-button {
+    color: rgba(255, 255, 255, 0.85); }
+    .raven .raven-header > .button.text-button:hover, .raven .raven-header > .button.text-button:active {
+      color: #FFFFFF; }
   .raven GtkCalendar {
     border: none;
     background-color: transparent; }
@@ -6603,10 +6613,9 @@ TerminalWindow .scrollbar.trough {
   font-weight: bold; }
 
 .drop-shadow {
-  background-color: transparent;
+  background-color: #e5e9ec;
   background-image: none;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 2px; }
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2); }
 
 /*****************
  * Unity Desktop *
