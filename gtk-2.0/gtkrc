@@ -1810,16 +1810,6 @@ style "menu" {
   bg[NORMAL] = @base_color
   bg[PRELIGHT] = @base_color
   bg[INSENSITIVE] = @base_color
-
-  # For menus that use horizontal lines rather than gtkseparator
-  engine "pixmap" {
-    image {
-      function = HLINE
-      file     = "Lines/menu-line.svg"
-      border   = { 0, 0, 1, 0 }
-      stretch  = TRUE
-    }
-  }
 }
 
 style "menu_framed_box" {
@@ -2011,11 +2001,14 @@ style "menu_item" {
 }
 
 style "separator_menu_item"  {
+  xthickness = 0
+  ythickness = 2
+
   engine "pixmap" {
     image {
       function = BOX
       file     = "Lines/menu-line.svg"
-      border   = { 0, 0, 1, 0 }
+      border   = { 0, 0, 0, 0 }
       stretch  = TRUE
     }
   }
@@ -2415,10 +2408,11 @@ class "GtkScrolledWindow"    style "scrolled_window"
 class "GtkFrame"             style "frame"
 class "GtkToolbar"           style "toolbar"
 
-widget_class "*<GtkMenuBar>*"               style "menubar"
-widget_class "*<GtkMenu>*"                  style "menu"
-widget_class "*<GtkMenuItem>*"              style "menu_item"
-widget_class "*<GtkMenuBar>.<GtkMenuItem>*" style "menubar_item"
+widget_class "*<GtkMenuBar>*"                    style "menubar"
+widget_class "*<GtkMenu>*"                       style "menu"
+widget_class "*<GtkMenuItem>*"                   style "menu_item"
+widget_class "*<GtkMenuBar>.<GtkMenuItem>*"      style "menubar_item"
+widget_class "*<GtkMenu>*<GtkSeparatorMenuItem>" style "separator_menu_item"
 
 widget_class "*<GtkComboBox>*<GtkButton>"      style "combobox_button"
 widget_class "*<GtkComboBoxEntry>*<GtkEntry>"  style "combobox_entry"
