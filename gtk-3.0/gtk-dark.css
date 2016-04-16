@@ -549,34 +549,91 @@ GtkTextView {
       background-image: linear-gradient(to bottom, rgba(236, 239, 241, 0.1)); }
   .button.osd:insensitive {
     opacity: 0; }
-  .button.suggested-action {
+  .button.suggested-action, .raven .raven-header > .button.text-button {
     background-color: #FF5252;
     color: #FFFFFF; }
-    .button.suggested-action:insensitive {
+    .button.suggested-action:insensitive, .raven .raven-header > .button.text-button:insensitive {
       box-shadow: none;
       background-color: alpha(currentColor, 0.2);
       color: rgba(236, 239, 241, 0.3); }
-      .button.suggested-action:insensitive > .label {
+      .button.suggested-action:insensitive > .label, .raven .raven-header > .button.text-button:insensitive > .label {
         color: inherit; }
-    .button.suggested-action:checked {
+    .button.suggested-action:checked, .raven .raven-header > .button.text-button:checked {
       background-color: #ff7575; }
-    .button.suggested-action.flat, .suggested-action.button.osd.image-button, .inline-toolbar .suggested-action.button, .inline-toolbar .suggested-action.button.image-button:not(.text-button), .action-bar .suggested-action.button, .action-bar .suggested-action.button.image-button:not(.text-button), GtkButtonBox > .suggested-action.button, .app-notification .suggested-action.button, GeditViewFrame .gedit-search-slider .suggested-action.button, .toolbar .suggested-action.button, .titlebar .suggested-action.button:not(.suggested-action):not(.destructive-action),
-    .header-bar .suggested-action.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .suggested-action.button, .suggested-action.sidebar-button.button, .info .suggested-action.button,
+    .button.suggested-action.flat, .suggested-action.button.osd.image-button, .raven .raven-header > .osd.image-button.button.text-button, .inline-toolbar .suggested-action.button, .inline-toolbar .raven .raven-header > .button.text-button, .raven .inline-toolbar .raven-header > .button.text-button, .inline-toolbar .suggested-action.button.image-button:not(.text-button), .inline-toolbar .raven .raven-header > .image-button.button.text-button:not(.text-button), .raven .inline-toolbar .raven-header > .image-button.button.text-button:not(.text-button), .action-bar .suggested-action.button, .action-bar .raven .raven-header > .button.text-button, .raven .action-bar .raven-header > .button.text-button, .action-bar .suggested-action.button.image-button:not(.text-button), .action-bar .raven .raven-header > .image-button.button.text-button:not(.text-button), .raven .action-bar .raven-header > .image-button.button.text-button:not(.text-button), .inline-toolbar .linked > .suggested-action.button, .inline-toolbar .raven .raven-header.linked > .button.text-button, .raven .inline-toolbar .raven-header.linked > .button.text-button, .inline-toolbar .linked > .suggested-action.button.image-button:not(.text-button), .inline-toolbar .raven .raven-header.linked > .image-button.button.text-button:not(.text-button), .raven .inline-toolbar .raven-header.linked > .image-button.button.text-button:not(.text-button), .action-bar .linked > .suggested-action.button, .action-bar .raven .raven-header.linked > .button.text-button, .raven .action-bar .raven-header.linked > .button.text-button, .action-bar .linked > .suggested-action.button.image-button:not(.text-button), .action-bar .raven .raven-header.linked > .image-button.button.text-button:not(.text-button), .raven .action-bar .raven-header.linked > .image-button.button.text-button:not(.text-button), GtkButtonBox > .suggested-action.button, .raven GtkButtonBox.raven-header > .button.text-button, .osd .toolbar .suggested-action.button, .osd .toolbar .raven .raven-header > .button.text-button, .raven .osd .toolbar .raven-header > .button.text-button, .toolbar.osd .suggested-action.button, .app-notification .suggested-action.button, GeditViewFrame .gedit-search-slider .suggested-action.button, .toolbar.osd .raven .raven-header > .button.text-button, .raven .toolbar.osd .raven-header > .button.text-button, .app-notification .raven .raven-header > .button.text-button, .raven .app-notification .raven-header > .button.text-button, GeditViewFrame .gedit-search-slider .raven .raven-header > .button.text-button, .raven GeditViewFrame .gedit-search-slider .raven-header > .button.text-button, .toolbar .suggested-action.button, .toolbar .raven .raven-header > .button.text-button, .raven .toolbar .raven-header > .button.text-button, .titlebar .suggested-action.button:not(.suggested-action):not(.destructive-action), .titlebar .raven .raven-header > .button.text-button:not(.suggested-action):not(.destructive-action), .raven .titlebar .raven-header > .button.text-button:not(.suggested-action):not(.destructive-action),
+    .header-bar .suggested-action.button:not(.suggested-action):not(.destructive-action),
+    .header-bar .raven .raven-header > .button.text-button:not(.suggested-action):not(.destructive-action),
+    .raven .header-bar .raven-header > .button.text-button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .suggested-action.button, .message-dialog.csd .dialog-action-area .raven .raven-header > .button.text-button, .raven .message-dialog.csd .dialog-action-area .raven-header > .button.text-button,
+    .message-dialog.csd .dialog-action-area .linked > .suggested-action.button,
+    .message-dialog.csd .dialog-action-area .raven .raven-header.linked > .button.text-button,
+    .raven .message-dialog.csd .dialog-action-area .raven-header.linked > .button.text-button, .suggested-action.sidebar-button.button, .raven .raven-header > .sidebar-button.button.text-button, .info .suggested-action.button, .info .raven .raven-header > .button.text-button, .raven .info .raven-header > .button.text-button,
     .question .suggested-action.button,
+    .question .raven .raven-header > .button.text-button,
+    .raven .question .raven-header > .button.text-button,
     .warning .suggested-action.button,
-    .error .suggested-action.button, GtkScaleButton.suggested-action.button,
-    GtkVolumeButton.suggested-action.button, GfCandidatePopup .suggested-action.button,
+    .warning .raven .raven-header > .button.text-button,
+    .raven .warning .raven-header > .button.text-button,
+    .error .suggested-action.button,
+    .error .raven .raven-header > .button.text-button,
+    .raven .error .raven-header > .button.text-button, GtkScaleButton.suggested-action.button, .raven .raven-header > GtkScaleButton.button.text-button,
+    GtkVolumeButton.suggested-action.button,
+    .raven .raven-header > GtkVolumeButton.button.text-button, GfCandidatePopup .suggested-action.button, GfCandidatePopup .raven .raven-header > .button.text-button, .raven GfCandidatePopup .raven-header > .button.text-button, GfCandidatePopup .suggested-action.button:first-child, GfCandidatePopup .raven .raven-header > .button.text-button:first-child, .raven GfCandidatePopup .raven-header > .button.text-button:first-child, GfCandidatePopup .suggested-action.button:last-child, GfCandidatePopup .raven .raven-header > .button.text-button:last-child, .raven GfCandidatePopup .raven-header > .button.text-button:last-child,
+    GfCandidatePopup .linked > .suggested-action.button,
+    GfCandidatePopup .raven .raven-header.linked > .button.text-button,
+    .raven GfCandidatePopup .raven-header.linked > .button.text-button,
     GfCandidatePopup .linked > .suggested-action.button:first-child,
-    GfCandidatePopup .linked > .suggested-action.button:last-child, MathWindow :not(.titlebar) .suggested-action.button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .suggested-action.button:not(.flat):not(.titlebutton),
-    .action-bar .linked > .suggested-action.button.image-button, .raven .suggested-action.button.image-button, .budgie-session-dialog .suggested-action.button, .budgie-polkit-dialog .suggested-action.button, NemoWindow GtkGrid > GtkEventBox > .toolbar .suggested-action.button.image-button {
+    GfCandidatePopup .raven .raven-header.linked > .button.text-button:first-child,
+    .raven GfCandidatePopup .raven-header.linked > .button.text-button:first-child,
+    GfCandidatePopup .linked > .suggested-action.button:last-child,
+    GfCandidatePopup .raven .raven-header.linked > .button.text-button:last-child,
+    .raven GfCandidatePopup .raven-header.linked > .button.text-button:last-child, MathWindow :not(.titlebar) .suggested-action.button:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton), .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .suggested-action.button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton), .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:not(.flat):not(.titlebutton),
+    .action-bar .linked > .suggested-action.button.image-button,
+    .action-bar .raven .raven-header.linked > .image-button.button.text-button,
+    .raven .action-bar .raven-header.linked > .image-button.button.text-button, .raven .suggested-action.button.image-button, .raven .raven-header > .image-button.button.text-button, .raven .raven-header > .flat.button.text-button, .raven .budgie-session-dialog .raven-header > .text-button.button, .budgie-session-dialog .raven .raven-header > .text-button.button, .raven .budgie-polkit-dialog .raven-header > .text-button.button, .budgie-polkit-dialog .raven .raven-header > .text-button.button, .budgie-session-dialog .suggested-action.button, .budgie-polkit-dialog .suggested-action.button,
+    .budgie-session-dialog .linked > .suggested-action.button,
+    .budgie-polkit-dialog .linked > .suggested-action.button,
+    .budgie-session-dialog .raven .raven-header.linked > .button.text-button,
+    .raven .budgie-session-dialog .raven-header.linked > .button.text-button,
+    .budgie-polkit-dialog .raven .raven-header.linked > .button.text-button,
+    .raven .budgie-polkit-dialog .raven-header.linked > .button.text-button, NemoWindow GtkGrid > GtkEventBox > .toolbar .suggested-action.button.image-button, NemoWindow GtkGrid > GtkEventBox > .toolbar .raven .raven-header > .image-button.button.text-button, .raven NemoWindow GtkGrid > GtkEventBox > .toolbar .raven-header > .image-button.button.text-button {
       background-color: transparent;
       color: #FF5252; }
-      .button.suggested-action.flat:insensitive, .suggested-action.button.osd.image-button:insensitive, .inline-toolbar .suggested-action.button:insensitive, .action-bar .suggested-action.button:insensitive, .inline-toolbar .linked > .suggested-action.button.image-button:insensitive:not(.text-button), GtkButtonBox > .suggested-action.button:insensitive, .app-notification .suggested-action.button:insensitive, GeditViewFrame .gedit-search-slider .suggested-action.button:insensitive, .toolbar .suggested-action.button:insensitive, .titlebar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action),
-      .header-bar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .suggested-action.button:insensitive, .suggested-action.sidebar-button.button:insensitive, .info .suggested-action.button:insensitive,
+      .button.suggested-action.flat:insensitive, .suggested-action.button.osd.image-button:insensitive, .raven .raven-header > .osd.image-button.button.text-button:insensitive, .inline-toolbar .suggested-action.button:insensitive, .inline-toolbar .raven .raven-header > .button.text-button:insensitive, .raven .inline-toolbar .raven-header > .button.text-button:insensitive, .inline-toolbar .suggested-action.button.image-button:insensitive:not(.text-button), .inline-toolbar .raven .raven-header > .image-button.button.text-button:insensitive:not(.text-button), .raven .inline-toolbar .raven-header > .image-button.button.text-button:insensitive:not(.text-button), .action-bar .suggested-action.button:insensitive, .action-bar .raven .raven-header > .button.text-button:insensitive, .raven .action-bar .raven-header > .button.text-button:insensitive, .action-bar .suggested-action.button.image-button:insensitive:not(.text-button), .action-bar .raven .raven-header > .image-button.button.text-button:insensitive:not(.text-button), .raven .action-bar .raven-header > .image-button.button.text-button:insensitive:not(.text-button), .inline-toolbar .linked > .suggested-action.button:insensitive, .inline-toolbar .raven .raven-header.linked > .button.text-button:insensitive, .raven .inline-toolbar .raven-header.linked > .button.text-button:insensitive, .inline-toolbar .linked > .suggested-action.button.image-button:insensitive:not(.text-button), .inline-toolbar .raven .raven-header.linked > .image-button.button.text-button:insensitive:not(.text-button), .raven .inline-toolbar .raven-header.linked > .image-button.button.text-button:insensitive:not(.text-button), .action-bar .linked > .suggested-action.button:insensitive, .action-bar .raven .raven-header.linked > .button.text-button:insensitive, .raven .action-bar .raven-header.linked > .button.text-button:insensitive, .action-bar .linked > .suggested-action.button.image-button:insensitive:not(.text-button), .action-bar .raven .raven-header.linked > .image-button.button.text-button:insensitive:not(.text-button), .raven .action-bar .raven-header.linked > .image-button.button.text-button:insensitive:not(.text-button), GtkButtonBox > .suggested-action.button:insensitive, .raven GtkButtonBox.raven-header > .button.text-button:insensitive, .osd .toolbar .suggested-action.button:insensitive, .osd .toolbar .raven .raven-header > .button.text-button:insensitive, .raven .osd .toolbar .raven-header > .button.text-button:insensitive, .toolbar.osd .suggested-action.button:insensitive, .app-notification .suggested-action.button:insensitive, GeditViewFrame .gedit-search-slider .suggested-action.button:insensitive, .toolbar.osd .raven .raven-header > .button.text-button:insensitive, .raven .toolbar.osd .raven-header > .button.text-button:insensitive, .app-notification .raven .raven-header > .button.text-button:insensitive, .raven .app-notification .raven-header > .button.text-button:insensitive, GeditViewFrame .gedit-search-slider .raven .raven-header > .button.text-button:insensitive, .raven GeditViewFrame .gedit-search-slider .raven-header > .button.text-button:insensitive, .toolbar .suggested-action.button:insensitive, .toolbar .raven .raven-header > .button.text-button:insensitive, .raven .toolbar .raven-header > .button.text-button:insensitive, .titlebar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action), .titlebar .raven .raven-header > .button.text-button:insensitive:not(.suggested-action):not(.destructive-action), .raven .titlebar .raven-header > .button.text-button:insensitive:not(.suggested-action):not(.destructive-action),
+      .header-bar .suggested-action.button:insensitive:not(.suggested-action):not(.destructive-action),
+      .header-bar .raven .raven-header > .button.text-button:insensitive:not(.suggested-action):not(.destructive-action),
+      .raven .header-bar .raven-header > .button.text-button:insensitive:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .suggested-action.button:insensitive, .message-dialog.csd .dialog-action-area .raven .raven-header > .button.text-button:insensitive, .raven .message-dialog.csd .dialog-action-area .raven-header > .button.text-button:insensitive,
+      .message-dialog.csd .dialog-action-area .linked > .suggested-action.button:insensitive,
+      .message-dialog.csd .dialog-action-area .raven .raven-header.linked > .button.text-button:insensitive,
+      .raven .message-dialog.csd .dialog-action-area .raven-header.linked > .button.text-button:insensitive, .suggested-action.sidebar-button.button:insensitive, .raven .raven-header > .sidebar-button.button.text-button:insensitive, .info .suggested-action.button:insensitive, .info .raven .raven-header > .button.text-button:insensitive, .raven .info .raven-header > .button.text-button:insensitive,
       .question .suggested-action.button:insensitive,
+      .question .raven .raven-header > .button.text-button:insensitive,
+      .raven .question .raven-header > .button.text-button:insensitive,
       .warning .suggested-action.button:insensitive,
-      .error .suggested-action.button:insensitive, GtkScaleButton.suggested-action.button:insensitive,
-      GtkVolumeButton.suggested-action.button:insensitive, GfCandidatePopup .suggested-action.button:insensitive, MathWindow :not(.titlebar) .suggested-action.button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .suggested-action.button:insensitive:not(.flat):not(.titlebutton), .raven .suggested-action.button.image-button:insensitive, .budgie-session-dialog .suggested-action.button:insensitive, .budgie-polkit-dialog .suggested-action.button:insensitive {
+      .warning .raven .raven-header > .button.text-button:insensitive,
+      .raven .warning .raven-header > .button.text-button:insensitive,
+      .error .suggested-action.button:insensitive,
+      .error .raven .raven-header > .button.text-button:insensitive,
+      .raven .error .raven-header > .button.text-button:insensitive, GtkScaleButton.suggested-action.button:insensitive, .raven .raven-header > GtkScaleButton.button.text-button:insensitive,
+      GtkVolumeButton.suggested-action.button:insensitive,
+      .raven .raven-header > GtkVolumeButton.button.text-button:insensitive, GfCandidatePopup .suggested-action.button:insensitive, GfCandidatePopup .raven .raven-header > .button.text-button:insensitive, .raven GfCandidatePopup .raven-header > .button.text-button:insensitive, GfCandidatePopup .suggested-action.button:insensitive:first-child, GfCandidatePopup .raven .raven-header > .button.text-button:insensitive:first-child, .raven GfCandidatePopup .raven-header > .button.text-button:insensitive:first-child, GfCandidatePopup .suggested-action.button:insensitive:last-child, GfCandidatePopup .raven .raven-header > .button.text-button:insensitive:last-child, .raven GfCandidatePopup .raven-header > .button.text-button:insensitive:last-child,
+      GfCandidatePopup .linked > .suggested-action.button:insensitive,
+      GfCandidatePopup .raven .raven-header.linked > .button.text-button:insensitive,
+      .raven GfCandidatePopup .raven-header.linked > .button.text-button:insensitive,
+      GfCandidatePopup .linked > .suggested-action.button:insensitive:first-child,
+      GfCandidatePopup .raven .raven-header.linked > .button.text-button:insensitive:first-child,
+      .raven GfCandidatePopup .raven-header.linked > .button.text-button:insensitive:first-child,
+      GfCandidatePopup .linked > .suggested-action.button:insensitive:last-child,
+      GfCandidatePopup .raven .raven-header.linked > .button.text-button:insensitive:last-child,
+      .raven GfCandidatePopup .raven-header.linked > .button.text-button:insensitive:last-child, MathWindow :not(.titlebar) .suggested-action.button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:insensitive:not(.flat):not(.titlebutton), .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .suggested-action.button:insensitive:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:insensitive:not(.flat):not(.titlebutton), .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:insensitive:not(.flat):not(.titlebutton),
+      .action-bar .linked > .suggested-action.button.image-button:insensitive,
+      .action-bar .raven .raven-header.linked > .image-button.button.text-button:insensitive,
+      .raven .action-bar .raven-header.linked > .image-button.button.text-button:insensitive, .raven .suggested-action.button.image-button:insensitive, .raven .raven-header > .image-button.button.text-button:insensitive, .raven .raven-header > .flat.button.text-button:insensitive, .raven .budgie-session-dialog .raven-header > .text-button.button:insensitive, .budgie-session-dialog .raven .raven-header > .text-button.button:insensitive, .raven .budgie-polkit-dialog .raven-header > .text-button.button:insensitive, .budgie-polkit-dialog .raven .raven-header > .text-button.button:insensitive, .budgie-session-dialog .suggested-action.button:insensitive, .budgie-polkit-dialog .suggested-action.button:insensitive,
+      .budgie-session-dialog .linked > .suggested-action.button:insensitive,
+      .budgie-polkit-dialog .linked > .suggested-action.button:insensitive,
+      .budgie-session-dialog .raven .raven-header.linked > .button.text-button:insensitive,
+      .raven .budgie-session-dialog .raven-header.linked > .button.text-button:insensitive,
+      .budgie-polkit-dialog .raven .raven-header.linked > .button.text-button:insensitive,
+      .raven .budgie-polkit-dialog .raven-header.linked > .button.text-button:insensitive, NemoWindow GtkGrid > GtkEventBox > .toolbar .suggested-action.button.image-button:insensitive, NemoWindow GtkGrid > GtkEventBox > .toolbar .raven .raven-header > .image-button.button.text-button:insensitive, .raven NemoWindow GtkGrid > GtkEventBox > .toolbar .raven-header > .image-button.button.text-button:insensitive {
         box-shadow: none;
         background-color: transparent; }
   .button.destructive-action {
@@ -1127,7 +1184,11 @@ GtkComboBox {
   .titlebar .linked > .button,
   .titlebar .linked > .button .label.text-button,
   .titlebar .button.suggested-action,
+  .titlebar .raven .raven-header > .button.text-button,
+  .raven .titlebar .raven-header > .button.text-button,
   .titlebar .button.suggested-action .label.text-button,
+  .titlebar .raven .raven-header > .button.text-button .label.text-button,
+  .raven .titlebar .raven-header > .button.text-button .label.text-button,
   .titlebar .button.destructive-action,
   .titlebar .button.destructive-action .label.text-button,
   .header-bar .button,
@@ -1135,7 +1196,11 @@ GtkComboBox {
   .header-bar .linked > .button,
   .header-bar .linked > .button .label.text-button,
   .header-bar .button.suggested-action,
+  .header-bar .raven .raven-header > .button.text-button,
+  .raven .header-bar .raven-header > .button.text-button,
   .header-bar .button.suggested-action .label.text-button,
+  .header-bar .raven .raven-header > .button.text-button .label.text-button,
+  .raven .header-bar .raven-header > .button.text-button .label.text-button,
   .header-bar .button.destructive-action,
   .header-bar .button.destructive-action .label.text-button {
     color: rgba(236, 239, 241, 0.75); }
@@ -1143,7 +1208,11 @@ GtkComboBox {
     .titlebar .linked > .button:hover,
     .titlebar .linked > .button .label.text-button:hover,
     .titlebar .button.suggested-action:hover,
+    .titlebar .raven .raven-header > .button.text-button:hover,
+    .raven .titlebar .raven-header > .button.text-button:hover,
     .titlebar .button.suggested-action .label.text-button:hover,
+    .titlebar .raven .raven-header > .button.text-button .label.text-button:hover,
+    .raven .titlebar .raven-header > .button.text-button .label.text-button:hover,
     .titlebar .button.destructive-action:hover,
     .titlebar .button.destructive-action .label.text-button:hover,
     .header-bar .button:hover,
@@ -1151,7 +1220,11 @@ GtkComboBox {
     .header-bar .linked > .button:hover,
     .header-bar .linked > .button .label.text-button:hover,
     .header-bar .button.suggested-action:hover,
+    .header-bar .raven .raven-header > .button.text-button:hover,
+    .raven .header-bar .raven-header > .button.text-button:hover,
     .header-bar .button.suggested-action .label.text-button:hover,
+    .header-bar .raven .raven-header > .button.text-button .label.text-button:hover,
+    .raven .header-bar .raven-header > .button.text-button .label.text-button:hover,
     .header-bar .button.destructive-action:hover,
     .header-bar .button.destructive-action .label.text-button:hover {
       color: #ECEFF1; }
@@ -1159,7 +1232,11 @@ GtkComboBox {
     .titlebar .linked > .button:checked,
     .titlebar .linked > .button .label.text-button:checked,
     .titlebar .button.suggested-action:checked,
+    .titlebar .raven .raven-header > .button.text-button:checked,
+    .raven .titlebar .raven-header > .button.text-button:checked,
     .titlebar .button.suggested-action .label.text-button:checked,
+    .titlebar .raven .raven-header > .button.text-button .label.text-button:checked,
+    .raven .titlebar .raven-header > .button.text-button .label.text-button:checked,
     .titlebar .button.destructive-action:checked,
     .titlebar .button.destructive-action .label.text-button:checked,
     .header-bar .button:checked,
@@ -1167,7 +1244,11 @@ GtkComboBox {
     .header-bar .linked > .button:checked,
     .header-bar .linked > .button .label.text-button:checked,
     .header-bar .button.suggested-action:checked,
+    .header-bar .raven .raven-header > .button.text-button:checked,
+    .raven .header-bar .raven-header > .button.text-button:checked,
     .header-bar .button.suggested-action .label.text-button:checked,
+    .header-bar .raven .raven-header > .button.text-button .label.text-button:checked,
+    .raven .header-bar .raven-header > .button.text-button .label.text-button:checked,
     .header-bar .button.destructive-action:checked,
     .header-bar .button.destructive-action .label.text-button:checked {
       color: #ECEFF1; }
@@ -1175,7 +1256,11 @@ GtkComboBox {
       .titlebar .linked > .button:checked:insensitive,
       .titlebar .linked > .button .label.text-button:checked:insensitive,
       .titlebar .button.suggested-action:checked:insensitive,
+      .titlebar .raven .raven-header > .button.text-button:checked:insensitive,
+      .raven .titlebar .raven-header > .button.text-button:checked:insensitive,
       .titlebar .button.suggested-action .label.text-button:checked:insensitive,
+      .titlebar .raven .raven-header > .button.text-button .label.text-button:checked:insensitive,
+      .raven .titlebar .raven-header > .button.text-button .label.text-button:checked:insensitive,
       .titlebar .button.destructive-action:checked:insensitive,
       .titlebar .button.destructive-action .label.text-button:checked:insensitive,
       .header-bar .button:checked:insensitive,
@@ -1183,7 +1268,11 @@ GtkComboBox {
       .header-bar .linked > .button:checked:insensitive,
       .header-bar .linked > .button .label.text-button:checked:insensitive,
       .header-bar .button.suggested-action:checked:insensitive,
+      .header-bar .raven .raven-header > .button.text-button:checked:insensitive,
+      .raven .header-bar .raven-header > .button.text-button:checked:insensitive,
       .header-bar .button.suggested-action .label.text-button:checked:insensitive,
+      .header-bar .raven .raven-header > .button.text-button .label.text-button:checked:insensitive,
+      .raven .header-bar .raven-header > .button.text-button .label.text-button:checked:insensitive,
       .header-bar .button.destructive-action:checked:insensitive,
       .header-bar .button.destructive-action .label.text-button:checked:insensitive {
         color: rgba(236, 239, 241, 0.3); }
@@ -1191,7 +1280,11 @@ GtkComboBox {
     .titlebar .linked > .button:insensitive,
     .titlebar .linked > .button .label.text-button:insensitive,
     .titlebar .button.suggested-action:insensitive,
+    .titlebar .raven .raven-header > .button.text-button:insensitive,
+    .raven .titlebar .raven-header > .button.text-button:insensitive,
     .titlebar .button.suggested-action .label.text-button:insensitive,
+    .titlebar .raven .raven-header > .button.text-button .label.text-button:insensitive,
+    .raven .titlebar .raven-header > .button.text-button .label.text-button:insensitive,
     .titlebar .button.destructive-action:insensitive,
     .titlebar .button.destructive-action .label.text-button:insensitive,
     .header-bar .button:insensitive,
@@ -1199,17 +1292,25 @@ GtkComboBox {
     .header-bar .linked > .button:insensitive,
     .header-bar .linked > .button .label.text-button:insensitive,
     .header-bar .button.suggested-action:insensitive,
+    .header-bar .raven .raven-header > .button.text-button:insensitive,
+    .raven .header-bar .raven-header > .button.text-button:insensitive,
     .header-bar .button.suggested-action .label.text-button:insensitive,
+    .header-bar .raven .raven-header > .button.text-button .label.text-button:insensitive,
+    .raven .header-bar .raven-header > .button.text-button .label.text-button:insensitive,
     .header-bar .button.destructive-action:insensitive,
     .header-bar .button.destructive-action .label.text-button:insensitive {
       color: rgba(236, 239, 241, 0.225); }
   .titlebar .button .label.text-button,
   .titlebar .linked > .button .label.text-button,
   .titlebar .button.suggested-action .label.text-button,
+  .titlebar .raven .raven-header > .button.text-button .label.text-button,
+  .raven .titlebar .raven-header > .button.text-button .label.text-button,
   .titlebar .button.destructive-action .label.text-button,
   .header-bar .button .label.text-button,
   .header-bar .linked > .button .label.text-button,
   .header-bar .button.suggested-action .label.text-button,
+  .header-bar .raven .raven-header > .button.text-button .label.text-button,
+  .raven .header-bar .raven-header > .button.text-button .label.text-button,
   .header-bar .button.destructive-action .label.text-button {
     border-image: none;
     box-shadow: none; }
@@ -1641,70 +1742,120 @@ GtkComboBox {
           .header-bar.selection-mode .text-button.selection-menu:checked:insensitive > .label,
           .header-bar.selection-mode .button.image-button:checked:insensitive > .label {
             color: inherit; }
-      .titlebar.selection-mode .button.suggested-action,
+      .titlebar.selection-mode .button.suggested-action, .titlebar.selection-mode .raven .raven-header > .button.text-button, .raven .titlebar.selection-mode .raven-header > .button.text-button,
       .titlebar.selection-mode .button.text-button.suggested-action,
+      .titlebar.selection-mode .raven .raven-header > .text-button.button,
+      .raven .titlebar.selection-mode .raven-header > .text-button.button,
       .titlebar.selection-mode .flat.selection-menu.suggested-action,
       .titlebar.selection-mode .text-button.selection-menu.suggested-action,
       .titlebar.selection-mode .button.image-button.suggested-action,
+      .titlebar.selection-mode .raven .raven-header > .image-button.button.text-button,
+      .raven .titlebar.selection-mode .raven-header > .image-button.button.text-button,
       .header-bar.selection-mode .button.suggested-action,
+      .header-bar.selection-mode .raven .raven-header > .button.text-button,
+      .raven .header-bar.selection-mode .raven-header > .button.text-button,
       .header-bar.selection-mode .button.text-button.suggested-action,
+      .header-bar.selection-mode .raven .raven-header > .text-button.button,
+      .raven .header-bar.selection-mode .raven-header > .text-button.button,
       .header-bar.selection-mode .flat.selection-menu.suggested-action,
       .header-bar.selection-mode .text-button.selection-menu.suggested-action,
-      .header-bar.selection-mode .button.image-button.suggested-action {
+      .header-bar.selection-mode .button.image-button.suggested-action,
+      .header-bar.selection-mode .raven .raven-header > .image-button.button.text-button,
+      .raven .header-bar.selection-mode .raven-header > .image-button.button.text-button {
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
         background-color: #546E7A;
         background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
         color: rgba(236, 239, 241, 0.75); }
-        .titlebar.selection-mode .button.suggested-action:hover,
+        .titlebar.selection-mode .button.suggested-action:hover, .titlebar.selection-mode .raven .raven-header > .button.text-button:hover, .raven .titlebar.selection-mode .raven-header > .button.text-button:hover,
         .titlebar.selection-mode .button.text-button.suggested-action:hover,
+        .titlebar.selection-mode .raven .raven-header > .text-button.button:hover,
+        .raven .titlebar.selection-mode .raven-header > .text-button.button:hover,
         .titlebar.selection-mode .flat.selection-menu.suggested-action:hover,
         .titlebar.selection-mode .text-button.selection-menu.suggested-action:hover,
         .titlebar.selection-mode .button.image-button.suggested-action:hover,
+        .titlebar.selection-mode .raven .raven-header > .image-button.button.text-button:hover,
+        .raven .titlebar.selection-mode .raven-header > .image-button.button.text-button:hover,
         .header-bar.selection-mode .button.suggested-action:hover,
+        .header-bar.selection-mode .raven .raven-header > .button.text-button:hover,
+        .raven .header-bar.selection-mode .raven-header > .button.text-button:hover,
         .header-bar.selection-mode .button.text-button.suggested-action:hover,
+        .header-bar.selection-mode .raven .raven-header > .text-button.button:hover,
+        .raven .header-bar.selection-mode .raven-header > .text-button.button:hover,
         .header-bar.selection-mode .flat.selection-menu.suggested-action:hover,
         .header-bar.selection-mode .text-button.selection-menu.suggested-action:hover,
-        .header-bar.selection-mode .button.image-button.suggested-action:hover {
+        .header-bar.selection-mode .button.image-button.suggested-action:hover,
+        .header-bar.selection-mode .raven .raven-header > .image-button.button.text-button:hover,
+        .raven .header-bar.selection-mode .raven-header > .image-button.button.text-button:hover {
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
           background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
           color: #ECEFF1; }
-        .titlebar.selection-mode .button.suggested-action:active,
+        .titlebar.selection-mode .button.suggested-action:active, .titlebar.selection-mode .raven .raven-header > .button.text-button:active, .raven .titlebar.selection-mode .raven-header > .button.text-button:active,
         .titlebar.selection-mode .button.text-button.suggested-action:active,
+        .titlebar.selection-mode .raven .raven-header > .text-button.button:active,
+        .raven .titlebar.selection-mode .raven-header > .text-button.button:active,
         .titlebar.selection-mode .flat.selection-menu.suggested-action:active,
         .titlebar.selection-mode .text-button.selection-menu.suggested-action:active,
         .titlebar.selection-mode .button.image-button.suggested-action:active,
+        .titlebar.selection-mode .raven .raven-header > .image-button.button.text-button:active,
+        .raven .titlebar.selection-mode .raven-header > .image-button.button.text-button:active,
         .header-bar.selection-mode .button.suggested-action:active,
+        .header-bar.selection-mode .raven .raven-header > .button.text-button:active,
+        .raven .header-bar.selection-mode .raven-header > .button.text-button:active,
         .header-bar.selection-mode .button.text-button.suggested-action:active,
+        .header-bar.selection-mode .raven .raven-header > .text-button.button:active,
+        .raven .header-bar.selection-mode .raven-header > .text-button.button:active,
         .header-bar.selection-mode .flat.selection-menu.suggested-action:active,
         .header-bar.selection-mode .text-button.selection-menu.suggested-action:active,
-        .header-bar.selection-mode .button.image-button.suggested-action:active {
+        .header-bar.selection-mode .button.image-button.suggested-action:active,
+        .header-bar.selection-mode .raven .raven-header > .image-button.button.text-button:active,
+        .raven .header-bar.selection-mode .raven-header > .image-button.button.text-button:active {
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
           color: #ECEFF1;
           transition-duration: 0;
           animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-        .titlebar.selection-mode .button.suggested-action:insensitive,
+        .titlebar.selection-mode .button.suggested-action:insensitive, .titlebar.selection-mode .raven .raven-header > .button.text-button:insensitive, .raven .titlebar.selection-mode .raven-header > .button.text-button:insensitive,
         .titlebar.selection-mode .button.text-button.suggested-action:insensitive,
+        .titlebar.selection-mode .raven .raven-header > .text-button.button:insensitive,
+        .raven .titlebar.selection-mode .raven-header > .text-button.button:insensitive,
         .titlebar.selection-mode .flat.selection-menu.suggested-action:insensitive,
         .titlebar.selection-mode .text-button.selection-menu.suggested-action:insensitive,
         .titlebar.selection-mode .button.image-button.suggested-action:insensitive,
+        .titlebar.selection-mode .raven .raven-header > .image-button.button.text-button:insensitive,
+        .raven .titlebar.selection-mode .raven-header > .image-button.button.text-button:insensitive,
         .header-bar.selection-mode .button.suggested-action:insensitive,
+        .header-bar.selection-mode .raven .raven-header > .button.text-button:insensitive,
+        .raven .header-bar.selection-mode .raven-header > .button.text-button:insensitive,
         .header-bar.selection-mode .button.text-button.suggested-action:insensitive,
+        .header-bar.selection-mode .raven .raven-header > .text-button.button:insensitive,
+        .raven .header-bar.selection-mode .raven-header > .text-button.button:insensitive,
         .header-bar.selection-mode .flat.selection-menu.suggested-action:insensitive,
         .header-bar.selection-mode .text-button.selection-menu.suggested-action:insensitive,
-        .header-bar.selection-mode .button.image-button.suggested-action:insensitive {
+        .header-bar.selection-mode .button.image-button.suggested-action:insensitive,
+        .header-bar.selection-mode .raven .raven-header > .image-button.button.text-button:insensitive,
+        .raven .header-bar.selection-mode .raven-header > .image-button.button.text-button:insensitive {
           box-shadow: none;
           background-color: alpha(currentColor, 0.2);
           color: rgba(236, 239, 241, 0.225); }
-          .titlebar.selection-mode .button.suggested-action:insensitive > .label,
+          .titlebar.selection-mode .button.suggested-action:insensitive > .label, .titlebar.selection-mode .raven .raven-header > .button.text-button:insensitive > .label, .raven .titlebar.selection-mode .raven-header > .button.text-button:insensitive > .label,
           .titlebar.selection-mode .button.text-button.suggested-action:insensitive > .label,
+          .titlebar.selection-mode .raven .raven-header > .text-button.button:insensitive > .label,
+          .raven .titlebar.selection-mode .raven-header > .text-button.button:insensitive > .label,
           .titlebar.selection-mode .flat.selection-menu.suggested-action:insensitive > .label,
           .titlebar.selection-mode .text-button.selection-menu.suggested-action:insensitive > .label,
           .titlebar.selection-mode .button.image-button.suggested-action:insensitive > .label,
+          .titlebar.selection-mode .raven .raven-header > .image-button.button.text-button:insensitive > .label,
+          .raven .titlebar.selection-mode .raven-header > .image-button.button.text-button:insensitive > .label,
           .header-bar.selection-mode .button.suggested-action:insensitive > .label,
+          .header-bar.selection-mode .raven .raven-header > .button.text-button:insensitive > .label,
+          .raven .header-bar.selection-mode .raven-header > .button.text-button:insensitive > .label,
           .header-bar.selection-mode .button.text-button.suggested-action:insensitive > .label,
+          .header-bar.selection-mode .raven .raven-header > .text-button.button:insensitive > .label,
+          .raven .header-bar.selection-mode .raven-header > .text-button.button:insensitive > .label,
           .header-bar.selection-mode .flat.selection-menu.suggested-action:insensitive > .label,
           .header-bar.selection-mode .text-button.selection-menu.suggested-action:insensitive > .label,
-          .header-bar.selection-mode .button.image-button.suggested-action:insensitive > .label {
+          .header-bar.selection-mode .button.image-button.suggested-action:insensitive > .label,
+          .header-bar.selection-mode .raven .raven-header > .image-button.button.text-button:insensitive > .label,
+          .raven .header-bar.selection-mode .raven-header > .image-button.button.text-button:insensitive > .label {
             color: inherit; }
     .titlebar.selection-mode .button:not(.suggested-action):not(.destructive-action),
     .header-bar.selection-mode .button:not(.suggested-action):not(.destructive-action) {
@@ -5898,10 +6049,10 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
   border: 0.75em solid transparent;
   border-radius: 2px;
   font-weight: bold; }
-  MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action {
+  MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton), .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton), .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:not(.flat):not(.titlebutton) {
     color: transparent;
     font-size: 0; }
-    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action {
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton), .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action, MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton), .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:not(.flat):not(.titlebutton) {
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
       background-color: #546E7A;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
@@ -5916,7 +6067,7 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
       box-shadow: none;
       transition-duration: 0.2s;
       animation: none; }
-    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:hover, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:hover {
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:hover, MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):hover, .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):hover, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:hover, MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):hover, .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):hover {
       border-style: none;
       border-radius: 100px;
       background-color: transparent;
@@ -5927,7 +6078,7 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
       box-shadow: none;
       transition-duration: 0.2s;
       animation: none; }
-    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:active, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:active {
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:active, MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):active, .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):active, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:active, MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):active, .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):active {
       border-style: none;
       border-radius: 100px;
       background-color: transparent;
@@ -5938,7 +6089,7 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
       box-shadow: none;
       transition-duration: 0.2s;
       animation: none; }
-    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:insensitive, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:insensitive {
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:insensitive, MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):insensitive, .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):insensitive, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:insensitive, MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):insensitive, .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):insensitive {
       border-style: none;
       border-radius: 100px;
       background-color: transparent;
@@ -5949,7 +6100,7 @@ MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not
       box-shadow: none;
       transition-duration: 0.2s;
       animation: none; }
-    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:backdrop, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:backdrop {
+    MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton).suggested-action:backdrop, MathWindow :not(.titlebar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):backdrop, .raven MathWindow :not(.titlebar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):backdrop, MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton).suggested-action:backdrop, MathWindow :not(.header-bar) .raven .raven-header > .button.text-button:not(.flat):not(.titlebutton):backdrop, .raven MathWindow :not(.header-bar) .raven-header > .button.text-button:not(.flat):not(.titlebutton):backdrop {
       opacity: 0.8; }
 
 /*********
@@ -6275,27 +6426,71 @@ TerminalWindow .scrollbar.trough {
   color: rgba(236, 239, 241, 0.75);
   background-color: rgba(42, 55, 62, 0.9);
   box-shadow: inset 0 0 0 1px rgba(42, 55, 62, 0.9); }
-  .raven .raven-background,
   .raven .raven-header {
     border: none;
-    color: rgba(236, 239, 241, 0.75);
-    background-color: transparent; }
-  .raven .powerstrip .button {
-    padding: 1em;
-    color: rgba(29, 233, 182, 0.9); }
-    .raven .powerstrip .button:hover, .raven .powerstrip .button:active, .raven .powerstrip .button:checked {
-      color: #1DE9B6; }
-    .raven .powerstrip .button:insensitive {
-      color: rgba(29, 233, 182, 0.4); }
+    color: rgba(236, 239, 241, 0.5);
+    background-color: transparent;
+    font-weight: 700; }
+  .raven .raven-background {
+    border-width: 1px 0 0;
+    border-style: solid none none;
+    border-color: rgba(0, 0, 0, 0.11);
+    background-color: transparent;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); }
+  .raven .powerstrip {
+    border-top: 1px solid rgba(0, 0, 0, 0.11);
+    background-color: #2a373e;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); }
+    .raven .powerstrip .button {
+      padding: 1em;
+      color: rgba(29, 233, 182, 0.9); }
+      .raven .powerstrip .button:hover, .raven .powerstrip .button:active, .raven .powerstrip .button:checked {
+        color: #1DE9B6; }
+      .raven .powerstrip .button:insensitive {
+        color: rgba(29, 233, 182, 0.4); }
   .raven .option-subtitle {
     color: rgba(236, 239, 241, 0.225);
     font-size: smaller; }
   .raven .alert {
     color: #1DE9B6; }
   .raven GtkScrolledWindow {
-    border-width: 1px 0;
-    border-color: rgba(0, 0, 0, 0.11);
     background: transparent; }
+  .raven .list,
+  .raven .list-row,
+  .raven .tweak-category,
+  .raven .list-row.activatable,
+  .raven .view,
+  .raven column-header .button,
+  column-header .raven .button,
+  .raven .activatable.tweak-category {
+    background-color: transparent; }
+    .raven .list:not(.list):hover,
+    .raven .list-row:not(.list):hover,
+    .raven .tweak-category:not(.list):hover,
+    .raven .list-row.activatable:not(.list):hover,
+    .raven .view:not(.list):hover,
+    .raven column-header .button:not(.list):hover,
+    column-header .raven .button:not(.list):hover,
+    .raven .activatable.tweak-category:not(.list):hover {
+      color: #ECEFF1; }
+    .raven .list:not(.list):selected,
+    .raven .list-row:not(.list):selected,
+    .raven .tweak-category:not(.list):selected,
+    .raven .list-row.activatable:not(.list):selected,
+    .raven .view:not(.list):selected,
+    .raven column-header .button:not(.list):selected,
+    column-header .raven .button:not(.list):selected,
+    .raven .activatable.tweak-category:not(.list):selected {
+      color: #00BCD4; }
+      .raven .list:not(.list):selected:hover,
+      .raven .list-row:not(.list):selected:hover,
+      .raven .tweak-category:not(.list):selected:hover,
+      .raven .list-row.activatable:not(.list):selected:hover,
+      .raven .view:not(.list):selected:hover,
+      .raven column-header .button:not(.list):selected:hover,
+      column-header .raven .button:not(.list):selected:hover,
+      .raven .activatable.tweak-category:not(.list):selected:hover {
+        background-color: rgba(0, 188, 212, 0.1); }
   .raven GtkSwitch {
     -GtkSwitch-slider-width: 40;
     -GtkSwitch-slider-height: 20;

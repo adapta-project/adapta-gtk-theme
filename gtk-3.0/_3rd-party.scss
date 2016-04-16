@@ -109,20 +109,34 @@ $orientation: ((top, bottom),
   background-color: gtkopacity($dark_color, 0.9);
   box-shadow: inset 0 0 0 1px gtkopacity($dark_color, 0.9);
 
-  .raven-background,
   .raven-header {
     border: none;
-    color: $secondary_fg_color;
+    color: $tertiary_fg_color;
     background-color: transparent;
+    font-weight: 700;
   }
 
-  .powerstrip .button {
-    padding: 1em;
-    color: $secondary_accent_color;
-    &:hover,
-    &:active,
-    &:checked { color: $accent_color; }
-    &:insensitive { color: gtkopacity($accent_color, 0.4); }
+  .raven-background {
+    border-width: 1px 0 0;
+    border-style: solid none none;
+    border-color: $borders_color;
+    background-color: transparent;
+    box-shadow: $inline-shadow;
+  }
+
+  .powerstrip { // always use dark variant
+    border-top: 1px solid $borders_color;
+    background-color: $inverted_dark_color;
+    box-shadow: $inline-shadow;
+
+    .button {
+      padding: 1em;
+      color: $secondary_accent_color;
+      &:hover,
+      &:active,
+      &:checked { color: $accent_color; }
+      &:insensitive { color: gtkopacity($accent_color, 0.4); }
+    }
   }
 
   .option-subtitle {
@@ -133,10 +147,17 @@ $orientation: ((top, bottom),
   // used to indicate unread notifications
   .alert { color: $accent_color; }
 
-  GtkScrolledWindow {
-    border-width: 1px 0;
-    border-color: $borders_color;
-    background: transparent;
+  GtkScrolledWindow { background: transparent; }
+
+  .list,
+  .list-row,
+  .list-row.activatable {
+    background-color: transparent;
+    &:not(.list):hover { color: $fg_color; }
+    &:not(.list):selected {
+      color: $selected_bg_color;
+      &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
+    }
   }
 
   // FIXME: why should I have to do so?
@@ -176,6 +197,11 @@ $orientation: ((top, bottom),
   // use flat-style
   .button.image-button { @extend .button.flat; }
 
+  .raven-header { // 'exit' button
+    > .button.text-button { @extend .button.suggested-action; }
+  }
+
+
   GtkCalendar {
     border: none;
     background-color: transparent;
@@ -185,7 +211,7 @@ $orientation: ((top, bottom),
 // MPRIS Applet
 .raven-mpris {
   border: none;
-  color: $inverted_fg_color;
+  color: $fg_color;
   background-color: gtkopacity($dark_color, 0.9);
 
   .button.image-button { padding: 0.6em; }
@@ -201,12 +227,12 @@ $orientation: ((top, bottom),
   &.background { border-radius: 2px; }
 
   .notification-title {
-    color: $inverted_secondary_fg_color;
+    color: $secondary_fg_color;
     font-size: 110%;
     font-weight: 500;
   }
 
-  .notification-body { color: $inverted_fg_color; }
+  .notification-body { color: $fg_color; }
 }
 
 // dialog styling
