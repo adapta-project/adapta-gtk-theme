@@ -3185,6 +3185,22 @@ headerbar,
   .titlebar:last-child:not(.titlebar):dir(rtl) {
     border-top-right-radius: 0; }
 
+window:not(.maximized):not(.tiled) paned.titlebar {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
+  window:not(.maximized):not(.tiled) paned.titlebar > headerbar:not(:last-child):dir(ltr) {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0; }
+  window:not(.maximized):not(.tiled) paned.titlebar > headerbar:not(:last-child):dir(rtl) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 2px; }
+  window:not(.maximized):not(.tiled) paned.titlebar > headerbar:last-child:dir(ltr) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 2px; }
+  window:not(.maximized):not(.tiled) paned.titlebar > headerbar:last-child:dir(rtl) {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0; }
+
 .ssd decoration .titlebar {
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: none; }
