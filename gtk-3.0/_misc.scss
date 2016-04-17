@@ -21,10 +21,10 @@ PanelSeparator {
 PanelMenuButton,
 PanelApplet > GtkMenuBar.menubar,
 ClockBox {
-  font: bold;
   color: $inverted_secondary_fg_color;
   background-color: transparent;
   box-shadow: none;
+  font-weight: 700;
   .label:backdrop,
   &:backdrop { opacity: 1.0; }
 }
@@ -203,7 +203,7 @@ GfInputSourcePopup {
   #input-source {
     color: $inverted_fg_color;
     font-size: 2em;
-    font-weight: bold;
+    font-weight: 700;
     &:selected {
       border-radius: 2px;
       background-color: $track_color;
@@ -407,7 +407,7 @@ MathWindow {
       padding: 0.75em 1em 0.75em;  // FIXME: broken in 12pt fonts?
       border: 0.75em solid transparent;
       border-radius: 2px;
-      font-weight: bold;
+      font-weight: 700;
 
       &.suggested-action {  // '=' button
         color: transparent;
