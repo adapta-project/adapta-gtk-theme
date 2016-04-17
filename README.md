@@ -46,7 +46,7 @@ Installation from PPA (Ubuntu 16.04 LTS only)
 
 2. select `Adapta` via Gnome-Tweak-Tool.
 
- * No need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
+ * For Gtk+ 3.18.x users, there's no need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
 
 Installation from Git Source
 ------------
