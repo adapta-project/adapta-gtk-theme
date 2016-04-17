@@ -114,10 +114,10 @@ $orientation: ((top, bottom),
   }
 }
 
-
 // main menu styling
 .budgie-menu {
-  border-radius: 2px;
+  border-radius: 2px + 1px;
+  background-color: $secondary_base_color;
 
   scrolledwindow,
   list,
@@ -268,13 +268,19 @@ $orientation: ((top, bottom),
 
   .raven-header { // 'exit' button
     > button.text-button {
-      @extend button.suggested-action;
       color: $secondary_selected_fg_color;
+      background-color: $suggested_color;
       &:hover,
       &:active { color: $selected_fg_color; }
+      &:checked {
+        color: $secondary_selected_fg_color;
+        background-color: mix($selected_fg_color, $suggested_color, 20%);
+      }
+      &:disabled {
+        @include button(flat-insensitive, $track_color, $insensitive_fg_color);
+      }
     }
   }
-
 
   calendar {
     border: none;
@@ -339,8 +345,9 @@ $orientation: ((top, bottom),
   }
 }
 
-// session-dialog styling
-.budgie-session-dialog {
+// session-dialog and polkit-dialog styling
+.budgie-session-dialog,
+.budgie-polkit-dialog {
   border-radius: 2px;
   border-width: 0;
   // Always use dark-color of dark variant
@@ -389,16 +396,14 @@ $orientation: ((top, bottom),
       border-left-width: 0;
     }
   }
-}
 
-// polkit-dialog styling
-.budgie-polkit-dialog {
-  @extend .budgie-session-dialog;
-
-  .message { color: $secondary_fg_color; }
-  .failure {
-    color: $accent_color;
-    font-weight: 700;
+  // polkit-dialog specific styling
+  &:not(.budgie-session-dialog) {
+    .message { color: $secondary_fg_color; }
+    .failure {
+      color: $accent_color;
+      font-weight: 700;
+    }
   }
 }
 
