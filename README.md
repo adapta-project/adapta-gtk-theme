@@ -22,7 +22,7 @@ Supported Desktop Environments
   * gnome-shell >= 3.19.92 (or 3.18.4)
   * mutter >= 3.19.92 (or 3.18.4)
 * GNOME-Flashback 3.18.x
-* budgie-desktop 10.2.x (Gtk+ 3.18.x only)
+* Budgie-Desktop 10.2.x
 * Unity7 7.4.0
 * Cinnamon 2.8.x
 
