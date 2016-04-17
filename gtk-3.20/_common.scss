@@ -4185,14 +4185,14 @@ paned {
 
     window & {
       // do not across over GtkHeaderBar with solid border
-      &, &:not(.disabled) {
+      &, &:not(:disabled) {
         // FIXME: still happaned double-border though
         background-image: linear-gradient(to top, $paned_borders_color);
       }
     }
 
     window > grid.vertical & { // do not use transparentize
-      &, &:not(.disabled) {
+      &, &:not(:disabled) {
         background-image: linear-gradient(to top, $solid_light_borders_color);
       }
     }
