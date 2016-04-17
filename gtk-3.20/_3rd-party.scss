@@ -349,6 +349,15 @@ $orientation: ((top, bottom),
   font-weight: 700;
   opacity: 0.9;
 
+  decoration { // composite with drop-shadows
+    border-radius: 2px;
+    box-shadow: $z-depth-4;
+    &:backdrop {
+      box-shadow: $z-depth-2-backdrop;
+      transition: none;
+    }
+  }
+
   button,
   .linked > button {
     @extend button.flat;
