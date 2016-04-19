@@ -3258,7 +3258,8 @@ scale {
     }
   }
 
-  value { color: $insensitive_fg_color; }
+  // same opacity value with dim-label
+  value { color: gtkalpha(currentColor, 0.55); }
 
   separator {
     color: transparent;
@@ -3272,7 +3273,7 @@ scale {
 
 scale { // marks color
   marks {
-    color: $insensitive_fg_color;
+    color: gtkalpha(currentColor, 0.55);
     @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
                                                      (bottom, bottom, top),
                                                      (top, left, right),
