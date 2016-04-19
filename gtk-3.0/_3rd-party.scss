@@ -196,11 +196,20 @@ $orientation: ((top, bottom),
     }
 
     &.trough { // use ugly pixmaps
-      background-image: url("assets/toggle-off#{$asset_suffix}.svg");
-      &:hover { background-image: url("assets/toggle-off-hover#{$asset_suffix}.svg"); }
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off#{$asset_suffix}.png"),
+                        url("assets/toggle-off#{$asset_suffix}@2.png"));
+      &:hover { background-image: -gtk-scaled(
+                                  url("assets/toggle-off-hover#{$asset_suffix}.png"),
+                                  url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
+      }
       &:active {
-        background-image: url("assets/toggle-on.svg");
-        &:hover { background-image: url("assets/toggle-on-hover.svg"); }
+        background-image: -gtk-scaled(url("assets/toggle-on.png"),
+                                      url("assets/toggle-on@2.png"));
+        &:hover { background-image: -gtk-scaled(
+                                    url("assets/toggle-on-hover.png"),
+                                    url("assets/toggle-on-hover@2.png"));
+        }
       }
     }
   }
@@ -252,9 +261,44 @@ $orientation: ((top, bottom),
 }
 
 // dialog styling
-.budgie-run-dialog {
+.background.csd.budgie-run-dialog {
   border-radius: 2px;
   border: 1px solid $borders_color;
+  border-top-color: $highlight_color;
+  background-color: transparent;
+
+  .window-frame {
+    border-radius: 2px;
+    background-color: gtkopacity($dark_color, 0.9);
+    box-shadow: $z-depth-4;
+    &:backdrop { box-shadow: $z-depth-2; }
+
+    .header-bar { border-radius: 2px; }
+  }
+
+  .separator {
+    -GtkWidget-separator-width: 0;
+    border: 0 none transparent;
+    color: transparent;
+  }
+
+  GtkScrolledWindow {   // FIXME: using GtkEntry style-class!?
+    border-image: none; // remove underline indicator
+
+    GtkGrid .button.flat {
+      border-radius: 2px;
+      outline-radius: 2px;
+    }
+  }
+
+  // 'close' button
+  .button.flat.image-button {
+    color: $secondary_accent_color;
+    &:hover,
+    &:active,
+    &:checked { color: $accent_color; }
+    &:insensitive { color: gtkopacity($accent_color, 0.4); }
+  }
 }
 
 .budgie-session-dialog {
