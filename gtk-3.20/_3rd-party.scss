@@ -251,14 +251,22 @@ $orientation: ((top, bottom),
 
     // use ugly pixmaps
     &:not(:hover):not(:checked) {
-      background-image: url("assets/toggle-off#{$asset_suffix}.svg");
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off#{$asset_suffix}.png"),
+                        url("assets/toggle-off#{$asset_suffix}@2.png"));
     }
     &:hover {
-      background-image: url("assets/toggle-off-hover#{$asset_suffix}.svg");
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off-hover#{$asset_suffix}.png"),
+                        url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
     }
     &:checked {
-      background-image: url("assets/toggle-on.svg");
-      &:hover { background-image: url("assets/toggle-on-hover.svg"); }
+      background-image: -gtk-scaled(url("assets/toggle-on.png"),
+                                    url("assets/toggle-on@2.png"));
+      &:hover {
+        background-image: -gtk-scaled(url("assets/toggle-on-hover.png"),
+                                      url("assets/toggle-on-hover@2.png"));
+      }
     }
     &:disabled { opacity: 0.4; }
   }
