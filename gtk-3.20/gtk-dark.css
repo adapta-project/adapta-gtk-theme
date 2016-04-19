@@ -57,7 +57,7 @@
   -gtk-icon-effect: dim; }
 
 textview border *:backdrop, assistant *:backdrop, buttonbox.dialog-action-area button *:backdrop, button *:backdrop,
-.button *:backdrop, combobox *:backdrop, toolbar *:backdrop, .inline-toolbar *:backdrop, searchbar *:backdrop,
+.button *:backdrop, spinbutton *:backdrop, combobox *:backdrop, toolbar *:backdrop, .inline-toolbar *:backdrop, searchbar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
 headerbar *:backdrop, treeview.view *:backdrop, .tweak-category *:backdrop, .menubar > menuitem *:backdrop,
 menubar > menuitem *:backdrop, .menu .menuitem *:backdrop,
@@ -1429,6 +1429,16 @@ button:visited > label {
 /*****************
  * GtkSpinButton *
  *****************/
+@keyframes spin_hover {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(alpha(currentColor, 0)), to(transparent)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0.1)), to(transparent)); } }
+@keyframes spin_active {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0.2)), to(transparent)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(alpha(currentColor, 0)), to(transparent)); } }
 spinbutton:not(.vertical) {
   padding: 0; }
   spinbutton:not(.vertical):disabled {
@@ -1439,30 +1449,33 @@ spinbutton:not(.vertical) {
     border: none;
     box-shadow: none; }
   spinbutton:not(.vertical) button {
-    min-width: 1rem;
-    min-height: 1rem;
-    padding: 0 0.54887rem 0;
     box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+    min-width: 1rem;
+    min-height: 1rem;
+    padding: 0 0.54887rem 0;
     border: solid 0.20301rem transparent;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     background: none;
-    box-shadow: none;
+    background-size: contain;
     color: rgba(236, 239, 241, 0.75);
-    background-color: transparent;
-    background-size: 2.44361rem 2.44361rem, auto; }
+    box-shadow: none;
+    transition-property: opacity, color, background-color, background-image, box-shadow; }
     spinbutton:not(.vertical) button:not(:last-child):hover {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
       background: none;
-      color: #F44336; }
+      color: #F44336;
+      animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
     spinbutton:not(.vertical) button:not(:last-child):active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      background-color: alpha(currentColor, 0.2);
-      color: #F44336; }
+      background: none;
+      color: #F44336;
+      animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      transition-duration: 0.15s; }
     spinbutton:not(.vertical) button:not(:last-child):disabled {
       box-shadow: none;
       background-color: transparent;
@@ -1472,12 +1485,15 @@ spinbutton:not(.vertical) {
       box-shadow: none;
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
       background: none;
-      color: #00E676; }
+      color: #00E676;
+      animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
     spinbutton:not(.vertical) button:last-child:active {
       box-shadow: none;
       animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      background-color: alpha(currentColor, 0.2);
-      color: #00E676; }
+      background: none;
+      color: #00E676;
+      animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      transition-duration: 0.15s; }
     spinbutton:not(.vertical) button:last-child:disabled {
       box-shadow: none;
       background-color: transparent;
@@ -1528,18 +1544,23 @@ spinbutton.vertical button {
   border-radius: 200px;
   -gtk-outline-radius: 200px;
   background: none;
+  background-size: contain;
+  color: rgba(236, 239, 241, 0.75);
   box-shadow: none;
-  color: rgba(236, 239, 241, 0.75); }
+  transition-property: opacity, color, background-color, background-image, box-shadow; }
   spinbutton.vertical button.up:hover {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     background: none;
-    color: #00E676; }
+    color: #00E676;
+    animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   spinbutton.vertical button.up:active {
     box-shadow: none;
     animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    background-color: alpha(currentColor, 0.2);
-    color: #00E676; }
+    background: none;
+    color: #00E676;
+    animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition-duration: 0.15s; }
   spinbutton.vertical button.up:disabled {
     box-shadow: none;
     background-color: transparent;
@@ -1549,12 +1570,15 @@ spinbutton.vertical button {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     background: none;
-    color: #F44336; }
+    color: #F44336;
+    animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   spinbutton.vertical button.down:active {
     box-shadow: none;
     animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    background-color: alpha(currentColor, 0.2);
-    color: #F44336; }
+    background: none;
+    color: #F44336;
+    animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition-duration: 0.15s; }
   spinbutton.vertical button.down:disabled {
     box-shadow: none;
     background-color: transparent;
@@ -4316,9 +4340,9 @@ switch {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(#00BCD4, 0.1)), to(transparent)); } }
 @keyframes check_radio_active_reverse {
   from {
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(#00BCD4, 0.1)), to(transparent)); }
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(#00BCD4, 0.2)), to(transparent)); }
   to {
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(#00BCD4, 0.1)), to(transparent)); } }
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(#00BCD4, 0)), to(transparent)); } }
 .check, check {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-dark.png"), url("assets/checkbox-unchecked-dark@2.png"));
   -gtk-icon-shadow: none; }
@@ -5864,7 +5888,8 @@ check {
     animation: check_radio_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   radio:active,
   check:active {
-    animation: check_radio_active_reverse 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+    animation: check_radio_active_reverse 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition-duration: 0.15s; }
   radio:hover:checked, radio:hover:indeterminate,
   check:hover:checked,
   check:hover:indeterminate {
@@ -8327,6 +8352,11 @@ colorchooser .popover.osd {
 .content-view {
   background-color: #3e515a; }
 
+@keyframes volume_hover {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(currentColor, 0)), to(transparent)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0.1)), to(transparent)); } }
 .osd .scale-popup .vertical button, .scale-popup .vertical button {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
@@ -8336,7 +8366,8 @@ colorchooser .popover.osd {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     background: none;
-    color: #00E676; }
+    color: #00E676;
+    animation: volume_hover 0.2s linear forwards; }
   .osd .scale-popup .vertical button:first-child:disabled, .scale-popup .vertical button:first-child:disabled {
     box-shadow: none;
     background-color: transparent;
@@ -8346,7 +8377,8 @@ colorchooser .popover.osd {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     background: none;
-    color: #F44336; }
+    color: #F44336;
+    animation: volume_hover 0.2s linear forwards; }
   .osd .scale-popup .vertical button:last-child:disabled, .scale-popup .vertical button:last-child:disabled {
     box-shadow: none;
     background-color: transparent;
@@ -8363,7 +8395,8 @@ colorchooser .popover.osd {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     background: none;
-    color: #F44336; }
+    color: #F44336;
+    animation: spin_hover 0.2s linear forwards; }
   .osd .scale-popup button:first-child:disabled,
   .scale-popup button:first-child:disabled {
     box-shadow: none;
@@ -8375,7 +8408,8 @@ colorchooser .popover.osd {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
     background: none;
-    color: #00E676; }
+    color: #00E676;
+    animation: spin_hover 0.2s linear forwards; }
   .osd .scale-popup button:last-child:disabled,
   .scale-popup button:last-child:disabled {
     box-shadow: none;
@@ -9642,7 +9676,7 @@ window overlay > grid > frame > grid list separator {
 window > box.vertical > grid.vertical > stack stack > spinner {
   min-width: 1.80451rem;
   min-height: 1.80451rem;
-  padding: 4rem 6.0rem 4rem; }
+  padding: 4rem 6rem 4rem; }
 
 /****************
  * Dconf-editor *
