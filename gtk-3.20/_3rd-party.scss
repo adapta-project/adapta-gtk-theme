@@ -555,12 +555,17 @@ window {
   }
 
   // remove double-border
-  grid > paned > box > scrolledwindow.frame { border-width: 0; }
+  grid.vertical > paned.horizontal > box.vertical {
+    > scrolledwindow.frame {
+      border-width: 0;
+    }
+  }
 
   // force using flat-style on bottom bar
-  grid > widget {
-    background-color: $secondary_dark_color;
-    box-shadow: $inline-shadow;
+  grid.vertical > widget {
+    // FIXME: conflicts with lollypop.
+    // background-color: $secondary_dark_color;
+    // box-shadow: $inline-shadow;
 
     > box { padding: rem(2.7px); }
 

@@ -192,7 +192,7 @@ assistant headerbar #gf-candidate-popup .linked > button:not(:last-child):last-c
 assistant headerbar actionbar .linked > button.image-button:not(:last-child),
 actionbar assistant headerbar .linked > button.image-button:not(:last-child), assistant headerbar .raven button.image-button:not(:last-child), .raven assistant headerbar button.image-button:not(:last-child), assistant headerbar .budgie-session-dialog button:not(:last-child), .budgie-session-dialog assistant headerbar button:not(:last-child),
 assistant headerbar .budgie-polkit-dialog button:not(:last-child),
-.budgie-polkit-dialog assistant headerbar button:not(:last-child), assistant headerbar window grid > widget > box > button.image-button:not(:last-child), window assistant headerbar grid > widget > box > button.image-button:not(:last-child) {
+.budgie-polkit-dialog assistant headerbar button:not(:last-child), assistant headerbar window grid.vertical > widget > box > button.image-button:not(:last-child), window assistant headerbar grid.vertical > widget > box > button.image-button:not(:last-child) {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
   background-color: #546E7A;
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
@@ -221,7 +221,7 @@ assistant headerbar .budgie-polkit-dialog button:not(:last-child),
   assistant headerbar actionbar .linked > button.image-button:not(:last-child):hover,
   actionbar assistant headerbar .linked > button.image-button:not(:last-child):hover, assistant headerbar .raven button.image-button:not(:last-child):hover, .raven assistant headerbar button.image-button:not(:last-child):hover, assistant headerbar .budgie-session-dialog button:not(:last-child):hover, .budgie-session-dialog assistant headerbar button:not(:last-child):hover,
   assistant headerbar .budgie-polkit-dialog button:not(:last-child):hover,
-  .budgie-polkit-dialog assistant headerbar button:not(:last-child):hover, assistant headerbar window grid > widget > box > button.image-button:not(:last-child):hover, window assistant headerbar grid > widget > box > button.image-button:not(:last-child):hover {
+  .budgie-polkit-dialog assistant headerbar button:not(:last-child):hover, assistant headerbar window grid.vertical > widget > box > button.image-button:not(:last-child):hover, window assistant headerbar grid.vertical > widget > box > button.image-button:not(:last-child):hover {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
     color: #ECEFF1;
@@ -248,7 +248,7 @@ assistant headerbar .budgie-polkit-dialog button:not(:last-child),
   assistant headerbar actionbar .linked > button.image-button:not(:last-child):checked,
   actionbar assistant headerbar .linked > button.image-button:not(:last-child):checked, assistant headerbar .raven button.image-button:not(:last-child):checked, .raven assistant headerbar button.image-button:not(:last-child):checked, assistant headerbar .budgie-session-dialog button:not(:last-child):checked, .budgie-session-dialog assistant headerbar button:not(:last-child):checked,
   assistant headerbar .budgie-polkit-dialog button:not(:last-child):checked,
-  .budgie-polkit-dialog assistant headerbar button:not(:last-child):checked, assistant headerbar window grid > widget > box > button.image-button:not(:last-child):checked, window assistant headerbar grid > widget > box > button.image-button:not(:last-child):checked {
+  .budgie-polkit-dialog assistant headerbar button:not(:last-child):checked, assistant headerbar window grid.vertical > widget > box > button.image-button:not(:last-child):checked, window assistant headerbar grid.vertical > widget > box > button.image-button:not(:last-child):checked {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
     background-color: #00BCD4;
     color: #FFFFFF;
@@ -276,7 +276,7 @@ assistant headerbar .budgie-polkit-dialog button:not(:last-child),
   assistant headerbar actionbar .linked > button.image-button:not(:last-child):disabled,
   actionbar assistant headerbar .linked > button.image-button:not(:last-child):disabled, assistant headerbar .raven button.image-button:not(:last-child):disabled, .raven assistant headerbar button.image-button:not(:last-child):disabled, assistant headerbar .budgie-session-dialog button:not(:last-child):disabled, .budgie-session-dialog assistant headerbar button:not(:last-child):disabled,
   assistant headerbar .budgie-polkit-dialog button:not(:last-child):disabled,
-  .budgie-polkit-dialog assistant headerbar button:not(:last-child):disabled, assistant headerbar window grid > widget > box > button.image-button:not(:last-child):disabled, window assistant headerbar grid > widget > box > button.image-button:not(:last-child):disabled {
+  .budgie-polkit-dialog assistant headerbar button:not(:last-child):disabled, assistant headerbar window grid.vertical > widget > box > button.image-button:not(:last-child):disabled, window assistant headerbar grid.vertical > widget > box > button.image-button:not(:last-child):disabled {
     box-shadow: none;
     background-color: alpha(currentColor, 0.2);
     color: rgba(236, 239, 241, 0.225); }
@@ -311,7 +311,7 @@ assistant headerbar .budgie-polkit-dialog button:not(:last-child),
     assistant headerbar .budgie-polkit-dialog button:not(:last-child):disabled > label,
     .budgie-polkit-dialog assistant headerbar button:not(:last-child):disabled > label,
     assistant headerbar .budgie-polkit-dialog .linked > button:not(:last-child):disabled > label,
-    .budgie-polkit-dialog assistant headerbar .linked > button:not(:last-child):disabled > label, assistant headerbar window grid > widget > box > button.image-button:not(:last-child):disabled > label, window assistant headerbar grid > widget > box > button.image-button:not(:last-child):disabled > label {
+    .budgie-polkit-dialog assistant headerbar .linked > button:not(:last-child):disabled > label, assistant headerbar window grid.vertical > widget > box > button.image-button:not(:last-child):disabled > label, window assistant headerbar grid.vertical > widget > box > button.image-button:not(:last-child):disabled > label {
       color: inherit; }
 
 buttonbox button, buttonbox.dialog-action-area button {
@@ -643,7 +643,7 @@ button,
   actionbar .linked > button.image-button, .raven button.image-button, .budgie-session-dialog button,
   .budgie-session-dialog .linked > button,
   .budgie-polkit-dialog button,
-  .budgie-polkit-dialog .linked > button, window grid > widget > box > button.image-button,
+  .budgie-polkit-dialog .linked > button, window grid.vertical > widget > box > button.image-button,
   .button.flat,
   .ssd decoration .button {
     box-shadow: none;
@@ -668,7 +668,7 @@ button,
     #gf-candidate-popup .linked > button:hover:first-child,
     #gf-candidate-popup .linked > button:hover:last-child, window > grid.vertical > box.vertical > widget button:hover, layouttabbar button:hover, layouttab button:hover, actionbar button:hover,
     actionbar .linked > button.image-button:hover, .raven button.image-button:hover, .budgie-session-dialog button:hover,
-    .budgie-polkit-dialog button:hover, window grid > widget > box > button.image-button:hover,
+    .budgie-polkit-dialog button:hover, window grid.vertical > widget > box > button.image-button:hover,
     .button.flat:hover,
     .ssd decoration .button:hover {
       box-shadow: none;
@@ -693,7 +693,7 @@ button,
     #gf-candidate-popup .linked > button:active:first-child,
     #gf-candidate-popup .linked > button:active:last-child, window > grid.vertical > box.vertical > widget button:active, layouttabbar button:active, layouttab button:active, actionbar button:active,
     actionbar .linked > button.image-button:active, .raven button.image-button:active, .budgie-session-dialog button:active,
-    .budgie-polkit-dialog button:active, window grid > widget > box > button.image-button:active,
+    .budgie-polkit-dialog button:active, window grid.vertical > widget > box > button.image-button:active,
     .button.flat:active,
     .ssd decoration .button:active {
       box-shadow: none;
@@ -717,7 +717,7 @@ button,
     #gf-candidate-popup .linked > button:disabled:first-child,
     #gf-candidate-popup .linked > button:disabled:last-child, window > grid.vertical > box.vertical > widget button:disabled, layouttabbar button:disabled, layouttab button:disabled, actionbar button:disabled,
     actionbar .linked > button.image-button:disabled, .raven button.image-button:disabled, .budgie-session-dialog button:disabled,
-    .budgie-polkit-dialog button:disabled, window grid > widget > box > button.image-button:disabled,
+    .budgie-polkit-dialog button:disabled, window grid.vertical > widget > box > button.image-button:disabled,
     .button.flat:disabled,
     .ssd decoration .button:disabled {
       box-shadow: none;
@@ -741,7 +741,7 @@ button,
     #gf-candidate-popup .linked > button:checked:first-child,
     #gf-candidate-popup .linked > button:checked:last-child, window > grid.vertical > box.vertical > widget button:checked, layouttabbar button:checked, layouttab button:checked, actionbar button:checked,
     actionbar .linked > button.image-button:checked, .raven button.image-button:checked, .budgie-session-dialog button:checked,
-    .budgie-polkit-dialog button:checked, window grid > widget > box > button.image-button:checked,
+    .budgie-polkit-dialog button:checked, window grid.vertical > widget > box > button.image-button:checked,
     .button.flat:checked,
     .ssd decoration .button:checked {
       background-color: alpha(currentColor, 0.2);
@@ -765,7 +765,7 @@ button,
     actionbar .linked > button.image-button:checked:disabled > label, .raven button.image-button:checked:disabled > label, .budgie-session-dialog button:checked:disabled > label,
     .budgie-session-dialog .linked > button:checked:disabled > label,
     .budgie-polkit-dialog button:checked:disabled > label,
-    .budgie-polkit-dialog .linked > button:checked:disabled > label, window grid > widget > box > button.image-button:checked:disabled > label,
+    .budgie-polkit-dialog .linked > button:checked:disabled > label, window grid.vertical > widget > box > button.image-button:checked:disabled > label,
     .button.flat:checked:disabled > label,
     .ssd decoration .button:checked:disabled > label {
       color: inherit; }
@@ -789,7 +789,7 @@ button,
     #gf-candidate-popup .linked > button:last-child, window > grid.vertical > box.vertical > widget .linked > button, layouttabbar .linked > button, layouttab .linked > button, actionbar .linked > button,
     actionbar .linked > button.image-button, .raven .linked > button.image-button,
     .budgie-session-dialog .linked > button,
-    .budgie-polkit-dialog .linked > button, window grid > widget > box.linked > button.image-button, .linked >
+    .budgie-polkit-dialog .linked > button, window grid.vertical > widget > box.linked > button.image-button, .linked >
     .button.flat, .ssd decoration .linked > .button {
       border-radius: 2px; }
       .linked > button.flat.image-button, buttonbox .linked > button.image-button, buttonbox.dialog-action-area .linked > button.image-button, .linked > button.image-button.osd,
@@ -808,7 +808,7 @@ button,
       .titlebar .linked > button.image-button.titlebutton,
       #gf-candidate-popup .linked > button.image-button, window > grid.vertical > box.vertical > widget .linked > button.image-button, layouttabbar .linked > button.image-button, layouttab .linked > button.image-button, actionbar .linked > button.image-button, .raven .linked > button.image-button,
       .budgie-session-dialog .linked > button.image-button,
-      .budgie-polkit-dialog .linked > button.image-button, window grid > widget > box.linked > button.image-button, .linked >
+      .budgie-polkit-dialog .linked > button.image-button, window grid.vertical > widget > box.linked > button.image-button, .linked >
       .button.flat.image-button, .ssd decoration .linked > .image-button.button {
         -gtk-outline-radius: 100px;
         border-radius: 100px; }
@@ -868,7 +868,7 @@ button,
     #gf-candidate-popup .linked > button.suggested-action:first-child,
     #gf-candidate-popup .linked > button.suggested-action:last-child, window > grid.vertical > box.vertical > widget button.suggested-action, layouttabbar button.suggested-action, layouttab button.suggested-action, actionbar button.suggested-action,
     actionbar .linked > button.suggested-action.image-button, .raven button.suggested-action.image-button, .budgie-session-dialog button.suggested-action,
-    .budgie-polkit-dialog button.suggested-action, window grid > widget > box > button.suggested-action.image-button,
+    .budgie-polkit-dialog button.suggested-action, window grid.vertical > widget > box > button.suggested-action.image-button,
     .button.suggested-action.flat,
     .ssd decoration .suggested-action.button {
       background-color: transparent;
@@ -886,7 +886,7 @@ button,
       .warning button.suggested-action:disabled,
       .error button.suggested-action:disabled, headerbar button.suggested-action.titlebutton:disabled,
       .titlebar button.suggested-action.titlebutton:disabled, #gf-candidate-popup button.suggested-action:disabled, window > grid.vertical > box.vertical > widget button.suggested-action:disabled, layouttabbar button.suggested-action:disabled, layouttab button.suggested-action:disabled, actionbar button.suggested-action:disabled, .raven button.suggested-action.image-button:disabled, .budgie-session-dialog button.suggested-action:disabled,
-      .budgie-polkit-dialog button.suggested-action:disabled, window grid > widget > box > button.suggested-action.image-button:disabled,
+      .budgie-polkit-dialog button.suggested-action:disabled, window grid.vertical > widget > box > button.suggested-action.image-button:disabled,
       .button.suggested-action.flat:disabled,
       .ssd decoration .suggested-action.button:disabled {
         box-shadow: none;
@@ -926,7 +926,7 @@ button,
     #gf-candidate-popup .linked > button.destructive-action:first-child,
     #gf-candidate-popup .linked > button.destructive-action:last-child, window > grid.vertical > box.vertical > widget button.destructive-action, layouttabbar button.destructive-action, layouttab button.destructive-action, actionbar button.destructive-action,
     actionbar .linked > button.destructive-action.image-button, .raven button.destructive-action.image-button, .budgie-session-dialog button.destructive-action,
-    .budgie-polkit-dialog button.destructive-action, window grid > widget > box > button.destructive-action.image-button,
+    .budgie-polkit-dialog button.destructive-action, window grid.vertical > widget > box > button.destructive-action.image-button,
     .button.destructive-action.flat,
     .ssd decoration .destructive-action.button {
       background-color: transparent;
@@ -944,7 +944,7 @@ button,
       .warning button.destructive-action:disabled,
       .error button.destructive-action:disabled, headerbar button.destructive-action.titlebutton:disabled,
       .titlebar button.destructive-action.titlebutton:disabled, #gf-candidate-popup button.destructive-action:disabled, window > grid.vertical > box.vertical > widget button.destructive-action:disabled, layouttabbar button.destructive-action:disabled, layouttab button.destructive-action:disabled, actionbar button.destructive-action:disabled, .raven button.destructive-action.image-button:disabled, .budgie-session-dialog button.destructive-action:disabled,
-      .budgie-polkit-dialog button.destructive-action:disabled, window grid > widget > box > button.destructive-action.image-button:disabled,
+      .budgie-polkit-dialog button.destructive-action:disabled, window grid.vertical > widget > box > button.destructive-action.image-button:disabled,
       .button.destructive-action.flat:disabled,
       .ssd decoration .destructive-action.button:disabled {
         box-shadow: none;
@@ -1801,8 +1801,8 @@ toolbar {
     .budgie-polkit-dialog toolbar button button,
     toolbar button .budgie-polkit-dialog .linked > button,
     .budgie-polkit-dialog toolbar button .linked > button,
-    toolbar button window grid > widget > box > button.image-button,
-    window toolbar button grid > widget > box > button.image-button,
+    toolbar button window grid.vertical > widget > box > button.image-button,
+    window toolbar button grid.vertical > widget > box > button.image-button,
     toolbar button button.flat.text-button,
     toolbar button buttonbox button.text-button,
     buttonbox toolbar button button.text-button,
@@ -1879,8 +1879,8 @@ toolbar {
     .budgie-session-dialog toolbar button button.text-button,
     toolbar button .budgie-polkit-dialog button.text-button,
     .budgie-polkit-dialog toolbar button button.text-button,
-    toolbar button window grid > widget > box > button.text-button.image-button,
-    window toolbar button grid > widget > box > button.text-button.image-button,
+    toolbar button window grid.vertical > widget > box > button.text-button.image-button,
+    window toolbar button grid.vertical > widget > box > button.text-button.image-button,
     toolbar button button.flat.text-button.image-button,
     toolbar button buttonbox button.text-button.image-button,
     buttonbox toolbar button button.text-button.image-button,
@@ -1949,8 +1949,8 @@ toolbar {
     .budgie-session-dialog toolbar button button.text-button.image-button,
     toolbar button .budgie-polkit-dialog button.text-button.image-button,
     .budgie-polkit-dialog toolbar button button.text-button.image-button,
-    toolbar button window grid > widget > box > button.text-button.image-button,
-    window toolbar button grid > widget > box > button.text-button.image-button {
+    toolbar button window grid.vertical > widget > box > button.text-button.image-button,
+    window toolbar button grid.vertical > widget > box > button.text-button.image-button {
       border-radius: 2px;
       -gtk-outline-radius: 2px; }
     toolbar button button.image-button,
@@ -2032,8 +2032,8 @@ toolbar {
     .budgie-session-dialog toolbar button button.image-button,
     toolbar button .budgie-polkit-dialog button.image-button,
     .budgie-polkit-dialog toolbar button button.image-button,
-    toolbar button window grid > widget > box > button.image-button,
-    window toolbar button grid > widget > box > button.image-button {
+    toolbar button window grid.vertical > widget > box > button.image-button,
+    window toolbar button grid.vertical > widget > box > button.image-button {
       border-radius: 100px;
       -gtk-outline-radius: 100px; }
     toolbar button .text-button,
@@ -2406,7 +2406,7 @@ headerbar {
   .titlebar popover actionbar .linked > button.image-button,
   actionbar .titlebar popover .linked > button.image-button, .titlebar popover .raven button.image-button, .raven .titlebar popover button.image-button, .titlebar popover .budgie-session-dialog button, .budgie-session-dialog .titlebar popover button,
   .titlebar popover .budgie-polkit-dialog button,
-  .budgie-polkit-dialog .titlebar popover button, .titlebar popover window grid > widget > box > button.image-button, window .titlebar popover grid > widget > box > button.image-button,
+  .budgie-polkit-dialog .titlebar popover button, .titlebar popover window grid.vertical > widget > box > button.image-button, window .titlebar popover grid.vertical > widget > box > button.image-button,
   headerbar popover button.flat,
   headerbar popover buttonbox button,
   buttonbox headerbar popover button,
@@ -2505,8 +2505,8 @@ headerbar {
   .budgie-polkit-dialog headerbar popover button,
   headerbar popover .budgie-polkit-dialog .linked > button,
   .budgie-polkit-dialog headerbar popover .linked > button,
-  headerbar popover window grid > widget > box > button.image-button,
-  window headerbar popover grid > widget > box > button.image-button {
+  headerbar popover window grid.vertical > widget > box > button.image-button,
+  window headerbar popover grid.vertical > widget > box > button.image-button {
     color: rgba(236, 239, 241, 0.75); }
     .titlebar popover button.flat:hover, .titlebar popover buttonbox button:hover, buttonbox .titlebar popover button:hover, .titlebar popover buttonbox.dialog-action-area button:hover, buttonbox.dialog-action-area .titlebar popover button:hover, .titlebar popover button.osd.image-button:hover,
     .titlebar popover .button.osd.image-button:hover, .titlebar popover .inline-toolbar button:hover, .inline-toolbar .titlebar popover button:hover,
@@ -2530,7 +2530,7 @@ headerbar {
     .titlebar popover actionbar .linked > button.image-button:hover,
     actionbar .titlebar popover .linked > button.image-button:hover, .titlebar popover .raven button.image-button:hover, .raven .titlebar popover button.image-button:hover, .titlebar popover .budgie-session-dialog button:hover, .budgie-session-dialog .titlebar popover button:hover,
     .titlebar popover .budgie-polkit-dialog button:hover,
-    .budgie-polkit-dialog .titlebar popover button:hover, .titlebar popover window grid > widget > box > button.image-button:hover, window .titlebar popover grid > widget > box > button.image-button:hover,
+    .budgie-polkit-dialog .titlebar popover button:hover, .titlebar popover window grid.vertical > widget > box > button.image-button:hover, window .titlebar popover grid.vertical > widget > box > button.image-button:hover,
     headerbar popover button.flat:hover,
     headerbar popover buttonbox button:hover,
     buttonbox headerbar popover button:hover,
@@ -2610,8 +2610,8 @@ headerbar {
     .budgie-session-dialog headerbar popover button:hover,
     headerbar popover .budgie-polkit-dialog button:hover,
     .budgie-polkit-dialog headerbar popover button:hover,
-    headerbar popover window grid > widget > box > button.image-button:hover,
-    window headerbar popover grid > widget > box > button.image-button:hover {
+    headerbar popover window grid.vertical > widget > box > button.image-button:hover,
+    window headerbar popover grid.vertical > widget > box > button.image-button:hover {
       color: #ECEFF1; }
     .titlebar popover button.flat label:hover, .titlebar popover buttonbox button label:hover, buttonbox .titlebar popover button label:hover, .titlebar popover buttonbox.dialog-action-area button label:hover, buttonbox.dialog-action-area .titlebar popover button label:hover, .titlebar popover button.osd.image-button label:hover,
     .titlebar popover .button.osd.image-button label:hover, .titlebar popover .inline-toolbar button label:hover, .inline-toolbar .titlebar popover button label:hover,
@@ -2635,7 +2635,7 @@ headerbar {
     .titlebar popover actionbar .linked > button.image-button label:hover,
     actionbar .titlebar popover .linked > button.image-button label:hover, .titlebar popover .raven button.image-button label:hover, .raven .titlebar popover button.image-button label:hover, .titlebar popover .budgie-session-dialog button label:hover, .budgie-session-dialog .titlebar popover button label:hover,
     .titlebar popover .budgie-polkit-dialog button label:hover,
-    .budgie-polkit-dialog .titlebar popover button label:hover, .titlebar popover window grid > widget > box > button.image-button label:hover, window .titlebar popover grid > widget > box > button.image-button label:hover,
+    .budgie-polkit-dialog .titlebar popover button label:hover, .titlebar popover window grid.vertical > widget > box > button.image-button label:hover, window .titlebar popover grid.vertical > widget > box > button.image-button label:hover,
     headerbar popover button.flat label:hover,
     headerbar popover buttonbox button label:hover,
     buttonbox headerbar popover button label:hover,
@@ -2715,8 +2715,8 @@ headerbar {
     .budgie-session-dialog headerbar popover button label:hover,
     headerbar popover .budgie-polkit-dialog button label:hover,
     .budgie-polkit-dialog headerbar popover button label:hover,
-    headerbar popover window grid > widget > box > button.image-button label:hover,
-    window headerbar popover grid > widget > box > button.image-button label:hover {
+    headerbar popover window grid.vertical > widget > box > button.image-button label:hover,
+    window headerbar popover grid.vertical > widget > box > button.image-button label:hover {
       color: #ECEFF1; }
     .titlebar popover button.flat label:disabled, .titlebar popover buttonbox button label:disabled, buttonbox .titlebar popover button label:disabled, .titlebar popover buttonbox.dialog-action-area button label:disabled, buttonbox.dialog-action-area .titlebar popover button label:disabled, .titlebar popover button.osd.image-button label:disabled,
     .titlebar popover .button.osd.image-button label:disabled, .titlebar popover .inline-toolbar button label:disabled, .inline-toolbar .titlebar popover button label:disabled,
@@ -2740,7 +2740,7 @@ headerbar {
     .titlebar popover actionbar .linked > button.image-button label:disabled,
     actionbar .titlebar popover .linked > button.image-button label:disabled, .titlebar popover .raven button.image-button label:disabled, .raven .titlebar popover button.image-button label:disabled, .titlebar popover .budgie-session-dialog button label:disabled, .budgie-session-dialog .titlebar popover button label:disabled,
     .titlebar popover .budgie-polkit-dialog button label:disabled,
-    .budgie-polkit-dialog .titlebar popover button label:disabled, .titlebar popover window grid > widget > box > button.image-button label:disabled, window .titlebar popover grid > widget > box > button.image-button label:disabled,
+    .budgie-polkit-dialog .titlebar popover button label:disabled, .titlebar popover window grid.vertical > widget > box > button.image-button label:disabled, window .titlebar popover grid.vertical > widget > box > button.image-button label:disabled,
     headerbar popover button.flat label:disabled,
     headerbar popover buttonbox button label:disabled,
     buttonbox headerbar popover button label:disabled,
@@ -2820,8 +2820,8 @@ headerbar {
     .budgie-session-dialog headerbar popover button label:disabled,
     headerbar popover .budgie-polkit-dialog button label:disabled,
     .budgie-polkit-dialog headerbar popover button label:disabled,
-    headerbar popover window grid > widget > box > button.image-button label:disabled,
-    window headerbar popover grid > widget > box > button.image-button label:disabled {
+    headerbar popover window grid.vertical > widget > box > button.image-button label:disabled,
+    window headerbar popover grid.vertical > widget > box > button.image-button label:disabled {
       color: rgba(236, 239, 241, 0.3); }
   .titlebar switch,
   headerbar switch {
@@ -2998,7 +2998,7 @@ headerbar {
       .titlebar.selection-mode actionbar .linked > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu,
       actionbar .titlebar.selection-mode .linked > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu, .titlebar.selection-mode .raven button.image-button:not(.suggested-action):not(.destructive-action).selection-menu, .raven .titlebar.selection-mode button.image-button:not(.suggested-action):not(.destructive-action).selection-menu, .titlebar.selection-mode .budgie-session-dialog button:not(.suggested-action):not(.destructive-action).selection-menu, .budgie-session-dialog .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu,
       .titlebar.selection-mode .budgie-polkit-dialog button:not(.suggested-action):not(.destructive-action).selection-menu,
-      .budgie-polkit-dialog .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu, .titlebar.selection-mode window grid > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu, window .titlebar.selection-mode grid > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu,
+      .budgie-polkit-dialog .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu, .titlebar.selection-mode window grid.vertical > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu, window .titlebar.selection-mode grid.vertical > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu,
       headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).text-button,
       headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).flat.selection-menu,
       headerbar.selection-mode buttonbox button:not(.suggested-action):not(.destructive-action).selection-menu,
@@ -3068,8 +3068,8 @@ headerbar {
       .budgie-session-dialog headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu,
       headerbar.selection-mode .budgie-polkit-dialog button:not(.suggested-action):not(.destructive-action).selection-menu,
       .budgie-polkit-dialog headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu,
-      headerbar.selection-mode window grid > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu,
-      window headerbar.selection-mode grid > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu {
+      headerbar.selection-mode window grid.vertical > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu,
+      window headerbar.selection-mode grid.vertical > widget > box > button.image-button:not(.suggested-action):not(.destructive-action).selection-menu {
         border-radius: 2px;
         -gtk-outline-radius: 2px; }
         .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).text-button.image-button, .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).flat.selection-menu.image-button, .titlebar.selection-mode buttonbox button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, buttonbox .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .titlebar.selection-mode buttonbox.dialog-action-area button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, buttonbox.dialog-action-area .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .titlebar.selection-mode button.osd:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
@@ -3095,7 +3095,7 @@ headerbar {
         .titlebar.selection-mode actionbar .linked > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
         actionbar .titlebar.selection-mode .linked > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .titlebar.selection-mode .raven button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .raven .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .titlebar.selection-mode .budgie-session-dialog button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .budgie-session-dialog .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
         .titlebar.selection-mode .budgie-polkit-dialog button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
-        .budgie-polkit-dialog .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .titlebar.selection-mode window grid > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, window .titlebar.selection-mode grid > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
+        .budgie-polkit-dialog .titlebar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, .titlebar.selection-mode window grid.vertical > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button, window .titlebar.selection-mode grid.vertical > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
         headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).text-button.image-button,
         headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).flat.selection-menu.image-button,
         headerbar.selection-mode buttonbox button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
@@ -3165,8 +3165,8 @@ headerbar {
         .budgie-session-dialog headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
         headerbar.selection-mode .budgie-polkit-dialog button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
         .budgie-polkit-dialog headerbar.selection-mode button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
-        headerbar.selection-mode window grid > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
-        window headerbar.selection-mode grid > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button {
+        headerbar.selection-mode window grid.vertical > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button,
+        window headerbar.selection-mode grid.vertical > widget > box > button:not(.suggested-action):not(.destructive-action).selection-menu.image-button {
           border-radius: 100px;
           -gtk-outline-radius: 100px; }
     .titlebar.selection-mode entry, .titlebar.selection-mode spinbutton:not(.vertical),
@@ -3701,8 +3701,8 @@ popover.background {
   .budgie-session-dialog popover.background button,
   popover.background .budgie-polkit-dialog button,
   .budgie-polkit-dialog popover.background button,
-  popover.background window grid > widget > box > button.image-button,
-  window popover.background grid > widget > box > button.image-button {
+  popover.background window grid.vertical > widget > box > button.image-button,
+  window popover.background grid.vertical > widget > box > button.image-button {
     transition: none;
     padding: 0 0.75188rem 0;
     background-color: transparent;
@@ -3783,8 +3783,8 @@ popover.background {
     .budgie-session-dialog popover.background button:hover,
     popover.background .budgie-polkit-dialog button:hover,
     .budgie-polkit-dialog popover.background button:hover,
-    popover.background window grid > widget > box > button.image-button:hover,
-    window popover.background grid > widget > box > button.image-button:hover {
+    popover.background window grid.vertical > widget > box > button.image-button:hover,
+    window popover.background grid.vertical > widget > box > button.image-button:hover {
       background-color: transparent;
       color: #ECEFF1; }
     popover.background button menuitem.flat label,
@@ -3871,8 +3871,8 @@ popover.background {
     .budgie-session-dialog popover.background button label,
     popover.background .budgie-polkit-dialog button label,
     .budgie-polkit-dialog popover.background button label,
-    popover.background window grid > widget > box > button.image-button label,
-    window popover.background grid > widget > box > button.image-button label {
+    popover.background window grid.vertical > widget > box > button.image-button label,
+    window popover.background grid.vertical > widget > box > button.image-button label {
       padding: 0.20301rem 0 0.24812rem; }
   popover.background button.image-button {
     padding: 0.50376rem; }
@@ -6532,7 +6532,7 @@ row:selected #gf-candidate-popup .linked > button:last-child,
 row:selected actionbar .linked > button.image-button,
 actionbar row:selected .linked > button.image-button, row:selected .raven button.image-button, .raven row:selected button.image-button, row:selected .budgie-session-dialog button, .budgie-session-dialog row:selected button,
 row:selected .budgie-polkit-dialog button,
-.budgie-polkit-dialog row:selected button, row:selected window grid > widget > box > button.image-button, window row:selected grid > widget > box > button.image-button {
+.budgie-polkit-dialog row:selected button, row:selected window grid.vertical > widget > box > button.image-button, window row:selected grid.vertical > widget > box > button.image-button {
   color: rgba(255, 255, 255, 0.85); }
   row:selected button.flat:hover, row:selected buttonbox button:hover, buttonbox row:selected button:hover, row:selected buttonbox.dialog-action-area button:hover, buttonbox.dialog-action-area row:selected button:hover, row:selected button.osd.image-button:hover,
   row:selected .button.osd.image-button:hover, row:selected .inline-toolbar button:hover, .inline-toolbar row:selected button:hover,
@@ -6559,7 +6559,7 @@ row:selected .budgie-polkit-dialog button,
   row:selected actionbar .linked > button.image-button:hover,
   actionbar row:selected .linked > button.image-button:hover, row:selected .raven button.image-button:hover, .raven row:selected button.image-button:hover, row:selected .budgie-session-dialog button:hover, .budgie-session-dialog row:selected button:hover,
   row:selected .budgie-polkit-dialog button:hover,
-  .budgie-polkit-dialog row:selected button:hover, row:selected window grid > widget > box > button.image-button:hover, window row:selected grid > widget > box > button.image-button:hover, row:selected button.flat:active, row:selected buttonbox button:active, buttonbox row:selected button:active, row:selected buttonbox.dialog-action-area button:active, buttonbox.dialog-action-area row:selected button:active, row:selected button.osd.image-button:active,
+  .budgie-polkit-dialog row:selected button:hover, row:selected window grid.vertical > widget > box > button.image-button:hover, window row:selected grid.vertical > widget > box > button.image-button:hover, row:selected button.flat:active, row:selected buttonbox button:active, buttonbox row:selected button:active, row:selected buttonbox.dialog-action-area button:active, buttonbox.dialog-action-area row:selected button:active, row:selected button.osd.image-button:active,
   row:selected .button.osd.image-button:active, row:selected .inline-toolbar button:active, .inline-toolbar row:selected button:active,
   row:selected button actionbar:active,
   button row:selected actionbar:active,
@@ -6584,7 +6584,7 @@ row:selected .budgie-polkit-dialog button,
   row:selected actionbar .linked > button.image-button:active,
   actionbar row:selected .linked > button.image-button:active, row:selected .raven button.image-button:active, .raven row:selected button.image-button:active, row:selected .budgie-session-dialog button:active, .budgie-session-dialog row:selected button:active,
   row:selected .budgie-polkit-dialog button:active,
-  .budgie-polkit-dialog row:selected button:active, row:selected window grid > widget > box > button.image-button:active, window row:selected grid > widget > box > button.image-button:active {
+  .budgie-polkit-dialog row:selected button:active, row:selected window grid.vertical > widget > box > button.image-button:active, window row:selected grid.vertical > widget > box > button.image-button:active {
     color: #FFFFFF; }
   row:selected button.flat:disabled, row:selected buttonbox button:disabled, buttonbox row:selected button:disabled, row:selected buttonbox.dialog-action-area button:disabled, buttonbox.dialog-action-area row:selected button:disabled, row:selected button.osd.image-button:disabled,
   row:selected .button.osd.image-button:disabled, row:selected .inline-toolbar button:disabled, .inline-toolbar row:selected button:disabled,
@@ -6611,7 +6611,7 @@ row:selected .budgie-polkit-dialog button,
   row:selected actionbar .linked > button.image-button:disabled,
   actionbar row:selected .linked > button.image-button:disabled, row:selected .raven button.image-button:disabled, .raven row:selected button.image-button:disabled, row:selected .budgie-session-dialog button:disabled, .budgie-session-dialog row:selected button:disabled,
   row:selected .budgie-polkit-dialog button:disabled,
-  .budgie-polkit-dialog row:selected button:disabled, row:selected window grid > widget > box > button.image-button:disabled, window row:selected grid > widget > box > button.image-button:disabled {
+  .budgie-polkit-dialog row:selected button:disabled, row:selected window grid.vertical > widget > box > button.image-button:disabled, window row:selected grid.vertical > widget > box > button.image-button:disabled {
     color: rgba(255, 255, 255, 0.34); }
 
 row:hover {
@@ -7198,7 +7198,7 @@ infobar, NautilusTrashBar {
   .info actionbar .linked > button.image-button,
   actionbar .info .linked > button.image-button, .info .raven button.image-button, .raven .info button.image-button, .info .budgie-session-dialog button, .budgie-session-dialog .info button,
   .info .budgie-polkit-dialog button,
-  .budgie-polkit-dialog .info button, .info window grid > widget > box > button.image-button, window .info grid > widget > box > button.image-button,
+  .budgie-polkit-dialog .info button, .info window grid.vertical > widget > box > button.image-button, window .info grid.vertical > widget > box > button.image-button,
   .question button.flat,
   .question buttonbox button,
   buttonbox .question button,
@@ -7281,8 +7281,8 @@ infobar, NautilusTrashBar {
   .budgie-session-dialog .question button,
   .question .budgie-polkit-dialog button,
   .budgie-polkit-dialog .question button,
-  .question window grid > widget > box > button.image-button,
-  window .question grid > widget > box > button.image-button,
+  .question window grid.vertical > widget > box > button.image-button,
+  window .question grid.vertical > widget > box > button.image-button,
   .warning button.flat,
   .warning buttonbox button,
   buttonbox .warning button,
@@ -7365,8 +7365,8 @@ infobar, NautilusTrashBar {
   .budgie-session-dialog .warning button,
   .warning .budgie-polkit-dialog button,
   .budgie-polkit-dialog .warning button,
-  .warning window grid > widget > box > button.image-button,
-  window .warning grid > widget > box > button.image-button,
+  .warning window grid.vertical > widget > box > button.image-button,
+  window .warning grid.vertical > widget > box > button.image-button,
   .error button.flat,
   .error buttonbox button,
   buttonbox .error button,
@@ -7449,8 +7449,8 @@ infobar, NautilusTrashBar {
   .budgie-session-dialog .error button,
   .error .budgie-polkit-dialog button,
   .budgie-polkit-dialog .error button,
-  .error window grid > widget > box > button.image-button,
-  window .error grid > widget > box > button.image-button {
+  .error window grid.vertical > widget > box > button.image-button,
+  window .error grid.vertical > widget > box > button.image-button {
     color: rgba(38, 50, 56, 0.75); }
     .info button.flat:hover, .info buttonbox button:hover, buttonbox .info button:hover, .info buttonbox.dialog-action-area button:hover, buttonbox.dialog-action-area .info button:hover, .info button.osd.image-button:hover,
     .info .button.osd.image-button:hover, .info .inline-toolbar button:hover, .inline-toolbar .info button:hover,
@@ -7477,7 +7477,7 @@ infobar, NautilusTrashBar {
     .info actionbar .linked > button.image-button:hover,
     actionbar .info .linked > button.image-button:hover, .info .raven button.image-button:hover, .raven .info button.image-button:hover, .info .budgie-session-dialog button:hover, .budgie-session-dialog .info button:hover,
     .info .budgie-polkit-dialog button:hover,
-    .budgie-polkit-dialog .info button:hover, .info window grid > widget > box > button.image-button:hover, window .info grid > widget > box > button.image-button:hover, .info button.flat:active, .info buttonbox button:active, buttonbox .info button:active, .info buttonbox.dialog-action-area button:active, buttonbox.dialog-action-area .info button:active, .info button.osd.image-button:active,
+    .budgie-polkit-dialog .info button:hover, .info window grid.vertical > widget > box > button.image-button:hover, window .info grid.vertical > widget > box > button.image-button:hover, .info button.flat:active, .info buttonbox button:active, buttonbox .info button:active, .info buttonbox.dialog-action-area button:active, buttonbox.dialog-action-area .info button:active, .info button.osd.image-button:active,
     .info .button.osd.image-button:active, .info .inline-toolbar button:active, .inline-toolbar .info button:active,
     .info button actionbar:active,
     button .info actionbar:active,
@@ -7502,7 +7502,7 @@ infobar, NautilusTrashBar {
     .info actionbar .linked > button.image-button:active,
     actionbar .info .linked > button.image-button:active, .info .raven button.image-button:active, .raven .info button.image-button:active, .info .budgie-session-dialog button:active, .budgie-session-dialog .info button:active,
     .info .budgie-polkit-dialog button:active,
-    .budgie-polkit-dialog .info button:active, .info window grid > widget > box > button.image-button:active, window .info grid > widget > box > button.image-button:active,
+    .budgie-polkit-dialog .info button:active, .info window grid.vertical > widget > box > button.image-button:active, window .info grid.vertical > widget > box > button.image-button:active,
     .question button.flat:hover,
     .question buttonbox button:hover,
     buttonbox .question button:hover,
@@ -7575,8 +7575,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .question button:hover,
     .question .budgie-polkit-dialog button:hover,
     .budgie-polkit-dialog .question button:hover,
-    .question window grid > widget > box > button.image-button:hover,
-    window .question grid > widget > box > button.image-button:hover,
+    .question window grid.vertical > widget > box > button.image-button:hover,
+    window .question grid.vertical > widget > box > button.image-button:hover,
     .question button.flat:active,
     .question buttonbox button:active,
     buttonbox .question button:active,
@@ -7649,8 +7649,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .question button:active,
     .question .budgie-polkit-dialog button:active,
     .budgie-polkit-dialog .question button:active,
-    .question window grid > widget > box > button.image-button:active,
-    window .question grid > widget > box > button.image-button:active,
+    .question window grid.vertical > widget > box > button.image-button:active,
+    window .question grid.vertical > widget > box > button.image-button:active,
     .warning button.flat:hover,
     .warning buttonbox button:hover,
     buttonbox .warning button:hover,
@@ -7723,8 +7723,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .warning button:hover,
     .warning .budgie-polkit-dialog button:hover,
     .budgie-polkit-dialog .warning button:hover,
-    .warning window grid > widget > box > button.image-button:hover,
-    window .warning grid > widget > box > button.image-button:hover,
+    .warning window grid.vertical > widget > box > button.image-button:hover,
+    window .warning grid.vertical > widget > box > button.image-button:hover,
     .warning button.flat:active,
     .warning buttonbox button:active,
     buttonbox .warning button:active,
@@ -7797,8 +7797,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .warning button:active,
     .warning .budgie-polkit-dialog button:active,
     .budgie-polkit-dialog .warning button:active,
-    .warning window grid > widget > box > button.image-button:active,
-    window .warning grid > widget > box > button.image-button:active,
+    .warning window grid.vertical > widget > box > button.image-button:active,
+    window .warning grid.vertical > widget > box > button.image-button:active,
     .error button.flat:hover,
     .error buttonbox button:hover,
     buttonbox .error button:hover,
@@ -7871,8 +7871,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .error button:hover,
     .error .budgie-polkit-dialog button:hover,
     .budgie-polkit-dialog .error button:hover,
-    .error window grid > widget > box > button.image-button:hover,
-    window .error grid > widget > box > button.image-button:hover,
+    .error window grid.vertical > widget > box > button.image-button:hover,
+    window .error grid.vertical > widget > box > button.image-button:hover,
     .error button.flat:active,
     .error buttonbox button:active,
     buttonbox .error button:active,
@@ -7945,8 +7945,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .error button:active,
     .error .budgie-polkit-dialog button:active,
     .budgie-polkit-dialog .error button:active,
-    .error window grid > widget > box > button.image-button:active,
-    window .error grid > widget > box > button.image-button:active {
+    .error window grid.vertical > widget > box > button.image-button:active,
+    window .error grid.vertical > widget > box > button.image-button:active {
       color: #263238; }
     .info button.flat:disabled, .info buttonbox button:disabled, buttonbox .info button:disabled, .info buttonbox.dialog-action-area button:disabled, buttonbox.dialog-action-area .info button:disabled, .info button.osd.image-button:disabled,
     .info .button.osd.image-button:disabled, .info .inline-toolbar button:disabled, .inline-toolbar .info button:disabled,
@@ -7973,7 +7973,7 @@ infobar, NautilusTrashBar {
     .info actionbar .linked > button.image-button:disabled,
     actionbar .info .linked > button.image-button:disabled, .info .raven button.image-button:disabled, .raven .info button.image-button:disabled, .info .budgie-session-dialog button:disabled, .budgie-session-dialog .info button:disabled,
     .info .budgie-polkit-dialog button:disabled,
-    .budgie-polkit-dialog .info button:disabled, .info window grid > widget > box > button.image-button:disabled, window .info grid > widget > box > button.image-button:disabled,
+    .budgie-polkit-dialog .info button:disabled, .info window grid.vertical > widget > box > button.image-button:disabled, window .info grid.vertical > widget > box > button.image-button:disabled,
     .question button.flat:disabled,
     .question buttonbox button:disabled,
     buttonbox .question button:disabled,
@@ -8046,8 +8046,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .question button:disabled,
     .question .budgie-polkit-dialog button:disabled,
     .budgie-polkit-dialog .question button:disabled,
-    .question window grid > widget > box > button.image-button:disabled,
-    window .question grid > widget > box > button.image-button:disabled,
+    .question window grid.vertical > widget > box > button.image-button:disabled,
+    window .question grid.vertical > widget > box > button.image-button:disabled,
     .warning button.flat:disabled,
     .warning buttonbox button:disabled,
     buttonbox .warning button:disabled,
@@ -8120,8 +8120,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .warning button:disabled,
     .warning .budgie-polkit-dialog button:disabled,
     .budgie-polkit-dialog .warning button:disabled,
-    .warning window grid > widget > box > button.image-button:disabled,
-    window .warning grid > widget > box > button.image-button:disabled,
+    .warning window grid.vertical > widget > box > button.image-button:disabled,
+    window .warning grid.vertical > widget > box > button.image-button:disabled,
     .error button.flat:disabled,
     .error buttonbox button:disabled,
     buttonbox .error button:disabled,
@@ -8194,8 +8194,8 @@ infobar, NautilusTrashBar {
     .budgie-session-dialog .error button:disabled,
     .error .budgie-polkit-dialog button:disabled,
     .budgie-polkit-dialog .error button:disabled,
-    .error window grid > widget > box > button.image-button:disabled,
-    window .error grid > widget > box > button.image-button:disabled {
+    .error window grid.vertical > widget > box > button.image-button:disabled,
+    window .error grid.vertical > widget > box > button.image-button:disabled {
       color: rgba(38, 50, 56, 0.3); }
   .info button.image-button,
   .question button.image-button,
@@ -8402,7 +8402,7 @@ menu > arrow.scale, notebook tab button.scale, messagedialog.csd .dialog-action-
 #gf-candidate-popup .linked > button.scale:first-child,
 #gf-candidate-popup .linked > button.scale:last-child, window > grid.vertical > box.vertical > widget button.scale, layouttabbar button.scale, layouttab button.scale, actionbar button.scale,
 actionbar .linked > button.scale.image-button, .raven button.scale.image-button, .budgie-session-dialog button.scale,
-.budgie-polkit-dialog button.scale, window grid > widget > box > button.scale.image-button {
+.budgie-polkit-dialog button.scale, window grid.vertical > widget > box > button.scale.image-button {
   min-width: 1.30075rem;
   min-height: 1.30075rem;
   padding: 0.75188rem;
@@ -9301,7 +9301,7 @@ paned.titlebar.horizontal headerbar button.toggle.popup.titlebutton, paned.title
 paned.titlebar.horizontal headerbar actionbar .linked > button.toggle.popup.image-button,
 actionbar paned.titlebar.horizontal headerbar .linked > button.toggle.popup.image-button, paned.titlebar.horizontal headerbar .raven button.toggle.popup.image-button, .raven paned.titlebar.horizontal headerbar button.toggle.popup.image-button, paned.titlebar.horizontal headerbar .budgie-session-dialog button.toggle.popup, .budgie-session-dialog paned.titlebar.horizontal headerbar button.toggle.popup,
 paned.titlebar.horizontal headerbar .budgie-polkit-dialog button.toggle.popup,
-.budgie-polkit-dialog paned.titlebar.horizontal headerbar button.toggle.popup, paned.titlebar.horizontal headerbar window grid > widget > box > button.toggle.popup.image-button, window paned.titlebar.horizontal headerbar grid > widget > box > button.toggle.popup.image-button {
+.budgie-polkit-dialog paned.titlebar.horizontal headerbar button.toggle.popup, paned.titlebar.horizontal headerbar window grid.vertical > widget > box > button.toggle.popup.image-button, window paned.titlebar.horizontal headerbar grid.vertical > widget > box > button.toggle.popup.image-button {
   border-radius: 2px;
   -gtk-outline-radius: 2px; }
 
@@ -9724,7 +9724,7 @@ headerbar .budgie-panel button.launcher:not(.suggested-action):not(.destructive-
 .budgie-panel actionbar .linked > button.launcher.image-button,
 actionbar .budgie-panel .linked > button.launcher.image-button, .budgie-panel .raven button.launcher.image-button, .raven .budgie-panel button.launcher.image-button, .budgie-panel .budgie-session-dialog button.launcher, .budgie-session-dialog .budgie-panel button.launcher,
 .budgie-panel .budgie-polkit-dialog button.launcher,
-.budgie-polkit-dialog .budgie-panel button.launcher, .budgie-panel window grid > widget > box > button.launcher.image-button, window .budgie-panel grid > widget > box > button.launcher.image-button, .budgie-panel button.flat.launcher:backdrop, .budgie-panel buttonbox button.launcher:backdrop, buttonbox .budgie-panel button.launcher:backdrop, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop, .budgie-panel button.launcher.osd.image-button:backdrop,
+.budgie-polkit-dialog .budgie-panel button.launcher, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button, .budgie-panel button.flat.launcher:backdrop, .budgie-panel buttonbox button.launcher:backdrop, buttonbox .budgie-panel button.launcher:backdrop, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop, .budgie-panel button.launcher.osd.image-button:backdrop,
 .budgie-panel .launcher.button.osd.image-button:backdrop, .budgie-panel .inline-toolbar button.launcher:backdrop, .inline-toolbar .budgie-panel button.launcher:backdrop,
 .budgie-panel button actionbar.launcher:backdrop,
 button .budgie-panel actionbar.launcher:backdrop,
@@ -9749,7 +9749,7 @@ headerbar .budgie-panel button.launcher:backdrop:not(.suggested-action):not(.des
 .budgie-panel actionbar .linked > button.launcher.image-button:backdrop,
 actionbar .budgie-panel .linked > button.launcher.image-button:backdrop, .budgie-panel .raven button.launcher.image-button:backdrop, .raven .budgie-panel button.launcher.image-button:backdrop, .budgie-panel .budgie-session-dialog button.launcher:backdrop, .budgie-session-dialog .budgie-panel button.launcher:backdrop,
 .budgie-panel .budgie-polkit-dialog button.launcher:backdrop,
-.budgie-polkit-dialog .budgie-panel button.launcher:backdrop, .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop, window .budgie-panel grid > widget > box > button.launcher.image-button:backdrop {
+.budgie-polkit-dialog .budgie-panel button.launcher:backdrop, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop {
   min-width: 1.80451rem;
   min-height: 1.80451rem;
   padding: 0;
@@ -9782,7 +9782,7 @@ actionbar .budgie-panel .linked > button.launcher.image-button:backdrop, .budgie
   .budgie-panel actionbar .linked > button.launcher.image-button:hover,
   actionbar .budgie-panel .linked > button.launcher.image-button:hover, .budgie-panel .raven button.launcher.image-button:hover, .raven .budgie-panel button.launcher.image-button:hover, .budgie-panel .budgie-session-dialog button.launcher:hover, .budgie-session-dialog .budgie-panel button.launcher:hover,
   .budgie-panel .budgie-polkit-dialog button.launcher:hover,
-  .budgie-polkit-dialog .budgie-panel button.launcher:hover, .budgie-panel window grid > widget > box > button.launcher.image-button:hover, window .budgie-panel grid > widget > box > button.launcher.image-button:hover, .budgie-panel button.flat.launcher:backdrop:hover, .budgie-panel buttonbox button.launcher:backdrop:hover, buttonbox .budgie-panel button.launcher:backdrop:hover, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop:hover, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop:hover, .budgie-panel button.launcher.osd.image-button:backdrop:hover,
+  .budgie-polkit-dialog .budgie-panel button.launcher:hover, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:hover, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button:hover, .budgie-panel button.flat.launcher:backdrop:hover, .budgie-panel buttonbox button.launcher:backdrop:hover, buttonbox .budgie-panel button.launcher:backdrop:hover, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop:hover, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop:hover, .budgie-panel button.launcher.osd.image-button:backdrop:hover,
   .budgie-panel .launcher.button.osd.image-button:backdrop:hover, .budgie-panel .inline-toolbar button.launcher:backdrop:hover, .inline-toolbar .budgie-panel button.launcher:backdrop:hover,
   .budgie-panel button actionbar.launcher:backdrop:hover,
   button .budgie-panel actionbar.launcher:backdrop:hover,
@@ -9807,7 +9807,7 @@ actionbar .budgie-panel .linked > button.launcher.image-button:backdrop, .budgie
   .budgie-panel actionbar .linked > button.launcher.image-button:backdrop:hover,
   actionbar .budgie-panel .linked > button.launcher.image-button:backdrop:hover, .budgie-panel .raven button.launcher.image-button:backdrop:hover, .raven .budgie-panel button.launcher.image-button:backdrop:hover, .budgie-panel .budgie-session-dialog button.launcher:backdrop:hover, .budgie-session-dialog .budgie-panel button.launcher:backdrop:hover,
   .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:hover,
-  .budgie-polkit-dialog .budgie-panel button.launcher:backdrop:hover, .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:hover, window .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:hover {
+  .budgie-polkit-dialog .budgie-panel button.launcher:backdrop:hover, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:hover, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:hover {
     -gtk-icon-effect: highlight;
     opacity: 1.0; }
   .budgie-panel button.flat.launcher:active, .budgie-panel buttonbox button.launcher:active, buttonbox .budgie-panel button.launcher:active, .budgie-panel buttonbox.dialog-action-area button.launcher:active, buttonbox.dialog-action-area .budgie-panel button.launcher:active, .budgie-panel button.launcher.osd.image-button:active,
@@ -9835,7 +9835,7 @@ actionbar .budgie-panel .linked > button.launcher.image-button:backdrop, .budgie
   .budgie-panel actionbar .linked > button.launcher.image-button:active,
   actionbar .budgie-panel .linked > button.launcher.image-button:active, .budgie-panel .raven button.launcher.image-button:active, .raven .budgie-panel button.launcher.image-button:active, .budgie-panel .budgie-session-dialog button.launcher:active, .budgie-session-dialog .budgie-panel button.launcher:active,
   .budgie-panel .budgie-polkit-dialog button.launcher:active,
-  .budgie-polkit-dialog .budgie-panel button.launcher:active, .budgie-panel window grid > widget > box > button.launcher.image-button:active, window .budgie-panel grid > widget > box > button.launcher.image-button:active, .budgie-panel button.flat.launcher:checked, .budgie-panel buttonbox button.launcher:checked, buttonbox .budgie-panel button.launcher:checked, .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .budgie-panel button.launcher:checked, .budgie-panel button.launcher.osd.image-button:checked,
+  .budgie-polkit-dialog .budgie-panel button.launcher:active, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:active, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button:active, .budgie-panel button.flat.launcher:checked, .budgie-panel buttonbox button.launcher:checked, buttonbox .budgie-panel button.launcher:checked, .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .budgie-panel button.launcher:checked, .budgie-panel button.launcher.osd.image-button:checked,
   .budgie-panel .launcher.button.osd.image-button:checked, .budgie-panel .inline-toolbar button.launcher:checked, .inline-toolbar .budgie-panel button.launcher:checked,
   .budgie-panel button actionbar.launcher:checked,
   button .budgie-panel actionbar.launcher:checked,
@@ -9860,7 +9860,7 @@ actionbar .budgie-panel .linked > button.launcher.image-button:backdrop, .budgie
   .budgie-panel actionbar .linked > button.launcher.image-button:checked,
   actionbar .budgie-panel .linked > button.launcher.image-button:checked, .budgie-panel .raven button.launcher.image-button:checked, .raven .budgie-panel button.launcher.image-button:checked, .budgie-panel .budgie-session-dialog button.launcher:checked, .budgie-session-dialog .budgie-panel button.launcher:checked,
   .budgie-panel .budgie-polkit-dialog button.launcher:checked,
-  .budgie-polkit-dialog .budgie-panel button.launcher:checked, .budgie-panel window grid > widget > box > button.launcher.image-button:checked, window .budgie-panel grid > widget > box > button.launcher.image-button:checked, .budgie-panel button.flat.launcher:backdrop:active, .budgie-panel buttonbox button.launcher:backdrop:active, buttonbox .budgie-panel button.launcher:backdrop:active, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop:active, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop:active, .budgie-panel button.launcher.osd.image-button:backdrop:active,
+  .budgie-polkit-dialog .budgie-panel button.launcher:checked, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:checked, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button:checked, .budgie-panel button.flat.launcher:backdrop:active, .budgie-panel buttonbox button.launcher:backdrop:active, buttonbox .budgie-panel button.launcher:backdrop:active, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop:active, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop:active, .budgie-panel button.launcher.osd.image-button:backdrop:active,
   .budgie-panel .launcher.button.osd.image-button:backdrop:active, .budgie-panel .inline-toolbar button.launcher:backdrop:active, .inline-toolbar .budgie-panel button.launcher:backdrop:active,
   .budgie-panel button actionbar.launcher:backdrop:active,
   button .budgie-panel actionbar.launcher:backdrop:active,
@@ -9885,7 +9885,7 @@ actionbar .budgie-panel .linked > button.launcher.image-button:backdrop, .budgie
   .budgie-panel actionbar .linked > button.launcher.image-button:backdrop:active,
   actionbar .budgie-panel .linked > button.launcher.image-button:backdrop:active, .budgie-panel .raven button.launcher.image-button:backdrop:active, .raven .budgie-panel button.launcher.image-button:backdrop:active, .budgie-panel .budgie-session-dialog button.launcher:backdrop:active, .budgie-session-dialog .budgie-panel button.launcher:backdrop:active,
   .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:active,
-  .budgie-polkit-dialog .budgie-panel button.launcher:backdrop:active, .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:active, window .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:active, .budgie-panel button.flat.launcher:backdrop:checked, .budgie-panel buttonbox button.launcher:backdrop:checked, buttonbox .budgie-panel button.launcher:backdrop:checked, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop:checked, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop:checked, .budgie-panel button.launcher.osd.image-button:backdrop:checked,
+  .budgie-polkit-dialog .budgie-panel button.launcher:backdrop:active, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:active, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:active, .budgie-panel button.flat.launcher:backdrop:checked, .budgie-panel buttonbox button.launcher:backdrop:checked, buttonbox .budgie-panel button.launcher:backdrop:checked, .budgie-panel buttonbox.dialog-action-area button.launcher:backdrop:checked, buttonbox.dialog-action-area .budgie-panel button.launcher:backdrop:checked, .budgie-panel button.launcher.osd.image-button:backdrop:checked,
   .budgie-panel .launcher.button.osd.image-button:backdrop:checked, .budgie-panel .inline-toolbar button.launcher:backdrop:checked, .inline-toolbar .budgie-panel button.launcher:backdrop:checked,
   .budgie-panel button actionbar.launcher:backdrop:checked,
   button .budgie-panel actionbar.launcher:backdrop:checked,
@@ -9910,7 +9910,7 @@ actionbar .budgie-panel .linked > button.launcher.image-button:backdrop, .budgie
   .budgie-panel actionbar .linked > button.launcher.image-button:backdrop:checked,
   actionbar .budgie-panel .linked > button.launcher.image-button:backdrop:checked, .budgie-panel .raven button.launcher.image-button:backdrop:checked, .raven .budgie-panel button.launcher.image-button:backdrop:checked, .budgie-panel .budgie-session-dialog button.launcher:backdrop:checked, .budgie-session-dialog .budgie-panel button.launcher:backdrop:checked,
   .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:checked,
-  .budgie-polkit-dialog .budgie-panel button.launcher:backdrop:checked, .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:checked, window .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:checked {
+  .budgie-polkit-dialog .budgie-panel button.launcher:backdrop:checked, .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:checked, window .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:checked {
     opacity: 1.0;
     background-color: transparent; }
 .budgie-panel .unpinned button.flat.launcher, .budgie-panel .unpinned buttonbox button.launcher, buttonbox .budgie-panel .unpinned button.launcher, .budgie-panel .unpinned buttonbox.dialog-action-area button.launcher, buttonbox.dialog-action-area .budgie-panel .unpinned button.launcher, .budgie-panel .unpinned button.launcher.osd.image-button,
@@ -9938,7 +9938,7 @@ headerbar .budgie-panel .unpinned button.launcher:not(.suggested-action):not(.de
 .budgie-panel .unpinned actionbar .linked > button.launcher.image-button,
 actionbar .budgie-panel .unpinned .linked > button.launcher.image-button, .budgie-panel .unpinned .raven button.launcher.image-button, .raven .budgie-panel .unpinned button.launcher.image-button, .budgie-panel .unpinned .budgie-session-dialog button.launcher, .budgie-session-dialog .budgie-panel .unpinned button.launcher,
 .budgie-panel .unpinned .budgie-polkit-dialog button.launcher,
-.budgie-polkit-dialog .budgie-panel .unpinned button.launcher, .budgie-panel .unpinned window grid > widget > box > button.launcher.image-button, window .budgie-panel .unpinned grid > widget > box > button.launcher.image-button,
+.budgie-polkit-dialog .budgie-panel .unpinned button.launcher, .budgie-panel .unpinned window grid.vertical > widget > box > button.launcher.image-button, window .budgie-panel .unpinned grid.vertical > widget > box > button.launcher.image-button,
 .budgie-panel .unpinned button.flat.launcher:backdrop,
 .budgie-panel .unpinned buttonbox button.launcher:backdrop,
 buttonbox .budgie-panel .unpinned button.launcher:backdrop,
@@ -10012,8 +10012,8 @@ actionbar .budgie-panel .unpinned .linked > button.launcher.image-button:backdro
 .budgie-session-dialog .budgie-panel .unpinned button.launcher:backdrop,
 .budgie-panel .unpinned .budgie-polkit-dialog button.launcher:backdrop,
 .budgie-polkit-dialog .budgie-panel .unpinned button.launcher:backdrop,
-.budgie-panel .unpinned window grid > widget > box > button.launcher.image-button:backdrop,
-window .budgie-panel .unpinned grid > widget > box > button.launcher.image-button:backdrop,
+.budgie-panel .unpinned window grid.vertical > widget > box > button.launcher.image-button:backdrop,
+window .budgie-panel .unpinned grid.vertical > widget > box > button.launcher.image-button:backdrop,
 .budgie-panel .pinned button.flat.launcher.running,
 .budgie-panel .pinned buttonbox button.launcher.running,
 buttonbox .budgie-panel .pinned button.launcher.running,
@@ -10087,8 +10087,8 @@ actionbar .budgie-panel .pinned .linked > button.launcher.running.image-button,
 .budgie-session-dialog .budgie-panel .pinned button.launcher.running,
 .budgie-panel .pinned .budgie-polkit-dialog button.launcher.running,
 .budgie-polkit-dialog .budgie-panel .pinned button.launcher.running,
-.budgie-panel .pinned window grid > widget > box > button.launcher.running.image-button,
-window .budgie-panel .pinned grid > widget > box > button.launcher.running.image-button,
+.budgie-panel .pinned window grid.vertical > widget > box > button.launcher.running.image-button,
+window .budgie-panel .pinned grid.vertical > widget > box > button.launcher.running.image-button,
 .budgie-panel .pinned button.flat.launcher.running:backdrop,
 .budgie-panel .pinned buttonbox button.launcher.running:backdrop,
 buttonbox .budgie-panel .pinned button.launcher.running:backdrop,
@@ -10162,8 +10162,8 @@ actionbar .budgie-panel .pinned .linked > button.launcher.running.image-button:b
 .budgie-session-dialog .budgie-panel .pinned button.launcher.running:backdrop,
 .budgie-panel .pinned .budgie-polkit-dialog button.launcher.running:backdrop,
 .budgie-polkit-dialog .budgie-panel .pinned button.launcher.running:backdrop,
-.budgie-panel .pinned window grid > widget > box > button.launcher.running.image-button:backdrop,
-window .budgie-panel .pinned grid > widget > box > button.launcher.running.image-button:backdrop {
+.budgie-panel .pinned window grid.vertical > widget > box > button.launcher.running.image-button:backdrop,
+window .budgie-panel .pinned grid.vertical > widget > box > button.launcher.running.image-button:backdrop {
   opacity: 1.0; }
 
 .top .budgie-panel #tasklist-button button,
@@ -10201,7 +10201,7 @@ headerbar .top .budgie-panel button.launcher:not(.suggested-action):not(.destruc
 .top .budgie-panel actionbar .linked > button.launcher.image-button,
 actionbar .top .budgie-panel .linked > button.launcher.image-button, .top .budgie-panel .raven button.launcher.image-button, .raven .top .budgie-panel button.launcher.image-button, .top .budgie-panel .budgie-session-dialog button.launcher, .budgie-session-dialog .top .budgie-panel button.launcher,
 .top .budgie-panel .budgie-polkit-dialog button.launcher,
-.budgie-polkit-dialog .top .budgie-panel button.launcher, .top .budgie-panel window grid > widget > box > button.launcher.image-button, window .top .budgie-panel grid > widget > box > button.launcher.image-button,
+.budgie-polkit-dialog .top .budgie-panel button.launcher, .top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button, window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button,
 .top .budgie-panel button.flat.launcher:backdrop,
 .top .budgie-panel buttonbox button.launcher:backdrop,
 buttonbox .top .budgie-panel button.launcher:backdrop,
@@ -10275,8 +10275,8 @@ actionbar .top .budgie-panel .linked > button.launcher.image-button:backdrop,
 .budgie-session-dialog .top .budgie-panel button.launcher:backdrop,
 .top .budgie-panel .budgie-polkit-dialog button.launcher:backdrop,
 .budgie-polkit-dialog .top .budgie-panel button.launcher:backdrop,
-.top .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop,
-window .top .budgie-panel grid > widget > box > button.launcher.image-button:backdrop {
+.top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop,
+window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop {
   border: 2px solid transparent; }
   .top .budgie-panel button.flat.launcher:hover, .top .budgie-panel buttonbox button.launcher:hover, buttonbox .top .budgie-panel button.launcher:hover, .top .budgie-panel buttonbox.dialog-action-area button.launcher:hover, buttonbox.dialog-action-area .top .budgie-panel button.launcher:hover, .top .budgie-panel button.launcher.osd.image-button:hover,
   .top .budgie-panel .launcher.button.osd.image-button:hover, .top .budgie-panel .inline-toolbar button.launcher:hover, .inline-toolbar .top .budgie-panel button.launcher:hover,
@@ -10303,7 +10303,7 @@ window .top .budgie-panel grid > widget > box > button.launcher.image-button:bac
   .top .budgie-panel actionbar .linked > button.launcher.image-button:hover,
   actionbar .top .budgie-panel .linked > button.launcher.image-button:hover, .top .budgie-panel .raven button.launcher.image-button:hover, .raven .top .budgie-panel button.launcher.image-button:hover, .top .budgie-panel .budgie-session-dialog button.launcher:hover, .budgie-session-dialog .top .budgie-panel button.launcher:hover,
   .top .budgie-panel .budgie-polkit-dialog button.launcher:hover,
-  .budgie-polkit-dialog .top .budgie-panel button.launcher:hover, .top .budgie-panel window grid > widget > box > button.launcher.image-button:hover, window .top .budgie-panel grid > widget > box > button.launcher.image-button:hover,
+  .budgie-polkit-dialog .top .budgie-panel button.launcher:hover, .top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:hover, window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button:hover,
   .top .budgie-panel button.flat.launcher:backdrop:hover,
   .top .budgie-panel buttonbox button.launcher:backdrop:hover,
   buttonbox .top .budgie-panel button.launcher:backdrop:hover,
@@ -10377,8 +10377,8 @@ window .top .budgie-panel grid > widget > box > button.launcher.image-button:bac
   .budgie-session-dialog .top .budgie-panel button.launcher:backdrop:hover,
   .top .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:hover,
   .budgie-polkit-dialog .top .budgie-panel button.launcher:backdrop:hover,
-  .top .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:hover,
-  window .top .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:hover {
+  .top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:hover,
+  window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:hover {
     border-top: 2px solid alpha(#00BCD4, 0.5); }
   .top .budgie-panel button.flat.launcher:active, .top .budgie-panel buttonbox button.launcher:active, buttonbox .top .budgie-panel button.launcher:active, .top .budgie-panel buttonbox.dialog-action-area button.launcher:active, buttonbox.dialog-action-area .top .budgie-panel button.launcher:active, .top .budgie-panel button.launcher.osd.image-button:active,
   .top .budgie-panel .launcher.button.osd.image-button:active, .top .budgie-panel .inline-toolbar button.launcher:active, .inline-toolbar .top .budgie-panel button.launcher:active,
@@ -10405,7 +10405,7 @@ window .top .budgie-panel grid > widget > box > button.launcher.image-button:bac
   .top .budgie-panel actionbar .linked > button.launcher.image-button:active,
   actionbar .top .budgie-panel .linked > button.launcher.image-button:active, .top .budgie-panel .raven button.launcher.image-button:active, .raven .top .budgie-panel button.launcher.image-button:active, .top .budgie-panel .budgie-session-dialog button.launcher:active, .budgie-session-dialog .top .budgie-panel button.launcher:active,
   .top .budgie-panel .budgie-polkit-dialog button.launcher:active,
-  .budgie-polkit-dialog .top .budgie-panel button.launcher:active, .top .budgie-panel window grid > widget > box > button.launcher.image-button:active, window .top .budgie-panel grid > widget > box > button.launcher.image-button:active, .top .budgie-panel button.flat.launcher:checked, .top .budgie-panel buttonbox button.launcher:checked, buttonbox .top .budgie-panel button.launcher:checked, .top .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .top .budgie-panel button.launcher:checked, .top .budgie-panel button.launcher.osd.image-button:checked,
+  .budgie-polkit-dialog .top .budgie-panel button.launcher:active, .top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:active, window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button:active, .top .budgie-panel button.flat.launcher:checked, .top .budgie-panel buttonbox button.launcher:checked, buttonbox .top .budgie-panel button.launcher:checked, .top .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .top .budgie-panel button.launcher:checked, .top .budgie-panel button.launcher.osd.image-button:checked,
   .top .budgie-panel .launcher.button.osd.image-button:checked, .top .budgie-panel .inline-toolbar button.launcher:checked, .inline-toolbar .top .budgie-panel button.launcher:checked,
   .top .budgie-panel button actionbar.launcher:checked,
   button .top .budgie-panel actionbar.launcher:checked,
@@ -10430,7 +10430,7 @@ window .top .budgie-panel grid > widget > box > button.launcher.image-button:bac
   .top .budgie-panel actionbar .linked > button.launcher.image-button:checked,
   actionbar .top .budgie-panel .linked > button.launcher.image-button:checked, .top .budgie-panel .raven button.launcher.image-button:checked, .raven .top .budgie-panel button.launcher.image-button:checked, .top .budgie-panel .budgie-session-dialog button.launcher:checked, .budgie-session-dialog .top .budgie-panel button.launcher:checked,
   .top .budgie-panel .budgie-polkit-dialog button.launcher:checked,
-  .budgie-polkit-dialog .top .budgie-panel button.launcher:checked, .top .budgie-panel window grid > widget > box > button.launcher.image-button:checked, window .top .budgie-panel grid > widget > box > button.launcher.image-button:checked,
+  .budgie-polkit-dialog .top .budgie-panel button.launcher:checked, .top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:checked, window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button:checked,
   .top .budgie-panel button.flat.launcher:backdrop:active,
   .top .budgie-panel buttonbox button.launcher:backdrop:active,
   buttonbox .top .budgie-panel button.launcher:backdrop:active,
@@ -10504,8 +10504,8 @@ window .top .budgie-panel grid > widget > box > button.launcher.image-button:bac
   .budgie-session-dialog .top .budgie-panel button.launcher:backdrop:active,
   .top .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:active,
   .budgie-polkit-dialog .top .budgie-panel button.launcher:backdrop:active,
-  .top .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:active,
-  window .top .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:active,
+  .top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
+  window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
   .top .budgie-panel button.flat.launcher:backdrop:checked,
   .top .budgie-panel buttonbox button.launcher:backdrop:checked,
   buttonbox .top .budgie-panel button.launcher:backdrop:checked,
@@ -10579,8 +10579,8 @@ window .top .budgie-panel grid > widget > box > button.launcher.image-button:bac
   .budgie-session-dialog .top .budgie-panel button.launcher:backdrop:checked,
   .top .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:checked,
   .budgie-polkit-dialog .top .budgie-panel button.launcher:backdrop:checked,
-  .top .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:checked,
-  window .top .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:checked {
+  .top .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:checked,
+  window .top .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:checked {
     border-top: 2px solid #00BCD4; }
 
 .bottom .budgie-panel #tasklist-button button,
@@ -10618,7 +10618,7 @@ headerbar .bottom .budgie-panel button.launcher:not(.suggested-action):not(.dest
 .bottom .budgie-panel actionbar .linked > button.launcher.image-button,
 actionbar .bottom .budgie-panel .linked > button.launcher.image-button, .bottom .budgie-panel .raven button.launcher.image-button, .raven .bottom .budgie-panel button.launcher.image-button, .bottom .budgie-panel .budgie-session-dialog button.launcher, .budgie-session-dialog .bottom .budgie-panel button.launcher,
 .bottom .budgie-panel .budgie-polkit-dialog button.launcher,
-.budgie-polkit-dialog .bottom .budgie-panel button.launcher, .bottom .budgie-panel window grid > widget > box > button.launcher.image-button, window .bottom .budgie-panel grid > widget > box > button.launcher.image-button,
+.budgie-polkit-dialog .bottom .budgie-panel button.launcher, .bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button, window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button,
 .bottom .budgie-panel button.flat.launcher:backdrop,
 .bottom .budgie-panel buttonbox button.launcher:backdrop,
 buttonbox .bottom .budgie-panel button.launcher:backdrop,
@@ -10692,8 +10692,8 @@ actionbar .bottom .budgie-panel .linked > button.launcher.image-button:backdrop,
 .budgie-session-dialog .bottom .budgie-panel button.launcher:backdrop,
 .bottom .budgie-panel .budgie-polkit-dialog button.launcher:backdrop,
 .budgie-polkit-dialog .bottom .budgie-panel button.launcher:backdrop,
-.bottom .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop,
-window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:backdrop {
+.bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop,
+window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop {
   border: 2px solid transparent; }
   .bottom .budgie-panel button.flat.launcher:hover, .bottom .budgie-panel buttonbox button.launcher:hover, buttonbox .bottom .budgie-panel button.launcher:hover, .bottom .budgie-panel buttonbox.dialog-action-area button.launcher:hover, buttonbox.dialog-action-area .bottom .budgie-panel button.launcher:hover, .bottom .budgie-panel button.launcher.osd.image-button:hover,
   .bottom .budgie-panel .launcher.button.osd.image-button:hover, .bottom .budgie-panel .inline-toolbar button.launcher:hover, .inline-toolbar .bottom .budgie-panel button.launcher:hover,
@@ -10720,7 +10720,7 @@ window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:
   .bottom .budgie-panel actionbar .linked > button.launcher.image-button:hover,
   actionbar .bottom .budgie-panel .linked > button.launcher.image-button:hover, .bottom .budgie-panel .raven button.launcher.image-button:hover, .raven .bottom .budgie-panel button.launcher.image-button:hover, .bottom .budgie-panel .budgie-session-dialog button.launcher:hover, .budgie-session-dialog .bottom .budgie-panel button.launcher:hover,
   .bottom .budgie-panel .budgie-polkit-dialog button.launcher:hover,
-  .budgie-polkit-dialog .bottom .budgie-panel button.launcher:hover, .bottom .budgie-panel window grid > widget > box > button.launcher.image-button:hover, window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:hover,
+  .budgie-polkit-dialog .bottom .budgie-panel button.launcher:hover, .bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:hover, window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button:hover,
   .bottom .budgie-panel button.flat.launcher:backdrop:hover,
   .bottom .budgie-panel buttonbox button.launcher:backdrop:hover,
   buttonbox .bottom .budgie-panel button.launcher:backdrop:hover,
@@ -10794,8 +10794,8 @@ window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:
   .budgie-session-dialog .bottom .budgie-panel button.launcher:backdrop:hover,
   .bottom .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:hover,
   .budgie-polkit-dialog .bottom .budgie-panel button.launcher:backdrop:hover,
-  .bottom .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:hover,
-  window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:hover {
+  .bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:hover,
+  window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:hover {
     border-bottom: 2px solid alpha(#00BCD4, 0.5); }
   .bottom .budgie-panel button.flat.launcher:active, .bottom .budgie-panel buttonbox button.launcher:active, buttonbox .bottom .budgie-panel button.launcher:active, .bottom .budgie-panel buttonbox.dialog-action-area button.launcher:active, buttonbox.dialog-action-area .bottom .budgie-panel button.launcher:active, .bottom .budgie-panel button.launcher.osd.image-button:active,
   .bottom .budgie-panel .launcher.button.osd.image-button:active, .bottom .budgie-panel .inline-toolbar button.launcher:active, .inline-toolbar .bottom .budgie-panel button.launcher:active,
@@ -10822,7 +10822,7 @@ window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:
   .bottom .budgie-panel actionbar .linked > button.launcher.image-button:active,
   actionbar .bottom .budgie-panel .linked > button.launcher.image-button:active, .bottom .budgie-panel .raven button.launcher.image-button:active, .raven .bottom .budgie-panel button.launcher.image-button:active, .bottom .budgie-panel .budgie-session-dialog button.launcher:active, .budgie-session-dialog .bottom .budgie-panel button.launcher:active,
   .bottom .budgie-panel .budgie-polkit-dialog button.launcher:active,
-  .budgie-polkit-dialog .bottom .budgie-panel button.launcher:active, .bottom .budgie-panel window grid > widget > box > button.launcher.image-button:active, window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:active, .bottom .budgie-panel button.flat.launcher:checked, .bottom .budgie-panel buttonbox button.launcher:checked, buttonbox .bottom .budgie-panel button.launcher:checked, .bottom .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .bottom .budgie-panel button.launcher:checked, .bottom .budgie-panel button.launcher.osd.image-button:checked,
+  .budgie-polkit-dialog .bottom .budgie-panel button.launcher:active, .bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:active, window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button:active, .bottom .budgie-panel button.flat.launcher:checked, .bottom .budgie-panel buttonbox button.launcher:checked, buttonbox .bottom .budgie-panel button.launcher:checked, .bottom .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .bottom .budgie-panel button.launcher:checked, .bottom .budgie-panel button.launcher.osd.image-button:checked,
   .bottom .budgie-panel .launcher.button.osd.image-button:checked, .bottom .budgie-panel .inline-toolbar button.launcher:checked, .inline-toolbar .bottom .budgie-panel button.launcher:checked,
   .bottom .budgie-panel button actionbar.launcher:checked,
   button .bottom .budgie-panel actionbar.launcher:checked,
@@ -10847,7 +10847,7 @@ window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:
   .bottom .budgie-panel actionbar .linked > button.launcher.image-button:checked,
   actionbar .bottom .budgie-panel .linked > button.launcher.image-button:checked, .bottom .budgie-panel .raven button.launcher.image-button:checked, .raven .bottom .budgie-panel button.launcher.image-button:checked, .bottom .budgie-panel .budgie-session-dialog button.launcher:checked, .budgie-session-dialog .bottom .budgie-panel button.launcher:checked,
   .bottom .budgie-panel .budgie-polkit-dialog button.launcher:checked,
-  .budgie-polkit-dialog .bottom .budgie-panel button.launcher:checked, .bottom .budgie-panel window grid > widget > box > button.launcher.image-button:checked, window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:checked,
+  .budgie-polkit-dialog .bottom .budgie-panel button.launcher:checked, .bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:checked, window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button:checked,
   .bottom .budgie-panel button.flat.launcher:backdrop:active,
   .bottom .budgie-panel buttonbox button.launcher:backdrop:active,
   buttonbox .bottom .budgie-panel button.launcher:backdrop:active,
@@ -10921,8 +10921,8 @@ window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:
   .budgie-session-dialog .bottom .budgie-panel button.launcher:backdrop:active,
   .bottom .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:active,
   .budgie-polkit-dialog .bottom .budgie-panel button.launcher:backdrop:active,
-  .bottom .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:active,
-  window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:active,
+  .bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
+  window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
   .bottom .budgie-panel button.flat.launcher:backdrop:checked,
   .bottom .budgie-panel buttonbox button.launcher:backdrop:checked,
   buttonbox .bottom .budgie-panel button.launcher:backdrop:checked,
@@ -10996,8 +10996,8 @@ window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:
   .budgie-session-dialog .bottom .budgie-panel button.launcher:backdrop:checked,
   .bottom .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:checked,
   .budgie-polkit-dialog .bottom .budgie-panel button.launcher:backdrop:checked,
-  .bottom .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:checked,
-  window .bottom .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:checked {
+  .bottom .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:checked,
+  window .bottom .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:checked {
     border-bottom: 2px solid #00BCD4; }
 
 .left .budgie-panel #tasklist-button button,
@@ -11035,7 +11035,7 @@ headerbar .left .budgie-panel button.launcher:not(.suggested-action):not(.destru
 .left .budgie-panel actionbar .linked > button.launcher.image-button,
 actionbar .left .budgie-panel .linked > button.launcher.image-button, .left .budgie-panel .raven button.launcher.image-button, .raven .left .budgie-panel button.launcher.image-button, .left .budgie-panel .budgie-session-dialog button.launcher, .budgie-session-dialog .left .budgie-panel button.launcher,
 .left .budgie-panel .budgie-polkit-dialog button.launcher,
-.budgie-polkit-dialog .left .budgie-panel button.launcher, .left .budgie-panel window grid > widget > box > button.launcher.image-button, window .left .budgie-panel grid > widget > box > button.launcher.image-button,
+.budgie-polkit-dialog .left .budgie-panel button.launcher, .left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button, window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button,
 .left .budgie-panel button.flat.launcher:backdrop,
 .left .budgie-panel buttonbox button.launcher:backdrop,
 buttonbox .left .budgie-panel button.launcher:backdrop,
@@ -11109,8 +11109,8 @@ actionbar .left .budgie-panel .linked > button.launcher.image-button:backdrop,
 .budgie-session-dialog .left .budgie-panel button.launcher:backdrop,
 .left .budgie-panel .budgie-polkit-dialog button.launcher:backdrop,
 .budgie-polkit-dialog .left .budgie-panel button.launcher:backdrop,
-.left .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop,
-window .left .budgie-panel grid > widget > box > button.launcher.image-button:backdrop {
+.left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop,
+window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop {
   border: 2px solid transparent; }
   .left .budgie-panel button.flat.launcher:hover, .left .budgie-panel buttonbox button.launcher:hover, buttonbox .left .budgie-panel button.launcher:hover, .left .budgie-panel buttonbox.dialog-action-area button.launcher:hover, buttonbox.dialog-action-area .left .budgie-panel button.launcher:hover, .left .budgie-panel button.launcher.osd.image-button:hover,
   .left .budgie-panel .launcher.button.osd.image-button:hover, .left .budgie-panel .inline-toolbar button.launcher:hover, .inline-toolbar .left .budgie-panel button.launcher:hover,
@@ -11137,7 +11137,7 @@ window .left .budgie-panel grid > widget > box > button.launcher.image-button:ba
   .left .budgie-panel actionbar .linked > button.launcher.image-button:hover,
   actionbar .left .budgie-panel .linked > button.launcher.image-button:hover, .left .budgie-panel .raven button.launcher.image-button:hover, .raven .left .budgie-panel button.launcher.image-button:hover, .left .budgie-panel .budgie-session-dialog button.launcher:hover, .budgie-session-dialog .left .budgie-panel button.launcher:hover,
   .left .budgie-panel .budgie-polkit-dialog button.launcher:hover,
-  .budgie-polkit-dialog .left .budgie-panel button.launcher:hover, .left .budgie-panel window grid > widget > box > button.launcher.image-button:hover, window .left .budgie-panel grid > widget > box > button.launcher.image-button:hover,
+  .budgie-polkit-dialog .left .budgie-panel button.launcher:hover, .left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:hover, window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button:hover,
   .left .budgie-panel button.flat.launcher:backdrop:hover,
   .left .budgie-panel buttonbox button.launcher:backdrop:hover,
   buttonbox .left .budgie-panel button.launcher:backdrop:hover,
@@ -11211,8 +11211,8 @@ window .left .budgie-panel grid > widget > box > button.launcher.image-button:ba
   .budgie-session-dialog .left .budgie-panel button.launcher:backdrop:hover,
   .left .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:hover,
   .budgie-polkit-dialog .left .budgie-panel button.launcher:backdrop:hover,
-  .left .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:hover,
-  window .left .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:hover {
+  .left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:hover,
+  window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:hover {
     border-left: 2px solid alpha(#00BCD4, 0.5); }
   .left .budgie-panel button.flat.launcher:active, .left .budgie-panel buttonbox button.launcher:active, buttonbox .left .budgie-panel button.launcher:active, .left .budgie-panel buttonbox.dialog-action-area button.launcher:active, buttonbox.dialog-action-area .left .budgie-panel button.launcher:active, .left .budgie-panel button.launcher.osd.image-button:active,
   .left .budgie-panel .launcher.button.osd.image-button:active, .left .budgie-panel .inline-toolbar button.launcher:active, .inline-toolbar .left .budgie-panel button.launcher:active,
@@ -11239,7 +11239,7 @@ window .left .budgie-panel grid > widget > box > button.launcher.image-button:ba
   .left .budgie-panel actionbar .linked > button.launcher.image-button:active,
   actionbar .left .budgie-panel .linked > button.launcher.image-button:active, .left .budgie-panel .raven button.launcher.image-button:active, .raven .left .budgie-panel button.launcher.image-button:active, .left .budgie-panel .budgie-session-dialog button.launcher:active, .budgie-session-dialog .left .budgie-panel button.launcher:active,
   .left .budgie-panel .budgie-polkit-dialog button.launcher:active,
-  .budgie-polkit-dialog .left .budgie-panel button.launcher:active, .left .budgie-panel window grid > widget > box > button.launcher.image-button:active, window .left .budgie-panel grid > widget > box > button.launcher.image-button:active, .left .budgie-panel button.flat.launcher:checked, .left .budgie-panel buttonbox button.launcher:checked, buttonbox .left .budgie-panel button.launcher:checked, .left .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .left .budgie-panel button.launcher:checked, .left .budgie-panel button.launcher.osd.image-button:checked,
+  .budgie-polkit-dialog .left .budgie-panel button.launcher:active, .left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:active, window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button:active, .left .budgie-panel button.flat.launcher:checked, .left .budgie-panel buttonbox button.launcher:checked, buttonbox .left .budgie-panel button.launcher:checked, .left .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .left .budgie-panel button.launcher:checked, .left .budgie-panel button.launcher.osd.image-button:checked,
   .left .budgie-panel .launcher.button.osd.image-button:checked, .left .budgie-panel .inline-toolbar button.launcher:checked, .inline-toolbar .left .budgie-panel button.launcher:checked,
   .left .budgie-panel button actionbar.launcher:checked,
   button .left .budgie-panel actionbar.launcher:checked,
@@ -11264,7 +11264,7 @@ window .left .budgie-panel grid > widget > box > button.launcher.image-button:ba
   .left .budgie-panel actionbar .linked > button.launcher.image-button:checked,
   actionbar .left .budgie-panel .linked > button.launcher.image-button:checked, .left .budgie-panel .raven button.launcher.image-button:checked, .raven .left .budgie-panel button.launcher.image-button:checked, .left .budgie-panel .budgie-session-dialog button.launcher:checked, .budgie-session-dialog .left .budgie-panel button.launcher:checked,
   .left .budgie-panel .budgie-polkit-dialog button.launcher:checked,
-  .budgie-polkit-dialog .left .budgie-panel button.launcher:checked, .left .budgie-panel window grid > widget > box > button.launcher.image-button:checked, window .left .budgie-panel grid > widget > box > button.launcher.image-button:checked,
+  .budgie-polkit-dialog .left .budgie-panel button.launcher:checked, .left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:checked, window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button:checked,
   .left .budgie-panel button.flat.launcher:backdrop:active,
   .left .budgie-panel buttonbox button.launcher:backdrop:active,
   buttonbox .left .budgie-panel button.launcher:backdrop:active,
@@ -11338,8 +11338,8 @@ window .left .budgie-panel grid > widget > box > button.launcher.image-button:ba
   .budgie-session-dialog .left .budgie-panel button.launcher:backdrop:active,
   .left .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:active,
   .budgie-polkit-dialog .left .budgie-panel button.launcher:backdrop:active,
-  .left .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:active,
-  window .left .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:active,
+  .left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
+  window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
   .left .budgie-panel button.flat.launcher:backdrop:checked,
   .left .budgie-panel buttonbox button.launcher:backdrop:checked,
   buttonbox .left .budgie-panel button.launcher:backdrop:checked,
@@ -11413,8 +11413,8 @@ window .left .budgie-panel grid > widget > box > button.launcher.image-button:ba
   .budgie-session-dialog .left .budgie-panel button.launcher:backdrop:checked,
   .left .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:checked,
   .budgie-polkit-dialog .left .budgie-panel button.launcher:backdrop:checked,
-  .left .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:checked,
-  window .left .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:checked {
+  .left .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:checked,
+  window .left .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:checked {
     border-left: 2px solid #00BCD4; }
 
 .right .budgie-panel #tasklist-button button,
@@ -11452,7 +11452,7 @@ headerbar .right .budgie-panel button.launcher:not(.suggested-action):not(.destr
 .right .budgie-panel actionbar .linked > button.launcher.image-button,
 actionbar .right .budgie-panel .linked > button.launcher.image-button, .right .budgie-panel .raven button.launcher.image-button, .raven .right .budgie-panel button.launcher.image-button, .right .budgie-panel .budgie-session-dialog button.launcher, .budgie-session-dialog .right .budgie-panel button.launcher,
 .right .budgie-panel .budgie-polkit-dialog button.launcher,
-.budgie-polkit-dialog .right .budgie-panel button.launcher, .right .budgie-panel window grid > widget > box > button.launcher.image-button, window .right .budgie-panel grid > widget > box > button.launcher.image-button,
+.budgie-polkit-dialog .right .budgie-panel button.launcher, .right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button, window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button,
 .right .budgie-panel button.flat.launcher:backdrop,
 .right .budgie-panel buttonbox button.launcher:backdrop,
 buttonbox .right .budgie-panel button.launcher:backdrop,
@@ -11526,8 +11526,8 @@ actionbar .right .budgie-panel .linked > button.launcher.image-button:backdrop,
 .budgie-session-dialog .right .budgie-panel button.launcher:backdrop,
 .right .budgie-panel .budgie-polkit-dialog button.launcher:backdrop,
 .budgie-polkit-dialog .right .budgie-panel button.launcher:backdrop,
-.right .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop,
-window .right .budgie-panel grid > widget > box > button.launcher.image-button:backdrop {
+.right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop,
+window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop {
   border: 2px solid transparent; }
   .right .budgie-panel button.flat.launcher:hover, .right .budgie-panel buttonbox button.launcher:hover, buttonbox .right .budgie-panel button.launcher:hover, .right .budgie-panel buttonbox.dialog-action-area button.launcher:hover, buttonbox.dialog-action-area .right .budgie-panel button.launcher:hover, .right .budgie-panel button.launcher.osd.image-button:hover,
   .right .budgie-panel .launcher.button.osd.image-button:hover, .right .budgie-panel .inline-toolbar button.launcher:hover, .inline-toolbar .right .budgie-panel button.launcher:hover,
@@ -11554,7 +11554,7 @@ window .right .budgie-panel grid > widget > box > button.launcher.image-button:b
   .right .budgie-panel actionbar .linked > button.launcher.image-button:hover,
   actionbar .right .budgie-panel .linked > button.launcher.image-button:hover, .right .budgie-panel .raven button.launcher.image-button:hover, .raven .right .budgie-panel button.launcher.image-button:hover, .right .budgie-panel .budgie-session-dialog button.launcher:hover, .budgie-session-dialog .right .budgie-panel button.launcher:hover,
   .right .budgie-panel .budgie-polkit-dialog button.launcher:hover,
-  .budgie-polkit-dialog .right .budgie-panel button.launcher:hover, .right .budgie-panel window grid > widget > box > button.launcher.image-button:hover, window .right .budgie-panel grid > widget > box > button.launcher.image-button:hover,
+  .budgie-polkit-dialog .right .budgie-panel button.launcher:hover, .right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:hover, window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button:hover,
   .right .budgie-panel button.flat.launcher:backdrop:hover,
   .right .budgie-panel buttonbox button.launcher:backdrop:hover,
   buttonbox .right .budgie-panel button.launcher:backdrop:hover,
@@ -11628,8 +11628,8 @@ window .right .budgie-panel grid > widget > box > button.launcher.image-button:b
   .budgie-session-dialog .right .budgie-panel button.launcher:backdrop:hover,
   .right .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:hover,
   .budgie-polkit-dialog .right .budgie-panel button.launcher:backdrop:hover,
-  .right .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:hover,
-  window .right .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:hover {
+  .right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:hover,
+  window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:hover {
     border-right: 2px solid alpha(#00BCD4, 0.5); }
   .right .budgie-panel button.flat.launcher:active, .right .budgie-panel buttonbox button.launcher:active, buttonbox .right .budgie-panel button.launcher:active, .right .budgie-panel buttonbox.dialog-action-area button.launcher:active, buttonbox.dialog-action-area .right .budgie-panel button.launcher:active, .right .budgie-panel button.launcher.osd.image-button:active,
   .right .budgie-panel .launcher.button.osd.image-button:active, .right .budgie-panel .inline-toolbar button.launcher:active, .inline-toolbar .right .budgie-panel button.launcher:active,
@@ -11656,7 +11656,7 @@ window .right .budgie-panel grid > widget > box > button.launcher.image-button:b
   .right .budgie-panel actionbar .linked > button.launcher.image-button:active,
   actionbar .right .budgie-panel .linked > button.launcher.image-button:active, .right .budgie-panel .raven button.launcher.image-button:active, .raven .right .budgie-panel button.launcher.image-button:active, .right .budgie-panel .budgie-session-dialog button.launcher:active, .budgie-session-dialog .right .budgie-panel button.launcher:active,
   .right .budgie-panel .budgie-polkit-dialog button.launcher:active,
-  .budgie-polkit-dialog .right .budgie-panel button.launcher:active, .right .budgie-panel window grid > widget > box > button.launcher.image-button:active, window .right .budgie-panel grid > widget > box > button.launcher.image-button:active, .right .budgie-panel button.flat.launcher:checked, .right .budgie-panel buttonbox button.launcher:checked, buttonbox .right .budgie-panel button.launcher:checked, .right .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .right .budgie-panel button.launcher:checked, .right .budgie-panel button.launcher.osd.image-button:checked,
+  .budgie-polkit-dialog .right .budgie-panel button.launcher:active, .right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:active, window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button:active, .right .budgie-panel button.flat.launcher:checked, .right .budgie-panel buttonbox button.launcher:checked, buttonbox .right .budgie-panel button.launcher:checked, .right .budgie-panel buttonbox.dialog-action-area button.launcher:checked, buttonbox.dialog-action-area .right .budgie-panel button.launcher:checked, .right .budgie-panel button.launcher.osd.image-button:checked,
   .right .budgie-panel .launcher.button.osd.image-button:checked, .right .budgie-panel .inline-toolbar button.launcher:checked, .inline-toolbar .right .budgie-panel button.launcher:checked,
   .right .budgie-panel button actionbar.launcher:checked,
   button .right .budgie-panel actionbar.launcher:checked,
@@ -11681,7 +11681,7 @@ window .right .budgie-panel grid > widget > box > button.launcher.image-button:b
   .right .budgie-panel actionbar .linked > button.launcher.image-button:checked,
   actionbar .right .budgie-panel .linked > button.launcher.image-button:checked, .right .budgie-panel .raven button.launcher.image-button:checked, .raven .right .budgie-panel button.launcher.image-button:checked, .right .budgie-panel .budgie-session-dialog button.launcher:checked, .budgie-session-dialog .right .budgie-panel button.launcher:checked,
   .right .budgie-panel .budgie-polkit-dialog button.launcher:checked,
-  .budgie-polkit-dialog .right .budgie-panel button.launcher:checked, .right .budgie-panel window grid > widget > box > button.launcher.image-button:checked, window .right .budgie-panel grid > widget > box > button.launcher.image-button:checked,
+  .budgie-polkit-dialog .right .budgie-panel button.launcher:checked, .right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:checked, window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button:checked,
   .right .budgie-panel button.flat.launcher:backdrop:active,
   .right .budgie-panel buttonbox button.launcher:backdrop:active,
   buttonbox .right .budgie-panel button.launcher:backdrop:active,
@@ -11755,8 +11755,8 @@ window .right .budgie-panel grid > widget > box > button.launcher.image-button:b
   .budgie-session-dialog .right .budgie-panel button.launcher:backdrop:active,
   .right .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:active,
   .budgie-polkit-dialog .right .budgie-panel button.launcher:backdrop:active,
-  .right .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:active,
-  window .right .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:active,
+  .right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
+  window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:active,
   .right .budgie-panel button.flat.launcher:backdrop:checked,
   .right .budgie-panel buttonbox button.launcher:backdrop:checked,
   buttonbox .right .budgie-panel button.launcher:backdrop:checked,
@@ -11830,8 +11830,8 @@ window .right .budgie-panel grid > widget > box > button.launcher.image-button:b
   .budgie-session-dialog .right .budgie-panel button.launcher:backdrop:checked,
   .right .budgie-panel .budgie-polkit-dialog button.launcher:backdrop:checked,
   .budgie-polkit-dialog .right .budgie-panel button.launcher:backdrop:checked,
-  .right .budgie-panel window grid > widget > box > button.launcher.image-button:backdrop:checked,
-  window .right .budgie-panel grid > widget > box > button.launcher.image-button:backdrop:checked {
+  .right .budgie-panel window grid.vertical > widget > box > button.launcher.image-button:backdrop:checked,
+  window .right .budgie-panel grid.vertical > widget > box > button.launcher.image-button:backdrop:checked {
     border-right: 2px solid #00BCD4; }
 
 .budgie-menu {
@@ -12250,47 +12250,44 @@ window grid > box > box > toolbar.primary-toolbar {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.22), inset 0 4px 3px -4px rgba(0, 0, 0, 0.22), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
 window grid > paned > box > paned > box > notebook, window grid > paned > box > paned > box > notebook > stack:not(:only-child) {
   background-color: #455A64; }
-window grid > paned > box > scrolledwindow.frame, window grid > paned > box > placessidebar.frame {
+window grid.vertical > paned.horizontal > box.vertical > scrolledwindow.frame, window grid.vertical > paned.horizontal > box.vertical > placessidebar.frame {
   border-width: 0; }
-window grid > widget {
-  background-color: #3b4c54;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); }
-  window grid > widget > box {
-    padding: 0.20301rem; }
-  window grid > widget > box > button.image-button {
-    min-width: 1rem;
-    min-height: 2.20301rem;
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-    padding: 0 0.75188rem 0;
+window grid.vertical > widget > box {
+  padding: 0.20301rem; }
+window grid.vertical > widget > box > button.image-button {
+  min-width: 1rem;
+  min-height: 2.20301rem;
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
+  padding: 0 0.75188rem 0;
+  box-shadow: none;
+  border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 0/0 0 0px;
+  color: rgba(236, 239, 241, 0.75); }
+  window grid.vertical > widget > box > button.image-button:hover {
     box-shadow: none;
-    border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.001, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 0/0 0 0px;
-    color: rgba(236, 239, 241, 0.75); }
-    window grid > widget > box > button.image-button:hover {
-      box-shadow: none;
-      border-image: none;
-      color: #ECEFF1; }
-    window grid > widget > box > button.image-button:checked {
-      box-shadow: none;
-      border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#00BCD4), to(transparent)) 0 0 2/0 0 2px;
-      background-color: transparent;
-      color: #ECEFF1; }
-      window grid > widget > box > button.image-button:checked:disabled {
-        box-shadow: none;
-        background-color: transparent;
-        color: rgba(236, 239, 241, 0.3);
-        border-image: none; }
-        window grid > widget > box > button.image-button:checked:disabled > label {
-          color: inherit; }
-    window grid > widget > box > button.image-button:disabled {
+    border-image: none;
+    color: #ECEFF1; }
+  window grid.vertical > widget > box > button.image-button:checked {
+    box-shadow: none;
+    border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#00BCD4), to(transparent)) 0 0 2/0 0 2px;
+    background-color: transparent;
+    color: #ECEFF1; }
+    window grid.vertical > widget > box > button.image-button:checked:disabled {
       box-shadow: none;
       background-color: transparent;
-      color: rgba(236, 239, 241, 0.225);
+      color: rgba(236, 239, 241, 0.3);
       border-image: none; }
-  window grid > widget box > separator.vertical {
-    min-width: 0;
-    color: transparent;
-    background-color: transparent; }
+      window grid.vertical > widget > box > button.image-button:checked:disabled > label {
+        color: inherit; }
+  window grid.vertical > widget > box > button.image-button:disabled {
+    box-shadow: none;
+    background-color: transparent;
+    color: rgba(236, 239, 241, 0.225);
+    border-image: none; }
+window grid.vertical > widget box > separator.vertical {
+  min-width: 0;
+  color: transparent;
+  background-color: transparent; }
 
 /************
  * Lollypop *
