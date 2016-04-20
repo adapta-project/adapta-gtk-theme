@@ -12,27 +12,27 @@ Required Components
 -------------------
 Adapta supports Gtk+ 3.20.x (and 3.18.x)
 
-* Gtk+-3.0 >= 3.20.0 (or 3.18.4)
-* Gtk+-2.0 >= 2.24.30 (or 2.24.29)
-* gtk2-engines-pixbuf >= 2.24.30 (or 2.24.29)
+ * Gtk+-3.0 >= 3.20.0 (or 3.18.4)
+ * Gtk+-2.0 >= 2.24.30 (or 2.24.29)
+ * gtk2-engines-pixbuf >= 2.24.30 (or 2.24.29)
 
 Supported Desktop Environments
 ------------------------------
-* GNOME 3.20 (or 3.18)
-  * gnome-shell >= 3.19.92 (or 3.18.4)
-  * mutter >= 3.19.92 (or 3.18.4)
-* GNOME-Flashback 3.18.x
-* Budgie-Desktop 10.2.x
-* Unity7 7.4.0
-* Cinnamon 2.8.x
+ * GNOME 3.20 (or 3.18)
+   * gnome-shell >= 3.19.92 (or 3.18.4)
+   * mutter >= 3.19.92 (or 3.18.4)
+ * GNOME-Flashback 3.18.x
+ * Budgie-Desktop 10.2.x
+ * Unity7 7.4.0
+ * Cinnamon 2.8.x
 
 Unity and Cinnamon are under W.I.P state.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
-* Mate
-* XFce4
-* Pantheon
+ * Mate
+ * XFce4
+ * Pantheon
 
 Installation from PPA (Ubuntu 16.04 LTS only)
 ------------
@@ -62,21 +62,30 @@ Installation from Git Source
 
  * Default prefix is `/usr`
  * `make` actually does nothing (for future release)
- * `sudo make install` installs multiple versioned themes,
-   and Gtk+ automatically selects proper versioned one when running.
+ * `sudo make install` installs multiple versioned theme and Gtk+ automatically selects proper versioned one when running.
+
+3. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
+
+ ```
+ --disable-cinnamon      disable cinnamon support
+ --disable-flashback     disable flashback support
+ --disable-unity         disable unity support
+ ```
+
+ * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
+ * Cinnamon/Unity support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
 Work in Progress
 ----------------
-* Conversion to Gtk+ 3.20 or git master
-* Cinnamon 2.8 desktop integration
+* Conversion to Gtk+ git master
 
 TODO
 ----
 
 Public License
 --------------
-License: GPLv2
+ GPLv2
 
 Special Thanks to
 --------------
-Nana-4, the developer of Flat-Plat.
+ Nana-4, the developer of Flat-Plat.

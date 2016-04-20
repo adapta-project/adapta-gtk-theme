@@ -5,21 +5,40 @@ AC_INIT(
 	[adapta-gtk-theme]
 )
 
+AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects 1.9 tar-ustar])
-AC_PREFIX_DEFAULT(/usr/local)
+AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
+
+ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],  [disable])
+ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback], [disable])
+ADAPTA_OPTION([UNITY],     [unity],     [Unity],     [disable])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
 AC_MSG_RESULT([
         Adapta Gtk+ Theme $VERSION
-        ========
+        ========================
 
-	supported gtk+ version: 3.20, 3.18
-        prefix:                 ${prefix}
-        exec_prefix:            ${exec_prefix}
-        datarootdir:            ${datarootdir}
+        * Supported Gtk+ version: 3.20 & 3.18
+        -------------------------------------
 
-	run 'make' and 'sudo make install'
+        prefix:               ${prefix}
+        datarootdir:          ${datarootdir}
+
+        * Default DE support
+        -------------------------------------
+
+        GNOME:                3.20 & 3.18
+        Budgie-Desktop:       10.2.x
+
+        * Extra DE support
+        -------------------------------------
+
+        Cinnamon:             $ENABLE_CINNAMON
+        GNOME-Flashback:      $ENABLE_FLASHBACK
+        Unity:                $ENABLE_UNITY
+
+        run 'make' and 'sudo make install'.
 ])
