@@ -161,8 +161,6 @@ NaTrayApplet {
   &:selected {
     color: $selected_bg_color;
     background-color: transparent;
-    // &:dir(ltr) { box-shadow: inset -2px 0 $selected_bg_color; }
-    // &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
   }
 }
 
@@ -312,11 +310,6 @@ NautilusTrashBar {
 // reset inverted foreground colour
 EphyWindow {
   .floating-bar { color: $secondary_fg_color; }
-}
-
-EphyNotebook.notebook GtkScrolledWindow {
-// WebKitWebView {
-  .entry { background-color: red; }
 }
 
 
@@ -547,15 +540,6 @@ GdMainView,
       &:hover:selected,
       &:selected { @extend %selected_items; }
     }
-
-    // &:dir(ltr) {
-    //   box-shadow: if($variant=='light', $sidebar-light-ltr,
-    //                                     $sidebar-dark-ltr);
-    // }
-    // &:dir(rtl) {
-    //   box-shadow: if($variant=='light', $sidebar-light-rtl,
-    //                                     $sidebar-dark-rtl);
-    // }
   }
 }
 
