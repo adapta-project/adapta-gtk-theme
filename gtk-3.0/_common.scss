@@ -524,13 +524,22 @@ GtkTextView { // This will get overridden by .view,
   .action-bar .linked > & {
     &, &:not(.text-button).image-button {
       @extend .button.flat;
-      padding: 0.5em;
+      padding: 0.75em;
       border-radius: 100px;
       outline-radius: 100px;
     }
     &.text-button {
       border-radius: 2px;
       outline-radius: 2px;
+    }
+  }
+  .inline-toolbar .stack-switcher > &,
+  .action-bar .stack-switcher > & {
+    &, &:not(.text-button).image-button {
+      @extend .button.flat;
+      padding: 0.5em 0.25em;
+      border-radius: 100px;
+      outline-radius: 100px;
     }
   }
 
@@ -1059,7 +1068,6 @@ GtkComboBox {
 
   .button { // use flat-buttons
     @extend .button.flat;
-    box-shadow: none;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -1067,34 +1075,35 @@ GtkComboBox {
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
+    box-shadow: none;
     &:hover {
-      box-shadow: none;
       border-image: none;
       color: $fg_color;
+      box-shadow: none;
     }
     &:checked {
-      box-shadow: none;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
                                   to($selected_bg_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
-      background-color: transparent;
+      background: transparent;
       color: $fg_color;
+      box-shadow: none;
       &:insensitive {
-        box-shadow: none;
-        background-color: transparent;
-        color: $insensitive_fg_color;
         border-image: none;
+        background: transparent;
+        color: $insensitive_fg_color;
+        box-shadow: none;
         > .label { color: inherit; }
       }
     }
     &:insensitive {
-      box-shadow: none;
+      border-image: none;
       background-color: transparent;
       color: $insensitive_secondary_fg_color;
-      border-image: none;
+      box-shadow: none;
     }
 
     .image-button {
@@ -3073,7 +3082,10 @@ GtkPlacesSidebar.sidebar {
 
   // this is for indicating which sidebar row generated a popover
   // see https://bugzilla.gnome.org/show_bug.cgi?id=754411
-  .has-open-popup { @extend .list-row.activatable:active; transition: none; }
+  .has-open-popup {
+    @extend .list-row.activatable:active;
+    transition: none;
+  }
 }
 
 .sidebar-item {
