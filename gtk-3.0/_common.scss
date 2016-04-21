@@ -190,6 +190,11 @@ GtkAssistant {
         @include button(hover);
         color: $inverted_fg_color;
       }
+      &:active {
+        @include button(active);
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
       &:checked {
         @include button(checked);
         background-color: mix($selected_fg_color, $suggested_color, 20%);
@@ -437,20 +442,29 @@ GtkTextView { // This will get overridden by .view,
                              (destructive-action, $destructive_color) {
     &.#{$b_type} {
       background-color: $b_color;
-      color: $selected_fg_color;
-      // @include button(normal, $b_color, white);
-      // &:hover { @include button(hover, $b_color, white); }
-      // &:active, &:checked { @include button(active, $b_color, white); }
-      &:insensitive { @include button(insensitive, $b_color, white); }
+      color: $secondary_selected_fg_color;
+      &:hover { @include button(hover, $b_color, $selected_fg_color); }
+      &:active {
+        @include button(active);
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+      &:insensitive { @include button(insensitive, $b_color,
+                                                   $insensitive_selected_fg_color); }
       &:checked { background-color: mix($selected_fg_color, $b_color, 20%); }
       &.flat {
         background-color: transparent;
         color: $b_color;
-        // @include button(flat, $b_color, white);
-        // &:hover { @include button(flat-hover, $b_color, white); }
-        // &:active,
-	// &:checked { @include button(flat-active, $b_color, white); }
-        &:insensitive { @include button(flat-insensitive, $b_color, white); }
+        &:hover { @include button(flat-hover, $track_color, $b_color);
+        }
+        &:active {
+          @include button(flat-active);
+          background-color: gtkalpha($selected_bg_color, 0.2);
+          color: $selected_bg_color;
+        }
+        &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
+        &:insensitive { @include button(flat-insensitive, $b_color,
+                                                          $insensitive_selected_fg_color); }
       }
     }
   }

@@ -222,8 +222,11 @@ $orientation: ((top, bottom),
     > .button.text-button {
       @extend .button.suggested-action;
       color: $secondary_selected_fg_color;
-      &:hover,
-      &:active { color: $selected_fg_color; }
+      &:hover { color: $selected_fg_color; }
+      &:active {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
     }
   }
 
