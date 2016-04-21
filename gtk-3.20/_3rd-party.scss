@@ -278,8 +278,11 @@ $orientation: ((top, bottom),
     > button.text-button {
       color: $secondary_selected_fg_color;
       background-color: $suggested_color;
-      &:hover,
-      &:active { color: $selected_fg_color; }
+      &:hover { color: $selected_fg_color; }
+      &:active {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
       &:checked {
         color: $secondary_selected_fg_color;
         background-color: mix($selected_fg_color, $suggested_color, 20%);

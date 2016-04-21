@@ -226,6 +226,35 @@ assistant headerbar .budgie-polkit-dialog button:not(:last-child),
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
     color: #ECEFF1;
     color: #ECEFF1; }
+  assistant headerbar button.flat:not(:last-child):active, assistant headerbar buttonbox button:not(:last-child):active, buttonbox assistant headerbar button:not(:last-child):active, assistant headerbar buttonbox.dialog-action-area button:not(:last-child):active, buttonbox.dialog-action-area assistant headerbar button:not(:last-child):active, assistant headerbar button.osd.image-button:not(:last-child):active,
+  assistant headerbar .button.osd.image-button:not(:last-child):active, assistant headerbar .inline-toolbar button:not(:last-child):active, .inline-toolbar assistant headerbar button:not(:last-child):active,
+  assistant headerbar button actionbar:not(:last-child):active,
+  button assistant headerbar actionbar:not(:last-child):active,
+  assistant headerbar button actionbar.image-button:not(:last-child):active:not(.text-button),
+  button assistant headerbar actionbar.image-button:not(:last-child):active:not(.text-button), assistant headerbar .inline-toolbar .button:not(:last-child):active, .inline-toolbar assistant headerbar .button:not(:last-child):active,
+  assistant headerbar .button actionbar:not(:last-child):active,
+  .button assistant headerbar actionbar:not(:last-child):active, assistant headerbar modelbutton.flat:not(:last-child):active,
+  assistant headerbar .menuitem.button.flat:not(:last-child):active,
+  assistant headerbar .ssd decoration .menuitem.button:not(:last-child):active,
+  .ssd decoration assistant headerbar .menuitem.button:not(:last-child):active, assistant headerbar .osd toolbar button:not(:last-child):active, .osd toolbar assistant headerbar button:not(:last-child):active, assistant headerbar toolbar.osd button:not(:last-child):active, toolbar.osd assistant headerbar button:not(:last-child):active, assistant headerbar .app-notification button:not(:last-child):active, .app-notification assistant headerbar button:not(:last-child):active, assistant headerbar GeditViewFrame .gedit-search-slider button:not(:last-child):active, GeditViewFrame .gedit-search-slider assistant headerbar button:not(:last-child):active, assistant headerbar toolbar button:not(:last-child):active, toolbar assistant headerbar button:not(:last-child):active,
+  assistant headerbar button:not(:last-child):active:not(.suggested-action):not(.destructive-action), assistant headerbar .menu > arrow:not(:last-child):active,
+  assistant headerbar menu > arrow:not(:last-child):active, assistant headerbar notebook tab button:not(:last-child):active, notebook tab assistant headerbar button:not(:last-child):active, assistant headerbar messagedialog.csd .dialog-action-area button:not(:last-child):active, messagedialog.csd .dialog-action-area assistant headerbar button:not(:last-child):active, assistant headerbar placessidebar row button.image-button:not(:last-child):active, placessidebar row assistant headerbar button.image-button:not(:last-child):active, assistant headerbar .info button:not(:last-child):active, .info assistant headerbar button:not(:last-child):active,
+  assistant headerbar .question button:not(:last-child):active,
+  .question assistant headerbar button:not(:last-child):active,
+  assistant headerbar .warning button:not(:last-child):active,
+  .warning assistant headerbar button:not(:last-child):active,
+  assistant headerbar .error button:not(:last-child):active,
+  .error assistant headerbar button:not(:last-child):active, assistant headerbar button.titlebutton:not(:last-child):active, assistant headerbar #gf-candidate-popup button:not(:last-child):active, #gf-candidate-popup assistant headerbar button:not(:last-child):active, assistant headerbar window > grid.vertical > box.vertical > widget button:not(:last-child):active, window > grid.vertical > box.vertical > widget assistant headerbar button:not(:last-child):active, assistant headerbar layouttabbar button:not(:last-child):active, layouttabbar assistant headerbar button:not(:last-child):active, assistant headerbar layouttab button:not(:last-child):active, layouttab assistant headerbar button:not(:last-child):active, assistant headerbar actionbar button:not(:last-child):active, actionbar assistant headerbar button:not(:last-child):active,
+  assistant headerbar actionbar .linked > button.image-button:not(:last-child):active,
+  actionbar assistant headerbar .linked > button.image-button:not(:last-child):active, assistant headerbar .raven button.image-button:not(:last-child):active, .raven assistant headerbar button.image-button:not(:last-child):active, assistant headerbar .budgie-session-dialog button:not(:last-child):active, .budgie-session-dialog assistant headerbar button:not(:last-child):active,
+  assistant headerbar .budgie-polkit-dialog button:not(:last-child):active,
+  .budgie-polkit-dialog assistant headerbar button:not(:last-child):active, assistant headerbar window grid.vertical > widget > box > button.image-button:not(:last-child):active, window assistant headerbar grid.vertical > widget > box > button.image-button:not(:last-child):active {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
+    color: #ECEFF1;
+    transition-duration: 0;
+    animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    color: #FFFFFF;
+    background-color: #00BCD4; }
   assistant headerbar button.flat:not(:last-child):checked, assistant headerbar buttonbox button:not(:last-child):checked, buttonbox assistant headerbar button:not(:last-child):checked, assistant headerbar buttonbox.dialog-action-area button:not(:last-child):checked, buttonbox.dialog-action-area assistant headerbar button:not(:last-child):checked, assistant headerbar button.osd.image-button:not(:last-child):checked,
   assistant headerbar .button.osd.image-button:not(:last-child):checked, assistant headerbar .inline-toolbar button:not(:last-child):checked, .inline-toolbar assistant headerbar button:not(:last-child):checked,
   assistant headerbar button actionbar:not(:last-child):checked,
@@ -838,6 +867,22 @@ button,
     background-color: #FF5252;
     background-size: 9.96241rem 9.96241rem, auto;
     color: #FFFFFF; }
+    button.suggested-action:hover,
+    .button.suggested-action:hover {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+      color: #ECEFF1; }
+    button.suggested-action:active,
+    .button.suggested-action:active {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
+      color: #ECEFF1;
+      transition-duration: 0;
+      animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      background-color: #00BCD4;
+      color: #FFFFFF; }
+    button.suggested-action:checked,
+    .button.suggested-action:checked {
+      background-color: #ff7575; }
     button.suggested-action:disabled,
     .button.suggested-action:disabled {
       box-shadow: none;
@@ -846,9 +891,6 @@ button,
       button.suggested-action:disabled > label,
       .button.suggested-action:disabled > label {
         color: inherit; }
-    button.suggested-action:checked,
-    .button.suggested-action:checked {
-      background-color: #ff7575; }
     button.suggested-action.flat, buttonbox button.suggested-action, button.suggested-action.osd.image-button,
     .suggested-action.button.osd.image-button, .inline-toolbar button.suggested-action, .inline-toolbar button.suggested-action.image-button:not(.text-button),
     button actionbar.suggested-action,
@@ -873,6 +915,62 @@ button,
     .ssd decoration .suggested-action.button {
       background-color: transparent;
       color: #FF5252; }
+      button.suggested-action.flat:hover, buttonbox button.suggested-action:hover, button.suggested-action.osd.image-button:hover,
+      .suggested-action.button.osd.image-button:hover, .inline-toolbar button.suggested-action:hover,
+      button actionbar.suggested-action:hover, .inline-toolbar
+      .suggested-action.button:hover,
+      .button actionbar.suggested-action:hover, modelbutton.suggested-action.flat:hover,
+      .suggested-action.menuitem.button.flat:hover,
+      .ssd decoration .suggested-action.menuitem.button:hover, .app-notification button.suggested-action:hover, GeditViewFrame .gedit-search-slider button.suggested-action:hover, toolbar button.suggested-action:hover, .titlebar button.suggested-action:hover:not(.suggested-action):not(.destructive-action),
+      headerbar button.suggested-action:hover:not(.suggested-action):not(.destructive-action), .menu > arrow.suggested-action:hover,
+      menu > arrow.suggested-action:hover, notebook tab button.suggested-action:hover, messagedialog.csd .dialog-action-area button.suggested-action:hover, placessidebar row button.suggested-action.image-button:hover, .info button.suggested-action:hover,
+      .question button.suggested-action:hover,
+      .warning button.suggested-action:hover,
+      .error button.suggested-action:hover, headerbar button.suggested-action.titlebutton:hover,
+      .titlebar button.suggested-action.titlebutton:hover, #gf-candidate-popup button.suggested-action:hover, window > grid.vertical > box.vertical > widget button.suggested-action:hover, layouttabbar button.suggested-action:hover, layouttab button.suggested-action:hover, actionbar button.suggested-action:hover, .raven button.suggested-action.image-button:hover, .budgie-session-dialog button.suggested-action:hover,
+      .budgie-polkit-dialog button.suggested-action:hover, window grid.vertical > widget > box > button.suggested-action.image-button:hover,
+      .button.suggested-action.flat:hover,
+      .ssd decoration .suggested-action.button:hover {
+        box-shadow: none;
+        background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
+      button.suggested-action.flat:active, buttonbox button.suggested-action:active, button.suggested-action.osd.image-button:active,
+      .suggested-action.button.osd.image-button:active, .inline-toolbar button.suggested-action:active,
+      button actionbar.suggested-action:active, .inline-toolbar
+      .suggested-action.button:active,
+      .button actionbar.suggested-action:active, modelbutton.suggested-action.flat:active,
+      .suggested-action.menuitem.button.flat:active,
+      .ssd decoration .suggested-action.menuitem.button:active, .app-notification button.suggested-action:active, GeditViewFrame .gedit-search-slider button.suggested-action:active, toolbar button.suggested-action:active, .titlebar button.suggested-action:active:not(.suggested-action):not(.destructive-action),
+      headerbar button.suggested-action:active:not(.suggested-action):not(.destructive-action), .menu > arrow.suggested-action:active,
+      menu > arrow.suggested-action:active, notebook tab button.suggested-action:active, messagedialog.csd .dialog-action-area button.suggested-action:active, placessidebar row button.suggested-action.image-button:active, .info button.suggested-action:active,
+      .question button.suggested-action:active,
+      .warning button.suggested-action:active,
+      .error button.suggested-action:active, headerbar button.suggested-action.titlebutton:active,
+      .titlebar button.suggested-action.titlebutton:active, #gf-candidate-popup button.suggested-action:active, window > grid.vertical > box.vertical > widget button.suggested-action:active, layouttabbar button.suggested-action:active, layouttab button.suggested-action:active, actionbar button.suggested-action:active, .raven button.suggested-action.image-button:active, .budgie-session-dialog button.suggested-action:active,
+      .budgie-polkit-dialog button.suggested-action:active, window grid.vertical > widget > box > button.suggested-action.image-button:active,
+      .button.suggested-action.flat:active,
+      .ssd decoration .suggested-action.button:active {
+        box-shadow: none;
+        animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        background-color: alpha(#00BCD4, 0.2);
+        color: #00BCD4; }
+      button.suggested-action.flat:checked, buttonbox button.suggested-action:checked, button.suggested-action.osd.image-button:checked,
+      .suggested-action.button.osd.image-button:checked, .inline-toolbar button.suggested-action:checked,
+      button actionbar.suggested-action:checked, .inline-toolbar
+      .suggested-action.button:checked,
+      .button actionbar.suggested-action:checked, modelbutton.suggested-action.flat:checked,
+      .suggested-action.menuitem.button.flat:checked,
+      .ssd decoration .suggested-action.menuitem.button:checked, .app-notification button.suggested-action:checked, GeditViewFrame .gedit-search-slider button.suggested-action:checked, toolbar button.suggested-action:checked, .titlebar button.suggested-action:checked:not(.suggested-action):not(.destructive-action),
+      headerbar button.suggested-action:checked:not(.suggested-action):not(.destructive-action), .menu > arrow.suggested-action:checked,
+      menu > arrow.suggested-action:checked, notebook tab button.suggested-action:checked, messagedialog.csd .dialog-action-area button.suggested-action:checked, placessidebar row button.suggested-action.image-button:checked, .info button.suggested-action:checked,
+      .question button.suggested-action:checked,
+      .warning button.suggested-action:checked,
+      .error button.suggested-action:checked, headerbar button.suggested-action.titlebutton:checked,
+      .titlebar button.suggested-action.titlebutton:checked, #gf-candidate-popup button.suggested-action:checked, window > grid.vertical > box.vertical > widget button.suggested-action:checked, layouttabbar button.suggested-action:checked, layouttab button.suggested-action:checked, actionbar button.suggested-action:checked, .raven button.suggested-action.image-button:checked, .budgie-session-dialog button.suggested-action:checked,
+      .budgie-polkit-dialog button.suggested-action:checked, window grid.vertical > widget > box > button.suggested-action.image-button:checked,
+      .button.suggested-action.flat:checked,
+      .ssd decoration .suggested-action.button:checked {
+        background-color: alpha(currentColor, 0.2);
+        color: #ECEFF1; }
       button.suggested-action.flat:disabled, buttonbox button.suggested-action:disabled, button.suggested-action.osd.image-button:disabled,
       .suggested-action.button.osd.image-button:disabled, .inline-toolbar button.suggested-action:disabled,
       button actionbar.suggested-action:disabled, .inline-toolbar
@@ -896,6 +994,22 @@ button,
     background-color: #FF5252;
     background-size: 9.96241rem 9.96241rem, auto;
     color: #FFFFFF; }
+    button.destructive-action:hover,
+    .button.destructive-action:hover {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+      color: #ECEFF1; }
+    button.destructive-action:active,
+    .button.destructive-action:active {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
+      color: #ECEFF1;
+      transition-duration: 0;
+      animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      background-color: #00BCD4;
+      color: #FFFFFF; }
+    button.destructive-action:checked,
+    .button.destructive-action:checked {
+      background-color: #ff7575; }
     button.destructive-action:disabled,
     .button.destructive-action:disabled {
       box-shadow: none;
@@ -904,9 +1018,6 @@ button,
       button.destructive-action:disabled > label,
       .button.destructive-action:disabled > label {
         color: inherit; }
-    button.destructive-action:checked,
-    .button.destructive-action:checked {
-      background-color: #ff7575; }
     button.destructive-action.flat, buttonbox button.destructive-action, button.destructive-action.osd.image-button,
     .destructive-action.button.osd.image-button, .inline-toolbar button.destructive-action, .inline-toolbar button.destructive-action.image-button:not(.text-button),
     button actionbar.destructive-action,
@@ -931,6 +1042,62 @@ button,
     .ssd decoration .destructive-action.button {
       background-color: transparent;
       color: #FF5252; }
+      button.destructive-action.flat:hover, buttonbox button.destructive-action:hover, button.destructive-action.osd.image-button:hover,
+      .destructive-action.button.osd.image-button:hover, .inline-toolbar button.destructive-action:hover,
+      button actionbar.destructive-action:hover, .inline-toolbar
+      .destructive-action.button:hover,
+      .button actionbar.destructive-action:hover, modelbutton.destructive-action.flat:hover,
+      .destructive-action.menuitem.button.flat:hover,
+      .ssd decoration .destructive-action.menuitem.button:hover, .app-notification button.destructive-action:hover, GeditViewFrame .gedit-search-slider button.destructive-action:hover, toolbar button.destructive-action:hover, .titlebar button.destructive-action:hover:not(.suggested-action):not(.destructive-action),
+      headerbar button.destructive-action:hover:not(.suggested-action):not(.destructive-action), .menu > arrow.destructive-action:hover,
+      menu > arrow.destructive-action:hover, notebook tab button.destructive-action:hover, messagedialog.csd .dialog-action-area button.destructive-action:hover, placessidebar row button.destructive-action.image-button:hover, .info button.destructive-action:hover,
+      .question button.destructive-action:hover,
+      .warning button.destructive-action:hover,
+      .error button.destructive-action:hover, headerbar button.destructive-action.titlebutton:hover,
+      .titlebar button.destructive-action.titlebutton:hover, #gf-candidate-popup button.destructive-action:hover, window > grid.vertical > box.vertical > widget button.destructive-action:hover, layouttabbar button.destructive-action:hover, layouttab button.destructive-action:hover, actionbar button.destructive-action:hover, .raven button.destructive-action.image-button:hover, .budgie-session-dialog button.destructive-action:hover,
+      .budgie-polkit-dialog button.destructive-action:hover, window grid.vertical > widget > box > button.destructive-action.image-button:hover,
+      .button.destructive-action.flat:hover,
+      .ssd decoration .destructive-action.button:hover {
+        box-shadow: none;
+        background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
+      button.destructive-action.flat:active, buttonbox button.destructive-action:active, button.destructive-action.osd.image-button:active,
+      .destructive-action.button.osd.image-button:active, .inline-toolbar button.destructive-action:active,
+      button actionbar.destructive-action:active, .inline-toolbar
+      .destructive-action.button:active,
+      .button actionbar.destructive-action:active, modelbutton.destructive-action.flat:active,
+      .destructive-action.menuitem.button.flat:active,
+      .ssd decoration .destructive-action.menuitem.button:active, .app-notification button.destructive-action:active, GeditViewFrame .gedit-search-slider button.destructive-action:active, toolbar button.destructive-action:active, .titlebar button.destructive-action:active:not(.suggested-action):not(.destructive-action),
+      headerbar button.destructive-action:active:not(.suggested-action):not(.destructive-action), .menu > arrow.destructive-action:active,
+      menu > arrow.destructive-action:active, notebook tab button.destructive-action:active, messagedialog.csd .dialog-action-area button.destructive-action:active, placessidebar row button.destructive-action.image-button:active, .info button.destructive-action:active,
+      .question button.destructive-action:active,
+      .warning button.destructive-action:active,
+      .error button.destructive-action:active, headerbar button.destructive-action.titlebutton:active,
+      .titlebar button.destructive-action.titlebutton:active, #gf-candidate-popup button.destructive-action:active, window > grid.vertical > box.vertical > widget button.destructive-action:active, layouttabbar button.destructive-action:active, layouttab button.destructive-action:active, actionbar button.destructive-action:active, .raven button.destructive-action.image-button:active, .budgie-session-dialog button.destructive-action:active,
+      .budgie-polkit-dialog button.destructive-action:active, window grid.vertical > widget > box > button.destructive-action.image-button:active,
+      .button.destructive-action.flat:active,
+      .ssd decoration .destructive-action.button:active {
+        box-shadow: none;
+        animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        background-color: alpha(#00BCD4, 0.2);
+        color: #00BCD4; }
+      button.destructive-action.flat:checked, buttonbox button.destructive-action:checked, button.destructive-action.osd.image-button:checked,
+      .destructive-action.button.osd.image-button:checked, .inline-toolbar button.destructive-action:checked,
+      button actionbar.destructive-action:checked, .inline-toolbar
+      .destructive-action.button:checked,
+      .button actionbar.destructive-action:checked, modelbutton.destructive-action.flat:checked,
+      .destructive-action.menuitem.button.flat:checked,
+      .ssd decoration .destructive-action.menuitem.button:checked, .app-notification button.destructive-action:checked, GeditViewFrame .gedit-search-slider button.destructive-action:checked, toolbar button.destructive-action:checked, .titlebar button.destructive-action:checked:not(.suggested-action):not(.destructive-action),
+      headerbar button.destructive-action:checked:not(.suggested-action):not(.destructive-action), .menu > arrow.destructive-action:checked,
+      menu > arrow.destructive-action:checked, notebook tab button.destructive-action:checked, messagedialog.csd .dialog-action-area button.destructive-action:checked, placessidebar row button.destructive-action.image-button:checked, .info button.destructive-action:checked,
+      .question button.destructive-action:checked,
+      .warning button.destructive-action:checked,
+      .error button.destructive-action:checked, headerbar button.destructive-action.titlebutton:checked,
+      .titlebar button.destructive-action.titlebutton:checked, #gf-candidate-popup button.destructive-action:checked, window > grid.vertical > box.vertical > widget button.destructive-action:checked, layouttabbar button.destructive-action:checked, layouttab button.destructive-action:checked, actionbar button.destructive-action:checked, .raven button.destructive-action.image-button:checked, .budgie-session-dialog button.destructive-action:checked,
+      .budgie-polkit-dialog button.destructive-action:checked, window grid.vertical > widget > box > button.destructive-action.image-button:checked,
+      .button.destructive-action.flat:checked,
+      .ssd decoration .destructive-action.button:checked {
+        background-color: alpha(currentColor, 0.2);
+        color: #ECEFF1; }
       button.destructive-action.flat:disabled, buttonbox button.destructive-action:disabled, button.destructive-action.osd.image-button:disabled,
       .destructive-action.button.osd.image-button:disabled, .inline-toolbar button.destructive-action:disabled,
       button actionbar.destructive-action:disabled, .inline-toolbar
@@ -9676,7 +9843,7 @@ window overlay > grid > frame > grid list separator {
 window > box.vertical > grid.vertical > stack stack > spinner {
   min-width: 1.80451rem;
   min-height: 1.80451rem;
-  padding: 4rem 6rem 4rem; }
+  padding: 4rem 6.0rem 4rem; }
 
 /****************
  * Dconf-editor *
@@ -12076,8 +12243,11 @@ window .right .budgie-panel grid.vertical > widget > box > button.launcher.image
   .raven .raven-header > button.text-button {
     color: rgba(255, 255, 255, 0.85);
     background-color: #FF5252; }
-    .raven .raven-header > button.text-button:hover, .raven .raven-header > button.text-button:active {
+    .raven .raven-header > button.text-button:hover {
       color: #FFFFFF; }
+    .raven .raven-header > button.text-button:active {
+      color: #FFFFFF;
+      background-color: #00BCD4; }
     .raven .raven-header > button.text-button:checked {
       color: rgba(255, 255, 255, 0.85);
       background-color: #ff7575; }
