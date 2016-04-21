@@ -449,9 +449,11 @@ GtkTextView { // This will get overridden by .view,
         background-color: $selected_bg_color;
         color: $selected_fg_color;
       }
-      &:insensitive { @include button(insensitive, $b_color,
-                                                   $insensitive_selected_fg_color); }
       &:checked { background-color: mix($selected_fg_color, $b_color, 20%); }
+      &:insensitive {
+        @include button(insensitive, $b_color,
+                                     $insensitive_selected_fg_color);
+      }
       &.flat {
         background-color: transparent;
         color: $b_color;
@@ -463,8 +465,10 @@ GtkTextView { // This will get overridden by .view,
           color: $selected_bg_color;
         }
         &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
-        &:insensitive { @include button(flat-insensitive, $b_color,
-                                                          $insensitive_selected_fg_color); }
+        &:insensitive {
+          @include button(flat-insensitive, $b_color,
+                                            $insensitive_selected_fg_color);
+        }
       }
     }
   }

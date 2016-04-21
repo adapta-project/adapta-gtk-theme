@@ -580,14 +580,14 @@ GtkTextView {
       animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       background-color: #00BCD4;
       color: #FFFFFF; }
+    .button.suggested-action:checked, .raven .raven-header > .button.text-button:checked {
+      background-color: #ff7575; }
     .button.suggested-action:insensitive, .raven .raven-header > .button.text-button:insensitive {
       box-shadow: none;
       background-color: alpha(currentColor, 0.2);
       color: rgba(38, 50, 56, 0.3); }
       .button.suggested-action:insensitive > .label, .raven .raven-header > .button.text-button:insensitive > .label {
         color: inherit; }
-    .button.suggested-action:checked, .raven .raven-header > .button.text-button:checked {
-      background-color: #ff7575; }
     .button.suggested-action.flat, .suggested-action.button.osd.image-button, .raven .raven-header > .osd.image-button.button.text-button, .inline-toolbar .suggested-action.button, .inline-toolbar .raven .raven-header > .button.text-button, .raven .inline-toolbar .raven-header > .button.text-button, .inline-toolbar .suggested-action.button.image-button:not(.text-button), .inline-toolbar .raven .raven-header > .image-button.button.text-button:not(.text-button), .raven .inline-toolbar .raven-header > .image-button.button.text-button:not(.text-button), .action-bar .suggested-action.button, .action-bar .raven .raven-header > .button.text-button, .raven .action-bar .raven-header > .button.text-button, .action-bar .suggested-action.button.image-button:not(.text-button), .action-bar .raven .raven-header > .image-button.button.text-button:not(.text-button), .raven .action-bar .raven-header > .image-button.button.text-button:not(.text-button), .inline-toolbar .linked > .suggested-action.button, .inline-toolbar .raven .raven-header.linked > .button.text-button, .raven .inline-toolbar .raven-header.linked > .button.text-button, .inline-toolbar .linked > .suggested-action.button.image-button:not(.text-button), .inline-toolbar .raven .raven-header.linked > .image-button.button.text-button:not(.text-button), .raven .inline-toolbar .raven-header.linked > .image-button.button.text-button:not(.text-button), .action-bar .linked > .suggested-action.button, .action-bar .raven .raven-header.linked > .button.text-button, .raven .action-bar .raven-header.linked > .button.text-button, .action-bar .linked > .suggested-action.button.image-button:not(.text-button), .action-bar .raven .raven-header.linked > .image-button.button.text-button:not(.text-button), .raven .action-bar .raven-header.linked > .image-button.button.text-button:not(.text-button), .inline-toolbar .stack-switcher > .suggested-action.button, .inline-toolbar .raven .raven-header.stack-switcher > .button.text-button, .raven .inline-toolbar .raven-header.stack-switcher > .button.text-button, .inline-toolbar .stack-switcher > .suggested-action.button.image-button:not(.text-button), .inline-toolbar .raven .raven-header.stack-switcher > .image-button.button.text-button:not(.text-button), .raven .inline-toolbar .raven-header.stack-switcher > .image-button.button.text-button:not(.text-button), .action-bar .stack-switcher > .suggested-action.button, .action-bar .raven .raven-header.stack-switcher > .button.text-button, .raven .action-bar .raven-header.stack-switcher > .button.text-button, .action-bar .stack-switcher > .suggested-action.button.image-button:not(.text-button), .action-bar .raven .raven-header.stack-switcher > .image-button.button.text-button:not(.text-button), .raven .action-bar .raven-header.stack-switcher > .image-button.button.text-button:not(.text-button), GtkButtonBox > .suggested-action.button, .raven GtkButtonBox.raven-header > .button.text-button, .osd .toolbar .suggested-action.button, .osd .toolbar .raven .raven-header > .button.text-button, .raven .osd .toolbar .raven-header > .button.text-button, .toolbar.osd .suggested-action.button, .app-notification .suggested-action.button, GeditViewFrame .gedit-search-slider .suggested-action.button, .toolbar.osd .raven .raven-header > .button.text-button, .raven .toolbar.osd .raven-header > .button.text-button, .app-notification .raven .raven-header > .button.text-button, .raven .app-notification .raven-header > .button.text-button, GeditViewFrame .gedit-search-slider .raven .raven-header > .button.text-button, .raven GeditViewFrame .gedit-search-slider .raven-header > .button.text-button, .toolbar .suggested-action.button, .toolbar .raven .raven-header > .button.text-button, .raven .toolbar .raven-header > .button.text-button, .titlebar .suggested-action.button:not(.suggested-action):not(.destructive-action), .titlebar .raven .raven-header > .button.text-button:not(.suggested-action):not(.destructive-action), .raven .titlebar .raven-header > .button.text-button:not(.suggested-action):not(.destructive-action),
     .header-bar .suggested-action.button:not(.suggested-action):not(.destructive-action),
     .header-bar .raven .raven-header > .button.text-button:not(.suggested-action):not(.destructive-action),
@@ -794,14 +794,14 @@ GtkTextView {
       animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       background-color: #00BCD4;
       color: #FFFFFF; }
+    .button.destructive-action:checked {
+      background-color: #ff7575; }
     .button.destructive-action:insensitive {
       box-shadow: none;
       background-color: alpha(currentColor, 0.2);
       color: rgba(38, 50, 56, 0.3); }
       .button.destructive-action:insensitive > .label {
         color: inherit; }
-    .button.destructive-action:checked {
-      background-color: #ff7575; }
     .button.destructive-action.flat, .destructive-action.button.osd.image-button, .inline-toolbar .destructive-action.button, .inline-toolbar .destructive-action.button.image-button:not(.text-button), .action-bar .destructive-action.button, .action-bar .destructive-action.button.image-button:not(.text-button), GtkButtonBox > .destructive-action.button, .app-notification .destructive-action.button, GeditViewFrame .gedit-search-slider .destructive-action.button, .toolbar .destructive-action.button, .titlebar .destructive-action.button:not(.suggested-action):not(.destructive-action),
     .header-bar .destructive-action.button:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .destructive-action.button, .destructive-action.sidebar-button.button, .info .destructive-action.button,
     .question .destructive-action.button,
