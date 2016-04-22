@@ -100,6 +100,7 @@ $orientation: ((top, bottom),
         border-#{$along_side}: 2px solid $selected_bg_color;
       }
     }
+
     button.flat.launcher,
     button.flat.launcher:backdrop {
       border: 2px solid transparent;
@@ -131,8 +132,7 @@ $orientation: ((top, bottom),
   }
 
   row { // reset background
-    &,
-    &.activatable {
+    &, &.activatable {
       background-image: none;
       background-color: $secondary_base_color;
       color: $secondary_fg_color;
@@ -210,6 +210,7 @@ $orientation: ((top, bottom),
       }
       &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
     }
+
     separator {
       min-height: 1px;
       min-width: 1px;
@@ -402,6 +403,7 @@ $orientation: ((top, bottom),
       color: $secondary_accent_color;
     }
     &:disabled { @include button(flat-insensitive); }
+
     &:first-child {
       border-radius: 0 0 0 2px;
       border-right-width: 0;
@@ -467,6 +469,7 @@ UnityDecoration {
 
     &:backdrop { color: $insensitive_inverted_fg_color; }
   }
+
   &.left,
   &.right,
   &.bottom {
@@ -511,10 +514,10 @@ stack button.profile-button {
 
 headerbar.titlebar box {
   button.toggle.account-button { // left-most account-button
-    min-width: 1em;
-    min-height: 1em;
+    min-width: rem(13.3px);
+    min-height: rem(13.3px);
     // FIXME: it can't override its own styleshoot
-    padding: 0.5em 0.75em 0.5em;
+    padding: rem(6.7px) rem(10px) rem(6.7px);
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
@@ -524,9 +527,9 @@ headerbar.titlebar box {
   }
 
   button.image-button.toggle { // tweet button
-    min-width: 1em;
-    min-height: 1em;
-    padding: 0.5em 0.75em 0.5em;
+    min-width: rem(13.3px);
+    min-height: rem(13.3px);
+    padding: rem(6.7px) rem(10px) rem(6.7px);
   }
 }
 
@@ -637,6 +640,7 @@ window > headerbar > widget > box.horizontal {
     min-height: rem(37.3px);
     padding: 0 rem(10px) 0;
   }
+
   > button.image-button {
     min-width: rem(17.3px);
     min-height: rem(37.3px);
