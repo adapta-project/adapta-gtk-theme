@@ -10,6 +10,7 @@ EXTRA_DIST = \
 CINNAMON_DIR = cinnamon
 METACITY_DIR = metacity-1
 UNITY_DIR    = unity
+XFCE_DIR     = xfwm4
 
 themedir = $(datadir)/themes
 
@@ -33,6 +34,10 @@ if ENABLE_UNITY
 if !ENABLE_FLASHBACK
 	cp -Rv $(METACITY_DIR) $(DESTDIR)$(themedir)/Adapta
 endif
+endif
+
+if ENABLE_XFCE
+	cp -Rv $(XFCE_DIR) $(DESTDIR)$(themedir)/Adapta
 endif
 
 uninstall-hook:

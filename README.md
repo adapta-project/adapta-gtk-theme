@@ -25,13 +25,13 @@ Supported Desktop Environments
  * Budgie-Desktop  >= 10.2.4
  * Unity7          >= 7.4.0
  * Cinnamon        >= 2.8
+ * XFce4           >= 4.12.2
 
- Unity and Cinnamon support are under W.I.P state.
+ Unity, Cinnamon and XFce support are under W.I.P state.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
  * Mate
- * XFce4
  * Pantheon
 
 Installation from PPA (Ubuntu 16.04 LTS only)
@@ -70,6 +70,7 @@ Installation from Git Source
  --disable-cinnamon      disable cinnamon support
  --disable-flashback     disable flashback support
  --disable-unity         disable unity support
+ --disable-xfce          disable xfce support
  ```
 
  * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
@@ -78,6 +79,7 @@ Installation from Git Source
 Work in Progress
 ----------------
 * Conversion to Gtk+ git master
+* XFce4 integration
 
 TODO
 ----

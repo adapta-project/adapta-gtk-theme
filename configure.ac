@@ -13,6 +13,7 @@ AM_SILENT_RULES([yes])
 ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],  [disable])
 ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback], [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],     [disable])
+ADAPTA_OPTION([XFCE],      [xfce],      [XFce],      [disable])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
@@ -39,6 +40,7 @@ AC_MSG_RESULT([
         Cinnamon:             $ENABLE_CINNAMON
         GNOME-Flashback:      $ENABLE_FLASHBACK
         Unity:                $ENABLE_UNITY
+        XFce:                 $ENABLE_XFCE
 
         run 'make' and 'sudo make install'.
 ])
