@@ -1,6 +1,12 @@
 # Bridge | ScionicSpectre
 
-gtk-color-scheme="base_color:#FFFFFF\ntext_color:#263238\nbg_color:#FAFBFC\nfg_color:#263238\ntooltip_bg_color:#2A373E\ntooltip_fg_color:#ECEFF1\nselected_bg_color:#00BCD4\nselected_fg_color:#FFFFFF"
+#
+# Colour scheme
+#
+gtk-color-scheme = "base_color:#FFFFFF\nbg_color:#FAFBFC"
+gtk-color-scheme = "text_color:#263238\nfg_color:#263238"
+gtk-color-scheme = "selected_bg_color:#00BCD4\nselected_fg_color:#FFFFFF"
+gtk-color-scheme = "tooltip_bg_color:#2A373E\ntooltip_fg_color:#ECEFF1"
 
 gtk-auto-mnemonics = 1
 gtk-primary-button-warps-slider = 1
@@ -2347,9 +2353,9 @@ style "eclipse-tooltips" {
   bg[NORMAL] = @tooltip_bg_color
   fg[NORMAL] = @tooltip_fg_color
   bg[SELECTED] = @tooltip_bg_color
-#  bg[NORMAL] = @base_color
-#  fg[NORMAL] = @text_color
-#  bg[SELECTED] = @base_color
+  # bg[NORMAL] = @base_color
+  # fg[NORMAL] = @text_color
+  # bg[SELECTED] = @base_color
 }
 
 # Chromium
@@ -2372,7 +2378,6 @@ style "chrome-gtk-frame" {
 
 style "chrome_menu_item" {
   bg[SELECTED] = shade(0.94, @base_color)
-
   fg[SELECTED] = shade(0.96, @fg_color)
 }
 
