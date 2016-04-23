@@ -1779,6 +1779,10 @@ headerbar {
     }
 
     slider { background-color: $inverted_bg_color; }
+    &:hover slider {
+      background-image: linear-gradient(to bottom,
+                                        gtkalpha($selected_fg_color, 0.2));
+    }
     &:checked slider {
       background-color: $selected_bg_color;
       &:disabled { background-color: #3F4E56; }
@@ -2906,27 +2910,32 @@ switch {
     margin: rem(-4px) rem(-1px);
     padding: 0;
     border-radius: 100px;
+    -gtk-outline-radius: 100px;
   }
   &:hover slider {
     @include button(hover);
-    background-image: linear-gradient(to bottom, $highlight_color);
+    background-image: linear-gradient(to bottom,
+                                      gtkalpha($selected_fg_color, 0.2));
   }
   &:checked slider { @include button(checked); }
   &:checked:hover slider {
     @include button(checked);
-    background-image: linear-gradient(to bottom, $highlight_color);
+    background-image: linear-gradient(to bottom,
+                                      gtkalpha($selected_fg_color, 0.2));
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
   &:checked:disabled slider {
     @include button(checked-insensitive);
-    box-shadow: none;
     // do not use any transparentize
     background-color: if($variant=='light', #F0F2F3, #3F4E56);
+    background-image: none;
+    box-shadow: none;
   }
   &:disabled slider {
-    box-shadow: none;
     background-color: if($variant=='light', #F0F2F3, #3F4E56);
+    background-image: none;
+    box-shadow: none;
  }
 
   row:selected & { // return to monochrome
@@ -2937,6 +2946,10 @@ switch {
     }
 
     slider { background-color: $bg_color; }
+    &:hover slider {
+      background-image: linear-gradient(to bottom,
+                                        gtkalpha($selected_fg_color, 0.2));
+    }
     &:checked slider { background-color: $base_color; }
     &:checked:disabled slider { background-color: $secondary_dark_color; }
   }
