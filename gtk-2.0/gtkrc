@@ -1707,7 +1707,6 @@ style "menubar" {
   ythickness = 0
 
   bg[NORMAL] = "#2A373E"
-
   fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
   fg[PRELIGHT] = @selected_fg_color
   fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @fg_color)
@@ -1728,12 +1727,10 @@ style "menubar_libreoffice" {
   ythickness = 0
 
   bg[NORMAL] = @bg_color
-
   fg[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
   fg[PRELIGHT] = shade(0.96, @fg_color)
   fg[SELECTED] = shade(0.96, @fg_color)
   fg[INSENSITIVE] = mix(0.6, @fg_color, @selected_fg_color)
-
   text[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
   text[PRELIGHT] = shade(0.96, @fg_color)
   text[SELECTED] = shade(0.96, @fg_color)
@@ -1778,12 +1775,10 @@ style "menubar_item_libreoffice" {
 
   bg[PRELIGHT] = @bg_color
   bg[SELECTED] = @bg_color
-
   fg[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
   fg[PRELIGHT] = shade(0.96, @fg_color)
   fg[SELECTED] = shade(0.96, @fg_color)
   fg[INSENSITIVE] = mix(0.6, @fg_color, @selected_fg_color)
-
   text[NORMAL] = mix(0.8, @fg_color, @selected_fg_color)
   text[PRELIGHT] = shade(0.96, @fg_color)
   text[SELECTED] = shade(0.96, @fg_color)
@@ -1831,10 +1826,8 @@ style "menu_item" {
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
   bg[SELECTED] = shade(0.94, @base_color)
   bg[PRELIGHT] = shade(0.94, @base_color)
-
   fg[PRELIGHT] = shade(0.96, @fg_color)
   fg[SELECTED] = shade(0.96, @fg_color)
-
   text[PRELIGHT] = shade(0.96, @fg_color)
   text[SELECTED] = shade(0.96, @fg_color)
 
