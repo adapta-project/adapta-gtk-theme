@@ -108,6 +108,32 @@ $orientation: ((top, bottom),
 // main menu styling
 .budgie-menu {
   border-radius: 2px;
+  background-color: $secondary_base_color;
+
+  GtkScrolledWindow,
+  .list,
+  .list-row,
+  .scrollbar.trough { // reset styling
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  .list-row { // reset background
+    &, &.activatable {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $secondary_fg_color;
+      transition: none;
+    }
+    &:hover,
+    &.activatable:hover {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $fg_color;
+      transition: none;
+    }
+  }
 }
 
 // raven styling

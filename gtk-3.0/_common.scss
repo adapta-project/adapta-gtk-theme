@@ -1870,7 +1870,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   padding: 2px;
   border: 1px solid;
   border-color: $base_color $secondary_base_color $secondary_base_color;
-  border-radius: 2px + 1px;
+  border-radius: 2px;
   background-color: $secondary_base_color;
   box-shadow:  $z-depth-3;
   &:backdrop { box-shadow: $z-depth-1; }
@@ -1918,23 +1918,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     &:checked:insensitive { @include button(flat-checked-insensitive); }
   }
 
-  .list-row { // reset background
-    &,
-    &.activatable {
-      background-image: none;
-      background-color: $secondary_base_color;
-      color: $secondary_fg_color;
-      transition: none;
-    }
-    &:hover,
-    &.activatable:hover {
-      background-image: none;
-      background-color: $secondary_base_color;
-      color: $fg_color;
-      transition: none;
-    }
-  }
-
+  // hide trough in popover
   .scrollbar.trough {
     background-color: transparent;
     border: 1px none transparent;

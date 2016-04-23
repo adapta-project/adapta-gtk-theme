@@ -2483,7 +2483,7 @@ column-header.button.dnd, column-header .button.dnd {
   padding: 2px;
   border: 1px solid;
   border-color: #455A64 #42565f #42565f;
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: #42565f;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16), 0 4px 4px rgba(0, 0, 0, 0.2); }
   .popover:backdrop {
@@ -2721,16 +2721,6 @@ column-header.button.dnd, column-header .button.dnd {
       background-color: transparent; }
     .popover .linked > .button:checked:insensitive > .label {
       color: inherit; }
-  .popover .list-row, .popover .tweak-category, .popover .list-row.activatable, .popover .view, .popover column-header .button, column-header .popover .button, .popover .activatable.tweak-category {
-    background-image: none;
-    background-color: #42565f;
-    color: rgba(236, 239, 241, 0.75);
-    transition: none; }
-  .popover .list-row:hover, .popover .tweak-category:hover, .popover .list-row.activatable:hover, .popover .view:hover, .popover column-header .button:hover, column-header .popover .button:hover, .popover .activatable.tweak-category:hover {
-    background-image: none;
-    background-color: #42565f;
-    color: #ECEFF1;
-    transition: none; }
   .popover .scrollbar.trough {
     background-color: transparent;
     border: 1px none transparent; }
@@ -6653,7 +6643,26 @@ TerminalWindow .scrollbar.trough {
     border-right: 2px solid #00BCD4; }
 
 .budgie-menu {
-  border-radius: 2px; }
+  border-radius: 2px;
+  background-color: #42565f; }
+  .budgie-menu GtkScrolledWindow,
+  .budgie-menu .list,
+  .budgie-menu .list-row,
+  .budgie-menu .tweak-category,
+  .budgie-menu .scrollbar.trough {
+    border: none;
+    background: none;
+    box-shadow: none; }
+  .budgie-menu .list-row, .budgie-menu .tweak-category, .budgie-menu .list-row.activatable, .budgie-menu .view, .budgie-menu column-header .button, column-header .budgie-menu .button, .budgie-menu .activatable.tweak-category {
+    background-image: none;
+    background-color: #42565f;
+    color: rgba(236, 239, 241, 0.75);
+    transition: none; }
+  .budgie-menu .list-row:hover, .budgie-menu .tweak-category:hover, .budgie-menu .list-row.activatable:hover, .budgie-menu .view:hover, .budgie-menu column-header .button:hover, column-header .budgie-menu .button:hover, .budgie-menu .activatable.tweak-category:hover {
+    background-image: none;
+    background-color: #42565f;
+    color: #ECEFF1;
+    transition: none; }
 
 .raven {
   padding: 0;
