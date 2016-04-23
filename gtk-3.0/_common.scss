@@ -1353,6 +1353,10 @@ GtkComboBox {
 
     &.slider {
       background-color: $inverted_bg_color;
+      &:hover {
+        background-image: linear-gradient(to bottom,
+                                          gtkalpha($selected_fg_color, 0.2));
+      }
       &:active {
         background-color: $selected_bg_color;
         &:insensitive { background-color: #3F4E56; }
@@ -2264,23 +2268,27 @@ GtkSwitch {
   &.slider {
     padding: 4px;
     border-radius: 100px;
+    outline-radius: 100px;
     @include button(normal);
+    &:hover {
+      @include button(hover);
+      background-image: linear-gradient(to bottom,
+                                        gtkalpha($selected_fg_color, 0.2));
+    }
     &:active {
       @include button(checked);
       &:insensitive {
         @include button(checked-insensitive);
-        box-shadow: none;
-	// do not use any transparentize
+	// do not use any transparentized materials
         background-color: if($variant=='light', #F0F2F3, #3F4E56);
+        background-image: none;
+        box-shadow: none;
       }
     }
-    &:hover {
-      @include button(hover);
-      background-image: linear-gradient(to bottom, $highlight_color);
-    }
     &:insensitive {
-      box-shadow: none;
       background-color: if($variant=='light', #F0F2F3, #3F4E56);
+      background-image: none;
+      box-shadow: none;
     }
     &:backdrop { opacity: 0.8; }
   }
@@ -2296,6 +2304,10 @@ GtkSwitch {
 
     &.slider {
       background-color: $bg_color;
+      &:hover {
+        background-image: linear-gradient(to bottom,
+                                          gtkalpha($selected_fg_color, 0.2));
+      }
       &:active { background-color: $base_color; }
     }
   }

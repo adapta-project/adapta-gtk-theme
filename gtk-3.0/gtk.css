@@ -1827,6 +1827,9 @@ GtkComboBox {
   .titlebar GtkSwitch.slider,
   .header-bar GtkSwitch.slider {
     background-color: #3e515a; }
+    .titlebar GtkSwitch.slider:hover,
+    .header-bar GtkSwitch.slider:hover {
+      background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2)); }
     .titlebar GtkSwitch.slider:active,
     .header-bar GtkSwitch.slider:active {
       background-color: #00BCD4; }
@@ -2995,10 +2998,16 @@ GtkSwitch {
   GtkSwitch.slider {
     padding: 4px;
     border-radius: 100px;
+    outline-radius: 100px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
     background-color: #FFFFFF;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
     color: rgba(38, 50, 56, 0.75); }
+    GtkSwitch.slider:hover {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
+      color: #263238;
+      background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2)); }
     GtkSwitch.slider:active {
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
       background-color: #00BCD4;
@@ -3007,18 +3016,15 @@ GtkSwitch {
         box-shadow: none;
         background-color: alpha(currentColor, 0.2);
         color: rgba(0, 188, 212, 0.4);
-        box-shadow: none;
-        background-color: #F0F2F3; }
+        background-color: #F0F2F3;
+        background-image: none;
+        box-shadow: none; }
         GtkSwitch.slider:active:insensitive > .label {
           color: inherit; }
-    GtkSwitch.slider:hover {
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
-      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
-      color: #263238;
-      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.07)); }
     GtkSwitch.slider:insensitive {
-      box-shadow: none;
-      background-color: #F0F2F3; }
+      background-color: #F0F2F3;
+      background-image: none;
+      box-shadow: none; }
     GtkSwitch.slider:backdrop {
       opacity: 0.8; }
   .list-row:selected GtkSwitch.trough, .tweak-category:selected GtkSwitch.trough {
@@ -3029,6 +3035,8 @@ GtkSwitch {
         background-color: #f7f9f9; }
   .list-row:selected GtkSwitch.slider, .tweak-category:selected GtkSwitch.slider {
     background-color: #fafbfc; }
+    .list-row:selected GtkSwitch.slider:hover, .tweak-category:selected GtkSwitch.slider:hover {
+      background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2)); }
     .list-row:selected GtkSwitch.slider:active, .tweak-category:selected GtkSwitch.slider:active {
       background-color: #FFFFFF; }
 
