@@ -1,0 +1,88 @@
+#
+# Gimp
+#
+style "gimp_spin_scale" {
+  bg[NORMAL] = @base_color
+
+  engine "pixmap" {
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      state    = NORMAL
+    }
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      state    = ACTIVE
+    }
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up-alt.svg"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up-alt-hover.svg"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up.svg"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up-alt-insensitive.svg"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down-alt.svg"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down-alt-hover.svg"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down.svg"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down-alt-insensitive.svg"
+      overlay_stretch = FALSE
+    }
+  }
+}
+
+style "gimp_toolbox_frame" {
+  engine "pixmap" {
+    image {
+      function = SHADOW
+    }
+  }
+}
+
+# Disable gradients completely for GimpSpinScale
+class "GimpSpinScale"                    style "gimp_spin_scale"
+# Remove borders from "Wilbert frame" in Gimp
+widget_class "*<GimpToolbox>*<GtkFrame>" style "gimp_toolbox_frame"
