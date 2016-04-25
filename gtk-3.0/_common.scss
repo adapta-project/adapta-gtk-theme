@@ -452,7 +452,11 @@ GtkTextView { // This will get overridden by .view,
     &.#{$b_type} {
       background-color: $b_color;
       color: $secondary_selected_fg_color;
-      &:hover { @include button(hover, $b_color, $selected_fg_color); }
+      &:hover {
+        @include button(hover);
+        background-color: $b_color;
+        color: $selected_fg_color;
+      }
       &:active {
         @include button(active);
         background-color: $selected_bg_color;
