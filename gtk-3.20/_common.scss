@@ -544,7 +544,11 @@ button,
       background-color: $b_color;
       background-size: $text_button_small;
       color: $selected_fg_color;
-      &:hover { @include button(hover, $b_color, $selected_fg_color); }
+      &:hover {
+        @include button(hover);
+        background-color: $b_color;
+        color: $selected_fg_color;
+      }
       &:active {
         @include button(active);
         background-color: $selected_bg_color;
