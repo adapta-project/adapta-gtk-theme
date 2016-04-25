@@ -31,8 +31,8 @@ AC_MSG_RESULT([
         * Default DE support
         -------------------------------------
 
-        GNOME:                3.20 & 3.18
-        Budgie-Desktop:       10.2.x
+        GNOME:                >= 3.20 (or 3.18)
+        Budgie-Desktop:       >= 10.2.4
 
         * Extra DE support
         -------------------------------------

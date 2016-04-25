@@ -1,0 +1,80 @@
+style "notify-window"
+{
+    XfceNotifyWindow::summary-bold = 1
+    XfceNotifyWindow::border-color = "#2A373E"
+    XfceNotifyWindow::border-color-hover = "#2A373E"
+    XfceNotifyWindow::border-radius = 2.0
+    XfceNotifyWindow::border-width = 0.1
+    XfceNotifyWindow::border-width-hover = 0.1
+    bg[NORMAL] = "#2A373E"
+    bg[PRELIGHT] = "#2A373E"
+}
+
+style "notify-button"
+{
+  xthickness = 5
+  ythickness = 5
+
+  # bg[NORMAL] = "#2A373E"
+  # bg[PRELIGHT] = "#2A373E"
+  # bg[ACTIVE] = "#2A373E"
+  fg[NORMAL] = "#20BC98"
+  fg[PRELIGHT] = "#1DE9B6"
+  fg[ACTIVE] = "#1DE9B6"
+
+  engine "pixmap" {
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "flat-button.svg"
+      border   = { 5, 5, 5, 5 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      file     = "flat-button-hover.svg"
+      border   = { 5, 5, 5, 5 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "flat-button-active.svg"
+      border   = { 5, 5, 5, 5 }
+      stretch  = TRUE
+    }
+  }
+}
+
+style "notify-text"
+{
+    fg[NORMAL] = "#ECEFF1"
+    fg[PRELIGHT] = "#FFFFFF"
+    GtkWidget::link-color = "#03A9F4"
+}
+
+style "notify-summary"
+{
+    font_name = "Bold"
+}
+
+style "notify-progressbar"
+{
+    GtkProgressBar::min-horizontal-bar-height = 4
+    xthickness   = 0
+    ythickness   = 0
+
+    fg[PRELIGHT] = "#263238"
+    bg[NORMAL]   = "#F0F2F3"
+    bg[SELECTED] = "#F0F2F3"
+    bg[ACTIVE]   = "#1DE9B6"
+}
+
+class "XfceNotifyWindow" style "notify-window"
+widget "XfceNotifyWindow.*.summary" style "notify-summary"
+widget_class "XfceNotifyWindow.*<GtkButton>" style "notify-button"
+widget_class "XfceNotifyWindow.*Button.*Label" style "notify-button"
+widget_class "XfceNotifyWindow.<GtkLabel>" style "notify-text"
+widget_class "XfceNotifyWindow.*.<GtkProgress>" style "notify-progressbar"
+widget_class "XfceNotifyWindow.*.<GtkProgressBar>" style "notify-progressbar"

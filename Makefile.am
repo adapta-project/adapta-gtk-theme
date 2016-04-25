@@ -10,7 +10,8 @@ EXTRA_DIST = \
 CINNAMON_DIR = cinnamon
 METACITY_DIR = metacity-1
 UNITY_DIR    = unity
-XFCE_DIR     = xfwm4
+XFCE_DIR     = xfwm4 \
+               xfce-notify-4.0
 
 themedir = $(datadir)/themes
 
