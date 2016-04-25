@@ -1,7 +1,14 @@
+//
 // Suffix
+//
+
 $asset_suffix: if($variant=='dark', '-dark', '');
 
+
+//
 // transitions
+//
+
 %transition {
   // do not include sizing factors and text colors/shadows
   transition-property: opacity,
@@ -394,6 +401,7 @@ GtkTextView { // This will get overridden by .view,
   &:insensitive { @include button(insensitive); }
   &:checked { @include button(checked); }
   &:checked:insensitive { @include button(checked-insensitive); }
+
   &.flat {
     @include button(flat);
     &:hover { @include button(flat-hover); }
@@ -433,6 +441,7 @@ GtkTextView { // This will get overridden by .view,
     }
     &:insensitive { opacity: 0; }
   }
+
   // overlay / OSD style
   .osd & {
   }
@@ -454,6 +463,7 @@ GtkTextView { // This will get overridden by .view,
         @include button(insensitive, $b_color,
                                      $insensitive_selected_fg_color);
       }
+
       &.flat {
         background-color: transparent;
         color: $b_color;
@@ -546,11 +556,13 @@ GtkTextView { // This will get overridden by .view,
       border-radius: 100px;
       outline-radius: 100px;
     }
+
     &.text-button {
       border-radius: 2px;
       outline-radius: 2px;
     }
   }
+
   .inline-toolbar .stack-switcher > &,
   .action-bar .stack-switcher > & {
     &, &:not(.text-button).image-button {
@@ -649,8 +661,6 @@ GtkTextView { // This will get overridden by .view,
   border-width: 0;
   outline-radius: 0;
   color: $secondary_fg_color;
-  &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
-  &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
   &:hover {
     @include button(flat-hover);
     &:dir(ltr) { box-shadow: inset 2px 0 $track_color; }
@@ -680,6 +690,9 @@ GtkTextView { // This will get overridden by .view,
     &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
     &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
   }
+
+  &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
+  &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
 }
 
 %image_button {
@@ -690,11 +703,12 @@ GtkTextView { // This will get overridden by .view,
 }
 
 %needs_attention {
-  transition: none;
-  animation: needs_attention 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   background-repeat: no-repeat;
   background-position: right 3px;
   background-size: 0.4em 0.4em;
+  animation: needs_attention 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transition: none;
+
   &:dir(rtl) { background-position: left 3px; }
 }
 
@@ -1241,9 +1255,6 @@ GtkComboBox {
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $inverted_fg_color;
-      // transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      //             box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
-      //             color 0;
       // &:active { transition: none; }
       &:insensitive {
         background-color: transparent;
@@ -1267,6 +1278,7 @@ GtkComboBox {
       }
       &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     }
+
     .label.text-button { // FIXME: stupid Gnome-Software
       border-image: none;
       box-shadow: none;
@@ -1304,6 +1316,7 @@ GtkComboBox {
         &:focus { color: $inverted_fg_color; }
         &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
       }
+
       .button {
         color: $inverted_secondary_fg_color;
         &:hover { color: $inverted_fg_color; }
@@ -1320,10 +1333,13 @@ GtkComboBox {
   .menu .menuitem { // reset text colour
     color: $secondary_fg_color;
     &:hover { color: $fg_color; }
+
     .label {
       &:insensitive { color: $insensitive_fg_color; }
     }
+
     .accelerator { color: gtkalpha(currentColor, 0.6); }
+
     .separator { color: $borders_color; }
   }
 
@@ -1331,6 +1347,7 @@ GtkComboBox {
   .popover .button.flat {
     color: $secondary_fg_color;
     &:hover { color: $fg_color; }
+
     .label {
       &:hover { color: $fg_color; }
       &:insensitive { color: $insensitive_fg_color; }
@@ -1407,6 +1424,7 @@ GtkComboBox {
           > .label { color: inherit; }
         }
       }
+
       &.suggested-action {
         // NOTE: do not use @extend .button;
         @include button(normal);
@@ -1464,6 +1482,7 @@ GtkComboBox {
       color: $inverted_fg_color;
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.55); }
     }
+
     .button.titlebutton {
       padding: 4px;
       color: $inverted_secondary_fg_color;
@@ -1604,6 +1623,7 @@ GtkComboBox {
   padding: 0.3em 0.7em 0.4em;
 
   &.image-button { padding: 0.7em; }
+
   &:only-child { padding: 0.3em 0.7em 0.4em; }
 
   // the following is for spacing the icon and the label inside the home button
@@ -1719,9 +1739,9 @@ column-header {
     border-width: 1px;
     border-color: $borders_color;
     border-radius: 0;
-    box-shadow: none;
     background-color: $base_color;
     color: $tertiary_fg_color;
+    box-shadow: none;
     &:hover,
     &:active {
       color: $fg_color;
@@ -1837,14 +1857,15 @@ column-header.button.dnd { // for treeview-like derive widgets
     border-style: none;
     border-radius: 0;
     background-color: $secondary_base_color;
-    &.top { border-bottom: 1px solid $borders_color; }
-    &.bottom { border-top: 1px solid $borders_color; }
     &:hover { background-color: $secondary_dark_color; }
     &:insensitive {
       color: transparent;
       background-color: transparent;
       border-color: transparent ;
     }
+
+    &.top { border-bottom: 1px solid $borders_color; }
+    &.bottom { border-top: 1px solid $borders_color; }
   }
 
   // use asymmetric separators
@@ -1860,8 +1881,12 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 }
 
-.menuitem .accelerator { color: gtkalpha(currentColor, 0.55); }
-.menuitem .separator { color: $borders_color; }
+.menuitem {
+  .accelerator { color: gtkalpha(currentColor, 0.55); }
+
+  .separator { color: $borders_color; }
+}
+
 .csd.popup { border-radius: 2px; }
 
 
@@ -3246,7 +3271,6 @@ GtkInfoBar {
     background-color: gtkopacity($inverted_dark_color, 0.9);
   }
 
-  // @extend %osd;
   color: $inverted_fg_color;
   padding: 0.2em; // not working
   border-radius: 2px;
@@ -3410,6 +3434,7 @@ GtkColorSwatch {
       }
     }
   }
+
   .osd & .button,
   .button {
     border-radius: 100px;
@@ -3616,28 +3641,31 @@ GtkVolumeButton.button {
 .entry.cursor-handle,
 .cursor-handle {
   @extend %fade_effect;
-
+  border-style: none;
   background-color: $accent_color;
   background-image: none;
   box-shadow: none;
-  border-style: none;
+
   @each $s,$as in ('',''),
                   (':hover','-hover'),
                   (':active','-active') {
                     // no need for insensitive and backdrop
-                    &.top#{$s}:dir(ltr), &.bottom#{$s}:dir(rtl) {
+                    &.top#{$s}:dir(ltr),
+                    &.bottom#{$s}:dir(rtl) {
                       $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
                       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
                                         url('#{$_url}@2.png'));
                       padding-left: 0.8em;
                     }
-                    &.bottom#{$s}:dir(ltr), &.top#{$s}:dir(rtl) {
+                    &.bottom#{$s}:dir(ltr),
+                    &.top#{$s}:dir(rtl) {
                       $_url: 'assets/text-select-end#{$as}#{$asset_suffix}';
                       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
                                         url('#{$_url}@2.png'));
                       padding-right: 0.8em;
                     }
-                    &.insertion-cursor#{$s}:dir(ltr), &.insertion-cursor#{$s}:dir(rtl) {
+                    &.insertion-cursor#{$s}:dir(ltr),
+                    &.insertion-cursor#{$s}:dir(rtl) {
                       $_url: 'assets/slider-horz-scale-has-marks-above#{$as}#{$asset_suffix}';
                       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
                                         url('#{$_url}@2.png'));

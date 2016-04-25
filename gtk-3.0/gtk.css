@@ -937,10 +937,6 @@ GtkTextView {
   border-width: 0;
   outline-radius: 0;
   color: rgba(38, 50, 56, 0.75); }
-  .linked.vertical > .button:dir(ltr), .linked.vertical > .button .image-button:dir(ltr), .linked.vertical > .button .text-button:dir(ltr), .linked.vertical > GtkComboBox .button:dir(ltr) {
-    box-shadow: inset 1px 0 alpha(currentColor, 0.2); }
-  .linked.vertical > .button:dir(rtl), .linked.vertical > .button .image-button:dir(rtl), .linked.vertical > .button .text-button:dir(rtl), .linked.vertical > GtkComboBox .button:dir(rtl) {
-    box-shadow: inset -1px 0 alpha(currentColor, 0.2); }
   .linked.vertical > .button:hover, .linked.vertical > .button .image-button:hover, .linked.vertical > .button .text-button:hover, .linked.vertical > GtkComboBox .button:hover {
     box-shadow: none;
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
@@ -979,6 +975,10 @@ GtkTextView {
       box-shadow: inset 1px 0 alpha(currentColor, 0.2); }
     .linked.vertical > .button:insensitive:dir(rtl), .linked.vertical > .button .image-button:insensitive:dir(rtl), .linked.vertical > .button .text-button:insensitive:dir(rtl), .linked.vertical > GtkComboBox .button:insensitive:dir(rtl) {
       box-shadow: inset -1px 0 alpha(currentColor, 0.2); }
+  .linked.vertical > .button:dir(ltr), .linked.vertical > .button .image-button:dir(ltr), .linked.vertical > .button .text-button:dir(ltr), .linked.vertical > GtkComboBox .button:dir(ltr) {
+    box-shadow: inset 1px 0 alpha(currentColor, 0.2); }
+  .linked.vertical > .button:dir(rtl), .linked.vertical > .button .image-button:dir(rtl), .linked.vertical > .button .text-button:dir(rtl), .linked.vertical > GtkComboBox .button:dir(rtl) {
+    box-shadow: inset -1px 0 alpha(currentColor, 0.2); }
 
 .button.osd.image-button, .button.image-button, .notebook tab .button, GtkScaleButton.button,
 GtkVolumeButton.button, .header-bar .button.titlebutton, .header-bar.selection-mode .button.titlebutton,
@@ -990,11 +990,11 @@ GtkVolumeButton.button, .header-bar .button.titlebutton, .header-bar.selection-m
   background-size: 3.75em 3.75em, auto; }
 
 .stack-switcher > .button.needs-attention > .label, .stack-switcher > .button.needs-attention > GtkImage, .sidebar-item.needs-attention > .label {
-  transition: none;
-  animation: needs_attention 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   background-repeat: no-repeat;
   background-position: right 3px;
-  background-size: 0.4em 0.4em; }
+  background-size: 0.4em 0.4em;
+  animation: needs_attention 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transition: none; }
   .stack-switcher > .button.needs-attention > .label:dir(rtl), .stack-switcher > .button.needs-attention > GtkImage:dir(rtl), .sidebar-item.needs-attention > .label:dir(rtl) {
     background-position: left 3px; }
 
@@ -2375,9 +2375,9 @@ column-header .button {
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.09);
   border-radius: 0;
-  box-shadow: none;
   background-color: #FFFFFF;
-  color: rgba(38, 50, 56, 0.5); }
+  color: rgba(38, 50, 56, 0.5);
+  box-shadow: none; }
   column-header .button:hover, column-header .button:active {
     color: #263238;
     box-shadow: none; }
@@ -2453,16 +2453,16 @@ column-header.button.dnd, column-header .button.dnd {
     border-style: none;
     border-radius: 0;
     background-color: #fdfdfe; }
-    .menu.button.top {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.09); }
-    .menu.button.bottom {
-      border-top: 1px solid rgba(0, 0, 0, 0.09); }
     .menu.button:hover {
       background-color: #f7f9f9; }
     .menu.button:insensitive {
       color: transparent;
       background-color: transparent;
       border-color: transparent; }
+    .menu.button.top {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.09); }
+    .menu.button.bottom {
+      border-top: 1px solid rgba(0, 0, 0, 0.09); }
   .menu GtkSeparatorMenuItem:dir(ltr) {
     padding-left: 2.4em;
     padding-right: 0; }
@@ -2472,7 +2472,6 @@ column-header.button.dnd, column-header .button.dnd {
 
 .menuitem .accelerator {
   color: alpha(currentColor, 0.55); }
-
 .menuitem .separator {
   color: rgba(0, 0, 0, 0.09); }
 
@@ -5882,10 +5881,10 @@ column-header .side-panel .view.button:selected,
  *********************/
 .entry.cursor-handle,
 .cursor-handle {
+  border-style: none;
   background-color: #1DE9B6;
   background-image: none;
-  box-shadow: none;
-  border-style: none; }
+  box-shadow: none; }
   .entry.cursor-handle.top:dir(ltr), .entry.cursor-handle.bottom:dir(rtl),
   .cursor-handle.top:dir(ltr),
   .cursor-handle.bottom:dir(rtl) {
