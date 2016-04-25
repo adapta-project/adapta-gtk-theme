@@ -12,20 +12,23 @@ Required Components
 -------------------
 Adapta supports Gtk+ 3.20.x (and 3.18.x)
 
+ ```
  * Gtk+-3.0            >= 3.20.0 (or 3.18.4)
  * Gtk+-2.0            >= 2.24.30 (or 2.24.29)
  * gtk2-engines-pixbuf >= 2.24.30 (or 2.24.29)
+ ```
 
 Supported Desktop Environments
 ------------------------------
- * GNOME 3.20 (or 3.18)
-   * gnome-shell   >= 3.20.0 (or 3.18.4)
-   * mutter        >= 3.20.0 (or 3.18.4)
+
+ ```
+ * GNOME           >= 3.20 (or 3.18)
  * GNOME-Flashback >= 3.18.0
  * Budgie-Desktop  >= 10.2.4
  * Unity7          >= 7.4.0
  * Cinnamon        >= 2.8
  * XFce4           >= 4.12.2
+ ```
 
  Unity, Cinnamon and XFce support are under W.I.P state.
 
