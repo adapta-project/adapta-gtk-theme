@@ -37,7 +37,7 @@ Unsupported Gtk+ Based Desktops
  * Mate
  * Pantheon
 
-Installation from PPA (Ubuntu 16.04 LTS only)
+Installation from PPA (Ubuntu 16.04 LTS and 16.10)
 ------------
 1. Run
 
