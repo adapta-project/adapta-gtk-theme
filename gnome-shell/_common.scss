@@ -243,6 +243,7 @@ StScrollBar {
 .headline {
   @include fontscaling($ref_size * 1.1);
 }
+
 .lightbox { background-color: #000000; }
 .flashspot { background-color: #FFFFFF; }
 
@@ -264,7 +265,9 @@ StScrollBar {
     padding-top: 16px;
     spacing: 6px;
   }
+
   .run-dialog-button-box { padding-top: 1em; }
+
   .run-dialog-label {
     @include fontscaling($ref_size * 1.1);
     padding-bottom: 0.4em;
@@ -566,6 +569,7 @@ StScrollBar {
   }
 
   .popup-menu-content { padding: 0.4em 0; }
+
   .popup-menu-item {
     spacing: 8px;
     color: $secondary_fg_color;
@@ -1016,8 +1020,8 @@ StScrollBar {
 .datemenu-today-button,
 .world-clocks-button,
 .message-list-section-title {
-  border-radius: 2px;
   padding: 0.4em;
+  border-radius: 2px;
 }
 
 .message-list-section-list {
@@ -1107,12 +1111,14 @@ StScrollBar {
     background-color: $selected_bg_color;
     border-color: transparent; // avoid jumparound due to today
   }
+
   &.calendar-day-heading {  // day of week heading
     @include fontscaling($ref_size * 0.9);
     margin-top: 1em;
     font-weight: 700;
     color: $dim_fg_color;
   }
+
   &.calendar-week-number {  // day of week heading
     font-weight: 700;
     color: $dim_fg_color;
@@ -1124,7 +1130,9 @@ StScrollBar {
 }
 
 .calendar-day-top { border-top-width: 0; }
+
 .calendar-day-left { border-left-width: 0; }
+
 .calendar-work-day {
 }
 
@@ -1292,7 +1300,6 @@ StScrollBar {
   border-radius: 32px; // wish we could do 50%
   border: none;
   color: $secondary_fg_color;
-
   &:hover,
   &:focus {
     background-color: $semi_fill_color;
@@ -1375,6 +1382,7 @@ StScrollBar {
 }
 
 .nm-dialog-header-hbox { spacing: 10px; }
+
 .nm-dialog-airplane-box { spacing: 12px; }
 
 .nm-dialog-airplane-headline {
@@ -1383,8 +1391,11 @@ StScrollBar {
 }
 
 .nm-dialog-airplane-text { color: $fg_color; }
+
 .nm-dialog-header-icon { icon-size: 32px; }
+
 .nm-dialog-scroll-view { border: 2px solid $borders_color; }
+
 .nm-dialog-header { font-weight: 700; }
 
 .nm-dialog-item {
@@ -1400,8 +1411,11 @@ StScrollBar {
 }
 
 .nm-dialog-icons { spacing: 6px; }
+
 .nm-dialog-icon { icon-size: 16px; }
+
 .no-networks-label { color: $dim_fg_color; }
+
 .no-networks-box { spacing: 12px; }
 
 
@@ -1522,6 +1536,7 @@ StScrollBar {
 .list-search-result-description { color: $osd_fg_color; }
 
 .search-provider-icon { padding: 15px; }
+
 .search-provider-icon-more {
   width: 16px;
   height: 16px;
@@ -1911,11 +1926,14 @@ StScrollBar {
   &:focus { background-color: transparentize($osd_bg_color, 0.1); }
 
   .notification-icon { padding: 8px; }
+
   .notification-content {
     padding: 8px;
     spacing: 8px;
   }
+
   .secondary-icon { icon-size: 14px; }
+
   .notification-actions {
     padding-top: 0;
     border: transparent;
@@ -2533,39 +2551,39 @@ $legacy_icon_size: 24px;
   .shell-link {
     color: $link_color;
     &:hover { color: $link_color; }
-   }
+  }
 }
 
 .lg-completions-text {
-    @include fontscaling($ref_size * 0.9);
-    font-style: italic;
+  @include fontscaling($ref_size * 0.9);
+  font-style: italic;
 }
 
 .lg-obj-inspector-title { spacing: 4px; }
 
 .lg-obj-inspector-button {
-    border: 1px solid $borders_color;
-    padding: 4px;
-    border-radius: 2px;
-    &:hover { border: 1px solid #FFFFFF; }
+  border: 1px solid $borders_color;
+  padding: 4px;
+  border-radius: 2px;
+  &:hover { border: 1px solid #FFFFFF; }
 }
 
 #lookingGlassExtensions { padding: 4px; }
 
 .lg-extensions-list {
-    padding: 4px;
-    spacing: 6px;
+  padding: 4px;
+  spacing: 6px;
 }
 
 .lg-extension {
-    padding: 4px;
-    border: none;
-    border-radius: 2px;
+  padding: 4px;
+  border: none;
+  border-radius: 2px;
 }
 
 .lg-extension-name {
-    @include fontscaling($ref_size * 1.5);
-    font-weight: 700;
+  @include fontscaling($ref_size * 1.5);
+  font-weight: 700;
 }
 
 .lg-extension-meta { spacing: 6px; }
