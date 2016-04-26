@@ -495,7 +495,7 @@ NemoWindow {
   EelEditableLabel.entry { transition: none; }
 
   // draw bottom border of toolbar
-  .toolbar {
+  .toolbar.primary-toolbar {
     border-bottom: 1px solid $borders_color;
 
     .button.toggle,
@@ -507,18 +507,33 @@ NemoWindow {
 	outline-radius: 100px;
       }
     }
+  }
 
-    // tweak path-bar buttons
-    .path-bar .button,
-    .path-bar .linked > .button {
-      padding: 0.3em 1.2em 0.4em;
+  // tweak path-bar buttons
+  // FIXME: stupid nemo
+  .primary-toolbar NemoPathBar.linked.raised {
+    > .button { // ugly arrow button at most-left
+      padding: 0;
+      border-radius: 2px;
+      outline-radius: 2px;
 
-      &, &.image-button {
-        border-radius: 2px;
-	outline-radius: 2px;
-	&:insensitive { color: $insensitive_secondary_fg_color; }
+      GtkArrow { -GtkArrow-arrow-scaling: 0.5; }
+
+      &, GtkArrow {
+        color: $secondary_fg_color;
+        &:hover,
+        &:active,
+        &:checked {
+          color: $fg_color;
+          &:insensitive { color: $insensitive_fg_color; }
+        }
+        &:insensitive { color: $insensitive_secondary_fg_color; }
       }
     }
+
+    // revive horizontal padding
+    .button.text-button,
+    .button.image-button { padding: 0.3em 0.7em 0.4em; }
   }
 
   // tweak notebook colour

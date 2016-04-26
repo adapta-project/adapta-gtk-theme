@@ -7033,27 +7033,32 @@ GtkStack .button.profile-button:checked {
  ********/
 NemoWindow EelEditableLabel.entry {
   transition: none; }
-NemoWindow .toolbar {
+NemoWindow .toolbar.primary-toolbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.11); }
-  NemoWindow .toolbar .button.toggle,
-  NemoWindow .toolbar .linked > .button {
+  NemoWindow .toolbar.primary-toolbar .button.toggle,
+  NemoWindow .toolbar.primary-toolbar .linked > .button {
     padding: 0.3em 1.2em 0.4em; }
-    NemoWindow .toolbar .button.toggle.image-button,
-    NemoWindow .toolbar .linked > .button.image-button {
+    NemoWindow .toolbar.primary-toolbar .button.toggle.image-button,
+    NemoWindow .toolbar.primary-toolbar .linked > .button.image-button {
       border-radius: 100px;
       outline-radius: 100px; }
-  NemoWindow .toolbar .path-bar .button,
-  NemoWindow .toolbar .path-bar .linked > .button {
-    padding: 0.3em 1.2em 0.4em; }
-    NemoWindow .toolbar .path-bar .button, NemoWindow .toolbar .path-bar .button.image-button,
-    NemoWindow .toolbar .path-bar .linked > .button,
-    NemoWindow .toolbar .path-bar .linked > .button.image-button {
-      border-radius: 2px;
-      outline-radius: 2px; }
-      NemoWindow .toolbar .path-bar .button:insensitive, NemoWindow .toolbar .path-bar .button.image-button:insensitive,
-      NemoWindow .toolbar .path-bar .linked > .button:insensitive,
-      NemoWindow .toolbar .path-bar .linked > .button.image-button:insensitive {
-        color: rgba(236, 239, 241, 0.225); }
+NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button {
+  padding: 0;
+  border-radius: 2px;
+  outline-radius: 2px; }
+  NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow {
+    -GtkArrow-arrow-scaling: 0.5; }
+  NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow {
+    color: rgba(236, 239, 241, 0.75); }
+    NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button:hover, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button:active, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button:checked, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow:hover, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow:active, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow:checked {
+      color: #ECEFF1; }
+      NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button:hover:insensitive, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button:active:insensitive, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button:checked:insensitive, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow:hover:insensitive, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow:active:insensitive, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow:checked:insensitive {
+        color: rgba(236, 239, 241, 0.3); }
+    NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button:insensitive, NemoWindow .primary-toolbar NemoPathBar.linked.raised > .button GtkArrow:insensitive {
+      color: rgba(236, 239, 241, 0.225); }
+NemoWindow .primary-toolbar NemoPathBar.linked.raised .button.text-button,
+NemoWindow .primary-toolbar NemoPathBar.linked.raised .button.image-button {
+  padding: 0.3em 0.7em 0.4em; }
 NemoWindow .notebook {
   background-color: #455A64; }
 NemoWindow .sidebar .frame, NemoWindow #polari-sidebar .frame {
