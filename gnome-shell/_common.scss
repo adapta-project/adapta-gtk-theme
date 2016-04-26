@@ -1313,17 +1313,17 @@ StScrollBar {
   padding: 16px;
   border-radius: 32px; // wish we could do 50%
   border: none;
-  color: $secondary_fg_color;
+  color: $secondary_accent_color;
   &:hover,
   &:focus {
-    background-color: $semi_fill_color;
-    color: $fg_color;
-    border: none;
     padding: 16px;
+    border: none;
+    background-color: $accent_fill_color;
+    color: $accent_color;
   }
   &:active {
-    background-color: $fill_color;
-    color: $fg_color;
+    color: $accent_color;
+    background-color: $accent_active_fill_color;
   }
 
   & > StIcon { icon-size: 16px; }
