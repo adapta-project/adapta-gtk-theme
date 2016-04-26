@@ -1247,10 +1247,24 @@ StScrollBar {
 }
 
 .message-media-control {
-  padding: 6px;
+  padding: 0 8px;
+  margin: 0 6px;
+  border-radius: 32px;
+  icon-size: 16px;
+  color: $secondary_accent_color;
+  background: transparent;
+  background-size: 32px 32px;
 
-  &:last-child:ltr { padding-right: 18px; }
-  &:last-child:rtl { padding-left: 18px; }
+  &:hover {
+    color: $accent_color;
+    background-image: url("assets/media-control-hover.svg");
+    background-size: 32px 32px;
+  }
+  &:active {
+    color: $accent_color;
+    background-image: url("assets/media-control-active.svg");
+    background-size: 32px 32px;
+  }
 }
 
 .media-message-cover-icon {
