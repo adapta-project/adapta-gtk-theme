@@ -3042,6 +3042,35 @@ GtkSwitch {
       background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2)); }
     .list-row:selected GtkSwitch.slider:active, .tweak-category:selected GtkSwitch.slider:active {
       background-color: #455A64; }
+  GtkGrid GtkSwitch {
+    -GtkSwitch-slider-width: 40;
+    -GtkSwitch-slider-height: 20;
+    font-size: 0;
+    outline-color: transparent; }
+    GtkGrid GtkSwitch.trough, GtkGrid GtkSwitch.trough:hover, GtkGrid GtkSwitch.trough:active, GtkGrid GtkSwitch.trough:active:insensitive, GtkGrid GtkSwitch.trough:insensitive, GtkGrid GtkSwitch.slider, GtkGrid GtkSwitch.slider:hover, GtkGrid GtkSwitch.slider:active, GtkGrid GtkSwitch.slider:active:insensitive, GtkGrid GtkSwitch.slider:insensitive {
+      padding: 0;
+      border: none;
+      color: transparent;
+      background: none;
+      background-image: none;
+      background-size: 40px 20px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      box-shadow: none; }
+      GtkGrid GtkSwitch.trough:dir(rtl), GtkGrid GtkSwitch.trough:hover:dir(rtl), GtkGrid GtkSwitch.trough:active:dir(rtl), GtkGrid GtkSwitch.trough:active:insensitive:dir(rtl), GtkGrid GtkSwitch.trough:insensitive:dir(rtl), GtkGrid GtkSwitch.slider:dir(rtl), GtkGrid GtkSwitch.slider:hover:dir(rtl), GtkGrid GtkSwitch.slider:active:dir(rtl), GtkGrid GtkSwitch.slider:active:insensitive:dir(rtl), GtkGrid GtkSwitch.slider:insensitive:dir(rtl) {
+        background-position: left center; }
+    GtkGrid GtkSwitch.trough {
+      background-image: -gtk-scaled(url("assets/toggle-off-dark.png"), url("assets/toggle-off-dark@2.png")); }
+      GtkGrid GtkSwitch.trough:hover {
+        background-image: -gtk-scaled(url("assets/toggle-off-hover-dark.png"), url("assets/toggle-off-hover-dark@2.png")); }
+      GtkGrid GtkSwitch.trough:active {
+        background-image: -gtk-scaled(url("assets/toggle-on.png"), url("assets/toggle-on@2.png")); }
+        GtkGrid GtkSwitch.trough:active:hover {
+          background-image: -gtk-scaled(url("assets/toggle-on-hover.png"), url("assets/toggle-on-hover@2.png")); }
+        GtkGrid GtkSwitch.trough:active:insensitive {
+          background-image: -gtk-scaled(url("assets/toggle-on-insensitive-dark.png"), url("assets/toggle-on-insensitive-dark@2.png")); }
+      GtkGrid GtkSwitch.trough:insensitive {
+        background-image: -gtk-scaled(url("assets/toggle-off-insensitive-dark.png"), url("assets/toggle-off-insensitive-dark@2.png")); }
 
 /*************************
  * Check and Radio items *
@@ -6758,33 +6787,6 @@ TerminalWindow .scrollbar.trough {
     column-header .raven .button .separator,
     .raven .activatable.tweak-category .separator {
       color: rgba(236, 239, 241, 0.165); }
-  .raven GtkSwitch {
-    -GtkSwitch-slider-width: 40;
-    -GtkSwitch-slider-height: 20;
-    font-size: 0;
-    outline-color: transparent; }
-    .raven GtkSwitch:insensitive {
-      opacity: 0.4; }
-    .raven GtkSwitch.trough, .raven GtkSwitch.slider {
-      padding: 0;
-      border: none;
-      color: transparent;
-      background: none;
-      background-image: none;
-      background-size: 40px 20px;
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none; }
-      .raven GtkSwitch.trough:dir(rtl), .raven GtkSwitch.slider:dir(rtl) {
-        background-position: left center; }
-    .raven GtkSwitch.trough {
-      background-image: -gtk-scaled(url("assets/toggle-off-dark.png"), url("assets/toggle-off-dark@2.png")); }
-      .raven GtkSwitch.trough:hover {
-        background-image: -gtk-scaled(url("assets/toggle-off-hover-dark.png"), url("assets/toggle-off-hover-dark@2.png")); }
-      .raven GtkSwitch.trough:active {
-        background-image: -gtk-scaled(url("assets/toggle-on.png"), url("assets/toggle-on@2.png")); }
-        .raven GtkSwitch.trough:active:hover {
-          background-image: -gtk-scaled(url("assets/toggle-on-hover.png"), url("assets/toggle-on-hover@2.png")); }
   .raven .raven-header > .button.text-button {
     color: rgba(255, 255, 255, 0.85); }
     .raven .raven-header > .button.text-button:hover {

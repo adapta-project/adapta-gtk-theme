@@ -2340,6 +2340,65 @@ GtkSwitch {
       &:active { background-color: $base_color; }
     }
   }
+
+  // special case inside the grid container,
+  // need to protect geometry by using pixmaps images...
+  GtkGrid & {
+    -GtkSwitch-slider-width: 40;
+    -GtkSwitch-slider-height: 20;
+    font-size: 0;
+    outline-color: transparent;
+
+    &.trough,
+    &.slider { // reset all of default switches
+      &,
+      &:hover,
+      &:active,
+      &:active:insensitive,
+      &:insensitive {
+        padding: 0;
+        border: none;
+        color: transparent;
+        background: none;
+        background-image: none;
+        background-size: 40px 20px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        box-shadow: none;
+
+        &:dir(rtl) { background-position: left center; }
+      }
+    }
+
+    &.trough { // use ugly pixmaps
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off#{$asset_suffix}.png"),
+                        url("assets/toggle-off#{$asset_suffix}@2.png"));
+      &:hover {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-off-hover#{$asset_suffix}.png"),
+                          url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/toggle-on.png"),
+                                      url("assets/toggle-on@2.png"));
+        &:hover {
+          background-image: -gtk-scaled(url("assets/toggle-on-hover.png"),
+                                        url("assets/toggle-on-hover@2.png"));
+        }
+        &:insensitive {
+          background-image: -gtk-scaled(
+                            url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
+                            url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
+        }
+      }
+      &:insensitive {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
+                          url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
+      }
+    }
+  }
 }
 
 
