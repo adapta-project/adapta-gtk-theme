@@ -2961,6 +2961,7 @@ switch {
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
   grid & {
+    margin: rem(6px) rem(5px);
     font-size: 0;
     outline-color: transparent;
 
@@ -2976,9 +2977,8 @@ switch {
     &:checked:hover,
     &:checked:disabled,
     &:disabled {
-      margin: 0;
-      border: 0;
-      border-radius: 0;
+      margin: rem(6px) rem(5px);
+      border: none;
       color: transparent;
       background: none;
       background-image: none;
@@ -2991,14 +2991,14 @@ switch {
     }
 
     // reset all of default sliders
-    &, slider,
+    slider,
     &:hover slider,
     &:checked slider,
     &:checked:hover slider,
     &:checked:disabled slider,
     &:disabled slider {
       margin: 0;
-      border: 0;
+      border: none;
       border-radius: 0;
       color: transparent;
       background: none;
