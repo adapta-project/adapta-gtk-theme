@@ -4503,6 +4503,37 @@ switch {
       background-color: #455A64; }
     row:selected switch:checked:disabled slider {
       background-color: #3b4c54; }
+  grid switch {
+    font-size: 0;
+    outline-color: transparent; }
+    grid switch slider {
+      min-width: 3.00752rem;
+      min-height: 1.50376rem; }
+    grid switch, grid switch slider, grid switch:hover slider, grid switch:checked slider, grid switch:disabled slider {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      color: transparent;
+      background: none;
+      background-image: none;
+      background-size: 40px 20px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      box-shadow: none; }
+      grid switch:dir(rtl), grid switch slider:dir(rtl), grid switch:hover slider:dir(rtl), grid switch:checked slider:dir(rtl), grid switch:disabled slider:dir(rtl) {
+        background-position: left center; }
+    grid switch:not(:hover):not(:checked) {
+      background-image: -gtk-scaled(url("assets/toggle-off-dark.png"), url("assets/toggle-off-dark@2.png")); }
+    grid switch:hover {
+      background-image: -gtk-scaled(url("assets/toggle-off-hover-dark.png"), url("assets/toggle-off-hover-dark@2.png")); }
+    grid switch:checked {
+      background-image: -gtk-scaled(url("assets/toggle-on.png"), url("assets/toggle-on@2.png")); }
+      grid switch:checked:hover {
+        background-image: -gtk-scaled(url("assets/toggle-on-hover.png"), url("assets/toggle-on-hover@2.png")); }
+      grid switch:checked:disabled {
+        background-image: -gtk-scaled(url("assets/toggle-on-insensitive-dark.png"), url("assets/toggle-on-insensitive-dark@2.png")); }
+    grid switch:disabled {
+      background-image: -gtk-scaled(url("assets/toggle-off-insensitive-dark.png"), url("assets/toggle-off-insensitive-dark@2.png")); }
 
 /*************************
  * Check and Radio items *
@@ -9857,13 +9888,6 @@ window > box.vertical > grid.vertical > stack stack > spinner {
   min-height: 1.80451rem;
   padding: 4rem 6.0rem 4rem; }
 
-/****************
- * Dconf-editor *
- ****************/
-dialog > .dialog-vbox grid > switch {
-  margin-left: 2.00752rem;
-  margin-right: 2.00752rem; }
-
 /******************
  * Budgie Desktop *
  ******************/
@@ -12223,35 +12247,6 @@ window .right .budgie-panel grid.vertical > widget > box > button.launcher.image
       background-color: transparent;
       background-image: none;
       box-shadow: inset 0 -1px rgba(236, 239, 241, 0.165); }
-  .raven switch {
-    font-size: 0;
-    outline-color: transparent; }
-    .raven switch slider {
-      min-width: 3.00752rem;
-      min-height: 1.50376rem; }
-    .raven switch, .raven switch slider, .raven switch:hover slider, .raven switch:checked slider {
-      margin: 0;
-      border: 0;
-      border-radius: 0;
-      color: transparent;
-      background: none;
-      background-image: none;
-      background-size: 40px 20px;
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none; }
-      .raven switch:dir(rtl), .raven switch slider:dir(rtl), .raven switch:hover slider:dir(rtl), .raven switch:checked slider:dir(rtl) {
-        background-position: left center; }
-    .raven switch:not(:hover):not(:checked) {
-      background-image: -gtk-scaled(url("assets/toggle-off-dark.png"), url("assets/toggle-off-dark@2.png")); }
-    .raven switch:hover {
-      background-image: -gtk-scaled(url("assets/toggle-off-hover-dark.png"), url("assets/toggle-off-hover-dark@2.png")); }
-    .raven switch:checked {
-      background-image: -gtk-scaled(url("assets/toggle-on.png"), url("assets/toggle-on@2.png")); }
-      .raven switch:checked:hover {
-        background-image: -gtk-scaled(url("assets/toggle-on-hover.png"), url("assets/toggle-on-hover@2.png")); }
-    .raven switch:disabled {
-      opacity: 0.4; }
   .raven .raven-header > button.text-button {
     color: rgba(255, 255, 255, 0.85);
     background-color: #FF5252; }
