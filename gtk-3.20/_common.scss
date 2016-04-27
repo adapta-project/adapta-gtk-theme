@@ -2969,10 +2969,34 @@ switch {
       min-height: rem(20px);
     }
 
+    // reset all of default troughs
+    &,
+    &:hover,
+    &:checked,
+    &:checked:hover,
+    &:checked:disabled,
+    &:disabled {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      color: transparent;
+      background: none;
+      background-image: none;
+      background-size: 40px 20px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      box-shadow: none;
+
+      &:dir(rtl) { background-position: left center; }
+    }
+
+    // reset all of default sliders
     &, slider,
     &:hover slider,
     &:checked slider,
-    &:disabled slider { // reset all of default switches
+    &:checked:hover slider,
+    &:checked:disabled slider,
+    &:disabled slider {
       margin: 0;
       border: 0;
       border-radius: 0;
@@ -2988,7 +3012,7 @@ switch {
     }
 
     // use ugly pixmaps
-    &:not(:hover):not(:checked) {
+    &:not(:hover):not(:checked):not(:disabled) {
       background-image: -gtk-scaled(
                         url("assets/toggle-off#{$asset_suffix}.png"),
                         url("assets/toggle-off#{$asset_suffix}@2.png"));

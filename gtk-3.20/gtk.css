@@ -4509,7 +4509,7 @@ switch {
     grid switch slider {
       min-width: 3.00752rem;
       min-height: 1.50376rem; }
-    grid switch, grid switch slider, grid switch:hover slider, grid switch:checked slider, grid switch:disabled slider {
+    grid switch, grid switch:hover, grid switch:checked, grid switch:checked:hover, grid switch:checked:disabled, grid switch:disabled {
       margin: 0;
       border: 0;
       border-radius: 0;
@@ -4520,9 +4520,22 @@ switch {
       background-repeat: no-repeat;
       background-position: right center;
       box-shadow: none; }
-      grid switch:dir(rtl), grid switch slider:dir(rtl), grid switch:hover slider:dir(rtl), grid switch:checked slider:dir(rtl), grid switch:disabled slider:dir(rtl) {
+      grid switch:dir(rtl), grid switch:hover:dir(rtl), grid switch:checked:dir(rtl), grid switch:checked:hover:dir(rtl), grid switch:checked:disabled:dir(rtl), grid switch:disabled:dir(rtl) {
         background-position: left center; }
-    grid switch:not(:hover):not(:checked) {
+    grid switch, grid switch slider, grid switch:hover slider, grid switch:checked slider, grid switch:checked:hover slider, grid switch:checked:disabled slider, grid switch:disabled slider {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      color: transparent;
+      background: none;
+      background-image: none;
+      background-size: 40px 20px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      box-shadow: none; }
+      grid switch:dir(rtl), grid switch slider:dir(rtl), grid switch:hover slider:dir(rtl), grid switch:checked slider:dir(rtl), grid switch:checked:hover slider:dir(rtl), grid switch:checked:disabled slider:dir(rtl), grid switch:disabled slider:dir(rtl) {
+        background-position: left center; }
+    grid switch:not(:hover):not(:checked):not(:disabled) {
       background-image: -gtk-scaled(url("assets/toggle-off.png"), url("assets/toggle-off@2.png")); }
     grid switch:hover {
       background-image: -gtk-scaled(url("assets/toggle-off-hover.png"), url("assets/toggle-off-hover@2.png")); }
@@ -9886,7 +9899,7 @@ window overlay > grid > frame > grid list separator {
 window > box.vertical > grid.vertical > stack stack > spinner {
   min-width: 1.80451rem;
   min-height: 1.80451rem;
-  padding: 4rem 6.0rem 4rem; }
+  padding: 4rem 6rem 4rem; }
 
 /******************
  * Budgie Desktop *
