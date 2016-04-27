@@ -1,6 +1,6 @@
 AC_INIT(
 	[Adapta ],
-	3.20.3,
+	3.21.1,
 	[https://github.com/tista500/Adapta],
 	[adapta-gtk-theme]
 )
@@ -22,20 +22,20 @@ AC_MSG_RESULT([
         Adapta Gtk+ Theme $VERSION
         ========================
 
-        * Supported Gtk+ version: 3.20 & 3.18
-        -------------------------------------
+        * Supported Gtk+ version: 3.21 & 3.20 & 3.18
+        --------------------------------------------
 
         prefix:               ${prefix}
         datarootdir:          ${datarootdir}
 
         * Default DE support
-        -------------------------------------
+        --------------------------------------------
 
         GNOME:                >= 3.20 (or 3.18)
         Budgie-Desktop:       >= 10.2.4
 
         * Extra DE support
-        -------------------------------------
+        --------------------------------------------
 
         Cinnamon:             $ENABLE_CINNAMON
         GNOME-Flashback:      $ENABLE_FLASHBACK

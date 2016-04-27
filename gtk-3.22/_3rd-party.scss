@@ -1,0 +1,145 @@
+/************
+ * Corebird *
+ ************/
+
+// use normal foreground colour
+stack button.profile-button {
+  &:checked { color: $fg_color; }
+}
+
+headerbar.titlebar box {
+  button.toggle.account-button { // left-most account-button
+    min-width: 1em;
+    min-height: 1em;
+    // FIXME: it can't override its own styleshoot
+    padding: 0.5em 0.75em 0.5em;
+    // revert to square button since we can't make perfect circle button
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+
+    // FIXME: it can't override its own styleshoot
+    .avatar-round { border-color: transparent; }
+  }
+
+  button.image-button.toggle { // tweet button
+    min-width: 1em;
+    min-height: 1em;
+    padding: 0.5em 0.75em 0.5em;
+  }
+}
+
+
+/********
+ * Nemo *
+ ********/
+
+.nemo-desktop.nemo-canvas-item {
+  @extend .nautilus-desktop.nautilus-canvas-item;
+}
+
+window {
+  // Workaround for invisible text in rename entry
+  EelEditableLabel { transition: none; }
+
+  // draw bottom border and shadows
+  grid > box > box > toolbar.primary-toolbar {
+    border-bottom: 1px solid $borders_color;
+    box-shadow: if($variant=='light', $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
+  }
+
+  // tweak notebook colour
+  grid > paned > box > paned > box > notebook {
+    &, > stack:not(:only-child) {
+      background-color: $base_color;
+    }
+  }
+
+  // remove double-border
+  grid.vertical > paned.horizontal > box.vertical {
+    > scrolledwindow.frame {
+      border-width: 0;
+    }
+  }
+
+  // force using flat-style on bottom bar
+  grid.vertical > widget {
+    // FIXME: conflicts with lollypop.
+    // background-color: $secondary_dark_color;
+    // box-shadow: $inline-shadow;
+
+    > box { padding: rem(2.7px); }
+
+    > box > button.image-button {
+      @extend button.flat;
+      min-width: rem(13.3px);
+      min-height: rem(29.3px);
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+      padding: 0 rem(10px) 0;
+      box-shadow: none;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.001,
+                                  to($track_color),
+                                  to(transparent))
+                                  0 0 0 / 0 0 0px;
+      color: $secondary_fg_color;
+      &:hover {
+        box-shadow: none;
+        border-image: none;
+        color: $fg_color;
+      }
+      &:checked {
+        box-shadow: none;
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+        background-color: transparent;
+        color: $fg_color;
+        &:disabled {
+          box-shadow: none;
+          background-color: transparent;
+          color: $insensitive_fg_color;
+          border-image: none;
+          > label { color: inherit; }
+        }
+      }
+      &:disabled {
+        box-shadow: none;
+        background-color: transparent;
+        color: $insensitive_secondary_fg_color;
+        border-image: none;
+      }
+    }
+
+    box > separator.vertical { // remove separator
+      min-width: 0;
+      color: transparent;
+      background-color: transparent;
+    }
+  }
+}
+
+
+/************
+ * Lollypop *
+ ************/
+
+window > headerbar > widget > box.horizontal {
+  > grid.horizontal > button.toggle.image-button {
+    min-width: rem(17.3px);
+    min-height: rem(37.3px);
+    padding: 0 rem(10px) 0;
+  }
+  > button.image-button {
+    min-width: rem(17.3px);
+    min-height: rem(37.3px);
+    margin: rem(-2px) 0;
+    padding: 0 rem(10px) 0;
+  }
+}
+

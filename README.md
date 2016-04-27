@@ -10,10 +10,10 @@ Elements
 
 Required Components
 -------------------
-Adapta supports Gtk+ 3.20.x (and 3.18.x)
+Adapta supports Gtk+ 3.21.x (and 3.20.x, 3.18.x)
 
  ```
- * Gtk+-3.0            >= 3.20.0 (or 3.18.4)
+ * Gtk+-3.0            >= 3.21.1 (or 3.20.0, 3.18.4)
  * Gtk+-2.0            >= 2.24.30 (or 2.24.29)
  * gtk2-engines-pixbuf >= 2.24.30 (or 2.24.29)
  ```
