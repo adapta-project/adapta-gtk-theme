@@ -11,6 +11,7 @@ Elements
 Required Components
 -------------------
 Adapta supports Gtk+ 3.21.x (and 3.20.x, 3.18.x)
+**Gtk+ 3.21.x support is under development! **
 
  ```
  * Gtk+-3.0            >= 3.21.1 (or 3.20.0, 3.18.4)
@@ -81,7 +82,7 @@ Installation from Git Source
 
 Work in Progress
 ----------------
-* Conversion to Gtk+ git master
+* Conversion to Gtk+ 3.22
 * XFce4 integration
 
 TODO
