@@ -651,7 +651,9 @@ button {
     button.suggested-action:hover {
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0), alpha(currentColor, 0));
-      color: #ECEFF1; }
+      color: #ECEFF1;
+      background-color: #FF5252;
+      color: #FFFFFF; }
     button.suggested-action:active {
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
       color: #ECEFF1;
@@ -725,7 +727,9 @@ button {
     button.destructive-action:hover {
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
       background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0), alpha(currentColor, 0));
-      color: #ECEFF1; }
+      color: #ECEFF1;
+      background-color: #FF5252;
+      color: #FFFFFF; }
     button.destructive-action:active {
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
       color: #ECEFF1;
@@ -2717,6 +2721,9 @@ headerbar {
     .titlebar switch slider,
     headerbar switch slider {
       background-color: #3e515a; }
+    .titlebar switch:hover slider,
+    headerbar switch:hover slider {
+      background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2), alpha(#FFFFFF, 0.2)); }
     .titlebar switch:checked slider,
     headerbar switch:checked slider {
       background-color: #00BCD4; }
@@ -4007,12 +4014,13 @@ switch {
     min-height: 1.50376rem;
     margin: -0.30075rem -0.07519rem;
     padding: 0;
-    border-radius: 100px; }
+    border-radius: 100px;
+    -gtk-outline-radius: 100px; }
   switch:hover slider {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07);
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0), alpha(currentColor, 0));
     color: #ECEFF1;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)); }
+    background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2), alpha(#FFFFFF, 0.2)); }
   switch:checked slider {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
     background-color: #00BCD4;
@@ -4021,19 +4029,21 @@ switch {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.07);
     background-color: #00BCD4;
     color: #FFFFFF;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07));
+    background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2), alpha(#FFFFFF, 0.2));
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.07); }
   switch:checked:disabled slider {
     box-shadow: none;
     background-color: alpha(currentColor, 0.2);
     color: rgba(0, 188, 212, 0.4);
-    box-shadow: none;
-    background-color: #3F4E56; }
+    background-color: #3F4E56;
+    background-image: none;
+    box-shadow: none; }
     switch:checked:disabled slider > label {
       color: inherit; }
   switch:disabled slider {
-    box-shadow: none;
-    background-color: #3F4E56; }
+    background-color: #3F4E56;
+    background-image: none;
+    box-shadow: none; }
   row:selected switch {
     background-color: #3e515a; }
     row:selected switch:checked {
@@ -4042,6 +4052,8 @@ switch {
         background-color: #3b4c54; }
     row:selected switch slider {
       background-color: #3e515a; }
+    row:selected switch:hover slider {
+      background-image: linear-gradient(to bottom, alpha(#FFFFFF, 0.2), alpha(#FFFFFF, 0.2)); }
     row:selected switch:checked slider {
       background-color: #455A64; }
     row:selected switch:checked:disabled slider {
