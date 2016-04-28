@@ -211,6 +211,8 @@ StScrollBar {
     background-image: url("toggle-off.svg");
     &:checked { background-image: url("toggle-on.svg"); }
   }
+  .toggle-switch-#{$v}:hover,
+  .toggle-switch-#{$v}:active,
   .toggle-switch-#{$v}:focus {
     background-image: url("toggle-off-hover.svg");
     &:checked { background-image: url("toggle-on-hover.svg"); }
@@ -2162,7 +2164,7 @@ $legacy_icon_size: 24px;
   -arrow-base: 0;
   -arrow-rise: 0;
   -boxpointer-gap: 5px;
-  background-color: $bg_color;
+  background-color: transparentize($osd_bg_color, 0.1);
   color: inherit;
   box-shadow: $z-depth-2;
 }
