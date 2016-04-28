@@ -10,12 +10,10 @@ Elements
 
 Required Components
 -------------------
-Adapta supports Gtk+ 3.21.x (and 3.20.x, 3.18.x)
-
-Gtk+ 3.21.x support is under development!
+Adapta supports Gtk+ 3.20.x and 3.18.x
 
  ```
- * Gtk+-3.0            >= 3.21.1 (or 3.20.0, 3.18.4)
+ * Gtk+-3.0            >= 3.20.0  (or  3.18.4)
  * Gtk+-2.0            >= 2.24.30 (or 2.24.29)
  * gtk2-engines-pixbuf >= 2.24.30 (or 2.24.29)
  ```
@@ -80,6 +78,14 @@ Installation from Git Source
 
  * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  * Cinnamon/Unity support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
+
+4. If users want to enable next Gtk+ release support, please pass this option:
+
+ ```
+ --enable-gtk_next       enable Gtk+ 3.21.x support
+ ```
+
+ * As default, Gtk+ 3.21.x support is disabled.
 
 Work in Progress
 ----------------

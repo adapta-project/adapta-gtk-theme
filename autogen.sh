@@ -12,5 +12,5 @@ autoreconf --force --install --warnings=all
 
 if test -z "${NOCONFIGURE}"; then
     set -x
-    $srcdir/configure --prefix=/usr "$@"
+    $srcdir/configure --prefix=/usr --disable-gtk_next "$@"
 fi

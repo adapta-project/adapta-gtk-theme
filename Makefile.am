@@ -3,11 +3,11 @@ EXTRA_DIST = \
 	gnome-shell \
 	gtk-2.0 \
 	gtk-3.20 \
-	gtk-3.22 \
 	gtk-3.0 \
 	index.theme \
 	README.md
 
+GTK_NEXT_DIR = gtk-3.22
 CINNAMON_DIR = cinnamon
 METACITY_DIR = metacity-1
 UNITY_DIR    = unity
@@ -19,6 +19,10 @@ themedir = $(datadir)/themes
 install-data-hook:
 	$(MKDIR_P) $(DESTDIR)$(themedir)/Adapta
 	cp -Rv $(EXTRA_DIST) $(DESTDIR)$(themedir)/Adapta
+
+if ENABLE_GTK_NEXT
+	cp -Rv $(GTK_NEXT_DIR) $(DESTDIR)$(themedir)/Adapta
+endif
 
 if ENABLE_CINNAMON
 	cp -Rv $(CINNAMON_DIR) $(DESTDIR)$(themedir)/Adapta
