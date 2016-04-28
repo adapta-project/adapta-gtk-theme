@@ -600,3 +600,21 @@ window > headerbar > widget > box.horizontal {
   }
 }
 
+
+/***************************
+ * Cinnamon-control-center *
+ ***************************/
+
+window > box.vertical > stack > scrolledwindow {
+  // stop using $base_color
+  iconview {
+    &, &.view { background-color: $bg_color; }
+  }
+
+  // FIXME: why toolbar style-class was needed?
+  toolbar {
+    background-color: $secondary_dark_color;
+    box-shadow: $inline-shadow;
+  }
+}
+
