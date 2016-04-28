@@ -564,6 +564,20 @@ NemoWindow {
 }
 
 
+/***************************
+ * Cinnamon-control-center *
+ ***************************/
+
+CcShellCategoryView { // stop using $base_color
+  CcShellItemView.view { background-color: $bg_color; }
+}
+
+.cs-header { // FIXME: why toolbar style-class was needed?
+  background-color: $secondary_dark_color;
+  box-shadow: $inline-shadow;
+}
+
+
 /*********
  * XFce4 *
  *********/
