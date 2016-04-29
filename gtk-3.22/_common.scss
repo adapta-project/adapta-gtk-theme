@@ -2753,16 +2753,16 @@ notebook {
  * Scrollbars *
  **************/
 
-$_slider_min_width: rem(10px);
+$_slider_min_width: rem(12px);
 $_slider_min_length: rem(32px);
 
 @keyframes slow_down_vert {
-  from {min-width: $_slider_min_width - rem(4px); }
+  from {min-width: $_slider_min_width - rem(6px); }
   to { min-width: $_slider_min_width; }
 }
 
 @keyframes slow_down_horz {
-  from {min-height: $_slider_min_width - rem(4px); }
+  from {min-height: $_slider_min_width - rem(6px); }
   to { min-height: $_slider_min_width; }
 }
 
@@ -2840,7 +2840,7 @@ scrollbar {
       // when hovering/dragging
       &.vertical {
         slider {
-          min-width: $_slider_min_width - rem(4px);
+          min-width: $_slider_min_width - rem(6px);
           min-height: $_slider_min_length;
           margin: 0;
         }
@@ -2854,7 +2854,7 @@ scrollbar {
       &.horizontal {
         slider {
           min-width: $_slider_min_length;
-          min-height: $_slider_min_width - rem(4px);
+          min-height: $_slider_min_width - rem(6px);
           margin: 0;
         }
 
