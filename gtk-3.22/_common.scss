@@ -2766,7 +2766,8 @@ $_slider_min_length: rem(32px);
   to { min-height: $_slider_min_width; }
 }
 
-scrollbar {
+scrollbar,
+.scrollbar {
   @extend %fade_effect;
   // disable steppers
   @at-root * {
@@ -2786,7 +2787,8 @@ scrollbar {
   }
 
   // slider
-  slider {
+  slider,
+  .slider {
     margin: 0;
     border-radius: 0;
     border: 0 none transparent;
@@ -3116,7 +3118,8 @@ switch {
                   (':checked:hover', '-checked-active'),
                   (':checked:active', '-checked-active'),
                   (':checked:disabled','-checked-insensitive') {
-    #{$w}#{$s} {
+    #{$w}#{$s},
+    .#{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
@@ -3137,7 +3140,8 @@ switch {
                   (':checked', '-checked'),
                   // (':checked:active', '-checked'),
                   (':checked:disabled','-checked-insensitive') {
-    menu menuitem #{$w}#{$s} {
+    menu menuitem #{$w}#{$s},
+    menu menuitem .#{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
@@ -3244,7 +3248,9 @@ radiobutton.text-button {
 }
 
 radio,
-check {
+.radio,
+check,
+.check {
   min-width: rem(16px);
   min-height: rem(16px);
   // margin: 0 rem(6.7px) 0 rem(6.7px);
