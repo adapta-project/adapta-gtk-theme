@@ -3747,6 +3747,7 @@ levelbar {
     min-width: 36px;
     min-height: 4px;
   }
+
   &.vertical block {
     min-width: 4px;
     min-height: 36px;
@@ -3764,23 +3765,20 @@ levelbar {
   &.horizontal.discrete block { margin: 0 1px; }
   &.vertical.discrete block { margin: 1px 0; }
 
-  & block:not(.empty) {
-    background-color: $selected_bg_color;
+  block {
     border-radius: 0;
+    border: none;
     box-shadow: none;
   }
-  & block.low {
-    background-color: $warning_color;
-  }
-  & block.high {
-    background-color: $selected_bg_color;
-  }
-  & block.full {
-    background-color: $success_color;
-  }
-  & block.empty {
-    background-color: $track_color;
-  }
+
+  block.low { background-color: $warning_color; }
+
+  block:not(.empty),
+  block.high { background-color: $selected_bg_color; }
+
+  block.full { background-color: $success_color; }
+
+  block.empty { background-color: $track_color; }
 }
 
 
