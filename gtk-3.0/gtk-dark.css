@@ -5826,12 +5826,6 @@ GtkVolumeButton.button {
     border: none;
     box-shadow: none; }
 
-.header-bar .button.titlebutton.close > GtkImage, .header-bar.selection-mode .button.titlebutton.close > GtkImage,
-.titlebar .button.titlebutton.close > GtkImage,
-.titlebar.selection-mode .button.titlebutton.close > GtkImage {
-  color: transparent;
-  background-image: -gtk-scaled(url("assets/window-close.png"), url("assets/window-close@2.png"));
-  background-size: 16px 16px; }
 .header-bar .button.titlebutton.close:hover, .header-bar.selection-mode .button.titlebutton.close:hover,
 .titlebar .button.titlebutton.close:hover,
 .titlebar.selection-mode .button.titlebutton.close:hover {
@@ -5840,12 +5834,6 @@ GtkVolumeButton.button {
   color: #ECEFF1;
   color: #FFFFFF;
   background-color: #FF5252; }
-  .header-bar .button.titlebutton.close:hover > GtkImage, .header-bar.selection-mode .button.titlebutton.close:hover > GtkImage,
-  .titlebar .button.titlebutton.close:hover > GtkImage,
-  .titlebar.selection-mode .button.titlebutton.close:hover > GtkImage {
-    color: transparent;
-    background-image: -gtk-scaled(url("assets/window-close-active.png"), url("assets/window-close-active@2.png"));
-    background-size: 16px 16px; }
 .header-bar .button.titlebutton.close:active, .header-bar.selection-mode .button.titlebutton.close:active,
 .titlebar .button.titlebutton.close:active,
 .titlebar.selection-mode .button.titlebutton.close:active {
@@ -5855,78 +5843,12 @@ GtkVolumeButton.button {
   animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   color: #FFFFFF;
   background-color: #00BCD4; }
-  .header-bar .button.titlebutton.close:active > GtkImage, .header-bar.selection-mode .button.titlebutton.close:active > GtkImage,
-  .titlebar .button.titlebutton.close:active > GtkImage,
-  .titlebar.selection-mode .button.titlebutton.close:active > GtkImage {
-    color: transparent;
-    background-image: -gtk-scaled(url("assets/window-close-active.png"), url("assets/window-close-active@2.png"));
-    background-size: 16px 16px; }
 .header-bar .button.titlebutton.close:hover:backdrop, .header-bar .button.titlebutton.close:active:backdrop, .header-bar.selection-mode .button.titlebutton.close:hover:backdrop, .header-bar.selection-mode .button.titlebutton.close:active:backdrop,
 .titlebar .button.titlebutton.close:hover:backdrop,
 .titlebar .button.titlebutton.close:active:backdrop,
 .titlebar.selection-mode .button.titlebutton.close:hover:backdrop,
 .titlebar.selection-mode .button.titlebutton.close:active:backdrop {
   opacity: 1.0; }
-.header-bar .button.titlebutton.minimize > GtkImage, .header-bar.selection-mode .button.titlebutton.minimize > GtkImage,
-.titlebar .button.titlebutton.minimize > GtkImage,
-.titlebar.selection-mode .button.titlebutton.minimize > GtkImage {
-  color: transparent;
-  background-image: -gtk-scaled(url("assets/window-minimize.png"), url("assets/window-minimize@2.png"));
-  background-size: 16px 16px; }
-.header-bar .button.titlebutton.minimize:hover > GtkImage, .header-bar .button.titlebutton.minimize:active > GtkImage, .header-bar.selection-mode .button.titlebutton.minimize:hover > GtkImage, .header-bar.selection-mode .button.titlebutton.minimize:active > GtkImage,
-.titlebar .button.titlebutton.minimize:hover > GtkImage,
-.titlebar .button.titlebutton.minimize:active > GtkImage,
-.titlebar.selection-mode .button.titlebutton.minimize:hover > GtkImage,
-.titlebar.selection-mode .button.titlebutton.minimize:active > GtkImage {
-  color: transparent;
-  background-image: -gtk-scaled(url("assets/window-minimize-active.png"), url("assets/window-minimize-active@2.png"));
-  background-size: 16px 16px; }
-.header-bar .button.titlebutton.minimize:hover:backdrop, .header-bar .button.titlebutton.minimize:active:backdrop, .header-bar.selection-mode .button.titlebutton.minimize:hover:backdrop, .header-bar.selection-mode .button.titlebutton.minimize:active:backdrop,
-.titlebar .button.titlebutton.minimize:hover:backdrop,
-.titlebar .button.titlebutton.minimize:active:backdrop,
-.titlebar.selection-mode .button.titlebutton.minimize:hover:backdrop,
-.titlebar.selection-mode .button.titlebutton.minimize:active:backdrop {
-  opacity: 1.0; }
-.header-bar .button.titlebutton.maximize > GtkImage, .header-bar.selection-mode .button.titlebutton.maximize > GtkImage,
-.titlebar .button.titlebutton.maximize > GtkImage,
-.titlebar.selection-mode .button.titlebutton.maximize > GtkImage {
-  color: transparent;
-  background-image: -gtk-scaled(url("assets/window-maximize.png"), url("assets/window-maximize@2.png"));
-  background-size: 16px 16px; }
-.header-bar .button.titlebutton.maximize:hover > GtkImage, .header-bar .button.titlebutton.maximize:active > GtkImage, .header-bar.selection-mode .button.titlebutton.maximize:hover > GtkImage, .header-bar.selection-mode .button.titlebutton.maximize:active > GtkImage,
-.titlebar .button.titlebutton.maximize:hover > GtkImage,
-.titlebar .button.titlebutton.maximize:active > GtkImage,
-.titlebar.selection-mode .button.titlebutton.maximize:hover > GtkImage,
-.titlebar.selection-mode .button.titlebutton.maximize:active > GtkImage {
-  color: transparent;
-  background-image: -gtk-scaled(url("assets/window-maximize-active.png"), url("assets/window-maximize-active@2.png"));
-  background-size: 16px 16px; }
-.header-bar .button.titlebutton.maximize:hover:backdrop, .header-bar .button.titlebutton.maximize:active:backdrop, .header-bar.selection-mode .button.titlebutton.maximize:hover:backdrop, .header-bar.selection-mode .button.titlebutton.maximize:active:backdrop,
-.titlebar .button.titlebutton.maximize:hover:backdrop,
-.titlebar .button.titlebutton.maximize:active:backdrop,
-.titlebar.selection-mode .button.titlebutton.maximize:hover:backdrop,
-.titlebar.selection-mode .button.titlebutton.maximize:active:backdrop {
-  opacity: 1.0; }
-.maximized .header-bar .button.titlebutton.maximize > GtkImage, .tiled .header-bar .button.titlebutton.maximize > GtkImage, .maximized .header-bar.selection-mode .button.titlebutton.maximize > GtkImage, .tiled .header-bar.selection-mode .button.titlebutton.maximize > GtkImage, .maximized
-.titlebar .button.titlebutton.maximize > GtkImage, .tiled
-.titlebar .button.titlebutton.maximize > GtkImage, .maximized
-.titlebar.selection-mode .button.titlebutton.maximize > GtkImage, .tiled
-.titlebar.selection-mode .button.titlebutton.maximize > GtkImage {
-  color: transparent;
-  background-image: -gtk-scaled(url("assets/window-unmaximize.png"), url("assets/window-unmaximize@2.png"));
-  background-size: 16px 16px; }
-.maximized .header-bar .button.titlebutton.maximize:hover > GtkImage, .maximized .header-bar .button.titlebutton.maximize:active > GtkImage, .tiled .header-bar .button.titlebutton.maximize:hover > GtkImage, .tiled .header-bar .button.titlebutton.maximize:active > GtkImage, .maximized .header-bar.selection-mode .button.titlebutton.maximize:hover > GtkImage, .maximized .header-bar.selection-mode .button.titlebutton.maximize:active > GtkImage, .tiled .header-bar.selection-mode .button.titlebutton.maximize:hover > GtkImage, .tiled .header-bar.selection-mode .button.titlebutton.maximize:active > GtkImage, .maximized
-.titlebar .button.titlebutton.maximize:hover > GtkImage, .maximized
-.titlebar .button.titlebutton.maximize:active > GtkImage, .tiled
-.titlebar .button.titlebutton.maximize:hover > GtkImage, .tiled
-.titlebar .button.titlebutton.maximize:active > GtkImage, .maximized
-.titlebar.selection-mode .button.titlebutton.maximize:hover > GtkImage, .maximized
-.titlebar.selection-mode .button.titlebutton.maximize:active > GtkImage, .tiled
-.titlebar.selection-mode .button.titlebutton.maximize:hover > GtkImage, .tiled
-.titlebar.selection-mode .button.titlebutton.maximize:active > GtkImage {
-  color: transparent;
-  background-image: -gtk-scaled(url("assets/window-unmaximize-active.png"), url("assets/window-unmaximize-active@2.png"));
-  background-size: 16px 16px; }
 
 .view:selected, .label:selected, .label:selected:focus, .label:selected:hover, .grid-child:selected, .entry:selected, GtkTreeView .entry.flat:focus:selected, GtkTreeView .linked > .entry:focus:selected:not(.flat), GtkTreeView .notebook:not(.reorderable-page) > .entry:focus:selected, .menuitem.button.flat:selected, .menuitem.button.osd.image-button:selected, .inline-toolbar .menuitem.button:selected, .action-bar .menuitem.button:selected, .inline-toolbar .linked > .menuitem.button.image-button:selected:not(.text-button), .inline-toolbar .stack-switcher > .menuitem.button.image-button:selected:not(.text-button), .action-bar .stack-switcher > .menuitem.button.image-button:selected:not(.text-button), GtkButtonBox > .menuitem.button:selected, .app-notification .menuitem.button:selected, GeditViewFrame .gedit-search-slider .menuitem.button:selected, .toolbar .menuitem.button:selected, .titlebar .menuitem.button:selected:not(.suggested-action):not(.destructive-action),
 .header-bar .menuitem.button:selected:not(.suggested-action):not(.destructive-action), .message-dialog.csd .dialog-action-area .menuitem.button:selected, .menuitem.sidebar-button.button:selected, .info .menuitem.button:selected,
