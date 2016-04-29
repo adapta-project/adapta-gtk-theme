@@ -4903,15 +4903,94 @@ headerbar,
     
     // raised 'Close' button
     &.close {
+      > image {
+        color: transparent;
+        background-image: -gtk-scaled(url("assets/window-close.png"),
+                                      url("assets/window-close@2.png"));
+        background-size: 16px 16px;
+      }
+
       &:hover {
         @include button(hover);
         color: $selected_fg_color;
         background-color: $destructive_color;
+
+        > image {
+          color: transparent;
+          background-image: -gtk-scaled(url("assets/window-close-active.png"),
+                                        url("assets/window-close-active@2.png"));
+          background-size: 16px 16px;
+        }
       }
       &:active {
         @include button(active);
         color: $selected_fg_color;
         background-color: $selected_bg_color;
+
+        > image {
+          color: transparent;
+          background-image: -gtk-scaled(url("assets/window-close-active.png"),
+                                        url("assets/window-close-active@2.png"));
+          background-size: 16px 16px;
+        }
+      }
+    }
+
+    &.minimize {
+      > image {
+        color: transparent;
+        background-image: -gtk-scaled(url("assets/window-minimize.png"),
+                                      url("assets/window-minimize@2.png"));
+        background-size: 16px 16px;
+      }
+
+      &:hover,
+      &:active {
+        > image {
+          color: transparent;
+          background-image: -gtk-scaled(url("assets/window-minimize-active.png"),
+                                        url("assets/window-minimize-active@2.png"));
+          background-size: 16px 16px;
+        }
+      }
+    }
+
+    &.maximize {
+      > image {
+        color: transparent;
+        background-image: -gtk-scaled(url("assets/window-maximize.png"),
+                                      url("assets/window-maximize@2.png"));
+        background-size: 16px 16px;
+      }
+
+      &:hover,
+      &:active {
+        > image {
+          color: transparent;
+          background-image: -gtk-scaled(url("assets/window-maximize-active.png"),
+                                        url("assets/window-maximize-active@2.png"));
+          background-size: 16px 16px;
+        }
+      }
+
+      .maximized &,
+      .tiled & {
+        > image {
+          color: transparent;
+          background-image: -gtk-scaled(url("assets/window-unmaximize.png"),
+                                        url("assets/window-unmaximize@2.png"));
+          background-size: 16px 16px;
+        }
+
+        &:hover,
+        &:active {
+          > image {
+            color: transparent;
+            background-image: -gtk-scaled(url("assets/window-unmaximize-active.png"),
+                                          url("assets/window-unmaximize-active@2.png"));
+            background-size: 16px 16px;
+          }
+        }
       }
     }
   }
