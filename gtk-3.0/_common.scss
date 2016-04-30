@@ -3615,8 +3615,6 @@ GtkVolumeButton.button {
     .titlebar {
       // revive top-edge highlight border
       box-shadow: inset 0 1px $highlight_color;
-      // control titlebar height with button padding
-      .button.titlebutton { padding: 8px; }
     }
 
     .tiled .titlebar {
@@ -3655,30 +3653,200 @@ GtkVolumeButton.button {
 }
 
 // Window manager buttons
-.header-bar,
-.titlebar {
+.csd .header-bar,
+.csd .titlebar {
   & .button.titlebutton,
   &.selection-mode .button.titlebutton {
     @extend %image_button;
 
+    &.close,
+    &.minimize,
+    &.maximize {
+      &:hover:backdrop,
+      &:active:backdrop { opacity: 1.0; }
+
+      > GtkImage {
+        color: transparent;
+        background-size: 16px 16px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
     // raised 'Close' button
     &.close {
+      > GtkImage {
+        background-image: -gtk-scaled(url("assets/window-close.png"),
+                                      url("assets/window-close@2.png"));
+      }
+
       &:hover {
         @include button(hover);
         color: $selected_fg_color;
         background-color: $destructive_color;
+
+        > GtkImage {
+          background-image: -gtk-scaled(url("assets/window-close-active.png"),
+                                        url("assets/window-close-active@2.png"));
+        }
       }
       &:active {
         @include button(active);
         color: $selected_fg_color;
         background-color: $selected_bg_color;
+
+        > GtkImage {
+          background-image: -gtk-scaled(url("assets/window-close-active.png"),
+                                        url("assets/window-close-active@2.png"));
+        }
       }
-      &:hover:backdrop,
-      &:active:backdrop { opacity: 1.0; }
+    }
+
+    &.minimize {
+      > GtkImage {
+        background-image: -gtk-scaled(url("assets/window-minimize.png"),
+                                      url("assets/window-minimize@2.png"));
+      }
+
+      &:hover,
+      &:active {
+        > GtkImage {
+          background-image: -gtk-scaled(url("assets/window-minimize-active.png"),
+                                        url("assets/window-minimize-active@2.png"));
+        }
+      }
+    }
+
+    &.maximize {
+      > GtkImage {
+        background-image: -gtk-scaled(url("assets/window-maximize.png"),
+                                      url("assets/window-maximize@2.png"));
+      }
+
+      &:hover,
+      &:active {
+        > GtkImage {
+          background-image: -gtk-scaled(url("assets/window-maximize-active.png"),
+                                        url("assets/window-maximize-active@2.png"));
+        }
+      }
+
+      .maximized & {
+        > GtkImage {
+          background-image: -gtk-scaled(url("assets/window-unmaximize.png"),
+                                        url("assets/window-unmaximize@2.png"));
+        }
+
+        &:hover,
+        &:active {
+          > GtkImage {
+            background-image: -gtk-scaled(url("assets/window-unmaximize-active.png"),
+                                          url("assets/window-unmaximize-active@2.png"));
+          }
+        }
+      }
     }
   }
 }
 
+// specific button styling for SSDs
+.ssd .titlebar {
+  .button.titlebutton {
+    margin: 4px;
+
+    &.close,
+    &.minimize,
+    &.maximize { // reset styling
+      color: transparent;
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background: none;
+      box-shadow: none;
+      &:backdrop,
+      &:hover:backdrop,
+      &:active:backdrop { color: transparent; }
+    }
+
+    &.close {
+      background-image: -gtk-scaled(url("assets/window-close-ssd.png"),
+                                    url("assets/window-close-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-close-ssd-hover.png"),
+                                      url("assets/window-close-ssd-hover@2.png"));
+        box-shadow: $z-depth-2;
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-close-ssd-active.png"),
+                                      url("assets/window-close-ssd-active@2.png"));
+        box-shadow: $z-depth-2;
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-close-ssd-backdrop.png"),
+                                      url("assets/window-close-ssd-backdrop@2.png"));
+      }
+    }
+
+    &.minimize {
+      background-image: -gtk-scaled(url("assets/window-minimize-ssd.png"),
+                                    url("assets/window-minimize-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-minimize-ssd-hover.png"),
+                                      url("assets/window-minimize-ssd-hover@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-minimize-ssd-active.png"),
+                                      url("assets/window-minimize-ssd-active@2.png"));
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-minimize-ssd-backdrop.png"),
+                                      url("assets/window-minimize-ssd-backdrop@2.png"));
+      }
+    }
+
+    &.maximize {
+      background-image: -gtk-scaled(url("assets/window-maximize-ssd.png"),
+                                    url("assets/window-maximize-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-maximize-ssd-hover.png"),
+                                      url("assets/window-maximize-ssd-hover@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-maximize-ssd-active.png"),
+                                      url("assets/window-maximize-ssd-active@2.png"));
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-maximize-ssd-backdrop.png"),
+                                      url("assets/window-maximize-ssd-backdrop@2.png"));
+      }
+    }
+  }
+}
+
+.maximized.ssd .titlebar {
+  .button.titlebutton {
+    &.maximize {
+      background-image: -gtk-scaled(url("assets/window-unmaximize-ssd.png"),
+                                    url("assets/window-unmaximize-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-unmaximize-ssd-hover.png"),
+                                      url("assets/window-unmaximize-ssd-hover@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-unmaximize-ssd-active.png"),
+                                      url("assets/window-unmaximize-ssd-active@2.png"));
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-unmaximize-ssd-backdrop.png"),
+                                      url("assets/window-unmaximize-ssd-backdrop@2.png"));
+      }
+    }
+  }
+}
 
 // catch all extend :)
 
