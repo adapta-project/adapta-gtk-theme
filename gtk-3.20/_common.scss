@@ -4889,8 +4889,8 @@ decoration {
 }
 
 // Window manager buttons
-headerbar,
-.titlebar {
+.csd headerbar,
+.csd .titlebar {
   & button.titlebutton,
   &.selection-mode button.titlebutton {
     @extend %fade_effect;
@@ -4900,18 +4900,199 @@ headerbar,
     padding: rem(10px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    
+
+    &.close,
+    &.minimize,
+    &.maximize {
+      &:hover:backdrop,
+      &:active:backdrop { opacity: 1.0; }
+
+      > image {
+        min-height: 16px;
+	min-width: 16px;
+        color: transparent;
+        background-size: 16px 16px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
     // raised 'Close' button
     &.close {
+      > image {
+        background-image: -gtk-scaled(url("assets/window-close.png"),
+                                      url("assets/window-close@2.png"));
+      }
+
       &:hover {
         @include button(hover);
         color: $selected_fg_color;
         background-color: $destructive_color;
+
+        > image {
+          background-image: -gtk-scaled(url("assets/window-close-active.png"),
+                                        url("assets/window-close-active@2.png"));
+        }
       }
       &:active {
         @include button(active);
         color: $selected_fg_color;
         background-color: $selected_bg_color;
+
+        > image {
+          background-image: -gtk-scaled(url("assets/window-close-active.png"),
+                                        url("assets/window-close-active@2.png"));
+        }
+      }
+    }
+
+    &.minimize {
+      > image {
+        background-image: -gtk-scaled(url("assets/window-minimize.png"),
+                                      url("assets/window-minimize@2.png"));
+      }
+
+      &:hover,
+      &:active {
+        > image {
+          background-image: -gtk-scaled(url("assets/window-minimize-active.png"),
+                                        url("assets/window-minimize-active@2.png"));
+        }
+      }
+    }
+
+    &.maximize {
+      > image {
+        background-image: -gtk-scaled(url("assets/window-maximize.png"),
+                                      url("assets/window-maximize@2.png"));
+      }
+
+      &:hover,
+      &:active {
+        > image {
+          background-image: -gtk-scaled(url("assets/window-maximize-active.png"),
+                                        url("assets/window-maximize-active@2.png"));
+        }
+      }
+    }
+  }
+}
+
+.csd.maximized headerbar,
+.csd.maximized .titlebar {
+  & button.titlebutton,
+  &.selection-mode button.titlebutton {
+    &.maximize {
+      > image {
+        background-image: -gtk-scaled(url("assets/window-unmaximize.png"),
+                                      url("assets/window-unmaximize@2.png"));
+      }
+
+      &:hover,
+      &:active {
+        > image {
+          background-image: -gtk-scaled(url("assets/window-unmaximize-active.png"),
+                                        url("assets/window-unmaximize-active@2.png"));
+        }
+      }
+    }
+  }
+}
+
+// specific button styling for SSDs
+.ssd .titlebar {
+  button.titlebutton {
+    margin: 4px;
+
+    &.close,
+    &.minimize,
+    &.maximize { // reset styling
+      color: transparent;
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background: none;
+      box-shadow: none;
+      &:backdrop,
+      &:hover:backdrop,
+      &:active:backdrop { color: transparent; }
+    }
+
+    &.close {
+      background-image: -gtk-scaled(url("assets/window-close-ssd.png"),
+                                    url("assets/window-close-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-close-ssd-hover.png"),
+                                      url("assets/window-close-ssd-hover@2.png"));
+        box-shadow: $z-depth-2;
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-close-ssd-active.png"),
+                                      url("assets/window-close-ssd-active@2.png"));
+        box-shadow: $z-depth-2;
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-close-ssd-backdrop.png"),
+                                      url("assets/window-close-ssd-backdrop@2.png"));
+      }
+    }
+
+    &.minimize {
+      background-image: -gtk-scaled(url("assets/window-minimize-ssd.png"),
+                                    url("assets/window-minimize-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-minimize-ssd-hover.png"),
+                                      url("assets/window-minimize-ssd-hover@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-minimize-ssd-active.png"),
+                                      url("assets/window-minimize-ssd-active@2.png"));
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-minimize-ssd-backdrop.png"),
+                                      url("assets/window-minimize-ssd-backdrop@2.png"));
+      }
+    }
+
+    &.maximize {
+      background-image: -gtk-scaled(url("assets/window-maximize-ssd.png"),
+                                    url("assets/window-maximize-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-maximize-ssd-hover.png"),
+                                      url("assets/window-maximize-ssd-hover@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-maximize-ssd-active.png"),
+                                      url("assets/window-maximize-ssd-active@2.png"));
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-maximize-ssd-backdrop.png"),
+                                      url("assets/window-maximize-ssd-backdrop@2.png"));
+      }
+    }
+  }
+}
+
+.maximized.ssd .titlebar {
+  button.titlebutton {
+    &.maximize {
+      background-image: -gtk-scaled(url("assets/window-unmaximize-ssd.png"),
+                                    url("assets/window-unmaximize-ssd@2.png"));
+
+      &:hover {
+        background-image: -gtk-scaled(url("assets/window-unmaximize-ssd-hover.png"),
+                                      url("assets/window-unmaximize-ssd-hover@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(url("assets/window-unmaximize-ssd-active.png"),
+                                      url("assets/window-unmaximize-ssd-active@2.png"));
+      }
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/window-unmaximize-ssd-backdrop.png"),
+                                      url("assets/window-unmaximize-ssd-backdrop@2.png"));
       }
     }
   }
@@ -4920,8 +5101,9 @@ headerbar,
 .ssd decoration .titlebar {
   // shrink titlebar height for SSD
   button.titlebutton {
-    min-width: 26.7px;
-    min-height: 26.7px;
+    min-width: 24px;
+    min-height: 24px;
+    margin: 2.7px;
     padding: 0;
   }
 }
