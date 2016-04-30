@@ -3730,19 +3730,26 @@ GtkVolumeButton.button {
                                         url("assets/window-maximize-active@2.png"));
         }
       }
+    }
+  }
+}
 
-      .maximized & {
+
+.maximized.csd .header-bar,
+.maximized.csd .titlebar {
+  & .button.titlebutton,
+  &.selection-mode .button.titlebutton {
+    &.maximize {
+      > GtkImage {
+        background-image: -gtk-scaled(url("assets/window-unmaximize.png"),
+                                      url("assets/window-unmaximize@2.png"));
+      }
+
+      &:hover,
+      &:active {
         > GtkImage {
-          background-image: -gtk-scaled(url("assets/window-unmaximize.png"),
-                                        url("assets/window-unmaximize@2.png"));
-        }
-
-        &:hover,
-        &:active {
-          > GtkImage {
-            background-image: -gtk-scaled(url("assets/window-unmaximize-active.png"),
-                                          url("assets/window-unmaximize-active@2.png"));
-          }
+          background-image: -gtk-scaled(url("assets/window-unmaximize-active.png"),
+                                        url("assets/window-unmaximize-active@2.png"));
         }
       }
     }
