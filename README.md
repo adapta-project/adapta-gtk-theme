@@ -30,7 +30,7 @@ Supported Desktop Environments
  * XFce4           >= 4.12.2
  ```
 
- > **Note:** Cinnamon support are under W.I.P state.
+ > **Note:** Cinnamon support is under W.I.P state.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
