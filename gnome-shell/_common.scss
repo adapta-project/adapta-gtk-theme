@@ -1614,17 +1614,17 @@ StScrollBar {
   }
 
   // draw edge if dock were not extended
-  @each $_dock, $_line in (top, 0 -1px),
-                          (bottom, 0 1px),
-                          (left, -1px 0),
-                          (right, 1px 0) {
+  @each $_dock, $_line, $_edge in (top, 0 -1px, 0 2px),
+                                  (bottom, 0 1px, 0 -2px),
+                                  (left, -1px 0, 2px 0),
+                                  (right, 1px 0, -2px 0) {
     &.#{$_dock}:overview #dash {
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset #{$_line} 0 $osd_semi_fill_color;
     }
     &.#{$_dock} #dash {
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset #{$_line} 0 $osd_fill_color;
+      box-shadow: inset #{$_edge} 0 $panel_bg_color;
     }
   }
 
