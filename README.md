@@ -26,11 +26,11 @@ Supported Desktop Environments
  * GNOME-Flashback >= 3.18.0
  * Budgie-Desktop  >= 10.2.4
  * Unity7          >= 7.4.0
- * Cinnamon        >= 3.0 (or 2.8)
+ * Cinnamon        >= 3.0.1 (or 2.8.6)
  * XFce4           >= 4.12.2
  ```
 
- Unity, Cinnamon and XFce support are under W.I.P state.
+ > **Note:** Cinnamon support are under W.I.P state.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
@@ -49,8 +49,9 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
 
 2. select `Adapta` via Gnome-Tweak-Tool.
 
- * For Gtk+ 3.18.x users, there's no need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
- * As default, Gtk+ 3.21.x support is disabled.
+ > **Note:**
+ >   * For Gtk+ 3.18.x users, there's no need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
+ >   * As default, Gtk+ 3.21.x support is disabled.
 
 Installation from Git Source
 ------------
@@ -64,9 +65,10 @@ Installation from Git Source
  sudo make install
  ```
 
- * Default prefix is `/usr`
- * `make` actually does nothing (for future release)
- * `sudo make install` installs multiple versioned theme and Gtk+ automatically selects proper versioned one when running.
+ > **Note:**
+ >   * Default prefix is `/usr`
+ >   * `make` actually does nothing (for future release)
+ >   * `sudo make install` installs multiple versioned theme and Gtk+ automatically selects proper versioned one when running.
 
 3. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
 
@@ -77,8 +79,9 @@ Installation from Git Source
  --disable-xfce          disable xfce support
  ```
 
- * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
- * Cinnamon/Unity support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
+ > **Note:**
+ >   * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
+ >   * Cinnamon/Unity support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
 4. If users want to enable next Gtk+ release support, please pass this option:
 
@@ -86,7 +89,8 @@ Installation from Git Source
  --enable-gtk_next       enable Gtk+ 3.21.x support
  ```
 
- * As default, Gtk+ 3.21.x support is disabled.
+ > **Note:**
+ >   * As default, Gtk+ 3.21.x support is disabled.
 
 Work in Progress
 ----------------
@@ -95,6 +99,8 @@ Work in Progress
 
 TODO
 ----
+* Dark variant Gtk+ 2.0 theming for Gimp and Inkscape (priority: Mid)
+* Prepare for Steam theming (priority: Low)
 
 Public License
 --------------
