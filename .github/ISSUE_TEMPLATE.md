@@ -2,7 +2,7 @@
 
  ```
  * Distribution -
- * Gtk+ version -
+ * Gtk+ 3.0 version -
  * Desktop environment - 
  ```
 
@@ -18,7 +18,7 @@
 
 
 
-**How to reproduce (if you knew)**
+**Steps to reproduce (if you knew)**
 
 
 
