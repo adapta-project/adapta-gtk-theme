@@ -270,6 +270,19 @@ NautilusTrashBar {
   @extend infobar;
 }
 
+.disk-space-display {
+  border: 0 none transparent;
+
+  &.free {
+    background-color: $track_color;
+    color: $insensitive_fg_color;
+  }
+
+  &.used { background-color: $selected_bg_color; }
+
+  &.unknown { background-color: $warning_color; }
+}
+
 
 /*********
  * Geary *
