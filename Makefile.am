@@ -4,10 +4,10 @@ EXTRA_DIST = \
 	gtk-2.0 \
 	gtk-3.20 \
 	gtk-3.0 \
-	index.theme \
-	index.theme-nokto \
 	README.md
 
+INDEX        = index.theme
+INDEX_NOKTO  = index.theme-nokto
 GTK_NEXT_DIR = gtk-3.22
 CINNAMON_DIR = cinnamon
 METACITY_DIR = metacity-1
@@ -22,9 +22,8 @@ install-data-hook:
 	$(MKDIR_P) $(DESTDIR)$(themedir)/Adapta-Nokto
 	cp -Rv $(EXTRA_DIST) $(DESTDIR)$(themedir)/Adapta
 	cp -Rv $(EXTRA_DIST) $(DESTDIR)$(themedir)/Adapta-Nokto
-	rm -rf $(DESTDIR)$(themedir)/Adapta-Nokto/index.theme && \
-		mv $(DESTDIR)$(themedir)/Adapta-Nokto/index.theme-nokto \
-		$(DESTDIR)$(themedir)/Adapta-Nokto/index.theme
+	cp -Rv $(INDEX) $(DESTDIR)$(themedir)/Adapta
+	cp -Rv $(INDEX_NOKTO) $(DESTDIR)$(themedir)/Adapta-Nokto
 	mv $(DESTDIR)$(themedir)/Adapta-Nokto/gtk-2.0/gtkrc \
 		$(DESTDIR)$(themedir)/Adapta-Nokto/gtk-2.0/gtkrc-light
 	mv $(DESTDIR)$(themedir)/Adapta-Nokto/gtk-2.0/gtkrc-dark \
