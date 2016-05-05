@@ -2136,6 +2136,10 @@ style "tooltips" {
   bg[SELECTED] = @tooltip_bg_color
 }
 
+style "text" {
+  engine "murrine" { textstyle = 0 }
+}
+
 style "null" {
   engine "pixmap" {
     image {
@@ -2207,3 +2211,9 @@ widget_class "*<GtkNotebook>.<GtkLabel>" style "notebook_tab_label"
 
 # GTK tooltips
 widget "gtk-tooltip*" style "tooltips"
+
+# Fixes insensitive text shadows
+widget_class "*<GtkLabel>"                     style "text"
+widget_class "*<GtkComboBox>*<GtkCellLayout>"  style "text"
+widget_class "*<GtkNotebook>*<GtkLabel>"       style "text"
+widget_class "*<GtkNotebook>*<GtkCellLayout>"  style "text"
