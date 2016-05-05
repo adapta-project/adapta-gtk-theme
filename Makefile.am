@@ -23,7 +23,7 @@ install-data-hook:
 	cp -Rv $(EXTRA_DIST) $(DESTDIR)$(themedir)/Adapta
 	cp -Rv $(EXTRA_DIST) $(DESTDIR)$(themedir)/Adapta-Nokto
 	cp -Rv $(INDEX) $(DESTDIR)$(themedir)/Adapta
-	cp -Rv $(INDEX_NOKTO) $(DESTDIR)$(themedir)/Adapta-Nokto
+	cp -Rv $(INDEX_NOKTO) $(DESTDIR)$(themedir)/Adapta-Nokto/index.theme
 	mv $(DESTDIR)$(themedir)/Adapta-Nokto/gtk-2.0/gtkrc \
 		$(DESTDIR)$(themedir)/Adapta-Nokto/gtk-2.0/gtkrc-light
 	mv $(DESTDIR)$(themedir)/Adapta-Nokto/gtk-2.0/gtkrc-dark \
