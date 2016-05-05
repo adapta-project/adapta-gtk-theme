@@ -1,0 +1,37 @@
+#
+# Colour scheme
+#
+gtk-color-scheme = "base_color:#455A64\nbg_color:#3E515A"
+gtk-color-scheme = "text_color:#ECEFF1\nfg_color:#ECEFF1"
+gtk-color-scheme = "selected_bg_color:#00BCD4\nselected_fg_color:#FFFFFF"
+gtk-color-scheme = "tooltip_bg_color:#2A373E\ntooltip_fg_color:#ECEFF1"
+
+
+#
+# Default Colours
+#
+style "default" {
+  text[NORMAL] = mix(0.75, @text_color, @bg_color)
+  text[PRELIGHT] = @text_color
+  text[ACTIVE] = mix(0.8, @selected_fg_color, @selected_bg_color)
+  text[INSENSITIVE] = mix(0.4, @text_color, @base_color)
+  text[SELECTED] = @selected_fg_color
+
+  base[NORMAL] = @base_color
+  base[PRELIGHT] = mix(0.5, @base_color, @bg_color)
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = mix(0.5, @base_color, @bg_color)
+  base[SELECTED] = @selected_bg_color
+
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[PRELIGHT] = @fg_color
+  fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[SELECTED] = @selected_fg_color
+
+  bg[NORMAL] = @bg_color
+  bg[PRELIGHT] = mix(0.1, @fg_color, @bg_color)
+  bg[ACTIVE] = mix(0.2, @fg_color, @bg_color)
+  bg[INSENSITIVE] = @bg_color
+  bg[SELECTED] = @selected_bg_color
+}

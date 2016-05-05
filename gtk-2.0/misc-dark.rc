@@ -1,0 +1,223 @@
+#
+# Gimp
+#
+style "gimp_spin_scale" {
+  xthickness = 6
+  ythickness = 4
+
+  bg[NORMAL] = @base_color
+
+  engine "pixmap" {
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      state    = NORMAL
+      file     = "Others/null.svg"
+      stretch  = TRUE
+    }
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      state    = ACTIVE
+      file     = "Others/null.svg"
+      stretch  = TRUE
+    }
+
+    # Spin-Up LTR
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_up"
+      file            = "Spin/ltr-up-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-alt-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_up"
+      file            = "Spin/ltr-up-hover-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-alt-hover-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_up"
+      file            = "Spin/ltr-up-active-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_up"
+      file            = "Spin/ltr-up-insensitive-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-alt-insensitive-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+
+    # Spin-Up RTL
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_up"
+      file            = "Spin/rtl-up-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-alt-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_up"
+      file            = "Spin/rtl-up-hover-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-alt-hover-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_up"
+      file            = "Spin/rtl-up-active-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_up"
+      file            = "Spin/rtl-up-insensitive-dark.png"
+      border          = { 1, 5, 5, 0 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/up-alt-insensitive-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+
+    # Spin-Down LTR
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_down"
+      file            = "Spin/ltr-down-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-alt-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_down"
+      file            = "Spin/ltr-down-hover-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-alt-hover-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_down"
+      file            = "Spin/ltr-down-active-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_down"
+      file            = "Spin/ltr-down-insensitive-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-alt-insensitive-dark.png"
+      overlay_stretch = FALSE
+      direction       = LTR
+    }
+
+    # Spin-Down RTL
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_down"
+      file            = "Spin/rtl-down-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-alt-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_down"
+      file            = "Spin/rtl-down-hover-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-alt-hover-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_down"
+      file            = "Spin/rtl-down-active-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_down"
+      file            = "Spin/rtl-down-insensitive-dark.png"
+      border          = { 1, 5, 1, 5 }
+      stretch         = TRUE
+      overlay_file    = "Arrows/down-alt-insensitive-dark.png"
+      overlay_stretch = FALSE
+      direction       = RTL
+    }
+  }
+}
+
+style "gimp_toolbox_frame" {
+  engine "pixmap" {
+    image {
+      function = SHADOW
+    }
+  }
+}
+
+# Disable gradients completely for GimpSpinScale
+class "GimpSpinScale"                    style "gimp_spin_scale"
+# Remove borders from "Wilbert frame" in Gimp
+widget_class "*<GimpToolbox>*<GtkFrame>" style "gimp_toolbox_frame"

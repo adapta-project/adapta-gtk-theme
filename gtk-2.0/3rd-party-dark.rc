@@ -1,0 +1,331 @@
+#
+# XFce4
+#
+style "theme-panel" {
+  xthickness = 2
+  ythickness = 0
+
+  bg[NORMAL] = "#13191C"
+  bg[ACTIVE] = @selected_bg_color
+  bg[PRELIGHT] = shade(1.1, @selected_bg_color)
+  bg[SELECTED] = @selected_bg_color
+  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[PRELIGHT] = @selected_fg_color
+  fg[ACTIVE] = @selected_fg_color
+  fg[SELECTED] = @selected_fg_color
+  text[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  text[PRELIGHT] = "#ECEFF1"
+  text[ACTIVE] = "#ECEFF1"
+  text[SELECTED] = "#ECEFF1"
+
+  font_name = "Bold"
+}
+
+style "panelbar" {
+  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[ACTIVE] = @selected_fg_color
+  fg[PRELIGHT] = @selected_fg_color
+  fg[SELECTED] = @selected_fg_color
+  bg[SELECTED] = @selected_bg_color
+
+  font_name = "Bold"
+}
+
+style "panelbuttons" {
+  xthickness = 2
+  ythickness = 0
+
+  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[PRELIGHT] = @selected_fg_color
+  fg[ACTIVE] = @selected_fg_color
+  fg[SELECTED] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @bg_color)
+
+  font_name = "Bold"
+
+  engine "pixmap" {
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "Others/null.svg"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "Others/top.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      file     = "Others/top-hover.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      file     = "Others/null.svg"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+  }
+}
+
+style "theme-panel-text" {
+  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[PRELIGHT] = @selected_fg_color
+  fg[ACTIVE] = @selected_fg_color
+  text[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  text[PRELIGHT] = @selected_fg_color
+  text[ACTIVE] = @selected_fg_color
+
+  font_name = "Bold"
+}
+
+style "panel-entry" {
+  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[PRELIGHT] = "#ECEFF1"
+  fg[ACTIVE] = @selected_fg_color
+  fg[SELECTED] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @bg_color)
+  text[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  text[PRELIGHT] = "#ECEFF1"
+  text[ACTIVE] = @selected_fg_color
+  text[SELECTED] = @selected_fg_color
+  text[INSENSITIVE] = mix(0.4, @selected_fg_color, @bg_color)
+}
+
+style "theme-main-menu-text" = "theme-panel-text" {
+  fg[PRELIGHT] = @selected_fg_color
+  text[PRELIGHT] = @selected_fg_color
+}
+
+style "workspace-switcher" = "theme-panel" {
+  bg[NORMAL] = @bg_color
+  bg[SELECTED] = @selected_bg_color
+}
+
+style "indicator" = "panelbuttons" {
+  xthickness = 2
+  ythickness = 0
+}
+
+widget "*tasklist*"                                   style "panelbuttons"
+widget_class "*Xfce*Panel*.GtkToggleButton"           style "panelbuttons"
+widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
+widget_class "*PanelToplevel*Button"                  style "panelbuttons"
+widget_class "*Panel*GtkToggleButton"                 style "panelbuttons"
+widget_class "*Xfce*Panel*Button*"                    style "panelbuttons"
+widget_class "*<XfceArrowButton>"                     style "panelbuttons"
+widget_class "*<XfceActionsPlugin>*"                  style "panelbuttons"
+widget_class "*XfcePanelPlugin.GtkButton"             style "panelbuttons"
+widget "*dict*Applet*"                                style "panelbuttons"
+widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
+widget_class "*Tasklist*"                             style:highest "panelbuttons"
+
+class "*Panel*MenuBar*"                               style "panelbar"
+widget_class "*Panel*MenuBar*"                        style "panelbar"
+widget_class "*Panel*MenuBar*Item*"                   style:highest "panelbar"
+
+widget "*PanelWidget*"                                style "theme-panel"
+widget "*PanelApplet*"                                style "theme-panel"
+widget "*fast-user-switch*"                           style "theme-panel"
+widget "*CPUFreq*Applet*"                             style "theme-panel"
+widget "*TopMenu*"                                    style "theme-panel"
+class "PanelApp*"                                     style "theme-panel"
+class "PanelToplevel*"                                style "theme-panel"
+widget_class "*PanelToplevel*"                        style "theme-panel"
+widget_class "*notif*"                                style "theme-panel"
+widget_class "*Notif*"                                style "theme-panel"
+widget_class "*Tray*"                                 style "theme-panel" 
+widget_class "*tray*"                                 style "theme-panel"
+widget_class "*computertemp*"                         style "theme-panel"
+widget_class "*Applet*Tomboy*"                        style "theme-panel"
+widget_class "*Applet*Netstatus*"                     style "theme-panel"
+
+# Fixes for tooltip text in some apps.
+widget_class "*Notif*Beagle*"                         style "theme-panel"
+widget_class "*Notif*Brasero*"                        style "theme-panel"
+
+# XFCE panel theming.
+widget "*Xfce*Panel*"                                 style "theme-panel"
+class "*Xfce*Panel*"                                  style "theme-panel"
+widget "*WnckPager*"                                  style "workspace-switcher"
+
+# Fix gtk-entries in the panel
+widget "*bookmark*GtkEntry"                           style "panel-entry" # fixes smartbookmark-plugin
+
+# Make sure panel text color doesn't change
+widget_class "*Panel*MenuBar*"                        style "theme-main-menu-text"
+widget_class "*Panel*<GtkMenuBar>*"                   style "theme-main-menu-text"
+widget "*.clock-applet-button.*"                      style "theme-panel-text"
+widget "*PanelApplet*"                                style "theme-panel-text"
+
+# Override general panel-style with specific plugin-styles
+widget "*indicator-applet*"                           style "indicator"
+widget "*indicator-button*"                           style "indicator"
+
+
+#
+# Eclipse/SWT
+#
+style "eclipse-tooltips" {
+  xthickness = 9
+  ythickness = 9
+
+  bg[NORMAL] = @tooltip_bg_color
+  fg[NORMAL] = @tooltip_fg_color
+  bg[SELECTED] = @tooltip_bg_color
+  # bg[NORMAL] = @base_color
+  # fg[NORMAL] = @text_color
+  # bg[SELECTED] = @base_color
+}
+
+widget "gtk-tooltips*"     style "eclipse-tooltips"
+widget "*swt-toolbar-flat" style "null"
+
+
+#
+# Chrome(ium)
+#
+style "chrome-gtk-frame" {
+  ChromeGtkFrame::frame-color = "#2A373E"
+  ChromeGtkFrame::inactive-frame-color = "#2A373E"
+  ChromeGtkFrame::incognito-frame-color = "#2A373E"
+  ChromeGtkFrame::incognito-inactive-frame-color = "#2A373E"
+
+  ChromeGtkFrame::frame-gradient-size = 0
+  ChromeGtkFrame::frame-gradient-color = "#2A373E"
+  ChromeGtkFrame::inactive-frame-gradient-color = "#2A373E"
+  ChromeGtkFrame::incognito-frame-gradient-color = "#2A373E"
+  ChromeGtkFrame::incognito-inactive-frame-gradient-color = "#2A373E"
+
+  ChromeGtkFrame::scrollbar-slider-prelight-color = "#C3C6C8"
+  ChromeGtkFrame::scrollbar-slider-normal-color = "#A5AAAD"
+  ChromeGtkFrame::scrollbar-trough-color = "#FFFFFF"
+}
+
+style "chrome_menu_item" {
+  bg[SELECTED] = shade(1.06, @base_color)
+  fg[SELECTED] = shade(1.04, @fg_color)
+}
+
+class "ChromeGtkFrame"                               style "chrome-gtk-frame"
+widget_class "*Chrom*Button*"                        style "flat_button"
+widget_class "*<GtkCustomMenu>*<GtkCustomMenuItem>*" style "chrome_menu_item"
+
+# We use this weird selector to target an offscreen entry as created
+# by Chrome/Chromium to derive the style for its toolbar
+widget_class "<GtkEntry>" style "standalone_entry"
+
+
+#
+# Openoffice, Libreoffice
+#
+style "libreoffice_entry" {
+  engine "pixmap" {
+    image {
+      function        = FLAT_BOX
+      detail          = "entry_bg"
+      state           = NORMAL
+      overlay_file    = "Others/null.svg"
+      overlay_border  = { 0, 0, 0, 0 }
+      overlay_stretch = TRUE
+    }
+    image {
+      function        = FLAT_BOX
+      detail          = "entry_bg"
+      state           = ACTIVE
+      overlay_file    = "Others/null.svg"
+      overlay_border  = { 0, 0, 0, 0 }
+      overlay_stretch = TRUE
+    }
+    image {
+      function = SHADOW
+      detail   = "entry"
+      state    = NORMAL
+      shadow   = IN
+      file     = "Others/null.svg"
+      border   = { 0, 0, 0, 0 }
+      stretch  = TRUE
+    }
+    image {
+      function = SHADOW
+      detail   = "entry"
+      state    = ACTIVE
+      file     = "Others/null.svg"
+      border   = { 0, 0, 0, 0 }
+      stretch  = TRUE
+    }
+  }
+}
+
+style "menubar_libreoffice" {
+  xthickness = 0
+  ythickness = 0
+
+  bg[NORMAL] = "#2A373E"
+  fg[NORMAL] = mix(0.8, @fg_color, shade(0.96, @bg_color))
+  fg[PRELIGHT] = @selected_fg_color
+  fg[SELECTED] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.6, @fg_color, @bg_color)
+  text[NORMAL] = mix(0.8, @fg_color, shade(0.96, @bg_color))
+  text[PRELIGHT] = @selected_fg_color
+  text[SELECTED] = @selected_fg_color
+  text[INSENSITIVE] = mix(0.6, @fg_color, @bg_color)
+
+  engine "pixmap" {
+    image {
+      function    = BOX
+      file        = "Shadows/z-depth-1.svg"
+      border      = { 1, 1, 1, 1 }
+      stretch     = TRUE
+      recolorable = TRUE
+    }
+  }
+}
+
+style "menubar_item_libreoffice" {
+  xthickness = 3
+  ythickness = 6
+
+  bg[PRELIGHT] = "#2A373E"
+  bg[SELECTED] = "#2A373E"
+  fg[NORMAL] = mix(0.8, @fg_color, shade(0.96, @bg_color))
+  fg[PRELIGHT] = @selected_fg_color
+  fg[SELECTED] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.6, @fg_color, @bg_color)
+  text[NORMAL] = mix(0.8, @fg_color, shade(0.96, @bg_color))
+  text[PRELIGHT] = @selected_fg_color
+  text[SELECTED] = @selected_fg_color
+  text[INSENSITIVE] = mix(0.6, @fg_color, @bg_color)
+
+  engine "pixmap" {
+    image {
+      function    = BOX
+      recolorable = TRUE
+      state       = PRELIGHT
+      file        = "Others/top.png"
+      border      = { 0, 0, 0, 2 }
+      stretch     = TRUE
+    }
+  }
+}
+
+style "ooo_stepper_hack" {
+ GtkScrollbar::stepper-size         = 8
+ GtkScrollbar::has-backward-stepper = 1
+ GtkScrollbar::has-forward-stepper  = 1
+}
+
+class "GtkWindow"                                      style "toplevel_hack"
+widget "*libreoffice-toplevel*"                        style "ooo_stepper_hack"
+widget "*libreoffice-toplevel*GtkToolbar"              style "toolbar"
+widget "*libreoffice-toplevel*GtkMenuBar"              style "menubar_libreoffice"
+widget "*libreoffice-toplevel*GtkMenuBar.*GtkMenuItem" style "menubar_item_libreoffice"
+# widget "*libreoffice-toplevel*GtkEntry"      style "libreoffice_entry"
+# widget "*libreoffice-toplevel*GtkSpinButton" style "libreoffice_entry"
