@@ -48,9 +48,16 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
  sudo apt install adapta-gtk-theme
  ```
 
-2. select `Adapta` via Gnome-Tweak-Tool.
+2. select `Adapta` or `Adapta-Nokto` via Gnome-Tweak-Tool.
 
  > **Note:**
+ >
+ >   * `Adapta-Nokto` is for dark variant of Gtk+ 2.0 theming:
+ >     * `Adapta` + `global dark theme = off` make all light variant.
+ >     * `Adapta` + `global dark theme = on` make dark variant Gtk+3 and light variant Gtk+2.
+ >     * `Adapta-Nokto` + `global dark theme = off` make light variant Gtk+3 and dark variant Gtk+2.
+ >     * `Adapta-Nokto` + `global dark theme = on` make dark variant.
+ >
  >   * For Gtk+ 3.18.x users, there's no need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
  >   * As default, Gtk+ 3.21.x support is disabled.
 
@@ -68,6 +75,7 @@ Installation from Git Source
 
  > **Note:**
  >   * Default prefix is `/usr`
+ >   * `Adapta-Nokto` Gtk+ 2.0 dark variant is installed as default
  >   * `make` actually does nothing (for future release)
  >   * `sudo make install` installs multiple versioned theme and Gtk+ automatically selects proper versioned one when running.
 
@@ -100,7 +108,6 @@ Work in Progress
 
 TODO
 ----
-* Dark variant Gtk+ 2.0 theming for Gimp and Inkscape (priority: Mid)
 * Prepare for Steam theming (priority: Low)
 
 Public License
