@@ -2,7 +2,7 @@ Adapta
 =========
 <img src="img/Button.gif" alt="Button" align="right" />
 An adaptive Gtk+ theme based on Material Design Guidelines.
-Lots of elements are forked from Flat-Plat: https://github.com/nana-4/Flat-Plat
+Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Plat) at the start.
 
 Elements
 --------
