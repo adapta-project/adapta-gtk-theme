@@ -1628,8 +1628,8 @@ style "menu_item" {
   # highlight. The price to pay is black text on menus as well,
   # but at least it's readable.
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
-  bg[SELECTED] = shade(0.94, @base_color)
-  bg[PRELIGHT] = shade(0.94, @base_color)
+  bg[SELECTED] = mix(0.9, @base_color, @fg_color)
+  bg[PRELIGHT] = mix(0.9, @base_color, @fg_color)
   fg[PRELIGHT] = shade(0.96, @fg_color)
   fg[SELECTED] = shade(0.96, @fg_color)
   text[PRELIGHT] = shade(0.96, @fg_color)
