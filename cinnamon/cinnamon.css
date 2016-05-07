@@ -1058,11 +1058,15 @@ StScrollBar {
   color: rgba(236, 239, 241, 0.75); }
   .window-list-item-box:hover {
     color: #ECEFF1; }
-  .window-list-item-box:active, .window-list-item-box:checked, .window-list-item-box:focus {
+    .panel-bottom .window-list-item-box:hover {
+      border-image: url("assets/panel/window-list-hover-bottom.svg") 3 3 1 3; }
+    .panel-top .window-list-item-box:hover {
+      border-image: url("assets/panel/window-list-hover-top.svg") 3 3 3 1; }
+  .window-list-item-box:active, .window-list-item-box:active:hover, .window-list-item-box:checked, .window-list-item-box:checked:hover, .window-list-item-box:focus, .window-list-item-box:focus:hover {
     color: #ECEFF1; }
-    .panel-bottom .window-list-item-box:active, .panel-bottom .window-list-item-box:checked, .panel-bottom .window-list-item-box:focus {
+    .panel-bottom .window-list-item-box:active, .panel-bottom .window-list-item-box:active:hover, .panel-bottom .window-list-item-box:checked, .panel-bottom .window-list-item-box:checked:hover, .panel-bottom .window-list-item-box:focus, .panel-bottom .window-list-item-box:focus:hover {
       border-image: url("assets/panel/window-list-active-bottom.svg") 3 3 1 3; }
-    .panel-top .window-list-item-box:active, .panel-top .window-list-item-box:checked, .panel-top .window-list-item-box:focus {
+    .panel-top .window-list-item-box:active, .panel-top .window-list-item-box:active:hover, .panel-top .window-list-item-box:checked, .panel-top .window-list-item-box:checked:hover, .panel-top .window-list-item-box:focus, .panel-top .window-list-item-box:focus:hover {
       border-image: url("assets/panel/window-list-active-top.svg") 3 3 3 1; }
 .window-list-item-demands-attention {
   background-gradient-start: #1DE9B6;
