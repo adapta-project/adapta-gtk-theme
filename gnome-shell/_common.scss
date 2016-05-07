@@ -1035,8 +1035,8 @@ StScrollBar {
   margin: 2px;
   border-radius: 32px;
   text-align: center;
-  &:hover,&:focus { background-color: $semi_fill_color; }
-  // &:active { background-color: $fill_color; }
+  &:hover,
+  &:focus { background-color: $semi_fill_color; }
   &:active {
     color: $selected_fg_color;
     background-color: $selected_bg_color;
@@ -1045,15 +1045,27 @@ StScrollBar {
 
   &.calendar-day-heading {  // day of week heading
     @include fontscaling($ref_size * 0.9);
-    margin-top: 1em;
-    font-weight: 700;
+    width: 32px;
+    height: 25.3px;
+    margin-top: 2px;
+    padding: 6.7px 0 0;
+    background-color: transparent;
     color: $dim_fg_color;
+    font-weight: 700;
+    text-align: center;
   }
+}
 
-  &.calendar-week-number {  // day of week heading
-    font-weight: 700;
-    color: $dim_fg_color;
-  }
+.calendar-week-number {  // day of week heading
+  width: 32px;
+  height: 25.3px;
+  margin: 2px;
+  padding: 6.7px 0 0;
+  background-color: transparent;
+  color: $dim_fg_color;
+  font-weight: 700;
+  font-size: inherit;
+  text-align: center;
 }
 
 .calendar-day { //border collapse hack - see calendar.js
