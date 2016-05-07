@@ -439,10 +439,6 @@ entry {
   }
 }
 
-// do not use transparentize background
-// https://bugzilla.gnome.org/show_bug.cgi?id=764376
-treeview acceleditor > label { background-color: $selected_bg_color; }
-
 
 /***********
  * Buttons *
@@ -2249,6 +2245,9 @@ treeview.view {
     row:selected { @extend %selected_items; }
     &:backdrop { opacity: 0.8; }
   }
+
+  // see tests/testaccel to test
+  acceleditor > label { background-color: $selected_bg_color; }
 
   header {
     button {
