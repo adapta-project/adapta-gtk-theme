@@ -31,8 +31,6 @@
   -GtkTextView-error-underline-color: #F44336;
   -GtkScrolledWindow-scrollbar-spacing: 0;
   -GtkToolItemGroup-expander-size: 11;
-  -GtkTreeView-expander-size: 11;
-  -GtkTreeView-horizontal-separator: 4;
   -GtkWidget-text-handle-width: 16;
   -GtkWidget-text-handle-height: 16;
   -GtkDialog-button-spacing: 4;
@@ -3577,17 +3575,19 @@ headerbar, .maximized headerbar.titlebar, .maximized .csd headerbar, .maximized 
  * Tree Views *
  **************/
 treeview.view, .tweak-category {
-  -GtkTreeView-grid-line-width: 1;
-  -GtkTreeView-grid-line-pattern: '';
-  -GtkTreeView-tree-line-width: 1;
-  -GtkTreeView-tree-line-pattern: '';
-  -GtkTreeView-expander-size: 16;
   border-left-color: alpha(currentColor, 0.2);
   border-top-color: rgba(0, 0, 0, 0.11);
   border-radius: 0;
   background-color: transparent;
   background-image: none;
   box-shadow: none; }
+  * {
+    -GtkTreeView-horizontal-separator: 4;
+    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-grid-line-pattern: '';
+    -GtkTreeView-tree-line-width: 1;
+    -GtkTreeView-tree-line-pattern: '';
+    -GtkTreeView-expander-size: 16; }
   treeview.view:hover, .tweak-category:hover, treeview.view:active, .tweak-category:active {
     border-radius: 0; }
   treeview.view:selected, .tweak-category:selected {
