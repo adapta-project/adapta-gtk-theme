@@ -438,10 +438,6 @@ entry,
   }
 }
 
-// do not use transparentize background
-// https://bugzilla.gnome.org/show_bug.cgi?id=764376
-treeview acceleditor > label { background-color: $selected_bg_color; }
-
 
 /***********
  * Buttons *
@@ -2285,6 +2281,9 @@ treeview.view {
     color: transparent;
     background-color: $borders_color;
   }
+
+  // see tests/testaccel to test
+  acceleditor > label { background-color: $selected_bg_color; }
 }
 
 column-header.button.dnd { // for treeview-like derive widgets
