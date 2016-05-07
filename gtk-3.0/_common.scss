@@ -2306,6 +2306,7 @@ GtkSwitch {
     }
     &:active {
       @include button(checked);
+      &:hover { box-shadow: $z-depth-2; }
       &:insensitive {
         @include button(checked-insensitive);
 	// do not use any transparentized materials
@@ -2337,7 +2338,10 @@ GtkSwitch {
         background-image: linear-gradient(to bottom,
                                           gtkalpha($selected_fg_color, 0.2));
       }
-      &:active { background-color: $base_color; }
+      &:active {
+        background-color: $base_color;
+        &:hover { box-shadow: $z-depth-2; }
+      }
     }
   }
 
