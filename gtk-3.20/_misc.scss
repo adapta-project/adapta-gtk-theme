@@ -507,7 +507,7 @@ filechooser actionbar button.combo {
 // styling for editor search
 frame.gb-search-frame {
   background-image: linear-gradient(to bottom, $bg_color);
-  padding: 6px;
+  padding: rem(6px);
   border-style: solid;
   border-color: $borders_color;
   border-left-width: 1px;
@@ -520,26 +520,26 @@ frame.gb-search-frame border { border: none; }
 
 .gb-search-entry-occurrences-tag {
   color: $insensitive_fg_color;
-  margin: 2px;
-  padding: 2px;
+  margin: rem(2px);
+  padding: rem(2px);
   border-width: 0;
 }
 
 // Tweaks for the editortweak popover in the editor.
-editortweak button { padding: 0 6px 0 6px; }
+editortweak button { padding: 0 rem(6px) 0 rem(6px); }
 editortweak list row { padding: 0; }
 
 // Keep search bar and layouttab height in sync.
-layouttabbar > box { min-height: 39px; }
-eggsearchbar > revealer > box { min-height: 39px; }
-eggsearchbar entry { min-height: 24px; }
+layouttabbar > box { min-height: rem(39px); }
+eggsearchbar > revealer > box { min-height: rem(39px); }
+eggsearchbar entry { min-height: rem(24px); }
 
 // Pillbox is used to render "languages" in the greeter.
 pillbox { border-radius: 2px; }
 
 // Styling in the genesis (create project) perspective.
 genesisperspective stack > box:first-child list row {
-  padding: 10px;
+  padding: rem(10px);
   border-bottom: 1px solid $solid_light_borders_color;
   &:last-child { border-bottom: none; }
 }
@@ -549,12 +549,12 @@ genesisperspective stack > box:first-child list row {
 // The following tweaks the left-most sidebar containing
 // the list of perspectives.
 perspectiveswitcher {
-  padding: 0 0.3em;
+  padding: 0 rem(4px);
   border-right: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
 
   button {
-    padding: 6px;
+    padding: rem(6px);
     border-radius: 100px;
     border: none;
     background: none;
@@ -579,8 +579,8 @@ perspectiveswitcher {
 // The following makes the layout stack header look similar to a tab bar.
 layouttabbar {
   @extend %fade_effect;
-  min-height: 2.8em;
-  padding: 0.4em;
+  min-height: rem(37.3px);
+  padding: rem(5.3px);
   border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
 
@@ -592,8 +592,8 @@ layouttabbar {
 
   button {
     @extend button.flat;
-    padding: 0.3em 0.4em 0.4em;
-    margin: 0.2em;
+    padding: rem(4px) rem(5.3px) rem(5.3px);
+    margin: rem(2.7px);
     border-radius: 2px;
     background-color: transparent;
   }
@@ -601,33 +601,33 @@ layouttabbar {
 
 layouttab {
   @extend %fade_effect;
-  margin: 0.2em;
-  padding: 0.4em;
+  margin: rem(2.7px);
+  padding: rem(5.3px);
   background-color: transparent;
 
-  label { padding: 0.3em; }
+  label { padding: rem(4px); }
 
   separator.vertical {
-    margin: 0.2em;
+    margin: rem(2.7px);
     color: transparent;
     background-color: $borders_color;
   }
 
   button {
     @extend button.flat;
-    margin: 0.2em;
+    margin: rem(2.7px);
     border-radius: 2px;
-    padding-left: 0.4em;
-    padding-right: 0.4em;
+    padding-left: rem(5.3px);
+    padding-right: rem(5.3px);
   }
 }
 
 // Close button styling for layouttab.
 layouttab > box {
   > button:last-child {
-    min-height: 1em;
-    min-width: 1em;
-    padding: 0.5em;
+    min-height: rem(13.3px);
+    min-width: rem(13.3px);
+    padding: rem(6.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     @include button(flat);
@@ -658,8 +658,8 @@ pillbox {
 
 docktabstrip,
 tabstrip {
-  min-height: 2.6em;
-  padding: 0.4em 1.2em;
+  min-height: rem(34.7px);
+  padding: rem(5.3px) rem(16px);
   border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
 
