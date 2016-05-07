@@ -323,6 +323,18 @@ NautilusTrashBar {
 // reset inverted foreground colour
 EphyWindow {
   .floating-bar { color: $secondary_fg_color; }
+
+  .search-bar {
+    // sset same padding with GtkEntry
+    .linked > .button { padding: 0.7em 1em 0.8em; }
+
+    // force using circle-button
+    .button.flat.close.raised {
+      padding: 0.75em;
+      border-radius: 100px;
+      outline-radius: 100px;
+    }
+  }
 }
 
 
