@@ -560,15 +560,15 @@ $icon_size: 16px;
     background-image: url("assets/misc/add-workspace.svg");
     height: 200px;
     width: 35px;
-    transition-duration: 100;
+    transition-duration: 0.2s;
 
     &:hover {
       background-image: url("assets/misc/add-workspace-hover.svg");
-      transition-duration: 100;
+      transition-duration: 0.2s;
     }
     &:active {
       background-image: url("assets/misc/add-workspace-active.svg");
-      transition-duration: 100;
+      transition-duration: 0.2s;
     }
   }
   &-overview-background-shade { background-color: rgba(0,0,0,0.5); }
@@ -793,7 +793,8 @@ $icon_size: 16px;
     color: $fg_color;
     border-image: url("assets/misc/message.svg") 9 9 9 9;
 
-    .notification-button, .notification-icon-button {
+    .notification-button,
+    .notification-icon-button {
       @extend %button;
       padding: 5px;
     }
