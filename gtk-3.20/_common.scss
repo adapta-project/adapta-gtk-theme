@@ -4087,6 +4087,17 @@ messagedialog { // Message Dialog styling
     box-shadow: none;
   }
 
+  checkbutton.text-button,
+  radiobutton.text-button {
+    color: $inverted_secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $inverted_fg_color; }
+    &:disabled,
+    &:disabled:active,
+    &:disabled:indeterminate { color: $insensitive_inverted_fg_color; }
+  }
+
   &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
