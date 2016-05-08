@@ -101,10 +101,22 @@ Installation from Git Source
  > **Note:**
  >   * As default, Gtk+ 3.21.x support is disabled.
 
+Extra Browser Support
+---------------------
+ If users want to try experimental browser specific theming, please pass this option:
+
+ ```
+ --enable-chrome         enable Chrome(ium) support
+ ```
+
+ The compressed `crx` files will be installed into `Adapta/chrome` and `Adapta-Nokto/chrome`.
+
+ > **Note:**
+ >   * Today Chrome(ium) theming is supported only.
+
 Work in Progress
 ----------------
 * Conversion to Gtk+ 3.22
-* XFce4 integration
 
 TODO
 ----

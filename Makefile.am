@@ -14,6 +14,7 @@ METACITY_DIR = metacity-1
 UNITY_DIR    = unity
 XFCE_DIR     = xfwm4 \
                xfce-notify-4.0
+CHROME_DIR   = chrome
 
 themedir = $(datadir)/themes
 
@@ -60,6 +61,19 @@ endif
 if ENABLE_XFCE
 	cp -Rv $(XFCE_DIR) $(DESTDIR)$(themedir)/Adapta
 	cp -Rv $(XFCE_DIR) $(DESTDIR)$(themedir)/Adapta-Nokto
+endif
+
+if ENABLE_CHROME
+	$(MKDIR_P) $(DESTDIR)$(themedir)/Adapta/chrome
+	$(MKDIR_P) $(DESTDIR)$(themedir)/Adapta-Nokto/chrome
+	cp -Rv $(CHROME_DIR)/adapta-theme \
+		$(DESTDIR)$(themedir)/Adapta/chrome
+	cp -Rv $(CHROME_DIR)/adapta-theme.crx \
+		$(DESTDIR)$(themedir)/Adapta/chrome
+	cp -Rv $(CHROME_DIR)/adapta-nokto-theme \
+		$(DESTDIR)$(themedir)/Adapta-Nokto/chrome
+	cp -Rv $(CHROME_DIR)/adapta-nokto-theme.crx \
+		$(DESTDIR)$(themedir)/Adapta-Nokto/chrome
 endif
 
 uninstall-hook:

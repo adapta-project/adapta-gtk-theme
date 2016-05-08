@@ -10,11 +10,12 @@ AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects 1
 AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
-ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-3.22],  [disable])
-ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],  [disable])
-ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback], [disable])
-ADAPTA_OPTION([UNITY],     [unity],     [Unity],     [disable])
-ADAPTA_OPTION([XFCE],      [xfce],      [XFce],      [disable])
+ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-3.22],    [disable])
+ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],    [disable])
+ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],   [disable])
+ADAPTA_OPTION([UNITY],     [unity],     [Unity],       [disable])
+ADAPTA_OPTION([XFCE],      [xfce],      [XFce],        [disable])
+ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)], [disable])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
@@ -47,6 +48,11 @@ AC_MSG_RESULT([
         ---------------------------------------
 
         Gtk-3.22:             $ENABLE_GTK_NEXT
+
+        * Extra browser support
+        ---------------------------------------
+
+        Chrome(ium):          $ENABLE_CHROME
 
         run 'make' and 'sudo make install'.
 ])
