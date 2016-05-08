@@ -3030,6 +3030,20 @@ GtkCalendar {
     box-shadow: none;
   }
 
+  GtkCheckButton.text-button,
+  GtkRadioButton.text-button {
+    color: $inverted_secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $inverted_fg_color; }
+    &:insensitive,
+    &:insensitive:active,
+    &:insensitive:inconsistent {
+      // set insensitive color, which is overriden otherwise
+      color: $insensitive_inverted_fg_color;
+    }
+  }
+
   &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
