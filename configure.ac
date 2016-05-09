@@ -22,37 +22,45 @@ AC_OUTPUT
 
 AC_MSG_RESULT([
         Adapta Gtk+ Theme $VERSION
-        ========================
+        ===========================================================
 
-        * Supported Gtk+ version: 3.20 & 3.18
-        ---------------------------------------
+        -----------------------------------------------------------
+        | Supported Gtk+ version: 3.20 & 3.18
+        -----------------------------------------------------------
 
-        prefix:               ${prefix}
-        datarootdir:          ${datarootdir}
+         prefix:               ${prefix}
+         datarootdir:          ${datarootdir}
+         target directories:   ${datarootdir}/themes/Adapta
+                               ${datarootdir}/themes/Adapta-Nokto
 
-        * Default DE support
-        ---------------------------------------
+        -----------------------------------------------------------
+        | Default DE support
+        -----------------------------------------------------------
 
-        GNOME:                >= 3.20 (or 3.18)
-        Budgie-Desktop:       >= 10.2.4
+         GNOME:                >= 3.20 (or 3.18)
+         Budgie-Desktop:       >= 10.2.4
 
-        * Extra DE support
-        ---------------------------------------
+        -----------------------------------------------------------
+        | Extra DE support
+        -----------------------------------------------------------
 
-        Cinnamon:             $ENABLE_CINNAMON
-        GNOME-Flashback:      $ENABLE_FLASHBACK
-        Unity:                $ENABLE_UNITY
-        XFce:                 $ENABLE_XFCE
+         Cinnamon:             $ENABLE_CINNAMON
+         GNOME-Flashback:      $ENABLE_FLASHBACK
+         Unity:                $ENABLE_UNITY
+         XFce:                 $ENABLE_XFCE
 
-        * Next Gtk+ support
-        ---------------------------------------
+        -----------------------------------------------------------
+        | Next Gtk+ support
+        -----------------------------------------------------------
 
-        Gtk-3.22:             $ENABLE_GTK_NEXT
+         Gtk+ 3.22:            $ENABLE_GTK_NEXT
 
-        * Extra browser support
-        ---------------------------------------
+        -----------------------------------------------------------
+        | Extra browser support
+        -----------------------------------------------------------
 
-        Chrome(ium):          $ENABLE_CHROME
+         Chrome(ium):          $ENABLE_CHROME
 
-        run 'make' and 'sudo make install'.
+        ===========================================================
+                             =>> run 'make' and 'sudo make install'
 ])
