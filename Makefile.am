@@ -6,15 +6,16 @@ EXTRA_DIST = \
 	gtk-3.0 \
 	README.md
 
-INDEX        = index.theme
-INDEX_NOKTO  = index.theme-nokto
-GTK_NEXT_DIR = gtk-3.22
-CINNAMON_DIR = cinnamon
-METACITY_DIR = metacity-1
-UNITY_DIR    = unity
-XFCE_DIR     = xfwm4 \
-               xfce-notify-4.0
-CHROME_DIR   = chrome
+INDEX              = index.theme
+INDEX_NOKTO        = index.theme-nokto
+GTK_NEXT_DIR       = gtk-3.22
+CINNAMON_DIR       = cinnamon
+CINNAMON_NOKTO_DIR = cinnamon-nokto
+METACITY_DIR       = metacity-1
+UNITY_DIR          = unity
+XFCE_DIR           = xfwm4 \
+                     xfce-notify-4.0
+CHROME_DIR         = chrome
 
 themedir = $(datadir)/themes
 
@@ -37,7 +38,7 @@ endif
 
 if ENABLE_CINNAMON
 	cp -Rv $(CINNAMON_DIR) $(DESTDIR)$(themedir)/Adapta
-	cp -Rv $(CINNAMON_DIR) $(DESTDIR)$(themedir)/Adapta-Nokto
+	cp -Rv $(CINNAMON_NOKTO_DIR) $(DESTDIR)$(themedir)/Adapta-Nokto/cinnamon
 if !ENABLE_FLASHBACK
 	cp -Rv $(METACITY_DIR) $(DESTDIR)$(themedir)/Adapta
 	cp -Rv $(METACITY_DIR) $(DESTDIR)$(themedir)/Adapta-Nokto
