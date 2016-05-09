@@ -394,9 +394,10 @@ entry,
     -gtk-outline-radius: 0;
   }
 
-  // entry error and warning style
+  // entry error,warning and missing style
   @each $e_type, $e_color in (error, $error_color),
-                             (warning, $warning_color) {
+                             (warning, $warning_color),
+                             (search-missing, $error_color) {
     &.#{$e_type} {
       @include entry(normal, $e_color);
       &:focus { @include entry(focus, $e_color); }

@@ -569,6 +569,54 @@ entry, spinbutton:not(.vertical),
         border-color: #37474F;
         border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
         color: rgba(236, 239, 241, 0.3); }
+  entry.search-missing, spinbutton.search-missing:not(.vertical),
+  .entry.search-missing {
+    border-radius: 0;
+    -gtk-outline-radius: 0;
+    border-color: #37474F;
+    border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
+    background-color: transparent;
+    color: rgba(236, 239, 241, 0.75); }
+    entry.search-missing:focus, spinbutton.search-missing:focus:not(.vertical),
+    .entry.search-missing:focus {
+      border-color: #37474F;
+      border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#F44336), to(transparent)) 0 0 2/0 0 2px;
+      color: #ECEFF1;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0; }
+    entry.search-missing:disabled, spinbutton.search-missing:disabled:not(.vertical),
+    .entry.search-missing:disabled {
+      border-color: #37474F;
+      border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
+      background-color: transparent;
+      color: rgba(236, 239, 241, 0.3); }
+    entry.search-missing.flat, spinbutton.search-missing.flat:not(.vertical), notebook:not(.reorderable-page) > entry.search-missing, notebook:not(.reorderable-page) > spinbutton.search-missing:not(.vertical),
+    .entry.search-missing.flat,
+    .linked > entry.search-missing:not(.flat),
+    .linked > spinbutton.search-missing:not(.flat):not(.vertical),
+    .linked > .search-missing.entry:not(.flat) {
+      border-radius: 0;
+      -gtk-outline-radius: 0;
+      border-color: #37474F;
+      border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
+      background-color: transparent;
+      color: rgba(236, 239, 241, 0.75); }
+      entry.search-missing.flat:focus, spinbutton.search-missing.flat:focus:not(.vertical), notebook:not(.reorderable-page) > entry.search-missing:focus, notebook:not(.reorderable-page) > spinbutton.search-missing:focus:not(.vertical),
+      .entry.search-missing.flat:focus,
+      .linked > entry.search-missing:focus:not(.flat),
+      .linked > spinbutton.search-missing:focus:not(.flat):not(.vertical),
+      .linked > .search-missing.entry:focus:not(.flat) {
+        border-color: #37474F;
+        border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#F44336), to(transparent)) 0 0 2/0 0 2px;
+        color: #ECEFF1;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0; }
+      entry.search-missing.flat:disabled, spinbutton.search-missing.flat:disabled:not(.vertical), notebook:not(.reorderable-page) > entry.search-missing:disabled, notebook:not(.reorderable-page) > spinbutton.search-missing:disabled:not(.vertical),
+      .entry.search-missing.flat:disabled,
+      .linked > entry.search-missing:disabled:not(.flat),
+      .linked > spinbutton.search-missing:disabled:not(.flat):not(.vertical),
+      .linked > .search-missing.entry:disabled:not(.flat) {
+        border-color: #37474F;
+        border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
+        color: rgba(236, 239, 241, 0.3); }
   entry image:not(:hover):not(:active), spinbutton:not(.vertical) image:not(:hover):not(:active),
   .entry image:not(:hover):not(:active) {
     color: alpha(currentColor, 0.75); }
