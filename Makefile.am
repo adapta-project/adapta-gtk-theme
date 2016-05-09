@@ -27,9 +27,10 @@ install-data-hook:
 
 	cp -Rv $(EXTRA_DIST) $(adaptadir)
 
-	ln -sf $(adaptadir)/gnome-shell $(noktodir)/gnome-shell
-	ln -sf $(adaptadir)/gtk-3.0 $(noktodir)/gtk-3.0
-	ln -sf $(adaptadir)/gtk-3.20 $(noktodir)/gtk-3.20
+	cd $(adaptadir)
+	ln -sf ../Adapta/gnome-shell $(noktodir)/gnome-shell
+	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
+	ln -sf ../Adapta/gtk-3.20 $(noktodir)/gtk-3.20
 
 	cp -Rv $(GTK_2_DIR) $(adaptadir)
 	cp -Rv $(GTK_2_DIR) $(noktodir)
@@ -41,7 +42,7 @@ install-data-hook:
 
 if ENABLE_GTK_NEXT
 	cp -Rv $(GTK_NEXT_DIR) $(adaptadir)
-	ln -sf $(adaptadir)/$(GTK_NEXT_DIR) $(noktodir)/$(GTK_NEXT_DIR)
+	ln -sf ../Adapta/$(GTK_NEXT_DIR) $(noktodir)/$(GTK_NEXT_DIR)
 endif
 
 if ENABLE_CINNAMON
@@ -49,28 +50,28 @@ if ENABLE_CINNAMON
 	cp -Rv $(CINNAMON_NOKTO_DIR) $(noktodir)/$(CINNAMON_DIR)
 if !ENABLE_FLASHBACK
 	cp -Rv $(METACITY_DIR) $(adaptadir)
-	ln -sf $(adaptadir)/$(METACITY_DIR) $(noktodir)/$(METACITY_DIR)
+	ln -sf ../Adapta/$(METACITY_DIR) $(noktodir)/$(METACITY_DIR)
 endif
 endif
 
 if ENABLE_FLASHBACK
 	cp -Rv $(METACITY_DIR) $(adaptadir)
-	ln -sf $(adaptadir)/$(METACITY_DIR) $(noktodir)/$(METACITY_DIR)
+	ln -sf ../Adapta/$(METACITY_DIR) $(noktodir)/$(METACITY_DIR)
 endif
 
 if ENABLE_UNITY
 	cp -Rv $(UNITY_DIR) $(adaptadir)
-	ln -sf $(adaptadir)/$(UNITY_DIR) $(noktodir)/$(UNITY_DIR)
+	ln -sf ../Adapta/$(UNITY_DIR) $(noktodir)/$(UNITY_DIR)
 if !ENABLE_FLASHBACK
 	cp -Rv $(METACITY_DIR) $(adaptadir)
-	ln -sf $(adaptadir)/$(METACITY_DIR) $(noktodir)/$(METACITY_DIR)
+	ln -sf ../Adapta/$(METACITY_DIR) $(noktodir)/$(METACITY_DIR)
 endif
 endif
 
 if ENABLE_XFCE
 	cp -Rv $(XFCE_DIR) $(adaptadir)
-	ln -sf $(adaptadir)/xfwm4 $(noktodir)/xfwm4
-	ln -sf $(adaptadir)/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
+	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
+	ln -sf ../Adapta/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
 endif
 
 if ENABLE_CHROME
