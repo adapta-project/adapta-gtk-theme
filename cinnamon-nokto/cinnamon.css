@@ -32,8 +32,8 @@ stage {
   .popup-menu #notification .notification-button,
   .popup-menu #notification .notification-icon-button, .sound-button, .popup-menu #notification .notification-button:focus,
   .popup-menu #notification .notification-icon-button:focus, .sound-button:focus, .popup-menu #notification .notification-button:hover,
-  .popup-menu #notification .notification-icon-button:hover, .menu-favorites-button:hover, .menu-application-button-selected, .menu-category-button-selected, .sound-button:hover, .popup-menu #notification .notification-button:hover:focus,
-  .popup-menu #notification .notification-icon-button:hover:focus, .menu-favorites-button:focus:hover, .menu-application-button-selected:focus, .menu-category-button-selected:focus, .sound-button:hover:focus, .popup-menu #notification .notification-button:active,
+  .popup-menu #notification .notification-icon-button:hover, .menu-favorites-button:hover, .menu-application-button-selected, .sound-button:hover, .popup-menu #notification .notification-button:hover:focus,
+  .popup-menu #notification .notification-icon-button:hover:focus, .menu-favorites-button:focus:hover, .menu-application-button-selected:focus, .sound-button:hover:focus, .popup-menu #notification .notification-button:active,
   .popup-menu #notification .notification-icon-button:active, .sound-button:active, .popup-menu #notification .notification-button:active:focus,
   .popup-menu #notification .notification-icon-button:active:focus, .sound-button:active:focus, .popup-menu #notification .notification-button:insensitive,
   .popup-menu #notification .notification-icon-button:insensitive, .sound-button:insensitive {
@@ -45,7 +45,7 @@ stage {
     icon-shadow: none;
     box-shadow: 0 0 transparent; }
   .popup-menu #notification .notification-button:hover,
-  .popup-menu #notification .notification-icon-button:hover, .menu-favorites-button:hover, .menu-application-button-selected, .menu-category-button-selected, .sound-button:hover {
+  .popup-menu #notification .notification-icon-button:hover, .menu-favorites-button:hover, .menu-application-button-selected, .sound-button:hover {
     color: #ECEFF1;
     background-color: rgba(236, 239, 241, 0.07);
     border-color: transparent;
@@ -941,16 +941,17 @@ StScrollBar {
 .menu-favorites-box {
   margin: auto;
   padding: 10px;
-  transition-duration: 300;
-  background-color: #3E515A;
-  border: 1px solid rgba(0, 0, 0, 0.11); }
+  border-radius: 2px;
+  border: 1px solid transparent;
+  background-color: #455A64;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32), 0 3px 2px rgba(0, 0, 0, 0.24); }
 .menu-favorites-button {
   padding: 10px;
   border: 1px solid transparent; }
 .menu-places-box {
   margin: auto;
   padding: 10px;
-  border: 0px solid red; }
+  border: 0px solid rgba(0, 0, 0, 0.11); }
 .menu-places-button {
   padding: 10px; }
 .menu-categories-box {
@@ -980,7 +981,8 @@ StScrollBar {
   .menu-category-button-selected {
     padding: 7px;
     border: 1px solid transparent;
-    color: #ECEFF1; }
+    background-color: transparent;
+    color: #00BCD4; }
   .menu-category-button-hover {
     padding: 7px;
     border: 1px solid transparent;
@@ -995,13 +997,13 @@ StScrollBar {
   .menu-category-button-label:rtl {
     padding-right: 5px; }
 .menu-selected-app-box {
-  padding-right: 30px;
-  padding-left: 28px;
-  text-align: right;
-  height: 30px; }
+  height: 30px;
+  padding: 0 30px;
+  color: rgba(236, 239, 241, 0.4);
+  text-align: right; }
   .menu-selected-app-box:rtl {
-    padding-top: 10px;
-    height: 30px; }
+    height: 30px;
+    padding-top: 10px; }
 .menu-selected-app-title {
   font-weight: 700; }
 .menu-selected-app-description {
@@ -1021,7 +1023,6 @@ StScrollBar {
   icon-size: 1em;
   color: #ECEFF1; }
 
-/* Context menu (at the moment only for favorites) */
 .info-osd {
   spacing: 1em;
   padding: 16px;

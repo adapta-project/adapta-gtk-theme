@@ -1154,9 +1154,10 @@ $icon_size: 16px;
   &-favorites-box {
     margin: auto;
     padding: 10px;
-    transition-duration: 300;
-    background-color: $bg_color;
-    border: 1px solid $borders_color;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    background-color: $base_color;
+    box-shadow: $z-depth-2;
   }
 
   &-favorites-button {
@@ -1171,7 +1172,7 @@ $icon_size: 16px;
     &-box {
       margin: auto;
       padding: 10px;
-      border: 0px solid red;
+      border: 0px solid $borders_color;
     }
 
     &-button { padding: 10px; }
@@ -1212,10 +1213,11 @@ $icon_size: 16px;
     &-selected {
       padding: 7px;
       border: 1px solid transparent;
-      @extend %button:hover;
-      color: $fg_color;
+      background-color: transparent;
+      color: $selected_bg_color;
     }
     &-hover {
+      @extend %button:hover;
       padding: 7px;
       border: 1px solid transparent;
       border-radius: 2px;
@@ -1234,14 +1236,14 @@ $icon_size: 16px;
   // Name and description of the currently hovered item in the menu
   // This appears on the bottom right hand corner of the menu
   &-selected-app-box {
-    padding-right: 30px;
-    padding-left: 28px;
-    text-align: right;
     height: 30px;
+    padding: 0 30px;
+    color: $insensitive_fg_color;
+    text-align: right;
 
     &:rtl {
-      padding-top: 10px;
       height: 30px;
+      padding-top: 10px;
     }
   }
 
@@ -1267,7 +1269,7 @@ $icon_size: 16px;
   color: $fg_color;
 }
 
-/* Context menu (at the moment only for favorites) */
+// Context menu (at the moment only for favorites)
 .menu-context-menu {
 }
 
