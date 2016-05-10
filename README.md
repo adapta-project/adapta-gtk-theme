@@ -18,7 +18,8 @@ Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Pla
  * Dark variant Gnome-Shell theme
  * Dark variant Cinnamon theme
 
- > **Note:** Both also includes common GNOME-Flashback, Unity7 and XFce4 theming.
+
+> **Note:** Both also includes common GNOME-Flashback, Unity7 and XFce4 theming.
 
 Elements
 --------
