@@ -120,7 +120,6 @@ Work in Progress
 
 TODO
 ----
-* Add light variant gnome-shell theming (priority: high)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
