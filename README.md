@@ -4,6 +4,22 @@ Adapta
 An adaptive Gtk+ theme based on Material Design Guidelines.
 Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Plat) at the start.
 
+<img src="img/sunlight.png" alt="Day" align="left" /> 'Adapta':
+ * Light/Dark variant Gtk+ 3.20/3.18 theme
+ * Light/Dark variant Budgie-Desktop theme
+ * Light variant Gtk+ 2.0 theme
+ * Light variant Gnome-Shell theme
+ * Light variant Cinnamon theme
+
+<img src="img/moon.png" alt="Night" align="left" /> 'Adapta-Nokto':
+ * Light/Dark variant Gtk+ 3.20/3.18 theme
+ * Light/Dark variant Budgie-Desktop theme
+ * Dark variant Gtk+ 2.0 theme
+ * Dark variant Gnome-Shell theme
+ * Dark variant Cinnamon theme
+
+ > **Note:** Both also includes common GNOME-Flashback, Unity7 and XFce4 theming.
+
 Elements
 --------
 ![Materials](img/Materials.png)
