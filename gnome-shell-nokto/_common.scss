@@ -110,7 +110,7 @@ StEntry {
   padding: 7px 8px 8px;
   border-radius: 0;
   border-width: 0;
-  color: $inverted_fg_color;
+  color: $fg_color;
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
   @include entry(normal);
@@ -152,11 +152,11 @@ StScrollBar {
   StButton#vhandle, StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: scale-color($inverted_fg_color, $alpha: -40%);
+    background-color: scale-color($fg_color, $alpha: -40%);
     // would be nice to margin or at least to transparent
     // border: 4px solid transparent;
-    &:hover { background-color: scale-color($inverted_fg_color, $alpha: -20%); }
-    &:active { background-color: scale-color($inverted_fg_color, $alpha: -0%); }
+    &:hover { background-color: scale-color($fg_color, $alpha: -20%); }
+    &:active { background-color: scale-color($fg_color, $alpha: -0%); }
   }
 }
 
@@ -169,7 +169,7 @@ StScrollBar {
   height: 16px;
   color: $accent_color;
   -slider-height: 2px;
-  -slider-background-color: scale-color($fg_color, $alpha: -90%); // background of the trough
+  -slider-background-color: $fill_color; // background of the trough
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $accent_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
@@ -188,7 +188,7 @@ StScrollBar {
     width: 20px;
     height: 20px;
     background-image: url("assets/checkbox-off.svg");
-    color: $inverted_secondary_fg_color;
+    color: $secondary_fg_color;
   }
   &:focus StBin { background-image: url("assets/checkbox-off-hover.svg"); }
   &:checked StBin { background-image: url("assets/checkbox.svg"); }
@@ -252,7 +252,7 @@ StScrollBar {
 .modal-dialog {
   border: none;
   border-radius: 2px;
-  color: $inverted_fg_color;
+  color: $fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-4;
 
@@ -274,7 +274,7 @@ StScrollBar {
     @include fontscaling($ref_size * 1.1);
     padding-bottom: 0.4em;
     font-weight: 400;
-    color: $inverted_dim_fg_color;
+    color: $dim_fg_color;
   }
 }
 
@@ -351,7 +351,7 @@ StScrollBar {
 
 .end-session-dialog-app-list-item-description {
   @include fontscaling($ref_size * 1.0);
-  color: $inverted_dim_fg_color;
+  color: $dim_fg_color;
 }
 
 
@@ -398,8 +398,8 @@ StScrollBar {
 }
 
 .show-processes-dialog-app-list-item {
-  color: $inverted_secondary_fg_color;
-  &:hover { color: $inverted_fg_color; }
+  color: $fg_color;
+  &:hover { color: $fg_color; }
   &:ltr { padding-right: 1em; }
   &:rtl { padding-left: 1em; }
 }
@@ -434,7 +434,7 @@ StScrollBar {
 .prompt-dialog-headline {
   @include fontscaling($ref_size * 1.3);
   font-weight: 500;
-  color: $inverted_fg_color;
+  color: $fg_color;
 }
 
 .prompt-dialog-description:rtl { text-align: right; }
@@ -535,7 +535,7 @@ StScrollBar {
 .geolocation-dialog-title { font-weight: 700; }
 
 .geolocation-dialog-reason {
-  color: $inverted_dim_fg_color;
+  color: $dim_fg_color;
   font-weight: 400;
 }
 
@@ -566,7 +566,7 @@ StScrollBar {
   }
 
   .popup-sub-menu {
-    background-color: $fill_color;
+    background-color: scale-color($osd_bg_color, $alpha: -75%);
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.12);
   }
 
@@ -595,12 +595,12 @@ StScrollBar {
       &:insensitive { color: scale-color($selected_fg_color, $alpha: -50%); }
     }
     &.selected {
-      background-color: scale-color($fg_color, $alpha: -90%);
+      background-color: $semi_fill_color;
       color: $fg_color;
       transition-duration: 0;
     }
     &:active {
-      background-color: scale-color($fg_color, $alpha: -80%);
+      background-color: $fill_color;
       color: $fg_color;
       transition-duration: 0.2s;
     }
@@ -718,7 +718,7 @@ StScrollBar {
 
 .switcher-list .item-box:outlined {
   padding: 6px;
-  border: 2px solid $osd_fill_color;
+  border: 2px solid $fill_color;
 }
 
 .switcher-list .item-box:selected {
@@ -741,9 +741,9 @@ StScrollBar {
 }
 
 .switcher-arrow {
-  border-color: transparent;
-  color: $osd_dim_fg_color;
-  &:highlighted { color: $osd_fg_color; }
+  border-color: rgba(0,0,0,0);
+  color: $dim_fg_color;
+  &:highlighted { color: $fg_color; }
 }
 
 .input-source-switcher-symbol {
@@ -878,7 +878,7 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: 700;
-    color: $inverted_secondary_fg_color;
+    color: $secondary_fg_color;
     transition-duration: 0.2s;
 
     .app-menu-icon {
@@ -1347,7 +1347,7 @@ StScrollBar {
   text-align: center;
 }
 
-.nm-dialog-airplane-text { color: $osd_fg_color; }
+.nm-dialog-airplane-text { color: $fg_color; }
 
 .nm-dialog-header-icon { icon-size: 32px; }
 
@@ -1371,7 +1371,7 @@ StScrollBar {
 
 .nm-dialog-icon { icon-size: 16px; }
 
-.no-networks-label { color: $osd_dim_fg_color; }
+.no-networks-label { color: $dim_fg_color; }
 
 .no-networks-box { spacing: 12px; }
 
@@ -1426,8 +1426,8 @@ StScrollBar {
   border-radius: 2px;
   border-color: transparent;
   border-top: 1px solid $borders_highlight;
-  color: $osd_dim_fg_color;
-  background-color: $osd_semi_fill_color;
+  color: $dim_fg_color;
+  background-color: $inverted_dim_bg_color;
   font-weight: 500;
   box-shadow: $z-depth-2;
 
@@ -1437,8 +1437,8 @@ StScrollBar {
   &:hover,
   &:focus {
     border-top: 1px solid $borders_highlight;
-    color: $fg_color;
-    background-color: transparentize($bg_color, 0.1);
+    color: $inverted_fg_color;
+    background-color: transparentize($inverted_bg_color, 0.1);
     box-shadow: $z-depth-3;
     transition-duration: 0.2s;
   }
@@ -1446,12 +1446,12 @@ StScrollBar {
   .search-entry-icon {
     padding: 0 2px;
     icon-size: 16px;
-    color: $osd_dim_fg_color;
+    color: $dim_fg_color;
   }
 
   &:hover,
   &:focus {
-    .search-entry-icon { color: $fg_color; }
+    .search-entry-icon { color: $inverted_fg_color; }
   }
 }
 
@@ -1536,7 +1536,7 @@ StScrollBar {
 .dash-label { // osd tooltip
   padding: 4px 12px;
   border-radius: 2px;
-  color: $osd_fg_color;
+  color: $fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-2;
   text-align: center;
@@ -1634,12 +1634,12 @@ StScrollBar {
   padding: 7px 32px 8px;
   border-radius: 0;
   font-weight: 700;
-  color: $osd_secondary_fg_color;
+  color: $secondary_fg_color;
   background-color: rgba(0, 0, 0, 0.01) !important;
   &:hover {
     color: $osd_fg_color;
-    background-color: $osd_semi_fill_color !important;
-    box-shadow: inset 0 2px 0 $osd_fill_color;
+    background-color: $fill_color !important;
+    box-shadow: inset 0 2px 0 $osd_semi_fill_color;
   }
   &:active {
     color: $osd_fg_color;
@@ -1653,7 +1653,7 @@ StScrollBar {
   }
   &:hover:checked {
     color: $osd_fg_color;
-    background-color: $osd_fill_color !important;
+    background-color: $fill_color !important;
     box-shadow: inset 0 2px 0 $osd_indicator_color;
   }
 }
@@ -1681,7 +1681,7 @@ StScrollBar {
 .grid-search-result {
   & .overview-icon {
     @extend %icon_tile;
-    color: $osd_secondary_fg_color;
+    color: $secondary_fg_color;
   }
 
   &:hover .overview-icon,
@@ -1944,7 +1944,7 @@ StScrollBar {
 // Chat bubbles
 .chat-body { spacing: 5px; }
 .chat-response { margin: 5px; }
-.chat-log-message { color: $osd_secondary_fg_color; }
+.chat-log-message { color: transparentize($fg_color, 0.0); }
 .chat-new-group { padding-top: 1em; }
 .chat-received {
   padding-left: 4px;
@@ -1956,7 +1956,7 @@ StScrollBar {
 
 .chat-sent {
   padding-left: 18pt;
-  color: transparentize($osd_fg_color, 0.2);
+  color: transparentize($fg_color, 0.2);
   &:rtl {
     padding-left: 0;
     padding-right: 18pt;
@@ -1967,7 +1967,7 @@ StScrollBar {
   @include fontscaling($ref_size * 0.9);
   padding-left: 4px;
   font-weight: 700;
-  color: $insensitive_osd_fg_color;
+  color: $insensitive_fg_color;
   &:rtl {
     padding-left: 0;
     padding-right: 4px;
@@ -1995,8 +1995,8 @@ StScrollBar {
 .hotplug-resident-mount {
   spacing: 8px;
   border-radius: 2px;
-  &:hover { background-color: $osd_semi_fill_color; }
-  &:active { background-color: $osd_fill_color; }
+  &:hover { background-color: $semi_fill_color; }
+  &:active { background-color: $fill_color; }
 }
 
 .hotplug-resident-mount-label {
@@ -2023,8 +2023,7 @@ $legacy_icon_size: 24px;
 .legacy-tray {
   border: none;
   border-bottom-width: 0;
-  background-color: $inverted_bg_color;
-  color: $inverted_fg_color;
+  background-color: $bg_color;
   box-shadow: none;
   &:ltr {
     border-radius: 0 2px 0 0;
@@ -2040,8 +2039,8 @@ $legacy_icon_size: 24px;
 .legacy-tray-icon {
   padding: 6px;
   &:hover,
-  &:focus { background-color: $osd_semi_fill_color; }
-  &:active { background-color: $osd_fill_color; }
+  &:focus { background-color: $semi_fill_color; }
+  &:active { background-color: $fill_color; }
 
   & StIcon { icon-size: $legacy_icon_size; }
 }
@@ -2089,28 +2088,16 @@ $legacy_icon_size: 24px;
   min-height: 2em;
   min-width: 2em;
   font-weight: 700;
-  color: $inverted_fg_color;
-  background-color: $inverted_bg_color;
+  color: inherit;
   @include button(normal);
-  &:focus {
-    @include button(focus);
-    color: selected_fg_color;
-  }
+  &:focus { @include button(focus); }
   &:hover,
-  &:checked {
-    @include button(hover);
-    color: $selected_fg_color;
-    background-color: $inverted_bg_color;
-  }
-  &:active {
-    @include button(active);
-    color: $selected_fg_color;
-    background-color: $inverted_bg_color;
-  }
+  &:checked { @include button(hover); }
+  &:active { @include button(active);}
   &:grayed { // FIXME
     border-color: $osd_borders_color;
-    color: $osd_dim_fg_color;
-    background-color: $inverted_bg_color;
+    background-color: $osd_bg_color;
+    color: $osd_fg_color;
   }
 }
 
@@ -2141,7 +2128,7 @@ $legacy_icon_size: 24px;
 
 .candidate-index {
   padding: 0 0.5em 0 0;
-  color: $osd_dim_fg_color;
+  color: $dim_fg_color;
 }
 
 .candidate-box {
@@ -2149,12 +2136,12 @@ $legacy_icon_size: 24px;
   padding: 0.3em 0.5em 0.3em 0.5em;
   border-radius: 2px;
   &:hover {
-    background-color: $osd_semi_fill_color;
-    color: $osd_fg_color;
+    background-color: $semi_fill_color;
+    color: $fg_color;
   }
   &:active,
   &:selected {
-    background-color: $osd_fill_color;
+    background-color: $fill_color;
     color: $selected_fg_color;
   }
 }
@@ -2387,13 +2374,13 @@ $legacy_icon_size: 24px;
   height: 48px;
   -arrow-thickness: 12px;
   -arrow-shadow: none;
-  color: $selected_fg_color;
+  color: white;
 }
 
 .screen-shield-clock {
   padding-bottom: 1.5em;
   text-align: center;
-  color: $selected_fg_color;
+  color: white;
 }
 
 .screen-shield-clock-time {
@@ -2497,7 +2484,7 @@ $legacy_icon_size: 24px;
       border-color: transparent;
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset 0 -2px 0 $osd_fill_color;
-      color: $osd_fg_color;
+      color: $fg_color;
       text-shadow: none;
     }
     &:selected {
@@ -2505,7 +2492,7 @@ $legacy_icon_size: 24px;
       border-color: transparent;
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset 0 -2px 0 $osd_indicator_color;
-      color: $selected_fg_color;
+      color: $fg_color;
       text-shadow: none;
     }
   }
@@ -2541,7 +2528,7 @@ $legacy_icon_size: 24px;
   border: 1px solid $borders_color;
   padding: 4px;
   border-radius: 2px;
-  &:hover { border: 1px solid $selected_fg_color; }
+  &:hover { border: 1px solid #FFFFFF; }
 }
 
 #lookingGlassExtensions { padding: 4px; }
@@ -2568,7 +2555,7 @@ $legacy_icon_size: 24px;
   padding: 6px;
   border: none;
   border-radius: 2px;
-  background: $osd_bg_color;
+  background: $bg_color;
   box-shadow: $z-depth-4;
 }
 

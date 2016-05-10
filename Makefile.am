@@ -1,6 +1,5 @@
 EXTRA_DIST = \
 	COPYING \
-	gnome-shell \
 	gtk-3.0 \
 	gtk-3.20 \
 	README.md
@@ -9,6 +8,8 @@ INDEX              = index.theme
 INDEX_NOKTO        = index.theme-nokto
 GTK_NEXT_DIR       = gtk-3.22
 GTK_2_DIR          = gtk-2.0
+GNOME_DIR          = gnome-shell
+GNOME_NOKTO_DIR    = gnome-shell-nokto
 CINNAMON_DIR       = cinnamon
 CINNAMON_NOKTO_DIR = cinnamon-nokto
 METACITY_DIR       = metacity-1
@@ -26,6 +27,8 @@ install-data-hook:
 	$(MKDIR_P) $(noktodir)
 
 	cp -Rv $(EXTRA_DIST) $(adaptadir)
+	cp -Rv $(GNOME_DIR) $(adaptadir)
+	cp -Rv $(GNOME_NOKTO_DIR) $(noktodir)/$(GNOME_DIR)
 
 	cd $(adaptadir)
 	ln -sf ../Adapta/gnome-shell $(noktodir)/gnome-shell
