@@ -160,6 +160,11 @@ $asset_suffix: if($variant=='dark', '-dark', '');
     @extend %selected_items;
   }
   &:insensitive { color: $insensitive_fg_color; }
+
+  // always use dark foreground in Gnome-Software
+  &.kudo-label {
+    color: $fixed_fg_color;
+  }
 }
 
 .dim-label {
