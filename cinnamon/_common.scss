@@ -368,12 +368,12 @@ StScrollBar {
   box-shadow: $z-depth-3;
 }
 
-/*Don't know what this does*/
+// Don't know what this does
 .popup-combo-menu {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 1em 0em;
   color: red;
-  border: 1px solid rgba(0,0,0,0.6);
+  border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 3px;
 }
 .popup-image-menu-item {}
@@ -383,11 +383,11 @@ StScrollBar {
 .popup-separator-menu-item {
   height: 1px; //not really the whole box
   margin: 0.6em 0.4em;
-  background-color: transparent;
   border-color: $borders_color;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-//  border-image: url("assets/menu/menu-separator.svg") 1 1 1 1;
+  // border-image: url("assets/menu/menu-separator.svg") 1 1 1 1;
+  background-color: transparent;
 }
 
 .popup-alternating-menu-item:alternate {
@@ -408,31 +408,37 @@ StScrollBar {
 $icon_size: 16px;
 
 #panel {
-  font-weight: 700;
   height: 2.25em;
   min-height: 27px;
+  font-weight: 700;
 
   &Left {
     spacing: 4px;
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(255,0,0,0.05);
-      background-gradient-end: rgba(255,0,0,0.2);
+      background-gradient-start: rgba(255, 0, 0, 0.05);
+      background-gradient-end: rgba(255, 0, 0, 0.2);
     }
-    &:ltr ·{ padding-right: 4px; }
-    &:rtl ·{ padding-left: 4px; }
+    &:ltr { padding-right: 4px; }
+    &:rtl { padding-left: 4px; }
   }
 
   &Right {
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0,0,255,0.05);
-      background-gradient-end: rgba(0,0,255,0.2);
+      background-gradient-start: rgba(0, 0, 255, 0.05);
+      background-gradient-end: rgba(0, 0, 255, 0.2);
     }
-    &:ltr ·{ padding-left: 4px; spacing: 0px; }
-    &:rtl ·{ padding-right: 4px; spacing: 0px; }
+    &:ltr {
+      padding-left: 4px;
+      spacing: 0;
+    }
+    &:rtl {
+      padding-right: 4px;
+      spacing: 0;
+    }
   }
 
   &Center {
@@ -440,8 +446,8 @@ $icon_size: 16px;
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0,255,0,0.05);
-      background-gradient-end: rgba(0,255,0,0.2);
+      background-gradient-start: rgba(0, 255, 0, 0.05);
+      background-gradient-end: rgba(0, 255, 0, 0.2);
     }
   }
 }
@@ -456,8 +462,8 @@ $icon_size: 16px;
     background-color: $panel_bg_color;
   }
 
-//  &-top { border-image: url('assets/panel/panel-top.svg') 1 1 1 1; }
-//  &-bottom { border-image: url('assets/panel/panel-bottom.svg') 1 1 1 1; }
+  // &-top { border-image: url('assets/panel/panel-top.svg') 1 1 1 1; }
+  // &-bottom { border-image: url('assets/panel/panel-bottom.svg') 1 1 1 1; }
 
   &-status-button {
     border-widht: 0;
@@ -499,12 +505,12 @@ $icon_size: 16px;
 #overview { spacing: 12px; }
 
 .window-caption {
+  -cinnamon-caption-spacing: 12px;
   spacing: 25px;
   padding: 4px 8px;
   border-radius: 2px;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
-  -cinnamon-caption-spacing: 12px;
   box-shadow: $z-depth-1;
 
   &#selected {
@@ -518,10 +524,10 @@ $icon_size: 16px;
 .expo-workspaces-name-entry,
 .expo-workspaces-name-entry#selected {
   @include fontscaling($ref_size * 0.9);
+  -cinnamon-caption-spacing: 12px;
   height: 15px;
   border-radius: 2px;
   padding: 4px 8px;
-  -cinnamon-caption-spacing: 12px;
   @include entry(osd);
 
   &:focus {
@@ -572,7 +578,7 @@ $icon_size: 16px;
       transition-duration: 0.2s;
     }
   }
-  &-overview-background-shade { background-color: rgba(0,0,0,0.5); }
+  &-overview-background-shade { background-color: rgba(0, 0, 0, 0.5); }
 }
 
 .workspace-close-button,
@@ -597,14 +603,14 @@ $icon_size: 16px;
   }
 }
 
-//.workspace-thumbnail-indicator {
-//  outline: 2px solid red;
-//  border: 1px solid green;
-//}
+//  .workspace-thumbnail-indicator {
+//    outline: 2px solid red;
+//    border: 1px solid green;
+//  }
 //
-//.window-close:rtl {
-//  -st-background-image-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-//}
+//  .window-close:rtl {
+//    -st-background-image-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+//  }
 
 .window-close-area {
   background-image: url("assets/misc/trash-icon.svg");
@@ -628,7 +634,7 @@ $icon_size: 16px;
   }
   &-uuid {
     @include fontscaling($ref_size * 1.0);
-    color: #888;
+    color: $dim_fg_color;
   }
   &-icon {
     padding-right: 20px;
@@ -654,7 +660,7 @@ $icon_size: 16px;
   &-version {
     @include fontscaling($ref_size * 1.0);
     padding-left: 7px;
-    color: #888;
+    color: $dim_fg_color;
   }
 }
 
@@ -781,18 +787,18 @@ $icon_size: 16px;
  *****************/
 
 #notification {
-  border-radius: 2px;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
-  padding: 13px;
+  width: 34em;
   spacing-rows: 10px;
   spacing-columns: 10px;
   margin-from-right-edge-of-screen: 20px;
-  width: 34em;
+  padding: 13px;
+  border-radius: 2px;
+  border-image: url("assets/misc/osd.svg") 9 9 9 9;
   color: $osd_fg_color;
 
   .popup-menu & {
-    color: $fg_color;
     border-image: url("assets/misc/message.svg") 9 9 9 9;
+    color: $fg_color;
 
     .notification-button,
     .notification-icon-button {
@@ -849,12 +855,12 @@ $icon_size: 16px;
 }
 
 .switcher-list {
-  color: $osd_fg_color;
-  background: none;
+  padding: 20px;
   border: none;
   border-image: url("assets/misc/osd.svg") 9 9 9 9;
   border-radius: 2px;
-  padding: 20px;
+  color: $osd_fg_color;
+  background: none;
 
   > StBoxLayout {
     padding: 4px;
@@ -890,11 +896,11 @@ $icon_size: 16px;
 }
 
 .switcher-arrow {
-  border-color: rgba(0,0,0,0);
+  border-color: transparent;
   color: $osd_fg_color;
 
   &:highlighted {
-    border-color: rgba(0,0,0,0);
+    border-color: transparent;
     color: $selected_fg_color;
   }
 }
@@ -902,19 +908,19 @@ $icon_size: 16px;
 //.switcher-preview-backdrop { background-color: rgba(25,25,25,0.95); }
 
 .thumbnail-scroll-gradient-left {
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 24px;
-  border-radius-topright: 0px;
-  border-radius-bottomright: 0px;
   width: 60px;
+  border-radius: 24px;
+  border-radius-topright: 0;
+  border-radius-bottomright: 0;
+  background-color: transparent;
 }
 
 .thumbnail-scroll-gradient-right {
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 24px;
-  border-radius-topleft: 0px;
-  border-radius-bottomleft: 0px;
   width: 60px;
+  border-radius: 24px;
+  border-radius-topleft: 0;
+  border-radius-bottomleft: 0;
+  background-color: transparent;
 }
 
 
@@ -938,12 +944,12 @@ $icon_size: 16px;
 .flashspot { background-color: white; }
 
 .modal-dialog {
+  padding: 0 5px 6px 5px;
   border: none;
   border-radius: 2px;
-  padding: 0 5px 6px 5px;
+  border-image: url("assets/misc/modal.svg") 9 9 9 67;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
-  border-image: url("assets/misc/modal.svg") 9 9 9 67;
 
   > StBoxLayout:first-child {
     padding: 20px 10px 10px 10px;
@@ -951,16 +957,16 @@ $icon_size: 16px;
 
   &-button-box {
     spacing: 0;
-    margin: 0px;
+    margin: 0;
     padding: 14px 10px;
-    background: none;
-    border: none;
     // border-image: url("assets/misc/button-box.svg") 9 9 9 9;
+    border: none;
+    background: none;
 
     .modal-dialog-button {
+      height: 30px;
       padding-top: 0;
       padding-bottom: 0;
-      height: 30px;
 
       @extend %osd_button;
       color: $osd_secondary_fg_color;
@@ -977,16 +983,16 @@ $icon_size: 16px;
  ***************/
 
 .run-dialog {
-  padding: 0px 15px 10px 15px;
+  padding: 0 15px 10px 15px;
   border-image: url("assets/misc/osd.svg") 9 9 9 9;
 
   > * { padding: 0; }
 
   &-label {
+    padding-bottom: 0;
     font-size: 0;
     font-weight: 700;
     color: $osd_fg_color;
-    padding-bottom: 0;
   }
 
   &-error-label { color: $error_color; }
@@ -1014,9 +1020,9 @@ $icon_size: 16px;
   }
   .modal-dialog-button-box {
     border: none;
-    box-shadow: none;
     background: none;
     background-gradient-direction: none;
+    box-shadow: none;
   }
 }
 
@@ -1039,7 +1045,7 @@ $icon_size: 16px;
     padding-bottom: 6px;
 
     &:rtl {
-      padding-left: 0px;
+      padding-left: 0;
       padding-right: 17px;
     }
   }
@@ -1108,12 +1114,12 @@ $icon_size: 16px;
 
 .keyboard-key {
   @include fontscaling($ref_size * 2.0);
-  border-radius: 2px;
-  border: 1px 0 0;
   min-height: 2em;
   min-width: 2em;
-  font-weight: 700;
+  border-radius: 2px;
+  border: 1px 0 0;
   color: inherit;
+  font-weight: 700;
 
   @include button(normal);
   &:focus { @include button(focus); }
@@ -1172,7 +1178,7 @@ $icon_size: 16px;
     &-box {
       margin: auto;
       padding: 10px;
-      border: 0px solid $borders_color;
+      border: 0 solid transparent;
     }
 
     &-button { padding: 10px; }
@@ -1258,9 +1264,8 @@ $icon_size: 16px;
 #menu-search-entry {
   width: 250px;
   height: 15px;
-  font-weight: 500;
   caret-color: $fg_color;
-
+  font-weight: 500;
   @extend %entry;
 }
 
@@ -1279,32 +1284,31 @@ $icon_size: 16px;
 .info-osd {
   spacing: 1em;
   padding: 16px;
+  border-image: url("assets/misc/osd.svg") 9 9 9 9;
   color: $osd_fg_color;
   text-align: center;
   font-weight: 700;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
 }
 
 .osd-window {
+  min-width: 64px;
+  min-height: 64px;
   spacing: 1em;
   padding: 20px;
   margin: 32px;
-  min-width: 64px;
-  min-height: 64px;
   border: none;
   border-radius: 5px;
-
+  border-image: url("assets/misc/osd.svg") 9 9 9 9;
   color: $osd_fg_color;
+  background: none;
   font-weight: 700;
   text-align: center;
-  background: none;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
 
 .osd-monitor-label { @include fontscaling($ref_size * 3.0); }
 
   .level {
-    padding: 0;
     height: 4px;
+    padding: 0;
     border-radius: 0;
     background-color: transparentize($accent_color, 0.8);
     color: $accent_color;
@@ -1325,17 +1329,17 @@ $icon_size: 16px;
   }
 
   &-item-label {
-    font-weight: 700;
     width: 15em;
     min-width: 5px;
+    font-weight: 700;
   }
 
   &-item-box {
     padding-left: 8px;
     padding-right: 8px;
-    font-weight: 700;
     background-image: none;
     color: $osd_secondary_fg_color;
+    font-weight: 700;
 
     &:hover {
       color: $osd_fg_color;
@@ -1392,9 +1396,9 @@ $icon_size: 16px;
     }
   }
   &-box {
+    max-width: 220px;
     padding-left: 15px;
     padding-right: 15px;
-    max-width: 220px;
   }
 }
 
@@ -1437,7 +1441,7 @@ $icon_size: 16px;
   }
 
   &-generic-coverart {
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
   }
 
   &-overlay {
@@ -1445,7 +1449,7 @@ $icon_size: 16px;
     height: 70px;
     padding: 15px;
     spacing: 0.5em;
-    border: 0px solid darken($osd_bg_color, 10%);
+    border: 0 solid darken($osd_bg_color, 10%);
     border-bottom: 1px ;
     color: $osd_fg_color;
     background: transparentize(darken($osd_bg_color, 5%), 0.1);
@@ -1454,9 +1458,9 @@ $icon_size: 16px;
       width: 22px;
       height: 13px;
       padding: 5px;
-      color: $osd_fg_color;
       border-radius: 2px;
       border: 1px solid transparentize($osd_bg_color,1);
+      color: $osd_fg_color;
 
       StIcon { icon-size: 16px; }
 
@@ -1476,7 +1480,7 @@ $icon_size: 16px;
     -slider-border-color: transparent; // trough border color
     -slider-active-background-color: $accent_color; // active trough fill
     -slider-active-border-color: transparent; // active trough border
-    -slider-border-width: 0px;
+    -slider-border-width: 0;
     -slider-handle-radius: 4px;
   }
 }
@@ -1485,7 +1489,7 @@ $icon_size: 16px;
 // Workspace Switcher applet (workspaceSwitcher.js)
 //
 #workspaceSwitcher {
-  spacing: 0px;
+  spacing: 0;
   padding: 3px;
 }
 
@@ -1496,14 +1500,15 @@ $icon_size: 16px;
 }
 
 .workspace-button {
-  padding: 3px;
-  padding-top: 4px;
   width: 20px;
   height: 10px;
+  padding: 3px;
+  padding-top: 4px;
   color: $selected_fg_color;
-  transition-duration: 300;
+  transition-duration: 0.2s;
 
-  &:outlined, &:outlined:hover { color: $selected_bg_color; }
+  &:outlined,
+  &:outlined:hover { color: $selected_bg_color; }
   &:hover { color: transparentize($selected_bg_color, 0.5) }
 }
 
@@ -1550,8 +1555,8 @@ $icon_size: 16px;
   padding: 1px 6px;
 
   &:hover {
+    border: 0 solid $selected_bg_color;
     background-gradient-direction: none;
-    border: 0px solid $selected_bg_color;
 
     .panel-bottom & { border-bottom-width: 1px; }
     .panel-top & { border-top-width: 1px; }
@@ -1575,7 +1580,7 @@ $icon_size: 16px;
 
   &-separator-line {
     width: 1px;
-    // background: rgba(255,255,255, 0.12);
+    // background: rgba(255, 255, 255, 0.12);
     background: transparent;
   }
 
@@ -1593,8 +1598,8 @@ $icon_size: 16px;
   }
 
   &-label {
-    font-weight: 700;
     color: $osd_secondary_fg_color;
+    font-weight: 700;
 
     &:hover, .applet-box:hover > & {
       color: $osd_fg_color;
@@ -1603,8 +1608,8 @@ $icon_size: 16px;
   }
 
   &-icon {
-    color: $osd_secondary_fg_color;
     icon-size: 22px;
+    color: $osd_secondary_fg_color;
 
     &:hover, .applet-box:hover > & {
       color: $osd_fg_color;
@@ -1618,10 +1623,10 @@ $icon_size: 16px;
 // User Applet
 //
 .user-icon {
-    border: none;
-    border-radius: 0;
     width: 32px;
     height: 32px;
+    border: none;
+    border-radius: 0;
     background-color: transparent;
 }
 
