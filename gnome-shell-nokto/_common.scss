@@ -455,7 +455,7 @@ StScrollBar {
   padding-bottom: 8px;
 }
 
-.hidden { color: rgba(0,0,0,0); }
+.hidden { color: transparent; }
 
 .prompt-dialog-null-label {
   @include fontscaling($ref_size * 1.0);
@@ -742,7 +742,7 @@ StScrollBar {
 }
 
 .switcher-arrow {
-  border-color: rgba(0,0,0,0);
+  border-color: transparent;
   color: $dim_fg_color;
   &:highlighted { color: $fg_color; }
 }
@@ -1299,14 +1299,14 @@ StScrollBar {
 .window-close {
   height: 32px;
   width: 32px;
-  -st-background-image-shadow: 0 1px 3px rgba(0,0,0,0.24),
-                               0 1px 2px rgba(0,0,0,0.48);
+  -st-background-image-shadow: 0 1px 3px rgba(0, 0, 0, 0.24),
+                               0 1px 2px rgba(0, 0, 0, 0.48);
   background-image: url("assets/window-close.svg");
   background-size: 32px;
   &:hover {
     background-image: url("assets/window-close-hover.svg");
-    -st-background-image-shadow: 0 3px 6px rgba(0,0,0,0.32),
-                                 0 3px 6px rgba(0,0,0,0.46);
+    -st-background-image-shadow: 0 3px 6px rgba(0, 0, 0, 0.32),
+                                 0 3px 6px rgba(0, 0, 0, 0.46);
   }
   &:active { background-image: url("assets/window-close-active.svg"); }
 }
@@ -1314,11 +1314,11 @@ StScrollBar {
 .window-close {
   -shell-close-overlap: 24px;
   &:rtl {
-    -st-background-image-shadow: 0 1px 3px rgba(0,0,0,0.24),
-                                 0 1px 2px rgba(0,0,0,0.48);
+    -st-background-image-shadow: 0 1px 3px rgba(0, 0, 0, 0.24),
+                                 0 1px 2px rgba(0, 0, 0, 0.48);
     &:hover {
-      -st-background-image-shadow: 0 3px 6px rgba(0,0,0,0.32),
-                                   0 3px 6px rgba(0,0,0,0.46);
+      -st-background-image-shadow: 0 3px 6px rgba(0, 0, 0, 0.32),
+                                   0 3px 6px rgba(0, 0, 0, 0.46);
     }
   }
 }
@@ -1499,8 +1499,8 @@ StScrollBar {
   width: 16px;
   height: 16px;
   background-image: url("assets/more-results.svg");
-  -st-background-image-shadow: 0 1px 3px rgba(0,0,0,0.24),
-                               0 1px 2px rgba(0,0,0,0.48);
+  -st-background-image-shadow: 0 1px 3px rgba(0, 0, 0, 0.24),
+                               0 1px 2px rgba(0, 0, 0, 0.48);
 
 }
 
@@ -1743,8 +1743,8 @@ StScrollBar {
   background-image: url("assets/show-apps.svg");
   background-size: contain;
   color: transparent;
-  -st-background-image-shadow: 0 1px 1px rgba(0,0,0,0.06),
-                               0 1px 2px rgba(0,0,0,0.14);
+  -st-background-image-shadow: 0 1px 1px rgba(0, 0, 0, 0.06),
+                               0 1px 2px rgba(0, 0, 0, 0.14);
 }
 
 .show-apps:hover .show-apps-icon,
@@ -1753,8 +1753,8 @@ StScrollBar {
 .show-apps:focus .show-apps-icon {
   color: transparent;
   background-image: url("assets/show-apps-active.svg");
-  -st-background-image-shadow: 0 1px 1px rgba(0,0,0,0.12),
-                               0 1px 2px rgba(0,0,0,0.22);
+  -st-background-image-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
+                               0 1px 2px rgba(0, 0, 0, 0.22);
   transition-duration: 0.2s;
 }
 
@@ -1937,7 +1937,7 @@ StScrollBar {
   -shell-counter-overlap-y: 3px;
   background-color: $selected_bg_color;
   color: $selected_fg_color;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .secondary-icon { icon-size: 14px; }
@@ -1945,7 +1945,7 @@ StScrollBar {
 // Chat bubbles
 .chat-body { spacing: 5px; }
 .chat-response { margin: 5px; }
-.chat-log-message { color: transparentize($fg_color, 0.0); }
+.chat-log-message { color: $secondary_fg_color; }
 .chat-new-group { padding-top: 1em; }
 .chat-received {
   padding-left: 4px;
@@ -1957,7 +1957,7 @@ StScrollBar {
 
 .chat-sent {
   padding-left: 18pt;
-  color: transparentize($fg_color, 0.2);
+  color: $secondary_fg_color;
   &:rtl {
     padding-left: 0;
     padding-right: 18pt;
@@ -2375,13 +2375,13 @@ $legacy_icon_size: 24px;
   height: 48px;
   -arrow-thickness: 12px;
   -arrow-shadow: none;
-  color: white;
+  color: $selected_fg_color;
 }
 
 .screen-shield-clock {
   padding-bottom: 1.5em;
   text-align: center;
-  color: white;
+  color: $selected_fg_color;
 }
 
 .screen-shield-clock-time {
@@ -2442,7 +2442,7 @@ $legacy_icon_size: 24px;
     background-color: transparentize($osd_fg_color,0.4);
     &:hover,
     &:focus { background-color: transparentize($osd_fg_color,0.2); }
-    &:active { background-color: transparentize($osd_fg_color,0.0); }
+    &:active { background-color: $osd_fg_color; }
   }
 }
 
