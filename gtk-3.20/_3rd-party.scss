@@ -68,14 +68,17 @@ $orientation: ((top, bottom),
       background-image: none;
       opacity: 0.5;
       transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      -gtk-icon-effect: dim;
       &:hover {
+        opacity: 0.75;
         -gtk-icon-effect: highlight;
-        opacity: 1.0;
       }
       &:active,
       &:checked {
         opacity: 1.0;
         background-color: transparent;
+        -gtk-icon-effect: none;
+        &:hover { -gtk-icon-effect: highlight; }
       }
     }
   }
@@ -83,7 +86,11 @@ $orientation: ((top, bottom),
   .unpinned button.flat.launcher,
   .unpinned button.flat.launcher:backdrop,
   .pinned button.flat.launcher.running,
-  .pinned button.flat.launcher.running:backdrop { opacity: 1.0; }
+  .pinned button.flat.launcher.running:backdrop {
+    opacity: 1.0;
+    -gtk-icon-effect: none;
+    &:hover { -gtk-icon-effect: highlight; }
+  }
 }
 
 // draw underscores
