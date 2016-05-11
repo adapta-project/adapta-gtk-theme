@@ -31,7 +31,6 @@ install-data-hook:
 	cp -Rv $(GNOME_NOKTO_DIR) $(noktodir)/$(GNOME_DIR)
 
 	cd $(adaptadir)
-	ln -sf ../Adapta/gnome-shell $(noktodir)/gnome-shell
 	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
 	ln -sf ../Adapta/gtk-3.20 $(noktodir)/gtk-3.20
 
