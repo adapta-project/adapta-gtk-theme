@@ -6798,15 +6798,23 @@ TerminalWindow .scrollbar.trough {
   border: 2px solid transparent;
   background-image: none;
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  opacity: 0.5; }
+  opacity: 0.5;
+  -gtk-image-effect: dim; }
   .budgie-panel .launcher:hover {
-    -gtk-image-effect: highlight;
-    opacity: 1.0; }
+    opacity: 0.75;
+    -gtk-image-effect: highlight; }
   .budgie-panel .launcher:active, .budgie-panel .launcher:checked {
-    opacity: 1.0; }
+    opacity: 1.0;
+    -gtk-image-effect: none; }
+    .budgie-panel .launcher:active:hover, .budgie-panel .launcher:checked:hover {
+      -gtk-image-effect: highlight; }
 .budgie-panel .unpinned .launcher,
 .budgie-panel .pinned .launcher.running {
-  opacity: 1.0; }
+  opacity: 1.0;
+  -gtk-image-effect: none; }
+  .budgie-panel .unpinned .launcher:hover,
+  .budgie-panel .pinned .launcher.running:hover {
+    -gtk-image-effect: highlight; }
 
 .top .budgie-panel WnckTasklist .button {
   border: 2px solid transparent; }
