@@ -1561,11 +1561,11 @@ StScrollBar {
                                   (left, -1px 0, 2px 0),
                                   (right, 1px 0, -2px 0) {
     &.#{$_dock}:overview #dash {
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: rgba(19, 25, 28, 0.01);
       box-shadow: inset #{$_line} 0 $osd_semi_fill_color;
     }
     &.#{$_dock} #dash {
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: rgba(19, 25, 28, 0.01);
       box-shadow: inset #{$_edge} 0 $panel_bg_color;
     }
   }
@@ -1833,7 +1833,7 @@ StScrollBar {
   padding: 12px;
   border-radius: 0;
   //border-width: 0; // FIXME: can't have non unoform borders :(
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(19, 25, 28, 0.01);
   box-shadow: inset 1px 0 0 $osd_semi_fill_color;
   color: $osd_fg_color;
 
@@ -1861,12 +1861,13 @@ StScrollBar {
   color: $osd_dim_fg_color;
 }
 
-// Add Dash to Dock Support
+// Add Workspace to Dock Support
+#workspacestodockContainer,
+#workspacestodockContainer:overview,
+#workspacestodockContainer.fullheight:overview {
+  background-color: rgba(19, 25, 28, 0.01);
 
-#workspacestodockContainer .workspace-thumbnails,
-#workspacestodockContainer:overview .workspace-thumbnails,
-#workspacestodockContainer.fullheight:overview .workspace-thumbnails {
-  background-color: transparent;
+  .workspace-thumbnails { background-color: transparent; }
 }
 
 
