@@ -122,10 +122,7 @@ $orientation: ((top, bottom),
       border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
                                 url("assets/running-dot-#{$_dot}@2.png"))
                     2 / 2px;
-      &:hover {
-        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
-        border-image: none;
-      }
+      &:hover,
       &:active,
       &:checked {
         border-#{$along_side}: 2px solid $selected_bg_color;
