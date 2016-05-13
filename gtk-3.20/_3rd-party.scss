@@ -122,6 +122,33 @@ $orientation: ((top, bottom),
   }
 }
 
+// draw underscores and dots
+@each $along_side, $_dot in (top, top),
+                            (bottom, bottom),
+                            (left, left),
+                            (right, right) {
+  .#{$along_side} .budgie-panel {
+    .unpinned button.flat.launcher,
+    .unpinned button.flat.launcher:backdrop,
+    .pinned button.flat.launcher.running,
+    .pinned button.flat.launcher.running:backdrop {
+      border: 2px solid transparent;
+      border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
+                                url("assets/running-dot-#{$_dot}@2.png"))
+                    2 / 2px;
+      &:hover {
+        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
+        border-image: none;
+      }
+      &:active,
+      &:checked {
+        border-#{$along_side}: 2px solid $selected_bg_color;
+        border-image: none;
+      }
+    }
+  }
+}
+
 // main menu styling
 .budgie-menu {
   border-radius: 2px;
