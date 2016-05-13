@@ -67,7 +67,13 @@ $orientation: ((top, bottom),
       border: 2px solid transparent;
       background-image: none;
       opacity: 0.5;
-      transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition-property: opacity,
+                           border-color,
+                           background-color,
+                           background-image,
+                           box-shadow;
+      transition-duration: 0.2s;
       &:hover {
         opacity: 0.75;
         -gtk-icon-effect: highlight;
