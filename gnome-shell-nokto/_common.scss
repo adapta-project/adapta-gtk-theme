@@ -2026,7 +2026,8 @@ $legacy_icon_size: 24px;
 .legacy-tray {
   border: none;
   border-bottom-width: 0;
-  background-color: $bg_color;
+  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  color: $osd_fg_color;
   box-shadow: none;
   &:ltr {
     border-radius: 0 2px 0 0;
@@ -2042,8 +2043,8 @@ $legacy_icon_size: 24px;
 .legacy-tray-icon {
   padding: 6px;
   &:hover,
-  &:focus { background-color: $semi_fill_color; }
-  &:active { background-color: $fill_color; }
+  &:focus { background-color: $osd_slight_fill_color; }
+  &:active { background-color: $osd_semi_fill_color; }
 
   & StIcon { icon-size: $legacy_icon_size; }
 }
