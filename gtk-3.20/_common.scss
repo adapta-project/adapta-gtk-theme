@@ -2773,15 +2773,13 @@ notebook {
     }
 
     button { // tab close button
-      @extend button.flat;
+      @include button(flat);
       min-width: rem(16px);
       min-height: rem(16px);
       padding: 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
-      // @extend button.flat;
-      @include button(flat);
       color: $tertiary_fg_color;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
@@ -4165,7 +4163,7 @@ messagedialog { // Message Dialog styling
     .dialog-action-area {
       button,
       .linked > button {
-        @extend button.flat;
+        @include button(flat);
         border: 2px solid transparent;
         border-radius: 0;
         color: $inverted_secondary_fg_color;
