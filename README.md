@@ -80,9 +80,17 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
 
 Installation from Git Source
 ------------
-1. Check `autoconf`, `automake` and `pkg-config` (`pkgconfig`) are installed.
+1. If previous version was installed/existed, remove them at first.
 
-2. Build and install system-wide:
+ ```
+ sudo rm -rf /usr/share/themes/{Adapta,Adapta-Nokto}
+ rm -rf ~/.local/share/themes/{Adapta,Adapta-Nokto}
+ rm -rf ~/.themes/{Adapta,Adapta-Nokto}
+ ```
+
+2. Check `autoconf`, `automake` and `pkg-config` (`pkgconfig`) are installed.
+
+3. Build and install system-wide:
 
  ```
  ./autogen.sh
@@ -96,7 +104,7 @@ Installation from Git Source
  >   * `make` actually does nothing (for future release)
  >   * `sudo make install` installs multiple versioned theme and Gtk+ automatically selects proper versioned one when running.
 
-3. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
+4. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
 
  ```
  --disable-cinnamon      disable cinnamon support
@@ -109,7 +117,7 @@ Installation from Git Source
  >   * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-4. If users want to enable next Gtk+ release support, please pass this option:
+5. If users want to enable next Gtk+ release support, please pass this option:
 
  ```
  --enable-gtk_next       enable Gtk+ 3.21.x support
