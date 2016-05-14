@@ -574,13 +574,12 @@ window {
     > box { padding: rem(2.7px); }
 
     > box > button.image-button {
-      @extend button.flat;
+      @include button(flat);
       min-width: rem(13.3px);
       min-height: rem(29.3px);
       border-radius: 2px;
       -gtk-outline-radius: 2px;
       padding: 0 rem(10px) 0;
-      box-shadow: none;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.001,
@@ -588,13 +587,15 @@ window {
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
       color: $secondary_fg_color;
+      box-shadow: none;
       &:hover {
-        box-shadow: none;
+        @include button(flat-hover);
         border-image: none;
         color: $fg_color;
+        box-shadow: none;
       }
       &:checked {
-        box-shadow: none;
+        @include button(flat-checked);
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
@@ -603,19 +604,22 @@ window {
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
         color: $fg_color;
+        box-shadow: none;
         &:disabled {
-          box-shadow: none;
+          @include button(flat-checked-insensitive);
+          border-image: none;
           background-color: transparent;
           color: $insensitive_fg_color;
-          border-image: none;
+          box-shadow: none;
           > label { color: inherit; }
         }
       }
       &:disabled {
-        box-shadow: none;
+        @include button(flat-insensitive);
+        border-image: none;
         background-color: transparent;
         color: $insensitive_secondary_fg_color;
-        border-image: none;
+        box-shadow: none;
       }
     }
 

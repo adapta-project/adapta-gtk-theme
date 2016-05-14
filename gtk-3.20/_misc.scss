@@ -724,10 +724,9 @@ actionbar {
 
   button,
   .linked > button.image-button {
-    @extend button.flat;
+    @include button(flat);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    box-shadow: none;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -735,13 +734,15 @@ actionbar {
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
+    box-shadow: none;
     &:hover {
-      box-shadow: none;
+      @include button(flat-hover);
       border-image: none;
       color: $fg_color;
+      box-shadow: none;
     }
     &:checked {
-      box-shadow: none;
+      @include button(flat-checked);
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -750,19 +751,22 @@ actionbar {
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
+      box-shadow: none;
       &:disabled {
-        box-shadow: none;
+        @include button(flat-checked-insensitive);
+        border-image: none;
         background-color: transparent;
         color: $insensitive_fg_color;
-        border-image: none;
+        box-shadow: none;
         > .label { color: inherit; }
       }
     }
     &:disabled {
-      box-shadow: none;
+      @include button(flat-insensitive);
+      border-image: none;
       background-color: transparent;
       color: $insensitive_secondary_fg_color;
-      border-image: none;
+      box-shadow: none;
     }
   }
 }

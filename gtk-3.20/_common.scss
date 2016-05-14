@@ -286,10 +286,7 @@ buttonbox {
       @extend %fade_effect;
       @include button(flat);
       font-weight: 700;
-      &:hover {
-        @include button(flat-hover);
-        -gtk-icon-effect: highlight;
-      }
+      &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       &:checked { @include button(flat-checked); }
@@ -487,20 +484,14 @@ button,
   background-size: $text_button_small;
   font-weight: 500;
   @include button(normal);
-  &:hover {
-    @include button(hover);
-    -gtk-icon-effect: highlight;
-    }
+  &:hover { @include button(hover); }
   &:active { @include button(active); }
   &:disabled { @include button(insensitive); }
   &:checked { @include button(checked); }
   &:checked:disabled { @include button(checked-insensitive); }
   &.flat {
     @include button(flat);
-    &:hover {
-      @include button(flat-hover);
-      -gtk-icon-effect: highlight;
-    }
+    &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
     &:checked { @include button(flat-checked); }
@@ -735,10 +726,7 @@ button,
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
-      &:hover {
-        @include button(flat-hover);
-        -gtk-icon-effect: highlight;
-      }
+      &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       &:checked { @include button(flat-checked); }
@@ -936,10 +924,7 @@ modelbutton.flat,
   outline-offset: rem(-1px);
   background-size: $text_button_small;
   transition: none;
-  &:hover {
-    @include button(flat-hover);
-    -gtk-icon-effect: highlight;
-  }
+  &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:disabled { @include button(flat-insensitive); }
   &:checked { @include button(flat-checked); }
@@ -1413,18 +1398,30 @@ toolbar {
     }
 
     button {
-      @extend button.flat;
+      @include button(flat);
       &:not(:active):not(:disabled):not(hover) {
         color: $secondary_accent_color;
       }
-      &:hover,
-      &:active { color: $accent_color; }
-      &:active,
-      &:checked {
+      &:hover {
+        @include button(flat-hover);
+        color: $accent_color;
+      }
+      &:active {
+        @include button(flat-active);
         border-image: none;
+        color: $accent_color;
         box-shadow: none;
       }
-      &:disabled { color: gtkopacity($accent_color, 0.4); }
+      &:checked {
+        @include button(flat-checked);
+        border-image: none;
+        color: $accent_color;
+        box-shadow: none;
+      }
+      &:disabled {
+        @include button(flat-insensitive);
+        color: gtkopacity($accent_color, 0.4);
+      }
     }
 
     .linked > button {
@@ -1451,9 +1448,8 @@ toolbar {
   }
 
   button { // use flat-buttons
-    @extend button.flat;
+    @include button(flat);
     background-size: $text_button_small;
-    box-shadow: none;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -1461,13 +1457,15 @@ toolbar {
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
+    box-shadow: none;
     &:hover {
-      box-shadow: none;
+      @include button(flat-hover);
       border-image: none;
       color: $fg_color;
+      box-shadow: none;
     }
     &:checked {
-      box-shadow: none;
+      @include button(flat-checked);
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -1476,19 +1474,22 @@ toolbar {
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
+      box-shadow: none;
       &:disabled {
-        box-shadow: none;
+        @include button(flat-checked-insensitive);
+        border-image: none;
         background-color: transparent;
         color: $insensitive_fg_color;
-        border-image: none;
+        box-shadow: none;
         > label { color: inherit; }
       }
     }
     &:disabled {
-      box-shadow: none;
+      @include button(flat-insensitive);
+      border-image: none;
       background-color: transparent;
       color: $insensitive_secondary_fg_color;
-      border-image: none;
+      box-shadow: none;
     }
 
     button,
@@ -4535,7 +4536,6 @@ infobar {
     color: $secondary_fixed_fg_color;
     &:hover {
       @include button(flat-hover);
-      -gtk-icon-effect: highlight;
       color: $fixed_fg_color;
     }
     &:active {
