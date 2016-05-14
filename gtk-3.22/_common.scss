@@ -286,10 +286,7 @@ buttonbox {
 
       @include button(flat);
       font-weight: 700;
-      &:hover {
-        @include button(flat-hover);
-        -gtk-icon-effect: highlight;
-      }
+      &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       &:checked { @include button(flat-checked); }
@@ -488,20 +485,14 @@ button {
   background-size: $text_button_small;
   font-weight: 500;
   @include button(normal);
-  &:hover {
-    @include button(hover);
-    -gtk-icon-effect: highlight;
-    }
+  &:hover { @include button(hover); }
   &:active { @include button(active); }
   &:disabled { @include button(insensitive); }
   &:checked { @include button(checked); }
   &:checked:disabled { @include button(checked-insensitive); }
   &.flat {
     @include button(flat);
-    &:hover {
-      @include button(flat-hover);
-      -gtk-icon-effect: highlight;
-    }
+    &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
     &:checked { @include button(flat-checked); }
@@ -735,10 +726,7 @@ button {
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
-      &:hover {
-        @include button(flat-hover);
-        -gtk-icon-effect: highlight;
-      }
+      &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       &:checked { @include button(flat-checked); }
@@ -936,10 +924,7 @@ menuitem button.flat {
   outline-offset: rem(-1px);
   background-size: $text_button_small;
   transition: none;
-  &:hover {
-    @include button(flat-hover);
-    -gtk-icon-effect: highlight;
-  }
+  &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:disabled { @include button(flat-insensitive); }
   &:checked { @include button(flat-checked); }
@@ -4539,7 +4524,6 @@ infobar {
     color: $secondary_fixed_fg_color;
     &:hover {
       @include button(flat-hover);
-      -gtk-icon-effect: highlight;
       color: $fixed_fg_color;
     }
     &:active {
