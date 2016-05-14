@@ -284,8 +284,16 @@ buttonbox {
     button {
       @extend %fade_effect;
 
-      @extend button.flat;
+      @include button(flat);
       font-weight: 700;
+      &:hover {
+        @include button(flat-hover);
+        -gtk-icon-effect: highlight;
+      }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
     }
   }
 }
@@ -493,7 +501,7 @@ button {
     &:hover {
       @include button(flat-hover);
       -gtk-icon-effect: highlight;
-      }
+    }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
     &:checked { @include button(flat-checked); }
@@ -720,13 +728,21 @@ button {
   .inline-toolbar &,
   actionbar {
     &, &:not(.text-button).image-button {
-      @extend button.flat;
+      @include button(flat);
       min-width: rem(13.3px);
       min-height: rem(13.3px);
       padding: rem(10px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
+      &:hover {
+        @include button(flat-hover);
+        -gtk-icon-effect: highlight;
+      }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
     }
     &.text-button {
       border-radius: 2px;
@@ -913,13 +929,21 @@ toolbar.inline-toolbar toolbutton {
 // menu buttons on GtkPopover
 modelbutton.flat,
 menuitem button.flat {
-  @extend button.flat;
+  @include button(flat);
   min-height: rem(26.6px);
   margin-left: rem(10px);
   margin-right: rem(10px);
   outline-offset: rem(-1px);
   background-size: $text_button_small;
   transition: none;
+  &:hover {
+    @include button(flat-hover);
+    -gtk-icon-effect: highlight;
+  }
+  &:active { @include button(flat-active); }
+  &:disabled { @include button(flat-insensitive); }
+  &:checked { @include button(flat-checked); }
+  &:checked:disabled { @include button(flat-checked-insensitive); }
 
   check,
   radio {
@@ -2747,15 +2771,13 @@ notebook {
     }
 
     button { // tab close button
-      padding: 0;
+      @include button(flat);
       min-width: rem(16px);
       min-height: rem(16px);
-      @extend button.flat;
+      padding: 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
-      // @extend button.flat;
-      @include button(flat);
       color: $tertiary_fg_color;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
@@ -4145,7 +4167,7 @@ messagedialog { // Message Dialog styling
     .dialog-action-area {
       button,
       .linked > button {
-        @extend button.flat;
+        @include button(flat);
         border: 2px solid transparent;
         border-radius: 0;
         color: $inverted_secondary_fg_color;
@@ -4513,8 +4535,21 @@ infobar {
   }
 
   button {
-    @extend button.flat;
+    @include button(flat);
     color: $secondary_fixed_fg_color;
+    &:hover {
+      @include button(flat-hover);
+      -gtk-icon-effect: highlight;
+      color: $fixed_fg_color;
+    }
+    &:active {
+      @include button(flat-active);
+      color: $fixed_fg_color;
+    }
+    &:checked {
+      @include button(flat-checked);
+      color: $fixed_fg_color;
+    }
     &:disabled { color: $insensitive_fixed_fg_color; }
     &.flat {
       color: $secondary_fixed_fg_color;
