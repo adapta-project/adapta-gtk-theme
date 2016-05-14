@@ -231,7 +231,14 @@ $orientation: ((top, bottom),
   }
 
   // use flat-style
-  .button.image-button { @extend .button.flat; }
+  .button.image-button {
+    @include button(flat);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:insensitive { @include button(flat-insensitive); }
+    &:checked { @include button(flat-checked); }
+    &:checked:insensitive { @include button(flat-checked-insensitive); }
+  }
 
   .raven-header { // 'exit' button
     > .button.text-button {
