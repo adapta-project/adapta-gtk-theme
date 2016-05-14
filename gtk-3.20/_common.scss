@@ -919,16 +919,31 @@ modelbutton.flat,
 .menuitem.button.flat {
   @include button(flat);
   min-height: rem(26.6px);
-  margin-left: rem(10px);
-  margin-right: rem(10px);
+  padding: rem(2.7px) rem(5.3px) rem(3.3px);
   outline-offset: rem(-1px);
   background-size: $text_button_small;
+  color: $secondary_fg_color;
   transition: none;
-  &:hover { @include button(flat-hover); }
-  &:active { @include button(flat-active); }
-  &:disabled { @include button(flat-insensitive); }
-  &:checked { @include button(flat-checked); }
-  &:checked:disabled { @include button(flat-checked-insensitive); }
+  &:hover {
+    @include button(flat-hover);
+    color: $fg_color;
+  }
+  &:active {
+    @include button(flat-active);
+    color: $fg_color;
+  }
+  &:checked {
+    @include button(flat-checked);
+    color: $fg_color;
+  }
+  &:checked:disabled {
+    @include button(flat-checked-insensitive);
+    color: $insensitive_fg_color;
+  }
+  &:disabled {
+    @include button(flat-insensitive);
+    color: $insensitive_secondary_fg_color;
+  }
 
   check,
   radio {
@@ -2509,7 +2524,7 @@ popover.background {
     }
 
     // FIXME: label padding is ugly
-    // an half vertical padding of GtkMenuItem
+    // a half vertical padding of GtkMenuItem
     label { padding: rem(2.7px) 0 rem(3.3px); }
   }
 
@@ -2521,15 +2536,21 @@ popover.background {
     @include button(flat);
     @extend %button_array;
     color: $secondary_fg_color;
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
+    &:hover {
+      @include button(flat-hover);
+      color: $fg_color;
+    }
+    &:active {
+      @include button(flat-active);
+      color: $fg_color;
+    }
     &:checked {
       @include button(flat-checked);
       color: $fg_color;
       background-color: transparent;
     }
     &:checked:disabled { @include button(flat-checked-insensitive); }
+    &:disabled { @include button(flat-insensitive); }
   }
 
   .csd &,

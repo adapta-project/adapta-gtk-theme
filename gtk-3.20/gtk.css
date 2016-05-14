@@ -1302,35 +1302,43 @@ modelbutton.flat,
   background-color: transparent;
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0));
   min-height: 2rem;
-  margin-left: 0.75188rem;
-  margin-right: 0.75188rem;
+  padding: 0.20301rem 0.3985rem 0.24812rem;
   outline-offset: -0.07519rem;
   background-size: 9.96241rem 9.96241rem, auto;
+  color: rgba(38, 50, 56, 0.75);
   transition: none; }
   modelbutton.flat:hover,
   .menuitem.button.flat:hover,
   .ssd decoration .menuitem.button:hover {
     box-shadow: none;
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
+    color: #263238; }
   modelbutton.flat:active,
   .menuitem.button.flat:active,
   .ssd decoration .menuitem.button:active {
     box-shadow: none;
-    animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-  modelbutton.flat:disabled,
-  .menuitem.button.flat:disabled,
-  .ssd decoration .menuitem.button:disabled {
-    box-shadow: none;
-    background-color: transparent; }
+    animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    color: #263238; }
   modelbutton.flat:checked,
   .menuitem.button.flat:checked,
   .ssd decoration .menuitem.button:checked {
     background-color: alpha(currentColor, 0.2);
+    color: #263238;
     color: #263238; }
-  modelbutton.flat:checked:disabled > label,
-  .menuitem.button.flat:checked:disabled > label,
-  .ssd decoration .menuitem.button:checked:disabled > label {
-    color: inherit; }
+  modelbutton.flat:checked:disabled,
+  .menuitem.button.flat:checked:disabled,
+  .ssd decoration .menuitem.button:checked:disabled {
+    color: rgba(38, 50, 56, 0.3); }
+    modelbutton.flat:checked:disabled > label,
+    .menuitem.button.flat:checked:disabled > label,
+    .ssd decoration .menuitem.button:checked:disabled > label {
+      color: inherit; }
+  modelbutton.flat:disabled,
+  .menuitem.button.flat:disabled,
+  .ssd decoration .menuitem.button:disabled {
+    box-shadow: none;
+    background-color: transparent;
+    color: rgba(38, 50, 56, 0.225); }
   modelbutton.flat check:first-child,
   modelbutton.flat radio:first-child,
   .menuitem.button.flat check:first-child,
@@ -3125,13 +3133,12 @@ popover.background {
     color: rgba(38, 50, 56, 0.75); }
     popover.background .linked > button:hover {
       box-shadow: none;
-      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1)); }
+      background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1));
+      color: #263238; }
     popover.background .linked > button:active {
       box-shadow: none;
-      animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    popover.background .linked > button:disabled {
-      box-shadow: none;
-      background-color: transparent; }
+      animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      color: #263238; }
     popover.background .linked > button:checked {
       background-color: alpha(currentColor, 0.2);
       color: #263238;
@@ -3139,6 +3146,9 @@ popover.background {
       background-color: transparent; }
     popover.background .linked > button:checked:disabled > label {
       color: inherit; }
+    popover.background .linked > button:disabled {
+      box-shadow: none;
+      background-color: transparent; }
   .csd popover.background.touch-selection button, .csd popover.background.magnifier button, popover.background.touch-selection button, popover.background.magnifier button {
     box-shadow: none;
     background-color: transparent;
@@ -8367,7 +8377,7 @@ window overlay > grid > frame > grid list separator {
 window > box.vertical > grid.vertical > stack stack > spinner {
   min-width: 1.80451rem;
   min-height: 1.80451rem;
-  padding: 4rem 6.0rem 4rem; }
+  padding: 4rem 6rem 4rem; }
 
 /******************
  * Budgie Desktop *
