@@ -140,6 +140,16 @@ Extra Browser Support
  > **Note:**
  >   * Today Chrome(ium) theming is supported only.
 
+Official Wallpaper of Adapta
+----------------------------
+![Tri-Fadeno](img/tri-fadeno.jpg)
+
+ * Resolution: 3840 x 2180
+ * Created with Gimp and Inkscape
+ * License under GPLv2
+
+I mainly use it when running Budgie, and it might be suitable for night owls...
+
 Work in Progress
 ----------------
 * Conversion to Gtk+ 3.22
