@@ -607,12 +607,15 @@ style "progressbar" {
   xthickness = 0
   ythickness = 0
 
+  fg[NORMAL] = @fg_color
+  fg[PRELIGHT] = @selected_fg_color
+
   engine "pixmap" {
     image {
       function    = BOX
       # state     = NORMAL
       detail      = "trough"
-      file        = "ProgressBar/trough.png"
+      file        = "ProgressBar/trough-dark.png"
       border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
@@ -621,7 +624,7 @@ style "progressbar" {
       function    = BOX
       # state     = NORMAL
       detail      = "trough"
-      file        = "ProgressBar/trough.png"
+      file        = "ProgressBar/trough-dark.png"
       border      = { 0, 0, 0, 0 }
       stretch     = TRUE
       orientation = VERTICAL
@@ -1041,6 +1044,8 @@ style "button" {
 style "flat_button" {
   xthickness = 5
   ythickness = 5
+
+  fg[NORMAL] = mix(0.8, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
