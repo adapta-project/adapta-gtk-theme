@@ -232,7 +232,7 @@ $orientation: ((top, bottom),
 
   // use flat-style
   .button.image-button {
-    @include button(flat);
+    @include button(flat-normal);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:insensitive { @include button(flat-insensitive); }
@@ -628,7 +628,7 @@ CcShellCategoryView { // stop using $base_color
   font-weight: 700;
 
   .button {
-    @include button(flat);
+    @include button(flat-normal);
     padding: 0px 4px;
     border: none;
     border-radius: 0;

@@ -401,7 +401,7 @@ GtkTextView { // This will get overridden by .view,
   &:checked:insensitive { @include button(checked-insensitive); }
 
   &.flat {
-    @include button(flat);
+    @include button(flat-normal);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:insensitive { @include button(flat-insensitive); }
@@ -597,7 +597,7 @@ GtkTextView { // This will get overridden by .view,
 }
 
 %button_array {
-  @include button(flat);
+  @include button(flat-normal);
   border-radius: 0;
   outline-radius: 0;
   color: $secondary_fg_color;
@@ -658,7 +658,7 @@ GtkTextView { // This will get overridden by .view,
 }
 
 %button_vertical_array {
-  @include button(flat);
+  @include button(flat-normal);
   border-image: none;
   border-width: 0;
   outline-radius: 0;
@@ -977,7 +977,7 @@ GtkComboBox {
     &:hover,
     &:active,
     &:checked {
-      @include button(flat);
+      @include button(flat-normal);
       @extend %button_array:active;
       background-color: transparent;
       &:insensitive {
@@ -1945,7 +1945,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 
   .linked > .button {
     // @extend .button.flat;
-    @include button(flat);
+    @include button(flat-normal);
     @extend %button_array;
     color: $secondary_fg_color;
     &:hover { @include button(flat-hover); }
@@ -2118,7 +2118,7 @@ column-header.button.dnd { // for treeview-like derive widgets
       @extend %image_button;
       padding: 0;
       background-size: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
-      @include button(flat);
+      @include button(flat-normal);
       color: $tertiary_fg_color;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
@@ -2977,7 +2977,7 @@ GtkCalendar {
   }
 
   &.button {
-    @include button(flat);
+    @include button(flat-normal);
     color: gtkalpha(currentColor, 0.20);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
