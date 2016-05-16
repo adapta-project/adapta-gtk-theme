@@ -989,7 +989,7 @@ style "button" {
   xthickness = 5
   ythickness = 5
 
-  fg[NORMAL] = mix(0.8, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
   font_name = "Medium"
 
   engine "pixmap" {
@@ -1042,11 +1042,17 @@ style "button" {
   }
 }
 
+style "button_label" {
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[ACTIVE] = @selected_fg_color
+}
+
 style "flat_button" {
   xthickness = 5
   ythickness = 5
 
-  fg[NORMAL] = mix(0.8, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  font_name = "Medium"
 
   engine "pixmap" {
     image {
@@ -2168,6 +2174,8 @@ class "GtkSeparatorMenuItem" style "separator_menu_item"
 class "GtkScrolledWindow"    style "scrolled_window"
 class "GtkFrame"             style "frame"
 class "GtkToolbar"           style "toolbar"
+
+widget_class "*<GtkButton>*<GtkLabel>"           style "button_label"
 
 widget_class "*<GtkMenuBar>*"                    style "menubar"
 widget_class "*<GtkMenu>*"                       style "menu"
