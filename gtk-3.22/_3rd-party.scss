@@ -1,3 +1,510 @@
+/******************
+ * Budgie Desktop *
+ ******************/
+
+// orientation
+$orientation: ((top, bottom),
+               (bottom, top),
+	       (left, right),
+	       (right, left));
+
+// main container
+.budgie-container { background-color: transparent; }
+
+// disable backdrop transparency
+.budgie-panel {
+  &:backdrop,
+  *:backdrop { opacity: 1.0; }
+}
+
+// panel styling
+.budgie-panel {
+  // Always use dark-color of dark variant
+  background-color: $panel_bg_color;
+  color: $inverted_fg_color;
+  font-weight: 700;
+
+  // panel border styling
+  @each $along_side, $opp_side in $orientation {
+    .#{$along_side} & { border-#{$along_side}: 2px solid #000000; }
+  }
+
+  // used to indicate unread notifications
+  .alert { color: $accent_color; }
+}
+
+@each $along_side, $opp_side in $orientation {
+  // panel shadow styling
+  .#{$along_side} .shadow-block {
+    background-color: transparent;
+    background-image: linear-gradient(to $opp_side,
+                                      gtkalpha(#000000, 0.24),
+                                      transparent);
+  }
+}
+
+// wnck tasklist styling
+.budgie-panel #tasklist-button {
+  &, &:backdrop {
+    button {
+      border: none;
+      background: none;
+      opacity: 0.5;
+      &:hover,
+      &:active,
+      &:checked { opacity: 1.0; }
+    }
+  }
+}
+
+// icon tasklist styling
+.budgie-panel {
+  button.flat.launcher {
+    &, &:backdrop {
+      min-width: rem(24px);
+      min-height: rem(24px);
+      padding: 0;
+      border: 2px solid transparent;
+      background-image: none;
+      opacity: 0.5;
+      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition-property: opacity,
+                           border-color,
+                           background-color,
+                           background-image,
+                           box-shadow;
+      transition-duration: 0.2s;
+      &:hover {
+        opacity: 0.75;
+        -gtk-icon-effect: highlight;
+      }
+      &:active,
+      &:checked {
+        opacity: 1.0;
+        background-color: transparent;
+        &:hover { -gtk-icon-effect: highlight; }
+      }
+    }
+  }
+
+  .unpinned button.flat.launcher,
+  .unpinned button.flat.launcher:backdrop,
+  .pinned button.flat.launcher.running,
+  .pinned button.flat.launcher.running:backdrop {
+    opacity: 1.0;
+    &:hover { -gtk-icon-effect: highlight; }
+  }
+}
+
+// draw underscores
+@each $along_side, $opp_side in $orientation {
+  .#{$along_side} .budgie-panel {
+    #tasklist-button button,
+    #tasklist-button button:backdrop {
+      border: 2px solid transparent;
+      &:hover {
+        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
+      }
+      &:active,
+      &:checked {
+        border-#{$along_side}: 2px solid $selected_bg_color;
+      }
+    }
+
+    button.flat.launcher,
+    button.flat.launcher:backdrop {
+      border: 2px solid transparent;
+      &:hover {
+        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
+      }
+      &:active,
+      &:checked {
+        border-#{$along_side}: 2px solid $selected_bg_color;
+      }
+    }
+  }
+}
+
+// draw underscores and dots
+@each $along_side, $_dot in (top, top),
+                            (bottom, bottom),
+                            (left, left),
+                            (right, right) {
+  .#{$along_side} .budgie-panel {
+    .unpinned button.flat.launcher,
+    .unpinned button.flat.launcher:backdrop,
+    .pinned button.flat.launcher.running,
+    .pinned button.flat.launcher.running:backdrop {
+      border: 2px solid transparent;
+      border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
+                                url("assets/running-dot-#{$_dot}@2.png"))
+                    2 / 2px;
+      &:hover,
+      &:active,
+      &:checked {
+        border-#{$along_side}: 2px solid $selected_bg_color;
+        border-image: none;
+      }
+    }
+  }
+}
+
+// main menu styling
+.budgie-menu {
+  border-radius: 2px;
+  background-color: $secondary_base_color;
+
+  scrolledwindow,
+  list,
+  row,
+  scrollbar { // reset styling
+    min-width: 0;
+    min-height: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  row { // reset background
+    &, &.activatable {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $secondary_fg_color;
+      transition: none;
+
+      // FIXME: enlarge vertical spacing with icons' paddding
+      image { padding: rem(5.3px) 0 rem(6.7px); }
+    }
+    &:hover,
+    &.activatable:hover {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $fg_color;
+      transition: none;
+    }
+  }
+}
+
+// raven styling
+.raven-frame { border: none; }
+
+.raven {
+  margin: -1px; // FIXME: unwanted 1px gap exists around raven
+  padding: 0;
+  border: none;
+  color: $secondary_fg_color;
+  background-color: gtkopacity($dark_color, 0.9);
+
+  // mixin with drop-shadows to avoid the raven edge shine-through
+  &:dir(ltr) { box-shadow: -1px 0 1px rgba(0, 0, 0, 0.16); }
+  &:dir(rtl) { box-shadow: 1px 0 1px rgba(0, 0, 0, 0.16); }
+
+  .raven-header {
+    border: none;
+    color: $tertiary_fg_color;
+    background-color: transparent;
+    font-weight: 700;
+  }
+
+  .raven-background {
+    border-width: 1px 0 0;
+    border-style: solid none none;
+    border-color: $borders_color;
+    background-color: transparent;
+    box-shadow: $inline-shadow;
+  }
+
+  .powerstrip { // always use dark variant
+    border-top: 1px solid $borders_color;
+    background-color: $inverted_dark_color;
+    box-shadow: $inline-shadow;
+
+    button {
+      padding: rem(13.3px);
+      color: $secondary_accent_color;
+      &:hover,
+      &:active,
+      &:checked { color: $accent_color; }
+      &:disabled { color: gtkopacity($accent_color, 0.4); }
+    }
+  }
+
+  .option-subtitle {
+    color: $insensitive_secondary_fg_color;
+    font-size: 90%;
+  }
+
+  scrolledwindow { background: transparent; }
+
+  list,
+  row,
+  row.activatable {
+    background-color: transparent;
+    &:not(.list):hover { color: $fg_color; }
+    &:not(.list):selected {
+      &, label {
+        color: $selected_bg_color;
+      }
+      &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
+    }
+
+    separator {
+      min-height: 1px;
+      min-width: 1px;
+      margin-bottom: rem(6.7px);
+      border: none;
+      color: transparent;
+      background-color: transparent;
+      background-image: none;
+      box-shadow: inset 0 -1px gtkopacity($insensitive_fg_color, 0.55);
+    }
+  }
+
+  // use flat-style
+  button.image-button {
+    @include button(flat-normal);
+    &:hover {
+      @include button(flat-hover);
+      -gtk-icon-effect: highlight;
+      }
+    &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
+    &:checked { @include button(flat-checked); }
+    &:checked:disabled { @include button(flat-checked-insensitive); }
+  }
+
+  .raven-header { // 'exit' button
+    > button.text-button {
+      min-height: rem(13.3px);
+      min-width: rem(13.3px);
+      padding: rem(9.3px) rem(10.7px) rem(10.7px);
+      color: $secondary_selected_fg_color;
+      background-color: $suggested_color;
+      &:hover { color: $selected_fg_color; }
+      &:active {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+      &:checked {
+        color: $secondary_selected_fg_color;
+        background-color: mix($selected_fg_color, $suggested_color, 20%);
+      }
+      &:disabled {
+        @include button(flat-insensitive, $track_color, $insensitive_fg_color);
+      }
+    }
+  }
+
+  calendar {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+// MPRIS Applet
+.raven-mpris {
+  border: none;
+  color: $fg_color;
+  background-color: gtkopacity($dark_color, 0.9);
+
+  button.image-button { padding: rem(8px); }
+}
+
+// Notifications
+.budgie-notification-window {
+  border-radius: 2px;
+  background: none;
+}
+
+.budgie-notification {
+  &.background { border-radius: 2px; }
+
+  .notification-title {
+    color: $secondary_fg_color;
+    font-size: 110%;
+    font-weight: 500;
+  }
+
+  .notification-body { color: $fg_color; }
+}
+
+// run-dialog styling
+.background.csd.budgie-run-dialog {
+  border: 1px solid $borders_color;
+  border-top-color: $highlight_color;
+  background-color: transparent;
+
+  decoration {
+    border-radius: 2px; // hard-coded 6px is ugly...
+    background-color: gtkopacity($dark_color, 0.9);
+
+    headerbar { border-radius: 2px; }
+  }
+
+  scrolledwindow {      // FIXME: using GtkEntry style-class!?
+    border-image: none; // remove underline indicator
+  }
+
+  // hide weird separator
+  box > box > separator {
+    border: 0 none transparent;
+    color: transparent;
+    background-color: transparent;
+  }
+
+  // 'close' button
+  button.image-button {
+    color: $secondary_accent_color;
+    &:hover,
+    &:active,
+    &:checked { color: $accent_color; }
+    &:disabled { color: gtkopacity($accent_color, 0.4); }
+  }
+}
+
+// session-dialog and polkit-dialog styling
+.budgie-session-dialog,
+.budgie-polkit-dialog {
+  border-radius: 2px;
+  border-width: 0;
+  // Always use dark-color of dark variant
+  background-color: $inverted_bg_color;
+  color: $inverted_fg_color;
+  font-weight: 700;
+  opacity: 0.9;
+
+  decoration { // composite with drop-shadows
+    border-radius: 2px;
+    box-shadow: $z-depth-4;
+    &:backdrop {
+      box-shadow: $z-depth-2-backdrop;
+      transition: none;
+    }
+  }
+
+  button,
+  .linked > button {
+    @include button(flat-normal);
+    padding: rem(9.3px) rem(13.3px) rem(10.7px);
+    border: 2px solid transparent;
+    border-radius: 0;
+    color: $secondary_accent_color;
+    background-color: transparent;
+    background-size: $text_button_small;
+    &:hover {
+      @include button(flat-hover);
+      color: $accent_color;
+    }
+    &:active {
+      @include button(flat-active);
+      color: $accent_color;
+    }
+    &:checked {
+     @include button(flat-checked);
+      color: $secondary_accent_color;
+    }
+    &:disabled { @include button(flat-insensitive); }
+
+    &:first-child {
+      border-radius: 0 0 0 2px;
+      border-right-width: 0;
+    }
+    &:last-child {
+      border-radius: 0 0 2px 0;
+      border-left-width: 0;
+    }
+  }
+
+  // polkit-dialog specific styling
+  &:not(.budgie-session-dialog) {
+    .message { color: $secondary_fg_color; }
+    .failure {
+      color: $accent_color;
+      font-weight: 700;
+    }
+  }
+}
+
+// misc settings
+.drop-shadow {
+  background-color: $dark_color;
+  background-image: none;
+  box-shadow: $z-depth-2;
+}
+
+
+/*****************
+ * Unity Desktop *
+ *****************/
+
+// window decorations
+UnityDecoration {
+  -UnityDecoration-extents: 28px 0 0 0;
+  -UnityDecoration-input-extents: 8px;
+
+  -UnityDecoration-shadow-offset-x: 0px;
+  -UnityDecoration-shadow-offset-y: 8px;
+  -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.24);
+  -UnityDecoration-active-shadow-radius: 12px;
+  -UnityDecoration-inactive-shadow-color: rgba(0, 0, 0, 0.16);
+  -UnityDecoration-inactive-shadow-radius: 6px;
+
+  -UnityDecoration-glow-size: 10px;
+  -UnityDecoration-glow-color: $selected_bg_color;
+
+  -UnityDecoration-title-indent: 16px;
+  -UnityDecoration-title-fade: 32px;
+  -UnityDecoration-title-alignment: 0.0;
+
+  &.top {
+    border-width: 1px 0 0;
+    border-style: solid none none;
+    border-color: $borders_color;
+    border-radius: 2px 2px 0 0;
+    padding: 1px 6px 0 6px; // FIXME: too much tiny!
+
+    background-image: linear-gradient(to bottom, $inverted_dark_color,
+                                                 $inverted_dark_color);
+    // The foreground color will be used to paint the text
+    color: $inverted_fg_color;
+    box-shadow: inset 0 1px $highlight_color;
+
+    &:backdrop { color: $insensitive_inverted_fg_color; }
+  }
+
+  &.left,
+  &.right,
+  &.bottom {
+    &, &:backdrop { background-image: none; }
+  }
+}
+
+// panel styling
+UnityPanelWidget,
+.unity-panel {
+  color: $inverted_fg_color;
+  background-color: gtkopacity($inverted_dark_color, 0.88);
+  box-shadow: inset 0 -1px $highlight_color; // edge-highlight like HUD
+  border-bottom: 1px solid $borders_color;
+}
+
+.unity-panel menubar {
+  & menuitem,
+  & menuitem * {
+    border-radius: 0;
+    color: $inverted_fg_color;
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+  }
+
+  & menuitem:hover,
+  & menuitem *:hover {
+    color: $selected_fg_color;
+    box-shadow: inset 0 -2px $selected_bg_color;
+  }
+}
+
+
 /************
  * Corebird *
  ************/
@@ -9,10 +516,10 @@ stack button.profile-button {
 
 headerbar.titlebar box {
   button.toggle.account-button { // left-most account-button
-    min-width: 1em;
-    min-height: 1em;
+    min-width: rem(13.3px);
+    min-height: rem(13.3px);
     // FIXME: it can't override its own styleshoot
-    padding: 0.5em 0.75em 0.5em;
+    padding: rem(6.7px) rem(10px) rem(6.7px);
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
@@ -22,9 +529,9 @@ headerbar.titlebar box {
   }
 
   button.image-button.toggle { // tweet button
-    min-width: 1em;
-    min-height: 1em;
-    padding: 0.5em 0.75em 0.5em;
+    min-width: rem(13.3px);
+    min-height: rem(13.3px);
+    padding: rem(6.7px) rem(10px) rem(6.7px);
   }
 }
 
@@ -71,13 +578,12 @@ window {
     > box { padding: rem(2.7px); }
 
     > box > button.image-button {
-      @extend button.flat;
+      @include button(flat-normal);
       min-width: rem(13.3px);
       min-height: rem(29.3px);
       border-radius: 2px;
       -gtk-outline-radius: 2px;
       padding: 0 rem(10px) 0;
-      box-shadow: none;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.001,
@@ -85,13 +591,15 @@ window {
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
       color: $secondary_fg_color;
+      box-shadow: none;
       &:hover {
-        box-shadow: none;
+        @include button(flat-hover);
         border-image: none;
         color: $fg_color;
+        box-shadow: none;
       }
       &:checked {
-        box-shadow: none;
+        @include button(flat-checked);
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
@@ -100,19 +608,22 @@ window {
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
         color: $fg_color;
+        box-shadow: none;
         &:disabled {
-          box-shadow: none;
+          @include button(flat-checked-insensitive);
+          border-image: none;
           background-color: transparent;
           color: $insensitive_fg_color;
-          border-image: none;
+          box-shadow: none;
           > label { color: inherit; }
         }
       }
       &:disabled {
-        box-shadow: none;
+        @include button(flat-insensitive);
+        border-image: none;
         background-color: transparent;
         color: $insensitive_secondary_fg_color;
-        border-image: none;
+        box-shadow: none;
       }
     }
 
@@ -135,11 +646,30 @@ window > headerbar > widget > box.horizontal {
     min-height: rem(37.3px);
     padding: 0 rem(10px) 0;
   }
+
   > button.image-button {
     min-width: rem(17.3px);
     min-height: rem(37.3px);
     margin: rem(-2px) 0;
     padding: 0 rem(10px) 0;
+  }
+}
+
+
+/***************************
+ * Cinnamon-control-center *
+ ***************************/
+
+window > box.vertical > stack > scrolledwindow {
+  // stop using $base_color
+  iconview {
+    &, &.view { background-color: transparent; }
+  }
+
+  // FIXME: why toolbar style-class was needed?
+  toolbar {
+    background-color: $secondary_dark_color;
+    box-shadow: $inline-shadow;
   }
 }
 
