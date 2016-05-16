@@ -236,7 +236,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.22),
 // $fc: focus color
 //
 // possible $t values:
-// normal, focus, insensitive, flat, flat-focus, flat-insensitive;
+// normal, focus, insensitive, flat-normal, flat-focus, flat-insensitive;
 //
 
   @if $t==normal {
@@ -275,7 +275,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.22),
     background-color: transparent;
     color: $insensitive_fg_color;
   }
-  @if $t==flat {
+  @if $t==flat-normal {
     border-radius: 0;
     -gtk-outline-radius: 0;
     border-color: $solid_light_borders_color;
@@ -327,7 +327,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.22),
 //
 // possible $t values:
 // normal, hover, active, insensitive, checked, checked-insensitive,
-// flat, flat-hover, flat-active, flat-insensitive, flat-checked,
+// flat-normal, flat-hover, flat-active, flat-insensitive, flat-checked,
 // flat-checked-insensitive, undecorated
 //
 
@@ -401,7 +401,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.22),
     > label { color: inherit; }
   }
 
-  @else if $t==flat {
+  @else if $t==flat-normal {
   //
   // normal flat button
   //
