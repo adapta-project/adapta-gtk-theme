@@ -142,7 +142,9 @@ Extra Browser Support
 
 Official Wallpaper of Adapta
 ----------------------------
-![Tri-Fadeno](img/tri-fadeno.jpg)
+<img src="img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
+
+Raw image is [here](https://github.com/tista500/Adapta/raw/master/img/tri-fadeno.jpg).
 
  * Resolution: 3840 x 2160 (4K = 2160p)
  * Created with Gimp and Inkscape
