@@ -144,7 +144,7 @@ Official Wallpaper of Adapta
 ----------------------------
 ![Tri-Fadeno](img/tri-fadeno.jpg)
 
- * Resolution: 3840 x 2180
+ * Resolution: 3840 x 2160 (4K = 2160p)
  * Created with Gimp and Inkscape
  * License under GPLv2
 
