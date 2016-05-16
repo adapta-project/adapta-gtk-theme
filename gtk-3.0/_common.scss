@@ -301,7 +301,7 @@ GtkTextView { // This will get overridden by .view,
   }
 
   &.flat {
-    @include entry(flat);
+    @include entry(flat-normal);
     &:focus { @include entry(flat-focus); }
     &:insensitive { @include entry(flat-insensitive); }
   }
@@ -330,7 +330,7 @@ GtkTextView { // This will get overridden by .view,
       &:focus { @include entry(focus, $e_color); }
       &:insensitive { @include entry(insensitive, $e_color); }
       &.flat {
-        @include entry(flat, $e_color);
+        @include entry(flat-normal, $e_color);
         &:focus { @include entry(flat-focus, $e_color); }
         &:insensitive { @include entry(flat-insensitive, $e_color); }
       }
