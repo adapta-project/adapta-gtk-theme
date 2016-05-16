@@ -284,7 +284,7 @@ buttonbox {
   &, &.dialog-action-area {
     button {
       @extend %fade_effect;
-      @include button(flat);
+      @include button(flat-normal);
       font-weight: 700;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
@@ -380,7 +380,7 @@ entry,
 
   &.flat {
     border-radius: 0;
-    @include entry(flat);
+    @include entry(flat-normal);
     &:focus { @include entry(flat-focus); }
     &:disabled { @include entry(flat-insensitive); }
   }
@@ -412,7 +412,7 @@ entry,
       &:focus { @include entry(focus, $e_color); }
       &:disabled { @include entry(insensitive, $e_color); }
       &.flat {
-        @include entry(flat, $e_color);
+        @include entry(flat-normal, $e_color);
         &:focus { @include entry(flat-focus, $e_color); }
         &:disabled { @include entry(flat-insensitive, $e_color); }
       }
@@ -490,7 +490,7 @@ button,
   &:checked { @include button(checked); }
   &:checked:disabled { @include button(checked-insensitive); }
   &.flat {
-    @include button(flat);
+    @include button(flat-normal);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
@@ -719,7 +719,7 @@ button,
   .inline-toolbar &,
   actionbar {
     &, &:not(.text-button).image-button {
-      @include button(flat);
+      @include button(flat-normal);
       min-width: rem(13.3px);
       min-height: rem(13.3px);
       padding: rem(10px);
@@ -763,7 +763,7 @@ button,
 }
 
 %button_array {
-  @include button(flat);
+  @include button(flat-normal);
   border-radius: 0;
   -gtk-outline-radius: 0;
   color: $secondary_fg_color;
@@ -818,7 +818,7 @@ button,
 }
 
 %button_vertical_array {
-  @include button(flat);
+  @include button(flat-normal);
   border-image: none;
   border-width: 0;
   -gtk-outline-radius: 0;
@@ -917,7 +917,7 @@ toolbar.inline-toolbar toolbutton {
 // menu buttons on GtkPopover
 modelbutton.flat,
 .menuitem.button.flat {
-  @include button(flat);
+  @include button(flat-normal);
   min-height: rem(26.6px);
   padding: rem(2.7px) rem(5.3px) rem(3.3px);
   outline-offset: rem(-1px);
@@ -1085,7 +1085,7 @@ spinbutton {
     }
 
     button {
-      @include button(flat);
+      @include button(flat-normal);
       min-width: rem(13.3px);
       min-height: rem(13.3px);
       padding: 0 rem(7.3px) 0;
@@ -1293,7 +1293,7 @@ combobox {
   }
 
   button.combo { // button styling
-    @include button(flat);
+    @include button(flat-normal);
     color: $secondary_fg_color;
     background: transparent;
     border-image: -gtk-gradient(radial,
@@ -1413,7 +1413,7 @@ toolbar {
     }
 
     button {
-      @include button(flat);
+      @include button(flat-normal);
       &:not(:active):not(:disabled):not(hover) {
         color: $secondary_accent_color;
       }
@@ -1463,7 +1463,7 @@ toolbar {
   }
 
   button { // use flat-buttons
-    @include button(flat);
+    @include button(flat-normal);
     background-size: $text_button_small;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -2533,7 +2533,7 @@ popover.background {
   button.model.image-button { min-height: rem(26.7px); }
 
   .linked > button {
-    @include button(flat);
+    @include button(flat-normal);
     @extend %button_array;
     color: $secondary_fg_color;
     &:hover {
@@ -2558,7 +2558,7 @@ popover.background {
     &.touch-selection,
     &.magnifier {
       @extend %osd;
-      button { @include button(flat); }
+      button { @include button(flat-normal); }
     }
   }
 
@@ -2795,7 +2795,7 @@ notebook {
     }
 
     button { // tab close button
-      @include button(flat);
+      @include button(flat-normal);
       min-width: rem(16px);
       min-height: rem(16px);
       padding: 0;
@@ -4104,7 +4104,7 @@ calendar {
 
   &.button,
   &.header.button {
-    @include button(flat);
+    @include button(flat-normal);
     color: gtkalpha(currentColor, 0.20);
     background-size: $image_button_small;
     &:hover { @include button(flat-hover); }
@@ -4185,7 +4185,7 @@ messagedialog { // Message Dialog styling
     .dialog-action-area {
       button,
       .linked > button {
-        @include button(flat);
+        @include button(flat-normal);
         border: 2px solid transparent;
         border-radius: 0;
         color: $inverted_secondary_fg_color;
@@ -4553,7 +4553,7 @@ infobar {
   }
 
   button {
-    @include button(flat);
+    @include button(flat-normal);
     color: $secondary_fixed_fg_color;
     &:hover {
       @include button(flat-hover);

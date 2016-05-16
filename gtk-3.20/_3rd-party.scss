@@ -262,7 +262,7 @@ $orientation: ((top, bottom),
 
   // use flat-style
   button.image-button {
-    @include button(flat);
+    @include button(flat-normal);
     &:hover {
       @include button(flat-hover);
       -gtk-icon-effect: highlight;
@@ -384,7 +384,7 @@ $orientation: ((top, bottom),
 
   button,
   .linked > button {
-    @include button(flat);
+    @include button(flat-normal);
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border: 2px solid transparent;
     border-radius: 0;
@@ -577,7 +577,7 @@ window {
     > box { padding: rem(2.7px); }
 
     > box > button.image-button {
-      @include button(flat);
+      @include button(flat-normal);
       min-width: rem(13.3px);
       min-height: rem(29.3px);
       border-radius: 2px;

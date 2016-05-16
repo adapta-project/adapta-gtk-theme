@@ -52,7 +52,7 @@ panel-applet menubar {
 #tasklist-button,
 #clock-applet-button,
 #showdesktop-button {
-  @include button(flat);
+  @include button(flat-normal);
   padding: 0px rem(4px);
   border: none;
   border-radius: 0;
@@ -630,7 +630,7 @@ layouttab > box {
     padding: rem(6.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    @include button(flat);
+    @include button(flat-normal);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
@@ -724,7 +724,7 @@ actionbar {
 
   button,
   .linked > button.image-button {
-    @include button(flat);
+    @include button(flat-normal);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     border-image: -gtk-gradient(radial,
