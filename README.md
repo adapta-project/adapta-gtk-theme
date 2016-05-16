@@ -140,10 +140,8 @@ Extra Browser Support
  > **Note:**
  >   * Today Chrome(ium) theming is supported only.
 
-Official Wallpaper of Adapta
+Official Wallpaper of Adapta <img src="img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
 ----------------------------
-<img src="img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
-
 Raw image is [here](https://github.com/tista500/Adapta/raw/master/img/tri-fadeno.jpg).
 
  * Resolution: 3840 x 2160 (4K = 2160p)
@@ -151,6 +149,8 @@ Raw image is [here](https://github.com/tista500/Adapta/raw/master/img/tri-fadeno
  * License under GPLv2
 
 I mainly use it when running Budgie, and it might be suitable for night owls...
+
+
 
 Work in Progress
 ----------------
