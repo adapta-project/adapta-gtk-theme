@@ -5234,11 +5234,24 @@ popover.touch-selection {
 button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
+
+  label { padding: 0; }
 }
 
-button.circular label { padding: 0; }
-
-frame.keycap {
+// shortcut window keys
+.keycap {
+  @extend %fade_effect;
+  min-width: rem(20px);
+  min-height: rem(26.7px);
+  margin-top: rem(3.3px);
+  padding: 0 rem(5.3px) rem(3.3px);
+  border: none;
+  border-radius: 2px;
+  color: $fg_color;
+  background-color: $base_color;
+  box-shadow: $z-depth-1;
+  font-size: 90%;
+  font-weight: 500;
 }
 
 // FIXME: needs to be done widget by widget,

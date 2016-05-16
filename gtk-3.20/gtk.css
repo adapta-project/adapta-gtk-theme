@@ -63,7 +63,7 @@ menubar > menuitem *:backdrop, .menu .menuitem *:backdrop,
 menu .menuitem *:backdrop,
 menu menuitem *:backdrop, popover.background *:backdrop, notebook tab *:backdrop, .scrollbar *:backdrop,
 scrollbar *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, colorchooser .popover.osd *:backdrop, .csd headerbar button.titlebutton *:backdrop,
-.csd .titlebar button.titlebutton *:backdrop, layouttabbar *:backdrop, layouttab *:backdrop, eggsearchbar box.search-bar *:backdrop {
+.csd .titlebar button.titlebutton *:backdrop, .keycap *:backdrop, layouttabbar *:backdrop, layouttab *:backdrop, eggsearchbar box.search-bar *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
 
@@ -7604,9 +7604,21 @@ popover.touch-selection {
 button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px; }
+  button.circular label {
+    padding: 0; }
 
-button.circular label {
-  padding: 0; }
+.keycap {
+  min-width: 1.50376rem;
+  min-height: 2.00752rem;
+  margin-top: 0.24812rem;
+  padding: 0 0.3985rem 0.24812rem;
+  border: none;
+  border-radius: 2px;
+  color: #263238;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+  font-size: 90%;
+  font-weight: 500; }
 
 *:drop(active):focus,
 *:drop(active) {
