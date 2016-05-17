@@ -1834,10 +1834,7 @@ StScrollBar {
   border-radius: 0;
   //border-width: 0; // FIXME: can't have non unoform borders :(
   background-color: rgba(19, 25, 28, 0.01);
-  box-shadow: inset 1px 0 0 $osd_semi_fill_color;
   color: $osd_fg_color;
-
-  &:rtl { box-shadow: inset -1px 0 0 $osd_semi_fill_color; }
 }
 
 .workspace-thumbnail-indicator {
@@ -1845,6 +1842,26 @@ StScrollBar {
   border: 0 solid $osd_indicator_color;
   border-left-width: 2px;
   border-radius: 0;
+
+  &:rtl {
+    padding: 6px 10px 6px 6px;
+    border-right-width: 2px;
+  }
+}
+
+.workspace-thumbnails,
+.workspace-thumbnails-left:rtl {
+  box-shadow: inset 1px 0 0 $osd_semi_fill_color;
+}
+
+.workspace-thumbnails:rtl,
+.workspace-thumbnails-left {
+  box-shadow: inset -1px 0 0 $osd_semi_fill_color;
+
+  .workspace-thumbnail-indicator {
+    padding: 6px 10px 6px 6px;
+    border-right-width: 2px;
+  }
 }
 
 // Some hacks I don't even
