@@ -672,3 +672,56 @@ window > box.vertical > stack > scrolledwindow {
   }
 }
 
+
+/*********
+ * XFce4 *
+ *********/
+
+.xfce4-panel {
+  background-color: $panel_bg_color;
+  color: $inverted_fg_color;
+  font-weight: 700;
+
+  button {
+    @include button(flat-normal);
+    padding: 0px 4px;
+    border: none;
+    border-radius: 0;
+    color: $inverted_fg_color;
+    background-color: transparent;
+    &:hover {
+      color: $selected_fg_color;
+      background-color: transparent;
+      box-shadow: inset 0 -2px $track_color;
+    }
+    &:checked,
+    &:hover:checked,
+    &:disabled:checked { // 'checked' = 'active'
+      color: $selected_fg_color;
+      background-color: transparent;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+
+    label:backdrop,
+    &:backdrop { opacity: 1.0; }
+  }
+
+  menu { -gtk-icon-effect: none; }
+}
+
+TopMenuAppMenuBar {
+  background-color: $panel_bg_color; // do not use transparent
+  color: $inverted_fg_color;
+  box-shadow: none;
+
+  > menuitem {
+    color: $inverted_fg_color;
+    background-color: transparent;
+    &:hover {
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+    &:backdrop { opacity: 1.0; }
+  }
+}
+
