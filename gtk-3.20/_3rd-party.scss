@@ -38,7 +38,8 @@ $orientation: ((top, bottom),
   .#{$along_side} .shadow-block {
     background-color: transparent;
     background-image: linear-gradient(to $opp_side,
-                                      gtkalpha(#000000, 0.24),
+                                      gtkalpha(#000000, 0.23),
+                                      gtkalpha(#000000, 0.08),
                                       transparent);
   }
 }
@@ -196,8 +197,8 @@ $orientation: ((top, bottom),
   background-color: gtkopacity($dark_color, 0.9);
 
   // mixin with drop-shadows to avoid the raven edge shine-through
-  &:dir(ltr) { box-shadow: -1px 0 1px rgba(0, 0, 0, 0.16); }
-  &:dir(rtl) { box-shadow: 1px 0 1px rgba(0, 0, 0, 0.16); }
+  &:dir(ltr) { box-shadow: -1px 0 1px rgba(0, 0, 0, 0.12); }
+  &:dir(rtl) { box-shadow: 1px 0 1px rgba(0, 0, 0, 0.12); }
 
   .raven-header {
     border: none;
