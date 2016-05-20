@@ -1551,15 +1551,21 @@ $icon_size: 16px;
 }
 
 .panel-launcher {
-  margin: 1px;
-  padding: 1px 6px;
+  margin: 2px;
+  padding: 2px 6px;
 
   &:hover {
     border: 0 solid $selected_bg_color;
     background-gradient-direction: none;
 
-    .panel-bottom & { border-bottom-width: 1px; }
-    .panel-top & { border-top-width: 1px; }
+    .panel-bottom & {
+      padding-bottom: 0;
+      border-bottom-width: 2px;
+    }
+    .panel-top & {
+      padding-top: 0;
+      border-top-width: 2px;
+    }
   }
 }
 
@@ -1646,7 +1652,7 @@ $icon_size: 16px;
   &-with-borders {
     padding: 12px;
     padding-bottom: 16px;
-    border-image: url("assets/misc/bg.svg") 9 9 9 9;
+    border-image: url("assets/misc/osd.svg") 9 9 9 9;
     color: $osd_fg_color;
   }
   &-with-borders-and-header {
