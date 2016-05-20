@@ -135,7 +135,10 @@ $separator_wide: 1px 1px, 1px 1px;
   color: $fg_color;
   &:hover,
   &:active,
-  &:selected { border-radius: 2px; }
+  &:selected {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
   &:disabled { color: $insensitive_fg_color; }
   &:backdrop {
   }
@@ -197,6 +200,7 @@ flowbox {
   flowboxchild {
     padding: rem(2px);
     border-radius: 2px;
+    -gtk-outline-radius: 2px;
     &:selected {
       @extend %selected_items;
       outline-offset: rem(-2px);
@@ -479,6 +483,7 @@ button,
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(13.3px) rem(10.7px);
   border-radius: 2px;
+  -gtk-outline-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
   background-size: $text_button_small;
@@ -498,9 +503,10 @@ button,
     &:checked:disabled { @include button(flat-checked-insensitive); }
     .linked > & {
       border-radius: 2px;
+      -gtk-outline-radius: 2px;
       &.image-button {
-        -gtk-outline-radius: 100px;
         border-radius: 100px;
+        -gtk-outline-radius: 100px;
       }
     }
   }
@@ -583,6 +589,7 @@ button,
   &.text-button {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border-radius: 2px;
+    -gtk-outline-radius: 2px;
     font-weight: 700;
   }
 
@@ -594,6 +601,7 @@ button,
     padding-left: rem(13.3px);
     padding-right: rem(13.3px);
     border-radius: 2px;
+    -gtk-outline-radius: 2px;
 
     label {
       padding-left: rem(4px);
@@ -967,7 +975,10 @@ button.color {
   > colorswatch:first-child:last-child { // :first-child:last-child for
                                          // a specificity bump, it gets
                                          // overridden by the colorpicker style
-    &, overlay { border-radius: 2px; }
+    &, overlay {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
     box-shadow: $z-depth-1;
   }
 
@@ -2970,11 +2981,11 @@ scrollbar {
 
 switch {
   outline-offset: rem(-4px);
-  -gtk-outline-radius: 100px;
   font-size: 0;
   // similar to the scale
   border: rem(10px) solid transparent;
   border-radius: 100px;
+  -gtk-outline-radius: 100px;
   background-color: $track_color;
 
   &:disabled { color: $insensitive_fg_color; }
@@ -4154,6 +4165,7 @@ messagedialog { // Message Dialog styling
   .linked > button {
     border: 2px solid transparent;
     border-radius: 2px;
+    -gtk-outline-radius: 2px;
     border-image: none;
     box-shadow: none;
   }
@@ -4956,8 +4968,8 @@ decoration {
   .ssd & {
     .button { // FIXME: needs 3.19.1
       @extend .button.flat; // use style-class instead of CSS nodes
-      -gtk-outline-radius: 100px;
       border-radius: 100px;
+      -gtk-outline-radius: 100px;
     }
     // just doing borders, wm draws actual shadows
     // otherwise incorrect shadows are appeared
