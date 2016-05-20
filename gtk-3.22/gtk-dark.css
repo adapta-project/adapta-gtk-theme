@@ -94,7 +94,8 @@ textview text {
   .view text:selected,
   iconview text:selected,
   textview text:selected {
-    border-radius: 2px; }
+    border-radius: 2px;
+    -gtk-outline-radius: 2px; }
   .view:disabled, iconview:disabled,
   .view text:disabled,
   iconview text:disabled,
@@ -124,7 +125,8 @@ rubberband, flowbox rubberband, treeview.view rubberband, .tweak-category rubber
 
 flowbox flowboxchild {
   padding: 0.15038rem;
-  border-radius: 2px; }
+  border-radius: 2px;
+  -gtk-outline-radius: 2px; }
   flowbox flowboxchild:selected {
     outline-offset: -0.15038rem; }
 
@@ -459,6 +461,7 @@ button {
   min-width: 2.50376rem;
   padding: 0.69925rem 1rem 0.80451rem;
   border-radius: 2px;
+  -gtk-outline-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
   background-size: 9.96241rem 9.96241rem, auto;
@@ -542,13 +545,14 @@ button {
     #gf-candidate-popup .linked > button,
     #gf-candidate-popup .linked > button:first-child,
     #gf-candidate-popup .linked > button:last-child, window > grid.vertical > box.vertical > widget .linked > button, layouttabbar .linked > button, layouttab .linked > button {
-      border-radius: 2px; }
+      border-radius: 2px;
+      -gtk-outline-radius: 2px; }
       .linked > button.flat.image-button, .linked > button.image-button.osd, .osd toolbar .linked > button.image-button, toolbar.osd .linked > button.image-button, .app-notification .linked > button.image-button, GeditViewFrame .gedit-search-slider .linked > button.image-button, toolbar .linked > button.image-button, .titlebar .linked > button.image-button:not(.suggested-action):not(.destructive-action),
       headerbar .linked > button.image-button:not(.suggested-action):not(.destructive-action), menu.linked > arrow.image-button, placessidebar row .linked > button.image-button, .ssd decoration .linked > button.image-button, .csd headerbar .linked > button.image-button.titlebutton,
       .csd .titlebar .linked > button.image-button.titlebutton,
       #gf-candidate-popup .linked > button.image-button, window > grid.vertical > box.vertical > widget .linked > button.image-button, layouttabbar .linked > button.image-button, layouttab .linked > button.image-button {
-        -gtk-outline-radius: 100px;
-        border-radius: 100px; }
+        border-radius: 100px;
+        -gtk-outline-radius: 100px; }
   button.osd.image-button {
     padding: 1.30075rem;
     background-color: #2a373e;
@@ -679,11 +683,13 @@ button {
   button.text-button {
     padding: 0.69925rem 1rem 0.80451rem;
     border-radius: 2px;
+    -gtk-outline-radius: 2px;
     font-weight: 700; }
   button.text-button.image-button {
     padding-left: 1rem;
     padding-right: 1rem;
-    border-radius: 2px; }
+    border-radius: 2px;
+    -gtk-outline-radius: 2px; }
     button.text-button.image-button label {
       padding-left: 0.30075rem;
       padding-right: 0.30075rem; }
@@ -871,8 +877,8 @@ button {
 
 button.osd.image-button, button.image-button {
   padding: 0.75188rem;
-  -gtk-outline-radius: 100px;
   border-radius: 100px;
+  -gtk-outline-radius: 100px;
   background-size: 3.7594rem 3.7594rem, auto; }
 
 .stack-switcher > button.needs-attention > label, .stack-switcher > button.needs-attention > image, stacksidebar row.needs-attention > label,
@@ -1360,7 +1366,8 @@ button.color {
   button.color > colorswatch:first-child:last-child {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
     button.color > colorswatch:first-child:last-child, button.color > colorswatch:first-child:last-child overlay {
-      border-radius: 2px; }
+      border-radius: 2px;
+      -gtk-outline-radius: 2px; }
   button.color:disabled,
   button.color GtkColorSwatch:disabled {
     box-shadow: none;
@@ -3588,10 +3595,10 @@ scrollbar,
  **********/
 switch {
   outline-offset: -0.30075rem;
-  -gtk-outline-radius: 100px;
   font-size: 0;
   border: 0.75188rem solid transparent;
   border-radius: 100px;
+  -gtk-outline-radius: 100px;
   background-color: alpha(currentColor, 0.2); }
   switch:disabled {
     color: rgba(236, 239, 241, 0.3); }
@@ -7247,8 +7254,8 @@ decoration {
   .ssd decoration {
     box-shadow: 0 2px 2px transparent, 0 3px 4px transparent, 0 3px 3px -1px rgba(0, 0, 0, 0.08); }
     .ssd decoration button {
-      -gtk-outline-radius: 100px;
-      border-radius: 100px; }
+      border-radius: 100px;
+      -gtk-outline-radius: 100px; }
     .tiled .ssd decoration .titlebar {
       transition: none; }
     .maximized .ssd decoration .titlebar {
