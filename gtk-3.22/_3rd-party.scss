@@ -2,6 +2,26 @@
  * Budgie Desktop *
  ******************/
 
+// specific ripple-effect for IconTaskList
+@keyframes budgie_ripple_effect {
+  from {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.001,
+                                    to(gtkalpha($inverted_fg_color, 0.2)),
+                                    to(transparent)),
+                      linear-gradient(to bottom, gtkalpha($inverted_fg_color, 0.2));
+  }
+  to {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.4,
+                                    to(gtkalpha($inverted_fg_color, 0.2)),
+                                    to(transparent)),
+                      linear-gradient(to bottom, gtkalpha($inverted_fg_color, 0.2));
+  }
+}
+
 // orientation
 $orientation: ((top, bottom),
                (bottom, top),
@@ -66,7 +86,14 @@ $orientation: ((top, bottom),
       min-height: rem(24px);
       padding: 0;
       border: 2px solid transparent;
-      background-image: none;
+      background-image: -gtk-gradient(radial,
+                                      center center, 0,
+                                      center center, 0.4,
+                                      to(gtkalpha($inverted_fg_color, 0)),
+                                      to(transparent)),
+                        linear-gradient(to bottom, gtkalpha($inverted_fg_color, 0));
+      background-size: $image_button_large;
+      background-position: center center;
       opacity: 0.5;
       transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
       transition-property: opacity,
@@ -79,7 +106,12 @@ $orientation: ((top, bottom),
         opacity: 0.75;
         -gtk-icon-effect: highlight;
       }
-      &:active,
+      &:active {
+        opacity: 1.0;
+        transition-duration: 0;
+        animation: budgie_ripple_effect 0.2s
+                   cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
       &:checked {
         opacity: 1.0;
         background-color: transparent;
