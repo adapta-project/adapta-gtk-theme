@@ -6683,6 +6683,11 @@ TerminalWindow .scrollbar.trough {
 /******************
  * Budgie Desktop *
  ******************/
+@keyframes budgie_ripple_effect {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(alpha(#ECEFF1, 0.2)), to(transparent)), linear-gradient(to bottom, alpha(#ECEFF1, 0.2)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.4, to(alpha(#ECEFF1, 0.2)), to(transparent)), linear-gradient(to bottom, alpha(#ECEFF1, 0.2)); } }
 .budgie-container {
   background-color: transparent; }
 
@@ -6754,7 +6759,9 @@ TerminalWindow .scrollbar.trough {
 
 .budgie-panel .launcher {
   border: 2px solid transparent;
-  background-image: none;
+  background-image: -gtk-gradient(radial, center center, 0, center center, 0.4, to(alpha(#ECEFF1, 0)), to(transparent)), linear-gradient(to bottom, alpha(#ECEFF1, 0));
+  background-size: 7.5em 7.5em, auto;
+  background-position: center center;
   opacity: 0.5;
   transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-property: opacity, border-color, background-color, background-image, box-shadow;
@@ -6762,9 +6769,13 @@ TerminalWindow .scrollbar.trough {
   .budgie-panel .launcher:hover {
     opacity: 0.75;
     -gtk-image-effect: highlight; }
-  .budgie-panel .launcher:active, .budgie-panel .launcher:checked {
+  .budgie-panel .launcher:active {
+    opacity: 1.0;
+    transition-duration: 0;
+    animation: budgie_ripple_effect 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+  .budgie-panel .launcher:checked {
     opacity: 1.0; }
-    .budgie-panel .launcher:active:hover, .budgie-panel .launcher:checked:hover {
+    .budgie-panel .launcher:checked:hover {
       -gtk-image-effect: highlight; }
 .budgie-panel .unpinned .launcher,
 .budgie-panel .pinned .launcher.running {
