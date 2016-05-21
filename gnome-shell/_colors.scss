@@ -47,7 +47,8 @@ $insensitive_fill_color: scale-color($fill_color, $alpha: -60%);
 //
 // Inverted background colors
 //
-$inverted_bg_color: mix(#FFFFFF, #ECEFF1, 75%);
+$inverted_bg_color: #3E515A;
+$inverted_base_color: #455A64;
 $inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
 
 
@@ -96,7 +97,7 @@ $insensitive_osd_secondary_fg_color: scale-color($osd_secondary_fg_color, $alpha
 // OSD Background colors
 //
 $osd_bg_color: mix(#263238, #37474F, 75%);
-$osd_base_color: $bg_color;
+$osd_base_color: $inverted_base_color;
 
 $osd_fill_color: scale-color($osd_fg_color, $alpha: -60%);
 $osd_semi_fill_color: scale-color($osd_fg_color, $alpha: -80%);
