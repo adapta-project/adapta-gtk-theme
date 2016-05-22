@@ -2002,6 +2002,21 @@ style "scrolled_window" {
   }
 }
 
+# FIXME: needs for Inkskape's scrolled colour palette
+style "scrolled_viewport" {
+  xthickness = 0
+  ythickness = 1
+
+  engine "pixmap" {
+    image {
+      function = SHADOW
+      file     = "Others/null.svg"
+      border   = { 1, 1, 1, 1 }
+      stretch  = TRUE
+    }
+  }
+}
+
 style "frame" {
   xthickness = 1
   ythickness = 1
@@ -2201,6 +2216,9 @@ widget_class "*HandleBox"                                       style "handlebox
 widget_class "*<GtkTreeView>*<GtkButton>*"                      style "treeview_header"
 widget_class "*<GtkFileChooserDefault>*<GtkToolbar>"            style "inline_toolbar"
 widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>" style "notebook_viewport"
+
+# FIXME: needs for Inkskape's scrolled colour palette
+widget_class "*<GtkScrolledWindow>*<GtkViewport>"               style "scrolled_viewport"
 
 widget_class "*<GtkComboBox>*<GtkSeparator>"          style "button_separator"
 widget_class "*<GtkFontButton>*<GtkSeparator>"        style "button_separator"
