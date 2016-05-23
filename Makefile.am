@@ -2,6 +2,7 @@ EXTRA_DIST = \
 	COPYING \
 	gtk-3.0 \
 	gtk-3.20 \
+	LICENSE_CC_BY_SA3 \
 	README.md
 
 INDEX              = index.theme
