@@ -2486,6 +2486,7 @@ $legacy_icon_size: 24px;
   border: none;
   border-radius: 2px;
   background-color: scale-color($osd_base_color, $alpha: -10%);
+  color: $osd_fg_color;
   box-shadow: $z-depth-4;
 
   & > #Toolbar {
@@ -2539,6 +2540,15 @@ $legacy_icon_size: 24px;
   StEntry {
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
+    box-shadow: inset 0 -1px $osd_semi_fill_color;
+    &:hover {
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $osd_semi_fill_color;
+    }
+    &:focus {
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
   }
 
   .shell-link {
@@ -2549,17 +2559,34 @@ $legacy_icon_size: 24px;
 
 .lg-completions-text {
   @include fontscaling($ref_size * 0.9);
+  color: $osd_secondary_fg_color;
   font-style: italic;
 }
 
 .lg-obj-inspector-title { spacing: 4px; }
 
 .lg-obj-inspector-button {
+  @include button(normal);
   padding: 4px;
-  border: 1px solid $borders_color;
   border-radius: 2px;
-  color: $osd_fg_color;
-  &:hover { border: 1px solid $selected_bg_color; }
+  background-color: $suggested_color;
+  color: $osd_secondary_fg_color;
+  font-weight: 700;
+  &:hover,
+  &:focus {
+    @include button(hover);
+    background-color: $suggested_color;
+    color: $osd_fg_color;
+  }
+  &:active {
+    @include button(active);
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
+  &:insensitive {
+    @include button(flat-insensitive);
+    color: $insensitive_osd_fg_color;
+  }
 }
 
 #lookingGlassExtensions { padding: 4px; }
@@ -2586,7 +2613,7 @@ $legacy_icon_size: 24px;
   padding: 6px;
   border: none;
   border-radius: 2px;
-  background: $bg_color;
+  background: $osd_bg_color;
   color: $osd_fg_color;
   box-shadow: $z-depth-4;
 }
