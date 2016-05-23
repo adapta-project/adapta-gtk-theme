@@ -165,6 +165,9 @@ Public License
 --------------
  GPLv2
 
+ > **Note:**
+ > SVG files are licensed under CC BY-SA 3.0
+
 Special Thanks to
 --------------
  Nana-4, the developer of Flat-Plat.
