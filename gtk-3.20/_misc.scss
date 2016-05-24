@@ -341,6 +341,21 @@ window paned > box.vertical {
 // row:selected { @extend row:selected; }
 }
 
+.sidebar {
+  row.inactive {
+    color: $secondary_fg_color;
+    background-color: transparent;
+    font-weight: 500;
+    &:hover { color: $fg_color; }
+    &:selected {
+      color: $selected_bg_color;
+      background-color: transparent;
+
+      label { color: $selected_bg_color; }
+    }
+  }
+}
+
 
 /*************
  * RhythmBox *
