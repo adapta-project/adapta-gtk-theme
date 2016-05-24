@@ -306,8 +306,10 @@ $orientation: ((top, bottom),
     &:checked:disabled { @include button(flat-checked-insensitive); }
   }
 
-  .raven-header { // 'exit' button
-    > button.text-button {
+  .raven-header {
+    > .linked { margin: 0 rem(2.7px); }
+
+    > button.text-button { // 'exit' button
       min-height: rem(13.3px);
       min-width: rem(13.3px);
       padding: rem(9.3px) rem(10.7px) rem(10.7px);
@@ -325,6 +327,14 @@ $orientation: ((top, bottom),
       &:disabled {
         @include button(flat-insensitive, $track_color, $insensitive_fg_color);
       }
+    }
+
+    button.flat.expander-button { // expander arrow buttons
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
+      padding: rem(10.7px);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
     }
   }
 
