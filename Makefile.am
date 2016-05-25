@@ -18,6 +18,7 @@ UNITY_DIR          = unity
 XFCE_DIR           = xfwm4 \
                      xfce-notify-4.0
 CHROME_DIR         = chrome
+PLANK_DIR          = plank
 
 themedir  = $(datadir)/themes
 adaptadir = $(DESTDIR)$(themedir)/Adapta
@@ -84,6 +85,11 @@ if ENABLE_CHROME
 	cp -Rv $(CHROME_DIR)/adapta-theme.crx $(adaptadir)/chrome
 	cp -Rv $(CHROME_DIR)/adapta-nokto-theme $(noktodir)/chrome
 	cp -Rv $(CHROME_DIR)/adapta-nokto-theme.crx $(noktodir)/chrome
+endif
+
+if ENABLE_PLANK
+	cp -Rv $(PLANK_DIR) $(adaptadir)
+	ln -sf ../Adapta/$(PLANK_DIR) $(noktodir)/$(PLANK_DIR)
 endif
 
 uninstall-hook:

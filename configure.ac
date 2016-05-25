@@ -16,6 +16,7 @@ ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],   [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],       [disable])
 ADAPTA_OPTION([XFCE],      [xfce],      [XFce],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)], [disable])
+ADAPTA_OPTION([PLANK],     [plank],     [Plank],       [disable])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
@@ -56,10 +57,11 @@ AC_MSG_RESULT([
          Gtk+ 3.22:            $ENABLE_GTK_NEXT
 
         -----------------------------------------------------------
-        | Extra browser support
+        | Extra support
         -----------------------------------------------------------
 
          Chrome(ium):          $ENABLE_CHROME
+         Plank:                $ENABLE_PLANK
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'

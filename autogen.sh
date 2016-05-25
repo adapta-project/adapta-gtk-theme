@@ -15,5 +15,6 @@ if test -z "${NOCONFIGURE}"; then
     $srcdir/configure --prefix=/usr \
                       --disable-gtk_next \
                       --disable-chrome \
+                      --disable-plank \
                       "$@"
 fi

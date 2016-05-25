@@ -140,6 +140,20 @@ Extra Browser Support
  > **Note:**
  >   * Today Chrome(ium) theming is supported only.
 
+Extra Dock Support
+---------------------
+ If users want to try "Plank" theming, please pass this option:
+
+ ```
+ --enable-plank         enable Plank support
+ ```
+
+ Then select `Gtk+` via `plank --preferences`.
+
+ > **Note:**
+ >   * Both Adapta and Adapta-Nokto shares same theming.
+ >   * Don't expect too much. Plank is NOT themeable widget for me!
+
 Official Wallpaper of Adapta <img src="img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
 ----------------------------
 Raw image is [here](https://github.com/tista500/Adapta/raw/master/img/tri-fadeno.jpg).
