@@ -6680,6 +6680,46 @@ TerminalWindow .scrollbar.trough {
   background-color: transparent;
   border: 1px none transparent; }
 
+/**********
+ * Evince *
+ **********/
+EvAnnotationWindow {
+  padding: 0.4em; }
+  EvAnnotationWindow GtkBox > GtkLabel {
+    color: #263238;
+    font-weight: 700; }
+  EvAnnotationWindow GtkBox > GtkBox > .button.flat, EvAnnotationWindow GtkBox > GtkBox > .button.osd.image-button, EvAnnotationWindow .inline-toolbar GtkBox > GtkBox > .button, .inline-toolbar EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow .inline-toolbar GtkBox > GtkBox > .button.image-button:not(.text-button), .inline-toolbar EvAnnotationWindow GtkBox > GtkBox > .button.image-button:not(.text-button), EvAnnotationWindow .action-bar GtkBox > GtkBox > .button, .action-bar EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow .action-bar GtkBox > GtkBox > .button.image-button:not(.text-button), .action-bar EvAnnotationWindow GtkBox > GtkBox > .button.image-button:not(.text-button), EvAnnotationWindow .inline-toolbar GtkBox > GtkBox.linked > .button, .inline-toolbar EvAnnotationWindow GtkBox > GtkBox.linked > .button, EvAnnotationWindow .inline-toolbar GtkBox > GtkBox.linked > .button.image-button:not(.text-button), .inline-toolbar EvAnnotationWindow GtkBox > GtkBox.linked > .button.image-button:not(.text-button), EvAnnotationWindow .action-bar GtkBox > GtkBox.linked > .button, .action-bar EvAnnotationWindow GtkBox > GtkBox.linked > .button, EvAnnotationWindow .action-bar GtkBox > GtkBox.linked > .button.image-button:not(.text-button), .action-bar EvAnnotationWindow GtkBox > GtkBox.linked > .button.image-button:not(.text-button), EvAnnotationWindow .inline-toolbar GtkBox > GtkBox.stack-switcher > .button, .inline-toolbar EvAnnotationWindow GtkBox > GtkBox.stack-switcher > .button, EvAnnotationWindow .inline-toolbar GtkBox > GtkBox.stack-switcher > .button.image-button:not(.text-button), .inline-toolbar EvAnnotationWindow GtkBox > GtkBox.stack-switcher > .button.image-button:not(.text-button), EvAnnotationWindow .action-bar GtkBox > GtkBox.stack-switcher > .button, .action-bar EvAnnotationWindow GtkBox > GtkBox.stack-switcher > .button, EvAnnotationWindow .action-bar GtkBox > GtkBox.stack-switcher > .button.image-button:not(.text-button), .action-bar EvAnnotationWindow GtkBox > GtkBox.stack-switcher > .button.image-button:not(.text-button), EvAnnotationWindow .osd .toolbar GtkBox > GtkBox > .button, .osd .toolbar EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow .toolbar.osd GtkBox > GtkBox > .button, .toolbar.osd EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow .app-notification GtkBox > GtkBox > .button, .app-notification EvAnnotationWindow GtkBox > GtkBox > .button,
+  EvAnnotationWindow .app-notification.frame GtkBox > GtkBox > .button,
+  .app-notification.frame EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow GeditViewFrame .gedit-search-slider GtkBox > GtkBox > .button, GeditViewFrame .gedit-search-slider EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow .toolbar GtkBox > GtkBox > .button, .toolbar EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow .titlebar GtkBox > GtkBox > .button:not(.suggested-action):not(.destructive-action), .titlebar EvAnnotationWindow GtkBox > GtkBox > .button:not(.suggested-action):not(.destructive-action),
+  EvAnnotationWindow .header-bar GtkBox > GtkBox > .button:not(.suggested-action):not(.destructive-action),
+  .header-bar EvAnnotationWindow GtkBox > GtkBox > .button:not(.suggested-action):not(.destructive-action), EvAnnotationWindow .message-dialog.csd .dialog-action-area GtkBox > GtkBox > .button, .message-dialog.csd .dialog-action-area EvAnnotationWindow GtkBox > GtkBox > .button,
+  EvAnnotationWindow .message-dialog.csd .dialog-action-area GtkBox > GtkBox.linked > .button,
+  .message-dialog.csd .dialog-action-area EvAnnotationWindow GtkBox > GtkBox.linked > .button, EvAnnotationWindow GtkBox > GtkBox > .sidebar-button.button, EvAnnotationWindow .info GtkBox > GtkBox > .button, .info EvAnnotationWindow GtkBox > GtkBox > .button,
+  EvAnnotationWindow .question GtkBox > GtkBox > .button,
+  .question EvAnnotationWindow GtkBox > GtkBox > .button,
+  EvAnnotationWindow .warning GtkBox > GtkBox > .button,
+  .warning EvAnnotationWindow GtkBox > GtkBox > .button,
+  EvAnnotationWindow .error GtkBox > GtkBox > .button,
+  .error EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow GtkBox > GtkBox > GtkScaleButton.button,
+  EvAnnotationWindow GtkBox > GtkBox > GtkVolumeButton.button, EvAnnotationWindow GfCandidatePopup GtkBox > GtkBox > .button, GfCandidatePopup EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow GfCandidatePopup GtkBox > GtkBox > .button:first-child, GfCandidatePopup EvAnnotationWindow GtkBox > GtkBox > .button:first-child, EvAnnotationWindow GfCandidatePopup GtkBox > GtkBox > .button:last-child, GfCandidatePopup EvAnnotationWindow GtkBox > GtkBox > .button:last-child,
+  EvAnnotationWindow GfCandidatePopup GtkBox > GtkBox.linked > .button,
+  GfCandidatePopup EvAnnotationWindow GtkBox > GtkBox.linked > .button,
+  EvAnnotationWindow GfCandidatePopup GtkBox > GtkBox.linked > .button:first-child,
+  GfCandidatePopup EvAnnotationWindow GtkBox > GtkBox.linked > .button:first-child,
+  EvAnnotationWindow GfCandidatePopup GtkBox > GtkBox.linked > .button:last-child,
+  GfCandidatePopup EvAnnotationWindow GtkBox > GtkBox.linked > .button:last-child, EvAnnotationWindow MathWindow :not(.titlebar) GtkBox > GtkBox > .button:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) EvAnnotationWindow GtkBox > GtkBox > .button:not(.flat):not(.titlebutton), EvAnnotationWindow MathWindow :not(.header-bar) GtkBox > GtkBox > .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) EvAnnotationWindow GtkBox > GtkBox > .button:not(.flat):not(.titlebutton),
+  EvAnnotationWindow .action-bar GtkBox > GtkBox.linked > .button.image-button,
+  .action-bar EvAnnotationWindow GtkBox > GtkBox.linked > .button.image-button, EvAnnotationWindow .budgie-session-dialog GtkBox > GtkBox > .button, .budgie-session-dialog EvAnnotationWindow GtkBox > GtkBox > .button, EvAnnotationWindow .budgie-polkit-dialog GtkBox > GtkBox > .button, .budgie-polkit-dialog EvAnnotationWindow GtkBox > GtkBox > .button,
+  EvAnnotationWindow .budgie-session-dialog GtkBox > GtkBox.linked > .button,
+  .budgie-session-dialog EvAnnotationWindow GtkBox > GtkBox.linked > .button,
+  EvAnnotationWindow .budgie-polkit-dialog GtkBox > GtkBox.linked > .button,
+  .budgie-polkit-dialog EvAnnotationWindow GtkBox > GtkBox.linked > .button, EvAnnotationWindow NemoWindow GtkGrid > GtkEventBox > .toolbar GtkBox > GtkBox > .button.image-button, NemoWindow GtkGrid > GtkEventBox > .toolbar EvAnnotationWindow GtkBox > GtkBox > .button.image-button {
+    padding: 1em;
+    border: none;
+    border-radius: 100px;
+    outline-radius: 100px;
+    color: #263238; }
+
 /******************
  * Budgie Desktop *
  ******************/

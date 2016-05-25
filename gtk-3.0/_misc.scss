@@ -672,3 +672,27 @@ TerminalWindow {
   }
 }
 
+
+/**********
+ * Evince *
+ **********/
+
+EvAnnotationWindow {
+  padding: 0.4em;
+
+  GtkBox {
+    > GtkLabel {
+      color: $fixed_fg_color;
+      font-weight: 700;
+    }
+
+    > GtkBox > .button.flat {
+      padding: 1em;
+      border: none;
+      border-radius: 100px;
+      outline-radius: 100px;
+      color: $fixed_fg_color;
+    }
+  }
+}
+
