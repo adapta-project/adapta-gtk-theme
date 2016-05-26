@@ -1287,6 +1287,58 @@ StScrollBar {
 }
 
 
+/*************************
+ * OpenWeather Extension *
+ *************************/
+
+// FIXME: Why devs use 'system-menu-action' class? wrong place...
+.openweather-button,
+.openweather-menu-button-container,
+.openweather-button-box,
+.openweather-provider {
+  color: $secondary_fg_color;
+  &:hover {
+    color: $fg_color;
+    background-color: $semi_fill_color;
+
+    > StIcon { color: $fg_color; }
+  }
+  &:active,
+  &:focus {
+    color: $fg_color;
+    background-color: $fill_color;
+
+    > StIcon { color: $fg_color; }
+  }
+
+  > StIcon,
+  > StLabel { color: $secondary_fg_color; }
+}
+
+.openweather-current {
+  &-icon,
+  &-summary,
+  &-summarybox { color: $fg_color; }
+
+  &-databox-values { color: $dim_fg_color; }
+  &-databox-captions { color: $dim_fg_color; }
+}
+
+.openweather-forecast {
+  &-icon,
+  &-summary { color: $secondary_fg_color; }
+
+  &-day,
+  &-temperature { color: $dim_fg_color; }
+}
+
+.openweather-sunrise-icon,
+.openweather-sunset-icon,
+.openweather-build-icon {
+  color: $secondary_fg_color;
+}
+
+
 /**********************
  * Activities Ripples *
  **********************/
