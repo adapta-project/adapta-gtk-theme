@@ -1812,12 +1812,21 @@ style "separator_menu_item"  {
   xthickness = 0
   ythickness = 2
 
+  # embedded blank area width = 20px
   engine "pixmap" {
     image {
-      function = BOX
-      file     = "Lines/menu-line.png"
-      border   = { 0, 0, 0, 0 }
-      stretch  = TRUE
+      function  = BOX
+      file      = "Lines/menu-line-ltr.png"
+      border    = { 20, 0, 0, 0 }
+      stretch   = TRUE
+      direction = LTR
+    }
+    image {
+      function  = BOX
+      file      = "Lines/menu-line-rtl.png"
+      border    = { 0, 20, 0, 0 }
+      stretch   = TRUE
+      direction = RTL
     }
   }
 }
