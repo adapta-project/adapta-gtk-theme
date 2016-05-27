@@ -1162,7 +1162,7 @@ StScrollBar {
   padding: 3px 0 3px 6px;
   &:rtl { padding: 3px 6px 3px 0; }
 
-  & > StIcon { icon-size: 16px; }
+  & > StIcon { icon-size: 32px; }
 }
 
 .message-secondary-bin {
@@ -1206,8 +1206,7 @@ StScrollBar {
 .message-media-control {
   padding: 0 8px;
   margin: 0 6px;
-  border-radius: 32px;
-  icon-size: 16px;
+  border-radius: 100px;
   color: $secondary_accent_color;
   background: transparent;
   background-size: 32px 32px;
@@ -1226,10 +1225,15 @@ StScrollBar {
 
 .media-message-cover-icon {
   icon-size: 32px;
+
   &.fallback {
-    padding: 8px;
-    border: 1px solid $borders_color;
     icon-size: 16px;
+    padding: 8px;
+    border: none;
+    border-radius: 2px;
+    color: $dim_fg_color;
+    background-color: $base_color;
+    box-shadow: $z-depth-1;
   }
 }
 

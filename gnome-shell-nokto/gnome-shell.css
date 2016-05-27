@@ -1017,7 +1017,7 @@ StScrollBar {
   .message-icon-bin:rtl {
     padding: 3px 6px 3px 0; }
   .message-icon-bin > StIcon {
-    icon-size: 16px; }
+    icon-size: 32px; }
 
 .message-secondary-bin {
   color: rgba(236, 239, 241, 0.4); }
@@ -1055,8 +1055,7 @@ StScrollBar {
 .message-media-control {
   padding: 0 8px;
   margin: 0 6px;
-  border-radius: 32px;
-  icon-size: 16px;
+  border-radius: 100px;
   color: rgba(29, 233, 182, 0.8);
   background: transparent;
   background-size: 32px 32px; }
@@ -1072,9 +1071,13 @@ StScrollBar {
 .media-message-cover-icon {
   icon-size: 32px; }
   .media-message-cover-icon.fallback {
+    icon-size: 16px;
     padding: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    icon-size: 16px; }
+    border: none;
+    border-radius: 2px;
+    color: rgba(236, 239, 241, 0.4);
+    background-color: #455A64;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22), 0 1px 1px rgba(0, 0, 0, 0.12); }
 
 /******************************
  * A little unstructured mess *
