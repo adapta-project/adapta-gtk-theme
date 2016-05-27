@@ -2173,17 +2173,17 @@ $legacy_icon_size: 24px;
 
 .keyboard-key {
   @include fontscaling($ref_size * 2.0);
+  @include button(normal);
   border-radius: 2px;
   border: 1px 0 0;
   min-height: 2em;
   min-width: 2em;
   font-weight: 700;
-  color: $inverted_fg_color;
+  color: $inverted_secondary_fg_color;
   background-color: $inverted_bg_color;
-  @include button(normal);
   &:focus {
     @include button(focus);
-    color: selected_fg_color;
+    color: $selected_fg_color;
   }
   &:hover,
   &:checked {
@@ -2194,12 +2194,12 @@ $legacy_icon_size: 24px;
   &:active {
     @include button(active);
     color: $selected_fg_color;
-    background-color: $inverted_bg_color;
+    background-color: $inverted_base_color;
   }
   &:grayed { // FIXME
     border-color: $osd_borders_color;
+    background-color: $osd_bg_color;
     color: $osd_dim_fg_color;
-    background-color: $inverted_bg_color;
   }
 }
 
@@ -2214,7 +2214,7 @@ $legacy_icon_size: 24px;
   -arrow-rise: 0;
   -boxpointer-gap: 5px;
   background-color: transparentize($osd_bg_color, 0.1);
-  color: inherit;
+  color: $inverted_secondary_fg_color;
   box-shadow: $z-depth-2;
 }
 

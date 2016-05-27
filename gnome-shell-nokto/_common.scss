@@ -2174,21 +2174,31 @@ $legacy_icon_size: 24px;
 
 .keyboard-key {
   @include fontscaling($ref_size * 2.0);
+  @include button(normal);
   border-radius: 2px;
   border: 1px 0 0;
   min-height: 2em;
   min-width: 2em;
   font-weight: 700;
-  color: inherit;
-  @include button(normal);
-  &:focus { @include button(focus); }
+  color: $secondary_fg_color;
+  &:focus {
+    @include button(focus);
+    color: $selected_fg_color;
+  }
   &:hover,
-  &:checked { @include button(hover); }
-  &:active { @include button(active);}
+  &:checked {
+    @include button(hover);
+    color: $selected_fg_color;
+  }
+  &:active {
+    @include button(active);
+    color: $selected_fg_color;
+    background-color: $base_color;
+  }
   &:grayed { // FIXME
     border-color: $osd_borders_color;
     background-color: $osd_bg_color;
-    color: $osd_fg_color;
+    color: $osd_dim_fg_color;
   }
 }
 
