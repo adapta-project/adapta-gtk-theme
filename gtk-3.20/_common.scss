@@ -160,30 +160,6 @@ textview {
 textview border {
   @extend %fade_effect;
   background-color: $bg_color;
-  // HACK: the border node just draws background so,
-  // using a background-image to draw the border
-  background-image: image($borders_color);
-  background-repeat: no-repeat;
-
-  &.bottom {
-    background-size: 100% 1px;
-    background-position: top;
-  }
-
-  &.top {
-    background-size: 100% 1px;
-    background-position: bottom;
-  }
-
-  &.left {
-    background-size: 1px 100%;
-    background-position: right;
-  }
-
-  &.right {
-    background-size: 1px 100%;
-    background-position: left;
-  }
 }
 
 iconview { @extend .view; }
