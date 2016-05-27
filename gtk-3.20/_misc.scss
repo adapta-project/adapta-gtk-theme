@@ -341,17 +341,17 @@ window paned > box.vertical {
 // row:selected { @extend row:selected; }
 }
 
+// FIXME: can not override Polari 3.20.2
+// style in 10 years ago...
 .sidebar {
-  row.inactive {
+  row.activatable.inactive {
     color: $secondary_fg_color;
     background-color: transparent;
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
-      background-color: transparent;
-
-      label { color: $selected_bg_color; }
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
     }
   }
 }
