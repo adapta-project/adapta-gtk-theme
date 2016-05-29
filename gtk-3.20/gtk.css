@@ -7799,32 +7799,32 @@ sn-button {
 /*******************
  * Gnome-Flashback *
  *******************/
-gf-popup-window {
+#gf-bubble, #gf-bubble.solid,
+#gf-osd-window,
+#gf-osd-window.solid,
+#gf-input-source-popup,
+#gf-input-source-popup.solid {
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.09);
-  background-color: #2a373e;
-  color: #ECEFF1;
-  opacity: 0.9; }
-  gf-popup-window.solid {
-    border-radius: 2px;
-    border: 1px solid rgba(0, 0, 0, 0.09); }
+  background-color: rgba(42, 55, 62, 0.9);
+  color: #ECEFF1; }
 
-#gf-label-window {
-  font-size: 3.38346rem;
+#gf-input-source {
+  min-width: 9.02256rem;
+  min-height: 9.02256rem;
+  color: #ECEFF1;
+  font-size: 1.80451rem;
   font-weight: 400; }
+  #gf-input-source:selected {
+    border-radius: 2px;
+    background-color: alpha(currentColor, 0.2);
+    color: #1DE9B6; }
 
 #gf-candidate-popup, #gf-candidate-popup.solid {
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.09);
+  background-color: rgba(42, 55, 62, 0.9);
   color: #ECEFF1; }
-#gf-candidate-popup #gf-input-source {
-  color: #ECEFF1;
-  font-size: 1.80451rem;
-  font-weight: 400; }
-  #gf-candidate-popup #gf-input-source:selected {
-    border-radius: 2px;
-    background-color: alpha(currentColor, 0.2);
-    color: #1DE9B6; }
 #gf-candidate-popup gf-candidate-box {
   transition: none; }
   #gf-candidate-popup gf-candidate-box label {
