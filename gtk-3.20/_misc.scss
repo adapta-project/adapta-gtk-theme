@@ -2,8 +2,12 @@
  * Gnome panel *
  ***************/
 
-#panel-widget,
-window > grid > widget > widget {
+panel-toplevel.background {
+  background-color: $panel_bg_color;
+}
+
+panel-plug,
+panel-toplevel > grid.horizontal > widget > widget {
   // Always use dark-color of dark variant
   color: $inverted_secondary_fg_color;
   background-color: $panel_bg_color;
