@@ -150,6 +150,7 @@ $asset_suffix: if($variant=='dark', '-dark', '');
     color: $fg_color;
     @extend .dim-label;
   }
+
   &:selected,
   &:selected:focus,
   &:selected:hover {
@@ -2318,7 +2319,7 @@ GtkSwitch {
       &:hover { box-shadow: $z-depth-2; }
       &:insensitive {
         @include button(checked-insensitive);
-	// do not use any transparentized materials
+        // do not use any transparentized materials
         background-color: if($variant=='light', #F0F2F3, #3F4E56);
         background-image: none;
         box-shadow: none;
@@ -3597,14 +3598,16 @@ GtkVolumeButton.button {
   }
 }
 
-.floating-bar.bottom.left { // axes left border and border radius
-  border-width: 1px 1px 0 0;
-  border-radius: 0 2px + 1px 0 0;
-}
+.floating-bar.bottom {
+  &.left { // axes left border and border radius
+    border-width: 1px 1px 0 0;
+    border-radius: 0 2px + 1px 0 0;
+  }
 
-.floating-bar.bottom.right { // axes right border and border radius
-  border-width: 1px 0 0 1px;
-  border-radius: 2px + 1px 0 0 0;
+  &.right { // axes right border and border radius
+    border-width: 1px 0 0 1px;
+    border-radius: 2px + 1px 0 0 0;
+  }
 }
 
 
