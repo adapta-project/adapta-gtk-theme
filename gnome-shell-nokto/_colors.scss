@@ -110,18 +110,3 @@ $tooltip_borders_color: $osd_borders_color;
 
 $insensitive_osd_fill_color: scale-color($osd_fill_color, $alpha: -60%);
 
-
-//
-// Backdrop colors
-//
-$backdrop_fg_color: scale-color($fg_color, $alpha: -12%);
-
-$backdrop_bg_color: $bg_color;
-$backdrop_base_color: $base_color;
-
-$backdrop_insensitive_color: if($variant =='light', darken($backdrop_bg_color,15%),
-                                                    lighten($backdrop_bg_color,15%));
-
-$backdrop_borders_color: $borders_color;
-$backdrop_dark_fill: mix($backdrop_borders_color,$backdrop_bg_color, 35%);
-
