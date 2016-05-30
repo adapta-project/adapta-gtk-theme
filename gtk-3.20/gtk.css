@@ -10932,24 +10932,27 @@ UnityDecoration {
 UnityPanelWidget, UnityPanelWidget:backdrop,
 .unity-panel,
 .unity-panel:backdrop {
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #13191c;
   color: #ECEFF1;
   background-image: linear-gradient(to bottom, #13191c);
-  box-shadow: inset 0 -1px #2a373e; }
-
-.unity-panel.menubar {
-  padding: 0;
-  border: none;
   box-shadow: none; }
-  .unity-panel.menubar > .menuitem,
-  .unity-panel.menubar > .menuitem * {
+
+.unity-panel.menubar,
+.unity-panel .menubar {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none; }
+  .unity-panel.menubar.menuitem, .unity-panel.menubar .menuitem *,
+  .unity-panel .menubar.menuitem,
+  .unity-panel .menubar .menuitem * {
+    padding: 0 6px;
     border-radius: 0;
-    border: none;
-    background-color: transparent;
+    border-bottom: none;
     color: #ECEFF1;
-    transition: none; }
-    .unity-panel.menubar > .menuitem:hover,
-    .unity-panel.menubar > .menuitem *:hover {
+    background-color: transparent; }
+    .unity-panel.menubar.menuitem:hover, .unity-panel.menubar .menuitem *:hover,
+    .unity-panel .menubar.menuitem:hover,
+    .unity-panel .menubar .menuitem *:hover {
       color: #FFFFFF;
       box-shadow: inset 0 -2px #00BCD4; }
 
