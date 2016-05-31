@@ -540,6 +540,16 @@ GbTerminalView { // always use dark variant
 // to the overall flow of Builder.
 GbSearchDisplayGroup GtkListBox .list-row { transition: none; }
 
+// remove undershoot from main editor pane
+GbEditorFrame GtkScrolledWindow {
+  .undershoot {
+    &.top,
+    &.bottom,
+    &.left,
+    &.right { background-image: none; }
+  }
+}
+
 
 /***************
  * Gnome-music *
