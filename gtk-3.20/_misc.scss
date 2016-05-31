@@ -509,6 +509,16 @@ paned.titlebar.horizontal {
   }
 }
 
+notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
+  undershoot { // remove undershoot
+    &.top,
+    &.bottom,
+    &.left,
+    &.right { background-image: none; }
+  }
+}
+
+
 /***********
  * Builder *
  ***********/
