@@ -493,6 +493,15 @@ GeditViewFrame {
   }
 }
 
+GeditViewHolder GtkScrolledWindow {
+  .undershoot { // remove undershoot
+    &.top,
+    &.bottom,
+    &.left,
+    &.right { background-image: none; }
+  }
+}
+
 
 /***********
  * Builder *
