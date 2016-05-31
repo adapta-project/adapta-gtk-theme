@@ -3888,16 +3888,16 @@ scrolledwindow {
   // the size if fixed tho.
   undershoot {
     &.top {
-      @include undershoot(top);
+      @include undershoot(top, $base_color);
     }
     &.bottom {
-    @include undershoot(bottom);
+    @include undershoot(bottom, $base_color);
     }
     &.left {
-      @include undershoot(left);
+      @include undershoot(left, $base_color);
     }
     &.right {
-      @include undershoot(right);
+      @include undershoot(right, $base_color);
     }
   }
 
@@ -5258,5 +5258,23 @@ stackswitcher button.text-button.circular {
   min-width: rem(37.3px);
   min-height: rem(37.3px);
   padding: 0;
+}
+
+// undershoot for speciic-cases
+undershoot {
+  box > scrolledwindow & {
+    &.top { @include undershoot(top, $bg_color); }
+    &.bottom { @include undershoot(bottom, $bg_color); }
+    &.left { @include undershoot(left, $bg_color); }
+    &.right { @include undershoot(right, $bg_color); }
+  }
+
+  placessidebar &,
+  .sidebar & {
+    &.top { @include undershoot(top, $secondary_dark_color); }
+    &.bottom { @include undershoot(bottom, $secondary_dark_color); }
+    &.left { @include undershoot(left, $secondary_dark_color); }
+    &.right { @include undershoot(right, $secondary_dark_color); }
+  }
 }
 

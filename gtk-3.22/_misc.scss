@@ -698,6 +698,17 @@ tabstrip {
   }
 }
 
+layoutstack { // remove undershoot from main editor pane
+  widget scrolledwindow {
+    undershoot {
+      &.top,
+      &.bottom,
+      &.left,
+      &.right {background-image: none; }
+    }
+  }
+}
+
 
 /***************
  * Gnome-music *
