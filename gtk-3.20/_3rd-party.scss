@@ -342,6 +342,13 @@ $orientation: ((top, bottom),
     border: none;
     background-color: transparent;
   }
+
+  undershoot {
+    &.top { @include undershoot(top, $dark_color); }
+    &.bottom { @include undershoot(bottom, $dark_color); }
+    &.left { @include undershoot(left, $dark_color); }
+    &.right { @include undershoot(right, $dark_color); }
+  }
 }
 
 // MPRIS Applet
