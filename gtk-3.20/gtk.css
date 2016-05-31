@@ -10643,6 +10643,38 @@ layouttab .right .budgie-panel .pinned button.launcher.running:backdrop {
     background-color: #fdfdfe;
     color: #263238;
     transition: none; }
+  .budgie-menu scrolledwindow undershoot.top, .budgie-menu placessidebar undershoot.top {
+    background-color: transparent;
+    background-image: linear-gradient(to top, rgba(253, 253, 254, 0), rgba(253, 253, 254, 0.04), rgba(253, 253, 254, 0.2), rgba(253, 253, 254, 0.44), rgba(253, 253, 254, 0.94));
+    padding-top: 0;
+    background-size: 16px 32px;
+    background-repeat: repeat-x;
+    background-origin: content-box;
+    background-position: center top; }
+  .budgie-menu scrolledwindow undershoot.bottom, .budgie-menu placessidebar undershoot.bottom {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, rgba(253, 253, 254, 0), rgba(253, 253, 254, 0.04), rgba(253, 253, 254, 0.2), rgba(253, 253, 254, 0.44), rgba(253, 253, 254, 0.94));
+    padding-bottom: 0;
+    background-size: 16px 32px;
+    background-repeat: repeat-x;
+    background-origin: content-box;
+    background-position: center bottom; }
+  .budgie-menu scrolledwindow undershoot.left, .budgie-menu placessidebar undershoot.left {
+    background-color: transparent;
+    background-image: linear-gradient(to left, rgba(253, 253, 254, 0), rgba(253, 253, 254, 0.04), rgba(253, 253, 254, 0.2), rgba(253, 253, 254, 0.44), rgba(253, 253, 254, 0.94));
+    padding-left: 0;
+    background-size: 32px 16px;
+    background-repeat: repeat-y;
+    background-origin: content-box;
+    background-position: left center; }
+  .budgie-menu scrolledwindow undershoot.right, .budgie-menu placessidebar undershoot.right {
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgba(253, 253, 254, 0), rgba(253, 253, 254, 0.04), rgba(253, 253, 254, 0.2), rgba(253, 253, 254, 0.44), rgba(253, 253, 254, 0.94));
+    padding-right: 0;
+    background-size: 32px 16px;
+    background-repeat: repeat-y;
+    background-origin: content-box;
+    background-position: right center; }
 
 .raven-frame {
   border: none; }
@@ -10838,38 +10870,8 @@ layouttab .right .budgie-panel .pinned button.launcher.running:backdrop {
   .raven calendar {
     border: none;
     background-color: transparent; }
-  .raven undershoot.top {
-    background-color: transparent;
-    background-image: linear-gradient(to top, rgba(229, 233, 236, 0), rgba(229, 233, 236, 0.04), rgba(229, 233, 236, 0.2), rgba(229, 233, 236, 0.44), rgba(229, 233, 236, 0.94));
-    padding-top: 0;
-    background-size: 16px 32px;
-    background-repeat: repeat-x;
-    background-origin: content-box;
-    background-position: center top; }
-  .raven undershoot.bottom {
-    background-color: transparent;
-    background-image: linear-gradient(to bottom, rgba(229, 233, 236, 0), rgba(229, 233, 236, 0.04), rgba(229, 233, 236, 0.2), rgba(229, 233, 236, 0.44), rgba(229, 233, 236, 0.94));
-    padding-bottom: 0;
-    background-size: 16px 32px;
-    background-repeat: repeat-x;
-    background-origin: content-box;
-    background-position: center bottom; }
-  .raven undershoot.left {
-    background-color: transparent;
-    background-image: linear-gradient(to left, rgba(229, 233, 236, 0), rgba(229, 233, 236, 0.04), rgba(229, 233, 236, 0.2), rgba(229, 233, 236, 0.44), rgba(229, 233, 236, 0.94));
-    padding-left: 0;
-    background-size: 32px 16px;
-    background-repeat: repeat-y;
-    background-origin: content-box;
-    background-position: left center; }
-  .raven undershoot.right {
-    background-color: transparent;
-    background-image: linear-gradient(to right, rgba(229, 233, 236, 0), rgba(229, 233, 236, 0.04), rgba(229, 233, 236, 0.2), rgba(229, 233, 236, 0.44), rgba(229, 233, 236, 0.94));
-    padding-right: 0;
-    background-size: 32px 16px;
-    background-repeat: repeat-y;
-    background-origin: content-box;
-    background-position: right center; }
+  .raven undershoot.top, .raven undershoot.bottom, .raven undershoot.left, .raven undershoot.right {
+    background-image: none; }
 
 .raven-mpris {
   border: none;
@@ -10902,6 +10904,8 @@ layouttab .right .budgie-panel .pinned button.launcher.running:backdrop {
       border-radius: 2px; }
   .background.csd.budgie-run-dialog scrolledwindow, .background.csd.budgie-run-dialog placessidebar {
     border-image: none; }
+    .background.csd.budgie-run-dialog scrolledwindow undershoot.top, .background.csd.budgie-run-dialog placessidebar undershoot.top, .background.csd.budgie-run-dialog scrolledwindow undershoot.bottom, .background.csd.budgie-run-dialog placessidebar undershoot.bottom, .background.csd.budgie-run-dialog scrolledwindow undershoot.left, .background.csd.budgie-run-dialog placessidebar undershoot.left, .background.csd.budgie-run-dialog scrolledwindow undershoot.right, .background.csd.budgie-run-dialog placessidebar undershoot.right {
+      background-image: none; }
   .background.csd.budgie-run-dialog box > box > separator {
     border: 0 none transparent;
     color: transparent;
