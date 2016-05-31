@@ -3950,9 +3950,23 @@ GtkVolumeButton.button {
 // Overflow indication, works similarly to the overshoot,
 // the size if fixed tho.
 .undershoot {
-  &.top { @include undershoot(top); }
-  &.bottom { @include undershoot(bottom); }
-  &.left { @include undershoot(left); }
-  &.right { @include undershoot(right); }
+  &.top { @include undershoot(top, $base_color); }
+  &.bottom { @include undershoot(bottom, $base_color); }
+  &.left { @include undershoot(left, $base_color); }
+  &.right { @include undershoot(right, $base_color); }
+
+  GtkBox > GtkScrlledWindow & {
+    &.top { @include undershoot(top, $bg_color); }
+    &.bottom { @include undershoot(bottom, $bg_color); }
+    &.left { @include undershoot(left, $bg_color); }
+    &.right { @include undershoot(right, $bg_color); }
+  }
+
+  .sidebar & {
+    &.top { @include undershoot(top, $secondary_dark_color); }
+    &.bottom { @include undershoot(bottom, $secondary_dark_color); }
+    &.left { @include undershoot(left, $secondary_dark_color); }
+    &.right { @include undershoot(right, $secondary_dark_color); }
+  }
 }
 

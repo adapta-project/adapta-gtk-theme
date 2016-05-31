@@ -492,7 +492,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
 // Undershoot
 //
 
-@mixin undershoot($p) {
+@mixin undershoot($p, $fading_color: $base_color) {
 //
 // Undershoot drawing function
 //
@@ -502,30 +502,29 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
 // top, bottom, right, left
 //
 
-  $_undershoot_dash_color: $insensitive_fg_color;
+  // shouldn't be needed, but better to be sure
+  background: transparent;
 
-  $_gradient_dir: left;
-  $_dash_bg_size: 16px 2px;
+  $_gradient_dir: $p;
+  $_fader_size: 16px 32px;
   $_gradient_repeat: repeat-x;
   $_bg_pos: center $p;
 
-  // shouldn't be needed, but better to be sure
-  background-color: transparent;
-
   @if ($p == left) or ($p == right) {
-    $_gradient_dir: top;
-    $_dash_bg_size: 2px 16px;
+    $_fader_size: 32px 16px;
     $_gradient_repeat: repeat-y;
     $_bg_pos: $p center;
   }
 
   // this is the dashed line
   background-image: linear-gradient(to $_gradient_dir,
-                                    $_undershoot_dash_color 50%,
-                                    transparent 50%);
+                                    gtkopacity($fading_color, 0),
+                                    gtkopacity($fading_color, 0.04),
+                                    gtkopacity($fading_color, 0.22),
+                                    gtkopacity($fading_color, 0.94));
 
   padding-#{$p}: 0;
-  background-size: $_dash_bg_size;
+  background-size: $_fader_size;
   background-repeat: $_gradient_repeat;
   background-origin: content-box;
   background-position: $_bg_pos;

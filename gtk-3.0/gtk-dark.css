@@ -6111,34 +6111,98 @@ column-header .side-panel .view.button:selected,
   box-shadow: none; }
 
 .undershoot.top {
-  background-color: transparent;
-  background-image: linear-gradient(to left, rgba(236, 239, 241, 0.3) 50%, transparent 50%);
+  background: transparent;
+  background-image: linear-gradient(to top, rgba(69, 90, 100, 0), rgba(69, 90, 100, 0.04), rgba(69, 90, 100, 0.22), rgba(69, 90, 100, 0.94));
   padding-top: 0;
-  background-size: 16px 2px;
+  background-size: 16px 32px;
   background-repeat: repeat-x;
   background-origin: content-box;
   background-position: center top; }
 .undershoot.bottom {
-  background-color: transparent;
-  background-image: linear-gradient(to left, rgba(236, 239, 241, 0.3) 50%, transparent 50%);
+  background: transparent;
+  background-image: linear-gradient(to bottom, rgba(69, 90, 100, 0), rgba(69, 90, 100, 0.04), rgba(69, 90, 100, 0.22), rgba(69, 90, 100, 0.94));
   padding-bottom: 0;
-  background-size: 16px 2px;
+  background-size: 16px 32px;
   background-repeat: repeat-x;
   background-origin: content-box;
   background-position: center bottom; }
 .undershoot.left {
-  background-color: transparent;
-  background-image: linear-gradient(to top, rgba(236, 239, 241, 0.3) 50%, transparent 50%);
+  background: transparent;
+  background-image: linear-gradient(to left, rgba(69, 90, 100, 0), rgba(69, 90, 100, 0.04), rgba(69, 90, 100, 0.22), rgba(69, 90, 100, 0.94));
   padding-left: 0;
-  background-size: 2px 16px;
+  background-size: 32px 16px;
   background-repeat: repeat-y;
   background-origin: content-box;
   background-position: left center; }
 .undershoot.right {
-  background-color: transparent;
-  background-image: linear-gradient(to top, rgba(236, 239, 241, 0.3) 50%, transparent 50%);
+  background: transparent;
+  background-image: linear-gradient(to right, rgba(69, 90, 100, 0), rgba(69, 90, 100, 0.04), rgba(69, 90, 100, 0.22), rgba(69, 90, 100, 0.94));
   padding-right: 0;
-  background-size: 2px 16px;
+  background-size: 32px 16px;
+  background-repeat: repeat-y;
+  background-origin: content-box;
+  background-position: right center; }
+GtkBox > GtkScrlledWindow .undershoot.top {
+  background: transparent;
+  background-image: linear-gradient(to top, rgba(62, 81, 90, 0), rgba(62, 81, 90, 0.04), rgba(62, 81, 90, 0.22), rgba(62, 81, 90, 0.94));
+  padding-top: 0;
+  background-size: 16px 32px;
+  background-repeat: repeat-x;
+  background-origin: content-box;
+  background-position: center top; }
+GtkBox > GtkScrlledWindow .undershoot.bottom {
+  background: transparent;
+  background-image: linear-gradient(to bottom, rgba(62, 81, 90, 0), rgba(62, 81, 90, 0.04), rgba(62, 81, 90, 0.22), rgba(62, 81, 90, 0.94));
+  padding-bottom: 0;
+  background-size: 16px 32px;
+  background-repeat: repeat-x;
+  background-origin: content-box;
+  background-position: center bottom; }
+GtkBox > GtkScrlledWindow .undershoot.left {
+  background: transparent;
+  background-image: linear-gradient(to left, rgba(62, 81, 90, 0), rgba(62, 81, 90, 0.04), rgba(62, 81, 90, 0.22), rgba(62, 81, 90, 0.94));
+  padding-left: 0;
+  background-size: 32px 16px;
+  background-repeat: repeat-y;
+  background-origin: content-box;
+  background-position: left center; }
+GtkBox > GtkScrlledWindow .undershoot.right {
+  background: transparent;
+  background-image: linear-gradient(to right, rgba(62, 81, 90, 0), rgba(62, 81, 90, 0.04), rgba(62, 81, 90, 0.22), rgba(62, 81, 90, 0.94));
+  padding-right: 0;
+  background-size: 32px 16px;
+  background-repeat: repeat-y;
+  background-origin: content-box;
+  background-position: right center; }
+.sidebar .undershoot.top, #polari-sidebar .undershoot.top {
+  background: transparent;
+  background-image: linear-gradient(to top, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.22), rgba(59, 76, 84, 0.94));
+  padding-top: 0;
+  background-size: 16px 32px;
+  background-repeat: repeat-x;
+  background-origin: content-box;
+  background-position: center top; }
+.sidebar .undershoot.bottom, #polari-sidebar .undershoot.bottom {
+  background: transparent;
+  background-image: linear-gradient(to bottom, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.22), rgba(59, 76, 84, 0.94));
+  padding-bottom: 0;
+  background-size: 16px 32px;
+  background-repeat: repeat-x;
+  background-origin: content-box;
+  background-position: center bottom; }
+.sidebar .undershoot.left, #polari-sidebar .undershoot.left {
+  background: transparent;
+  background-image: linear-gradient(to left, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.22), rgba(59, 76, 84, 0.94));
+  padding-left: 0;
+  background-size: 32px 16px;
+  background-repeat: repeat-y;
+  background-origin: content-box;
+  background-position: left center; }
+.sidebar .undershoot.right, #polari-sidebar .undershoot.right {
+  background: transparent;
+  background-image: linear-gradient(to right, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.22), rgba(59, 76, 84, 0.94));
+  padding-right: 0;
+  background-size: 32px 16px;
   background-repeat: repeat-y;
   background-origin: content-box;
   background-position: right center; }
@@ -7055,6 +7119,38 @@ EvAnnotationWindow {
   .raven GtkCalendar {
     border: none;
     background-color: transparent; }
+  .raven .undershoot.top {
+    background: transparent;
+    background-image: linear-gradient(to top, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.22), rgba(42, 55, 62, 0.94));
+    padding-top: 0;
+    background-size: 16px 32px;
+    background-repeat: repeat-x;
+    background-origin: content-box;
+    background-position: center top; }
+  .raven .undershoot.bottom {
+    background: transparent;
+    background-image: linear-gradient(to bottom, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.22), rgba(42, 55, 62, 0.94));
+    padding-bottom: 0;
+    background-size: 16px 32px;
+    background-repeat: repeat-x;
+    background-origin: content-box;
+    background-position: center bottom; }
+  .raven .undershoot.left {
+    background: transparent;
+    background-image: linear-gradient(to left, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.22), rgba(42, 55, 62, 0.94));
+    padding-left: 0;
+    background-size: 32px 16px;
+    background-repeat: repeat-y;
+    background-origin: content-box;
+    background-position: left center; }
+  .raven .undershoot.right {
+    background: transparent;
+    background-image: linear-gradient(to right, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.22), rgba(42, 55, 62, 0.94));
+    padding-right: 0;
+    background-size: 32px 16px;
+    background-repeat: repeat-y;
+    background-origin: content-box;
+    background-position: right center; }
 
 .raven-mpris {
   border: none;
