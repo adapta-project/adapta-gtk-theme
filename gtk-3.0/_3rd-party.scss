@@ -200,6 +200,13 @@ $orientation: ((top, bottom),
       transition: none;
     }
   }
+
+  GtkScrolledWindow .undershoot {
+    &.top { @include undershoot(top, $secondary_base_color); }
+    &.bottom { @include undershoot(bottom, $secondary_base_color); }
+    &.left { @include undershoot(left, $secondary_base_color); }
+    &.right { @include undershoot(right, $secondary_base_color); }
+  }
 }
 
 // raven styling
@@ -296,11 +303,11 @@ $orientation: ((top, bottom),
     background-color: transparent;
   }
 
-  .undershoot {
-    &.top { @include undershoot(top, $dark_color); }
-    &.bottom { @include undershoot(bottom, $dark_color); }
-    &.left { @include undershoot(left, $dark_color); }
-    &.right { @include undershoot(right, $dark_color); }
+  .undershoot { // remove undershoot
+    &.top,
+    &.bottom,
+    &.left,
+    &.right { background-image: none; }
   }
 }
 
@@ -339,7 +346,7 @@ $orientation: ((top, bottom),
   .window-frame {
     border-radius: 2px;
     border: none;
-    background-color: gtkopacity($dark_color, 0.9);
+    background-color: gtkopacity($inverted_dark_color, 0.9);
     box-shadow: $z-depth-4;
     &:backdrop { box-shadow: $z-depth-2; }
   }
@@ -356,6 +363,13 @@ $orientation: ((top, bottom),
     GtkGrid .button.flat {
       border-radius: 2px;
       outline-radius: 2px;
+    }
+
+    .undershoot { // remove undershoot
+      &.top,
+      &.bottom,
+      &.left,
+      &.right { background-image: none; }
     }
   }
 

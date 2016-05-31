@@ -7008,6 +7008,38 @@ EvAnnotationWindow {
     background-color: #42565f;
     color: #ECEFF1;
     transition: none; }
+  .budgie-menu GtkScrolledWindow .undershoot.top {
+    background: transparent;
+    background-image: linear-gradient(to top, rgba(66, 86, 95, 0), rgba(66, 86, 95, 0.04), rgba(66, 86, 95, 0.2), rgba(66, 86, 95, 0.44), rgba(66, 86, 95, 0.94));
+    padding-top: 0;
+    background-size: 16px 32px;
+    background-repeat: repeat-x;
+    background-origin: content-box;
+    background-position: center top; }
+  .budgie-menu GtkScrolledWindow .undershoot.bottom {
+    background: transparent;
+    background-image: linear-gradient(to bottom, rgba(66, 86, 95, 0), rgba(66, 86, 95, 0.04), rgba(66, 86, 95, 0.2), rgba(66, 86, 95, 0.44), rgba(66, 86, 95, 0.94));
+    padding-bottom: 0;
+    background-size: 16px 32px;
+    background-repeat: repeat-x;
+    background-origin: content-box;
+    background-position: center bottom; }
+  .budgie-menu GtkScrolledWindow .undershoot.left {
+    background: transparent;
+    background-image: linear-gradient(to left, rgba(66, 86, 95, 0), rgba(66, 86, 95, 0.04), rgba(66, 86, 95, 0.2), rgba(66, 86, 95, 0.44), rgba(66, 86, 95, 0.94));
+    padding-left: 0;
+    background-size: 32px 16px;
+    background-repeat: repeat-y;
+    background-origin: content-box;
+    background-position: left center; }
+  .budgie-menu GtkScrolledWindow .undershoot.right {
+    background: transparent;
+    background-image: linear-gradient(to right, rgba(66, 86, 95, 0), rgba(66, 86, 95, 0.04), rgba(66, 86, 95, 0.2), rgba(66, 86, 95, 0.44), rgba(66, 86, 95, 0.94));
+    padding-right: 0;
+    background-size: 32px 16px;
+    background-repeat: repeat-y;
+    background-origin: content-box;
+    background-position: right center; }
 
 .raven {
   padding: 0;
@@ -7122,38 +7154,8 @@ EvAnnotationWindow {
   .raven GtkCalendar {
     border: none;
     background-color: transparent; }
-  .raven .undershoot.top {
-    background: transparent;
-    background-image: linear-gradient(to top, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.2), rgba(42, 55, 62, 0.44), rgba(42, 55, 62, 0.94));
-    padding-top: 0;
-    background-size: 16px 32px;
-    background-repeat: repeat-x;
-    background-origin: content-box;
-    background-position: center top; }
-  .raven .undershoot.bottom {
-    background: transparent;
-    background-image: linear-gradient(to bottom, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.2), rgba(42, 55, 62, 0.44), rgba(42, 55, 62, 0.94));
-    padding-bottom: 0;
-    background-size: 16px 32px;
-    background-repeat: repeat-x;
-    background-origin: content-box;
-    background-position: center bottom; }
-  .raven .undershoot.left {
-    background: transparent;
-    background-image: linear-gradient(to left, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.2), rgba(42, 55, 62, 0.44), rgba(42, 55, 62, 0.94));
-    padding-left: 0;
-    background-size: 32px 16px;
-    background-repeat: repeat-y;
-    background-origin: content-box;
-    background-position: left center; }
-  .raven .undershoot.right {
-    background: transparent;
-    background-image: linear-gradient(to right, rgba(42, 55, 62, 0), rgba(42, 55, 62, 0.04), rgba(42, 55, 62, 0.2), rgba(42, 55, 62, 0.44), rgba(42, 55, 62, 0.94));
-    padding-right: 0;
-    background-size: 32px 16px;
-    background-repeat: repeat-y;
-    background-origin: content-box;
-    background-position: right center; }
+  .raven .undershoot.top, .raven .undershoot.bottom, .raven .undershoot.left, .raven .undershoot.right {
+    background-image: none; }
 
 .raven-mpris {
   border: none;
@@ -7205,6 +7207,8 @@ EvAnnotationWindow {
     GfCandidatePopup .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid .linked > .button, .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid MathWindow :not(.titlebar) .button:not(.flat):not(.titlebutton), MathWindow :not(.titlebar) .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid .button:not(.flat):not(.titlebutton), .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid MathWindow :not(.header-bar) .button:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid .button:not(.flat):not(.titlebutton), .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid .budgie-session-dialog .button, .budgie-session-dialog .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid .button, .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid .budgie-polkit-dialog .button, .budgie-polkit-dialog .background.csd.budgie-run-dialog GtkScrolledWindow GtkGrid .button {
       border-radius: 2px;
       outline-radius: 2px; }
+    .background.csd.budgie-run-dialog GtkScrolledWindow .undershoot.top, .background.csd.budgie-run-dialog GtkScrolledWindow .undershoot.bottom, .background.csd.budgie-run-dialog GtkScrolledWindow .undershoot.left, .background.csd.budgie-run-dialog GtkScrolledWindow .undershoot.right {
+      background-image: none; }
   .background.csd.budgie-run-dialog .button.flat.image-button, .background.csd.budgie-run-dialog .image-button.button.osd, .background.csd.budgie-run-dialog .inline-toolbar .image-button.button, .inline-toolbar .background.csd.budgie-run-dialog .image-button.button, .background.csd.budgie-run-dialog .action-bar .image-button.button, .action-bar .background.csd.budgie-run-dialog .image-button.button, .background.csd.budgie-run-dialog GtkButtonBox > .image-button.button, .background.csd.budgie-run-dialog .app-notification .image-button.button, .app-notification .background.csd.budgie-run-dialog .image-button.button, .background.csd.budgie-run-dialog GeditViewFrame .gedit-search-slider .image-button.button, GeditViewFrame .gedit-search-slider .background.csd.budgie-run-dialog .image-button.button, .background.csd.budgie-run-dialog .toolbar .image-button.button, .toolbar .background.csd.budgie-run-dialog .image-button.button, .background.csd.budgie-run-dialog .titlebar .image-button.button:not(.suggested-action):not(.destructive-action), .titlebar .background.csd.budgie-run-dialog .image-button.button:not(.suggested-action):not(.destructive-action),
   .background.csd.budgie-run-dialog .header-bar .image-button.button:not(.suggested-action):not(.destructive-action),
   .header-bar .background.csd.budgie-run-dialog .image-button.button:not(.suggested-action):not(.destructive-action), .background.csd.budgie-run-dialog .message-dialog.csd .dialog-action-area .image-button.button, .message-dialog.csd .dialog-action-area .background.csd.budgie-run-dialog .image-button.button, .background.csd.budgie-run-dialog .image-button.sidebar-button.button, .background.csd.budgie-run-dialog .info .image-button.button, .info .background.csd.budgie-run-dialog .image-button.button,
