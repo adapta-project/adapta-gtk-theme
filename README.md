@@ -42,7 +42,7 @@ Supported Desktop Environments
  ```
  * GNOME           >= 3.20 (or 3.18)
  * GNOME-Flashback >= 3.18.0
- * Budgie-Desktop  >= 10.2.4
+ * Budgie-Desktop  >= 10.2.5
  * Unity7          >= 7.4.0
  * Cinnamon        >= 3.0.1 (or 2.8.6)
  * XFce4           >= 4.12.2
