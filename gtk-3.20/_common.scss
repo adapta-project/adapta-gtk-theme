@@ -1746,7 +1746,7 @@ headerbar {
       }
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
-    label.text-button { // FIXME: stupid Gnome-Software
+    label.text-button { // workaround stupid Gnome-Software
       border-image: none;
       box-shadow: none;
     }
@@ -2187,7 +2187,7 @@ window:not(.maximized):not(.tiled) {
 
     image { padding: rem(1.3px) rem(5.3px) 0; }
 
-    &.slider-button, // FIXME: workaround for Nautilus 3.20.0
+    &.slider-button, // workaround for Nautilus 3.20.0
     &.image-button.text-button.toggle {
       min-height: rem(17.3px);
       padding: 0 rem(1.3px) 0;
@@ -2523,7 +2523,7 @@ popover.background {
     }
 
     // FIXME: label padding is ugly
-    // a half vertical padding of GtkMenuItem
+    // vertical padding of GtkMenuItem * 0.5
     label { padding: rem(2.7px) 0 rem(3.3px); }
   }
 
@@ -2625,7 +2625,7 @@ notebook {
                                 (left, 1px 0),
                                 (right, -1px 0) {
       &.#{$_header} {
-        // FIXME: outset borders
+        // outset borders
         box-shadow: #{$_border} $borders_color;
       }
     }
@@ -3417,7 +3417,7 @@ $_marks_lenght: 6px;
 $_marks_distance: 6px;
 
 scale {
-  // FIXME: ugly outlines
+  // remove ugly outlines
   // outline-offset: -4px;
   // -gtk-outline-radius: 100px;
   outline-offset: 0;
@@ -3428,7 +3428,7 @@ scale {
   padding: 10px;
 
   &.fine-tune {
-    // FIXME: ugly outlines
+    // remove ugly outlines
     // outline-offset: rem(-4px);
     outline-offset: 0;
     outline-width: 0;
@@ -4320,7 +4320,7 @@ stacksidebar {
   }
 
   .frame list { // draw shadows
-    // FIXME: dim background with alpha-blending
+    // dim background with alpha-blending
     background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
                                             rgba(18, 22, 0, 0.04));
 
@@ -4484,7 +4484,7 @@ paned {
       padding: 0;
       min-width: rem(6px);
       min-height: rem(6px);
-      // FIXME: use opaque borders to avoid double-border
+      // use opaque borders to avoid double-border
       background-color: $bg_color;
       background-image: linear-gradient(to top, $solid_light_borders_color),
                         linear-gradient(to top, $solid_light_borders_color);
@@ -4950,7 +4950,7 @@ decoration {
 
   // server-side decorations as used by mutter
   .ssd & {
-    .button { // FIXME: needs 3.19.1
+    .button {
       @extend .button.flat; // use style-class instead of CSS nodes
       border-radius: 100px;
       -gtk-outline-radius: 100px;
