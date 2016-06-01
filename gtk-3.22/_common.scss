@@ -2314,6 +2314,7 @@ column-header.button.dnd { // for treeview-like derive widgets
  * Menus *
  *********/
 
+.menubar,
 menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
@@ -2345,6 +2346,8 @@ menubar {
   }
 }
 
+.menu,
+.context-menu,
 menu {
   margin: rem(4px) 0;
   padding: rem(4px) 0;
@@ -2359,6 +2362,7 @@ menu {
     border-color: $base_color transparent transparent;
   }
 
+  .menuitem,
   menuitem {
     @extend %fade_effect;
     min-height: rem(20px);
@@ -2389,9 +2393,16 @@ menu {
         margin-right: rem(10.7px);
       }
     }
+
+    // avoids labels color being overridden, see
+    // https://bugzilla.gnome.org/show_bug.cgi?id=767058
+    label {
+      &:dir(rtl),
+      &:dir(ltr) { color: inherit; }
+    }
   }
 
-  > arrow { // overlow buttons
+  > arrow { // overflow buttons
     @extend button.flat;
     min-height: rem(16px);
     min-width: rem(16px);
