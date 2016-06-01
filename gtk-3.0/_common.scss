@@ -1290,7 +1290,7 @@ GtkComboBox {
       &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
     }
 
-    .label.text-button { // FIXME: stupid Gnome-Software
+    .label.text-button { // workaround for Gnome-Software
       border-image: none;
       box-shadow: none;
     }
@@ -1941,7 +1941,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
 
     // FIXME: label padding is ugly
-    // an half vertical padding of GtkMenuItem
+    // vertical padding of GtkMenuItem * 0.5
     .label { padding: 0.2em 0 0.25em; }
   }
 
@@ -3249,7 +3249,7 @@ GtkStackSidebar {
   }
 
   .frame .list { // draw shadows
-    // FIXME: dim background with alpha-blending
+    // dim background with alpha-blending
     background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
                                             rgba(18, 22, 0, 0.04));
 
