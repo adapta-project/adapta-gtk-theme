@@ -10,7 +10,8 @@
                                     center center, 0.001,
                                     to(gtkalpha($inverted_fg_color, 0.2)),
                                     to(transparent)),
-                      linear-gradient(to bottom, gtkalpha($inverted_fg_color, 0.2));
+                      linear-gradient(to bottom,
+                                      gtkalpha($inverted_fg_color, 0.2));
   }
   to {
     background-image: -gtk-gradient(radial,
@@ -18,7 +19,8 @@
                                     center center, 0.4,
                                     to(gtkalpha($inverted_fg_color, 0.2)),
                                     to(transparent)),
-                      linear-gradient(to bottom, gtkalpha($inverted_fg_color, 0.2));
+                      linear-gradient(to bottom,
+                                      gtkalpha($inverted_fg_color, 0.2));
   }
 }
 
@@ -39,7 +41,7 @@ $orientation: ((top, bottom),
 
 // panel styling
 .budgie-panel {
-  // Always use dark-color of dark variant
+  // always use dark-color of dark variant
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
   font-weight: 700;
@@ -91,7 +93,8 @@ $orientation: ((top, bottom),
                                       center center, 0.4,
                                       to(gtkalpha($inverted_fg_color, 0)),
                                       to(transparent)),
-                        linear-gradient(to bottom, gtkalpha($inverted_fg_color, 0));
+                        linear-gradient(to bottom,
+                                        gtkalpha($inverted_fg_color, 0));
       background-size: $image_button_large;
       background-position: center center;
       opacity: 0.5;
@@ -205,7 +208,7 @@ $orientation: ((top, bottom),
       color: $secondary_fg_color;
       transition: none;
 
-      // FIXME: enlarge vertical spacing with icons' paddding
+      // FIXME: enlarge vertical spacing with icon's paddding
       image { padding: rem(5.3px) 0 rem(6.7px); }
     }
     &:hover,
@@ -370,7 +373,7 @@ $orientation: ((top, bottom),
   button.image-button { padding: rem(8px); }
 }
 
-// Notifications
+// notifications
 .budgie-notification-window {
   border-radius: 2px;
   background: none;
@@ -401,7 +404,7 @@ $orientation: ((top, bottom),
     headerbar { border-radius: 2px; }
   }
 
-  scrolledwindow {      // FIXME: using GtkEntry style-class!?
+  scrolledwindow {
     border-image: none; // remove underline indicator
 
     undershoot { // remove undershoot
@@ -528,7 +531,7 @@ UnityDecoration {
     border-style: solid none none;
     border-color: $borders_color;
     border-radius: 2px 2px 0 0;
-    padding: 1px 6px 0 6px; // FIXME: too much tiny!
+    padding: 1px 6px 0 6px;
 
     background-image: linear-gradient(to bottom, $inverted_dark_color,
                                                  $inverted_dark_color);
@@ -593,13 +596,13 @@ headerbar.titlebar box {
   button.toggle.account-button { // left-most account-button
     min-width: rem(13.3px);
     min-height: rem(13.3px);
-    // FIXME: it can't override its own styleshoot
+    // it doesn't work
     padding: rem(6.7px) rem(10px) rem(6.7px);
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
 
-    // FIXME: it can't override its own styleshoot
+    // it doesn't work
     .avatar-round { border-color: transparent; }
   }
 
@@ -741,7 +744,6 @@ window > box.vertical > stack > scrolledwindow {
     &, &.view { background-color: transparent; }
   }
 
-  // FIXME: why toolbar style-class was needed?
   toolbar {
     background-color: $secondary_dark_color;
     box-shadow: $inline-shadow;

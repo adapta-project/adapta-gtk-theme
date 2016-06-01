@@ -1713,7 +1713,7 @@ headerbar {
       }
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
-    label.text-button { // FIXME: stupid Gnome-Software
+    label.text-button { // workaround for Gnome-Software
       border-image: none;
       box-shadow: none;
     }
@@ -2492,7 +2492,7 @@ popover.background {
     }
 
     // FIXME: label padding is ugly
-    // an half vertical padding of GtkMenuItem
+    // vertical padding of GtkMenuItem * 0.5
     label { padding: rem(2.7px) 0 rem(3.3px); }
   }
 
@@ -3385,7 +3385,7 @@ $_marks_lenght: 6px;
 $_marks_distance: 6px;
 
 scale {
-  // FIXME: ugly outlines
+  // remove ugly outlines
   // outline-offset: -4px;
   // -gtk-outline-radius: 100px;
   outline-offset: 0;
@@ -3396,7 +3396,7 @@ scale {
   padding: 10px;
 
   &.fine-tune {
-    // FIXME: ugly outlines
+    // remove ugly outlines
     // outline-offset: rem(-4px);
     outline-offset: 0;
     outline-width: 0;
@@ -4288,7 +4288,7 @@ stacksidebar {
   }
 
   .frame list { // draw shadows
-    // FIXME: dim background with alpha-blending
+    // dim background with alpha-blending
     background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
                                             rgba(18, 22, 0, 0.04));
 
