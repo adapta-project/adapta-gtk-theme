@@ -671,6 +671,15 @@ ContactsWindow {
     // hide horizontal separator
     .separator { -GtkWidget-wide-separators: true; }
   }
+
+  ContactsListPane GtkScrolledWindow {
+    .undershoot {
+      &.top { @include undershoot(top, $secondary_dark_color); }
+      &.bottom { @include undershoot(bottom, $secondary_dark_color); }
+      &.left { @include undershoot(left, $secondary_dark_color); }
+      &.right { @include undershoot(right, $secondary_dark_color); }
+    }
+  }
 }
 
 
