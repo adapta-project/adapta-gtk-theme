@@ -694,9 +694,18 @@ TerminalWindow.background { // dark variant as default
 }
 
 TerminalWindow {
-  .scrollbar.trough { // hide trough
-    background-color: transparent;
-    border: 1px none transparent;
+  .scrollbar {
+    .slider { // always use dark variant
+      background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
+      &:hover { background-color: gtkopacity($inverted_secondary_fg_color, 0.55); }
+      &:active { background-color: $inverted_fg_color; }
+      &:insensitive { opacity: 0.4; }
+    }
+
+    .trough { // hide trough
+      background-color: transparent;
+      border: 1px none transparent;
+    }
   }
 }
 
