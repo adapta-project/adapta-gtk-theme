@@ -6438,38 +6438,46 @@ placesview > actionbar > revealer > box > label {
 paned > separator {
   min-width: 1px;
   min-height: 1px;
-  color: transparent;
+  border-style: none;
   background-color: transparent;
   -gtk-icon-source: none;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.09));
+  background-image: image(rgba(0, 0, 0, 0.09));
   background-size: 1px 1px;
   transition: none; }
-  paned > separator:not(:disabled) {
-    background-image: linear-gradient(to top, #E5E9EC); }
-  window paned > separator, window paned > separator:not(:disabled) {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.05)); }
-  window > grid.vertical paned > separator, window > grid.vertical paned > separator:not(:disabled) {
-    background-image: linear-gradient(to top, #E5E9EC); }
+  paned > separator:backdrop, paned > separator:selected {
+    background-image: image(#E5E9EC);
+    transition: none; }
+  window paned > separator, window paned > separator:backdrop, window paned > separator:selected {
+    background-image: image(rgba(0, 0, 0, 0.05));
+    transition: none; }
+  window > grid.vertical paned > separator, window > grid.vertical paned > separator:backdrop, window > grid.vertical paned > separator:selected {
+    background-image: image(#E5E9EC);
+    transition: none; }
   paned > separator.wide, button paned > separator,
   button paned > .separator,
   .button paned > separator,
   .button paned > .separator, stacksidebar paned > separator,
   stacksidebar paned > .separator, .tweak-categories paned > separator,
   .tweak-categories paned > .separator, window overlay > grid > frame > grid list paned > separator {
-    margin: 0;
-    padding: 0;
     min-width: 0.45113rem;
     min-height: 0.45113rem;
+    margin: 0;
+    padding: 0;
     background-color: #fafbfc;
-    background-image: linear-gradient(to top, #E5E9EC), linear-gradient(to top, #E5E9EC);
+    background-image: image(#E5E9EC), image(#E5E9EC);
     background-size: 1px 1px, 1px 1px; }
-    paned > separator.wide:not(:disabled), button paned > separator:not(:disabled),
-    button paned > .separator:not(:disabled),
-    .button paned > separator:not(:disabled),
-    .button paned > .separator:not(:disabled), stacksidebar paned > separator:not(:disabled),
-    stacksidebar paned > .separator:not(:disabled), .tweak-categories paned > separator:not(:disabled),
-    .tweak-categories paned > .separator:not(:disabled), window overlay > grid > frame > grid list paned > separator:not(:disabled) {
-      background-image: linear-gradient(to top, #E5E9EC), linear-gradient(to top, #E5E9EC); }
+    paned > separator.wide:backdrop, button paned > separator:backdrop,
+    button paned > .separator:backdrop,
+    .button paned > separator:backdrop,
+    .button paned > .separator:backdrop, stacksidebar paned > separator:backdrop,
+    stacksidebar paned > .separator:backdrop, .tweak-categories paned > separator:backdrop,
+    .tweak-categories paned > .separator:backdrop, window overlay > grid > frame > grid list paned > separator:backdrop, paned > separator.wide:selected, button paned > separator:selected,
+    button paned > .separator:selected,
+    .button paned > separator:selected,
+    .button paned > .separator:selected, stacksidebar paned > separator:selected,
+    stacksidebar paned > .separator:selected, .tweak-categories paned > separator:selected,
+    .tweak-categories paned > .separator:selected, window overlay > grid > frame > grid list paned > separator:selected {
+      background-image: image(#E5E9EC), image(#E5E9EC); }
 paned.horizontal > separator {
   background-repeat: repeat-y; }
   paned.horizontal > separator:dir(ltr) {

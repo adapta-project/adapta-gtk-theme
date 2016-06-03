@@ -4420,48 +4420,57 @@ paned {
   > separator {
     min-width: 1px;
     min-height: 1px;
-    color: transparent;
+    border-style: none;
     background-color: transparent;
     -gtk-icon-source: none; // defeats the ugly default handle decoration
     // using background instead of a border
     // since the border will get rendered twice (?)
-    background-image: linear-gradient(to top, $borders_color, $borders_color);
+    background-image: image($borders_color);
     background-size: $separator_narrow;
     transition: none;
 
-    &:not(:disabled) { // FIXME: is this needed?
-      background-image: linear-gradient(to top, $solid_light_borders_color, $solid_light_borders_color);
+    &:backdrop,
+    &:selected { // FIXME: is this needed?
+      background-image: image($solid_light_borders_color);
+      transition: none;
     }
 
     window & {
       // do not across over GtkHeaderBar with solid border
-      &, &:not(.disabled) {
+      &,
+      &:backdrop,
+      &:selected {
         // FIXME: still happaned double-border though
-        background-image: linear-gradient(to top, $paned_borders_color, $paned_borders_color);
+        background-image: image($paned_borders_color);
+        transition: none;
       }
     }
 
     window > grid.vertical & { // do not use transparentize
-      &, &:not(.disabled) {
-        background-image: linear-gradient(to top, $solid_light_borders_color, $solid_light_borders_color);
+      &,
+      &:backdrop,
+      &:selected {
+        background-image: image($solid_light_borders_color);
+        transition: none;
       }
     }
 
     &.wide {
-      margin: 0;
-      padding: 0;
       min-width: rem(6px);
       min-height: rem(6px);
+      margin: 0;
+      padding: 0;
       // FIXME: use opaque borders to avoid double-border
       background-color: $bg_color;
-      background-image: linear-gradient(to top, $solid_light_borders_color, $solid_light_borders_color),
-                        linear-gradient(to top, $solid_light_borders_color, $solid_light_borders_color);
+      background-image: image($solid_light_borders_color),
+                        image($solid_light_borders_color);
       background-size: $separator_wide;
 
-      &:not(:disabled) { // FIXME: is this needed?
+      &:backdrop,
+      &:selected { // FIXME: is this needed?
         // background-image: none;
-        background-image: linear-gradient(to top, $solid_light_borders_color, $solid_light_borders_color),
-                          linear-gradient(to top, $solid_light_borders_color, $solid_light_borders_color);
+        background-image: image($solid_light_borders_color),
+                          image($solid_light_borders_color);
       }
     }
   }
