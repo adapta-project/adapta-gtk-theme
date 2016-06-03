@@ -186,6 +186,16 @@ style "eclipse-tooltips" {
   # bg[SELECTED] = @base_color
 }
 
+style "null" {
+  engine "pixmap" {
+    image {
+      function = BOX
+      file     = "Others/null.svg"
+      stretch  = TRUE
+    }
+  }
+}
+
 widget "gtk-tooltips*"     style "eclipse-tooltips"
 widget "*swt-toolbar-flat" style "null"
 
