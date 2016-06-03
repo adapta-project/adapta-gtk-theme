@@ -3034,6 +3034,29 @@ GtkCalendar {
     box-shadow: none;
   }
 
+  // always use dark variant for check/radio icons
+  @each $s,$as in ('','-unchecked'),
+                  (':hover', '-unchecked-active'),
+                  (':active', '-unchecked-active'),
+                  (':insensitive','-unchecked-insensitive'),
+                  (':inconsistent', '-mixed'),
+                  (':inconsistent:hover', '-mixed-active'),
+                  (':inconsistent:active', '-mixed-active'),
+                  (':inconsistent:insensitive', '-mixed-insensitive'),
+                  (':checked', '-checked'),
+                  (':checked:hover', '-checked-active'),
+                  (':checked:active', '-checked-active'),
+                  (':checked:insensitive','-checked-insensitive') {
+    .check#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
+                                    url("assets/checkbox#{$as}-dark@2.png"));
+    }
+    .radio#{$s},{
+      -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
+                                    url("assets/radio#{$as}-dark@2.png"));
+    }
+  }
+
   GtkCheckButton.text-button,
   GtkRadioButton.text-button {
     color: $inverted_secondary_fg_color;
