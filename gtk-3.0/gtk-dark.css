@@ -6529,8 +6529,12 @@ GfCandidatePopup EphyWindow .search-bar .linked > .close.raised.button, EphyWind
 /************
  * Seahorse *
  ************/
-SeahorseWidget .sidebar .pane-separator, SeahorseWidget #polari-sidebar .pane-separator {
-  border: none; }
+SeahorseKeyManager .sidebar, SeahorseKeyManager #polari-sidebar, SeahorseKeyManager .sidebar:backdrop, SeahorseKeyManager #polari-sidebar:backdrop,
+SeahorseKeyManager .pane-separator,
+SeahorseKeyManager .pane-separator:backdrop {
+  border-width: 0;
+  border-style: none;
+  border-color: transparent; }
 
 /**********
  * Polari *

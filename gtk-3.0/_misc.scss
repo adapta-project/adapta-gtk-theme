@@ -342,12 +342,15 @@ EphyWindow {
  * Seahorse *
  ************/
 
-// remove double borders
-SeahorseWidget {
-  .sidebar {
-    @extend %fade_effect;
-
-    .pane-separator { border: none; }
+// remove weird borders
+SeahorseKeyManager {
+  .sidebar,
+  .pane-separator {
+    &, &:backdrop {
+      border-width: 0;
+      border-style: none;
+      border-color: transparent;
+    }
   }
 }
 
