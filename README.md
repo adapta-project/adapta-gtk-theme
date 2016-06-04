@@ -1,17 +1,17 @@
 Adapta
 =========
-<img src="img/Button.gif" alt="Button" align="right" />
+<img src=".github/img/Button.gif" alt="Button" align="right" />
 An adaptive Gtk+ theme based on Material Design Guidelines.
 Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Plat) at the start.
 
-<img src="img/sunlight.png" alt="Day" align="left" /> **Adapta**:
+<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta**:
  * Light/Dark variant Gtk+ 3.20/3.18 theme
  * Light/Dark variant Budgie-Desktop theme
  * Light variant Gtk+ 2.0 theme
  * Light variant Gnome-Shell theme
  * Light variant Cinnamon theme
 
-<img src="img/moon.png" alt="Night" align="left" /> **Adapta-Nokto**:
+<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto**:
  * Light/Dark variant Gtk+ 3.20/3.18 theme
  * Light/Dark variant Budgie-Desktop theme
  * Dark variant Gtk+ 2.0 theme
@@ -23,7 +23,7 @@ Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Pla
 
 Elements
 --------
-![Materials](img/Materials.png)
+![Materials](.github/img/Materials.png)
 
 Required Components
 -------------------
@@ -154,9 +154,9 @@ Extra Dock Support
  >   * Both Adapta and Adapta-Nokto shares same theming.
  >   * Don't expect too much. Plank is NOT themeable widget for me!
 
-Official Wallpaper of Adapta <img src="img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
+Official Wallpaper of Adapta <img src=".github/img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
 ----------------------------
-Raw image is [here](https://github.com/tista500/Adapta/raw/master/img/tri-fadeno.jpg).
+Raw image is [here](https://github.com/tista500/Adapta/raw/master/.github/img/tri-fadeno.jpg).
 
  * Resolution: 3840 x 2160 (4K = 2160p)
  * Created with Gimp and Inkscape
