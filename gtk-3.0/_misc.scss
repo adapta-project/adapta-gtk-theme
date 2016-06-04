@@ -359,11 +359,31 @@ SeahorseKeyManager {
  * Polari *
  **********/
 
-// FIXME: it doesn't work at all
-#polari-sidebar { @extend .sidebar; }
+.polari-input-area {
+  border-top: 1px solid $borders_color;
+  box-shadow: $inline-shadow;
+}
 
-#polari-room-list {
-  .list-row:selected { @extend GtkSidebarRow.list-row:selected; }
+.polari-room-list { // override labels
+  .list-row {
+    font-weight: 700;
+    &:not(:hover):not(:active):not(:selected) {
+      .label,
+      GtkImage { opacity: 1.0; }
+    }
+
+    &.inactive {
+      &:not(:hover):not(:active):not(:selected) {
+        .label,
+        GtkImage { opacity: 0.65; }
+      }
+    }
+  }
+}
+
+.polari-nick-entry {
+  border-image: none;
+  font-weight: 700;
 }
 
 

@@ -69,7 +69,7 @@ GtkAssistant *:backdrop, GtkTextView *:backdrop, .button *:backdrop, .menuitem.b
 .error .menuitem.button *:backdrop, GtkScaleButton.menuitem.button *:backdrop,
 GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:backdrop, MathWindow :not(.titlebar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, MathWindow :not(.header-bar) .menuitem.button:not(.flat):not(.titlebutton) *:backdrop, .budgie-session-dialog .menuitem.button *:backdrop, .budgie-polkit-dialog .menuitem.button *:backdrop, .spinbutton *:backdrop, GtkComboBox *:backdrop, .toolbar *:backdrop, .inline-toolbar *:backdrop, .search-bar *:backdrop,
 .location-bar *:backdrop, .titlebar *:backdrop,
-.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .expander *:backdrop, GtkCalendar *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
+.header-bar *:backdrop, GtkTreeView.view *:backdrop, .menubar > .menuitem *:backdrop, .menu .menuitem *:backdrop, .popover *:backdrop, .notebook tab *:backdrop, .scrollbar *:backdrop, .scrollbars-junction *:backdrop, .progressbar *:backdrop, .level-bar *:backdrop, .list-row:selected *:backdrop, .tweak-category:selected *:backdrop, .app-notification *:backdrop, .expander *:backdrop, GtkCalendar *:backdrop, .message-dialog *:backdrop, GtkFileChooserDialog *:backdrop, .sidebar *:backdrop, GtkStackSidebar *:backdrop, GtkInfoBar *:backdrop, NautilusTrashBar *:backdrop, GtkColorSwatch *:backdrop, .scale-popup *:backdrop,
 .cursor-handle *:backdrop, .touch-selection *:backdrop, .tweak-categories.list *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -115,17 +115,17 @@ GtkVolumeButton.menuitem.button *:backdrop, GfCandidatePopup .menuitem.button *:
 .header-bar .subtitle:backdrop {
   opacity: 0.55; }
 
-GtkAssistant .sidebar, GtkAssistant #polari-sidebar {
+GtkAssistant .sidebar {
   padding: 0.5em 0; }
-  GtkAssistant .sidebar:dir(ltr), GtkAssistant #polari-sidebar:dir(ltr) {
+  GtkAssistant .sidebar:dir(ltr) {
     border-right: 1px solid rgba(0, 0, 0, 0.11); }
-  GtkAssistant .sidebar:dir(rtl), GtkAssistant #polari-sidebar:dir(rtl) {
+  GtkAssistant .sidebar:dir(rtl) {
     border-left: 1px solid rgba(0, 0, 0, 0.11); }
-  GtkAssistant .sidebar .label, GtkAssistant #polari-sidebar .label {
+  GtkAssistant .sidebar .label {
     padding: 0.7em 1em 0.8em;
     color: rgba(236, 239, 241, 0.75);
     font-weight: 500; }
-    GtkAssistant .sidebar .label.highlight, GtkAssistant #polari-sidebar .label.highlight {
+    GtkAssistant .sidebar .label.highlight {
       color: #00BCD4; }
 GtkAssistant .header-bar .button.flat:not(:last-child), GtkAssistant .header-bar .button.osd.image-button:not(:last-child), GtkAssistant .header-bar .inline-toolbar .button:not(:last-child), .inline-toolbar GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar .action-bar .button:not(:last-child), .action-bar GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar .inline-toolbar .linked > .button.image-button:not(:last-child):not(.text-button), .inline-toolbar GtkAssistant .header-bar .linked > .button.image-button:not(:last-child):not(.text-button), GtkAssistant .header-bar .inline-toolbar .stack-switcher > .button.image-button:not(:last-child):not(.text-button), .inline-toolbar GtkAssistant .header-bar .stack-switcher > .button.image-button:not(:last-child):not(.text-button), GtkAssistant .header-bar .action-bar .stack-switcher > .button.image-button:not(:last-child):not(.text-button), .action-bar GtkAssistant .header-bar .stack-switcher > .button.image-button:not(:last-child):not(.text-button), GtkAssistant .header-bar GtkButtonBox > .button:not(:last-child), GtkAssistant .header-bar .app-notification .button:not(:last-child), .app-notification GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar GeditViewFrame .gedit-search-slider .button:not(:last-child), GeditViewFrame .gedit-search-slider GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar .toolbar .button:not(:last-child), .toolbar GtkAssistant .header-bar .button:not(:last-child),
 GtkAssistant .header-bar .button:not(:last-child):not(.suggested-action):not(.destructive-action), GtkAssistant .header-bar .message-dialog.csd .dialog-action-area .button:not(:last-child), .message-dialog.csd .dialog-action-area GtkAssistant .header-bar .button:not(:last-child), GtkAssistant .header-bar .sidebar-button.button:not(:last-child), GtkAssistant .header-bar .info .button:not(:last-child), .info GtkAssistant .header-bar .button:not(:last-child),
@@ -4509,7 +4509,7 @@ GtkScrolledWindow GtkViewport.frame {
   background-size: 240px 240px, auto; }
   .list-row.activatable:hover, .view:hover, column-header .button:hover, .activatable.tweak-category:hover {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.05)); }
-  .list-row.activatable:active, .view:active, column-header .button:active, GtkPlacesSidebar.sidebar .has-open-popup, GtkPlacesSidebar#polari-sidebar .has-open-popup, .activatable.tweak-category:active {
+  .list-row.activatable:active, .view:active, column-header .button:active, GtkPlacesSidebar.sidebar .has-open-popup, .activatable.tweak-category:active {
     animation: list_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
   .list-row.activatable:insensitive, .view:insensitive, column-header .button:insensitive, .activatable.tweak-category:insensitive {
     color: rgba(236, 239, 241, 0.3); }
@@ -4797,27 +4797,24 @@ GtkFileChooserDialog .dialog-action-box {
 /***********
  * Sidebar *
  ***********/
-.sidebar, #polari-sidebar {
+.sidebar {
   border: none;
   color: rgba(236, 239, 241, 0.75);
   background-color: #3b4c54; }
-  .sidebar:dir(ltr), #polari-sidebar:dir(ltr), .sidebar .list:dir(ltr), #polari-sidebar .list:dir(ltr) {
+  .sidebar:dir(ltr), .sidebar .list:dir(ltr) {
     box-shadow: inset -2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset -3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
-  .sidebar:dir(rtl), #polari-sidebar:dir(rtl), .sidebar .list:dir(rtl), #polari-sidebar .list:dir(rtl) {
+  .sidebar:dir(rtl), .sidebar .list:dir(rtl) {
     box-shadow: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset 3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
-  .sidebar GtkTreeView.view, #polari-sidebar GtkTreeView.view,
+  .sidebar GtkTreeView.view,
   .sidebar .frame,
-  #polari-sidebar .frame,
-  .sidebar .list,
-  #polari-sidebar .list {
+  .sidebar .list {
     background-color: transparent; }
-  .sidebar GtkTreeView.view, #polari-sidebar GtkTreeView.view {
+  .sidebar GtkTreeView.view {
     box-shadow: none; }
-  .sidebar .frame .list, #polari-sidebar .frame .list {
+  .sidebar .frame .list {
     box-shadow: none; }
-  .sidebar .overshoot, #polari-sidebar .overshoot,
-  .sidebar .undershoot,
-  #polari-sidebar .undershoot {
+  .sidebar .overshoot,
+  .sidebar .undershoot {
     box-shadow: none; }
 
 GtkSidebarRow.list-row, GtkSidebarRow.tweak-category {
@@ -4826,7 +4823,7 @@ GtkSidebarRow.list-row, GtkSidebarRow.tweak-category {
   font-weight: 500; }
   GtkSidebarRow.list-row:hover, GtkSidebarRow.tweak-category:hover {
     color: #ECEFF1; }
-  GtkSidebarRow.list-row:selected, GtkSidebarRow.tweak-category:selected, #polari-room-list .list-row:selected, #polari-room-list .tweak-category:selected {
+  GtkSidebarRow.list-row:selected, GtkSidebarRow.tweak-category:selected {
     color: #00BCD4;
     background-color: transparent; }
   GtkSidebarRow.list-row:backdrop, GtkSidebarRow.tweak-category:backdrop {
@@ -4844,22 +4841,22 @@ GtkSidebarRow .sidebar-label:dir(ltr) {
 GtkSidebarRow .sidebar-label:dir(rtl) {
   padding-left: 0.1em; }
 
-GtkPlacesSidebar.sidebar .list-row:selected:insensitive .label, GtkPlacesSidebar#polari-sidebar .list-row:selected:insensitive .label, GtkPlacesSidebar.sidebar .tweak-category:selected:insensitive .label, GtkPlacesSidebar#polari-sidebar .tweak-category:selected:insensitive .label {
+GtkPlacesSidebar.sidebar .list-row:selected:insensitive .label, GtkPlacesSidebar.sidebar .tweak-category:selected:insensitive .label {
   color: rgba(255, 255, 255, 0.4); }
-GtkPlacesSidebar.sidebar .list-row:selected .sidebar-button.button, GtkPlacesSidebar#polari-sidebar .list-row:selected .sidebar-button.button, GtkPlacesSidebar.sidebar .tweak-category:selected .sidebar-button.button, GtkPlacesSidebar#polari-sidebar .tweak-category:selected .sidebar-button.button {
+GtkPlacesSidebar.sidebar .list-row:selected .sidebar-button.button, GtkPlacesSidebar.sidebar .tweak-category:selected .sidebar-button.button {
   color: #4DD0E1; }
-  GtkPlacesSidebar.sidebar .list-row:selected .sidebar-button.button:hover, GtkPlacesSidebar#polari-sidebar .list-row:selected .sidebar-button.button:hover, GtkPlacesSidebar.sidebar .tweak-category:selected .sidebar-button.button:hover, GtkPlacesSidebar#polari-sidebar .tweak-category:selected .sidebar-button.button:hover, GtkPlacesSidebar.sidebar .list-row:selected .sidebar-button.button:active, GtkPlacesSidebar#polari-sidebar .list-row:selected .sidebar-button.button:active, GtkPlacesSidebar.sidebar .tweak-category:selected .sidebar-button.button:active, GtkPlacesSidebar#polari-sidebar .tweak-category:selected .sidebar-button.button:active {
+  GtkPlacesSidebar.sidebar .list-row:selected .sidebar-button.button:hover, GtkPlacesSidebar.sidebar .tweak-category:selected .sidebar-button.button:hover, GtkPlacesSidebar.sidebar .list-row:selected .sidebar-button.button:active, GtkPlacesSidebar.sidebar .tweak-category:selected .sidebar-button.button:active {
     color: #00BCD4; }
-GtkPlacesSidebar.sidebar .sidebar-placeholder-row, GtkPlacesSidebar#polari-sidebar .sidebar-placeholder-row {
+GtkPlacesSidebar.sidebar .sidebar-placeholder-row {
   border: solid 1px #00BCD4; }
-GtkPlacesSidebar.sidebar .sidebar-new-bookmark-row, GtkPlacesSidebar#polari-sidebar .sidebar-new-bookmark-row {
+GtkPlacesSidebar.sidebar .sidebar-new-bookmark-row {
   color: #00BCD4; }
 .sidebar-button.button.image-button {
   padding: 4px;
   color: rgba(236, 239, 241, 0.75); }
   .sidebar-button.button.image-button:hover, .sidebar-button.button.image-button:active, .sidebar-button.button.image-button:checked {
     color: #ECEFF1; }
-GtkPlacesSidebar.sidebar .has-open-popup, GtkPlacesSidebar#polari-sidebar .has-open-popup {
+GtkPlacesSidebar.sidebar .has-open-popup {
   transition: none; }
 
 .sidebar-item {
@@ -6017,11 +6014,9 @@ GfCandidatePopup .linked > .menuitem.button:selected, MathWindow :not(.titlebar)
 GtkTreeView.view .list-row:selected,
 GtkTreeView.view .tweak-category:selected, GtkPaned GtkTreeView.view:selected,
 GtkPaned GtkTreeView.view .list-row:selected,
-GtkPaned GtkTreeView.view .tweak-category:selected, .list-row:selected, .tweak-category:selected, .sidebar GtkTreeView.view:selected, #polari-sidebar GtkTreeView.view:selected,
+GtkPaned GtkTreeView.view .tweak-category:selected, .list-row:selected, .tweak-category:selected, .sidebar GtkTreeView.view:selected,
 .sidebar GtkTreeView.view .list-row:selected,
-#polari-sidebar GtkTreeView.view .list-row:selected,
-.sidebar GtkTreeView.view .tweak-category:selected,
-#polari-sidebar GtkTreeView.view .tweak-category:selected, GdMainView .view:hover:selected, GdMainView .view:selected, GdMainView .view.list-row.activatable:hover:selected, GdMainView column-header .view.button:hover:selected, column-header GdMainView .view.button:hover:selected, GdMainView .view.activatable.tweak-category:hover:selected, GdMainView .view.list-row.activatable:selected, GdMainView column-header .view.button:selected, column-header GdMainView .view.button:selected, GdMainView .view.activatable.tweak-category:selected,
+.sidebar GtkTreeView.view .tweak-category:selected, GdMainView .view:hover:selected, GdMainView .view:selected, GdMainView .view.list-row.activatable:hover:selected, GdMainView column-header .view.button:hover:selected, column-header GdMainView .view.button:hover:selected, GdMainView .view.activatable.tweak-category:hover:selected, GdMainView .view.list-row.activatable:selected, GdMainView column-header .view.button:selected, column-header GdMainView .view.button:selected, GdMainView .view.activatable.tweak-category:selected,
 .side-panel .view:hover:selected,
 .side-panel .view:selected,
 .side-panel .view.list-row.activatable:hover:selected,
@@ -6041,9 +6036,7 @@ column-header .side-panel .view.button:selected,
   .error .menuitem.button:insensitive:selected, GtkScaleButton.menuitem.button:insensitive:selected,
   GtkVolumeButton.menuitem.button:insensitive:selected, GfCandidatePopup .menuitem.button:insensitive:selected, MathWindow :not(.titlebar) .menuitem.button:insensitive:selected:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .menuitem.button:insensitive:selected:not(.flat):not(.titlebutton), .budgie-session-dialog .menuitem.button:insensitive:selected, .budgie-polkit-dialog .menuitem.button:insensitive:selected, GtkTreeView .spinbutton.entry:insensitive:focus:selected,
   GtkTreeView.view .list-row:insensitive:selected,
-  GtkTreeView.view .tweak-category:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected, .sidebar GtkTreeView.view:insensitive:selected, #polari-sidebar GtkTreeView.view:insensitive:selected,
-  #polari-sidebar GtkTreeView.view .list-row:insensitive:selected,
-  #polari-sidebar GtkTreeView.view .tweak-category:insensitive:selected, GdMainView column-header .view.button:insensitive:hover:selected, column-header GdMainView .view.button:insensitive:hover:selected, GdMainView .view.list-row.activatable:insensitive:selected, GdMainView column-header .view.button:insensitive:selected, column-header GdMainView .view.button:insensitive:selected, GdMainView .view.activatable.tweak-category:insensitive:selected,
+  GtkTreeView.view .tweak-category:insensitive:selected, .list-row:insensitive:selected, .tweak-category:insensitive:selected, .sidebar GtkTreeView.view:insensitive:selected, GdMainView column-header .view.button:insensitive:hover:selected, column-header GdMainView .view.button:insensitive:hover:selected, GdMainView .view.list-row.activatable:insensitive:selected, GdMainView column-header .view.button:insensitive:selected, column-header GdMainView .view.button:insensitive:selected, GdMainView .view.activatable.tweak-category:insensitive:selected,
   .side-panel column-header .view.button:insensitive:hover:selected,
   column-header .side-panel .view.button:insensitive:hover:selected,
   .side-panel .view.list-row.activatable:insensitive:selected,
@@ -6056,11 +6049,9 @@ column-header .side-panel .view.button:selected,
   .question .menuitem.button:backdrop:insensitive:selected,
   .warning .menuitem.button:backdrop:insensitive:selected,
   .error .menuitem.button:backdrop:insensitive:selected, GtkScaleButton.menuitem.button:backdrop:insensitive:selected,
-  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, GfCandidatePopup .menuitem.button:backdrop:insensitive:selected, MathWindow :not(.titlebar) .menuitem.button:backdrop:insensitive:selected:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .menuitem.button:backdrop:insensitive:selected:not(.flat):not(.titlebutton), .budgie-session-dialog .menuitem.button:backdrop:insensitive:selected, .budgie-polkit-dialog .menuitem.button:backdrop:insensitive:selected, GtkTreeView .spinbutton.entry:backdrop:insensitive:focus:selected, .list-row:backdrop:insensitive:selected, .tweak-category:backdrop:insensitive:selected, #polari-sidebar GtkTreeView.view:backdrop:insensitive:selected,
+  GtkVolumeButton.menuitem.button:backdrop:insensitive:selected, GfCandidatePopup .menuitem.button:backdrop:insensitive:selected, MathWindow :not(.titlebar) .menuitem.button:backdrop:insensitive:selected:not(.flat):not(.titlebutton), MathWindow :not(.header-bar) .menuitem.button:backdrop:insensitive:selected:not(.flat):not(.titlebutton), .budgie-session-dialog .menuitem.button:backdrop:insensitive:selected, .budgie-polkit-dialog .menuitem.button:backdrop:insensitive:selected, GtkTreeView .spinbutton.entry:backdrop:insensitive:focus:selected, .list-row:backdrop:insensitive:selected, .tweak-category:backdrop:insensitive:selected,
   .sidebar GtkTreeView.view .list-row:backdrop:insensitive:selected,
-  #polari-sidebar GtkTreeView.view .list-row:backdrop:insensitive:selected,
-  .sidebar GtkTreeView.view .tweak-category:backdrop:insensitive:selected,
-  #polari-sidebar GtkTreeView.view .tweak-category:backdrop:insensitive:selected {
+  .sidebar GtkTreeView.view .tweak-category:backdrop:insensitive:selected {
     color: rgba(255, 255, 255, 0.4); }
 
 .monospace {
@@ -6222,7 +6213,7 @@ GtkBox > GtkScrlledWindow .undershoot.right {
   background-repeat: repeat-y;
   background-origin: content-box;
   background-position: right center; }
-.sidebar .undershoot.top, #polari-sidebar .undershoot.top {
+.sidebar .undershoot.top {
   background: transparent;
   background-image: linear-gradient(to top, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-top: 0;
@@ -6230,7 +6221,7 @@ GtkBox > GtkScrlledWindow .undershoot.right {
   background-repeat: repeat-x;
   background-origin: content-box;
   background-position: center top; }
-.sidebar .undershoot.bottom, #polari-sidebar .undershoot.bottom {
+.sidebar .undershoot.bottom {
   background: transparent;
   background-image: linear-gradient(to bottom, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-bottom: 0;
@@ -6238,7 +6229,7 @@ GtkBox > GtkScrlledWindow .undershoot.right {
   background-repeat: repeat-x;
   background-origin: content-box;
   background-position: center bottom; }
-.sidebar .undershoot.left, #polari-sidebar .undershoot.left {
+.sidebar .undershoot.left {
   background: transparent;
   background-image: linear-gradient(to left, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-left: 0;
@@ -6246,7 +6237,7 @@ GtkBox > GtkScrlledWindow .undershoot.right {
   background-repeat: repeat-y;
   background-origin: content-box;
   background-position: left center; }
-.sidebar .undershoot.right, #polari-sidebar .undershoot.right {
+.sidebar .undershoot.right {
   background: transparent;
   background-image: linear-gradient(to right, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-right: 0;
@@ -6529,7 +6520,7 @@ GfCandidatePopup EphyWindow .search-bar .linked > .close.raised.button, EphyWind
 /************
  * Seahorse *
  ************/
-SeahorseKeyManager .sidebar, SeahorseKeyManager #polari-sidebar, SeahorseKeyManager .sidebar:backdrop, SeahorseKeyManager #polari-sidebar:backdrop,
+SeahorseKeyManager .sidebar, SeahorseKeyManager .sidebar:backdrop,
 SeahorseKeyManager .pane-separator,
 SeahorseKeyManager .pane-separator:backdrop {
   border-width: 0;
@@ -6539,6 +6530,25 @@ SeahorseKeyManager .pane-separator:backdrop {
 /**********
  * Polari *
  **********/
+.polari-input-area {
+  border-top: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); }
+
+.polari-room-list .list-row, .polari-room-list .tweak-category {
+  font-weight: 700; }
+  .polari-room-list .list-row:not(:hover):not(:active):not(:selected) .label, .polari-room-list .tweak-category:not(:hover):not(:active):not(:selected) .label,
+  .polari-room-list .list-row:not(:hover):not(:active):not(:selected) GtkImage,
+  .polari-room-list .tweak-category:not(:hover):not(:active):not(:selected) GtkImage {
+    opacity: 1.0; }
+  .polari-room-list .list-row.inactive:not(:hover):not(:active):not(:selected) .label, .polari-room-list .inactive.tweak-category:not(:hover):not(:active):not(:selected) .label,
+  .polari-room-list .list-row.inactive:not(:hover):not(:active):not(:selected) GtkImage,
+  .polari-room-list .inactive.tweak-category:not(:hover):not(:active):not(:selected) GtkImage {
+    opacity: 0.65; }
+
+.polari-nick-entry {
+  border-image: none;
+  font-weight: 700; }
+
 /*************
  * RhythmBox *
  *************/
@@ -6547,7 +6557,7 @@ SeahorseKeyManager .pane-separator:backdrop {
   .inline-toolbar.toolbar.horizontal.sidebar-toolbar:dir(rtl) {
     box-shadow: inset 0 1px #37474F, inset 0 2px 2px rgba(0, 0, 0, 0.05), inset 2px 0 1px -2px rgba(0, 0, 0, 0.02), inset 3px 0 3px -2px rgba(0, 0, 0, 0.04); }
 
-.sidebar-paned GtkStack RBDisplayPageTree .sidebar, .sidebar-paned GtkStack RBDisplayPageTree #polari-sidebar {
+.sidebar-paned GtkStack RBDisplayPageTree .sidebar {
   background-color: rgba(18, 22, 0, 0.04); }
 
 GtkBox.vertical > GtkBox.vertical > .toolbar {
@@ -7533,9 +7543,9 @@ NemoWindow .primary-toolbar NemoPathBar.linked.raised .button.image-button {
   padding: 0.3em 0.7em 0.4em; }
 NemoWindow .notebook {
   background-color: #455A64; }
-NemoWindow .sidebar .frame, NemoWindow #polari-sidebar .frame {
+NemoWindow .sidebar .frame {
   border-width: 0; }
-NemoWindow .sidebar GtkDrawingArea, NemoWindow #polari-sidebar GtkDrawingArea {
+NemoWindow .sidebar GtkDrawingArea {
   background-color: transparent; }
 NemoWindow GtkGrid > GtkEventBox {
   padding: 0.2em;
