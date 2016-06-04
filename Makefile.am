@@ -15,8 +15,8 @@ CINNAMON_DIR       = cinnamon
 CINNAMON_NOKTO_DIR = cinnamon-nokto
 METACITY_DIR       = metacity-1
 UNITY_DIR          = unity
-XFCE_DIR           = xfwm4 \
-                     xfce-notify-4.0
+XFWM_DIR           = xfwm4
+XFCE_DIR           = xfce-notify-4.0
 CHROME_DIR         = chrome
 PLANK_DIR          = plank
 
@@ -38,8 +38,8 @@ install-data-hook:
 
 	cp -Rv $(GTK_2_DIR) $(adaptadir)
 	cp -Rv $(GTK_2_DIR) $(noktodir)
-	mv $(noktodir)/gtk-2.0/gtkrc $(noktodir)/gtk-2.0/gtkrc-light
-	mv $(noktodir)/gtk-2.0/gtkrc-dark $(noktodir)/gtk-2.0/gtkrc
+	mv $(noktodir)/$(GTK_2_DIR)/gtkrc $(noktodir)/$(GTK_2_DIR)/gtkrc-light
+	mv $(noktodir)/$(GTK_2_DIR)/gtkrc-dark $(noktodir)/$(GTK_2_DIR)/gtkrc
 
 	cp -Rv $(INDEX) $(adaptadir)
 	cp -Rv $(INDEX_NOKTO) $(noktodir)/index.theme
@@ -73,18 +73,19 @@ endif
 endif
 
 if ENABLE_XFCE
+	$(MKDIR_P) $(adaptadir)/$(XFWM_DIR)
+	cp -Rv $(XFWM_DIR)/*.xpm $(adaptadir)/$(XFWM_DIR)
+	cp -Rv $(XFWM_DIR)/themerc $(adaptadir)/$(XFWM_DIR)
 	cp -Rv $(XFCE_DIR) $(adaptadir)
-	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
-	ln -sf ../Adapta/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
+	ln -sf ../Adapta/$(XFWM_DIR) $(noktodir)/$(XFWM_DIR)
+	ln -sf ../Adapta/$(XFCE_DIR) $(noktodir)/$(XFCE_DIR)
 endif
 
 if ENABLE_CHROME
-	$(MKDIR_P) $(adaptadir)/chrome
-	$(MKDIR_P) $(noktodir)/chrome
-	cp -Rv $(CHROME_DIR)/adapta-theme $(adaptadir)/chrome
-	cp -Rv $(CHROME_DIR)/adapta-theme.crx $(adaptadir)/chrome
-	cp -Rv $(CHROME_DIR)/adapta-nokto-theme $(noktodir)/chrome
-	cp -Rv $(CHROME_DIR)/adapta-nokto-theme.crx $(noktodir)/chrome
+	$(MKDIR_P) $(adaptadir)/$(CHROME_DIR)
+	$(MKDIR_P) $(noktodir)/$(CHROME_DIR)
+	cp -Rv $(CHROME_DIR)/adapta-theme.crx $(adaptadir)/$(CHROME_DIR)
+	cp -Rv $(CHROME_DIR)/adapta-nokto-theme.crx $(noktodir)/$(CHROME_DIR)
 endif
 
 if ENABLE_PLANK
