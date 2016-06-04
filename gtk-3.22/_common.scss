@@ -102,7 +102,7 @@ $separator_wide: 1px 1px, 1px 1px;
 // for backdrop, tone down element surfaces with transparentize
 %fade_effect {
   *:backdrop {
-    opacity: 0.8;
+    opacity: 0.75;
     transition: 0.2s;
   }
 }
@@ -158,7 +158,6 @@ textview {
 }
 
 textview border {
-  @extend %fade_effect;
   background-color: $bg_color;
 }
 
@@ -214,8 +213,6 @@ label {
 }
 
 assistant {
-  @extend %fade_effect;
-
   // sidebar styling
   .sidebar {
     padding: rem(6.7px) 0;
@@ -264,8 +261,6 @@ assistant {
 buttonbox {
   &, &.dialog-action-area {
     button {
-      @extend %fade_effect;
-
       @include button(flat-normal);
       font-weight: 700;
       &:hover { @include button(flat-hover); }
@@ -456,8 +451,6 @@ entry {
 }
 
 button {
-  @extend %fade_effect;
-
   min-height: rem(13.3px);
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(13.3px) rem(10.7px);
@@ -1038,8 +1031,6 @@ button:visited {
 }
 
 spinbutton {
-  @extend %fade_effect;
-
   &:not(.vertical) {
     // in this horizontal configuration, the whole spinbutton
     // behaves as the entry, so we extend the entry styling
@@ -1220,8 +1211,6 @@ spinbutton {
  **************/
 
 combobox {
-  @extend %fade_effect;
-
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     min-height: rem(16px);
@@ -1346,8 +1335,6 @@ combobox {
  ************/
 
 toolbar {
-  @extend %fade_effect;
-
   -GtkWidget-window-dragging: true;
 
   padding: rem(5.3px);
@@ -1546,7 +1533,6 @@ toolbar {
 
 // searchbar, location-bar & inline-toolbar
 .inline-toolbar {
-  @extend %fade_effect;
   padding: rem(5.3px);
   border-style: solid;
   border-width: 0 1px 1px;
@@ -1557,7 +1543,6 @@ toolbar {
 
 searchbar,
 .location-bar {
-  @extend %fade_effect;
   padding: rem(5.3px);
   border-style: solid;
   border-width: 0 0 1px;
@@ -2255,7 +2240,6 @@ treeview.view {
   }
 
   &, paned & { // redraw some stuff for RhythmBox
-    @extend %fade_effect;
     background-color: $base_color;
     &:hover,
     row:hover { color: $fg_color; }
@@ -2269,7 +2253,6 @@ treeview.view {
 
   header {
     button {
-      @extend %fade_effect;
       @extend row.activatable;
       min-height: rem(20px);
       padding: 0 rem(6.7px) 0;
@@ -2330,7 +2313,6 @@ menubar {
   }
 
   > menuitem {
-    @extend %fade_effect;
     min-height: rem(20px);
     padding: rem(5.3px) rem(8px) rem(6.7px);
     color: $inverted_secondary_fg_color;
@@ -2364,7 +2346,6 @@ menu {
 
   .menuitem,
   menuitem {
-    @extend %fade_effect;
     min-height: rem(20px);
     min-width: rem(40px);
     padding: rem(5.3px) rem(8px) rem(6.7px);
@@ -2455,7 +2436,6 @@ menuitem {
  ************/
 
 popover.background {
-  @extend %fade_effect;
   padding: 2px;
   background-color: $secondary_base_color;
   box-shadow:  $z-depth-3;
@@ -2727,7 +2707,6 @@ notebook {
   }
 
   tab {
-    @extend %fade_effect;
     border-width: 0;
     border-style: solid;
     border-color: transparent;
@@ -2815,7 +2794,6 @@ $_slider_min_length: rem(32px);
 
 scrollbar,
 .scrollbar {
-  @extend %fade_effect;
   // disable steppers
   @at-root * {
     -GtkScrollbar-has-backward-stepper: false;
@@ -3790,7 +3768,6 @@ progressbar {
  *************/
 
 levelbar {
-  @extend %fade_effect;
   box-shadow: $z-depth-1; // needs to be set here to avoid clipping
 
   block {
@@ -3838,7 +3815,6 @@ levelbar {
 
 printdialog {
   paper {
-    @extend %fade_effect;
     padding: 0;
     color: $fg_color;
     border: 1px solid $borders_color;
@@ -4054,7 +4030,6 @@ expander {
  ***********/
 
 calendar {
-  @extend %fade_effect;
   padding: rem(5.3px) rem(1.3px) rem(2.7px);
   border: 1px solid $borders_color;
   color: $fg_color;
@@ -4233,8 +4208,6 @@ filechooserbutton:drop(active) {
  ***********/
 
 .sidebar {
-  @extend %fade_effect;
-
   border: none;
   color: $secondary_fg_color;
 
@@ -4284,8 +4257,6 @@ filechooserbutton:drop(active) {
 }
 
 stacksidebar {
-  @extend %fade_effect;
-
   row,
   row.activatable {
     padding: rem(5.3px) rem(8px) rem(6.7px);
@@ -4726,7 +4697,6 @@ colorswatch {
 
 // colorscale popup
 colorchooser .popover.osd {
-  @extend %fade_effect;
   padding: 3px;
   border-style: solid;
   border-width: 9px;
@@ -5271,7 +5241,6 @@ button.circular {
 
 // shortcut window keys
 .keycap {
-  @extend %fade_effect;
   min-width: rem(20px);
   min-height: rem(26px);
   margin-top: rem(2.7px);
