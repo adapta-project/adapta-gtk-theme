@@ -338,11 +338,26 @@ window paned > box.vertical {
  * Polari *
  **********/
 
-// FIXME: it doesn't work at all
-#polari-sidebar { @extend .sidebar; }
+.polari-room-list { // override labels
+  row {
+    font-weight: 700;
+    &:not(:hover):not(:active):not(:selected) {
+      label,
+      image { opacity: 1.0; }
+    }
 
-#polari-room-list {
-// row:selected { @extend row:selected; }
+    &.inactive {
+      &:not(:hover):not(:active):not(:selected) {
+        label,
+        image { opacity: 0.65; }
+      }
+    }
+  }
+}
+
+.polari-nick-entry {
+  border-image: none;
+  font-weight: 700;
 }
 
 // FIXME: can not override Polari 3.20.2

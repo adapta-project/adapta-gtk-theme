@@ -63,7 +63,7 @@ menubar > menuitem *:backdrop, .menu .menuitem *:backdrop,
 .context-menu menuitem *:backdrop,
 menu .menuitem *:backdrop,
 menu menuitem *:backdrop, popover.background *:backdrop, notebook tab *:backdrop, scrollbar *:backdrop,
-.scrollbar *:backdrop, levelbar *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, #polari-sidebar *:backdrop, stacksidebar *:backdrop, colorchooser .popover.osd *:backdrop, .csd headerbar button.titlebutton *:backdrop,
+.scrollbar *:backdrop, levelbar *:backdrop, printdialog paper *:backdrop, calendar *:backdrop, .sidebar *:backdrop, stacksidebar *:backdrop, colorchooser .popover.osd *:backdrop, .csd headerbar button.titlebutton *:backdrop,
 .csd .titlebar button.titlebutton *:backdrop, .keycap *:backdrop, layouttabbar *:backdrop, layouttab *:backdrop, eggsearchbar box.search-bar *:backdrop {
   opacity: 0.8;
   transition: 0.2s; }
@@ -137,20 +137,20 @@ headerbar .subtitle, .titlebar .subtitle:backdrop,
 headerbar .subtitle:backdrop {
   opacity: 0.55; }
 
-assistant .sidebar, assistant #polari-sidebar {
+assistant .sidebar {
   padding: 0.50376rem 0;
   background-color: #3b4c54; }
-  assistant .sidebar:dir(ltr), assistant #polari-sidebar:dir(ltr) {
+  assistant .sidebar:dir(ltr) {
     border-right: 1px solid rgba(0, 0, 0, 0.11); }
-  assistant .sidebar:dir(rtl), assistant #polari-sidebar:dir(rtl) {
+  assistant .sidebar:dir(rtl) {
     border-left: 1px solid rgba(0, 0, 0, 0.11); }
-assistant.csd .sidebar, assistant.csd #polari-sidebar {
+assistant.csd .sidebar {
   border-top-style: none; }
-assistant .sidebar label, assistant #polari-sidebar label {
+assistant .sidebar label {
   padding: 0.3985rem 0.6015rem 0.50376rem;
   color: rgba(236, 239, 241, 0.75);
   font-weight: 500; }
-  assistant .sidebar label.highlight, assistant #polari-sidebar label.highlight {
+  assistant .sidebar label.highlight {
     color: #00BCD4; }
 assistant headerbar button.flat:not(:last-child), assistant headerbar button.osd.image-button:not(:last-child), assistant headerbar .osd toolbar button:not(:last-child), .osd toolbar assistant headerbar button:not(:last-child), assistant headerbar toolbar.osd button:not(:last-child), toolbar.osd assistant headerbar button:not(:last-child), assistant headerbar .app-notification button:not(:last-child), .app-notification assistant headerbar button:not(:last-child), assistant headerbar GeditViewFrame .gedit-search-slider button:not(:last-child), GeditViewFrame .gedit-search-slider assistant headerbar button:not(:last-child), assistant headerbar toolbar button:not(:last-child), toolbar assistant headerbar button:not(:last-child),
 assistant headerbar button:not(:last-child):not(.suggested-action):not(.destructive-action), assistant headerbar .menu > arrow:not(:last-child),
@@ -6381,150 +6381,91 @@ filechooserbutton:drop(active) {
 /***********
  * Sidebar *
  ***********/
-.sidebar, #polari-sidebar {
+.sidebar {
   border: none;
   color: rgba(236, 239, 241, 0.75);
   background-color: #3b4c54; }
-  .sidebar:dir(ltr), #polari-sidebar:dir(ltr), .sidebar list:dir(ltr), #polari-sidebar list:dir(ltr) {
+  .sidebar:dir(ltr), .sidebar list:dir(ltr) {
     box-shadow: inset -2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset -3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
-  .sidebar:dir(rtl), #polari-sidebar:dir(rtl), .sidebar list:dir(rtl), #polari-sidebar list:dir(rtl) {
+  .sidebar:dir(rtl), .sidebar list:dir(rtl) {
     box-shadow: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset 3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
-  .sidebar treeview.view, #polari-sidebar treeview.view, .sidebar .tweak-category, #polari-sidebar .tweak-category,
+  .sidebar treeview.view, .sidebar .tweak-category,
   .sidebar .frame,
-  #polari-sidebar .frame,
-  .sidebar list,
-  #polari-sidebar list {
+  .sidebar list {
     background-color: transparent; }
-  .sidebar treeview.view, #polari-sidebar treeview.view, .sidebar .tweak-category, #polari-sidebar .tweak-category {
+  .sidebar treeview.view, .sidebar .tweak-category {
     box-shadow: none; }
-  .sidebar .frame list, #polari-sidebar .frame list {
+  .sidebar .frame list {
     box-shadow: none; }
-  .sidebar list, #polari-sidebar list,
+  .sidebar list,
   .sidebar row,
-  #polari-sidebar row,
   .sidebar row.activatable,
-  #polari-sidebar row.activatable,
   .sidebar .view,
-  #polari-sidebar .view,
   .sidebar iconview,
-  #polari-sidebar iconview,
   .sidebar .view text,
   .view .sidebar text,
-  #polari-sidebar .view text,
-  .view #polari-sidebar text,
   .sidebar iconview text,
   iconview .sidebar text,
-  #polari-sidebar iconview text,
-  iconview #polari-sidebar text,
   .sidebar textview text,
   textview .sidebar text,
-  #polari-sidebar textview text,
-  textview #polari-sidebar text,
   .sidebar treeview.view header button,
   treeview.view header .sidebar button,
-  #polari-sidebar treeview.view header button,
-  treeview.view header #polari-sidebar button,
   .sidebar .tweak-category header button,
-  .tweak-category header .sidebar button,
-  #polari-sidebar .tweak-category header button,
-  .tweak-category header #polari-sidebar button {
+  .tweak-category header .sidebar button {
     color: rgba(236, 239, 241, 0.75);
     background-color: transparent;
     font-weight: 500; }
-    .sidebar list:hover, #polari-sidebar list:hover,
+    .sidebar list:hover,
     .sidebar row:hover,
-    #polari-sidebar row:hover,
     .sidebar row.activatable:hover,
-    #polari-sidebar row.activatable:hover,
     .sidebar .view:hover,
-    #polari-sidebar .view:hover,
     .sidebar iconview:hover,
-    #polari-sidebar iconview:hover,
     .sidebar .view text:hover,
     .view .sidebar text:hover,
-    #polari-sidebar .view text:hover,
-    .view #polari-sidebar text:hover,
     .sidebar iconview text:hover,
     iconview .sidebar text:hover,
-    #polari-sidebar iconview text:hover,
-    iconview #polari-sidebar text:hover,
     .sidebar textview text:hover,
     textview .sidebar text:hover,
-    #polari-sidebar textview text:hover,
-    textview #polari-sidebar text:hover,
     .sidebar treeview.view header button:hover,
     treeview.view header .sidebar button:hover,
-    #polari-sidebar treeview.view header button:hover,
-    treeview.view header #polari-sidebar button:hover,
     .sidebar .tweak-category header button:hover,
-    .tweak-category header .sidebar button:hover,
-    #polari-sidebar .tweak-category header button:hover,
-    .tweak-category header #polari-sidebar button:hover {
+    .tweak-category header .sidebar button:hover {
       color: #ECEFF1; }
-    .sidebar list:selected, #polari-sidebar list:selected,
+    .sidebar list:selected,
     .sidebar row:selected,
-    #polari-sidebar row:selected,
     .sidebar row.activatable:selected,
-    #polari-sidebar row.activatable:selected,
     .sidebar .view:selected,
-    #polari-sidebar .view:selected,
     .sidebar iconview:selected,
-    #polari-sidebar iconview:selected,
     .sidebar .view text:selected,
     .view .sidebar text:selected,
-    #polari-sidebar .view text:selected,
-    .view #polari-sidebar text:selected,
     .sidebar iconview text:selected,
     iconview .sidebar text:selected,
-    #polari-sidebar iconview text:selected,
-    iconview #polari-sidebar text:selected,
     .sidebar textview text:selected,
     textview .sidebar text:selected,
-    #polari-sidebar textview text:selected,
-    textview #polari-sidebar text:selected,
     .sidebar treeview.view header button:selected,
     treeview.view header .sidebar button:selected,
-    #polari-sidebar treeview.view header button:selected,
-    treeview.view header #polari-sidebar button:selected,
     .sidebar .tweak-category header button:selected,
-    .tweak-category header .sidebar button:selected,
-    #polari-sidebar .tweak-category header button:selected,
-    .tweak-category header #polari-sidebar button:selected {
+    .tweak-category header .sidebar button:selected {
       color: #00BCD4;
       background-color: transparent; }
-      .sidebar list:selected label, #polari-sidebar list:selected label,
+      .sidebar list:selected label,
       .sidebar row:selected label,
-      #polari-sidebar row:selected label,
       .sidebar row.activatable:selected label,
-      #polari-sidebar row.activatable:selected label,
       .sidebar .view:selected label,
-      #polari-sidebar .view:selected label,
       .sidebar iconview:selected label,
-      #polari-sidebar iconview:selected label,
       .sidebar .view text:selected label,
       .view .sidebar text:selected label,
-      #polari-sidebar .view text:selected label,
-      .view #polari-sidebar text:selected label,
       .sidebar iconview text:selected label,
       iconview .sidebar text:selected label,
-      #polari-sidebar iconview text:selected label,
-      iconview #polari-sidebar text:selected label,
       .sidebar textview text:selected label,
       textview .sidebar text:selected label,
-      #polari-sidebar textview text:selected label,
-      textview #polari-sidebar text:selected label,
       .sidebar treeview.view header button:selected label,
       treeview.view header .sidebar button:selected label,
-      #polari-sidebar treeview.view header button:selected label,
-      treeview.view header #polari-sidebar button:selected label,
       .sidebar .tweak-category header button:selected label,
-      .tweak-category header .sidebar button:selected label,
-      #polari-sidebar .tweak-category header button:selected label,
-      .tweak-category header #polari-sidebar button:selected label {
+      .tweak-category header .sidebar button:selected label {
         color: #00BCD4; }
-  .sidebar overshoot, #polari-sidebar overshoot,
-  .sidebar undershoot,
-  #polari-sidebar undershoot {
+  .sidebar overshoot,
+  .sidebar undershoot {
     box-shadow: none; }
 
 stacksidebar row,
@@ -7721,11 +7662,9 @@ label selection:focus, entry selection, spinbutton:not(.vertical) selection, ent
 treeview.view row:selected,
 .tweak-category row:selected, paned treeview.view:selected, paned .tweak-category:selected,
 paned treeview.view row:selected,
-paned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, #polari-sidebar treeview.view:selected, .sidebar .tweak-category:selected, #polari-sidebar .tweak-category:selected,
+paned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, .sidebar .tweak-category:selected,
 .sidebar treeview.view row:selected,
-#polari-sidebar treeview.view row:selected,
-.sidebar .tweak-category row:selected,
-#polari-sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected,
+.sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected,
 GdMainView .view text:hover:selected,
 GdMainView iconview .view text:hover:selected,
 .view GdMainView iconview text:hover:selected,
@@ -7810,11 +7749,9 @@ treeview.view header .side-panel iconview button:selected,
   treeview.view row:selected,
   .tweak-category row:selected, paned treeview.view:selected, paned .tweak-category:selected,
   paned treeview.view row:selected,
-  paned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, #polari-sidebar treeview.view:selected, .sidebar .tweak-category:selected, #polari-sidebar .tweak-category:selected,
+  paned .tweak-category row:selected, row:selected, .sidebar treeview.view:selected, .sidebar .tweak-category:selected,
   .sidebar treeview.view row:selected,
-  #polari-sidebar treeview.view row:selected,
-  .sidebar .tweak-category row:selected,
-  #polari-sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected,
+  .sidebar .tweak-category row:selected, GdMainView .view:hover:selected, GdMainView iconview:hover:selected, GdMainView .view:selected, GdMainView iconview:selected, GdMainView .view row.activatable:hover:selected, GdMainView iconview row.activatable:hover:selected, GdMainView .view .view:hover:selected, GdMainView iconview .view:hover:selected, GdMainView .view iconview:hover:selected, GdMainView iconview iconview:hover:selected,
   GdMainView .view text:hover:selected,
   GdMainView iconview .view text:hover:selected,
   .view GdMainView iconview text:hover:selected,
@@ -7899,11 +7836,9 @@ treeview.view header .side-panel iconview button:selected,
     treeview.view row:disabled:selected,
     .tweak-category row:disabled:selected, paned treeview.view:disabled:selected, paned .tweak-category:disabled:selected,
     paned treeview.view row:disabled:selected,
-    paned .tweak-category row:disabled:selected, row:disabled:selected, .sidebar treeview.view:disabled:selected, #polari-sidebar treeview.view:disabled:selected, .sidebar .tweak-category:disabled:selected, #polari-sidebar .tweak-category:disabled:selected,
+    paned .tweak-category row:disabled:selected, row:disabled:selected, .sidebar treeview.view:disabled:selected, .sidebar .tweak-category:disabled:selected,
     .sidebar treeview.view row:disabled:selected,
-    #polari-sidebar treeview.view row:disabled:selected,
-    .sidebar .tweak-category row:disabled:selected,
-    #polari-sidebar .tweak-category row:disabled:selected, placessidebar row:selected:disabled label, GdMainView .view:disabled:hover:selected, GdMainView iconview:disabled:hover:selected, GdMainView .view:disabled:selected, GdMainView iconview:disabled:selected, GdMainView .view row.activatable:disabled:hover:selected, GdMainView iconview row.activatable:disabled:hover:selected, GdMainView .view .view:disabled:hover:selected, GdMainView iconview .view:disabled:hover:selected, GdMainView .view iconview:disabled:hover:selected, GdMainView iconview iconview:disabled:hover:selected,
+    .sidebar .tweak-category row:disabled:selected, placessidebar row:selected:disabled label, GdMainView .view:disabled:hover:selected, GdMainView iconview:disabled:hover:selected, GdMainView .view:disabled:selected, GdMainView iconview:disabled:selected, GdMainView .view row.activatable:disabled:hover:selected, GdMainView iconview row.activatable:disabled:hover:selected, GdMainView .view .view:disabled:hover:selected, GdMainView iconview .view:disabled:hover:selected, GdMainView .view iconview:disabled:hover:selected, GdMainView iconview iconview:disabled:hover:selected,
     GdMainView .view text:disabled:hover:selected,
     .view GdMainView iconview text:disabled:hover:selected,
     GdMainView iconview text:disabled:hover:selected,
@@ -7966,11 +7901,9 @@ treeview.view header .side-panel iconview button:selected,
     treeview.view row:backdrop:disabled:selected,
     .tweak-category row:backdrop:disabled:selected, paned treeview.view:backdrop:disabled:selected, paned .tweak-category:backdrop:disabled:selected,
     paned treeview.view row:backdrop:disabled:selected,
-    paned .tweak-category row:backdrop:disabled:selected, row:backdrop:disabled:selected, .sidebar treeview.view:backdrop:disabled:selected, #polari-sidebar treeview.view:backdrop:disabled:selected, .sidebar .tweak-category:backdrop:disabled:selected, #polari-sidebar .tweak-category:backdrop:disabled:selected,
+    paned .tweak-category row:backdrop:disabled:selected, row:backdrop:disabled:selected, .sidebar treeview.view:backdrop:disabled:selected, .sidebar .tweak-category:backdrop:disabled:selected,
     .sidebar treeview.view row:backdrop:disabled:selected,
-    #polari-sidebar treeview.view row:backdrop:disabled:selected,
-    .sidebar .tweak-category row:backdrop:disabled:selected,
-    #polari-sidebar .tweak-category row:backdrop:disabled:selected, placessidebar row:selected:disabled label:backdrop, GdMainView .view:backdrop:disabled:hover:selected, GdMainView iconview:backdrop:disabled:hover:selected, GdMainView .view:backdrop:disabled:selected, GdMainView iconview:backdrop:disabled:selected, GdMainView .view row.activatable:backdrop:disabled:hover:selected, GdMainView iconview row.activatable:backdrop:disabled:hover:selected, GdMainView .view .view:backdrop:disabled:hover:selected, GdMainView iconview .view:backdrop:disabled:hover:selected, GdMainView .view iconview:backdrop:disabled:hover:selected, GdMainView iconview iconview:backdrop:disabled:hover:selected,
+    .sidebar .tweak-category row:backdrop:disabled:selected, placessidebar row:selected:disabled label:backdrop, GdMainView .view:backdrop:disabled:hover:selected, GdMainView iconview:backdrop:disabled:hover:selected, GdMainView .view:backdrop:disabled:selected, GdMainView iconview:backdrop:disabled:selected, GdMainView .view row.activatable:backdrop:disabled:hover:selected, GdMainView iconview row.activatable:backdrop:disabled:hover:selected, GdMainView .view .view:backdrop:disabled:hover:selected, GdMainView iconview .view:backdrop:disabled:hover:selected, GdMainView .view iconview:backdrop:disabled:hover:selected, GdMainView iconview iconview:backdrop:disabled:hover:selected,
     GdMainView .view text:backdrop:disabled:hover:selected,
     GdMainView iconview text:backdrop:disabled:hover:selected, GdMainView treeview.view header button:backdrop:disabled:hover:selected, treeview.view header GdMainView iconview button:backdrop:disabled:hover:selected, GdMainView .view .tweak-category header button:backdrop:disabled:hover:selected, .tweak-category header GdMainView .view button:backdrop:disabled:hover:selected, GdMainView iconview .tweak-category header button:backdrop:disabled:hover:selected, .tweak-category header GdMainView iconview button:backdrop:disabled:hover:selected, GdMainView .view row.activatable:backdrop:disabled:selected, GdMainView iconview row.activatable:backdrop:disabled:selected, GdMainView .view .view:backdrop:disabled:selected, GdMainView iconview .view:backdrop:disabled:selected, GdMainView .view iconview:backdrop:disabled:selected, GdMainView iconview iconview:backdrop:disabled:selected,
     GdMainView .view text:backdrop:disabled:selected,
@@ -8120,7 +8053,7 @@ box > scrolledwindow undershoot.right, box > placessidebar undershoot.right {
   background-repeat: repeat-y;
   background-origin: content-box;
   background-position: right center; }
-placessidebar undershoot.top, .sidebar undershoot.top, #polari-sidebar undershoot.top {
+placessidebar undershoot.top, .sidebar undershoot.top {
   background-color: transparent;
   background-image: linear-gradient(to top, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-top: 0;
@@ -8128,7 +8061,7 @@ placessidebar undershoot.top, .sidebar undershoot.top, #polari-sidebar undershoo
   background-repeat: repeat-x;
   background-origin: content-box;
   background-position: center top; }
-placessidebar undershoot.bottom, .sidebar undershoot.bottom, #polari-sidebar undershoot.bottom {
+placessidebar undershoot.bottom, .sidebar undershoot.bottom {
   background-color: transparent;
   background-image: linear-gradient(to bottom, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-bottom: 0;
@@ -8136,7 +8069,7 @@ placessidebar undershoot.bottom, .sidebar undershoot.bottom, #polari-sidebar und
   background-repeat: repeat-x;
   background-origin: content-box;
   background-position: center bottom; }
-placessidebar undershoot.left, .sidebar undershoot.left, #polari-sidebar undershoot.left {
+placessidebar undershoot.left, .sidebar undershoot.left {
   background-color: transparent;
   background-image: linear-gradient(to left, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-left: 0;
@@ -8144,7 +8077,7 @@ placessidebar undershoot.left, .sidebar undershoot.left, #polari-sidebar undersh
   background-repeat: repeat-y;
   background-origin: content-box;
   background-position: left center; }
-placessidebar undershoot.right, .sidebar undershoot.right, #polari-sidebar undershoot.right {
+placessidebar undershoot.right, .sidebar undershoot.right {
   background-color: transparent;
   background-image: linear-gradient(to right, rgba(59, 76, 84, 0), rgba(59, 76, 84, 0.04), rgba(59, 76, 84, 0.2), rgba(59, 76, 84, 0.44), rgba(59, 76, 84, 0.94));
   padding-right: 0;
@@ -8414,7 +8347,7 @@ EphyWindow .nautilus-window .floating-bar {
 /************
  * Seahorse *
  ************/
-SeahorseWidget .sidebar paned separator, SeahorseWidget #polari-sidebar paned separator {
+SeahorseWidget .sidebar paned separator {
   border: none; }
 
 window paned > box.vertical > box.vertical > toolbar.primary-toolbar {
@@ -8424,49 +8357,44 @@ window paned > box.vertical > box.vertical > toolbar.primary-toolbar {
 /**********
  * Polari *
  **********/
-.sidebar row.activatable.inactive, #polari-sidebar row.activatable.inactive, .sidebar .inactive.view, #polari-sidebar .inactive.view, .sidebar iconview.inactive, #polari-sidebar iconview.inactive,
+.polari-room-list row {
+  font-weight: 700; }
+  .polari-room-list row:not(:hover):not(:active):not(:selected) label,
+  .polari-room-list row:not(:hover):not(:active):not(:selected) image {
+    opacity: 1.0; }
+  .polari-room-list row.inactive:not(:hover):not(:active):not(:selected) label,
+  .polari-room-list row.inactive:not(:hover):not(:active):not(:selected) image {
+    opacity: 0.65; }
+
+.polari-nick-entry {
+  border-image: none;
+  font-weight: 700; }
+
+.sidebar row.activatable.inactive, .sidebar .inactive.view, .sidebar iconview.inactive,
 .sidebar .view text.inactive,
 .view .sidebar text.inactive,
-#polari-sidebar .view text.inactive,
-.view #polari-sidebar text.inactive,
 .sidebar iconview text.inactive,
 iconview .sidebar text.inactive,
-#polari-sidebar iconview text.inactive,
-iconview #polari-sidebar text.inactive,
 .sidebar textview text.inactive,
-textview .sidebar text.inactive,
-#polari-sidebar textview text.inactive,
-textview #polari-sidebar text.inactive, .sidebar treeview.view header button.inactive, treeview.view header .sidebar button.inactive, #polari-sidebar treeview.view header button.inactive, treeview.view header #polari-sidebar button.inactive, .sidebar .tweak-category header button.inactive, .tweak-category header .sidebar button.inactive, #polari-sidebar .tweak-category header button.inactive, .tweak-category header #polari-sidebar button.inactive {
+textview .sidebar text.inactive, .sidebar treeview.view header button.inactive, treeview.view header .sidebar button.inactive, .sidebar .tweak-category header button.inactive, .tweak-category header .sidebar button.inactive {
   color: rgba(236, 239, 241, 0.75);
   background-color: transparent;
   font-weight: 500; }
-  .sidebar row.activatable.inactive:hover, #polari-sidebar row.activatable.inactive:hover, .sidebar .inactive.view:hover, #polari-sidebar .inactive.view:hover, .sidebar iconview.inactive:hover, #polari-sidebar iconview.inactive:hover,
+  .sidebar row.activatable.inactive:hover, .sidebar .inactive.view:hover, .sidebar iconview.inactive:hover,
   .sidebar .view text.inactive:hover,
   .view .sidebar text.inactive:hover,
-  #polari-sidebar .view text.inactive:hover,
-  .view #polari-sidebar text.inactive:hover,
   .sidebar iconview text.inactive:hover,
   iconview .sidebar text.inactive:hover,
-  #polari-sidebar iconview text.inactive:hover,
-  iconview #polari-sidebar text.inactive:hover,
   .sidebar textview text.inactive:hover,
-  textview .sidebar text.inactive:hover,
-  #polari-sidebar textview text.inactive:hover,
-  textview #polari-sidebar text.inactive:hover, .sidebar treeview.view header button.inactive:hover, treeview.view header .sidebar button.inactive:hover, #polari-sidebar treeview.view header button.inactive:hover, treeview.view header #polari-sidebar button.inactive:hover, .sidebar .tweak-category header button.inactive:hover, .tweak-category header .sidebar button.inactive:hover, #polari-sidebar .tweak-category header button.inactive:hover, .tweak-category header #polari-sidebar button.inactive:hover {
+  textview .sidebar text.inactive:hover, .sidebar treeview.view header button.inactive:hover, treeview.view header .sidebar button.inactive:hover, .sidebar .tweak-category header button.inactive:hover, .tweak-category header .sidebar button.inactive:hover {
     color: #ECEFF1; }
-  .sidebar row.activatable.inactive:selected, #polari-sidebar row.activatable.inactive:selected, .sidebar .inactive.view:selected, #polari-sidebar .inactive.view:selected, .sidebar iconview.inactive:selected, #polari-sidebar iconview.inactive:selected,
+  .sidebar row.activatable.inactive:selected, .sidebar .inactive.view:selected, .sidebar iconview.inactive:selected,
   .sidebar .view text.inactive:selected,
   .view .sidebar text.inactive:selected,
-  #polari-sidebar .view text.inactive:selected,
-  .view #polari-sidebar text.inactive:selected,
   .sidebar iconview text.inactive:selected,
   iconview .sidebar text.inactive:selected,
-  #polari-sidebar iconview text.inactive:selected,
-  iconview #polari-sidebar text.inactive:selected,
   .sidebar textview text.inactive:selected,
-  textview .sidebar text.inactive:selected,
-  #polari-sidebar textview text.inactive:selected,
-  textview #polari-sidebar text.inactive:selected, .sidebar treeview.view header button.inactive:selected, treeview.view header .sidebar button.inactive:selected, #polari-sidebar treeview.view header button.inactive:selected, treeview.view header #polari-sidebar button.inactive:selected, .sidebar .tweak-category header button.inactive:selected, .tweak-category header .sidebar button.inactive:selected, #polari-sidebar .tweak-category header button.inactive:selected, .tweak-category header #polari-sidebar button.inactive:selected {
+  textview .sidebar text.inactive:selected, .sidebar treeview.view header button.inactive:selected, treeview.view header .sidebar button.inactive:selected, .sidebar .tweak-category header button.inactive:selected, .tweak-category header .sidebar button.inactive:selected {
     color: #FFFFFF;
     background-color: #00BCD4; }
 
@@ -8482,7 +8410,7 @@ textview #polari-sidebar text.inactive, .sidebar treeview.view header button.ina
   box-shadow: inset -2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset -3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
 .sidebar-paned scrolledwindow:dir(rtl), .sidebar-paned placessidebar:dir(rtl) {
   box-shadow: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.02), inset 3px 3px 3px -2px rgba(0, 0, 0, 0.06); }
-.sidebar-paned .sidebar, .sidebar-paned #polari-sidebar {
+.sidebar-paned .sidebar {
   background-color: rgba(18, 22, 0, 0.04); }
 
 window > box.vertical > box.vertical > toolbar.horizontal {
