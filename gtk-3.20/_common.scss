@@ -4063,13 +4063,20 @@ expander {
  ***********/
 
 calendar {
+  margin: rem(8px) 0;
   padding: rem(5.3px) rem(1.3px) rem(2.7px);
   border: 1px solid $borders_color;
   color: $fg_color;
   &:selected {
-    color: $selected_bg_color;
+    border: none;
+    border-radius: 100px;
+    color: $selected_fg_color;
     background-color: transparent;
-    font-weight: 700;
+    background-image: -gtk-scaled(url("assets/calendar-day-selected.png"),
+                                  url("assets/calendar-day-selected@2.png"));
+    background-size: rem(19.3px) rem(19.3px);
+    background-position: center top;
+    background-repeat: no-repeat;
   }
 
   &.header {

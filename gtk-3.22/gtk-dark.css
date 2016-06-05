@@ -6185,13 +6185,19 @@ expander {
  * Calendar *
  ***********/
 calendar {
+  margin: 0.6015rem 0;
   padding: 0.3985rem 0.09774rem 0.20301rem;
   border: 1px solid rgba(0, 0, 0, 0.11);
   color: #ECEFF1; }
   calendar:selected {
+    border: none;
+    border-radius: 100px;
     color: #00BCD4;
     background-color: transparent;
-    font-weight: 700; }
+    background-image: -gtk-scaled(url("assets/calendar-day-selected.png"), url("assets/calendar-day-selected@2.png"));
+    background-size: 1.45113rem 1.45113rem;
+    background-position: center top;
+    background-repeat: no-repeat; }
   calendar.header {
     border: 1px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.11);
