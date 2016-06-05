@@ -604,6 +604,20 @@ StScrollBar {
     -boxpointer-gap: 4px;
     margin-bottom: 1.75em;
   }
+
+  StEntry { // use variant-sensitive foreground colours
+    @include entry(normal);
+    color: $secondary_fg_color;
+    &:hover {
+      @include entry(hover);
+      color: $fg_color;
+    }
+    &:focus {
+      @include entry(focus);
+      color: $fg_color;
+    }
+    &:insensitive { @include entry(insensitive); }
+  }
 }
 
 .popup-menu-ornament {
