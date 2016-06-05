@@ -4624,13 +4624,19 @@ GfCandidatePopup .list-row:selected .linked > .button, .list-row:selected MathWi
  * Calendar *
  ***********/
 GtkCalendar {
-  padding: 0.3em 0.1em 0.3em;
+  margin: 0.6em 0;
+  padding: 0.4em 0.1em 0.2em;
   border: 1px solid rgba(0, 0, 0, 0.09);
   color: #263238; }
   GtkCalendar:selected {
-    color: #00BCD4;
+    border: none;
+    border-radius: 100px;
+    color: #FFFFFF;
     background-color: transparent;
-    font-weight: 700; }
+    background-image: -gtk-scaled(url("assets/calendar-day-selected.png"), url("assets/calendar-day-selected@2.png"));
+    background-size: 2em 2em;
+    background-position: center top;
+    background-repeat: no-repeat; }
   GtkCalendar.header {
     border: 1px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.09);
