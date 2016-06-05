@@ -817,3 +817,31 @@ window > paned.titlebar > headerbar.titlebar {
   }
 }
 
+
+/************
+ * Synaptic *
+ ************/
+
+window > box.vertical > box.horizontal {
+  background-color: $bg_color;
+
+  toolbar {
+    background-color: transparent;
+    box-shadow: none;
+
+    toolitem > box {
+      label,
+      entry {
+        min-height: rem(13.3px);
+	padding-top: rem(1.3px);
+	padding-bottom: rem(1.3px);
+	font-size: 90%;
+      }
+
+      > label { color: $insensitive_fg_color; }
+    }
+  }
+
+  widget { background-color: transparent; }
+}
+
