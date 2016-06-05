@@ -742,3 +742,30 @@ TopMenuAppMenuBar {
   }
 }
 
+
+/************
+ * Synaptic *
+ ************/
+
+GtkWindow > GtkBox.vertical > GtkBox.horizontal {
+  background-color: $bg_color;
+
+  .toolbar {
+    background-color: transparent;
+    box-shadow: none;
+
+    GtkToolItem > GtkBox {
+      .label,
+      .entry {
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	font-size: 90%;
+      }
+
+      > .label { color: $insensitive_fg_color; }
+    }
+  }
+
+  GtkAlignment { background-color: transparent; }
+}
+

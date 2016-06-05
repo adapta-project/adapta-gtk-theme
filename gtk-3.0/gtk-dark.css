@@ -7643,6 +7643,24 @@ TopMenuAppMenuBar {
     TopMenuAppMenuBar > .menuitem:backdrop {
       opacity: 1.0; }
 
+/************
+ * Synaptic *
+ ************/
+GtkWindow > GtkBox.vertical > GtkBox.horizontal {
+  background-color: #3e515a; }
+  GtkWindow > GtkBox.vertical > GtkBox.horizontal .toolbar {
+    background-color: transparent;
+    box-shadow: none; }
+    GtkWindow > GtkBox.vertical > GtkBox.horizontal .toolbar GtkToolItem > GtkBox .label,
+    GtkWindow > GtkBox.vertical > GtkBox.horizontal .toolbar GtkToolItem > GtkBox .entry {
+      padding-top: 0.1em;
+      padding-bottom: 0.1em;
+      font-size: 90%; }
+    GtkWindow > GtkBox.vertical > GtkBox.horizontal .toolbar GtkToolItem > GtkBox > .label {
+      color: rgba(236, 239, 241, 0.3); }
+  GtkWindow > GtkBox.vertical > GtkBox.horizontal GtkAlignment {
+    background-color: transparent; }
+
 /***********
  * Colours *
  ***********/
