@@ -289,7 +289,7 @@ spinner {
     spinner:checked:disabled {
       opacity: 0.4; }
     spinner:checked:backdrop {
-      opacity: 0.8; }
+      opacity: 1.0; }
   spinner:backdrop {
     opacity: 0; }
 
@@ -319,10 +319,6 @@ entry, spinbutton:not(.vertical),
     border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(alpha(currentColor, 0.2)), to(transparent)) 0 0 1/0 0 1px;
     background-color: transparent;
     color: rgba(236, 239, 241, 0.3); }
-  entry:backdrop, spinbutton:backdrop:not(.vertical),
-  .entry:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
   entry.flat, spinbutton.flat:not(.vertical), notebook:not(.reorderable-page) > entry, notebook:not(.reorderable-page) > spinbutton:not(.vertical),
   .entry.flat,
   .linked > entry:not(.flat),
@@ -1532,14 +1528,6 @@ spinbutton:not(.vertical) {
   .osd spinbutton.vertical entry:disabled,
   .osd spinbutton.vertical spinbutton:disabled:not(.vertical) {
     color: rgba(236, 239, 241, 0.225); }
-  .osd spinbutton:backdrop,
-  .osd spinbutton button:backdrop,
-  .osd spinbutton entry:backdrop,
-  .osd spinbutton spinbutton:backdrop:not(.vertical), .osd spinbutton.vertical:backdrop,
-  .osd spinbutton.vertical button:backdrop,
-  .osd spinbutton.vertical entry:backdrop,
-  .osd spinbutton.vertical spinbutton:backdrop:not(.vertical) {
-    color: rgba(236, 239, 241, 0.6); }
 spinbutton.vertical entry, spinbutton.vertical spinbutton:not(.vertical) {
   min-width: 2.50376rem;
   min-height: 2.50376rem;
@@ -2852,9 +2840,6 @@ treeview.view, .tweak-category {
       color: rgba(236, 239, 241, 0.3); }
       treeview.view:disabled:selected, .tweak-category:disabled:selected, treeview.view entry:disabled:selected, .tweak-category entry:disabled:selected, treeview.view spinbutton:disabled:selected:not(.vertical), .tweak-category spinbutton:disabled:selected:not(.vertical), treeview.view entry > label:disabled:selected, .tweak-category entry > label:disabled:selected, treeview.view spinbutton:not(.vertical) > label:disabled:selected, .tweak-category spinbutton:not(.vertical) > label:disabled:selected {
         color: rgba(255, 255, 255, 0.4); }
-    treeview.view:backdrop, .tweak-category:backdrop, treeview.view entry:backdrop, .tweak-category entry:backdrop, treeview.view spinbutton:backdrop:not(.vertical), .tweak-category spinbutton:backdrop:not(.vertical), treeview.view entry > label:backdrop, .tweak-category entry > label:backdrop, treeview.view spinbutton:not(.vertical) > label:backdrop, .tweak-category spinbutton:not(.vertical) > label:backdrop {
-      opacity: 0.8;
-      transition: 0.2s; }
   treeview.view .separator, .tweak-category .separator, treeview.view .separator:hover, .tweak-category .separator:hover {
     color: transparent;
     background-color: rgba(0, 0, 0, 0.11); }
@@ -2888,8 +2873,6 @@ treeview.view, .tweak-category {
     paned treeview.view row:hover,
     paned .tweak-category row:hover {
       color: #ECEFF1; }
-    treeview.view:backdrop, .tweak-category:backdrop, paned treeview.view:backdrop, paned .tweak-category:backdrop {
-      opacity: 0.8; }
   treeview.view header button, .tweak-category header button {
     min-height: 1.50376rem;
     padding: 0 0.50376rem 0;
@@ -3723,86 +3706,50 @@ switch {
 .check, check {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-dark.png"), url("assets/checkbox-unchecked-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:backdrop, check:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:hover, check:hover {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-active-dark.png"), url("assets/checkbox-unchecked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:hover:backdrop, check:hover:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:active, check:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-active-dark.png"), url("assets/checkbox-unchecked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:active:backdrop, check:active:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:disabled, check:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:disabled:backdrop, check:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:indeterminate, check:indeterminate {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-dark.png"), url("assets/checkbox-mixed-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:indeterminate:backdrop, check:indeterminate:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:indeterminate:hover, check:indeterminate:hover {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-active-dark.png"), url("assets/checkbox-mixed-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:indeterminate:hover:backdrop, check:indeterminate:hover:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:indeterminate:active, check:indeterminate:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-active-dark.png"), url("assets/checkbox-mixed-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:indeterminate:active:backdrop, check:indeterminate:active:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:indeterminate:disabled, check:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:indeterminate:disabled:backdrop, check:indeterminate:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:checked, check:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-dark.png"), url("assets/checkbox-checked-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:checked:backdrop, check:checked:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:checked:hover, check:checked:hover {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-dark.png"), url("assets/checkbox-checked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:checked:hover:backdrop, check:checked:hover:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:checked:active, check:checked:active {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-dark.png"), url("assets/checkbox-checked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:checked:active:backdrop, check:checked:active:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .check:checked:disabled, check:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .check:checked:disabled:backdrop, check:checked:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.check,
 menu menuitem check {
@@ -3814,10 +3761,6 @@ menu menuitem check {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.check:backdrop,
-  menu menuitem check:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.check:disabled,
 menu menuitem check:disabled {
@@ -3829,10 +3772,6 @@ menu menuitem check:disabled {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.check:disabled:backdrop,
-  menu menuitem check:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.check:indeterminate,
 menu menuitem check:indeterminate {
@@ -3844,10 +3783,6 @@ menu menuitem check:indeterminate {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.check:indeterminate:backdrop,
-  menu menuitem check:indeterminate:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.check:indeterminate:disabled,
 menu menuitem check:indeterminate:disabled {
@@ -3859,10 +3794,6 @@ menu menuitem check:indeterminate:disabled {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.check:indeterminate:disabled:backdrop,
-  menu menuitem check:indeterminate:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.check:checked,
 menu menuitem check:checked {
@@ -3874,10 +3805,6 @@ menu menuitem check:checked {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.check:checked:backdrop,
-  menu menuitem check:checked:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.check:checked:disabled,
 menu menuitem check:checked:disabled {
@@ -3889,94 +3816,54 @@ menu menuitem check:checked:disabled {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.check:checked:disabled:backdrop,
-  menu menuitem check:checked:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio, radio {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:backdrop, radio:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:hover, radio:hover {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-active-dark.png"), url("assets/radio-unchecked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:hover:backdrop, radio:hover:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:active, radio:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-active-dark.png"), url("assets/radio-unchecked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:active:backdrop, radio:active:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:disabled, radio:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:disabled:backdrop, radio:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:indeterminate, radio:indeterminate {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-dark.png"), url("assets/radio-mixed-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:indeterminate:backdrop, radio:indeterminate:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:indeterminate:hover, radio:indeterminate:hover {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-active-dark.png"), url("assets/radio-mixed-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:indeterminate:hover:backdrop, radio:indeterminate:hover:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:indeterminate:active, radio:indeterminate:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-active-dark.png"), url("assets/radio-mixed-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:indeterminate:active:backdrop, radio:indeterminate:active:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:indeterminate:disabled, radio:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:indeterminate:disabled:backdrop, radio:indeterminate:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:checked, radio:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:checked:backdrop, radio:checked:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:checked:hover, radio:checked:hover {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-active-dark.png"), url("assets/radio-checked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:checked:hover:backdrop, radio:checked:hover:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:checked:active, radio:checked:active {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-active-dark.png"), url("assets/radio-checked-active-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:checked:active:backdrop, radio:checked:active:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .radio:checked:disabled, radio:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png"));
   -gtk-icon-shadow: none; }
-  .radio:checked:disabled:backdrop, radio:checked:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.radio,
 menu menuitem radio {
@@ -3988,10 +3875,6 @@ menu menuitem radio {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.radio:backdrop,
-  menu menuitem radio:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.radio:disabled,
 menu menuitem radio:disabled {
@@ -4003,10 +3886,6 @@ menu menuitem radio:disabled {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.radio:disabled:backdrop,
-  menu menuitem radio:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.radio:indeterminate,
 menu menuitem radio:indeterminate {
@@ -4018,10 +3897,6 @@ menu menuitem radio:indeterminate {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.radio:indeterminate:backdrop,
-  menu menuitem radio:indeterminate:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.radio:indeterminate:disabled,
 menu menuitem radio:indeterminate:disabled {
@@ -4033,10 +3908,6 @@ menu menuitem radio:indeterminate:disabled {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.radio:indeterminate:disabled:backdrop,
-  menu menuitem radio:indeterminate:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.radio:checked,
 menu menuitem radio:checked {
@@ -4048,10 +3919,6 @@ menu menuitem radio:checked {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.radio:checked:backdrop,
-  menu menuitem radio:checked:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 menu menuitem.radio:checked:disabled,
 menu menuitem radio:checked:disabled {
@@ -4063,10 +3930,6 @@ menu menuitem radio:checked:disabled {
     animation: none;
     -gtk-icon-shadow: none;
     transition: none; }
-  menu menuitem.radio:checked:disabled:backdrop,
-  menu menuitem radio:checked:disabled:backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 treeview.view check, .tweak-category check, treeview.view check:only-child, .tweak-category check:only-child,
 treeview.view radio,
@@ -5160,88 +5023,48 @@ treeview.view header button radio:selected:focus:checked:disabled,
 iconview.content-view check:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode-dark.png"), url("assets/checkbox-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:not(list):backdrop, iconview.content-view .check:not(list):backdrop,
-  .view.content-view check:not(list):backdrop,
-  iconview.content-view check:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .view.content-view .check:hover:not(list), iconview.content-view .check:hover:not(list),
 .view.content-view check:hover:not(list),
 iconview.content-view check:hover:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode-dark.png"), url("assets/checkbox-active-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:hover:not(list):backdrop, iconview.content-view .check:hover:not(list):backdrop,
-  .view.content-view check:hover:not(list):backdrop,
-  iconview.content-view check:hover:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .view.content-view .check:active:not(list), iconview.content-view .check:active:not(list),
 .view.content-view check:active:not(list),
 iconview.content-view check:active:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-active-selectionmode-dark.png"), url("assets/checkbox-active-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:active:not(list):backdrop, iconview.content-view .check:active:not(list):backdrop,
-  .view.content-view check:active:not(list):backdrop,
-  iconview.content-view check:active:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .view.content-view .check:disabled:not(list), iconview.content-view .check:disabled:not(list),
 .view.content-view check:disabled:not(list),
 iconview.content-view check:disabled:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-selectionmode-dark.png"), url("assets/checkbox-insensitive-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:disabled:not(list):backdrop, iconview.content-view .check:disabled:not(list):backdrop,
-  .view.content-view check:disabled:not(list):backdrop,
-  iconview.content-view check:disabled:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .view.content-view .check:checked:not(list), iconview.content-view .check:checked:not(list),
 .view.content-view check:checked:not(list),
 iconview.content-view check:checked:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode-dark.png"), url("assets/checkbox-checked-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:checked:not(list):backdrop, iconview.content-view .check:checked:not(list):backdrop,
-  .view.content-view check:checked:not(list):backdrop,
-  iconview.content-view check:checked:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .view.content-view .check:checked:hover:not(list), iconview.content-view .check:checked:hover:not(list),
 .view.content-view check:checked:hover:not(list),
 iconview.content-view check:checked:hover:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode-dark.png"), url("assets/checkbox-checked-active-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:checked:hover:not(list):backdrop, iconview.content-view .check:checked:hover:not(list):backdrop,
-  .view.content-view check:checked:hover:not(list):backdrop,
-  iconview.content-view check:checked:hover:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .view.content-view .check:checked:active:not(list), iconview.content-view .check:checked:active:not(list),
 .view.content-view check:checked:active:not(list),
 iconview.content-view check:checked:active:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-active-selectionmode-dark.png"), url("assets/checkbox-checked-active-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:checked:active:not(list):backdrop, iconview.content-view .check:checked:active:not(list):backdrop,
-  .view.content-view check:checked:active:not(list):backdrop,
-  iconview.content-view check:checked:active:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 .view.content-view .check:disabled:checked:not(list), iconview.content-view .check:disabled:checked:not(list),
 .view.content-view check:disabled:checked:not(list),
 iconview.content-view check:disabled:checked:not(list) {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-selectionmode-dark.png"), url("assets/checkbox-checked-insensitive-selectionmode-dark@2.png"));
   background-color: transparent; }
-  .view.content-view .check:disabled:checked:not(list):backdrop, iconview.content-view .check:disabled:checked:not(list):backdrop,
-  .view.content-view check:disabled:checked:not(list):backdrop,
-  iconview.content-view check:disabled:checked:not(list):backdrop {
-    opacity: 0.8;
-    transition: 0.2s; }
 
 checkbutton.text-button,
 radiobutton.text-button {
