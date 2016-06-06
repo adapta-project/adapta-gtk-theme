@@ -120,11 +120,11 @@ sn-button { padding: rem(4px); }
 .tweak-categories {
   background-color: $secondary_dark_color;
   color: $secondary_fg_color;
-  &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                 $sidebar-dark-ltr);
+  &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
   }
-  &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                 $sidebar-dark-rtl);
+  &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
   }
 
   separator,
@@ -389,7 +389,7 @@ box > headerbar > label.polari-titlebar-separator {
 
 // add top-border to inline-toolbar
 .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
-  @if $variant=='light' {
+  @if $variant == 'light' {
     box-shadow: inset 0 1px $solid_light_borders_color,
                 inset 0 2px 2px rgba(0, 0, 0, 0.05),
                 inset -2px 0 2px -2px rgba(0, 0, 0, 0.03),
@@ -403,7 +403,7 @@ box > headerbar > label.polari-titlebar-separator {
   }
 
   &:dir(rtl) {
-    @if $variant=='light' {
+    @if $variant == 'light' {
       box-shadow: inset 0 1px $solid_light_borders_color,
                   inset 0 2px 2px rgba(0, 0, 0, 0.05),
                   inset 2px 0 2px -2px rgba(0, 0, 0, 0.03),
@@ -421,17 +421,17 @@ box > headerbar > label.polari-titlebar-separator {
 // tweak sidebar styling
 .sidebar-paned {
   scrolledwindow {
-    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                   $sidebar-dark-ltr);
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                   $sidebar-dark-rtl);
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
     }
   }
 
   .sidebar {
-    background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
-                                            rgba(18, 22, 0, 0.04));
+    background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                              rgba(18, 22, 0, 0.04));
   }
 }
 
@@ -765,12 +765,12 @@ GdMainView,
     }
 
     // &:dir(ltr) {
-    //   box-shadow: if($variant=='light', $sidebar-light-ltr,
-    //                                     $sidebar-dark-ltr);
+    //   box-shadow: if($variant == 'light', $sidebar-light-ltr,
+    //                                       $sidebar-dark-ltr);
     // }
     // &:dir(rtl) {
-    //   box-shadow: if($variant=='light', $sidebar-light-rtl,
-    //                                     $sidebar-dark-rtl);
+    //   box-shadow: if($variant == 'light', $sidebar-light-rtl,
+    //                                       $sidebar-dark-rtl);
     // }
   }
 }
@@ -840,24 +840,24 @@ window overlay > grid > frame > grid {
 
   // side-bar styling
   list {
-    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                   $sidebar-dark-ltr);
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                   $sidebar-dark-rtl);
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
     }
 
     row {
       color: $secondary_fg_color;
-      background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
-                                              rgba(18, 22, 0, 0.04));
+      background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                                rgba(18, 22, 0, 0.04));
 
       &:hover { color: $fg_color; }
       &:selected,
       &:selected.activatable {
         &, & label { color: $selected_bg_color; }
-        background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
-                                                rgba(18, 22, 0, 0.04));
+        background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                                  rgba(18, 22, 0, 0.04));
       }
       &:backdrop { opacity: 1.0; }
     }
