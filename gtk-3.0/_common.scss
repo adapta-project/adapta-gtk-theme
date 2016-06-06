@@ -2,7 +2,7 @@
 // Suffix
 //
 
-$asset_suffix: if($variant=='dark', '-dark', '');
+$asset_suffix: if($variant == 'dark', '-dark', '');
 
 
 //
@@ -1059,8 +1059,8 @@ GtkComboBox {
   background-color: $bg_color;
   color: $secondary_fg_color;
   // draw shadows
-  box-shadow: if($variant=='light', $toolbar-shadow-light,
-                                    $toolbar-shadow-dark);
+  box-shadow: if($variant == 'light', $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
   &.vertical,
   .inline-toolbar &,
   GtkPaned &,
@@ -1171,7 +1171,8 @@ GtkComboBox {
   border-width: 0 1px 1px;
   border-color: $borders_color;
   background-color: $secondary_dark_color;
-  box-shadow: $inline-shadow;
+  box-shadow: if($variant == 'light', $inline-shadow-light,
+                                      $inline-shadow-dark);
 }
 
 .search-bar,
@@ -1507,8 +1508,8 @@ GtkComboBox {
 .header-bar { // draw hilight and shadows
   .csd &,
   GtkBox &:only-child {
-    box-shadow: if($variant=='light', $header-shadow-light,
-                                      $header-shadow-dark);
+    box-shadow: if($variant == 'light', $header-shadow-light,
+                                        $header-shadow-dark);
 
     .tiled &  { @extend %tiled_integration; }
     .maximized & { @extend %maxd_integration; }
@@ -1530,15 +1531,15 @@ GtkComboBox {
   // Remove unneeded side shadows with dirty hacks
   GtkBox &:not(:only-child):last-child {
     &:dir(ltr) {
-      box-shadow: if($variant=='light', $sub-header-shadow-light-ltr,
-                                        $sub-header-shadow-dark-ltr);
+      box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
+                                          $sub-header-shadow-dark-ltr);
 
       .tiled &  { @extend %tiled_integration; }
       .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
-      box-shadow: if($variant=='light', $sub-header-shadow-light-rtl,
-                                        $sub-header-shadow-dark-rtl);
+      box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
+                                          $sub-header-shadow-dark-rtl);
 
       .tiled &  { @extend %tiled_integration; }
       .maximized & { @extend %maxd_integration; }
@@ -1566,15 +1567,15 @@ GtkComboBox {
   GtkBox & { // Remove unneeded side shadows with dirty hacks
     &:not(:only-child):last-child {
       &:dir(ltr) {
-        box-shadow: if($variant=='light', $selected-header-shadow-light-ltr,
-                                          $selected-header-shadow-dark-ltr);
+        box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
+                                            $selected-header-shadow-dark-ltr);
 
         .tiled &  { @extend %tiled_integration; }
         .maximized & { @extend %maxd_integration; }
       }
       &:dir(rtl) {
-        box-shadow: if($variant=='light', $selected-header-shadow-light-rtl,
-                                          $selected-header-shadow-dark-rtl);
+        box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
+                                            $selected-header-shadow-dark-rtl);
 
         .tiled &  { @extend %tiled_integration; }
         .maximized & { @extend %maxd_integration; }
@@ -2085,8 +2086,8 @@ column-header.button.dnd { // for treeview-like derive widgets
           border-#{$_border}-width: 2px;
           border-#{$_border}-color: $selected_bg_color;
           background-color: $base_color;
-          box-shadow: if($variant=='light', $tab-shadow-light,
-                                            $tab-shadow-dark);
+          box-shadow: if($variant == 'light', $tab-shadow-light,
+                                              $tab-shadow-dark);
         }
       }
     }
@@ -2308,13 +2309,13 @@ GtkSwitch {
       &:insensitive {
         @include button(checked-insensitive);
         // do not use any transparentized materials
-        background-color: if($variant=='light', #F0F2F3, #3F4E56);
+        background-color: if($variant == 'light', #F0F2F3, #3F4E56);
         background-image: none;
         box-shadow: none;
       }
     }
     &:insensitive {
-      background-color: if($variant=='light', #F0F2F3, #3F4E56);
+      background-color: if($variant == 'light', #F0F2F3, #3F4E56);
       background-image: none;
       box-shadow: none;
     }
@@ -3119,11 +3120,11 @@ GtkFileChooserDialog {
   color: $secondary_fg_color;
 
   &, .list { // draw shadows
-    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                   $sidebar-dark-ltr);
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                   $sidebar-dark-rtl);
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
     }
   }
 
@@ -3251,14 +3252,14 @@ GtkStackSidebar {
 
   .frame .list { // draw shadows
     // dim background with alpha-blending
-    background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
-                                            rgba(18, 22, 0, 0.04));
+    background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                              rgba(18, 22, 0, 0.04));
 
-    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                   $sidebar-dark-ltr);
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                   $sidebar-dark-rtl);
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
     }
   }
 

@@ -235,13 +235,15 @@ $orientation: ((top, bottom),
     border-style: solid none none;
     border-color: $borders_color;
     background-color: transparent;
-    box-shadow: $inline-shadow;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
   }
 
   .powerstrip { // always use dark variant
     border-top: 1px solid $borders_color;
     background-color: $inverted_dark_color;
-    box-shadow: $inline-shadow;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
 
     .button {
       padding: 1em;
@@ -566,7 +568,7 @@ NemoWindow {
 
     .button.toggle,
     .linked > .button {
-      padding: 0.3em 1.2em 0.4em;
+      padding: 0 1.2em 0.1em;
 
       &.image-button {
         border-radius: 100px;
@@ -615,7 +617,8 @@ NemoWindow {
   GtkGrid > GtkEventBox {
     padding: 0.2em;
     background-color: $secondary_dark_color;
-    box-shadow: $inline-shadow;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
 
     > .toolbar {
       border-style: none;
@@ -686,7 +689,8 @@ CcShellCategoryView { // stop using $base_color
 
 .cs-header {
   background-color: $secondary_dark_color;
-  box-shadow: $inline-shadow;
+  box-shadow: if($variant == 'light', $inline-shadow-light,
+                                      $inline-shadow-dark);
 }
 
 

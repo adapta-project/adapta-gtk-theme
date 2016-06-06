@@ -141,11 +141,11 @@ NaTrayApplet {
   background-color: $secondary_dark_color;
   color: $secondary_fg_color;
 
-  &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                 $sidebar-dark-ltr);
+  &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
   }
-  &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                 $sidebar-dark-rtl);
+  &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
   }
 
   .separator { -GtkWidget-wide-separators: true; }
@@ -359,7 +359,8 @@ SeahorseKeyManager {
 
 .polari-input-area {
   border-top: 1px solid $borders_color;
-  box-shadow: $inline-shadow;
+  box-shadow: if($variant == 'light', $inline-shadow-light,
+                                      $inline-shadow-dark);
 }
 
 .polari-room-list { // override labels
@@ -397,7 +398,7 @@ GtkBox > .header-bar > .label.polari-titlebar-separator {
 
 // add top-border to inline-toolbar
 .inline-toolbar.toolbar.horizontal.sidebar-toolbar {
-  @if $variant=='light' {
+  @if $variant == 'light' {
     box-shadow: inset 0 1px $solid_light_borders_color,
                 inset 0 2px 2px rgba(0, 0, 0, 0.05),
                 inset -2px 0 2px -2px rgba(0, 0, 0, 0.03),
@@ -411,7 +412,7 @@ GtkBox > .header-bar > .label.polari-titlebar-separator {
   }
 
   &:dir(rtl) {
-    @if $variant=='light' {
+    @if $variant == 'light' {
       box-shadow: inset 0 1px $solid_light_borders_color,
                   inset 0 2px 2px rgba(0, 0, 0, 0.05),
                   inset 2px 0 2px -2px rgba(0, 0, 0, 0.03),
@@ -429,8 +430,8 @@ GtkBox > .header-bar > .label.polari-titlebar-separator {
 // fix sidebar background colour
 .sidebar-paned GtkStack RBDisplayPageTree {
   .sidebar {
-    background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
-                                            rgba(18, 22, 0, 0.04));
+    background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                              rgba(18, 22, 0, 0.04));
   }
 }
 
@@ -618,7 +619,8 @@ GdMainView,
 // FIXME: it doesn't work properly
 .action-bar {
   &, &.frame { background-color: $secondary_dark_color; }
-  box-shadow: $inline-shadow;
+  box-shadow: if($variant == 'light', $inline-shadow-light,
+                                      $inline-shadow-dark);
   padding: 0.4em;
 
   .button,
@@ -674,23 +676,23 @@ GdMainView,
 ContactsWindow {
   // side-bar styling
   ContactsListPane ContactsView { // = '.list'
-    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
-                                                   $sidebar-dark-ltr);
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
-                                                   $sidebar-dark-rtl);
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
     }
 
     .list-row.activatable {
       color: $secondary_fg_color;
-      background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
-                                              rgba(18, 22, 0, 0.04));
+      background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                                rgba(18, 22, 0, 0.04));
 
       &:hover { color: $fg_color; }
       &:selected {
         color: $selected_bg_color;
-        background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
-                                                rgba(18, 22, 0, 0.04));
+        background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                                  rgba(18, 22, 0, 0.04));
       }
       &:backdrop { opacity: 1.0; }
     }
