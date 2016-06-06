@@ -788,8 +788,26 @@ GtkColorButton.button {
 
 // button box is always shown with flat-buttons
 GtkButtonBox > .button {
-  @extend .button.flat;
+  @include button(flat-normal);
+  color: $secondary_accent_color;
   font-weight: 700;
+  &:hover {
+    @include button(flat-hover);
+    color: $accent_color;
+  }
+  &:active {
+    @include button(flat-active);
+    color: $accent_color;
+  }
+  &:insensitive { @include button(flat-insensitive); }
+  &:checked {
+    @include button(flat-checked);
+    color: $accent_color;
+  }
+  &:checked:insensitive {
+    @include button(flat-checked-insensitive);
+    color: gtkopacity($accent_color, 0.4);
+  }
 }
 
 
