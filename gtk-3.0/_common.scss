@@ -279,7 +279,7 @@ GtkTextView { // This will get overridden by .view,
     opacity: 1.0;
     animation: colorful_bar 2s linear infinite;
     &:insensitive { opacity: 0.4; }
-    &:backdrop { opacity: 0.8; }
+    &:backdrop { opacity: 1.0; }
   }
   &:backdrop { opacity: 0; }
 }
@@ -294,10 +294,6 @@ GtkTextView { // This will get overridden by .view,
   @include entry(normal);
   &:focus { @include entry(focus); }
   &:insensitive { @include entry(insensitive); }
-  &:backdrop {
-    opacity: 0.8;
-    transition: 0.2s;
-  }
 
   &.flat {
     @include entry(flat-normal);
@@ -828,7 +824,6 @@ GtkButtonBox > .button {
     color: mix($selected_fg_color, $selected_bg_color, 80%);
   }
   &:insensitive { opacity: 0.4; }
-  &:backdrop { opacity: 0.8; }
 }
 
 .button:link,
@@ -1689,10 +1684,6 @@ GtkTreeView.view {
       color: $insensitive_fg_color;
       &:selected { color: $insensitive_selected_fg_color; }
     }
-    &:backdrop {
-      opacity: 0.8;
-      transition: 0.2s;
-    }
   }
 
   .separator {
@@ -1739,7 +1730,6 @@ GtkTreeView.view {
    .list-row:hover { color: $fg_color; }
     &:selected,
     .list-row:selected { @extend %selected_items; }
-    &:backdrop { opacity: 0.8; }
   }
 }
 
@@ -2290,7 +2280,6 @@ GtkSwitch {
       color: $insensitive_fg_color;
       background-color: $track_color;
     }
-    &:backdrop { opacity: 0.8; }
   }
 
   &.slider {
@@ -2319,7 +2308,6 @@ GtkSwitch {
       background-image: none;
       box-shadow: none;
     }
-    &:backdrop { opacity: 0.8; }
   }
 
   .list-row:selected & { // return to monochrome
@@ -2433,10 +2421,6 @@ GtkSwitch {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       icon-shadow: none;
-      &:backdrop {
-        opacity: 0.8;
-        transition: 0.2s;
-      }
     }
   }
 
@@ -2457,10 +2441,6 @@ GtkSwitch {
       &:hover {
         -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
                                       url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
-      }
-      &:backdrop {
-        opacity: 0.8;
-        transition: 0.2s;
       }
     }
   }
@@ -2519,10 +2499,6 @@ GtkSwitch {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
-    &:backdrop {
-      opacity: 0.8;
-      transition: 0.2s;
-    }
   }
 }
 
@@ -2541,7 +2517,6 @@ GtkRadioButton.text-button {
     // set insensitive color, which is overriden otherwise
     color: $insensitive_fg_color;
   }
-  &:backdrop { opacity: 0.8; }
 }
 
 
@@ -2597,7 +2572,6 @@ GtkRadioButton.text-button {
       // @include entry(insensitive);
       // border-radius: 50%;  // overridden
     }
-    &:backdrop { opacity: 0.8; }
 
     // OSD sliders
     .osd & {
@@ -2613,7 +2587,6 @@ GtkRadioButton.text-button {
       &:insensitive { background-color: $track_color; }
     }
     &:insensitive { color: $insensitive_fg_color; }
-    &:backdrop { opacity: 0.8; }
 
     // OSD troughs
     .osd & {
@@ -2696,7 +2669,6 @@ GtkProgressBar {
   &.trough { // background
     border-radius: 0;
     background-color: gtkopacity($accent_color, 0.2);
-    &:backdrop { opacity: 0.8; }
 
     &.osd {
       border-style: none;
@@ -3566,7 +3538,6 @@ GtkVolumeButton.button {
   @extend .button.flat;
   border-radius: 100px;
   outline-radius: 100px;
-  &:backdrop { opacity: 0.8; }
 
   &.text-button {
     border-radius: 2px;
@@ -3582,7 +3553,6 @@ GtkVolumeButton.button {
   color: $inverted_secondary_fg_color;
   background-color: $inverted_dark_color;
   transition: none;
-  &:backdrop { opacity: 0.8; }
 
   .button {
     padding: 0.3em;
