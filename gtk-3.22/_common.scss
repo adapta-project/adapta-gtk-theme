@@ -262,12 +262,25 @@ buttonbox {
   &, &.dialog-action-area {
     button {
       @include button(flat-normal);
+      color: $secondary_accent_color;
       font-weight: 700;
-      &:hover { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
+      &:hover {
+        @include button(flat-hover);
+        color: $accent_color;
+      }
+      &:active {
+        @include button(flat-active);
+        color: $accent_color;
+      }
       &:disabled { @include button(flat-insensitive); }
-      &:checked { @include button(flat-checked); }
-      &:checked:disabled { @include button(flat-checked-insensitive); }
+      &:checked {
+        @include button(flat-checked);
+        color: $accent_color;
+      }
+      &:checked:disabled {
+        @include button(flat-checked-insensitive);
+        color: gtkopacity($accent_color, 0.4);
+      }
     }
   }
 }
