@@ -344,7 +344,7 @@ spinner {
     opacity: 1.0;
     animation: colorful_bar 2s linear infinite;
     &:disabled { opacity: 0.4; }
-    &:backdrop { opacity: 0.8; }
+    &:backdrop { opacity: 1.0; }
   }
   &:backdrop { opacity: 0; }
 }
@@ -362,10 +362,6 @@ entry {
 
   &:focus { @include entry(focus); }
   &:disabled { @include entry(insensitive); }
-  &:backdrop {
-    opacity: 0.8;
-    transition: 0.2s;
-  }
 
   &.flat {
     border-radius: 0;
@@ -1131,7 +1127,6 @@ spinbutton {
       color: $inverted_secondary_fg_color;
       &:focus { color: $inverted_fg_color; }
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
-      &:backdrop { color: gtkopacity($inverted_secondary_fg_color, 0.8); }
     }
   }
 
@@ -2206,10 +2201,6 @@ treeview.view {
       color: $insensitive_fg_color;
       &:selected { color: $insensitive_selected_fg_color; }
     }
-    &:backdrop {
-      opacity: 0.8;
-      transition: 0.2s;
-    }
   }
 
   .separator {
@@ -2259,7 +2250,6 @@ treeview.view {
     row:hover { color: $fg_color; }
     &:selected,
     row:selected { @extend %selected_items; }
-    &:backdrop { opacity: 0.8; }
   }
 
   // see tests/testaccel to test
@@ -3162,10 +3152,6 @@ switch {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
-      &:backdrop {
-        opacity: 0.8;
-        transition: 0.2s;
-      }
     }
   }
 
@@ -3190,10 +3176,6 @@ switch {
         animation: none;
         -gtk-icon-shadow: none;
         transition: none;
-      }
-      &:backdrop {
-        opacity: 0.8;
-        transition: 0.2s;
       }
     }
   }
@@ -3262,10 +3244,6 @@ treeview.view radio {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
-    &:backdrop {
-      opacity: 0.8;
-      transition: 0.2s;
-    }
   }
 }
 
