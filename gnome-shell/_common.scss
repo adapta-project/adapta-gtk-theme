@@ -2319,19 +2319,19 @@ $legacy_icon_size: 24px;
     @include fontscaling($ref_size * 1.1);
     padding: 7px 16px 8px;
     font-weight: 700;
-    @include button(flat-normal, $tc:$osd_secondary_fg_color);
+    @include button(flat-normal, $tc:$inverted_secondary_fg_color);
     &:hover,
     &:focus { @include button(flat-hover, $c:$osd_semi_fill_color,
-                                          $tc:$osd_fg_color);
+                                          $tc:$inverted_fg_color);
     }
     &:active { @include button(flat-active, $c:$osd_fill_color,
-                                            $tc:$osd_fg_color);
+                                            $tc:$inverted_fg_color);
     }
     &:insensitive { @include button(flat-insensitive,
-                                    $tc:$insensitive_secondary_fg_color);
+                                    $tc:$inverted_dim_fg_color);
     }
     &:default { // raised button
-      @include button(normal, $c:$suggested_color, $tc:$fg_color);
+      @include button(normal, $c:$suggested_color, $tc:$inverted_fg_color);
       &:hover,
       &:focus { @include button(hover, $c:$suggested_color,
                                        $tc:$selected_fg_color);
@@ -2340,7 +2340,7 @@ $legacy_icon_size: 24px;
                                          $tc:$selected_fg_color);
       }
       &:insensitive { @include button(flat-insensitive,
-                                      $tc:$insensitive_secondary_fg_color);
+                                      $tc:$inverted_dim_fg_color);
       }
     }
   }
