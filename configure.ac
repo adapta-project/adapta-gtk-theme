@@ -18,7 +18,12 @@ ADAPTA_OPTION([XFCE],      [xfce],      [XFce],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)], [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],       [disable])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([ \
+	Makefile \
+	gtk/Makefile \
+        shell/Makefile \
+        wm/Makefile \
+        extra/Makefile ])
 AC_OUTPUT
 
 AC_MSG_RESULT([
