@@ -937,3 +937,24 @@ headerbar > button.flat.popup.title-menu-button.toggle {
   }
 }
 
+
+/************
+ * Deja-dup *
+ ************/
+
+window > box.vertical > box.vertical > widget > grid.vertical {
+  > expander > scrolledwindow {
+    min-height: rem(160.0px); // enlarge widget height
+    border: 1px solid $borders_color; // draw borders
+
+    // remove undershoots from expanded-scrolling widget
+    // in progress window
+    undershoot {
+      &.top,
+      &.bottom,
+      &.left,
+      &.right { background-image: none; }
+    }
+  }
+}
+
