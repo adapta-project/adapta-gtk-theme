@@ -21,9 +21,9 @@ ADAPTA_OPTION([PLANK],     [plank],     [Plank],       [disable])
 AC_CONFIG_FILES([ \
 	Makefile \
 	gtk/Makefile \
-        shell/Makefile \
-        wm/Makefile \
-        extra/Makefile ])
+	shell/Makefile \
+	wm/Makefile \
+	extra/Makefile ])
 AC_OUTPUT
 
 AC_MSG_RESULT([
