@@ -35,3 +35,28 @@ if ENABLE_XFCE
 	cd $(adaptadir)
 	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
 endif
+
+uninstall-local:
+if ENABLE_FLASHBACK
+	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
+	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
+endif
+
+if ENABLE_CINNAMON
+if !ENABLE_FLASHBACK
+	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
+	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
+endif
+endif
+
+if ENABLE_UNITY
+if !ENABLE_FLASHBACK
+	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
+	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
+endif
+endif
+
+if ENABLE_XFCE
+	test -e $(noktodir)/xfwm4 && rm -rfv $(noktodir)/xfwm4
+	test -e $(adaptadir)/xfwm4 && rm -rfv $(adaptadir)/xfwm4
+endif

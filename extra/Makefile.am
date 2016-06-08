@@ -18,3 +18,14 @@ if ENABLE_PLANK
 	cd $(adaptadir)
 	ln -sf ../Adapta/plank $(noktodir)/plank
 endif
+
+uninstall-local:
+if ENABLE_CHROME
+	test -e $(noktodir)/chrome && rm -rfv $(noktodir)/chrome
+	test -e $(adaptadir)/chrome && rm -rfv $(adaptadir)/chrome
+endif
+
+if ENABLE_PLANK
+	test -e $(noktodir)/plank && rm -rfv $(noktodir)/plank
+	test -e $(adaptadir)/plank && rm -rfv $(adaptadir)/plank
+endif

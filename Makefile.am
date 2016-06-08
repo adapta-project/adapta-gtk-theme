@@ -19,5 +19,5 @@ install-data-hook:
 	cp -Rv $(EXTRA_DIST) $(adaptadir)
 
 uninstall-hook:
-	test -e $(adaptadir) && rm -rfv $(adaptadir)
 	test -e $(noktodir) && rm -rfv $(noktodir)
+	test -e $(adaptadir) && rm -rfv $(adaptadir)

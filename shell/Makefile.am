@@ -28,3 +28,22 @@ if ENABLE_XFCE
 	cd $(adaptadir)
 	ln -sf ../Adapta/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
 endif
+
+uninstall-local:
+	test -e $(noktodir)/gnome-shell && rm -rfv $(noktodir)/gnome-shell
+	test -e $(adaptadir)/gnome-shell && rm -rfv $(adaptadir)/gnome-shell
+
+if ENABLE_CINNAMON
+	test -e $(noktodir)/cinnamon && rm -rfv $(noktodir)/cinnamon
+	test -e $(adaptadir)/cinnamon && rm -rfv $(adaptadir)/cinnamon
+endif
+
+if ENABLE_UNITY
+	test -e $(noktodir)/unity && rm -rfv $(noktodir)/unity
+	test -e $(adaptadir)/unity && rm -rfv $(adaptadir)/unity
+endif
+
+if ENABLE_XFCE
+	test -e $(noktodir)/xfce-notify-4.0 && rm -rfv $(noktodir)/xfce-notify-4.0
+	test -e $(adaptadir)/xfce-notify-4.0 && rm -rfv $(adaptadir)/xfce-notify-4.0
+endif

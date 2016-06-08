@@ -35,3 +35,19 @@ if ENABLE_GTK_NEXT
 	cd $(adaptadir)
 	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
 endif
+
+uninstall-local:
+	test -e $(noktodir)/index.theme && rm -rfv $(noktodir)/index.theme
+	test -e $(noktodir)/gtk-3.0 && rm -rfv $(noktodir)/gtk-3.0
+	test -e $(noktodir)/gtk-3.20 && rm -rfv $(noktodir)/gtk-3.20
+	test -e $(noktodir)/gtk-2.0 && rm -rfv $(noktodir)/gtk-2.0
+
+	test -e $(adaptadir)/index.theme && rm -rfv $(adaptadir)/index.theme
+	test -e $(adaptadir)/gtk-3.0 && rm -rfv $(adaptadir)/gtk-3.0
+	test -e $(adaptadir)/gtk-3.20 && rm -rfv $(adaptadir)/gtk-3.20
+	test -e $(adaptadir)/gtk-2.0 && rm -rfv $(adaptadir)/gtk-2.0
+
+if ENABLE_GTK_NEXT
+	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
+	test -e $(adaptadir)/gtk-3.22 && rm -rfv $(adaptadir)/gtk-3.22
+endif
