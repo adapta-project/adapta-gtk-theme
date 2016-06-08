@@ -30,7 +30,7 @@ endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfwm4
-	cp -Rv $(XFWM_DIR)/*.xpm $(adaptadir)/xfwm4
+	cp -Rv $(wildcard $(XFWM_DIR)/*.xpm) $(adaptadir)/xfwm4
 	cp -Rv $(XFWM_DIR)/themerc $(adaptadir)/xfwm4
 	cd $(adaptadir)
 	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
