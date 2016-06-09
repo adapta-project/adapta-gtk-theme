@@ -13,3 +13,9 @@ bundle exec sass --update --sourcemap=none --watch \
 	gnome-shell/classic.scss:../gnome-shell/extensions/window-list/classic.css
 bundle exec sass --update --sourcemap=none --watch \
 	gnome-shell/workspaces-to-dock.scss:../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
+
+# Cinnamon
+bundle exec sass --update --sourcemap=none --watch \
+	cinnamon/cinnamon.scss:../cinnamon/cinnamon.css
+bundle exec sass --update --sourcemap=none --watch \
+	cinnamon/cinnamon-dark.scss:../cinnamon-nokto/cinnamon.css

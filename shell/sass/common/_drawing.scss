@@ -199,6 +199,62 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
     text-shadow: none;
     icon-shadow: none;
   }
+  @if $t==osd-normal {
+  //
+  // osd flat button
+  //
+    color: if($tc!=$fg_color, $tc, $osd_secondary_fg_color);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: 0 0 transparent;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @if $t==osd-focus {
+  //
+  // focused osd flat button
+  //
+    color: $osd_fg_color;
+    text-shadow: none;
+    icon-shadow: none;
+    box-shadow: 0 0 transparent;
+    // box-shadow: inset 0px 0px 0px 2px $fill_color;
+  }
+
+  @else if $t==osd-hover {
+  //
+  // hovered osd flat button
+  //
+    color: if($tc!=$fg_color, $tc, $osd_fg_color);
+    background-color: if($c!=$bg_color, $osd_fill_color, $osd_semi_fill_color);
+    border-color: transparent;
+    box-shadow: 0 0 transparent;
+    text-shadow: none;
+    icon-shadow: none;
+
+  }
+  @else if $t==osd-active {
+  //
+  // pushed osd flat button
+  //
+    color: if($tc!=$fg_color, $tc, $selected_fg_color);
+    background-color: if($c!=$bg_color, $tc, $osd_fill_color);
+    border-color: transparent;
+    box-shadow: 0 0 transparent;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t==osd-insensitive {
+  //
+  // insensitive osd flat button
+  //
+    color: if($tc!=$fg_color, $tc, $insensitive_osd_secondary_fg_color);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: 0 0 transparent;
+    text-shadow: none;
+    icon-shadow: none;
+  }
   @else if $t==undecorated {
   //
   // reset
