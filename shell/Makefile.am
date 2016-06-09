@@ -2,29 +2,364 @@ themedir  = $(datadir)/themes
 adaptadir = $(DESTDIR)$(themedir)/Adapta
 noktodir  = $(DESTDIR)$(themedir)/Adapta-Nokto
 
-shelldir         = $(srcdir)/gnome-shell
+shelldir   = $(srcdir)/gnome-shell
+shell_file = \
+	$(shelldir)/gnome-shell.css \
+	$(shelldir)/gnome-shell-theme.gresource \
+	$(shelldir)/no-events.svg \
+	$(shelldir)/no-notifications.svg \
+	$(shelldir)/process-working.svg \
+	$(shelldir)/toggle-off-hover.svg \
+	$(shelldir)/toggle-off.svg \
+	$(shelldir)/toggle-on-hover.svg \
+	$(shelldir)/toggle-on.svg
+shell_asset_file = \
+	$(shelldir)/assets/calendar-arrow-left-hover.svg \
+	$(shelldir)/assets/calendar-arrow-left.svg \
+	$(shelldir)/assets/calendar-arrow-right-hover.svg \
+	$(shelldir)/assets/calendar-arrow-right.svg \
+	$(shelldir)/assets/checkbox-hover.svg \
+	$(shelldir)/assets/checkbox-off-hover.svg \
+	$(shelldir)/assets/checkbox-off.svg \
+	$(shelldir)/assets/checkbox.svg \
+	$(shelldir)/assets/corner-ripple-ltr.svg \
+	$(shelldir)/assets/corner-ripple-rtl.svg \
+	$(shelldir)/assets/dash-placeholder.svg \
+	$(shelldir)/assets/go-down.svg \
+	$(shelldir)/assets/go-up.svg \
+	$(shelldir)/assets/media-control-active.svg \
+	$(shelldir)/assets/media-control-hover.svg \
+	$(shelldir)/assets/more-results.svg \
+	$(shelldir)/assets/show-apps-active.svg \
+	$(shelldir)/assets/show-apps.svg \
+	$(shelldir)/assets/window-close-active.svg \
+	$(shelldir)/assets/window-close-hover.svg \
+	$(shelldir)/assets/window-close.svg
+shell_asset_dot_file = \
+	$(shelldir)/assets/dot/running1-focused.svg \
+	$(shelldir)/assets/dot/running1.svg \
+	$(shelldir)/assets/dot/running1-vert-focused.svg \
+	$(shelldir)/assets/dot/running1-vert.svg \
+	$(shelldir)/assets/dot/running2-focused.svg \
+	$(shelldir)/assets/dot/running2.svg \
+	$(shelldir)/assets/dot/running2-vert-focused.svg \
+	$(shelldir)/assets/dot/running2-vert.svg \
+	$(shelldir)/assets/dot/running3-focused.svg \
+	$(shelldir)/assets/dot/running3.svg \
+	$(shelldir)/assets/dot/running3-vert-focused.svg \
+	$(shelldir)/assets/dot/running3-vert.svg \
+	$(shelldir)/assets/dot/running4-focused.svg \
+	$(shelldir)/assets/dot/running4.svg \
+	$(shelldir)/assets/dot/running4-vert-focused.svg \
+	$(shelldir)/assets/dot/running4-vert.svg
+shell_extension_windowlist_file = \
+	$(shelldir)/extensions/window-list/classic.css \
+	$(shelldir)/extensions/window-list/stylesheet.css \
+	$(shelldir)/extensions/window-list/README
+shell_extension_workspace_file = \
+	$(shelldir)/extensions/workspaces-to-dock/workspaces-to-dock.css
+shell_extension_workspace_asset_file = \
+	$(shelldir)/extensions/workspaces-to-dock/assets/four-bottom.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/four-left.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/four-right.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/four-top.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/h-four.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/h-one.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/h-three.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/h-two.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/one-bottom.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/one-left.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/one-right.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/one-top.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/three-bottom.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/three-left.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/three-right.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/three-top.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/two-bottom.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/two-left.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/two-right.svg \
+	$(shelldir)/extensions/workspaces-to-dock/assets/two-top.svg
+
 shellnoktodir    = $(srcdir)/gnome-shell-nokto
-cinnamondir      = $(srcdir)/cinnamon
+shell_nokto_file = \
+	$(shellnoktodir)/gnome-shell.css \
+	$(shellnoktodir)/gnome-shell-theme.gresource \
+	$(shellnoktodir)/no-events.svg \
+	$(shellnoktodir)/no-notifications.svg \
+	$(shellnoktodir)/process-working.svg \
+	$(shellnoktodir)/toggle-off-hover.svg \
+	$(shellnoktodir)/toggle-off.svg \
+	$(shellnoktodir)/toggle-on-hover.svg \
+	$(shellnoktodir)/toggle-on.svg
+shell_nokto_asset_file = \
+	$(shellnoktodir)/assets/calendar-arrow-left-hover.svg \
+	$(shellnoktodir)/assets/calendar-arrow-left.svg \
+	$(shellnoktodir)/assets/calendar-arrow-right-hover.svg \
+	$(shellnoktodir)/assets/calendar-arrow-right.svg \
+	$(shellnoktodir)/assets/checkbox-hover.svg \
+	$(shellnoktodir)/assets/checkbox-off-hover.svg \
+	$(shellnoktodir)/assets/checkbox-off.svg \
+	$(shellnoktodir)/assets/checkbox.svg \
+	$(shellnoktodir)/assets/corner-ripple-ltr.svg \
+	$(shellnoktodir)/assets/corner-ripple-rtl.svg \
+	$(shellnoktodir)/assets/dash-placeholder.svg \
+	$(shellnoktodir)/assets/go-down.svg \
+	$(shellnoktodir)/assets/go-up.svg \
+	$(shellnoktodir)/assets/media-control-active.svg \
+	$(shellnoktodir)/assets/media-control-hover.svg \
+	$(shellnoktodir)/assets/more-results.svg \
+	$(shellnoktodir)/assets/show-apps-active.svg \
+	$(shellnoktodir)/assets/show-apps.svg \
+	$(shellnoktodir)/assets/window-close-active.svg \
+	$(shellnoktodir)/assets/window-close-hover.svg \
+	$(shellnoktodir)/assets/window-close.svg
+
+cinnamondir   = $(srcdir)/cinnamon
+cinnamon_file = \
+	$(cinnamondir)/cinnamon.css
+cinnamon_asset_checkbox_file = \
+	$(cinnamondir)/assets/checkbox/checkbox-checked.svg \
+	$(cinnamondir)/assets/checkbox/checkbox-unchecked.svg \
+	$(cinnamondir)/assets/checkbox/radiobutton-checked.svg \
+	$(cinnamondir)/assets/checkbox/radiobutton-unchecked.svg
+cinnamon_asset_menu_file = \
+	$(cinnamondir)/assets/menu/menu-hover.svg \
+	$(cinnamondir)/assets/menu/menu-separator.svg \
+	$(cinnamondir)/assets/menu/menu.svg \
+	$(cinnamondir)/assets/menu/submenu.svg
+cinnamon_asset_misc_file = \
+	$(cinnamondir)/assets/misc/add-workspace-active.svg \
+	$(cinnamondir)/assets/misc/add-workspace-hover.svg \
+	$(cinnamondir)/assets/misc/add-workspace.svg \
+	$(cinnamondir)/assets/misc/bg.svg \
+	$(cinnamondir)/assets/misc/button-box.svg \
+	$(cinnamondir)/assets/misc/calendar-arrow-left.svg \
+	$(cinnamondir)/assets/misc/calendar-arrow-right.svg \
+	$(cinnamondir)/assets/misc/close-active.svg \
+	$(cinnamondir)/assets/misc/close-hover.svg \
+	$(cinnamondir)/assets/misc/close.svg \
+	$(cinnamondir)/assets/misc/corner-ripple.svg \
+	$(cinnamondir)/assets/misc/desklet-header.svg \
+	$(cinnamondir)/assets/misc/desklet.svg \
+	$(cinnamondir)/assets/misc/message.svg \
+	$(cinnamondir)/assets/misc/modal.svg \
+	$(cinnamondir)/assets/misc/osd.svg \
+	$(cinnamondir)/assets/misc/overview-hover.svg \
+	$(cinnamondir)/assets/misc/overview.svg \
+	$(cinnamondir)/assets/misc/trash-icon.svg
+cinnamon_asset_panel_file = \
+	$(cinnamondir)/assets/panel/activities-active.svg \
+	$(cinnamondir)/assets/panel/activities.svg \
+	$(cinnamondir)/assets/panel/window-list-active-bottom.svg \
+	$(cinnamondir)/assets/panel/window-list-active-top.svg \
+	$(cinnamondir)/assets/panel/window-list-hover-bottom.svg \
+	$(cinnamondir)/assets/panel/window-list-hover-top.svg
+cinnamon_asset_switch_file = \
+	$(cinnamondir)/assets/switch/switch-off.svg \
+	$(cinnamondir)/assets/switch/switch-on.svg
+
 cinnamonnoktodir = $(srcdir)/cinnamon-nokto
-unitydir         = $(srcdir)/unity
-xfcedir          = $(srcdir)/xfce-notify-4.0
+cinnamon_nokto_file = \
+	$(cinnamonnoktodir)/cinnamon.css
+cinnamon_nokto_asset_checkbox_file = \
+	$(cinnamonnoktodir)/assets/checkbox/checkbox-checked.svg \
+	$(cinnamonnoktodir)/assets/checkbox/checkbox-unchecked.svg \
+	$(cinnamonnoktodir)/assets/checkbox/radiobutton-checked.svg \
+	$(cinnamonnoktodir)/assets/checkbox/radiobutton-unchecked.svg
+cinnamon_nokto_asset_menu_file = \
+	$(cinnamonnoktodir)/assets/menu/menu-hover.svg \
+	$(cinnamonnoktodir)/assets/menu/menu-separator.svg \
+	$(cinnamonnoktodir)/assets/menu/menu.svg \
+	$(cinnamonnoktodir)/assets/menu/submenu.svg
+cinnamon_nokto_asset_misc_file = \
+	$(cinnamonnoktodir)/assets/misc/add-workspace-active.svg \
+	$(cinnamonnoktodir)/assets/misc/add-workspace-hover.svg \
+	$(cinnamonnoktodir)/assets/misc/add-workspace.svg \
+	$(cinnamonnoktodir)/assets/misc/bg.svg \
+	$(cinnamonnoktodir)/assets/misc/button-box.svg \
+	$(cinnamonnoktodir)/assets/misc/calendar-arrow-left.svg \
+	$(cinnamonnoktodir)/assets/misc/calendar-arrow-right.svg \
+	$(cinnamonnoktodir)/assets/misc/close-active.svg \
+	$(cinnamonnoktodir)/assets/misc/close-hover.svg \
+	$(cinnamonnoktodir)/assets/misc/close.svg \
+	$(cinnamonnoktodir)/assets/misc/corner-ripple.svg \
+	$(cinnamonnoktodir)/assets/misc/desklet-header.svg \
+	$(cinnamonnoktodir)/assets/misc/desklet.svg \
+	$(cinnamonnoktodir)/assets/misc/message.svg \
+	$(cinnamonnoktodir)/assets/misc/modal.svg \
+	$(cinnamonnoktodir)/assets/misc/osd.svg \
+	$(cinnamonnoktodir)/assets/misc/overview-hover.svg \
+	$(cinnamonnoktodir)/assets/misc/overview.svg \
+	$(cinnamonnoktodir)/assets/misc/trash-icon.svg
+cinnamon_nokto_asset_panel_file = \
+	$(cinnamonnoktodir)/assets/panel/activities-active.svg \
+	$(cinnamonnoktodir)/assets/panel/activities.svg \
+	$(cinnamonnoktodir)/assets/panel/window-list-active-bottom.svg \
+	$(cinnamonnoktodir)/assets/panel/window-list-active-top.svg \
+	$(cinnamonnoktodir)/assets/panel/window-list-hover-bottom.svg \
+	$(cinnamonnoktodir)/assets/panel/window-list-hover-top.svg
+cinnamon_nokto_asset_switch_file = \
+	$(cinnamonnoktodir)/assets/switch/switch-off.svg \
+	$(cinnamonnoktodir)/assets/switch/switch-on.svg
+
+unitydir   = $(srcdir)/unity
+unity_file = \
+	$(unitydir)/close_dash_disabled.svg \
+	$(unitydir)/close_dash_prelight.svg \
+	$(unitydir)/close_dash_pressed.svg \
+	$(unitydir)/close_dash.svg \
+	$(unitydir)/close_focused_normal.svg \
+	$(unitydir)/close_focused_prelight.svg \
+	$(unitydir)/close_focused_pressed.svg \
+	$(unitydir)/close.svg \
+	$(unitydir)/close_unfocused_prelight.svg \
+	$(unitydir)/close_unfocused_pressed.svg \
+	$(unitydir)/close_unfocused.svg \
+	$(unitydir)/launcher_icon_back_150.svg \
+	$(unitydir)/launcher_icon_back_54.svg \
+	$(unitydir)/launcher_icon_edge_150.svg \
+	$(unitydir)/launcher_icon_edge_54.svg \
+	$(unitydir)/launcher_icon_glow_200.svg \
+	$(unitydir)/launcher_icon_glow_62.svg \
+	$(unitydir)/launcher_icon_selected_back_150.svg \
+	$(unitydir)/launcher_icon_selected_back_54.svg \
+	$(unitydir)/launcher_icon_shadow_200.svg \
+	$(unitydir)/launcher_icon_shadow_62.svg \
+	$(unitydir)/launcher_icon_shine_150.svg \
+	$(unitydir)/launcher_icon_shine_54.svg \
+	$(unitydir)/maximize_dash_disabled.svg \
+	$(unitydir)/maximize_dash_prelight.svg \
+	$(unitydir)/maximize_dash_pressed.svg \
+	$(unitydir)/maximize_dash.svg \
+	$(unitydir)/maximize_focused_normal.svg \
+	$(unitydir)/maximize_focused_prelight.svg \
+	$(unitydir)/maximize_focused_pressed.svg \
+	$(unitydir)/maximize.svg \
+	$(unitydir)/maximize_unfocused_prelight.svg \
+	$(unitydir)/maximize_unfocused_pressed.svg \
+	$(unitydir)/maximize_unfocused.svg \
+	$(unitydir)/minimize_dash_disabled.svg \
+	$(unitydir)/minimize_dash_prelight.svg \
+	$(unitydir)/minimize_dash_pressed.svg \
+	$(unitydir)/minimize_dash.svg \
+	$(unitydir)/minimized.svg \
+	$(unitydir)/minimize_focused_normal.svg \
+	$(unitydir)/minimize_focused_prelight.svg \
+	$(unitydir)/minimize_focused_pressed.svg \
+	$(unitydir)/minimize.svg \
+	$(unitydir)/minimize_unfocused_prelight.svg \
+	$(unitydir)/minimize_unfocused_pressed.svg \
+	$(unitydir)/minimize_unfocused.svg \
+	$(unitydir)/progress_bar_fill.svg \
+	$(unitydir)/progress_bar_trough.svg \
+	$(unitydir)/sheet_style_close_focused_prelight.svg \
+	$(unitydir)/sheet_style_close_focused_pressed.svg \
+	$(unitydir)/sheet_style_close_focused.svg \
+	$(unitydir)/unmaximize_dash_disabled.svg \
+	$(unitydir)/unmaximize_dash_prelight.svg \
+	$(unitydir)/unmaximize_dash_pressed.svg \
+	$(unitydir)/unmaximize_dash.svg \
+	$(unitydir)/unmaximize_focused_normal.svg \
+	$(unitydir)/unmaximize_focused_prelight.svg \
+	$(unitydir)/unmaximize_focused_pressed.svg \
+	$(unitydir)/unmaximize.svg \
+	$(unitydir)/unmaximize_unfocused_prelight.svg \
+	$(unitydir)/unmaximize_unfocused_pressed.svg \
+	$(unitydir)/unmaximize_unfocused.svg
+
+xfcedir   = $(srcdir)/xfce-notify-4.0
+xfce_file = \
+	$(xfcedir)/flat-button-active.svg \
+	$(xfcedir)/flat-button-hover.svg \
+	$(xfcedir)/flat-button-insensitive.svg \
+	$(xfcedir)/flat-button.svg \
+	$(xfcedir)/gtkrc
 
 install-data-local:
-	cp -Rv $(shelldir) $(adaptadir)
-	cp -Rv $(shellnoktodir) $(noktodir)/gnome-shell
+	$(MKDIR_P) $(adaptadir)/gnome-shell
+	$(MKDIR_P) $(adaptadir)/gnome-shell/assets
+	$(MKDIR_P) $(adaptadir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shell_file) $(adaptadir)/gnome-shell
+	cp -Rv $(shell_asset_file) $(adaptadir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(adaptadir)/gnome-shell/assets/dot
+	cp -Rv $(shell_extension_windowlist_file) \
+		$(adaptadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_extension_workspace_file) \
+		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock
+	cp -Rv $(shell_extension_workspace_asset_file) \
+		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
+
+	$(MKDIR_P) $(noktodir)/gnome-shell
+	$(MKDIR_P) $(noktodir)/gnome-shell/assets
+	$(MKDIR_P) $(noktodir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shell_nokto_file) $(noktodir)/gnome-shell
+	cp -Rv $(shell_nokto_asset_file) $(noktodir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(noktodir)/gnome-shell/assets/dot
+	cp -Rv $(shell_extension_windowlist_file) \
+		$(noktodir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_extension_workspace_file) \
+		$(noktodir)/gnome-shell/extensions/workspaces-to-dock
+	cp -Rv $(shell_extension_workspace_asset_file) \
+		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+
 if ENABLE_CINNAMON
-	cp -Rv $(cinnamondir) $(adaptadir)
-	cp -Rv $(cinnamonnoktodir) $(noktodir)/cinnamon
+	$(MKDIR_P) $(adaptadir)/cinnamon
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/checkbox
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/menu
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/misc
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/panel
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/switch
+	cp -Rv $(cinnamon_file) $(adaptadir)/cinnamon
+	cp -Rv $(cinnamon_asset_checkbox_file) \
+		$(adaptadir)/cinnamon/assets/checkbox
+	cp -Rv $(cinnamon_asset_menu_file) \
+		$(adaptadir)/cinnamon/assets/menu
+	cp -Rv $(cinnamon_asset_misc_file) \
+		$(adaptadir)/cinnamon/assets/misc
+	cp -Rv $(cinnamon_asset_panel_file) \
+		$(adaptadir)/cinnamon/assets/panel
+	cp -Rv $(cinnamon_asset_switch_file) \
+		$(adaptadir)/cinnamon/assets/switch
+
+	$(MKDIR_P) $(noktodir)/cinnamon
+	$(MKDIR_P) $(noktodir)/cinnamon/assets
+	$(MKDIR_P) $(noktodir)/cinnamon/assets/checkbox
+	$(MKDIR_P) $(noktodir)/cinnamon/assets/menu
+	$(MKDIR_P) $(noktodir)/cinnamon/assets/misc
+	$(MKDIR_P) $(noktodir)/cinnamon/assets/panel
+	$(MKDIR_P) $(noktodir)/cinnamon/assets/switch
+	cp -Rv $(cinnamon_nokto_file) $(noktodir)/cinnamon
+	cp -Rv $(cinnamon_nokto_asset_checkbox_file) \
+		$(noktodir)/cinnamon/assets/checkbox
+	cp -Rv $(cinnamon_asset_menu_file) \
+		$(noktodir)/cinnamon/assets/menu
+	cp -Rv $(cinnamon_asset_misc_file) \
+		$(noktodir)/cinnamon/assets/misc
+	cp -Rv $(cinnamon_asset_panel_file) \
+		$(noktodir)/cinnamon/assets/panel
+	cp -Rv $(cinnamon_asset_switch_file) \
+		$(noktodir)/cinnamon/assets/switch
 endif
 
 if ENABLE_UNITY
-	cp -Rv $(unitydir) $(adaptadir)
+	$(MKDIR_P) $(adaptadir)/unity
+	cp -Rv $(unity_file) $(adaptadir)/unity
 	cd $(adaptadir)
 	ln -sf ../Adapta/unity $(noktodir)/unity
 endif
 
 if ENABLE_XFCE
-	cp -Rv $(xfcedir) $(adaptadir)
+	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_file) $(adaptadir)/xfce-notify-4.0
 	cd $(adaptadir)
 	ln -sf ../Adapta/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
 endif
@@ -44,6 +379,8 @@ if ENABLE_UNITY
 endif
 
 if ENABLE_XFCE
-	test -e $(noktodir)/xfce-notify-4.0 && rm -rfv $(noktodir)/xfce-notify-4.0
-	test -e $(adaptadir)/xfce-notify-4.0 && rm -rfv $(adaptadir)/xfce-notify-4.0
+	test -e $(noktodir)/xfce-notify-4.0 && \
+		rm -rfv $(noktodir)/xfce-notify-4.0
+	test -e $(adaptadir)/xfce-notify-4.0 && \
+		rm -rfv $(adaptadir)/xfce-notify-4.0
 endif
