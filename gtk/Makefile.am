@@ -9,15 +9,15 @@ gtk2dir    = $(srcdir)/gtk-2.0
 
 gtknextdir = $(srcdir)/gtk-3.22
 
-index       = $(srcdir)/index.theme
-index_nokto = $(srcdir)/index.theme-nokto
+index_file       = $(srcdir)/index.theme
+index_nokto_file = $(srcdir)/index.theme-nokto
 
 install-data-local:
 	$(MKDIR_P) $(adaptadir)
 	$(MKDIR_P) $(noktodir)
 
-	cp -Rv $(index) $(adaptadir)
-	cp -Rv $(index_nokto) $(noktodir)/index.theme
+	cp -Rv $(index_file) $(adaptadir)
+	cp -Rv $(index_nokto_file) $(noktodir)/index.theme
 
 	cp -Rv $(gtk318dir) $(adaptadir)
 	cp -Rv $(gtk320dir) $(adaptadir)

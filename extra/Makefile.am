@@ -2,19 +2,24 @@ themedir  = $(datadir)/themes
 adaptadir = $(DESTDIR)$(themedir)/Adapta
 noktodir  = $(DESTDIR)$(themedir)/Adapta-Nokto
 
-chromedir = $(srcdir)/chrome
-plankdir  = $(srcdir)/plank
+chromedir         = $(srcdir)/chrome
+chrome_file       = $(chromedir)/adapta-theme.crx
+chrome_nokto_file = $(chromedir)/adapta-nokto-theme.crx
+
+plankdir   = $(srcdir)/plank
+plank_file = $(plankdir)/dock.theme
 
 install-data-local:
 if ENABLE_CHROME
 	$(MKDIR_P) $(adaptadir)/chrome
 	$(MKDIR_P) $(noktodir)/chrome
-	cp -Rv $(chromedir)/adapta-theme.crx $(adaptadir)/chrome
-	cp -Rv $(chromedir)/adapta-nokto-theme.crx $(noktodir)/chrome
+	cp -Rv $(chrome_file) $(adaptadir)/chrome
+	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
 endif
 
 if ENABLE_PLANK
-	cp -Rv $(plankdir) $(adaptadir)
+	$(MKDIR_P) $(adaptadir)/plank
+	cp -Rv $(plank_file) $(adaptadir)/plank
 	cd $(adaptadir)
 	ln -sf ../Adapta/plank $(noktodir)/plank
 endif
