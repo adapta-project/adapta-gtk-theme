@@ -340,13 +340,13 @@ if ENABLE_CINNAMON
 	cp -Rv $(cinnamon_nokto_file) $(noktodir)/cinnamon
 	cp -Rv $(cinnamon_nokto_asset_checkbox_file) \
 		$(noktodir)/cinnamon/assets/checkbox
-	cp -Rv $(cinnamon_asset_menu_file) \
+	cp -Rv $(cinnamon_nokto_asset_menu_file) \
 		$(noktodir)/cinnamon/assets/menu
-	cp -Rv $(cinnamon_asset_misc_file) \
+	cp -Rv $(cinnamon_nokto_asset_misc_file) \
 		$(noktodir)/cinnamon/assets/misc
-	cp -Rv $(cinnamon_asset_panel_file) \
+	cp -Rv $(cinnamon_nokto_asset_panel_file) \
 		$(noktodir)/cinnamon/assets/panel
-	cp -Rv $(cinnamon_asset_switch_file) \
+	cp -Rv $(cinnamon_nokto_asset_switch_file) \
 		$(noktodir)/cinnamon/assets/switch
 endif
 
