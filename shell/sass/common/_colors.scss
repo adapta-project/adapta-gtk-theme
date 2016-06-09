@@ -65,10 +65,12 @@ $accent_active_fill_color: scale-color($accent_color, $alpha: -75%);
 //
 // Misc colors
 //
-$borders_color: scale-color(#000000, $alpha: -88%);
+$borders_color: if($nokto == 'false', scale-color(#000000, $alpha: -91%),
+                                      scale-color(#000000, $alpha: -89%));
 $borders_edge: scale-color(#000000, $alpha: -95%);
 $top_hilight: $borders_edge;
 $borders_highlight: scale-color(#FFFFFF, $alpha: -93%);
+$insensitive_borders_color: $borders_color;
 
 $link_color: #03A9F4;
 $link_visited_color: #9C27B0;
@@ -78,8 +80,6 @@ $error_color: #F44336;
 $success_color: #00E676;
 
 $suggested_color: #009688;
-
-$insensitive_borders_color: $borders_color;
 
 
 //
