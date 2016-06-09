@@ -7,7 +7,7 @@
 //
 // Foreground colors
 //
-$fg_color: #263238;
+$fg_color: if($nokto == 'false', #263238, #ECEFF1);
 $secondary_fg_color: scale-color($fg_color, $alpha: -25%);
 
 $dim_fg_color: scale-color($fg_color, $alpha: -60%);
@@ -21,7 +21,7 @@ $insensitive_secondary_fg_color: scale-color($secondary_fg_color, $alpha: -60%);
 //
 // Inverted foreground colors
 //
-$inverted_fg_color: #ECEFF1;
+$inverted_fg_color: if($nokto == 'false', #ECEFF1, #263238);
 $inverted_secondary_fg_color: scale-color($inverted_fg_color, $alpha: -25%);
 $inverted_dim_fg_color: scale-color($inverted_fg_color, $alpha: -60%);
 
@@ -29,9 +29,9 @@ $inverted_dim_fg_color: scale-color($inverted_fg_color, $alpha: -60%);
 //
 // Background colors
 //
-$bg_color: #FAFBFC;
-$base_color: #FFFFFF;
-$secondary_dark_color: #ECEFF1;
+$bg_color: if($nokto == 'false', #FAFBFC, #3E515A);
+$base_color: if($nokto == 'false', #FFFFFF, #445A64);
+$secondary_dark_color: if($nokto == 'false', #ECEFF1, 37474F);
 
 $fill_color: scale-color($fg_color, $alpha: -85%);
 $semi_fill_color: scale-color($fg_color, $alpha: -93%);
@@ -47,7 +47,8 @@ $insensitive_fill_color: scale-color($fill_color, $alpha: -60%);
 //
 // Inverted background colors
 //
-$inverted_bg_color: #3E515A;
+$inverted_bg_color: if($nokto == 'false', #3E515A,
+                                          mix(#FFFFFF, #ECEFF1, 75%));
 $inverted_base_color: #455A64;
 $inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
 
@@ -84,7 +85,7 @@ $insensitive_borders_color: $borders_color;
 //
 // OSD Foreground colors
 //
-$osd_fg_color: $inverted_fg_color;
+$osd_fg_color: if($nokto == 'false', $inverted_fg_color, $fg_color);
 $osd_secondary_fg_color: scale-color($osd_fg_color, $alpha: -25%);
 
 $osd_dim_fg_color: scale-color($osd_fg_color, $alpha: -50%);
@@ -97,7 +98,7 @@ $insensitive_osd_secondary_fg_color: scale-color($osd_secondary_fg_color, $alpha
 // OSD Background colors
 //
 $osd_bg_color: mix(#263238, #37474F, 75%);
-$osd_base_color: $inverted_base_color;
+$osd_base_color: if($nokto == 'false', $inverted_base_color, $bg_color);
 
 $osd_fill_color: scale-color($osd_fg_color, $alpha: -60%);
 $osd_semi_fill_color: scale-color($osd_fg_color, $alpha: -80%);
