@@ -105,6 +105,8 @@ $secondary_selected_bg_color: #4DD0E1;                          // = Cyan300
 $accent_color: #4DB6AC;                                         // = Teal300
 $secondary_accent_color: gtkopacity($accent_color, 0.9);
 $accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
+$drop_target_color: $accent_color;
+$drop_target_fill_color: gtkopacity($drop_target_color, 0.2);
 
 
 //
@@ -123,6 +125,8 @@ $borders_color: if($variant == 'light', gtkopacity(#000000, 0.09),
 $solid_light_borders_color: if($variant == 'light', #E5E9EC, #37474F);
 $solid_dark_borders_color: #242F35;
 $top_edge_border_color: #37474F;
+$paned_borders_color: if($variant == 'light', gtkopacity(#000000, 0.05),
+                                              gtkopacity(#000000, 0.06));
 
 $highlight_color: gtkopacity(#FFFFFF, 0.07);
 
