@@ -640,6 +640,11 @@ StScrollBar {
   border-top: 1px solid $base_color;
   background-color: $bg_color;
   box-shadow: $z-depth-3;
+
+  &:not(.popup-menu-boxpointer) {
+    border-top: 1px solid scale-color($osd_base_color, $alpha: -10%);
+    background-color: scale-color($osd_bg_color, $alpha: -10%);
+  }
 }
 
 .popup-separator-menu-item {
@@ -2229,9 +2234,9 @@ $legacy_icon_size: 24px;
 }
 
 .candidate-box {
-  transition-duration: 0s;
   padding: 0.3em 0.5em 0.3em 0.5em;
   border-radius: 2px;
+  transition-duration: 0;
   &:hover {
     background-color: $osd_semi_fill_color;
     color: $osd_fg_color;

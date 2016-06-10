@@ -614,6 +614,10 @@ StScrollBar {
   border-top: 1px solid #445A64;
   background-color: #3E515A;
   box-shadow: 0 9px 12px rgba(0, 0, 0, 0.4), 0 5px 5px rgba(0, 0, 0, 0.32), 0 3px 3px rgba(0, 0, 0, 0.26); }
+  .popup-menu-boxpointer:not(.popup-menu-boxpointer),
+  .candidate-popup-boxpointer:not(.popup-menu-boxpointer) {
+    border-top: 1px solid rgba(62, 81, 90, 0.9);
+    background-color: rgba(42, 55, 62, 0.9); }
 
 .popup-separator-menu-item {
   height: 1px;
@@ -2051,9 +2055,9 @@ StScrollBar {
   color: rgba(236, 239, 241, 0.4); }
 
 .candidate-box {
-  transition-duration: 0s;
   padding: 0.3em 0.5em 0.3em 0.5em;
-  border-radius: 2px; }
+  border-radius: 2px;
+  transition-duration: 0; }
   .candidate-box:hover {
     background-color: rgba(236, 239, 241, 0.07);
     color: #ECEFF1; }
