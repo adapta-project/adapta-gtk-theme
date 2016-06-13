@@ -1348,8 +1348,13 @@ toolbar {
   padding: rem(5.3px);
   background-color: $bg_color;
   color: $secondary_fg_color;
-  box-shadow: if($variant == 'light', $toolbar-shadow-light,
-                                      $toolbar-shadow-dark);
+
+  window > &,
+  window box &,
+  window grid & { // special case to draw fake-shadows
+    box-shadow: if($variant == 'light', $toolbar-shadow-light,
+                                        $toolbar-shadow-dark);
+  }
 
   &.vertical,
   .inline-toolbar &,
@@ -2305,10 +2310,12 @@ column-header.button.dnd { // for treeview-like derive widgets
 menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
-  box-shadow: $menubar-shadow;
   background-color: $inverted_dark_color;
-  color: $inverted_secondary_fg_color; // FIXME: Gtk+3 firefox needs this!
+  box-shadow: $menubar-shadow;
 
+  widget & { // FIXME: Gtk+3 firefox needs this!
+    color: $inverted_secondary_fg_color;
+  }
   .tiled &,
   .maximized & {
     background-color: $panel_bg_color;
@@ -2319,15 +2326,23 @@ menubar {
   > menuitem {
     min-height: rem(20px);
     padding: rem(5.3px) rem(8px) rem(6.7px);
-    color: $inverted_secondary_fg_color;
-    background-color: transparent;
-    &:hover { // Seems like it :hover even with keyboard focus
-      color: $inverted_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
-    }
-    &:disabled {
-      color: $insensitive_inverted_fg_color;
-      box-shadow: none;
+
+    window > &,
+    window box &,
+    window grid &,
+    window frame &,
+    window paned &,
+    widget & { // FIXME: do not set foregrond at top-level
+      color: $inverted_secondary_fg_color;
+      background-color: transparent;
+      &:hover { // Seems like it :hover even with keyboard focus
+        color: $inverted_fg_color;
+        box-shadow: inset 0 -2px $selected_bg_color;
+      }
+      &:disabled {
+        color: $insensitive_inverted_fg_color;
+        box-shadow: none;
+      }
     }
   }
 }
