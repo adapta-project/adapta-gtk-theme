@@ -6935,7 +6935,7 @@ GfCandidatePopup .budgie-panel ShowDesktopApplet.linked > .button, .budgie-panel
   padding: 0;
   border: none;
   color: rgba(38, 50, 56, 0.75);
-  background-color: rgba(229, 233, 236, 0.9); }
+  background-color: #f7f9f9; }
   .raven:dir(ltr) {
     box-shadow: -1px 0 1px rgba(0, 0, 0, 0.12); }
   .raven:dir(rtl) {
@@ -6945,6 +6945,29 @@ GfCandidatePopup .budgie-panel ShowDesktopApplet.linked > .button, .budgie-panel
     color: rgba(38, 50, 56, 0.5);
     background-color: transparent;
     font-weight: 700; }
+    .raven .raven-header.top {
+      background-color: #2a373e;
+      color: #ECEFF1;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.2); }
+      .raven .raven-header.top .button.image-button,
+      .raven .raven-header.top .button.text-button {
+        color: rgba(236, 239, 241, 0.75); }
+        .raven .raven-header.top .button.image-button:hover, .raven .raven-header.top .button.image-button:active, .raven .raven-header.top .button.image-button:checked,
+        .raven .raven-header.top .button.text-button:hover,
+        .raven .raven-header.top .button.text-button:active,
+        .raven .raven-header.top .button.text-button:checked {
+          color: #ECEFF1; }
+        .raven .raven-header.top .button.image-button:insensitive,
+        .raven .raven-header.top .button.text-button:insensitive {
+          color: rgba(236, 239, 241, 0.3); }
+    .raven .raven-header:not(.top):not(.bottom):not(:last-child):dir(ltr) {
+      box-shadow: inset 2px 0 0 #4DB6AC; }
+    .raven .raven-header:not(.top):not(.bottom):not(:last-child):dir(rtl) {
+      box-shadow: inset -2px 0 0 #4DB6AC; }
+    .raven .raven-header:not(.top):not(.bottom):not(:last-child) > .label,
+    .raven .raven-header:not(.top):not(.bottom):not(:last-child) > GtkBox > .label,
+    .raven .raven-header:not(.top):not(.bottom):not(:last-child) > GtkBox > GtkImage {
+      color: #4DB6AC; }
   .raven .raven-background {
     border-width: 1px 0 0;
     border-style: solid none none;
@@ -6953,7 +6976,7 @@ GfCandidatePopup .budgie-panel ShowDesktopApplet.linked > .button, .budgie-panel
     box-shadow: inset 0 1px 2px -1px rgba(0, 0, 0, 0.02), inset 0 2px 3px -2px rgba(0, 0, 0, 0.07); }
   .raven .powerstrip {
     border-top: 1px solid rgba(0, 0, 0, 0.09);
-    background-color: #2a373e;
+    background-color: #e5e9ec;
     box-shadow: inset 0 1px 2px -1px rgba(0, 0, 0, 0.02), inset 0 2px 3px -2px rgba(0, 0, 0, 0.07); }
     .raven .powerstrip .button {
       padding: 1em;
