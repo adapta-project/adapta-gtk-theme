@@ -236,7 +236,7 @@ $orientation: ((top, bottom),
   padding: 0;
   border: none;
   color: $secondary_fg_color;
-  background-color: gtkopacity($dark_color, 0.9);
+  background-color: $secondary_dark_color;
 
   // mixin with drop-shadows to avoid the raven edge shine-through
   &:dir(ltr) { box-shadow: -1px 0 1px rgba(0, 0, 0, 0.12); }
@@ -247,6 +247,31 @@ $orientation: ((top, bottom),
     color: $tertiary_fg_color;
     background-color: transparent;
     font-weight: 700;
+
+    &.top { // always use dark variant
+      background-color: $inverted_dark_color;
+      color: $inverted_fg_color;
+      box-shadow: $z-depth-2;
+
+      button.image-button,
+      button.text-button {
+        color: $inverted_secondary_fg_color;
+        &:hover,
+        &:active,
+        &:checked { color: $inverted_fg_color; }
+        &:disabled { color: $insensitive_inverted_fg_color; }
+      }
+    }
+
+    // last-child is constructed without header-label
+    &:not(.top):not(.bottom):not(:last-child) {
+      &:dir(ltr) { box-shadow: inset 2px 0 0 $accent_color; }
+      &:dir(rtl) { box-shadow: inset -2px 0 0 $accent_color; }
+
+      > label,
+      > box > label,
+      > box > image { color: $accent_color; }
+    }
   }
 
   .raven-background {
@@ -258,9 +283,10 @@ $orientation: ((top, bottom),
                                         $inline-shadow-dark);
   }
 
-  .powerstrip { // always use dark variant
+  .powerstrip {
     border-top: 1px solid $borders_color;
-    background-color: $inverted_dark_color;
+    background-color: if($variant == 'light', $dark_color,
+                      mix($dark_color, $secondary_dark_color, 50%));
     box-shadow: if($variant == 'light', $inline-shadow-light,
                                         $inline-shadow-dark);
 
