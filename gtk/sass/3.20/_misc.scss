@@ -957,3 +957,25 @@ window > box.vertical > box.vertical > widget > grid.vertical {
   }
 }
 
+
+/******************
+ * Gnome-Terminal *
+ ******************/
+
+// Re-define menubar node to fix side-effect
+// of the workarounds for LibreOffice
+terminal-window {
+  menubar > menuitem {
+    color: $inverted_secondary_fg_color;
+    background-color: transparent;
+    &:hover { // Seems like it :hover even with keyboard focus
+      color: $inverted_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+    &:disabled {
+      color: $insensitive_inverted_fg_color;
+      box-shadow: none;
+    }
+  }
+}
+
