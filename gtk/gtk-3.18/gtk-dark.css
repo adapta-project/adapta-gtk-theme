@@ -1190,8 +1190,9 @@ GtkComboBox {
   padding: 0.4em;
   border-width: 0;
   background-color: #3e515a;
-  color: rgba(236, 239, 241, 0.75);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), inset 0 4px 3px -4px rgba(0, 0, 0, 0.22), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
+  color: rgba(236, 239, 241, 0.75); }
+  GtkWindow > .toolbar, GtkWindow GtkBox .toolbar, GtkWindow GtkGrid .toolbar, GtkWindow GtkPaned .toolbar {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), inset 0 4px 3px -4px rgba(0, 0, 0, 0.22), inset 0 8px 3px -5px rgba(0, 0, 0, 0.24); }
   .toolbar.vertical, .inline-toolbar .toolbar, GtkPaned .toolbar, GtkEventBox .toolbar, GtkGrid .toolbar.primary-toolbar {
     box-shadow: none; }
   .osd .toolbar, .toolbar.osd, .app-notification,
@@ -2337,21 +2338,25 @@ column-header.button.dnd, column-header .button.dnd {
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
-  box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26), inset 0 5px 3px -5px rgba(0, 0, 0, 0.39), inset 0 -1px rgba(0, 0, 0, 0.11);
   background-color: #2a373e;
-  color: rgba(236, 239, 241, 0.75); }
-  .menubar > .menuitem {
-    padding: 0.4em 0.6em;
+  box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26), inset 0 5px 3px -5px rgba(0, 0, 0, 0.39), inset 0 -1px rgba(0, 0, 0, 0.11); }
+  GtkWindow GtkWidget .menubar {
     color: rgba(236, 239, 241, 0.75); }
-    .menubar > .menuitem:hover {
-      color: #ECEFF1;
-      box-shadow: inset 0 -2px #00BCD4; }
-    .menubar > .menuitem:insensitive {
-      color: rgba(236, 239, 241, 0.3);
-      box-shadow: none; }
   .tiled .menubar, .maximized .menubar {
     background-color: #13191c;
     box-shadow: none; }
+  .menubar > .menuitem {
+    padding: 0.4em 0.6em; }
+    .menubar > .menuitem > .label {
+      color: rgba(236, 239, 241, 0.75); }
+    .menubar > .menuitem:hover {
+      box-shadow: inset 0 -2px #00BCD4; }
+      .menubar > .menuitem:hover > .label {
+        color: #ECEFF1; }
+    .menubar > .menuitem:insensitive {
+      box-shadow: none; }
+      .menubar > .menuitem:insensitive > .label {
+        color: rgba(236, 239, 241, 0.3); }
 
 .menu {
   margin: 4px 0;
@@ -2367,17 +2372,22 @@ column-header.button.dnd, column-header .button.dnd {
   .menu .menuitem {
     transition: none;
     padding: 0.4em 0.4em 0.5em;
-    color: rgba(236, 239, 241, 0.75);
     font: initial;
     text-shadow: none; }
+    .menu .menuitem, .menu .menuitem > .label, .menu .menuitem > GtkImage {
+      color: rgba(236, 239, 241, 0.75); }
     .menu .menuitem:hover {
       transition: none;
-      color: #ECEFF1;
       background-color: alpha(currentColor, 0.1); }
-    .menu .menuitem:insensitive {
+      .menu .menuitem:hover, .menu .menuitem:hover > .label, .menu .menuitem:hover > GtkImage {
+        color: #ECEFF1; }
+    .menu .menuitem:insensitive, .menu .menuitem:insensitive > .label, .menu .menuitem:insensitive > GtkImage {
       color: rgba(236, 239, 241, 0.3); }
     .menu .menuitem.arrow {
-      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+      color: rgba(236, 239, 241, 0.75); }
+      .menu .menuitem.arrow:hover {
+        color: #ECEFF1; }
       .menu .menuitem.arrow:insensitive {
         color: rgba(236, 239, 241, 0.3); }
     .menu .menuitem.arrow:dir(rtl) {
