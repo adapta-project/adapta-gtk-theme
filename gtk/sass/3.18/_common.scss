@@ -1054,16 +1054,12 @@ GtkComboBox {
   background-color: $bg_color;
   color: $secondary_fg_color;
 
-  GtkWindow > &,
-  GtkWindow GtkBox &,
-  GtkWindow GtkGrid &,
-  GtkWindow GtkPaned & { // special case to draw fake-shadows
+  GtkWindow &:not(.vertical):not(.inline-toolbar) {
+    // special case to draw fake-shadows
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
                                         $toolbar-shadow-dark);
   }
 
-  &.vertical,
-  .inline-toolbar &,
   GtkPaned &,
   GtkEventBox &,
   GtkGrid &.primary-toolbar { // stop drawing fake-shadows
