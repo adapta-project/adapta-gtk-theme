@@ -2912,7 +2912,7 @@ menubar {
   padding: 0;
   background-color: #2a373e;
   box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26), inset 0 5px 3px -5px rgba(0, 0, 0, 0.39), inset 0 -1px rgba(0, 0, 0, 0.11); }
-  widget .menubar, widget
+  window > widget > .menubar, window > widget >
   menubar {
     color: rgba(236, 239, 241, 0.75); }
   .tiled .menubar, .maximized .menubar, .tiled
@@ -2921,37 +2921,38 @@ menubar {
     background-color: #13191c;
     box-shadow: none;
     transition: none; }
+  .menubar > .menuitem,
   .menubar > menuitem,
+  menubar > .menuitem,
   menubar > menuitem {
     min-height: 1.50376rem;
-    padding: 0.3985rem 0.6015rem 0.50376rem; }
-    window > .menubar > menuitem, window box .menubar > menuitem, window grid .menubar > menuitem, window frame .menubar > menuitem, window paned .menubar > menuitem, widget .menubar > menuitem, window >
-    menubar > menuitem, window box
-    menubar > menuitem, window grid
-    menubar > menuitem, window frame
-    menubar > menuitem, window paned
-    menubar > menuitem, widget
-    menubar > menuitem {
-      color: rgba(236, 239, 241, 0.75);
-      background-color: transparent; }
-      window > .menubar > menuitem:hover, window box .menubar > menuitem:hover, window grid .menubar > menuitem:hover, window frame .menubar > menuitem:hover, window paned .menubar > menuitem:hover, widget .menubar > menuitem:hover, window >
-      menubar > menuitem:hover, window box
-      menubar > menuitem:hover, window grid
-      menubar > menuitem:hover, window frame
-      menubar > menuitem:hover, window paned
-      menubar > menuitem:hover, widget
-      menubar > menuitem:hover {
-        color: #ECEFF1;
-        box-shadow: inset 0 -2px #00BCD4; }
-      window > .menubar > menuitem:disabled, window box .menubar > menuitem:disabled, window grid .menubar > menuitem:disabled, window frame .menubar > menuitem:disabled, window paned .menubar > menuitem:disabled, widget .menubar > menuitem:disabled, window >
-      menubar > menuitem:disabled, window box
-      menubar > menuitem:disabled, window grid
-      menubar > menuitem:disabled, window frame
-      menubar > menuitem:disabled, window paned
-      menubar > menuitem:disabled, widget
-      menubar > menuitem:disabled {
-        color: rgba(236, 239, 241, 0.3);
-        box-shadow: none; }
+    padding: 0.3985rem 0.6015rem 0.50376rem;
+    background-color: transparent; }
+    .menubar > .menuitem > label,
+    .menubar > menuitem > label,
+    menubar > .menuitem > label,
+    menubar > menuitem > label {
+      color: rgba(236, 239, 241, 0.75); }
+    .menubar > .menuitem:hover,
+    .menubar > menuitem:hover,
+    menubar > .menuitem:hover,
+    menubar > menuitem:hover {
+      box-shadow: inset 0 -2px #00BCD4; }
+      .menubar > .menuitem:hover > label,
+      .menubar > menuitem:hover > label,
+      menubar > .menuitem:hover > label,
+      menubar > menuitem:hover > label {
+        color: #ECEFF1; }
+    .menubar > .menuitem:disabled,
+    .menubar > menuitem:disabled,
+    menubar > .menuitem:disabled,
+    menubar > menuitem:disabled {
+      box-shadow: none; }
+      .menubar > .menuitem:disabled > label,
+      .menubar > menuitem:disabled > label,
+      menubar > .menuitem:disabled > label,
+      menubar > menuitem:disabled > label {
+        color: rgba(236, 239, 241, 0.3); }
 
 .menu,
 .context-menu,
@@ -2977,25 +2978,67 @@ menu {
     min-height: 1.50376rem;
     min-width: 3.00752rem;
     padding: 0.3985rem 0.6015rem 0.50376rem;
-    color: rgba(236, 239, 241, 0.75);
     font: initial;
     text-shadow: none;
     transition: none; }
+    .menu .menuitem, .menu .menuitem > label, .menu .menuitem > arrow,
+    .menu menuitem,
+    .menu menuitem > label,
+    .menu menuitem > arrow,
+    .context-menu .menuitem,
+    .context-menu .menuitem > label,
+    .context-menu .menuitem > arrow,
+    .context-menu menuitem,
+    .context-menu menuitem > label,
+    .context-menu menuitem > arrow,
+    menu .menuitem,
+    menu .menuitem > label,
+    menu .menuitem > arrow,
+    menu menuitem,
+    menu menuitem > label,
+    menu menuitem > arrow {
+      color: rgba(236, 239, 241, 0.75); }
     .menu .menuitem:hover,
     .menu menuitem:hover,
     .context-menu .menuitem:hover,
     .context-menu menuitem:hover,
     menu .menuitem:hover,
     menu menuitem:hover {
-      color: #ECEFF1;
       background-color: alpha(currentColor, 0.1);
       transition: none; }
-    .menu .menuitem:disabled,
+      .menu .menuitem:hover, .menu .menuitem:hover > label, .menu .menuitem:hover > arrow,
+      .menu menuitem:hover,
+      .menu menuitem:hover > label,
+      .menu menuitem:hover > arrow,
+      .context-menu .menuitem:hover,
+      .context-menu .menuitem:hover > label,
+      .context-menu .menuitem:hover > arrow,
+      .context-menu menuitem:hover,
+      .context-menu menuitem:hover > label,
+      .context-menu menuitem:hover > arrow,
+      menu .menuitem:hover,
+      menu .menuitem:hover > label,
+      menu .menuitem:hover > arrow,
+      menu menuitem:hover,
+      menu menuitem:hover > label,
+      menu menuitem:hover > arrow {
+        color: #ECEFF1; }
+    .menu .menuitem:disabled, .menu .menuitem:disabled > label, .menu .menuitem:disabled > arrow,
     .menu menuitem:disabled,
+    .menu menuitem:disabled > label,
+    .menu menuitem:disabled > arrow,
     .context-menu .menuitem:disabled,
+    .context-menu .menuitem:disabled > label,
+    .context-menu .menuitem:disabled > arrow,
     .context-menu menuitem:disabled,
+    .context-menu menuitem:disabled > label,
+    .context-menu menuitem:disabled > arrow,
     menu .menuitem:disabled,
-    menu menuitem:disabled {
+    menu .menuitem:disabled > label,
+    menu .menuitem:disabled > arrow,
+    menu menuitem:disabled,
+    menu menuitem:disabled > label,
+    menu menuitem:disabled > arrow {
       color: rgba(236, 239, 241, 0.3); }
     .menu .menuitem arrow,
     .menu menuitem arrow,
