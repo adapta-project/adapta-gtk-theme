@@ -4,6 +4,10 @@
 //
 
 
+// Import key colour-scheme defined at build-time.
+@import 'key_colors';
+
+
 //
 // Foreground colors
 //
@@ -38,7 +42,7 @@ $semi_fill_color: scale-color($fg_color, $alpha: -93%);
 
 $panel_bg_color: mix(#263238, #000000, 50%);
 
-$selected_bg_color: #00BCD4;
+$selected_bg_color: $key_selection_color;
 
 $insensitive_bg_color: mix($bg_color, $base_color, 60%);
 $insensitive_fill_color: scale-color($fill_color, $alpha: -60%);
@@ -55,7 +59,7 @@ $inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
 //
 // Accent colors
 //
-$accent_color: #4DB6AC;
+$accent_color: $key_accent_color;
 $secondary_accent_color: scale-color($accent_color, $alpha: -20%);
 $accent_fill_color: scale-color($accent_color, $alpha: -90%);
 $accent_active_fill_color: scale-color($accent_color, $alpha: -75%);
@@ -78,7 +82,7 @@ $warning_color: #FF9800;
 $error_color: #F44336;
 $success_color: #00E676;
 
-$suggested_color: #009688;
+$suggested_color: $key_suggestion_color;
 
 
 //

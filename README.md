@@ -1,6 +1,5 @@
 Adapta
 =========
-<img src=".github/img/Button.gif" alt="Button" align="right" />
 An adaptive Gtk+ theme based on Material Design Guidelines.
 Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Plat) at the start.
 
@@ -65,7 +64,7 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
  sudo apt install adapta-gtk-theme
  ```
 
-2. select `Adapta` or `Adapta-Nokto` via Gnome-Tweak-Tool.
+2. select `Adapta` or `Adapta-Nokto` via proper tools.
 
  > **Note:**
  >
@@ -89,7 +88,25 @@ Installation from Git Source
  rm -rf ~/.themes/{Adapta,Adapta-Nokto}
  ```
 
-2. Check `autoconf`, `automake` and `pkg-config` (`pkgconfig`) are installed.
+2. Check build-requirements:
+ Today Adapta bundles neither pre-generated stylesheets nor PNG images.
+ So users and/or contirbutors should generate proper CSSs and PNGs at build-time.
+
+ ```
+ * autoconf
+ * automake
+ * pkg-config (pkgconfig)
+ * libglib-2.0-dev (glib2)  >= 2.48.0
+ * libxml2-utils (libxml2)
+ * ruby-bundler             >= 1.11
+ * ruby-sass                >= 3.4.21
+ * Inkscape
+ ```
+
+ > **Note:**
+ >   * Adapta employs **Gem** generator for SASS/SCSS via `bundle` and `sass`.
+ >   * Adapta uses `inkscape` to generate all of PNG files.
+ >   * Adapta uses `glib-compile-resources` to compile gresource file for Gnome-Shell.
 
 3. Build and install system-wide:
 
@@ -102,7 +119,9 @@ Installation from Git Source
  > **Note:**
  >   * Default prefix is `/usr`
  >   * `Adapta-Nokto` Gtk+ 2.0 dark variant is installed as default
- >   * `make` actually does nothing (for future release)
+ >   * `make` generates proper CSSs and PNGs to be installed.
+ >     And it will take about 5min to 15min to build,
+ >     for example, Ubuntu's build-server actually does 10min...
  >   * `sudo make install` installs multiple versioned theme and Gtk+ automatically selects proper versioned one when running.
 
 4. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
@@ -126,6 +145,29 @@ Installation from Git Source
 
  > **Note:**
  >   * As default, Gtk+ 3.21.x support is disabled.
+
+6. If users want to change default 4 **Key-Colors**, please pass these options:
+
+ ```
+ --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500)
+ --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300)
+ --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300)
+ --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500)
+ ```
+
+ > **Note:**
+ >   * Color-codes are defined as `# + 6 HEX`s (Standard RGB definitions in HTML codes).
+ >     And uppercases are strongly recommended in Adapta code-base.
+ >   * Material Desing Color Palette is here: [External Link](https://www.google.com/design/spec/style/color.html#color-color-palette)
+ >   * Example) If you would like to use 'Teal500' as selection_color, try this:
+ >
+ >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#4DB6AC```
+ >
+ >     This can switch to almost-Teal key colors.
+ >   * Basically `selection_color` and `suggestion_color` should be with `500` colors,
+ >     and `second_selection_color` and `accent_color` should be with `300` colors.
+ >   * While doing `make`, Adapta changes those 4 colors in all stylesheets and images,
+ >     and `make clean` cleans up all generated files from source directories.
 
 Extra Browser Support
 ---------------------

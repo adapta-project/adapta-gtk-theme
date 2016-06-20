@@ -20,6 +20,10 @@
 //
 
 
+// Import key colour-scheme defined at build-time.
+@import 'key_colors';
+
+
 //
 // Foreground colors
 //
@@ -94,15 +98,18 @@ $inverted_dark_color: mix(#263238, #37474F, 75%);               // = 900 _ 800
 // Selection (primary) colors
 //
 
-$selected_bg_color: #00BCD4;                                    // = Cyan500
-$secondary_selected_bg_color: #4DD0E1;                          // = Cyan300
+// Default: #00BCD4                                             // = Cyan500
+$selected_bg_color: $key_selection_color;
+// Default: #4DD0E1                                             // = Cyan300
+$secondary_selected_bg_color: $key_secondary_selection_color;
 
 
 //
 // Accent (secondary) colors
 //
 
-$accent_color: #4DB6AC;                                         // = Teal300
+// Default: #4DB6AC                                             // = Teal300
+$accent_color: $key_accent_color;
 $secondary_accent_color: gtkopacity($accent_color, 0.9);
 $accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
 $drop_target_color: $accent_color;
@@ -142,7 +149,8 @@ $warning_color: #FF9800;                                        // = Orange500
 $error_color: #F44336;                                          // = Red500
 $success_color: #00E676;                                        // = GreenA400
 
-$suggested_color: #009688;                                      // = Teal500
+// Default: #009688                                             // = Teal500
+$suggested_color: $key_suggestion_color;
 $destructive_color: #FF5252;                                    // = RedA200
 $selection_color: #80DEEA;                                      // = Cyan200
 

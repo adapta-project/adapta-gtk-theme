@@ -18,6 +18,28 @@ ADAPTA_OPTION([XFCE],      [xfce],      [XFce],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)], [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],       [disable])
 
+AC_PATH_PROG([BUNDLE], [bundle])
+if test x"$BUNDLE" = x; then
+	AC_MSG_ERROR(['bundle' not found.])
+fi
+
+AC_PATH_PROG([SASS], [sass])
+if test x"$SASS" = x; then
+	AC_MSG_ERROR(['sass' not found.])
+fi
+
+AC_PATH_PROG([INKSCAPE], [inkscape])
+if test x"$INKSCAPE" = x; then
+	AC_MSG_ERROR(['inkscape' not found.])
+fi
+
+AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
+if test x"$GLIB_COMPILE_RESOURCES" = x; then
+	AC_MSG_ERROR(['glib-compile-resources' not found.])
+fi
+
+ADAPTA_COLOR_SCHEME
+
 AC_CONFIG_FILES([ \
 	Makefile \
 	gtk/Makefile \
@@ -34,10 +56,19 @@ AC_MSG_RESULT([
         | Supported Gtk+ version: 3.20 & 3.18
         -----------------------------------------------------------
 
-         prefix:               ${prefix}
-         datarootdir:          ${datarootdir}
-         target directories:   ${datarootdir}/themes/Adapta
-                               ${datarootdir}/themes/Adapta-Nokto
+         prefix:                ${prefix}
+         datarootdir:           ${datarootdir}
+         target directories:    ${datarootdir}/themes/Adapta
+                                ${datarootdir}/themes/Adapta-Nokto
+         bundle:                $BUNDLE
+         sass:                  $SASS
+         inkscape:              $INKSCAPE
+         glib-compile-resources $GLIB_COMPILE_RESOURCES
+
+         selection-color:       $SELECTION (default: $selection_default)
+         2nd-selection-color:   $SECOND_SELECTION (default: $second_selection_default)
+         accent-color:          $ACCENT (default: $accent_default)
+         suggestion-color:      $SUGGESTION (default: $suggestion_default)
 
         -----------------------------------------------------------
         | Default DE support

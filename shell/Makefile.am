@@ -275,6 +275,68 @@ xfce_file = \
 	$(xfcedir)/flat-button.svg \
 	$(xfcedir)/gtkrc
 
+# ****************************
+# * Generate CSS stylesheets *
+# ****************************
+
+all:
+	cd $(srcdir)/sass && bundle exec sass --update --sourcemap=none --watch \
+		gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+		gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+		gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+		gnome-shell/classic.scss:../gnome-shell/extensions/window-list/classic.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+		gnome-shell/workspaces-to-dock.scss:../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
+
+	$(MKDIR_P) $(srcdir)/gnome-shell/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(srcdir)/gnome-shell/extensions//workspaces-to-dock/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets/dot
+	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
+
+	glib-compile-resources --sourcedir=$(shelldir) \
+		$(shelldir)/gnome-shell-theme.gresource.xml
+	glib-compile-resources --sourcedir=$(shellnoktodir) \
+		$(shellnoktodir)/gnome-shell-theme.gresource.xml
+
+if ENABLE_CINNAMON
+	cd $(srcdir)/sass && bundle exec sass --update --sourcemap=none --watch \
+		cinnamon/cinnamon.scss:../cinnamon/cinnamon.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+		cinnamon/cinnamon-dark.scss:../cinnamon-nokto/cinnamon.css
+
+	$(MKDIR_P) $(srcdir)/cinnamon/assets
+	$(MKDIR_P) $(srcdir)/cinnamon/assets/checkbox
+	$(MKDIR_P) $(srcdir)/cinnamon/assets/menu
+	$(MKDIR_P) $(srcdir)/cinnamon/assets/misc
+	$(MKDIR_P) $(srcdir)/cinnamon/assets/panel
+	$(MKDIR_P) $(srcdir)/cinnamon/assets/switch
+	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets
+	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/checkbox
+	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/menu
+	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/misc
+	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/panel
+	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/switch
+	cd $(srcdir)/asset && ./clone-assets-cinnamon.sh
+endif
+
+if ENABLE_UNITY
+	$(MKDIR_P) $(srcdir)/unity
+	cd $(srcdir)/asset && ./clone-assets-unity.sh
+endif
+
+if ENABLE_XFCE
+	cd $(srcdir)/asset && ./clone-assets-xfce.sh
+endif
+
+# *****************
+# * Install files *
+# *****************
+
 install-data-local:
 	$(MKDIR_P) $(adaptadir)/gnome-shell
 	$(MKDIR_P) $(adaptadir)/gnome-shell/assets
@@ -364,6 +426,10 @@ if ENABLE_XFCE
 	ln -sf ../Adapta/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
 endif
 
+# *******************
+# * Uninstall files *
+# *******************
+
 uninstall-local:
 	test -e $(noktodir)/gnome-shell && rm -rfv $(noktodir)/gnome-shell
 	test -e $(adaptadir)/gnome-shell && rm -rfv $(adaptadir)/gnome-shell
@@ -384,3 +450,74 @@ if ENABLE_XFCE
 	test -e $(adaptadir)/xfce-notify-4.0 && \
 		rm -rfv $(adaptadir)/xfce-notify-4.0
 endif
+
+# ****************************
+# * Clean up generated files *
+# ****************************
+
+CLEANFILES = \
+	$(srcdir)/gnome-shell/gnome-shell.css \
+	$(srcdir)/gnome-shell-nokto/gnome-shell.css \
+	$(srcdir)/gnome-shell/extensions/window-list/stylesheet.css \
+	$(srcdir)/gnome-shell/extensions/window-list/classic.css \
+	$(srcdir)/gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css \
+	$(srcdir)/gnome-shell/gnome-shell-theme.gresource \
+	$(srcdir)/gnome-shell-nokto/gnome-shell-theme.gresource \
+	$(srcdir)/gnome-shell/*.svg \
+	$(srcdir)/gnome-shell/*.png \
+	$(srcdir)/gnome-shell/assets/*.svg \
+	$(srcdir)/gnome-shell/assets/dot/*.svg \
+	$(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets/*.svg \
+	$(srcdir)/gnome-shell-nokto/*.svg \
+	$(srcdir)/gnome-shell-nokto/*.png \
+	$(srcdir)/gnome-shell-nokto/assets/*.svg \
+	$(srcdir)/gnome-shell-nokto/assets/dot/*.svg \
+	$(srcdir)/sass/common/_key_colors.scss \
+	$(srcdir)/asset/assets-gnome-shell/common/toggle-on-hover.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/toggle-on.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/checkbox-hover.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/checkbox.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/corner-ripple-ltr.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/corner-ripple-rtl.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/dash-placeholder.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/go-down.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/go-up.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/media-control-active.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/media-control-hover.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/more-results.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/window-close-active.svg \
+	$(srcdir)/asset/assets-gnome-shell/dot/*.svg \
+	$(srcdir)/asset/assets-gnome-shell/workspaces-to-dock/*.svg
+if ENABLE_CINNAMON
+CLEANFILES += \
+	$(srcdir)/cinnamon/cinnamon.css \
+	$(srcdir)/cinnamon-nokto/cinnamon.css \
+	$(srcdir)/cinnamon/assets/*/*.svg \
+	$(srcdir)/cinnamon-nokto/assets/*/*.svg \
+	$(srcdir)/asset/assets-cinnamon/common/checkbox/*.svg \
+	$(srcdir)/asset/assets-cinnamon/common/misc/add-workspace-active.svg \
+	$(srcdir)/asset/assets-cinnamon/common/misc/close-active.svg \
+	$(srcdir)/asset/assets-cinnamon/common/misc/corner-ripple.svg \
+	$(srcdir)/asset/assets-cinnamon/common/panel/activities-active.svg \
+	$(srcdir)/asset/assets-cinnamon/common/panel/window-list-active-bottom.svg \
+	$(srcdir)/asset/assets-cinnamon/common/panel/window-list-active-top.svg \
+	$(srcdir)/asset/assets-cinnamon/common/switch/switch-on.svg \
+	$(srcdir)/asset/assets-cinnamon/light/misc/message.svg \
+	$(srcdir)/asset/assets-cinnamon/nokto/misc/message.svg
+endif
+if ENABLE_UNITY
+CLEANFILES += \
+	$(srcdir)/unity/*.svg \
+	$(srcdir)/asset/assets-unity/close_focused_pressed.svg \
+	$(srcdir)/asset/assets-unity/progress_bar_fill.svg \
+	$(srcdir)/asset/assets-unity/progress_bar_trough.svg
+endif
+if ENABLE_XFCE
+CLEANFILES += \
+	$(srcdir)/xfce-notify-4.0/*.svg \
+	$(srcdir)/asset/assets-xfce/flat-button-active.svg \
+	$(srcdir)/asset/assets-xfce/flat-button-hover.svg
+endif
+
+DISTCLEANFILES = \
+	$(CLEANFILES)

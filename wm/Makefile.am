@@ -46,48 +46,77 @@ metacity_file = \
 
 xfwmdir = $(srcdir)/xfwm4
 xfwm_file = \
-	$(xfwmdir)/close-active.xpm \
-	$(xfwmdir)/close-inactive.xpm \
-	$(xfwmdir)/close-prelight.xpm \
-	$(xfwmdir)/close-pressed.xpm \
-	$(xfwmdir)/hide-active.xpm \
-	$(xfwmdir)/hide-inactive.xpm \
-	$(xfwmdir)/hide-prelight.xpm \
-	$(xfwmdir)/hide-pressed.xpm \
-	$(xfwmdir)/maximize-active.xpm \
-	$(xfwmdir)/maximize-inactive.xpm \
-	$(xfwmdir)/maximize-prelight.xpm \
-	$(xfwmdir)/maximize-pressed.xpm \
-	$(xfwmdir)/menu-active.xpm \
-	$(xfwmdir)/menu-inactive.xpm \
-	$(xfwmdir)/menu-prelight.xpm \
-	$(xfwmdir)/menu-pressed.xpm \
-	$(xfwmdir)/shade-active.xpm \
-	$(xfwmdir)/shade-inactive.xpm \
-	$(xfwmdir)/shade-prelight.xpm \
-	$(xfwmdir)/shade-pressed.xpm \
-	$(xfwmdir)/stick-active.xpm \
-	$(xfwmdir)/stick-inactive.xpm \
-	$(xfwmdir)/stick-prelight.xpm \
-	$(xfwmdir)/stick-pressed.xpm \
+	$(xfwmdir)/close-active.png \
+	$(xfwmdir)/close-inactive.png \
+	$(xfwmdir)/close-prelight.png \
+	$(xfwmdir)/close-pressed.png \
+	$(xfwmdir)/hide-active.png \
+	$(xfwmdir)/hide-inactive.png \
+	$(xfwmdir)/hide-prelight.png \
+	$(xfwmdir)/hide-pressed.png \
+	$(xfwmdir)/maximize-active.png \
+	$(xfwmdir)/maximize-inactive.png \
+	$(xfwmdir)/maximize-prelight.png \
+	$(xfwmdir)/maximize-pressed.png \
+	$(xfwmdir)/menu-active.png \
+	$(xfwmdir)/menu-inactive.png \
+	$(xfwmdir)/menu-prelight.png \
+	$(xfwmdir)/menu-pressed.png \
+	$(xfwmdir)/shade-active.png \
+	$(xfwmdir)/shade-inactive.png \
+	$(xfwmdir)/shade-prelight.png \
+	$(xfwmdir)/shade-pressed.png \
+	$(xfwmdir)/stick-active.png \
+	$(xfwmdir)/stick-inactive.png \
+	$(xfwmdir)/stick-prelight.png \
+	$(xfwmdir)/stick-pressed.png \
 	$(xfwmdir)/themerc \
-	$(xfwmdir)/title-1-active-shaded.xpm \
-	$(xfwmdir)/title-1-active.xpm \
-	$(xfwmdir)/title-1-inactive.xpm \
-	$(xfwmdir)/title-2-active.xpm \
-	$(xfwmdir)/title-2-inactive.xpm \
-	$(xfwmdir)/title-3-active.xpm \
-	$(xfwmdir)/title-3-inactive.xpm \
-	$(xfwmdir)/title-4-active.xpm \
-	$(xfwmdir)/title-4-inactive.xpm \
-	$(xfwmdir)/title-5-active.xpm \
-	$(xfwmdir)/title-5-inactive.xpm \
-	$(xfwmdir)/top-left-active-shaded.xpm \
-	$(xfwmdir)/top-left-active.xpm \
-	$(xfwmdir)/top-left-inactive.xpm \
-	$(xfwmdir)/top-right-active-shaded.xpm \
-	$(xfwmdir)/top-right-active.xpm \
-	$(xfwmdir)/top-right-inactive.xpm
+	$(xfwmdir)/title-1-active-shaded.png \
+	$(xfwmdir)/title-1-active.png \
+	$(xfwmdir)/title-1-inactive.png \
+	$(xfwmdir)/title-2-active.png \
+	$(xfwmdir)/title-2-inactive.png \
+	$(xfwmdir)/title-3-active.png \
+	$(xfwmdir)/title-3-inactive.png \
+	$(xfwmdir)/title-4-active.png \
+	$(xfwmdir)/title-4-inactive.png \
+	$(xfwmdir)/title-5-active.png \
+	$(xfwmdir)/title-5-inactive.png \
+	$(xfwmdir)/top-left-active-shaded.png \
+	$(xfwmdir)/top-left-active.png \
+	$(xfwmdir)/top-left-inactive.png \
+	$(xfwmdir)/top-right-active-shaded.png \
+	$(xfwmdir)/top-right-active.png \
+	$(xfwmdir)/top-right-inactive.png
+
+# *******************************************
+# * Generate PNG images and clone SVG files *
+# *******************************************
+
+all:
+if ENABLE_FLASHBACK
+	cd $(srcdir)/asset && ./clone-assets-metacity.sh
+endif
+
+if ENABLE_CINNAMON
+if !ENABLE_FLASHBACK
+	cd $(srcdir)/asset && ./clone-assets-metacity.sh
+endif
+endif
+
+if ENABLE_UNITY
+if !ENABLE_FLASHBACK
+	cd $(srcdir)/asset && ./clone-assets-metacity.sh
+endif
+endif
+
+if ENABLE_XFCE
+	cd $(srcdir)/asset && ./render-assets-xfwm.sh
+endif
+
+# *****************
+# * Install files *
+# *****************
 
 install-data-local:
 if ENABLE_FLASHBACK
@@ -122,6 +151,10 @@ if ENABLE_XFCE
 	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
 endif
 
+# *******************
+# * Uninstall files *
+# *******************
+
 uninstall-local:
 if ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
@@ -146,3 +179,41 @@ if ENABLE_XFCE
 	test -e $(noktodir)/xfwm4 && rm -rfv $(noktodir)/xfwm4
 	test -e $(adaptadir)/xfwm4 && rm -rfv $(adaptadir)/xfwm4
 endif
+
+# ****************************
+# * Clean up generated files *
+# ****************************
+
+CLEANFILES =
+
+if ENABLE_FLASHBACK
+CLEANFILES += \
+	$(metacitydir)/*.svg \
+	$(srcdir)/asset/assets-metacity/button_close_pressed.svg
+endif
+
+if ENABLE_CINNAMON
+if !ENABLE_FLASHBACK
+CLEANFILES += \
+	$(metacitydir)/*.svg \
+	$(srcdir)/asset/assets-metacity/button_close_pressed.svg
+endif
+endif
+
+if ENABLE_UNITY
+if !ENABLE_FLASHBACK
+CLEANFILES += \
+	$(metacitydir)/*.svg \
+	$(srcdir)/asset/assets-metacity/button_close_pressed.svg
+endif
+endif
+
+if ENABLE_XFCE
+CLEANFILES += \
+	$(xfwmdir)/*.png \
+	$(srcdir)/asset/assets-xfwm/close-pressed.svg \
+	$(srcdir)/asset/assets-xfwm/menu-pressed.svg
+endif
+
+DISTCLEANFILES = \
+	$(CLEANFILES)

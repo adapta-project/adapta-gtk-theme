@@ -2,7 +2,7 @@ themedir  = $(datadir)/themes
 adaptadir = $(DESTDIR)$(themedir)/Adapta
 noktodir  = $(DESTDIR)$(themedir)/Adapta-Nokto
 
-gtk3_assetdir   = $(srcdir)/asset/assets
+gtk3_assetdir   = $(srcdir)/asset/assets-gtk3
 gtk3_asset_file = \
 	$(gtk3_assetdir)/bar-blue.svg \
 	$(gtk3_assetdir)/bar-green.svg \
@@ -361,162 +361,163 @@ gtk2_file = \
 	$(gtk2dir)/misc.rc
 gtk2_gtkrc_file = \
 	$(gtk2dir)/gtkrc
+gtk2_assetdir   = $(srcdir)/asset/assets-gtk2
 gtk2_arrow_file = \
-	$(gtk2dir)/Arrows/down-alt-hover.png \
-	$(gtk2dir)/Arrows/down-alt-insensitive.png \
-	$(gtk2dir)/Arrows/down-alt.png \
-	$(gtk2dir)/Arrows/down-insensitive.png \
-	$(gtk2dir)/Arrows/down.png \
-	$(gtk2dir)/Arrows/left-alt-hover.png \
-	$(gtk2dir)/Arrows/left-alt-insensitive.png \
-	$(gtk2dir)/Arrows/left-alt.png \
-	$(gtk2dir)/Arrows/left-insensitive.png \
-	$(gtk2dir)/Arrows/left.png \
-	$(gtk2dir)/Arrows/right-alt-hover.png \
-	$(gtk2dir)/Arrows/right-alt-insensitive.png \
-	$(gtk2dir)/Arrows/right-alt.png \
-	$(gtk2dir)/Arrows/right-insensitive.png \
-	$(gtk2dir)/Arrows/right.png \
-	$(gtk2dir)/Arrows/up-alt-hover.png \
-	$(gtk2dir)/Arrows/up-alt-insensitive.png \
-	$(gtk2dir)/Arrows/up-alt.png \
-	$(gtk2dir)/Arrows/up-insensitive.png \
-	$(gtk2dir)/Arrows/up.png
+	$(gtk2_assetdir)/Arrows/down-alt-hover.png \
+	$(gtk2_assetdir)/Arrows/down-alt-insensitive.png \
+	$(gtk2_assetdir)/Arrows/down-alt.png \
+	$(gtk2_assetdir)/Arrows/down-insensitive.png \
+	$(gtk2_assetdir)/Arrows/down.png \
+	$(gtk2_assetdir)/Arrows/left-alt-hover.png \
+	$(gtk2_assetdir)/Arrows/left-alt-insensitive.png \
+	$(gtk2_assetdir)/Arrows/left-alt.png \
+	$(gtk2_assetdir)/Arrows/left-insensitive.png \
+	$(gtk2_assetdir)/Arrows/left.png \
+	$(gtk2_assetdir)/Arrows/right-alt-hover.png \
+	$(gtk2_assetdir)/Arrows/right-alt-insensitive.png \
+	$(gtk2_assetdir)/Arrows/right-alt.png \
+	$(gtk2_assetdir)/Arrows/right-insensitive.png \
+	$(gtk2_assetdir)/Arrows/right.png \
+	$(gtk2_assetdir)/Arrows/up-alt-hover.png \
+	$(gtk2_assetdir)/Arrows/up-alt-insensitive.png \
+	$(gtk2_assetdir)/Arrows/up-alt.png \
+	$(gtk2_assetdir)/Arrows/up-insensitive.png \
+	$(gtk2_assetdir)/Arrows/up.png
 gtk2_button_file = \
-	$(gtk2dir)/Buttons/button-active.png \
-	$(gtk2dir)/Buttons/button-hover.png \
-	$(gtk2dir)/Buttons/button-insensitive.png \
-	$(gtk2dir)/Buttons/button.png \
-	$(gtk2dir)/Buttons/checked-flat-button-active.png \
-	$(gtk2dir)/Buttons/checked-flat-button-hover.png \
-	$(gtk2dir)/Buttons/checked-flat-button-insensitive.png \
-	$(gtk2dir)/Buttons/checked-flat-button.png \
-	$(gtk2dir)/Buttons/flat-button-active.png \
-	$(gtk2dir)/Buttons/flat-button-hover.png \
-	$(gtk2dir)/Buttons/ltr-button-active.png \
-	$(gtk2dir)/Buttons/ltr-button-hover.png \
-	$(gtk2dir)/Buttons/ltr-button-insensitive.png \
-	$(gtk2dir)/Buttons/ltr-button.png \
-	$(gtk2dir)/Buttons/rtl-button-active.png \
-	$(gtk2dir)/Buttons/rtl-button-hover.png \
-	$(gtk2dir)/Buttons/rtl-button-insensitive.png \
-	$(gtk2dir)/Buttons/rtl-button.png
+	$(gtk2_assetdir)/Buttons/button-active.png \
+	$(gtk2_assetdir)/Buttons/button-hover.png \
+	$(gtk2_assetdir)/Buttons/button-insensitive.png \
+	$(gtk2_assetdir)/Buttons/button.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button-active.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button-hover.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button-insensitive.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button.png \
+	$(gtk2_assetdir)/Buttons/flat-button-active.png \
+	$(gtk2_assetdir)/Buttons/flat-button-hover.png \
+	$(gtk2_assetdir)/Buttons/ltr-button-active.png \
+	$(gtk2_assetdir)/Buttons/ltr-button-hover.png \
+	$(gtk2_assetdir)/Buttons/ltr-button-insensitive.png \
+	$(gtk2_assetdir)/Buttons/ltr-button.png \
+	$(gtk2_assetdir)/Buttons/rtl-button-active.png \
+	$(gtk2_assetdir)/Buttons/rtl-button-hover.png \
+	$(gtk2_assetdir)/Buttons/rtl-button-insensitive.png \
+	$(gtk2_assetdir)/Buttons/rtl-button.png
 gtk2_checkradio_file = \
-	$(gtk2dir)/Check-Radio/check-insensitive.png \
-	$(gtk2dir)/Check-Radio/check-off-active.png \
-	$(gtk2dir)/Check-Radio/check-off-hover.png \
-	$(gtk2dir)/Check-Radio/check-off-insensitive.png \
-	$(gtk2dir)/Check-Radio/check-off.png \
-	$(gtk2dir)/Check-Radio/check-on-active.png \
-	$(gtk2dir)/Check-Radio/check-on-hover.png \
-	$(gtk2dir)/Check-Radio/check-on-insensitive.png \
-	$(gtk2dir)/Check-Radio/check-on.png \
-	$(gtk2dir)/Check-Radio/check.png \
-	$(gtk2dir)/Check-Radio/check-selected.png \
-	$(gtk2dir)/Check-Radio/radio-insensitive.png \
-	$(gtk2dir)/Check-Radio/radio-off-active.png \
-	$(gtk2dir)/Check-Radio/radio-off-hover.png \
-	$(gtk2dir)/Check-Radio/radio-off-insensitive.png \
-	$(gtk2dir)/Check-Radio/radio-off.png \
-	$(gtk2dir)/Check-Radio/radio-on-active.png \
-	$(gtk2dir)/Check-Radio/radio-on-hover.png \
-	$(gtk2dir)/Check-Radio/radio-on-insensitive.png \
-	$(gtk2dir)/Check-Radio/radio-on.png \
-	$(gtk2dir)/Check-Radio/radio.png \
-	$(gtk2dir)/Check-Radio/radio-selected.png
+	$(gtk2_assetdir)/Check-Radio/check-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-active.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-hover.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/check-off.png \
+	$(gtk2_assetdir)/Check-Radio/check-on-active.png \
+	$(gtk2_assetdir)/Check-Radio/check-on-hover.png \
+	$(gtk2_assetdir)/Check-Radio/check-on-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/check-on.png \
+	$(gtk2_assetdir)/Check-Radio/check.png \
+	$(gtk2_assetdir)/Check-Radio/check-selected.png \
+	$(gtk2_assetdir)/Check-Radio/radio-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-active.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-hover.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on-active.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on-hover.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on.png \
+	$(gtk2_assetdir)/Check-Radio/radio.png \
+	$(gtk2_assetdir)/Check-Radio/radio-selected.png
 gtk2_column_file = \
-	$(gtk2dir)/Column/column-active.png \
-	$(gtk2dir)/Column/column-hover.png \
-	$(gtk2dir)/Column/column-insensitive.png \
-	$(gtk2dir)/Column/column.png
+	$(gtk2_assetdir)/Column/column-active.png \
+	$(gtk2_assetdir)/Column/column-hover.png \
+	$(gtk2_assetdir)/Column/column-insensitive.png \
+	$(gtk2_assetdir)/Column/column.png
 gtk2_entry_file = \
-	$(gtk2dir)/Entry/base_entry-active.png \
-	$(gtk2dir)/Entry/base_entry-insensitive.png \
-	$(gtk2dir)/Entry/base_entry.png \
-	$(gtk2dir)/Entry/entry-active.png \
-	$(gtk2dir)/Entry/entry-insensitive.png \
-	$(gtk2dir)/Entry/entry.png \
-	$(gtk2dir)/Entry/ltr-base_entry-active.png \
-	$(gtk2dir)/Entry/ltr-base_entry-insensitive.png \
-	$(gtk2dir)/Entry/ltr-base_entry.png \
-	$(gtk2dir)/Entry/ltr-entry-active.png \
-	$(gtk2dir)/Entry/ltr-entry-insensitive.png \
-	$(gtk2dir)/Entry/ltr-entry.png \
-	$(gtk2dir)/Entry/rtl-base_entry-active.png \
-	$(gtk2dir)/Entry/rtl-base_entry-insensitive.png \
-	$(gtk2dir)/Entry/rtl-base_entry.png \
-	$(gtk2dir)/Entry/rtl-entry-active.png \
-	$(gtk2dir)/Entry/rtl-entry-insensitive.png \
-	$(gtk2dir)/Entry/rtl-entry.png
+	$(gtk2_assetdir)/Entry/base_entry-active.png \
+	$(gtk2_assetdir)/Entry/base_entry-insensitive.png \
+	$(gtk2_assetdir)/Entry/base_entry.png \
+	$(gtk2_assetdir)/Entry/entry-active.png \
+	$(gtk2_assetdir)/Entry/entry-insensitive.png \
+	$(gtk2_assetdir)/Entry/entry.png \
+	$(gtk2_assetdir)/Entry/ltr-base_entry-active.png \
+	$(gtk2_assetdir)/Entry/ltr-base_entry-insensitive.png \
+	$(gtk2_assetdir)/Entry/ltr-base_entry.png \
+	$(gtk2_assetdir)/Entry/ltr-entry-active.png \
+	$(gtk2_assetdir)/Entry/ltr-entry-insensitive.png \
+	$(gtk2_assetdir)/Entry/ltr-entry.png \
+	$(gtk2_assetdir)/Entry/rtl-base_entry-active.png \
+	$(gtk2_assetdir)/Entry/rtl-base_entry-insensitive.png \
+	$(gtk2_assetdir)/Entry/rtl-base_entry.png \
+	$(gtk2_assetdir)/Entry/rtl-entry-active.png \
+	$(gtk2_assetdir)/Entry/rtl-entry-insensitive.png \
+	$(gtk2_assetdir)/Entry/rtl-entry.png
 gtk2_handle_file = \
-	$(gtk2dir)/Handles/h-handle-active.png \
-	$(gtk2dir)/Handles/h-handle-hover.png \
-	$(gtk2dir)/Handles/h-handle-insensitive.png \
-	$(gtk2dir)/Handles/h-handle.png \
-	$(gtk2dir)/Handles/v-handle-active.png \
-	$(gtk2dir)/Handles/v-handle-hover.png \
-	$(gtk2dir)/Handles/v-handle-insensitive.png \
-	$(gtk2dir)/Handles/v-handle.png
+	$(gtk2_assetdir)/Handles/h-handle-active.png \
+	$(gtk2_assetdir)/Handles/h-handle-hover.png \
+	$(gtk2_assetdir)/Handles/h-handle-insensitive.png \
+	$(gtk2_assetdir)/Handles/h-handle.png \
+	$(gtk2_assetdir)/Handles/v-handle-active.png \
+	$(gtk2_assetdir)/Handles/v-handle-hover.png \
+	$(gtk2_assetdir)/Handles/v-handle-insensitive.png \
+	$(gtk2_assetdir)/Handles/v-handle.png
 gtk2_line_file = \
-	$(gtk2dir)/Lines/h-line.png \
-	$(gtk2dir)/Lines/menu-line-ltr.png \
-	$(gtk2dir)/Lines/menu-line-rtl.png \
-	$(gtk2dir)/Lines/v-line.png
+	$(gtk2_assetdir)/Lines/h-line.png \
+	$(gtk2_assetdir)/Lines/menu-line-ltr.png \
+	$(gtk2_assetdir)/Lines/menu-line-rtl.png \
+	$(gtk2_assetdir)/Lines/v-line.png
 gtk2_other_file = \
-	$(gtk2dir)/Others/bottom.png \
-	$(gtk2dir)/Others/focus.png \
-	$(gtk2dir)/Others/left.png \
-	$(gtk2dir)/Others/null.svg \
-	$(gtk2dir)/Others/right.png \
-	$(gtk2dir)/Others/top-hover.png \
-	$(gtk2dir)/Others/top.png
+	$(gtk2_assetdir)/Others/bottom.png \
+	$(gtk2_assetdir)/Others/focus.png \
+	$(gtk2_assetdir)/Others/left.png \
+	$(gtk2_assetdir)/Others/null.svg \
+	$(gtk2_assetdir)/Others/right.png \
+	$(gtk2_assetdir)/Others/top-hover.png \
+	$(gtk2_assetdir)/Others/top.png
 gtk2_progress_file = \
-	$(gtk2dir)/ProgressBar/bar.png \
-	$(gtk2dir)/ProgressBar/trough.png
+	$(gtk2_assetdir)/ProgressBar/bar.png \
+	$(gtk2_assetdir)/ProgressBar/trough.png
 gtk2_range_file = \
-	$(gtk2dir)/Range/h-scale-trough-insensitive.png \
-	$(gtk2dir)/Range/h-scale-trough.png \
-	$(gtk2dir)/Range/scale-slider-active.png \
-	$(gtk2dir)/Range/scale-slider-hover.png \
-	$(gtk2dir)/Range/scale-slider-insensitive.png \
-	$(gtk2dir)/Range/scale-slider.png \
-	$(gtk2dir)/Range/v-scale-trough-insensitive.png \
-	$(gtk2dir)/Range/v-scale-trough.png
+	$(gtk2_assetdir)/Range/h-scale-trough-insensitive.png \
+	$(gtk2_assetdir)/Range/h-scale-trough.png \
+	$(gtk2_assetdir)/Range/scale-slider-active.png \
+	$(gtk2_assetdir)/Range/scale-slider-hover.png \
+	$(gtk2_assetdir)/Range/scale-slider-insensitive.png \
+	$(gtk2_assetdir)/Range/scale-slider.png \
+	$(gtk2_assetdir)/Range/v-scale-trough-insensitive.png \
+	$(gtk2_assetdir)/Range/v-scale-trough.png
 gtk2_scrollbar_file = \
-	$(gtk2dir)/Scrollbars/h-slider-active.png \
-	$(gtk2dir)/Scrollbars/h-slider-hover.png \
-	$(gtk2dir)/Scrollbars/h-slider-insensitive.png \
-	$(gtk2dir)/Scrollbars/h-slider.png \
-	$(gtk2dir)/Scrollbars/h-trough.png \
-	$(gtk2dir)/Scrollbars/v-slider-active.png \
-	$(gtk2dir)/Scrollbars/v-slider-hover.png \
-	$(gtk2dir)/Scrollbars/v-slider-insensitive.png \
-	$(gtk2dir)/Scrollbars/v-slider.png \
-	$(gtk2dir)/Scrollbars/v-trough.png
+	$(gtk2_assetdir)/Scrollbars/h-slider-active.png \
+	$(gtk2_assetdir)/Scrollbars/h-slider-hover.png \
+	$(gtk2_assetdir)/Scrollbars/h-slider-insensitive.png \
+	$(gtk2_assetdir)/Scrollbars/h-slider.png \
+	$(gtk2_assetdir)/Scrollbars/h-trough.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider-active.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider-hover.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider-insensitive.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider.png \
+	$(gtk2_assetdir)/Scrollbars/v-trough.png
 gtk2_shadow_file = \
-	$(gtk2dir)/Shadows/frame.png \
-	$(gtk2dir)/Shadows/gap.png \
-	$(gtk2dir)/Shadows/z-depth-1.svg \
-	$(gtk2dir)/Shadows/z-depth-2.svg
+	$(gtk2_assetdir)/Shadows/frame.png \
+	$(gtk2_assetdir)/Shadows/gap.png \
+	$(gtk2_assetdir)/Shadows/z-depth-1.svg \
+	$(gtk2_assetdir)/Shadows/z-depth-2.svg
 gtk2_spin_file = \
-	$(gtk2dir)/Spin/ltr-down-active.png \
-	$(gtk2dir)/Spin/ltr-down-hover.png \
-	$(gtk2dir)/Spin/ltr-down-insensitive.png \
-	$(gtk2dir)/Spin/ltr-down.png \
-	$(gtk2dir)/Spin/ltr-up-active.png \
-	$(gtk2dir)/Spin/ltr-up-hover.png \
-	$(gtk2dir)/Spin/ltr-up-insensitive.png \
-	$(gtk2dir)/Spin/ltr-up.png \
-	$(gtk2dir)/Spin/rtl-down-active.png \
-	$(gtk2dir)/Spin/rtl-down-hover.png \
-	$(gtk2dir)/Spin/rtl-down-insensitive.png \
-	$(gtk2dir)/Spin/rtl-down.png \
-	$(gtk2dir)/Spin/rtl-up-active.png \
-	$(gtk2dir)/Spin/rtl-up-hover.png \
-	$(gtk2dir)/Spin/rtl-up-insensitive.png \
-	$(gtk2dir)/Spin/rtl-up.png
+	$(gtk2_assetdir)/Spin/ltr-down-active.png \
+	$(gtk2_assetdir)/Spin/ltr-down-hover.png \
+	$(gtk2_assetdir)/Spin/ltr-down-insensitive.png \
+	$(gtk2_assetdir)/Spin/ltr-down.png \
+	$(gtk2_assetdir)/Spin/ltr-up-active.png \
+	$(gtk2_assetdir)/Spin/ltr-up-hover.png \
+	$(gtk2_assetdir)/Spin/ltr-up-insensitive.png \
+	$(gtk2_assetdir)/Spin/ltr-up.png \
+	$(gtk2_assetdir)/Spin/rtl-down-active.png \
+	$(gtk2_assetdir)/Spin/rtl-down-hover.png \
+	$(gtk2_assetdir)/Spin/rtl-down-insensitive.png \
+	$(gtk2_assetdir)/Spin/rtl-down.png \
+	$(gtk2_assetdir)/Spin/rtl-up-active.png \
+	$(gtk2_assetdir)/Spin/rtl-up-hover.png \
+	$(gtk2_assetdir)/Spin/rtl-up-insensitive.png \
+	$(gtk2_assetdir)/Spin/rtl-up.png
 gtk2_toolbar_file = \
-	$(gtk2dir)/Toolbar/inline-toolbar.png
+	$(gtk2_assetdir)/Toolbar/inline-toolbar.png
 
 gtk2_nokto_file = \
 	$(gtk2dir)/3rd-party-dark.rc \
@@ -526,161 +527,161 @@ gtk2_nokto_file = \
 gtk2_nokto_gtkrc_file = \
 	$(gtk2dir)/gtkrc-dark
 gtk2_nokto_arrow_file = \
-	$(gtk2dir)/Arrows/down-alt-dark.png \
-	$(gtk2dir)/Arrows/down-alt-hover-dark.png \
-	$(gtk2dir)/Arrows/down-alt-insensitive-dark.png \
-	$(gtk2dir)/Arrows/down-dark.png \
-	$(gtk2dir)/Arrows/down-insensitive-dark.png \
-	$(gtk2dir)/Arrows/left-alt-dark.png \
-	$(gtk2dir)/Arrows/left-alt-hover-dark.png \
-	$(gtk2dir)/Arrows/left-alt-insensitive-dark.png \
-	$(gtk2dir)/Arrows/left-dark.png \
-	$(gtk2dir)/Arrows/left-insensitive-dark.png \
-	$(gtk2dir)/Arrows/right-alt-dark.png \
-	$(gtk2dir)/Arrows/right-alt-hover-dark.png \
-	$(gtk2dir)/Arrows/right-alt-insensitive-dark.png \
-	$(gtk2dir)/Arrows/right-dark.png \
-	$(gtk2dir)/Arrows/right-insensitive-dark.png \
-	$(gtk2dir)/Arrows/up-alt-dark.png \
-	$(gtk2dir)/Arrows/up-alt-hover-dark.png \
-	$(gtk2dir)/Arrows/up-alt-insensitive-dark.png \
-	$(gtk2dir)/Arrows/up-dark.png \
-	$(gtk2dir)/Arrows/up-insensitive-dark.png
+	$(gtk2_assetdir)/Arrows/down-alt-dark.png \
+	$(gtk2_assetdir)/Arrows/down-alt-hover-dark.png \
+	$(gtk2_assetdir)/Arrows/down-alt-insensitive-dark.png \
+	$(gtk2_assetdir)/Arrows/down-dark.png \
+	$(gtk2_assetdir)/Arrows/down-insensitive-dark.png \
+	$(gtk2_assetdir)/Arrows/left-alt-dark.png \
+	$(gtk2_assetdir)/Arrows/left-alt-hover-dark.png \
+	$(gtk2_assetdir)/Arrows/left-alt-insensitive-dark.png \
+	$(gtk2_assetdir)/Arrows/left-dark.png \
+	$(gtk2_assetdir)/Arrows/left-insensitive-dark.png \
+	$(gtk2_assetdir)/Arrows/right-alt-dark.png \
+	$(gtk2_assetdir)/Arrows/right-alt-hover-dark.png \
+	$(gtk2_assetdir)/Arrows/right-alt-insensitive-dark.png \
+	$(gtk2_assetdir)/Arrows/right-dark.png \
+	$(gtk2_assetdir)/Arrows/right-insensitive-dark.png \
+	$(gtk2_assetdir)/Arrows/up-alt-dark.png \
+	$(gtk2_assetdir)/Arrows/up-alt-hover-dark.png \
+	$(gtk2_assetdir)/Arrows/up-alt-insensitive-dark.png \
+	$(gtk2_assetdir)/Arrows/up-dark.png \
+	$(gtk2_assetdir)/Arrows/up-insensitive-dark.png
 gtk2_nokto_button_file = \
-	$(gtk2dir)/Buttons/button-active-dark.png \
-	$(gtk2dir)/Buttons/button-dark.png \
-	$(gtk2dir)/Buttons/button-hover-dark.png \
-	$(gtk2dir)/Buttons/button-insensitive-dark.png \
-	$(gtk2dir)/Buttons/checked-flat-button-active.png \
-	$(gtk2dir)/Buttons/checked-flat-button-hover.png \
-	$(gtk2dir)/Buttons/checked-flat-button-insensitive.png \
-	$(gtk2dir)/Buttons/checked-flat-button.png \
-	$(gtk2dir)/Buttons/flat-button-active-dark.png \
-	$(gtk2dir)/Buttons/flat-button-hover-dark.png \
-	$(gtk2dir)/Buttons/ltr-button-active-dark.png \
-	$(gtk2dir)/Buttons/ltr-button-dark.png \
-	$(gtk2dir)/Buttons/ltr-button-hover-dark.png \
-	$(gtk2dir)/Buttons/ltr-button-insensitive-dark.png \
-	$(gtk2dir)/Buttons/rtl-button-active-dark.png \
-	$(gtk2dir)/Buttons/rtl-button-dark.png \
-	$(gtk2dir)/Buttons/rtl-button-hover-dark.png \
-	$(gtk2dir)/Buttons/rtl-button-insensitive-dark.png
+	$(gtk2_assetdir)/Buttons/button-active-dark.png \
+	$(gtk2_assetdir)/Buttons/button-dark.png \
+	$(gtk2_assetdir)/Buttons/button-hover-dark.png \
+	$(gtk2_assetdir)/Buttons/button-insensitive-dark.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button-active.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button-hover.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button-insensitive.png \
+	$(gtk2_assetdir)/Buttons/checked-flat-button.png \
+	$(gtk2_assetdir)/Buttons/flat-button-active-dark.png \
+	$(gtk2_assetdir)/Buttons/flat-button-hover-dark.png \
+	$(gtk2_assetdir)/Buttons/ltr-button-active-dark.png \
+	$(gtk2_assetdir)/Buttons/ltr-button-dark.png \
+	$(gtk2_assetdir)/Buttons/ltr-button-hover-dark.png \
+	$(gtk2_assetdir)/Buttons/ltr-button-insensitive-dark.png \
+	$(gtk2_assetdir)/Buttons/rtl-button-active-dark.png \
+	$(gtk2_assetdir)/Buttons/rtl-button-dark.png \
+	$(gtk2_assetdir)/Buttons/rtl-button-hover-dark.png \
+	$(gtk2_assetdir)/Buttons/rtl-button-insensitive-dark.png
 gtk2_nokto_checkradio_file = \
-	$(gtk2dir)/Check-Radio/check-dark.png \
-	$(gtk2dir)/Check-Radio/check-insensitive-dark.png \
-	$(gtk2dir)/Check-Radio/check-off-active-dark.png \
-	$(gtk2dir)/Check-Radio/check-off-dark.png \
-	$(gtk2dir)/Check-Radio/check-off-hover-dark.png \
-	$(gtk2dir)/Check-Radio/check-off-insensitive-dark.png \
-	$(gtk2dir)/Check-Radio/check-on-active-dark.png \
-	$(gtk2dir)/Check-Radio/check-on-dark.png \
-	$(gtk2dir)/Check-Radio/check-on-hover-dark.png \
-	$(gtk2dir)/Check-Radio/check-on-insensitive-dark.png \
-	$(gtk2dir)/Check-Radio/check-selected-dark.png \
-	$(gtk2dir)/Check-Radio/radio-dark.png \
-	$(gtk2dir)/Check-Radio/radio-insensitive-dark.png \
-	$(gtk2dir)/Check-Radio/radio-off-active-dark.png \
-	$(gtk2dir)/Check-Radio/radio-off-dark.png \
-	$(gtk2dir)/Check-Radio/radio-off-hover-dark.png \
-	$(gtk2dir)/Check-Radio/radio-off-insensitive-dark.png \
-	$(gtk2dir)/Check-Radio/radio-on-active-dark.png \
-	$(gtk2dir)/Check-Radio/radio-on-dark.png \
-	$(gtk2dir)/Check-Radio/radio-on-hover-dark.png \
-	$(gtk2dir)/Check-Radio/radio-on-insensitive-dark.png \
-	$(gtk2dir)/Check-Radio/radio-selected-dark.png
+	$(gtk2_assetdir)/Check-Radio/check-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-active-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-hover-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-on-active-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-on-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-on-hover-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-on-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-selected-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-active-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-hover-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on-active-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on-hover-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-on-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-selected-dark.png
 gtk2_nokto_column_file = \
-	$(gtk2dir)/Column/column-active-dark.png \
-	$(gtk2dir)/Column/column-dark.png \
-	$(gtk2dir)/Column/column-hover-dark.png \
-	$(gtk2dir)/Column/column-insensitive-dark.png
+	$(gtk2_assetdir)/Column/column-active-dark.png \
+	$(gtk2_assetdir)/Column/column-dark.png \
+	$(gtk2_assetdir)/Column/column-hover-dark.png \
+	$(gtk2_assetdir)/Column/column-insensitive-dark.png
 gtk2_nokto_entry_file = \
-	$(gtk2dir)/Entry/base_entry-active-dark.png \
-	$(gtk2dir)/Entry/base_entry-dark.png \
-	$(gtk2dir)/Entry/base_entry-insensitive-dark.png \
-	$(gtk2dir)/Entry/entry-active-dark.png \
-	$(gtk2dir)/Entry/entry-dark.png \
-	$(gtk2dir)/Entry/entry-insensitive-dark.png \
-	$(gtk2dir)/Entry/ltr-base_entry-active-dark.png \
-	$(gtk2dir)/Entry/ltr-base_entry-dark.png \
-	$(gtk2dir)/Entry/ltr-base_entry-insensitive-dark.png \
-	$(gtk2dir)/Entry/ltr-entry-active-dark.png \
-	$(gtk2dir)/Entry/ltr-entry-dark.png \
-	$(gtk2dir)/Entry/ltr-entry-insensitive-dark.png \
-	$(gtk2dir)/Entry/rtl-base_entry-active-dark.png \
-	$(gtk2dir)/Entry/rtl-base_entry-dark.png \
-	$(gtk2dir)/Entry/rtl-base_entry-insensitive-dark.png \
-	$(gtk2dir)/Entry/rtl-entry-active-dark.png \
-	$(gtk2dir)/Entry/rtl-entry-dark.png \
-	$(gtk2dir)/Entry/rtl-entry-insensitive-dark.png
+	$(gtk2_assetdir)/Entry/base_entry-active-dark.png \
+	$(gtk2_assetdir)/Entry/base_entry-dark.png \
+	$(gtk2_assetdir)/Entry/base_entry-insensitive-dark.png \
+	$(gtk2_assetdir)/Entry/entry-active-dark.png \
+	$(gtk2_assetdir)/Entry/entry-dark.png \
+	$(gtk2_assetdir)/Entry/entry-insensitive-dark.png \
+	$(gtk2_assetdir)/Entry/ltr-base_entry-active-dark.png \
+	$(gtk2_assetdir)/Entry/ltr-base_entry-dark.png \
+	$(gtk2_assetdir)/Entry/ltr-base_entry-insensitive-dark.png \
+	$(gtk2_assetdir)/Entry/ltr-entry-active-dark.png \
+	$(gtk2_assetdir)/Entry/ltr-entry-dark.png \
+	$(gtk2_assetdir)/Entry/ltr-entry-insensitive-dark.png \
+	$(gtk2_assetdir)/Entry/rtl-base_entry-active-dark.png \
+	$(gtk2_assetdir)/Entry/rtl-base_entry-dark.png \
+	$(gtk2_assetdir)/Entry/rtl-base_entry-insensitive-dark.png \
+	$(gtk2_assetdir)/Entry/rtl-entry-active-dark.png \
+	$(gtk2_assetdir)/Entry/rtl-entry-dark.png \
+	$(gtk2_assetdir)/Entry/rtl-entry-insensitive-dark.png
 gtk2_nokto_handle_file = \
-	$(gtk2dir)/Handles/h-handle-active-dark.png \
-	$(gtk2dir)/Handles/h-handle-dark.png \
-	$(gtk2dir)/Handles/h-handle-hover-dark.png \
-	$(gtk2dir)/Handles/h-handle-insensitive-dark.png \
-	$(gtk2dir)/Handles/v-handle-active-dark.png \
-	$(gtk2dir)/Handles/v-handle-dark.png \
-	$(gtk2dir)/Handles/v-handle-hover-dark.png \
-	$(gtk2dir)/Handles/v-handle-insensitive-dark.png
+	$(gtk2_assetdir)/Handles/h-handle-active-dark.png \
+	$(gtk2_assetdir)/Handles/h-handle-dark.png \
+	$(gtk2_assetdir)/Handles/h-handle-hover-dark.png \
+	$(gtk2_assetdir)/Handles/h-handle-insensitive-dark.png \
+	$(gtk2_assetdir)/Handles/v-handle-active-dark.png \
+	$(gtk2_assetdir)/Handles/v-handle-dark.png \
+	$(gtk2_assetdir)/Handles/v-handle-hover-dark.png \
+	$(gtk2_assetdir)/Handles/v-handle-insensitive-dark.png
 gtk2_nokto_line_file = \
-	$(gtk2dir)/Lines/h-line.png \
-	$(gtk2dir)/Lines/menu-line-ltr.png \
-	$(gtk2dir)/Lines/menu-line-rtl.png \
-	$(gtk2dir)/Lines/v-line.png
+	$(gtk2_assetdir)/Lines/h-line.png \
+	$(gtk2_assetdir)/Lines/menu-line-ltr.png \
+	$(gtk2_assetdir)/Lines/menu-line-rtl.png \
+	$(gtk2_assetdir)/Lines/v-line.png
 gtk2_nokto_other_file = \
-	$(gtk2dir)/Others/bottom.png \
-	$(gtk2dir)/Others/focus-dark.png \
-	$(gtk2dir)/Others/left.png \
-	$(gtk2dir)/Others/null.svg \
-	$(gtk2dir)/Others/right.png \
-	$(gtk2dir)/Others/top-hover.png \
-	$(gtk2dir)/Others/top.png
+	$(gtk2_assetdir)/Others/bottom.png \
+	$(gtk2_assetdir)/Others/focus-dark.png \
+	$(gtk2_assetdir)/Others/left.png \
+	$(gtk2_assetdir)/Others/null.svg \
+	$(gtk2_assetdir)/Others/right.png \
+	$(gtk2_assetdir)/Others/top-hover.png \
+	$(gtk2_assetdir)/Others/top.png
 gtk2_nokto_progress_file = \
-	$(gtk2dir)/ProgressBar/bar.png \
-	$(gtk2dir)/ProgressBar/trough-dark.png
+	$(gtk2_assetdir)/ProgressBar/bar.png \
+	$(gtk2_assetdir)/ProgressBar/trough-dark.png
 gtk2_nokto_range_file = \
-	$(gtk2dir)/Range/h-scale-trough-dark.png \
-	$(gtk2dir)/Range/h-scale-trough-insensitive-dark.png \
-	$(gtk2dir)/Range/scale-slider-active.png \
-	$(gtk2dir)/Range/scale-slider-hover.png \
-	$(gtk2dir)/Range/scale-slider-insensitive-dark.png \
-	$(gtk2dir)/Range/scale-slider.png \
-	$(gtk2dir)/Range/v-scale-trough-dark.png \
-	$(gtk2dir)/Range/v-scale-trough-insensitive-dark.png
+	$(gtk2_assetdir)/Range/h-scale-trough-dark.png \
+	$(gtk2_assetdir)/Range/h-scale-trough-insensitive-dark.png \
+	$(gtk2_assetdir)/Range/scale-slider-active.png \
+	$(gtk2_assetdir)/Range/scale-slider-hover.png \
+	$(gtk2_assetdir)/Range/scale-slider-insensitive-dark.png \
+	$(gtk2_assetdir)/Range/scale-slider.png \
+	$(gtk2_assetdir)/Range/v-scale-trough-dark.png \
+	$(gtk2_assetdir)/Range/v-scale-trough-insensitive-dark.png
 gtk2_nokto_scrollbar_file = \
-	$(gtk2dir)/Scrollbars/h-slider-active-dark.png \
-	$(gtk2dir)/Scrollbars/h-slider-dark.png \
-	$(gtk2dir)/Scrollbars/h-slider-hover-dark.png \
-	$(gtk2dir)/Scrollbars/h-slider-insensitive-dark.png \
-	$(gtk2dir)/Scrollbars/h-trough-dark.png \
-	$(gtk2dir)/Scrollbars/v-slider-active-dark.png \
-	$(gtk2dir)/Scrollbars/v-slider-dark.png \
-	$(gtk2dir)/Scrollbars/v-slider-hover-dark.png \
-	$(gtk2dir)/Scrollbars/v-slider-insensitive-dark.png \
-	$(gtk2dir)/Scrollbars/v-trough-dark.png
+	$(gtk2_assetdir)/Scrollbars/h-slider-active-dark.png \
+	$(gtk2_assetdir)/Scrollbars/h-slider-dark.png \
+	$(gtk2_assetdir)/Scrollbars/h-slider-hover-dark.png \
+	$(gtk2_assetdir)/Scrollbars/h-slider-insensitive-dark.png \
+	$(gtk2_assetdir)/Scrollbars/h-trough-dark.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider-active-dark.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider-dark.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider-hover-dark.png \
+	$(gtk2_assetdir)/Scrollbars/v-slider-insensitive-dark.png \
+	$(gtk2_assetdir)/Scrollbars/v-trough-dark.png
 gtk2_nokto_shadow_file = \
-	$(gtk2dir)/Shadows/frame.png \
-	$(gtk2dir)/Shadows/gap.png \
-	$(gtk2dir)/Shadows/z-depth-1.svg \
-	$(gtk2dir)/Shadows/z-depth-2.svg
+	$(gtk2_assetdir)/Shadows/frame.png \
+	$(gtk2_assetdir)/Shadows/gap.png \
+	$(gtk2_assetdir)/Shadows/z-depth-1.svg \
+	$(gtk2_assetdir)/Shadows/z-depth-2.svg
 gtk2_nokto_spin_file = \
-	$(gtk2dir)/Spin/ltr-down-active-dark.png \
-	$(gtk2dir)/Spin/ltr-down-dark.png \
-	$(gtk2dir)/Spin/ltr-down-hover-dark.png \
-	$(gtk2dir)/Spin/ltr-down-insensitive-dark.png \
-	$(gtk2dir)/Spin/ltr-up-active-dark.png \
-	$(gtk2dir)/Spin/ltr-up-dark.png \
-	$(gtk2dir)/Spin/ltr-up-hover-dark.png \
-	$(gtk2dir)/Spin/ltr-up-insensitive-dark.png \
-	$(gtk2dir)/Spin/rtl-down-active-dark.png \
-	$(gtk2dir)/Spin/rtl-down-dark.png \
-	$(gtk2dir)/Spin/rtl-down-hover-dark.png \
-	$(gtk2dir)/Spin/rtl-down-insensitive-dark.png \
-	$(gtk2dir)/Spin/rtl-up-active-dark.png \
-	$(gtk2dir)/Spin/rtl-up-dark.png \
-	$(gtk2dir)/Spin/rtl-up-hover-dark.png \
-	$(gtk2dir)/Spin/rtl-up-insensitive-dark.png
+	$(gtk2_assetdir)/Spin/ltr-down-active-dark.png \
+	$(gtk2_assetdir)/Spin/ltr-down-dark.png \
+	$(gtk2_assetdir)/Spin/ltr-down-hover-dark.png \
+	$(gtk2_assetdir)/Spin/ltr-down-insensitive-dark.png \
+	$(gtk2_assetdir)/Spin/ltr-up-active-dark.png \
+	$(gtk2_assetdir)/Spin/ltr-up-dark.png \
+	$(gtk2_assetdir)/Spin/ltr-up-hover-dark.png \
+	$(gtk2_assetdir)/Spin/ltr-up-insensitive-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-down-active-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-down-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-down-hover-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-down-insensitive-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-up-active-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-up-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-up-hover-dark.png \
+	$(gtk2_assetdir)/Spin/rtl-up-insensitive-dark.png
 gtk2_nokto_toolbar_file = \
-	$(gtk2dir)/Toolbar/inline-toolbar-dark.png
+	$(gtk2_assetdir)/Toolbar/inline-toolbar-dark.png
 
 gtknextdir   = $(srcdir)/gtk-3.22
 gtknext_file = \
@@ -689,6 +690,45 @@ gtknext_file = \
 
 index_file       = $(srcdir)/index.theme
 index_nokto_file = $(srcdir)/index.theme-nokto
+
+# *******************************************
+# * Generate CSS stylesheets and PNG images *
+# *******************************************
+
+all:
+	$(MKDIR_P) $(srcdir)/gtk-3.18 && \
+	$(MKDIR_P) $(srcdir)/gtk-3.20
+
+	cd $(srcdir)/sass && \
+	bundle exec sass --update --sourcemap=none --watch \
+	3.18/gtk.scss:../gtk-3.18/gtk.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+	3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+	3.20/gtk.scss:../gtk-3.20/gtk.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+	3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css
+if ENABLE_GTK_NEXT
+	$(MKDIR_P) $(srcdir)/gtk-3.22
+
+	cd $(srcdir)/sass && \
+	bundle exec sass --update --sourcemap=none --watch \
+	3.22/gtk.scss:../gtk-3.22/gtk.css && \
+	bundle exec sass --update --sourcemap=none --watch \
+	3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css
+endif
+	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
+
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2 && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk3
+
+	cd $(srcdir)/asset && \
+	./render-assets-gtk2.sh && \
+	./render-assets-gtk3.sh
+
+# *****************
+# * Install files *
+# *****************
 
 install-data-local:
 	$(MKDIR_P) $(adaptadir)
@@ -784,6 +824,10 @@ if ENABLE_GTK_NEXT
 	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
 endif
 
+# *******************
+# * Uninstall files *
+# *******************
+
 uninstall-local:
 	test -e $(noktodir)/index.theme && rm -rfv $(noktodir)/index.theme
 	test -e $(noktodir)/gtk-3.0 && rm -rfv $(noktodir)/gtk-3.0
@@ -799,3 +843,30 @@ if ENABLE_GTK_NEXT
 	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
 	test -e $(adaptadir)/gtk-3.22 && rm -rfv $(adaptadir)/gtk-3.22
 endif
+
+# ****************************
+# * Clean up generated files *
+# ****************************
+
+CLEANFILES = \
+	$(srcdir)/gtk-3.18/gtk.css \
+	$(srcdir)/gtk-3.18/gtk-dark.css \
+	$(srcdir)/gtk-3.20/gtk.css \
+	$(srcdir)/gtk-3.20/gtk-dark.css \
+	$(srcdir)/asset/assets-gtk2/*/*.svg \
+	$(srcdir)/asset/assets-gtk2/*/*.png \
+	$(srcdir)/asset/assets-gtk3/*.svg \
+	$(srcdir)/asset/assets-gtk3/*.png \
+	$(srcdir)/asset/assets-gtk2.svg \
+	$(srcdir)/asset/assets-gtk3.svg \
+	$(srcdir)/sass/common/_key_colors.scss
+	$(srcdir)/gtk-2.0/colors.rc
+	$(srcdir)/gtk-2.0/colors-dark.rc
+if ENABLE_GTK_NEXT
+CLEANFILES += \
+	$(srcdir)/gtk-3.22/gtk.css \
+	$(srcdir)/gtk-3.22/gtk-dark.css
+endif
+
+DISTCLEANFILES = \
+	$(CLEANFILES)
