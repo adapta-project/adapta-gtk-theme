@@ -1039,3 +1039,50 @@ window stack > frame > frame > grid.horizontal {
   }
 }
 
+
+/**************
+ * Gnome-todo *
+ **************/
+
+window headerbar > box.horizontal {
+  > button.toggle.popup { // 'new-list' text-button
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    font-weight: 700;
+  }
+
+  > button:not(.image-button):not(.text-button) {
+    &:not(.toggle):not(.popup):not(.color):not(.titlebutton) {
+      &:not(.destructive-action):not(.suggested-action) {
+        // 'list/grid' view changer
+        min-width: rem(26.7px);
+        padding-left: rem(6.7px);
+        padding-right: rem(6.7px);
+      }
+    }
+  }
+
+  > button.color {
+    &:not(.destructive-action):not(.suggested-action) {
+      // force using square-button
+      min-width: rem(26.7px);
+      padding-left: rem(6.7px);
+      padding-right: rem(6.7px);
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+}
+
+window > popover > stack > grid > button {
+  &.text-button:not(.suggested-action) {
+    // use flat-button style
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
+    &:checked { @include button(flat-checked); }
+    &:checked:disabled { @include button(flat-checked-insensitive); }
+  }
+}
+

@@ -8910,6 +8910,43 @@ window stack > frame > frame > grid.horizontal #weekly-forecast-frame {
   background: transparent;
   background-image: linear-gradient(to bottom, rgba(229, 233, 236, 0.9), rgba(229, 233, 236, 0.9)); }
 
+/**************
+ * Gnome-todo *
+ **************/
+window headerbar > box.horizontal > button.toggle.popup {
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
+  font-weight: 700; }
+window headerbar > box.horizontal > button:not(.image-button):not(.text-button):not(.toggle):not(.popup):not(.color):not(.titlebutton):not(.destructive-action):not(.suggested-action) {
+  min-width: 2.00752rem;
+  padding-left: 0.50376rem;
+  padding-right: 0.50376rem; }
+window headerbar > box.horizontal > button.color:not(.destructive-action):not(.suggested-action) {
+  min-width: 2.00752rem;
+  padding-left: 0.50376rem;
+  padding-right: 0.50376rem;
+  border-radius: 2px;
+  -gtk-outline-radius: 2px; }
+
+window > popover > stack > grid > button.text-button:not(.suggested-action) {
+  box-shadow: none;
+  background-color: transparent;
+  background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0), alpha(currentColor, 0)); }
+  window > popover > stack > grid > button.text-button:not(.suggested-action):hover {
+    box-shadow: none;
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(alpha(currentColor, 0)), to(transparent)), linear-gradient(to bottom, alpha(currentColor, 0.1), alpha(currentColor, 0.1)); }
+  window > popover > stack > grid > button.text-button:not(.suggested-action):active {
+    box-shadow: none;
+    animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  window > popover > stack > grid > button.text-button:not(.suggested-action):disabled {
+    box-shadow: none;
+    background-color: transparent; }
+  window > popover > stack > grid > button.text-button:not(.suggested-action):checked {
+    background-color: alpha(currentColor, 0.2);
+    color: #263238; }
+  window > popover > stack > grid > button.text-button:not(.suggested-action):checked:disabled > label {
+    color: inherit; }
+
 /******************
  * Budgie Desktop *
  ******************/
