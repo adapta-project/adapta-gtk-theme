@@ -8592,6 +8592,30 @@ terminal-window menubar > menuitem {
     color: rgba(236, 239, 241, 0.3);
     box-shadow: none; }
 
+/*****************
+ * Gnome-weather *
+ *****************/
+window stack > frame > frame > grid.horizontal > grid.horizontal .linked.osd.stack-switcher {
+  background-color: rgba(229, 233, 236, 0.9);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+  window stack > frame > frame > grid.horizontal > grid.horizontal .linked.osd.stack-switcher > button.radio.text-button, window stack > frame > frame > grid.horizontal > grid.horizontal .linked.osd.stack-switcher > button.radio.text-button:hover {
+    border-image: none; }
+  window stack > frame > frame > grid.horizontal > grid.horizontal .linked.osd.stack-switcher > button.radio.text-button:checked {
+    border-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#00BCD4), to(transparent)) 0 0 2/0 0 2px; }
+window stack > frame > frame > grid.horizontal > grid.horizontal button.osd {
+  min-width: 1rem;
+  min-height: 1rem;
+  padding: 1rem;
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
+  background-color: rgba(229, 233, 236, 0.9); }
+window stack > frame > frame > grid.horizontal > grid.horizontal stack > scrolledwindow undershoot.top, window stack > frame > frame > grid.horizontal > grid.horizontal stack > placessidebar undershoot.top, window stack > frame > frame > grid.horizontal > grid.horizontal stack > scrolledwindow undershoot.bottom, window stack > frame > frame > grid.horizontal > grid.horizontal stack > placessidebar undershoot.bottom, window stack > frame > frame > grid.horizontal > grid.horizontal stack > scrolledwindow undershoot.left, window stack > frame > frame > grid.horizontal > grid.horizontal stack > placessidebar undershoot.left, window stack > frame > frame > grid.horizontal > grid.horizontal stack > scrolledwindow undershoot.right, window stack > frame > frame > grid.horizontal > grid.horizontal stack > placessidebar undershoot.right {
+  background-image: none; }
+
+window stack > frame > frame > grid.horizontal #weekly-forecast-frame {
+  background: transparent;
+  background-image: linear-gradient(to bottom, rgba(229, 233, 236, 0.9)); }
+
 /******************
  * Budgie Desktop *
  ******************/

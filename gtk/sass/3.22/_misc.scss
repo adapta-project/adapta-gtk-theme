@@ -989,3 +989,55 @@ terminal-window {
   }
 }
 
+
+/*****************
+ * Gnome-weather *
+ *****************/
+
+window stack > frame > frame > grid.horizontal > grid.horizontal {
+  .linked.osd.stack-switcher {
+    background-color: gtkopacity($dark_color, 0.9);
+    box-shadow: $z-depth-1;
+
+    > button.radio.text-button { // remove underlines
+      &,
+      &:hover { border-image: none; }
+      &:checked {
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+      }
+    }
+  }
+
+  button.osd {
+    min-width: rem(13.3px);
+    min-height: rem(13.3px);
+    padding: rem(13.3px);
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    background-color: gtkopacity($dark_color, 0.9);
+  }
+
+  stack > scrolledwindow {
+    undershoot { // remove undershoot
+      &.top,
+      &.bottom,
+      &.left,
+      &.right { background-image: none; }
+    }
+  }
+}
+
+window stack > frame > frame > grid.horizontal {
+  #weekly-forecast-frame {
+    background: transparent;
+    background-image: linear-gradient(to bottom,
+                                      gtkopacity($dark_color, 0.9),
+                                      gtkopacity($dark_color, 0.9));
+  }
+}
+
