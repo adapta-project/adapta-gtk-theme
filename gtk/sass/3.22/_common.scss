@@ -1349,17 +1349,15 @@ toolbar {
   background-color: $bg_color;
   color: $secondary_fg_color;
 
-  window > &,
-  window box &,
-  window grid & { // special case to draw fake-shadows
+  window &:not(.vertical):not(.inline-toolbar) {
+    // special case to draw fake-shadows
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
                                         $toolbar-shadow-dark);
   }
 
-  &.vertical,
-  .inline-toolbar &,
   paned &,
   paned &.primary-toolbar,
+  wdiget &,
   grid &.primary-toolbar { // stop drawing fake-shadows
     box-shadow: none;
   }
