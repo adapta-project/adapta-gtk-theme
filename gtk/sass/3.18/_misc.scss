@@ -819,3 +819,41 @@ Gjs_WeatherWidget {
   }
 }
 
+
+/**************
+ * Gnome-todo *
+ **************/
+
+GtdWindow {
+  > .header-bar {
+    > GtkMenuButton.button {
+      // force using square-button
+      &:not(.image-button):not(.suggested-action):not(.destructive-action) {
+        border-radius: 2px;
+        outline-radius: 2px;
+        font-weight: 700;
+      }
+    }
+
+    > GtkColorButton.button {
+      // force using square-button
+      &:not(.suggested-action):not(.destructive-action) {
+        border-radius: 2px;
+        outline-radius: 2px;
+      }
+    }
+  }
+
+  > GtdStoragePopover {
+    // force using flat-style
+    .button.text-button:not(.suggested-action) {
+      @include button(flat-normal);
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:insensitive { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:insensitive { @include button(flat-checked-insensitive); }
+    }
+  }
+}
+
