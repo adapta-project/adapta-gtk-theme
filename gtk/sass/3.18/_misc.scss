@@ -770,3 +770,52 @@ EvAnnotationWindow {
   }
 }
 
+
+/*****************
+ * Gnome-weather *
+ *****************/
+
+Gjs_WeatherWidget {
+  .frame > GtkGrid > GtkGrid > GtkGrid {
+    .osd.linked.stack-switcher {
+      background-color: gtkopacity($dark_color, 0.9);
+      box-shadow: $z-depth-1;
+
+      > .button.text-button { // remove underlines
+        &,
+        &:hover { border-image: none; }
+        &:checked {
+          border-image: -gtk-gradient(radial,
+                                      center bottom, 0,
+                                      center bottom, 0.5,
+                                      to($selected_bg_color),
+                                      to(transparent))
+                                      0 0 2 / 0 0 2px;
+        }
+      }
+    }
+
+    .osd.button {
+      padding: 1em;
+      border-radius: 100px;
+      outline-radius: 100px;
+      background-color: gtkopacity($dark_color, 0.9);
+    }
+
+    GtkStack > GtkScrolledWindow {
+      .undershoot { // remove undershoot
+        &.top,
+        &.bottom,
+        &.left,
+        &.right { background-image: none; }
+      }
+    }
+  }
+
+  Gjs_WeeklyForecastFrame {
+    background: transparent;
+    background-image: linear-gradient(to bottom,
+                                      gtkopacity($dark_color, 0.9));
+  }
+}
+
