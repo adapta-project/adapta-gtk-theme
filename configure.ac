@@ -1,6 +1,6 @@
 AC_INIT(
 	[Adapta ],
-	3.21.2,
+	3.21.3,
 	[https://github.com/tista500/Adapta],
 	[adapta-gtk-theme]
 )
