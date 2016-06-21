@@ -2913,7 +2913,21 @@ GtkScrolledWindow {
 .app-notification.frame {
   @extend %osd;
   @extend .toolbar.osd;
+
   .button {
+  }
+
+  &.flat {
+    @extend %osd;
+    @extend .toolbar.osd;
+    // needs additional spacing
+    padding: 1.6em;
+
+    .button:not(.text-button) {
+      padding: 1em;
+      border-radius: 100px;
+      outline-radius: 100px;
+    }
   }
 }
 
