@@ -212,11 +212,14 @@ $orientation: ((top, bottom),
       image { padding: rem(5.3px) 0 rem(6.7px); }
     }
     &:hover,
-    &.activatable:hover {
+    &.activatable:hover,
+    &:selected,
+    &.activatable:selected {
       background-image: none;
       background-color: $secondary_base_color;
-      color: $fg_color;
       transition: none;
+
+      &, & label { color: $fg_color; }
     }
   }
 
