@@ -337,7 +337,7 @@ endif
 # * Install files *
 # *****************
 
-install-data-local:
+install-data-local: all
 	$(MKDIR_P) $(adaptadir)/gnome-shell
 	$(MKDIR_P) $(adaptadir)/gnome-shell/assets
 	$(MKDIR_P) $(adaptadir)/gnome-shell/assets/dot

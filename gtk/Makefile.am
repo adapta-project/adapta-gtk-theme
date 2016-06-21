@@ -730,7 +730,7 @@ endif
 # * Install files *
 # *****************
 
-install-data-local:
+install-data-local: all
 	$(MKDIR_P) $(adaptadir)
 	$(MKDIR_P) $(noktodir)
 

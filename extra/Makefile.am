@@ -19,7 +19,7 @@ all:
 # * Install files *
 # *****************
 
-install-data-local:
+install-data-local: all
 if ENABLE_CHROME
 	$(MKDIR_P) $(adaptadir)/chrome
 	$(MKDIR_P) $(noktodir)/chrome
