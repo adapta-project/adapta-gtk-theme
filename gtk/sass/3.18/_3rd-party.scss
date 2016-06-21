@@ -222,11 +222,14 @@ $orientation: ((top, bottom),
       transition: none;
     }
     &:hover,
-    &.activatable:hover {
+    &.activatable:hover,
+    &:selected,
+    &.activatable:selected {
       background-image: none;
       background-color: $secondary_base_color;
-      color: $fg_color;
       transition: none;
+
+      &, & .label { color: $fg_color; }
     }
   }
 
