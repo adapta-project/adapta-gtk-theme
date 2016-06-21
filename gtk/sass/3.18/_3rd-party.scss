@@ -249,8 +249,16 @@ $orientation: ((top, bottom),
   background-color: $secondary_dark_color;
 
   // mixin with drop-shadows to avoid the raven edge shine-through
-  &:dir(ltr) { box-shadow: -1px 0 1px rgba(0, 0, 0, 0.12); }
-  &:dir(rtl) { box-shadow: 1px 0 1px rgba(0, 0, 0, 0.12); }
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light',
+                               -1px 0 1px rgba(0, 0, 0, 0.12),
+                               -1px 0 1px rgba(0, 0, 0, 0.22));
+  }
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light',
+                               1px 0 1px rgba(0, 0, 0, 0.12),
+                               1px 0 1px rgba(0, 0, 0, 0.22));
+  }
 
   .raven-header {
     border: none;
@@ -275,12 +283,9 @@ $orientation: ((top, bottom),
 
     // last-child is constructed without header-label
     &:not(.top):not(.bottom):not(:last-child) {
-      &:dir(ltr) { box-shadow: inset 2px 0 0 $accent_color; }
-      &:dir(rtl) { box-shadow: inset -2px 0 0 $accent_color; }
-
       > .label,
       > GtkBox > .label,
-      > GtkBox > GtkImage { color: $accent_color; }
+      > GtkBox > GtkImage { color: $tertiary_fg_color; }
     }
   }
 
