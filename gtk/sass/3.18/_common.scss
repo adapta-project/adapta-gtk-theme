@@ -292,8 +292,22 @@ GtkTextView { // This will get overridden by .view,
 .entry {
   padding: 0.75em 1em 0.8em;
   @include entry(normal);
-  &:focus { @include entry(focus); }
-  &:insensitive { @include entry(insensitive); }
+  background-color: $base_color; // FIXME: workaround for LibreOffice
+  &:focus {
+    @include entry(focus);
+    background-color: $base_color;
+  }
+  &:insensitive {
+    @include entry(insensitive);
+    background-color: $base_color;
+  }
+
+  .background & { // actual background for GtkEntry
+    &,
+    &:focus,
+    &:insensitive { background-color: transparent; }
+    &:selected { @extend %selected_items; }
+  }
 
   &.flat {
     @include entry(flat-normal);
