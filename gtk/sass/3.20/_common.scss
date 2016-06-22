@@ -361,9 +361,25 @@ entry,
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(8px) rem(10.7px);
   @include entry(normal);
+  background-color: $base_color; // FIXME: workaround for LibreOffice
+  &:focus {
+    @include entry(focus);
+    background-color: $base_color;
+  }
+  &:disabled {
+    @include entry(insensitive);
+    background-color: $base_color;
+  }
 
-  &:focus { @include entry(focus); }
-  &:disabled { @include entry(insensitive); }
+  .background & { // actual background for GtkEntry
+    &,
+    &:focus,
+    &:disabled { background-color: transparent; }
+
+    selection {
+      &, &:focus { @extend %selected_items; }
+    }
+  }
 
   &.flat {
     border-radius: 0;
