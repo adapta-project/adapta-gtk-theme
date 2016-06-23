@@ -69,6 +69,7 @@ AC_MSG_RESULT([
          2nd-selection-color:   $SECOND_SELECTION (default: $second_selection_default)
          accent-color:          $ACCENT (default: $accent_default)
          suggestion-color:      $SUGGESTION (default: $suggestion_default)
+         destruction-color:     $DESTRUCTION (default: $destruction_default)
 
         -----------------------------------------------------------
         | Default DE support

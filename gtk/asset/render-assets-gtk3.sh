@@ -26,6 +26,8 @@ accent1="`grep 'Teal300' ../sass/common/_colors.scss | \
                 cut -d' ' -f3`"
 suggestion1="`grep 'Teal500' ../sass/common/_colors.scss | \
                     cut -d' ' -f3`"
+destruction1="`grep 'RedA200' ../sass/common/_colors.scss | \
+                     cut -d' ' -f3`"
 
 #Renderer
 render-non-scale() {
@@ -49,6 +51,8 @@ if [ -e $KEY_FILE ]; then
               cut -d' ' -f2 | cut -d';' -f1`"
     suggestion2="`grep 'key_suggestion' $KEY_FILE | \
                   cut -d' ' -f2 | cut -d';' -f1`"
+    destruction2="`grep 'key_destruction' $KEY_FILE | \
+                   cut -d' ' -f2 | cut -d';' -f1`"
 
     cp -f $SRC_FILE.in $SRC_FILE && sleep 1
 
@@ -63,6 +67,10 @@ if [ -e $KEY_FILE ]; then
     if [ $suggestion1 != $suggestion2 ]; then
         sed -i "s/$suggestion1/$suggestion2/g" $SRC_FILE
         echo $suggestion1 is re-colored with $suggestion2.
+    fi
+    if [ $destruction1 != $destruction2 ]; then
+        sed -i "s/$destruction1/$destruction2/g" $SRC_FILE
+        echo $destruction1 is re-colored with $destruction2.
     fi
 else
     echo _key_colors.scss was not found. Stopped...

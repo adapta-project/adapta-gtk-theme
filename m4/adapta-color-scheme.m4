@@ -10,6 +10,8 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
                      cut -d' ' -f3`"
     suggestion_default="`grep 'Teal500' ./gtk/sass/common/_colors.scss | \
                          cut -d' ' -f3`"
+    destruction_default="`grep 'RedA200' ./gtk/sass/common/_colors.scss | \
+                          cut -d' ' -f3`"
 
     AC_ARG_WITH(
         [selection_color],
@@ -59,6 +61,18 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
     )
     AC_SUBST([SUGGESTION])
 
+    AC_ARG_WITH(
+        [destruction_color],
+        [AS_HELP_STRING(
+            [--with-destruction_color],
+            [Tertiary color for 'destructive' buttons \
+             (Default: #FF5252 (RedA200))]
+        )],
+        [DESTRUCTION="$withval"],
+        [DESTRUCTION=$destruction_default]
+    )
+    AC_SUBST([DESTRUCTION])
+
 # Store defined key color-scheme into SCSS file
 echo \
 "// Selection (Primary) color
@@ -71,7 +85,10 @@ echo \
 \$key_accent_color: `echo $ACCENT`;
 
 // Suggestion color
-\$key_suggestion_color: `echo $SUGGESTION`;" \
+\$key_suggestion_color: `echo $SUGGESTION`;
+
+// Destruction (Tertiary) color
+\$key_destruction_color: `echo $DESTRUCTION`;" \
 > ./gtk/sass/common/_key_colors.scss
 
 # Copy SCSS to shell SASS directory
