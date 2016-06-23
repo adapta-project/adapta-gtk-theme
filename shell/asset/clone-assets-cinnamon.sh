@@ -21,6 +21,8 @@ selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
                    cut -d' ' -f3`"
 accent1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
                 cut -d' ' -f3`"
+destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
+                     cut -d' ' -f3`"
 
 # Check and re-color SVG files
 if [ -e $KEY_FILE ]; then
@@ -28,6 +30,8 @@ if [ -e $KEY_FILE ]; then
                  cut -d' ' -f2 | cut -d';' -f1`"
     accent2="`grep 'key_accent' $KEY_FILE | \
               cut -d' ' -f2 | cut -d';' -f1`"
+    destruction2="`grep 'key_destruction' $KEY_FILE | \
+                   cut -d' ' -f2 | cut -d';' -f1`"
 
 IFS=$'
 '
@@ -49,6 +53,13 @@ do
         if [ $accent1 != $accent2 ]; then
             sed -i "s/$accent1/$accent2/g" $SRC_DIR/$s
             echo $s is re-colored with $accent2.
+        fi
+    elif [ "$r" = "r3" ]; then
+        cp -f $SRC_DIR/$s.in $SRC_DIR/$s
+
+        if [ $destruction1 != $destruction2 ]; then
+            sed -i "s/$destruction1/$destruction2/g" $SRC_DIR/$s
+            echo $s is re-colored with $destruction2.
         fi
     fi
 done
