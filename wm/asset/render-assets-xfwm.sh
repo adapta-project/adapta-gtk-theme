@@ -17,11 +17,15 @@ ASSETS_DIR="../xfwm4"
 INDEX="assets-xfwm.txt"
 RECOLOR_FILE1="./assets-xfwm/close-pressed.svg"
 RECOLOR_FILE2="./assets-xfwm/menu-pressed.svg"
+RECOLOR_FILE3="./assets-xfwm/close-prelight.svg"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
 selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
                    cut -d' ' -f3`"
+destruction1="`grep 'RedA200' ../sass/common/_colors.scss | \
+                     cut -d' ' -f3`"
+
 # Renderer
 render-non-scale() {
     $INKSCAPE --export-png=$ASSETS_DIR/$i.png $SRC_DIR/$i.svg >/dev/null #\
@@ -31,13 +35,21 @@ render-non-scale() {
 if [ -e $KEY_FILE ]; then
     selection2="`grep 'key_selection' $KEY_FILE | \
                  cut -d' ' -f2 | cut -d';' -f1`"
+    destruction2="`grep 'key_destruction' $KEY_FILE | \
+                   cut -d' ' -f2 | cut -d';' -f1`"
 
     cp -f $RECOLOR_FILE1.in $RECOLOR_FILE1
     cp -f $RECOLOR_FILE2.in $RECOLOR_FILE2
+    cp -f $RECOLOR_FILE3.in $RECOLOR_FILE3
+
     if [ $selection1 != $selection2 ]; then
         sed -i "s/$selection1/$selection2/g" $RECOLOR_FILE1
         sed -i "s/$selection1/$selection2/g" $RECOLOR_FILE2
         echo $selection1 is re-colored with $selection2.
+    fi
+    if [ $destruction1 != $destruction2 ]; then
+        sed -i "s/$destruction1/$destruction2/g" $RECOLOR_FILE3
+        echo $destruction1 is re-colored with $destruction2.
     fi
 else
     echo _key_colors.scss was not found. Stopped...

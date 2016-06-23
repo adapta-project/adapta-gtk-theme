@@ -13,22 +13,33 @@
 SRC_DIR="assets-metacity"
 ASSETS_DIR="../metacity-1"
 INDEX="assets-metacity.txt"
-RECOLOR_FILE="./assets-metacity/button_close_pressed.svg"
+RECOLOR_FILE1="./assets-metacity/button_close_pressed.svg"
+RECOLOR_FILE2="./assets-metacity/button_close_prelight.svg"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
 selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
                    cut -d' ' -f3`"
+destruction1="`grep 'RedA200' ../sass/common/_colors.scss | \
+                     cut -d' ' -f3`"
 
 # Check and re-color 'button_close_pressed' button
 if [ -e $KEY_FILE ]; then
     selection2="`grep 'key_selection' $KEY_FILE | \
                  cut -d' ' -f2 | cut -d';' -f1`"
+    destruction2="`grep 'key_destruction' $KEY_FILE | \
+                   cut -d' ' -f2 | cut -d';' -f1`"
 
-    cp -f $RECOLOR_FILE.in $RECOLOR_FILE
+    cp -f $RECOLOR_FILE1.in $RECOLOR_FILE1
+    cp -f $RECOLOR_FILE2.in $RECOLOR_FILE2
+
     if [ $selection1 != $selection2 ]; then
-        sed -i "s/$selection1/$selection2/g" $RECOLOR_FILE
+        sed -i "s/$selection1/$selection2/g" $RECOLOR_FILE1
         echo $selection1 is re-colored with $selection2.
+    fi
+    if [ $destruction1 != $destruction2 ]; then
+        sed -i "s/$destruction1/$destruction2/g" $RECOLOR_FILE2
+        echo $destruction1 is re-colored with $destruction2.
     fi
 else
     echo _key_colors.scss was not found. Stopped...
