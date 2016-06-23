@@ -485,7 +485,9 @@ CLEANFILES = \
 	$(srcdir)/asset/assets-gnome-shell/common/media-control-active.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/media-control-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/more-results.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/window-close.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close-active.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/window-close-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/dot/*.svg \
 	$(srcdir)/asset/assets-gnome-shell/workspaces-to-dock/*.svg
 if ENABLE_CINNAMON
@@ -496,7 +498,9 @@ CLEANFILES += \
 	$(srcdir)/cinnamon-nokto/assets/*/*.svg \
 	$(srcdir)/asset/assets-cinnamon/common/checkbox/*.svg \
 	$(srcdir)/asset/assets-cinnamon/common/misc/add-workspace-active.svg \
+	$(srcdir)/asset/assets-cinnamon/common/misc/close.svg \
 	$(srcdir)/asset/assets-cinnamon/common/misc/close-active.svg \
+	$(srcdir)/asset/assets-cinnamon/common/misc/close-hover.svg \
 	$(srcdir)/asset/assets-cinnamon/common/misc/corner-ripple.svg \
 	$(srcdir)/asset/assets-cinnamon/common/panel/activities-active.svg \
 	$(srcdir)/asset/assets-cinnamon/common/panel/window-list-active-bottom.svg \
@@ -508,6 +512,7 @@ endif
 if ENABLE_UNITY
 CLEANFILES += \
 	$(srcdir)/unity/*.svg \
+	$(srcdir)/asset/assets-unity/close_focused_prelight.svg \
 	$(srcdir)/asset/assets-unity/close_focused_pressed.svg \
 	$(srcdir)/asset/assets-unity/progress_bar_fill.svg \
 	$(srcdir)/asset/assets-unity/progress_bar_trough.svg
