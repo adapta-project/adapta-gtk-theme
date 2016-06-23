@@ -263,22 +263,28 @@ buttonbox {
   &, &.dialog-action-area {
     button {
       @extend %button_flat_normal;
+      background-color: transparent;
       color: $secondary_accent_color;
       font-weight: 700;
       &:hover {
         @extend %button_flat_hover;
+        background-color: transparent;
         color: $accent_color;
       }
       &:active {
         @extend %button_flat_active;
+        background-color: transparent;
         color: $accent_color;
       }
       &:disabled { @include button(flat-insensitive); }
       &:checked {
+        @extend %button_flat_checked;
+        background-color: transparent;
         color: $accent_color;
       }
       &:checked:disabled {
         @extend %button_flat_checked_disabled;
+        background-color: transparent;
         color: gtkopacity($accent_color, 0.4);
       }
     }
@@ -541,6 +547,10 @@ entry,
   box-shadow: none;
 }
 
+%button_flat_checked {
+  box-shadow: none;
+}
+
 %button_flat_disabled,
 %button_flat_checked_disabled {
   box-shadow: none;
@@ -798,7 +808,7 @@ button,
   .inline-toolbar &,
   actionbar {
     &, &:not(.text-button).image-button {
-      @extend %button_flat_normal;
+      @include button(flat-normal);
       min-width: rem(13.3px);
       min-height: rem(13.3px);
       padding: rem(10px);
@@ -845,6 +855,7 @@ button,
   @extend %button_flat_normal;
   border-radius: 0;
   -gtk-outline-radius: 0;
+  background-color: transparent;
   color: $secondary_fg_color;
   border-image: -gtk-gradient(radial,
                               center bottom, 0,
@@ -864,6 +875,7 @@ button,
   }
   &:active,
   &:checked {
+    @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
     border-image: -gtk-gradient(radial,
@@ -901,6 +913,7 @@ button,
   border-image: none;
   border-width: 0;
   -gtk-outline-radius: 0;
+  background-color: transparent;
   color: $secondary_fg_color;
   &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
   &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
@@ -911,6 +924,7 @@ button,
   }
   &:active,
   &:checked {
+    @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
     &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
@@ -1001,6 +1015,7 @@ modelbutton.flat,
   padding: rem(2.7px) rem(5.3px) rem(3.3px);
   outline-offset: rem(-1px);
   background-size: $text_button_small;
+  background-color: transparent;
   color: $secondary_fg_color;
   transition: none;
   &:hover {
@@ -1014,6 +1029,7 @@ modelbutton.flat,
     color: $fg_color;
   }
   &:checked {
+    @extend %button_flat_checked;
     background-color: transparent;
     color: $fg_color;
   }
@@ -1499,26 +1515,33 @@ toolbar {
 
     button {
       @extend %button_flat_normal;
+      background-color: transparent;
       &:not(:active):not(:disabled):not(hover) {
+        background-color: transparent;
         color: $secondary_accent_color;
       }
       &:hover {
         @extend %button_flat_hover;
+        background-color: transparent;
         color: $accent_color;
       }
       &:active {
         @extend %button_flat_active;
         border-image: none;
+        background-color: transparent;
         color: $accent_color;
         box-shadow: none;
       }
       &:checked {
+        @extend %button_flat_checked;
         border-image: none;
+        background-color: transparent;
         color: $accent_color;
         box-shadow: none;
       }
       &:disabled {
         @extend %button_flat_disabled;
+        background-color: transparent;
         color: gtkopacity($accent_color, 0.4);
       }
     }
@@ -1549,6 +1572,7 @@ toolbar {
   button { // use flat-buttons
     @extend %button_flat_normal;
     background-size: $text_button_small;
+    background-color: transparent;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -1620,6 +1644,7 @@ toolbar {
     }
 
     &.toggle { // remove double-background
+      &,
       &:hover,
       &:active,
       &:checked {
@@ -2636,6 +2661,7 @@ popover.background {
   .linked > button {
     @extend %button_flat_normal;
     @extend %button_array;
+    background-color: transparent;
     color: $secondary_fg_color;
     &:hover {
       @extend %button_flat_hover;
@@ -2648,6 +2674,7 @@ popover.background {
       color: $fg_color;
     }
     &:checked {
+      @extend %button_flat_checked;
       background-color: transparent;
       color: $fg_color;
     }
@@ -4366,6 +4393,7 @@ messagedialog { // Message Dialog styling
           color: $accent_color;
         }
         &:checked {
+          @extend %button_flat_checked;
           background-color: transparent;
           color: $secondary_accent_color;
         }
@@ -4732,6 +4760,7 @@ infobar {
       color: $fixed_fg_color;
     }
     &:checked {
+      @extend %button_flat_checked;
       background-color: transparent;
       color: $fixed_fg_color;
     }
