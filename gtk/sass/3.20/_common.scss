@@ -1196,7 +1196,6 @@ spinbutton {
       background-size: contain;
       background-color: transparent;
       color: $secondary_fg_color;
-      box-shadow: none;
       transition-property: opacity,
                            color,
                            background-color,
@@ -1580,12 +1579,10 @@ toolbar {
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
-    box-shadow: none;
     &:hover {
       @extend %button_flat_hover;
       border-image: none;
       color: $fg_color;
-      box-shadow: none;
     }
     &:checked {
       border-image: -gtk-gradient(radial,
@@ -1596,14 +1593,11 @@ toolbar {
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
-      box-shadow: none;
       &:disabled {
         @extend %button_flat_checked_disabled;
         border-image: none;
         background-color: transparent;
         color: $insensitive_fg_color;
-        box-shadow: none;
-        > label { color: inherit; }
       }
     }
     &:disabled {
@@ -1611,7 +1605,6 @@ toolbar {
       border-image: none;
       background-color: transparent;
       color: $insensitive_secondary_fg_color;
-      box-shadow: none;
     }
 
     button,
@@ -1643,7 +1636,8 @@ toolbar {
       background-size: $image_button_large;
     }
 
-    &.toggle { // remove double-background
+    &.toggle,
+    &.popup.toggle { // remove double-background
       &,
       &:hover,
       &:active,
@@ -4376,7 +4370,6 @@ messagedialog { // Message Dialog styling
         font-size: initial;
         font-weight: 700;
         background-size: $text_button_small;
-        box-shadow: none;
         // &:first-child { border-bottom-left-radius: 2px; }
         // &:last-child { border-bottom-right-radius: 2px; }
 
