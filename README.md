@@ -146,13 +146,14 @@ Installation from Git Source
  > **Note:**
  >   * As default, Gtk+ 3.21.x support is disabled.
 
-6. If users want to change default 4 **Key-Colors**, please pass these options:
+6. If users want to change default 5 **Key-Colors**, please pass these options:
 
  ```
  --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500)
  --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300)
  --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300)
  --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500)
+ --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200)
  ```
 
  > **Note:**
@@ -166,7 +167,7 @@ Installation from Git Source
  >     This can switch to almost-Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should be with `500` colors,
  >     and `second_selection_color` and `accent_color` should be with `300` colors.
- >   * While doing `make`, Adapta changes those 4 colors in all stylesheets and images,
+ >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
 
 Extra Browser Support
