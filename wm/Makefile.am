@@ -118,7 +118,7 @@ endif
 # * Install files *
 # *****************
 
-install-data-local: all
+install-data-local:
 if ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1

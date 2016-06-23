@@ -15,9 +15,7 @@ EXTRA_DIST = \
 	LICENSE_CC_BY_SA3 \
 	README.md
 
-all:
-
-install-data-hook: all
+install-data-hook:
 	cp -Rv $(EXTRA_DIST) $(adaptadir)
 
 uninstall-hook:
