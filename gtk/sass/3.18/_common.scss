@@ -2911,7 +2911,9 @@ GtkScrolledWindow {
     padding: 0.4em;
     background-size: 2em * 1 / 0.8 2em * 1 / 0.8, auto;
   }
+}
 
+.list-row:selected {
   // special case to use raised GtkEntry
   .entry,
   .entry.flat {
@@ -2935,17 +2937,10 @@ GtkScrolledWindow {
       border-style: none;
       border-image: none;
       background-color: $track_color;
-      color: $insensitive_fg_color;
+      color: gtkopacity($selected_fg_color, 0.3);
       box-shadow: none;
     }
     &:selected { @extend %selected_items; }
-  }
-
-  &:selected {
-    .entry,
-    .entry.flat {
-      &:insensitive { color: gtkopacity($selected_fg_color, 0.3); }
-    }
   }
 }
 
