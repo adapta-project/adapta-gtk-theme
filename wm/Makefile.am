@@ -189,14 +189,16 @@ CLEANFILES =
 if ENABLE_FLASHBACK
 CLEANFILES += \
 	$(metacitydir)/*.svg \
-	$(srcdir)/asset/assets-metacity/button_close_pressed.svg
+	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
 
 if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
 CLEANFILES += \
 	$(metacitydir)/*.svg \
-	$(srcdir)/asset/assets-metacity/button_close_pressed.svg
+	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
 endif
 
@@ -204,7 +206,8 @@ if ENABLE_UNITY
 if !ENABLE_FLASHBACK
 CLEANFILES += \
 	$(metacitydir)/*.svg \
-	$(srcdir)/asset/assets-metacity/button_close_pressed.svg
+	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
 endif
 
@@ -212,6 +215,7 @@ if ENABLE_XFCE
 CLEANFILES += \
 	$(xfwmdir)/*.png \
 	$(srcdir)/asset/assets-xfwm/close-pressed.svg \
+	$(srcdir)/asset/assets-xfwm/close-prelight.svg \
 	$(srcdir)/asset/assets-xfwm/menu-pressed.svg
 endif
 
