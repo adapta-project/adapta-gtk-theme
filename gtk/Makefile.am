@@ -599,7 +599,7 @@ gtk2_nokto_entry_file = \
 	$(gtk2_assetdir)/Entry/base_entry-active-dark.png \
 	$(gtk2_assetdir)/Entry/base_entry-dark.png \
 	$(gtk2_assetdir)/Entry/base_entry-insensitive-dark.png \
-	$(gtk2_assetdir)/Entry/bg_dark.png \
+	$(gtk2_assetdir)/Entry/bg-dark.png \
 	$(gtk2_assetdir)/Entry/entry-active-dark.png \
 	$(gtk2_assetdir)/Entry/entry-dark.png \
 	$(gtk2_assetdir)/Entry/entry-insensitive-dark.png \
