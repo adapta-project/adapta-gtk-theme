@@ -462,7 +462,7 @@ $orientation: ((top, bottom),
 
   .button,
   .linked > .button {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     padding: 0.7em 1em 0.8em;
     border: 2px solid transparent;
     border-radius: 0;
@@ -470,15 +470,18 @@ $orientation: ((top, bottom),
     background-color: transparent;
     background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
     &:hover {
-      @include button(flat-hover);
+      @extend %button_flat_hover;
+      background-color: transparent;
       color: $accent_color;
     }
     &:active {
-      @include button(flat-active);
+      @extend %button_flat_active;
+      background-color: transparent;
       color: $accent_color;
     }
     &:checked {
-     @include button(flat-checked);
+     @extend %button_flat_checked;
+      background-color: transparent;
       color: $secondary_accent_color;
     }
     &:insensitive { @include button(flat-insensitive); }
@@ -764,7 +767,7 @@ CcShellCategoryView { // stop using $base_color
   font-weight: 700;
 
   .button {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     padding: 0px 4px;
     border: none;
     border-radius: 0;

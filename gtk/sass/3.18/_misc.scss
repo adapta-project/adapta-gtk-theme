@@ -68,12 +68,12 @@ PanelApplet {
     &#tasklist-button,
     &#clock-applet-button,
     &#showdesktop-button {
-      @include button(flat-normal);
+      @extend %button_flat_normal;
       padding: 0px 4px;
+      border-radius: 0;
+      border: none;
       color: $inverted_secondary_fg_color;
       background-color: transparent;
-      border: none;
-      border-radius: 0;
       &:hover {
         color: $selected_fg_color;
         background-color: transparent;
@@ -94,12 +94,12 @@ PanelApplet {
 
 // FIXME: w.i.p
 TaskList TaskItem {
-  @include button(flat-normal);
+  @extend %button_flat_normal;
   padding: 0px 4px;
+  border-radius: 0;
+  border: none;
   color: $inverted_secondary_fg_color;
   background-color: transparent;
-  border: none;
-  border-radius: 0;
   &:hover {
     color: $selected_fg_color;
     background-color: transparent;
