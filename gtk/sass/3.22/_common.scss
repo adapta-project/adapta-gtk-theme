@@ -235,20 +235,20 @@ assistant {
     // apply suggested-action button for "Next" and "Back"
     // last -> "cancel", nth -> "Next" and "Back", that's weird.
     button.flat:not(:last-child) {
-      @include button(normal);
+      @extend %button_normal;
       background-color: $suggested_color;
       color: $secondary_selected_fg_color;
       &:hover {
-        @include button(hover);
+        @extend %button_hover;
         color: $selected_fg_color;
       }
       &:active {
-        @include button(active);
+        @extend %button_active;
         color: $selected_fg_color;
         background-color: $selected_bg_color;
       }
       &:checked {
-        @include button(checked);
+        @extend %button_checked;
         background-color: $suggested_color;
         color: $inverted_fg_color;
       }
@@ -261,24 +261,29 @@ assistant {
 buttonbox {
   &, &.dialog-action-area {
     button {
-      @include button(flat-normal);
+      @extend %button_flat_normal;
+      background-color: transparent;
       color: $secondary_accent_color;
       font-weight: 700;
       &:hover {
-        @include button(flat-hover);
+        @extend %button_flat_hover;
+        background-color: transparent;
         color: $accent_color;
       }
       &:active {
-        @include button(flat-active);
+        @extend %button_flat_active;
+        background-color: transparent;
         color: $accent_color;
       }
       &:disabled { @include button(flat-insensitive); }
       &:checked {
-        @include button(flat-checked);
+        @extend %button_flat_checked;
+        background-color: transparent;
         color: $accent_color;
       }
       &:checked:disabled {
-        @include button(flat-checked-insensitive);
+        @extend %button_flat_checked_disabled;
+        background-color: transparent;
         color: gtkopacity($accent_color, 0.4);
       }
     }
@@ -476,6 +481,88 @@ entry {
   }
 }
 
+// template for standard buttons
+%button_normal {
+  background-image: -gtk-gradient(radial,
+                                  center center, 0,
+                                  center center, 0.5,
+                                  to(gtkalpha(currentColor, 0)),
+                                  to(transparent)),
+                    linear-gradient(to bottom, gtkalpha(currentColor, 0),
+                                               gtkalpha(currentColor, 0));
+  box-shadow: $z-depth-1,
+              inset 0 1px $highlight_color;
+}
+
+%button_hover {
+  background-image: -gtk-gradient(radial,
+                                  center center, 0,
+                                  center center, 0.5,
+                                  to(gtkalpha(currentColor, 0)),
+                                  to(transparent)),
+                    linear-gradient(to bottom, gtkalpha(currentColor, 0),
+                                               gtkalpha(currentColor, 0));
+  box-shadow: $z-depth-2,
+              inset 0 1px $highlight_color;
+}
+
+%button_active {
+  box-shadow: $z-depth-2,
+              inset 0 1px $highlight_color;
+  transition-duration: 0;
+  animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+%button_checked {
+  box-shadow: $z-depth-1,
+              inset 0 1px $highlight_color;
+}
+
+%button_disabled,
+%button_checked_disabled {
+  box-shadow: none;
+
+  > label { color: inherit; }
+}
+
+%button_flat_normal {
+  background-image: -gtk-gradient(radial,
+                                  center center, 0,
+                                  center center, 0.5,
+                                  to(gtkalpha(currentColor, 0)),
+                                  to(transparent)),
+                    linear-gradient(to bottom, gtkalpha(currentColor, 0),
+                                               gtkalpha(currentColor, 0));
+  box-shadow: none;
+}
+
+%button_flat_hover {
+  background-image: -gtk-gradient(radial,
+                                  center center, 0,
+                                  center center, 0.5,
+                                  to(gtkalpha(currentColor, 0)),
+                                  to(transparent)),
+                    linear-gradient(to bottom, gtkalpha(currentColor, 0.1),
+                                               gtkalpha(currentColor, 0.1));
+  box-shadow: none;
+}
+
+%button_flat_active {
+  animation: flat_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  box-shadow: none;
+}
+
+%button_flat_checked {
+  box-shadow: none;
+}
+
+%button_flat_disabled,
+%button_flat_checked_disabled {
+  box-shadow: none;
+
+  > label { color: inherit; }
+}
+
 button {
   min-height: rem(13.3px);
   min-width: rem(33.3px);
@@ -546,12 +633,12 @@ button {
       background-size: $text_button_small;
       color: $selected_fg_color;
       &:hover {
-        @include button(hover);
+        @extend %button_hover;
         background-color: $b_color;
         color: $selected_fg_color;
       }
       &:active {
-        @include button(active);
+        @extend %button_active;
         background-color: $selected_bg_color;
         color: $selected_fg_color;
       }
@@ -565,7 +652,7 @@ button {
         color: $b_color;
         &:hover { @include button(flat-hover, $track_color, $b_color); }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
           background-color: gtkalpha($selected_bg_color, 0.2);
           color: $selected_bg_color;
         }
@@ -768,9 +855,10 @@ button {
 }
 
 %button_array {
-  @include button(flat-normal);
+  @extend %button_flat_normal;
   border-radius: 0;
   -gtk-outline-radius: 0;
+  background-color: transparent;
   color: $secondary_fg_color;
   border-image: -gtk-gradient(radial,
                               center bottom, 0,
@@ -779,7 +867,7 @@ button {
                               to(transparent))
                               0 0 1 / 0 0 1px;
   &:hover {
-    @include button(flat-hover);
+    @extend %button_flat_hover;
     border-radius: 0;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -790,6 +878,7 @@ button {
   }
   &:active,
   &:checked {
+    @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
     border-image: -gtk-gradient(radial,
@@ -823,10 +912,11 @@ button {
 }
 
 %button_vertical_array {
-  @include button(flat-normal);
+  @extend %button_flat_normal;
   border-image: none;
   border-width: 0;
   -gtk-outline-radius: 0;
+  background-color: transparent;
   color: $secondary_fg_color;
   &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
   &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
@@ -837,6 +927,7 @@ button {
   }
   &:active,
   &:checked {
+    @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
     &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
@@ -922,18 +1013,37 @@ toolbar.inline-toolbar toolbutton {
 // menu buttons on GtkPopover
 modelbutton.flat,
 menuitem button.flat {
-  @include button(flat-normal);
+  @extend %button_flat_normal;
   min-height: rem(26.6px);
-  margin-left: rem(10px);
-  margin-right: rem(10px);
+  padding: rem(2.7px) rem(5.3px) rem(3.3px);
   outline-offset: rem(-1px);
   background-size: $text_button_small;
   transition: none;
-  &:hover { @include button(flat-hover); }
-  &:active { @include button(flat-active); }
-  &:disabled { @include button(flat-insensitive); }
-  &:checked { @include button(flat-checked); }
-  &:checked:disabled { @include button(flat-checked-insensitive); }
+  &:hover {
+    @extend %button_flat_hover;
+    background-color: transparent;
+    color: $fg_color;
+  }
+  &:active {
+    @extend %button_flat_active;
+    background-color: transparent;
+    color: $fg_color;
+  }
+  &:checked {
+    @extend %button_flat_checked;
+    background-color: transparent;
+    color: $fg_color;
+  }
+  &:checked:disabled {
+    @extend %button_flat_checked_disabled;
+    background-color: transparent;
+    color: $insensitive_fg_color;
+  }
+  &:disabled {
+    @include button(flat-insensitive);
+    background-color: transparent;
+    color: $insensitive_secondary_fg_color;
+  }
 
   check,
   radio {
@@ -1076,7 +1186,7 @@ spinbutton {
     }
 
     button {
-      @include button(flat-normal);
+      @extend %button_flat_normal;
       min-width: rem(13.3px);
       min-height: rem(13.3px);
       padding: 0 rem(7.3px) 0;
@@ -1085,6 +1195,7 @@ spinbutton {
       -gtk-outline-radius: 100px;
       background: none;
       background-size: contain;
+      background-color: transparent;
       color: $secondary_fg_color;
       box-shadow: none;
       transition-property: opacity,
@@ -1095,40 +1206,40 @@ spinbutton {
 
       &:not(:last-child) { // '-' button
         &:hover {
-          @include button(flat-hover);
+          @extend %button_flat_hover;
           background: none;
           color: $error_color;
           animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
           background: none;
           color: $error_color;
           animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           transition-duration: 0.15s;
         }
         &:disabled {
-          @include button(flat-insensitive);
+          @extend %button_flat_disabled;
           background: none;
           color: $insensitive_fg_color;
         }
       }
       &:last-child { // '+' button
         &:hover {
-          @include button(flat-hover);
+          @extend %button_flat_hover;
           background: none;
           color: $success_color;
           animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
           background: none;
           color: $success_color;
           animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           transition-duration: 0.15s;
         }
         &:disabled {
-          @include button(flat-insensitive);
+          @extend %button_flat_disabled;
           background: none;
           color: $insensitive_fg_color;
         }
@@ -1175,40 +1286,40 @@ spinbutton {
 
       &.up { // '+' button
         &:hover {
-          @include button(flat-hover);
+          @extend %button_flat_hover;
           background: none;
           color: $success_color;
           animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
           background: none;
           color: $success_color;
           animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           transition-duration: 0.15s;
         }
         &:disabled {
-          @include button(flat-insensitive);
+          @extend %button_flat_disabled;
           background: none;
           color: $insensitive_fg_color;
         }
       }
       &.down { // '-' button
         &:hover {
-          @include button(flat-hover);
+          @extend %button_flat_hover;
           background: none;
           color: $error_color;
           animation: spin_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
           background: none;
           color: $error_color;
           animation: spin_active 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           transition-duration: 0.15s;
         }
         &:disabled {
-          @include button(flat-insensitive);
+          @extend %button_flat_disabled;
           background: none;
           color: $insensitive_fg_color;
         }
@@ -1280,7 +1391,7 @@ combobox {
   }
 
   button.combo { // button styling
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     color: $secondary_fg_color;
     background: transparent;
     border-image: -gtk-gradient(radial,
@@ -1291,7 +1402,7 @@ combobox {
                                 0 0 1 / 0 0 1px;
     &:hover,
     &:active {
-      @include button(flat-hover);
+      @extend %button_flat_hover;
       border-radius: 0;
       color: $fg_color;
       background: transparent;
@@ -1304,7 +1415,7 @@ combobox {
     }
     &:disabled,
     &:checked:disabled {
-      @include button(flat-insensitive);
+      @extend %button_flat_disabled;
       color: $insensitive_fg_color;
       background: transparent;
       border-image: -gtk-gradient(radial,
@@ -1403,18 +1514,34 @@ toolbar {
     }
 
     button {
-      @extend button.flat;
+      @extend %button_flat_normal;
+      background-color: transparent;
       &:not(:active):not(:disabled):not(hover) {
+        background-color: transparent;
         color: $secondary_accent_color;
       }
-      &:hover,
-      &:active { color: $accent_color; }
-      &:active,
-      &:checked {
-        border-image: none;
-        box-shadow: none;
+      &:hover {
+        @extend %button_flat_hover;
+        background-color: transparent;
+        color: $accent_color;
       }
-      &:disabled { color: gtkopacity($accent_color, 0.4); }
+      &:active {
+        @extend %button_flat_active;
+        border-image: none;
+        background-color: transparent;
+        color: $accent_color;
+      }
+      &:checked {
+        @extend %button_flat_checked;
+        border-image: none;
+        background-color: transparent;
+        color: $accent_color;
+      }
+      &:disabled {
+        @extend %button_flat_disabled;
+        background-color: transparent;
+        color: gtkopacity($accent_color, 0.4);
+      }
     }
 
     .linked > button {
@@ -1441,9 +1568,9 @@ toolbar {
   }
 
   button { // use flat-buttons
-    @extend button.flat;
+    @extend %button_flat_normal;
     background-size: $text_button_small;
-    box-shadow: none;
+    background-color: transparent;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -1452,12 +1579,12 @@ toolbar {
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
     &:hover {
-      box-shadow: none;
+      @extend %button_flat_hover;
       border-image: none;
       color: $fg_color;
     }
     &:checked {
-      box-shadow: none;
+      @extend %button_flat_checked;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -1467,18 +1594,17 @@ toolbar {
       background-color: transparent;
       color: $fg_color;
       &:disabled {
-        box-shadow: none;
+        @extend %button_flat_checked_disabled;
+        border-image: none;
         background-color: transparent;
         color: $insensitive_fg_color;
-        border-image: none;
-        > label { color: inherit; }
       }
     }
     &:disabled {
-      box-shadow: none;
+      @extend %button_flat_disabled;
+      border-image: none;
       background-color: transparent;
       color: $insensitive_secondary_fg_color;
-      border-image: none;
     }
 
     button,
@@ -1510,7 +1636,9 @@ toolbar {
       background-size: $image_button_large;
     }
 
-    &.toggle { // remove double-background
+    &.toggle,
+    &.toggle,popup { // remove double-background
+      &,
       &:hover,
       &:active,
       &:checked {
@@ -2527,18 +2655,27 @@ popover.background {
   button.model.image-button { min-height: rem(26.7px); }
 
   .linked > button {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     @extend %button_array;
+    background-color: transparent;
     color: $secondary_fg_color;
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked {
-      @include button(flat-checked);
-      color: $fg_color;
+    &:hover {
+      @extend %button_flat_hover;
       background-color: transparent;
+      color: $fg_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      background-color: transparent;
+      color: $fg_color;
+    }
+    &:checked {
+      @extend %button_flat_checked;
+      background-color: transparent;
+      color: $fg_color;
     }
     &:checked:disabled { @include button(flat-checked-insensitive); }
+    &:disabled { @include button(flat-insensitive); }
   }
 
   .csd &,
@@ -2782,13 +2919,14 @@ notebook {
     }
 
     button { // tab close button
-      @include button(flat-normal);
+      @extend %button_flat_normal;
       min-width: rem(16px);
       min-height: rem(16px);
       padding: 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background-size: $image_button_small;
+      background-color: transparent;
       color: $tertiary_fg_color;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
@@ -4125,8 +4263,9 @@ calendar {
 
   &.button,
   &.header.button {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     color: gtkalpha(currentColor, 0.20);
+    background-color: transparent;
     background-size: $image_button_small;
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
@@ -4229,29 +4368,30 @@ messagedialog { // Message Dialog styling
     .dialog-action-area {
       button,
       .linked > button {
-        @include button(flat-normal);
+        @extend %button_flat_normal;
         border: 2px solid transparent;
         border-radius: 0;
-        color: $inverted_secondary_fg_color;
+        background-color: transparent;
+        color: $secondary_accent_color;
         font-size: initial;
         font-weight: 700;
         background-size: $text_button_small;
-        box-shadow: none;
+
         // &:first-child { border-bottom-left-radius: 2px; }
         // &:last-child { border-bottom-right-radius: 2px; }
-
-        background-color: transparent;
-        color: $secondary_accent_color;
         &:hover {
-          @include button(flat-hover);
+          @extend %button_flat_hover;
+          background-color: transparent;
           color: $accent_color;
         }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
+          background-color: transparent;
           color: $accent_color;
         }
         &:checked {
-          @include button(flat-checked);
+          @extend %button_flat_checked;
+          background-color: transparent;
           color: $secondary_accent_color;
         }
         &:disabled { @include button(flat-insensitive); }
@@ -4603,18 +4743,22 @@ infobar {
   }
 
   button {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
+    background-color: transparent;
     color: $secondary_fixed_fg_color;
     &:hover {
-      @include button(flat-hover);
+      @extend %button_flat_hover;
+      background-color: transparent;
       color: $fixed_fg_color;
     }
     &:active {
-      @include button(flat-active);
+      @extend %button_flat_active;
+      background-color: transparent;
       color: $fixed_fg_color;
     }
     &:checked {
-      @include button(flat-checked);
+      @extend %button_flat_checked;
+      background-color: transparent;
       color: $fixed_fg_color;
     }
     &:disabled { color: $insensitive_fixed_fg_color; }
@@ -4842,26 +4986,26 @@ colorchooser .popover.osd {
 
     &:first-child { // '+' button
       &:hover {
-        @include button(flat-hover);
+        @extend %button_flat_hover;
         background: none;
         color: $success_color;
         animation: volume_hover 0.2s linear forwards;
       }
       &:disabled {
-        @include button(flat-insensitive);
+        @extend %button_flat_disabled;
         background: none;
         color: gtkalpha($success_color, 0.4);
       }
     }
     &:last-child { // '-' button
       &:hover {
-        @include button(flat-hover);
+        @extend %button_flat_hover;
         background: none;
         color: $error_color;
         animation: volume_hover 0.2s linear forwards;
       }
       &:disabled {
-        @include button(flat-insensitive);
+        @extend %button_flat_disabled;
         background: none;
         color: gtkalpha($error_color, 0.4);
       }
@@ -4876,26 +5020,26 @@ colorchooser .popover.osd {
 
     &:first-child { // '-' button
       &:hover {
-        @include button(flat-hover);
+        @extend %button_flat_hover;
         background: none;
         color: $error_color;
         animation: spin_hover 0.2s linear forwards;
       }
       &:disabled {
-        @include button(flat-insensitive);
+        @extend %button_flat_disabled;
         background: none;
         color: gtkalpha($error_color, 0.4);
       }
     }
     &:last-child { // '+' button
       &:hover {
-        @include button(flat-hover);
+        @extend %button_flat_hover;
         background: none;
         color: $success_color;
         animation: spin_hover 0.2s linear forwards;
       }
       &:disabled {
-        @include button(flat-insensitive);
+        @extend %button_flat_disabled;
         background: none;
         color: gtkalpha($success_color, 0.4);
       }
@@ -5082,7 +5226,7 @@ decoration {
       }
 
       &:hover {
-        @include button(hover);
+        @extend %button_hover;
         color: $selected_fg_color;
         background-color: $destructive_color;
 
@@ -5092,7 +5236,7 @@ decoration {
         }
       }
       &:active {
-        @include button(active);
+        @extend %button_active;
         color: $selected_fg_color;
         background-color: $selected_bg_color;
 

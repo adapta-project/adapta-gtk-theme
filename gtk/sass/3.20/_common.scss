@@ -1585,6 +1585,7 @@ toolbar {
       color: $fg_color;
     }
     &:checked {
+      @extend %button_flat_checked;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -4366,15 +4367,13 @@ messagedialog { // Message Dialog styling
         border: 2px solid transparent;
         border-radius: 0;
         background-color: transparent;
-        color: $inverted_secondary_fg_color;
+        color: $secondary_accent_color;
         font-size: initial;
         font-weight: 700;
         background-size: $text_button_small;
+
         // &:first-child { border-bottom-left-radius: 2px; }
         // &:last-child { border-bottom-right-radius: 2px; }
-
-        background-color: transparent;
-        color: $secondary_accent_color;
         &:hover {
           @extend %button_flat_hover;
           background-color: transparent;

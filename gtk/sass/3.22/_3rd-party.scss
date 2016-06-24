@@ -493,7 +493,7 @@ $orientation: ((top, bottom),
 
   button,
   .linked > button {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border: 2px solid transparent;
     border-radius: 0;
@@ -501,15 +501,18 @@ $orientation: ((top, bottom),
     background-color: transparent;
     background-size: $text_button_small;
     &:hover {
-      @include button(flat-hover);
+      @extend %button_flat_hover;
+      background-color: transparent;
       color: $accent_color;
     }
     &:active {
-      @include button(flat-active);
+      @extend %button_flat_active;
+      background-color: transparent;
       color: $accent_color;
     }
     &:checked {
-     @include button(flat-checked);
+      @extend %button_flat_checked;
+      background-color: transparent;
       color: $secondary_accent_color;
     }
     &:disabled { @include button(flat-insensitive); }
@@ -695,7 +698,7 @@ window {
     > box { padding: rem(2.7px); }
 
     > box > button.image-button {
-      @include button(flat-normal);
+      @extend %button_flat_normal;
       min-width: rem(13.3px);
       min-height: rem(29.3px);
       border-radius: 2px;
@@ -707,16 +710,16 @@ window {
                                   to($track_color),
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
+      background-color: transparent;
       color: $secondary_fg_color;
-      box-shadow: none;
       &:hover {
-        @include button(flat-hover);
+        @extend %button_flat_hover;
         border-image: none;
+        background-color: transparent;
         color: $fg_color;
-        box-shadow: none;
       }
       &:checked {
-        @include button(flat-checked);
+        @extend %button_flat_checked;
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
@@ -725,22 +728,18 @@ window {
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
         color: $fg_color;
-        box-shadow: none;
         &:disabled {
-          @include button(flat-checked-insensitive);
+          @extend %button_flat_checked_disabled;
           border-image: none;
           background-color: transparent;
           color: $insensitive_fg_color;
-          box-shadow: none;
-          > label { color: inherit; }
         }
       }
       &:disabled {
-        @include button(flat-insensitive);
+        @extend %button_flat_disabled;
         border-image: none;
         background-color: transparent;
         color: $insensitive_secondary_fg_color;
-        box-shadow: none;
       }
     }
 
@@ -801,7 +800,7 @@ window > box.vertical > stack > scrolledwindow {
   font-weight: 700;
 
   button {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     padding: 0px 4px;
     border: none;
     border-radius: 0;
