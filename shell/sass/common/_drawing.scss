@@ -57,8 +57,8 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
 // normal, focus, insensitive
 //
   @if $t==normal {
-    background-color: rgba(0, 0, 0, 0.01);
     border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.01);
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc, $fill_color);
 
   }
@@ -71,8 +71,8 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
     box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc, $fill_color);
   }
   @if $t==insensitive {
-    color: $insensitive_fg_color;
     border-color: transparent;
+    color: $insensitive_fg_color;
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc, $insensitive_fill_color);
   }
 }
@@ -113,9 +113,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
     color: $fg_color;
     background-color: $c;
+    box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
-    box-shadow: 0 0 transparent;
   }
 
   @else if $t==hover {
@@ -147,9 +147,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // insensitive button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $insensitive_secondary_fg_color);
     background-color: if($c!=$bg_color, $c, $insensitive_fill_color);
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -158,9 +158,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // normal flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $secondary_fg_color);
     background-color: transparent;
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -170,9 +170,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   // focused flat button
   //
     color: $fg_color;
+    box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
-    box-shadow: 0 0 transparent;
     // box-shadow: inset 0px 0px 0px 2px $fill_color;
   }
 
@@ -180,9 +180,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // hovered flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $fg_color);
     background-color: if($c!=$bg_color, $fill_color, $semi_fill_color);
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -192,9 +192,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // pushed flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $selected_fg_color);
     background-color: if($c!=$bg_color, $tc, $fill_color);
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -203,9 +203,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // insensitive flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $insensitive_secondary_fg_color);
     background-color: transparent;
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -214,9 +214,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // osd flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $osd_secondary_fg_color);
     background-color: transparent;
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -226,9 +226,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   // focused osd flat button
   //
     color: $osd_fg_color;
+    box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
-    box-shadow: 0 0 transparent;
     // box-shadow: inset 0px 0px 0px 2px $fill_color;
   }
 
@@ -236,9 +236,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // hovered osd flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $osd_fg_color);
     background-color: if($c!=$bg_color, $osd_fill_color, $osd_semi_fill_color);
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -248,9 +248,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // pushed osd flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $selected_fg_color);
     background-color: if($c!=$bg_color, $tc, $osd_fill_color);
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;
@@ -259,9 +259,9 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
   //
   // insensitive osd flat button
   //
+    border-color: transparent;
     color: if($tc!=$fg_color, $tc, $insensitive_osd_secondary_fg_color);
     background-color: transparent;
-    border-color: transparent;
     box-shadow: 0 0 transparent;
     text-shadow: none;
     icon-shadow: none;

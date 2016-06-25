@@ -49,14 +49,15 @@ stage {
 }
 
 .modal-dialog-linked-button {
-  @include button(flat-normal);
   padding: 9px 16px 10px;
-  border-right-width: 0;
   border: none;
   color: $secondary_accent_color;
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  icon-shadow: none;
   font-weight: 700;
   &:hover {
-    @include button(flat-hover);
     color: $accent_color;
     background-color: $accent_fill_color;
   }
@@ -64,9 +65,9 @@ stage {
     color: $accent_color;
   }
   &:active {
-    @include button(flat-active);
     color: $accent_color;
     background-color: $accent_active_fill_color;
+    box-shadow: none;
   }
   &:insensitive { @include button(flat-insensitive); }
 
@@ -2185,31 +2186,33 @@ $legacy_icon_size: 24px;
 
 .keyboard-key {
   @include fontscaling($ref_size * 2.0);
-  @include button(normal);
-  border-radius: 2px;
-  border: 1px 0 0;
   min-height: 2em;
   min-width: 2em;
-  font-weight: 700;
+  border-radius: 2px;
+  border-width: 1px 0 0;
+  border-top-color: $borders_highlight;
   color: $secondary_fg_color;
+  background-color: $bg_color;
+  box-shadow: $z-depth-1;
+  text-shadow: none;
+  icon-shadow: none;
+  font-weight: 700;
   &:focus {
-    @include button(focus);
     color: $selected_fg_color;
   }
   &:hover,
   &:checked {
-    @include button(hover);
     color: $selected_fg_color;
+    background-color: $bg_color;
   }
   &:active {
-    @include button(active);
     color: $selected_fg_color;
     background-color: $base_color;
   }
   &:grayed { // FIXME
-    border-color: $osd_borders_color;
-    background-color: $osd_bg_color;
+    border-top-color: $osd_borders_color;
     color: $osd_dim_fg_color;
+    background-color: $osd_bg_color;
   }
 }
 
