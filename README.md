@@ -96,11 +96,11 @@ Installation from Git Source
  * autoconf
  * automake
  * inkscape
- * libglib-2.0-dev (glib2)  >= 2.48.0
+ * libglib-2.0-dev (glib2)         >= 2.48.0
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
- * ruby-bundler             >= 1.11
- * ruby-sass                >= 3.4.21
+ * ruby-bundler (rubygem-bundler)  >= 1.11
+ * ruby-sass (rubygem-sass)        >= 3.4.21
  ```
 
  > **Note:**
