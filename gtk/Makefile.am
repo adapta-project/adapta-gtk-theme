@@ -702,21 +702,21 @@ all:
 	$(MKDIR_P) $(srcdir)/gtk-3.20
 
 	cd $(srcdir)/sass && \
-	bundle exec sass --update --sourcemap=none --watch \
+	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
 	3.18/gtk.scss:../gtk-3.18/gtk.css && \
-	bundle exec sass --update --sourcemap=none --watch \
+	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
 	3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css && \
-	bundle exec sass --update --sourcemap=none --watch \
+	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
 	3.20/gtk.scss:../gtk-3.20/gtk.css && \
-	bundle exec sass --update --sourcemap=none --watch \
+	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
 	3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(srcdir)/gtk-3.22
 
 	cd $(srcdir)/sass && \
-	bundle exec sass --update --sourcemap=none --watch \
+	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
 	3.22/gtk.scss:../gtk-3.22/gtk.css && \
-	bundle exec sass --update --sourcemap=none --watch \
+	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
 	3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css
 endif
 	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
