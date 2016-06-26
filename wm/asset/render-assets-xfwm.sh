@@ -10,7 +10,7 @@
 # (at your option) any later version.
 #
 
-INKSCAPE="/usr/bin/inkscape"
+INKSCAPE="`which inkscape`"
 
 SRC_DIR="assets-xfwm"
 ASSETS_DIR="../xfwm4"
