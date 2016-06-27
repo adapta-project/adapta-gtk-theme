@@ -17,7 +17,6 @@ Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Pla
  * Dark variant Gnome-Shell theme
  * Dark variant Cinnamon theme
 
-
 > **Note:** Both also includes common GNOME-Flashback, Unity7 and XFce4 theming.
 
 Elements
@@ -68,7 +67,7 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
 
  > **Note:**
  >
- >   * `Adapta-Nokto` is for dark variant of Gtk+ 2.0 theming:
+ >   * `Adapta-Nokto` is for dark variant theming:
  >     * `Adapta` + `global dark theme = off` make all light variant.
  >     * `Adapta` + `global dark theme = on` make dark variant Gtk+3 and light variant Gtk+2.
  >     * `Adapta-Nokto` + `global dark theme = off` make light variant Gtk+3 and dark variant Gtk+2.
@@ -105,7 +104,7 @@ Installation from Git Source
 
  > **Note:**
  >   * Adapta employs **Gem** generator for SASS/SCSS via `bundle` and `sass`.
- >   * Adapta uses `inkscape` to generate all of PNG files.
+ >   * Adapta uses `inkscape` to generate installable PNG files.
  >   * Adapta uses `glib-compile-resources` to compile gresource file for Gnome-Shell.
 
 3. Build and install system-wide:
@@ -117,8 +116,8 @@ Installation from Git Source
  ```
 
  > **Note:**
- >   * Default prefix is `/usr`
- >   * `Adapta-Nokto` Gtk+ 2.0 dark variant is installed as default
+ >   * Default prefix is `/usr`.
+ >   * `Adapta-Nokto` dark variant is installed as default.
  >   * `make` generates proper CSSs and PNGs to be installed.
  >     And it will take about 5min to 15min to build,
  >     for example, Ubuntu's build-server actually does 10min...
@@ -157,7 +156,7 @@ Installation from Git Source
  ```
 
  > **Note:**
- >   * Color-codes are defined as `# + 6 HEX`s (Standard RGB definitions in HTML codes).
+ >   * Color-codes are defined as `#` + 6`HEX`s (Standard RGB definitions in HTML codes).
  >     And uppercases are strongly recommended in Adapta code-base.
  >   * Material Desing Color Palette is here: [External Link](https://www.google.com/design/spec/style/color.html#color-color-palette)
  >   * Example) If you would like to use 'Teal500' as selection_color, try this:
@@ -206,8 +205,6 @@ Raw image is [here](https://github.com/tista500/Adapta/raw/master/.github/img/tr
  * License under GPLv2
 
 I mainly use it when running Budgie, and it might be suitable for night owls...
-
-
 
 Work in Progress
 ----------------
