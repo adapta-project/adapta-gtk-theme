@@ -532,10 +532,22 @@ GeditViewFrame {
 
 paned.titlebar.horizontal {
   headerbar {
-    button.flat.toggle.popup { // left-pane header button
+    button.flat.toggle.popup:not(.image-button) { // left-pane header button
       border-radius: 2px;
       -gtk-outline-radius: 2px;
     }
+  }
+}
+
+overlay > box.vertical > paned.horizontal > box.vertical {
+  statusbar { // inline-toolbar styling
+    padding: rem(2.7px);
+    border-style: solid;
+    border-width: 1px 0 0;
+    border-color: $borders_color;
+    background-color: $secondary_dark_color;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
   }
 }
 
