@@ -529,8 +529,19 @@ GeditViewFrame {
   }
 }
 
-GeditViewHolder GtkScrolledWindow {
-  .undershoot { // remove undershoot
+GeditStatusbar { // inline-toolbar style
+  padding: 0.2em;
+  border-style: solid;
+  border-width: 1px 0 0;
+  border-color: $borders_color;
+  background-color: $secondary_dark_color;
+  box-shadow: if($variant == 'light', $inline-shadow-light,
+                                      $inline-shadow-dark);
+}
+
+GeditViewHolder,
+GeditDocumentsPanel {
+  GtkScrolledWindow .undershoot { // remove undershoot
     &.top,
     &.bottom,
     &.left,
