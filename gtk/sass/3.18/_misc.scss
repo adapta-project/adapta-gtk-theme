@@ -445,7 +445,7 @@ GtkBox > .header-bar > .label.polari-titlebar-separator {
 }
 
 // stop drawing fake-shadows when enabling header-bar extension
-GtkBox.vertical > GtkBox.vertical > .toolbar {
+GtkApplicationWindow > GtkBox.vertical > GtkBox.vertical > .toolbar {
   box-shadow: none;
 }
 
@@ -865,6 +865,31 @@ GtdWindow {
       &:checked { @include button(flat-checked); }
       &:checked:insensitive { @include button(flat-checked-insensitive); }
     }
+  }
+}
+
+
+/***************
+ * Gnome-disks *
+ ***************/
+
+GduWindow {
+  GtkPaned > GtkNotebook GtkBox .inline-toolbar.toolbar {
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
+  }
+
+  GtkPaned > GtkScrolledWindow { // side-panel
+    background-color: $secondary_dark_color;
+
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
+    }
+
+    GtkTreeView.view { background-color: transparent; }
   }
 }
 
