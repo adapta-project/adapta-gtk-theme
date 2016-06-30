@@ -425,12 +425,49 @@ $orientation: ((top, bottom),
     color: transparent;
   }
 
+  GtkBox > GtkBox {
+    .entry {
+      color: $inverted_fg_color;
+      &:focus { color: $selected_fg_color; }
+      &:insensitive { color: $insensitive_inverted_fg_color; }
+
+      &.image {
+        &:not(:hover):not(:active) { color: $inverted_fg_color; }
+        &:active { color: $selected_bg_color; }
+        &:insensitive { color: $insensitive_inverted_fg_color; }
+      }
+    }
+  }
+
+  .scrollbar {
+    .slider {
+      background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
+      &:hover {
+        background-color: gtkopacity($inverted_secondary_fg_color, 0.55);
+      }
+      &:active { background-color: $inverted_fg_color; }
+      &:insensitive { opacity: 0.4; }
+    }
+  }
+
   GtkScrolledWindow {
     border-image: none; // remove underline indicator
+    background-color: transparent;
 
     GtkGrid .button.flat {
       border-radius: 2px;
       outline-radius: 2px;
+    }
+
+    .list {
+      background-color: transparent;
+
+      .list-row,
+      .list-row.activatable {
+        background-color: transparent;
+        color: $inverted_fg_color;
+        transition: none;
+      }
     }
 
     .undershoot { // remove undershoot
