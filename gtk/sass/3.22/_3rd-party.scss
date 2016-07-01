@@ -710,7 +710,9 @@ headerbar.titlebar box {
 
 window {
   // Workaround for invisible text in rename entry
-  EelEditableLabel { transition: none; }
+  EelEditableLabel {
+    &, &:focus { transition: none; }
+  }
 
   // draw bottom border and shadows
   grid > box > box > toolbar.primary-toolbar {
