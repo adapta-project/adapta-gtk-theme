@@ -666,7 +666,9 @@ GtkStack .button.profile-button {
 
 NemoWindow {
   // workaround for invisible text in rename entry
-  EelEditableLabel.entry { transition: none; }
+  EelEditableLabel.entry {
+    &, &:focus { transition: none; }
+  }
 
   // draw bottom border of toolbar
   .toolbar.primary-toolbar {

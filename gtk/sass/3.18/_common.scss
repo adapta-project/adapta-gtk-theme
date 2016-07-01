@@ -1162,7 +1162,7 @@ GtkComboBox {
   GtkPaned &,
   GtkEventBox &,
   GtkGrid &.primary-toolbar { // stop drawing fake-shadows
-    box-shadow: none;
+    &:not(.vertical):not(.inline-toolbar) { box-shadow: none; }
   }
 
   .osd &, &.osd {

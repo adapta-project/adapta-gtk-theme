@@ -253,12 +253,12 @@ GfCandidatePopup {
  * Nautilus *
  ************/
 
-EelEditableLabel {
+EelEditableLabel.entry {
   // Workaround for invisible text in rename entry in Nautilus 3.14.x
   // Copied from arc-theme:
   // 966778df08c2ee94dfdf55c9281791b0b2121497
 
-  &.entry { transition: none; }
+  &, &:focus { transition: none; }
 }
 
 .nautilus-desktop-window,
