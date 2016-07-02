@@ -567,9 +567,9 @@ UnityDecoration { // FIXME: do not use scalable units
   -UnityDecoration-input-extents: 8px;
 
   -UnityDecoration-shadow-offset-x: 0;
-  -UnityDecoration-shadow-offset-y: 8px;
-  -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.24);
-  -UnityDecoration-active-shadow-radius: 12px;
+  -UnityDecoration-shadow-offset-y: 4px;
+  -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.28);
+  -UnityDecoration-active-shadow-radius: 16px;
   -UnityDecoration-inactive-shadow-color: rgba(0, 0, 0, 0.16);
   -UnityDecoration-inactive-shadow-radius: 6px;
 
@@ -607,9 +607,8 @@ UnityPanelWidget,
 .unity-panel {
   &, &:backdrop {
     border-bottom: 1px solid $panel_bg_color;
+    background-color: gtkopacity($panel_bg_color, 0.9);
     color: $inverted_fg_color;
-    background-image: linear-gradient(to bottom,
-                                      opacify($panel_bg_color, 0.9));
     box-shadow: none;
   }
 }
@@ -625,8 +624,8 @@ UnityPanelWidget,
     padding: 0 6px;
     border-radius: 0;
     border-bottom: none;
-    color: $inverted_fg_color;
     background-color: transparent;
+    color: $inverted_fg_color;
     &:hover {
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
@@ -639,6 +638,157 @@ UnityPanelWidget,
   border-radius: 0;
   border-top-color: transparent;
   box-shadow: $menubar-shadow;
+}
+
+// greeter styling
+@keyframes entry-spinner {
+  to {
+    -gtk-icon-transform: rotate(1turn);
+  }
+}
+
+.lightdm { // main widget
+  border-radius: 2px;
+  background-image: none;
+  background-color: $inverted_dark_color;
+
+  &:not(.menubar) { opacity: 0.9; }
+}
+
+.lightdm.background { // protect panel area from unwanted hard-coded img
+  & > Background > GtkBox > GtkEventBox {
+    border-radius: 0;
+    border-top: 24px solid $panel_bg_color;
+  }
+}
+
+.lightdm.menubar { // top-bar
+  border-radius: 0;
+  // FIXME: it doesn't work, hard-coded?
+  background-image: linear-gradient(to bottom, $panel_bg_color);
+  opacity: 1.0;
+
+  & > * {
+    padding: 0 6px;
+    color: $inverted_fg_color;
+
+    & > .label { color: $inverted_fg_color; }
+
+    &:hover {
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+  }
+}
+
+.lightdm { // misc
+  &.menu {
+    padding: 4px 0;
+    border: none;
+    border-radius: 2px;
+    background-image: none;
+    background-color: $inverted_dark_color;
+    color: $inverted_secondary_fg_color;
+    opacity: 0.9;
+
+    .menuitem *,
+    .menuitem.check:active,
+    .menuitem.radio:active {
+      color: $inverted_fg_color;
+    }
+  }
+
+  &-combo {
+    .menu {
+      border-radius: 0;
+      padding: 0;
+      background-color: $inverted_dark_color;
+      color: $inverted_fg_color;
+      opacity: 0.9;
+    }
+
+    .combobox-entry .button,
+    .cell,
+    .button,
+    .entry {
+      padding: 6px;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      background-image: none;
+      background-color: gtkopacity($inverted_dark_color, 0.9);
+      color: $inverted_fg_color;
+      text-shadow: none;
+      box-shadow: none;
+    }
+  }
+
+  &.button {
+    border: none;
+    border-radius: 100px;
+    outline-radius: 100px;
+    background-image: none;
+    background-color: transparent;
+    color: $inverted_secondary_fg_color;
+    box-shadow: none;
+    &:hover,
+    &:focused {
+      background-color: gtkopacity($inverted_fg_color, 0.1);
+      color: $selected_fg_color;
+    }
+    &:active {
+      background-color: gtkopacity($inverted_fg_color, 0.2);
+      color: $selected_fg_color;
+      transition-duration: 0.2s;
+    }
+  }
+
+  &.option-button {
+    padding: 6px;
+    border: none;
+    border-radius: 100px;
+    outline-radius: 100px;
+    background: none;
+  }
+
+  &.toggle-button {
+    border: none;
+    border-radius: 2px;
+    outline-radius: 2px;
+    background-color: transparent;
+    color: $inverted_fg_color;
+    &:hover {
+      background-color: gtkopacity($inverted_fg_color, 0.1);
+      color: $selected_fg_color;
+    }
+    &.selected {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+
+  &.entry {
+    border-image: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: $inverted_fg_color;
+    box-shadow: inset 0 -1px gtkopacity($inverted_fg_color, 0.1);
+    &:active { // draw spinner
+      -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
+
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+      animation: entry-spinner 1s infinite linear;
+    }
+    &:focused {
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+    &:selected {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+      transition: none;
+    }
+  }
 }
 
 
