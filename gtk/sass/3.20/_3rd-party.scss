@@ -703,10 +703,17 @@ headerbar.titlebar box {
   @extend .nautilus-desktop.nautilus-canvas-item;
 }
 
-window {
+.nemo-window {
   // workaround for invisible text in rename entry
-  EelEditableLabel {
-    &, &:focus { transition: none; }
+  .nemo-window-pane scrolledwindow widget > widget {
+    &, &:focus {
+      transition: none;
+
+      &:selected { // FIXME: selection node doesn't work?
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+    }
   }
 
   // draw bottom border and shadows
