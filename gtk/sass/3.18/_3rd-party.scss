@@ -1036,3 +1036,18 @@ GtkWindow > GtkBox.vertical > GtkBox.horizontal {
   > GtkAlignment { background-color: transparent; }
 }
 
+
+/**********************
+ * Eclipse/SWT (neon) *
+ **********************/
+
+.background:not(.csd) > GtkBox.vertical {
+  > .menubar { // force setting foreground colour
+    color: $inverted_secondary_fg_color;
+  }
+
+  > GtkScrolledWindow .toolbar { // remove inline-shadows
+    box-shadow: none;
+  }
+}
+
