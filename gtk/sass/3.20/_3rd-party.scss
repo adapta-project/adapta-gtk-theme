@@ -932,3 +932,18 @@ window > box.vertical > box.horizontal {
   > widget { background-color: transparent; }
 }
 
+
+/**********************
+ * Eclipse/SWT (neon) *
+ **********************/
+
+.background:not(.csd) > box.vertical {
+  > menubar { // force setting foreground colour
+    color: $inverted_secondary_fg_color;
+  }
+
+  > scrolledwindow widget > toolbar { // remove inline-shadows
+    box-shadow: none;
+  }
+}
+
