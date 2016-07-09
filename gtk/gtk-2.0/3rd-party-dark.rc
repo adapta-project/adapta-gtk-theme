@@ -340,3 +340,28 @@ widget "*libreoffice-toplevel*GtkMenuBar"              style "menubar_libreoffic
 widget "*libreoffice-toplevel*GtkMenuBar.*GtkMenuItem" style "menubar_item_libreoffice"
 # widget "*libreoffice-toplevel*GtkEntry"      style "libreoffice_entry"
 # widget "*libreoffice-toplevel*GtkSpinButton" style "libreoffice_entry"
+
+
+#
+# PCManFM
+#
+
+style "fm_side_pane" {
+  base[NORMAL] = mix(0.25, "#455A64", "#37474F")
+}
+
+style "fm_toolbar" {
+  bg[NORMAL] = @bg_color
+
+  engine "pixmap" {
+    image {
+      function = SHADOW
+      file     = "Shadows/frame.png"
+      border   = { 1, 1, 1, 1 }
+      stretch  = TRUE
+    }
+  }
+}
+
+widget_class "*<FmMainWin>*<GtkToolbar>" style "fm_toolbar"
+widget_class "*<FmMainWin>*<FmSidePane>*<GtkTreeView>" style "fm_side_pane"
