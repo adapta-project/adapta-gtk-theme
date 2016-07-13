@@ -31,7 +31,7 @@ Adapta supports Gtk+ 3.20.x and 3.18.x
  * Gtk+-3.0             >= 3.20.1  (or  3.18.9)
  * Gtk+-2.0             >= 2.24.30
  * gtk2-engines-pixbuf  >= 2.24.30
- * gtk2-engines-murrine >= 0.98.2
+ * gtk2-engines-murrine >= 0.98.1
  ```
 
 Supported Desktop Environments
