@@ -75,6 +75,8 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
  >   * For Gtk+ 3.18.x users, there's no need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
  >   * As default, Gtk+ 3.21.x support is disabled.
  >   * When updating package, Adapta automatically does cleaning up pre-installed directories.
+ >
+ >   * In Yakkety, Unity7 support was dropped.
 
 Installation from Git Source
 ------------
