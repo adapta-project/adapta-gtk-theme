@@ -223,6 +223,20 @@ $orientation: ((top, bottom),
     }
   }
 
+  .categories .category-button { // left-paned elements of GtkPopover
+    &:checked {
+      background-image: none;
+      background-color: transparent;
+      color: $selected_bg_color;
+
+      &:disabled {
+        color: gtkopacity($selected_bg_color, 0.4);
+
+        label { color: inherit; }
+      }
+    }
+  }
+
   scrolledwindow undershoot {
     &.top { @include undershoot(top, $secondary_base_color); }
     &.bottom { @include undershoot(bottom, $secondary_base_color); }
