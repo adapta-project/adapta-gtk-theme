@@ -255,6 +255,52 @@ $orientation: ((top, bottom),
   }
 }
 
+// user-indicator styling
+.user-menu {
+  border-radius: 2px;
+  background-color: $secondary_base_color;
+
+  .list,
+  .list-row { // reset styling
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  .list-row { // reset background
+    &.activatable {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $secondary_fg_color;
+      transition: none;
+
+      &, & .indicator-item {
+        .label,
+        GtkImage { color: $secondary_fg_color; }
+      }
+    }
+    &.activatable:hover,
+    &.activatable:selected {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $fg_color;
+      transition: none;
+
+      &, & .indicator-item {
+        .label,
+        GtkImage { color: $fg_color; }
+      }
+    }
+
+    // use asymmetric separators
+    // FIXME: w.i.p
+    // &.activatable:nth-child(3) {
+    //   &:dir(ltr) { margin-left: 4em; }
+    //   &:dir(rtl) { margin-right: 4em; }
+    // }
+  }
+}
+
 // raven styling
 .raven {
   padding: 0;
