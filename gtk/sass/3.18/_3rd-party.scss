@@ -293,11 +293,13 @@ $orientation: ((top, bottom),
     }
 
     // use asymmetric separators
-    // FIXME: w.i.p
-    // &.activatable:nth-child(3) {
-    //   &:dir(ltr) { margin-left: 4em; }
-    //   &:dir(rtl) { margin-right: 4em; }
-    // }
+    &.activatable:nth-child(3) {
+      // FIXME: hide weird backgrounds
+      background-color: transparent;
+
+      &:dir(ltr) { padding-left: 3em; }
+      &:dir(rtl) { padding-right: 3em; }
+    }
   }
 }
 
@@ -562,6 +564,11 @@ $orientation: ((top, bottom),
   color: $inverted_fg_color;
   font-weight: 700;
   opacity: 0.9;
+
+  GtkBox > GtkGrid > .label { // add some spaces to label-end
+    &:dir(ltr) { padding-right: 0.8em; }
+    &:dir(rtl) { padding-left: 0.8em; }
+  }
 
   .button,
   .linked > .button {
