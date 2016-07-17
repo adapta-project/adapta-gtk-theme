@@ -248,6 +248,57 @@ $orientation: ((top, bottom),
   }
 }
 
+// user-indicator styling
+.user-menu {
+  border-radius: 2px;
+  background-color: $secondary_base_color;
+
+  list,
+  row { // reset styling
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  row { // reset background
+    &.activatable {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $secondary_fg_color;
+      transition: none;
+
+      &, & .indicator-item {
+        label,
+        image { color: $secondary_fg_color; }
+      }
+
+      // FIXME: enlarge vertical spacing with icons' paddding
+      image { padding: rem(5.3px) 0 rem(6.7px); }
+    }
+    &.activatable:hover,
+    &.activatable:selected {
+      background-image: none;
+      background-color: $secondary_base_color;
+      color: $fg_color;
+      transition: none;
+
+      &, & .indicator-item {
+        label,
+        image { color: $fg_color; }
+      }
+    }
+
+    // use asymmetric separators
+    separator.horizontal {
+      min-width: 1px;
+      min-height: 1px;
+
+      &:dir(ltr) { border-left: rem(32px) solid transparent; }
+      &:dir(rtl) { border-right: rem(32px) solid transparent; }
+    }
+  }
+}
+
 // raven styling
 .raven-frame { border: none; }
 
