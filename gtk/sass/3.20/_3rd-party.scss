@@ -597,6 +597,11 @@ $orientation: ((top, bottom),
     }
   }
 
+  box > grid > label { // add some spaces to label-end
+    &:dir(ltr) { padding-right: rem(10.7px); }
+    &:dir(rtl) { padding-left: rem(10.7px); }
+  }
+
   button,
   .linked > button {
     @extend %button_flat_normal;
