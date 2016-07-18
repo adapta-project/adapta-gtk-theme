@@ -288,6 +288,22 @@ $orientation: ((top, bottom),
       }
     }
 
+    // top-row (user-name and avatar)
+    &.activatable:first-child {
+      .indicator-item {
+        background-color: $base_color;
+        box-shadow: $z-depth-1;
+        &:hover {
+          box-shadow: $z-depth-2;
+          transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition-property: background-image, box-shadow;
+          transition-duration: 0.2s;
+        }
+
+        label { font-weight: 700; }
+      }
+    }
+
     // use asymmetric separators
     separator.horizontal {
       min-width: 1px;
