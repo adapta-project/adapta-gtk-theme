@@ -260,7 +260,13 @@ $orientation: ((top, bottom),
     box-shadow: none;
   }
 
-  row { // reset background
+  row {
+    // stop weird and unhandled ripple-effect
+    &.activatable .indicator-item {
+      &:active,
+      &:selected { animation: none; }
+    }
+
     &.activatable {
       background-image: none;
       background-color: $secondary_base_color;
