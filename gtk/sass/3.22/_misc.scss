@@ -174,22 +174,41 @@ sn-button { padding: rem(4px); }
  *******************/
 
 // use message-dialog style for popup osd windows
-gf-popup-window {
-  border-radius: 2px;
-  border: 1px solid $borders_color;
-  background-color: $inverted_dark_color;
-  color: $inverted_fg_color;
-  opacity: 0.9;
 
-  &.solid {
+// gf-popup-window,
+#gf-bubble,
+#gf-osd-window,
+#gf-input-source-popup {
+  &, &.solid {
     border-radius: 2px;
     border: 1px solid $borders_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    color: $inverted_fg_color;
+
+    levelbar {
+      block:not(.empty) { background-color: $success_color; }
+    }
   }
 }
 
-#gf-label-window {
-  font-size: rem(45px);
+// FIXME: it doesn't work at all...
+// #gf-label-window {
+//   font-size: rem(45px);
+//   font-weight: 400;
+// }
+
+// input-source switcher labels
+#gf-input-source {
+  min-width: rem(120px);
+  min-height: rem(120px);
+  color: $inverted_fg_color;
+  font-size: rem(24px);
   font-weight: 400;
+  &:selected {
+    border-radius: 2px;
+    background-color: $track_color;
+    color: $accent_color;
+  }
 }
 
 // popup for inpu-source candidates
@@ -197,23 +216,14 @@ gf-popup-window {
   &, &.solid {
     border-radius: 2px;
     border: 1px solid $borders_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
     color: $inverted_fg_color;
-  }
-
-  #gf-input-source {
-    color: $inverted_fg_color;
-    font-size: rem(24px);
-    font-weight: 400;
-    &:selected {
-      border-radius: 2px;
-      background-color: $track_color;
-      color: $accent_color;
-    }
   }
 
   gf-candidate-box {
     transition: none;
-    label { padding: rem(2.7px) rem(2.7px) rem(4px); } // a half of .menuitem
+    // a half of .menuitem
+    label { padding: rem(2.7px) rem(2.7px) rem(4px); }
 
     &:last-child { padding-left: 0; }
     &:hover,
@@ -237,12 +247,6 @@ gf-popup-window {
       box-shadow: none;
     }
   }
-}
-
-#gf-osd-window {
-}
-
-#gf-bubble {
 }
 
 
