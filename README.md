@@ -182,6 +182,16 @@ Extra Browser Support
 
  > **Note:**
  >   * Today Chrome(ium) theming is supported only.
+ >
+ >   * Vivaldi can make custom themes via settings like these:
+ >     `Background: #FAFBFC (#3E515A)`
+ >     `Foreground: #263238 (#ECEFF1)`
+ >     `Highlight:  #00BCD4`
+ >     `Accent:     #2A373E`
+ >     `Accent Color from Active Page: [ ]`
+ >     `Apply Accent Color to Window:  [x]`
+ >     `Transparent Tabs:              [x]`
+ >     `Corner Rounding:               2px`
 
 Extra Dock Support
 ---------------------
