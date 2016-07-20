@@ -277,6 +277,16 @@ NautilusTrashBar {
   @extend infobar;
 }
 
+.nautilus-window > grid.horizontal {
+  paned > separator {
+    // do not use transparentize
+    background-image: image($solid_light_borders_color);
+    background-size: $separator_narrow;
+    background-repeat: repeat-y;
+    transition: none;
+  }
+}
+
 .disk-space-display {
   border: 0 none transparent;
 
