@@ -632,7 +632,7 @@ $orientation: ((top, bottom),
   border-radius: 2px;
   border-width: 0;
   // Always use dark-color of dark variant
-  background-color: $inverted_bg_color;
+  background-color: $inverted_dark_color;
   color: $inverted_fg_color;
   font-weight: 700;
   opacity: 0.9;
@@ -649,6 +649,14 @@ $orientation: ((top, bottom),
   box > grid > label { // add some spaces to label-end
     &:dir(ltr) { padding-right: rem(10.7px); }
     &:dir(rtl) { padding-left: rem(10.7px); }
+  }
+
+  entry {
+    &, &:focus {
+      color: $inverted_fg_color;
+      caret-color: $inverted_fg_color;
+    }
+    &:disabled { color: $insensitive_inverted_fg_color; }
   }
 
   button,
@@ -687,11 +695,45 @@ $orientation: ((top, bottom),
     }
   }
 
+  @each $s,$as in ('','-unchecked'),
+                  (':hover', '-unchecked-active'),
+                  (':active', '-unchecked-active'),
+                  (':disabled','-unchecked-insensitive'),
+                  (':indeterminate', '-mixed'),
+                  (':indeterminate:hover', '-mixed-active'),
+                  (':indeterminate:active', '-mixed-active'),
+                  (':indeterminate:disabled', '-mixed-insensitive'),
+                  (':checked', '-checked'),
+                  (':checked:hover', '-checked-active'),
+                  (':checked:active', '-checked-active'),
+                  (':checked:disabled','-checked-insensitive') {
+    check#{$s} { // always use dark variant
+      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
+                                    url("assets/checkbox#{$as}-dark@2.png"));
+    }
+
+    radio#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
+                                    url("assets/radio#{$as}-dark@2.png"));
+    }
+  }
+
+  checkbutton.text-button,
+  radiobutton.text-button {
+    color: $inverted_secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $inverted_fg_color; }
+    &:disabled,
+    &:disabled:active,
+    &:disabled:indeterminate { color: $insensitive_inverted_fg_color; }
+  }
+
   // polkit-dialog specific styling
   &:not(.budgie-session-dialog) {
-    .message { color: $secondary_fg_color; }
+    .message { color: $inverted_secondary_fg_color; }
     .failure {
-      color: $accent_color;
+      color: $warning_color;
       font-weight: 700;
     }
   }
