@@ -8,6 +8,7 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/bar-green.svg \
 	$(gtk3_assetdir)/bar-red.svg \
 	$(gtk3_assetdir)/bar-yellow.svg \
+	$(gtk3_assetdir)/show-apps.svg \
 	$(gtk3_assetdir)/calendar-day-selected@2.png \
 	$(gtk3_assetdir)/calendar-day-selected.png \
 	$(gtk3_assetdir)/checkbox-active-selectionmode@2.png \
