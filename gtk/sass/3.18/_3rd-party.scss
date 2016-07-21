@@ -161,9 +161,10 @@ $orientation: ((top, bottom),
     .unpinned .launcher,
     .pinned .launcher.running {
       border: 2px solid transparent;
+      // FIXME: Upstream deformed aspect-ratio to 1:1.1
       border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
                                 url("assets/running-dot-#{$_dot}@2.png"))
-                    2 / 2px;
+                    1.8 / 1.8px;
       &:hover,
       &:active,
       &:checked {
