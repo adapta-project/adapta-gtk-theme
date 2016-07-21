@@ -637,7 +637,7 @@ $orientation: ((top, bottom),
   border-radius: 2px;
   border-width: 0;
   // always use dark-color of dark variant
-  background-color: $inverted_bg_color;
+  background-color: $inverted_dark_color;
   color: $inverted_fg_color;
   font-weight: 700;
   opacity: 0.9;
@@ -645,6 +645,12 @@ $orientation: ((top, bottom),
   GtkBox > GtkGrid > .label { // add some spaces to label-end
     &:dir(ltr) { padding-right: 0.8em; }
     &:dir(rtl) { padding-left: 0.8em; }
+  }
+
+  .entry {
+    color: $inverted_fg_color;
+    &:focus { color: $selected_fg_color; }
+    &:insensitive { color: $insensitive_inverted_fg_color; }
   }
 
   .button,
@@ -682,14 +688,51 @@ $orientation: ((top, bottom),
       border-left-width: 0;
     }
   }
+
+  // always use dark variant for check/radio icons
+  @each $s,$as in ('','-unchecked'),
+                  (':hover', '-unchecked-active'),
+                  (':active', '-unchecked-active'),
+                  (':insensitive','-unchecked-insensitive'),
+                  (':inconsistent', '-mixed'),
+                  (':inconsistent:hover', '-mixed-active'),
+                  (':inconsistent:active', '-mixed-active'),
+                  (':inconsistent:insensitive', '-mixed-insensitive'),
+                  (':checked', '-checked'),
+                  (':checked:hover', '-checked-active'),
+                  (':checked:active', '-checked-active'),
+                  (':checked:insensitive','-checked-insensitive') {
+    .check#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
+                                    url("assets/checkbox#{$as}-dark@2.png"));
+    }
+    .radio#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
+                                    url("assets/radio#{$as}-dark@2.png"));
+    }
+  }
+
+  GtkCheckButton.text-button,
+  GtkRadioButton.text-button {
+    color: $inverted_secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $inverted_fg_color; }
+    &:insensitive,
+    &:insensitive:active,
+    &:insensitive:inconsistent {
+      // set insensitive color, which is overriden otherwise
+      color: $insensitive_inverted_fg_color;
+    }
+  }
 }
 
 .budgie-polkit-dialog {
   @extend .budgie-session-dialog;
 
-  .message { color: $secondary_fg_color; }
+  .message { color: $inverted_secondary_fg_color; }
   .failure {
-    color: $accent_color;
+    color: $warning_color;
     font-weight: 700;
   }
 }
