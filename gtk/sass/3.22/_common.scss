@@ -4362,8 +4362,8 @@ messagedialog { // Message Dialog styling
   &.background,
   &.csd.background {
     color: $inverted_secondary_fg_color;
-    background-color: $inverted_dark_color;
-    opacity: 0.9;
+
+    &, .titlebar { background-color: gtkopacity($inverted_dark_color, 0.9); }
 
     .dialog-action-area {
       button,
