@@ -190,6 +190,7 @@ $orientation: ((top, bottom),
 
 // main menu styling
 .budgie-panel widget > box.horizontal > image.primary-control {
+  // this is backward-compat for legacy
   // override stock icon with specific one
   min-width: 20px;
   min-height: 20px;
@@ -199,6 +200,20 @@ $orientation: ((top, bottom),
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
+}
+
+.budgie-menu-launcher {
+  image {
+    // override stock icon with specific one
+    min-width: 20px;
+    min-height: 20px;
+    margin: -1px 0;
+    background-image: url("assets/show-apps.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+  }
 }
 
 .budgie-menu {
