@@ -3130,15 +3130,12 @@ GtkCalendar {
 .message-dialog { // Message Dialog styling
   color: $inverted_fg_color;
 
-  &.background {
-    background-color: $inverted_dark_color;
-    opacity: 0.9;
-  }
+  &.background { background-color: gtkopacity($inverted_dark_color, 0.9); }
 
   .titlebar {
     border-style: none;
     color: $inverted_fg_color;
-    background-color: $inverted_dark_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
   }
 
   .entry {
