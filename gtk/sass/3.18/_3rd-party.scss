@@ -230,6 +230,18 @@ $orientation: ((top, bottom),
 }
 
 // main menu styling
+.budgie-panel BudgieMenuApplet {
+  GtkImage.primary-control {
+    // override stock icon with specific one
+    margin: 3px 0;
+    background-image: url("assets/show-apps.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+  }
+}
+
 .budgie-menu {
   border-radius: 2px;
   background-color: $secondary_base_color;
