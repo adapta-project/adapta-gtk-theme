@@ -305,14 +305,26 @@ $orientation: ((top, bottom),
 
     // top-row (user-name and avatar)
     &.activatable:first-child {
+      padding-bottom: rem(10.7px); // fix truncated drop-shadow
+
       .indicator-item {
-        background-color: $base_color;
-        box-shadow: $z-depth-1;
+        background-color: $suggested_color;
+        box-shadow: $z-depth-1,
+                    inset 0 1px $highlight_color;
+
+          label,
+          image { color: $inverted_secondary_fg_color; }
+
         &:hover {
-          box-shadow: $z-depth-2;
+          box-shadow: $z-depth-2,
+                      inset 0 1px $highlight_color;
           transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-          transition-property: background-image, box-shadow;
+          transition-property: background-image,
+                               box-shadow;
           transition-duration: 0.2s;
+
+            label,
+            image { color: $inverted_fg_color; }
         }
 
         label { font-weight: 700; }
