@@ -214,13 +214,17 @@ $orientation: ((top, bottom),
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
+    opacity: 0.9;
   }
 
   &:hover,
   &:active,
   &:checked,
   &:checked:hover {
-    image { background-image: url("assets/show-apps-active.svg"); }
+    image {
+      background-image: url("assets/show-apps-active.svg");
+      opacity: 1.0;
+    }
   }
 }
 
