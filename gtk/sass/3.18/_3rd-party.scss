@@ -385,6 +385,8 @@ $orientation: ((top, bottom),
     // top-row (user-name and avatar)
     &.activatable:first-child {
       padding-bottom: 1em; // fix truncated drop-shadow
+      outline-offset: 0;
+      outline-width: 0;
 
       .indicator-item {
         background-color: $suggested_color;
@@ -412,6 +414,8 @@ $orientation: ((top, bottom),
 
     // use asymmetric separators
     &.activatable:nth-child(3) {
+      outline-offset: 0;
+      outline-width: 0;
       // FIXME: hide weird backgrounds
       background-color: transparent;
 
