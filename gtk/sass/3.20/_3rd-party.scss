@@ -329,6 +329,8 @@ $orientation: ((top, bottom),
     // top-row (user-name and avatar)
     &.activatable:first-child {
       padding-bottom: rem(10.7px); // fix truncated drop-shadow
+      outline-offset: 0;
+      outline-width: 0;
 
       .indicator-item {
         background-color: $suggested_color;
@@ -352,6 +354,12 @@ $orientation: ((top, bottom),
 
         label { font-weight: 700; }
       }
+    }
+
+    &.activatable:nth-child(3) {
+      // separator's row should not have outlines
+      outline-offset: 0;
+      outline-width: 0;
     }
 
     // use asymmetric separators
