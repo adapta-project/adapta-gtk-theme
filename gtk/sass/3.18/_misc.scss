@@ -744,6 +744,62 @@ TerminalWindow.background { // dark variant as default
 }
 
 TerminalWindow {
+  .notebook {
+    &.header { background-color: $inverted_bg_color; }
+
+    tab {
+      @each $_tab, $_border in (top, bottom),
+                               (bottom, top),
+                               (left, right),
+                               (right, left) {
+        &.reorderable-page.#{$_tab} {
+          &:hover, &.prelight-page,
+          &:active, &.active-page {
+            background-color: $inverted_base_color;
+          }
+        }
+      }
+
+      .label { color: $inverted_tertiary_fg_color; }
+      .prelight-page .label,
+      .active-page .label,
+      .label.active-page { color: $inverted_fg_color; }
+
+      .button {
+        color: $inverted_tertiary_fg_color;
+        &:hover,
+        &:active { color: $inverted_fg_color; }
+        &:insensitive { color: $insensitive_inverted_fg_color; }
+      }
+
+      .prelight-page .button,
+      &:hover .button { // hover tab close button
+        color: $inverted_fg_color;
+      }
+      .active-page .button,
+      &:hover .button { // active tab close button
+        color: $inverted_fg_color;
+      }
+
+      &.arrow {
+        color: $inverted_tertiary_fg_color;
+        &:hover,
+        &:active { color: $inverted_fg_color; }
+        &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+      }
+    }
+
+    &.header.top, &.header.bottom,
+    &.header.left, &.header.right { // button outside the tabs
+      .button {
+        color: $inverted_tertiary_fg_color;
+        &:hover,
+        &:active { color: $inverted_fg_color; }
+        &:insensitive { color: $insensitive_inverted_fg_color; }
+      }
+    }
+  }
+
   .scrollbar {
     .slider { // always use dark variant
       background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
