@@ -1163,3 +1163,19 @@ window > box.vertical > box.background.horizontal {
   }
 }
 
+
+/***********
+ * Firefox *
+ ***********/
+
+// FIXME: Gtk+3 firefox needs this!
+.background:not(.csd) > widget > menubar {
+  color: $inverted_secondary_fg_color;
+
+  & > *:hover {
+    // underline-indicator doesn't work at all...
+    // border-bottom: 2px solid $selected_bg_color;
+    color: $inverted_fg_color;
+  }
+}
+
