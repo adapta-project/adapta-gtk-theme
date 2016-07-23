@@ -280,15 +280,11 @@ xfce_file = \
 # ****************************
 
 all:
-	cd $(srcdir)/sass && $(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
-		gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css && \
-	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
-		gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css && \
-	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
-		gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css && \
-	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
-		gnome-shell/classic.scss:../gnome-shell/extensions/window-list/classic.css && \
-	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
+	cd $(srcdir)/sass && $(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+		gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css \
+		gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css \
+		gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css \
+		gnome-shell/classic.scss:../gnome-shell/extensions/window-list/classic.css \
 		gnome-shell/workspaces-to-dock.scss:../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets
@@ -304,9 +300,8 @@ all:
 		$(shellnoktodir)/gnome-shell-theme.gresource.xml
 
 if ENABLE_CINNAMON
-	cd $(srcdir)/sass && $(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
-		cinnamon/cinnamon.scss:../cinnamon/cinnamon.css && \
-	$(BUNDLE) exec $(SASS) --update --sourcemap=none --watch \
+	cd $(srcdir)/sass && $(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+		cinnamon/cinnamon.scss:../cinnamon/cinnamon.css \
 		cinnamon/cinnamon-dark.scss:../cinnamon-nokto/cinnamon.css
 
 	$(MKDIR_P) $(srcdir)/cinnamon/assets
