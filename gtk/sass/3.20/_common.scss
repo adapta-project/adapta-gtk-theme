@@ -2242,9 +2242,12 @@ window:not(.maximized):not(.tiled) {
 }
 
 // revive top-edge highlight border for SSDs
-.ssd decoration {
+.ssd {
+  decoration .titlebar,
   .titlebar {
-    border-top: 1px solid $highlight_color;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: $highlight_color;
     box-shadow: none;
   }
 }
@@ -5140,14 +5143,15 @@ decoration {
 
   // server-side decorations as used by mutter
   .ssd & {
+    // just doing borders, wm draws actual shadows
+    // otherwise incorrect shadows are appeared
+    box-shadow: $z-depth-1-backdrop;
+
     .button {
       @extend .button.flat; // use style-class instead of CSS nodes
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
-    // just doing borders, wm draws actual shadows
-    // otherwise incorrect shadows are appeared
-    box-shadow: $z-depth-1-backdrop;
 
     .tiled & .titlebar {
       @extend %tiled_integration;
