@@ -124,7 +124,19 @@ Installation from Git Source
  >     for example, Ubuntu's build-server actually does 10min...
  >   * `sudo make install` installs multiple versioned theme and Gtk+ automatically selects proper versioned one when running.
 
-4. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
+4. If users want to speed up with concurrency-build, please pass this specific options to `autogen.sh`:
+
+ ```
+ --enable-parallel       enable parallel-build support
+ ```
+
+ > **Note:**
+ >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
+ >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
+ >     Especially it could shorten the rendering-time via Inkscape and generation-time via sass.
+ >   * `-jN` option to be passed to GNU `make` is surely usable though, but Adapta employes `parallel` meanwhile...
+
+5. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
 
  ```
  --disable-cinnamon      disable cinnamon support
@@ -137,7 +149,7 @@ Installation from Git Source
  >   * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-5. If users want to enable next Gtk+ release support, please pass this option:
+6. If users want to enable next Gtk+ release support, please pass this option:
 
  ```
  --enable-gtk_next       enable Gtk+ 3.21.x support
@@ -146,7 +158,7 @@ Installation from Git Source
  > **Note:**
  >   * As default, Gtk+ 3.21.x support is disabled.
 
-6. If users want to change default 5 **Key-Colors**, please pass these options:
+7. If users want to change default 5 **Key-Colors**, please pass these options:
 
  ```
  --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500)

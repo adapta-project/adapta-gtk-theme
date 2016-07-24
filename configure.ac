@@ -10,13 +10,21 @@ AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects 1
 AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
-ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-3.22],    [disable])
-ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],    [disable])
-ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],   [disable])
-ADAPTA_OPTION([UNITY],     [unity],     [Unity],       [disable])
-ADAPTA_OPTION([XFCE],      [xfce],      [XFce],        [disable])
-ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)], [disable])
-ADAPTA_OPTION([PLANK],     [plank],     [Plank],       [disable])
+ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
+ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-3.22],       [disable])
+ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
+ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
+ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
+ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
+ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
+ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
+
+if test x"$ENABLE_PARALLEL" = xyes; then
+	AC_PATH_PROG([PARALLEL], [parallel])
+	if test x"$PARALLEL" = x; then
+		AC_MSG_ERROR(['parallel' not found.])
+	fi
+fi
 
 AC_PATH_PROG([BUNDLE], [bundle])
 if test x"$BUNDLE" = x; then
@@ -56,20 +64,24 @@ AC_MSG_RESULT([
         | Supported Gtk+ version: 3.20 & 3.18
         -----------------------------------------------------------
 
-         prefix:                ${prefix}
-         datarootdir:           ${datarootdir}
-         target directories:    ${datarootdir}/themes/Adapta
-                                ${datarootdir}/themes/Adapta-Nokto
-         bundle:                $BUNDLE
-         sass:                  $SASS
-         inkscape:              $INKSCAPE
-         glib-compile-resources $GLIB_COMPILE_RESOURCES
+         prefix:                 ${prefix}
+         datarootdir:            ${datarootdir}
+         target directories:     ${datarootdir}/themes/Adapta
+                                 ${datarootdir}/themes/Adapta-Nokto
 
-         selection-color:       $SELECTION (default: $selection_default)
-         2nd-selection-color:   $SECOND_SELECTION (default: $second_selection_default)
-         accent-color:          $ACCENT (default: $accent_default)
-         suggestion-color:      $SUGGESTION (default: $suggestion_default)
-         destruction-color:     $DESTRUCTION (default: $destruction_default)
+         parallel-build:         $ENABLE_PARALLEL
+         parallel:               $PARALLEL
+
+         bundle:                 $BUNDLE
+         sass:                   $SASS
+         inkscape:               $INKSCAPE
+         glib-compile-resources: $GLIB_COMPILE_RESOURCES
+
+         selection-color:        $SELECTION (default: $selection_default)
+         2nd-selection-color:    $SECOND_SELECTION (default: $second_selection_default)
+         accent-color:           $ACCENT (default: $accent_default)
+         suggestion-color:       $SUGGESTION (default: $suggestion_default)
+         destruction-color:      $DESTRUCTION (default: $destruction_default)
 
         -----------------------------------------------------------
         | Default DE support

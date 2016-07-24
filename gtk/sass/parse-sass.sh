@@ -11,7 +11,8 @@
 #
 
 # Gtk+ 3.18.x, Gtk+ 3.20.x, Gtk+ 3.22.x
-bundle exec sass --update --sourcemap=none --watch \
+parallel --no-notice --line-buffer -j0 \
+	bundle exec sass --update --sourcemap=none --watch ::: \
 	3.18/gtk.scss:../gtk-3.18/gtk.css \
 	3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
 	3.20/gtk.scss:../gtk-3.20/gtk.css \

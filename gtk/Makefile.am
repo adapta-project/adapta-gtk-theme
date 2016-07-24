@@ -701,30 +701,57 @@ index_nokto_file = $(srcdir)/index.theme-nokto
 
 all:
 	$(MKDIR_P) $(srcdir)/gtk-3.18 && \
-	$(MKDIR_P) $(srcdir)/gtk-3.20
-
-	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
-	3.18/gtk.scss:../gtk-3.18/gtk.css \
-	3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
-	3.20/gtk.scss:../gtk-3.20/gtk.css \
-	3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css
-if ENABLE_GTK_NEXT
-	$(MKDIR_P) $(srcdir)/gtk-3.22
-
-	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
-	3.22/gtk.scss:../gtk-3.22/gtk.css \
-	3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css
-endif
-	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
-
+	$(MKDIR_P) $(srcdir)/gtk-3.20 && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2 && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk3
 
+	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
+
+# check concurrency-build mode
+if ENABLE_PARALLEL
+	cd $(srcdir)/sass && \
+	$(PARALLEL) --no-notice --line-buffer -j0 \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none ::: \
+		3.18/gtk.scss:../gtk-3.18/gtk.css \
+		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
+		3.20/gtk.scss:../gtk-3.20/gtk.css \
+		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css
+else
+	cd $(srcdir)/sass && \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+		3.18/gtk.scss:../gtk-3.18/gtk.css \
+		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
+		3.20/gtk.scss:../gtk-3.20/gtk.css \
+		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css
+endif
+
+if ENABLE_GTK_NEXT
+	$(MKDIR_P) $(srcdir)/gtk-3.22
+
+if ENABLE_PARALLEL
+	cd $(srcdir)/sass && \
+	$(PARALLEL) --no-notice --line-buffer -j0 \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none ::: \
+		3.22/gtk.scss:../gtk-3.22/gtk.css \
+		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css
+else
+	cd $(srcdir)/sass && \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+		3.22/gtk.scss:../gtk-3.22/gtk.css \
+		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css
+endif
+endif
+
+if ENABLE_PARALLEL
 	cd $(srcdir)/asset && \
-	./render-assets-gtk2.sh && \
-	./render-assets-gtk3.sh
+	$(PARALLEL) --no-notice --line-buffer -j0 bash ::: \
+		render-assets-gtk2.sh \
+		render-assets-gtk3.sh
+else
+	cd $(srcdir)/asset && \
+		./render-assets-gtk2.sh && \
+		./render-assets-gtk3.sh
+endif
 
 # *****************
 # * Install files *
