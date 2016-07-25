@@ -1171,3 +1171,22 @@ window > box.vertical > box.background.horizontal {
   }
 }
 
+
+/*************
+ * Wireshark *
+ *************/
+
+window.background:not(.csd) {
+  > box.vertical > toolbar:not(.primary-toolbar).horizontal {
+    border-bottom: 1px solid $borders_color;
+    box-shadow: none; // hide fake-shadows
+  }
+
+  paned > notebook > stack > scrolledwindow.frame > widget.view {
+    // transition causes missing 'selected-items'
+    background-image: none;
+    transition: none;
+    animation: none;
+  }
+}
+
