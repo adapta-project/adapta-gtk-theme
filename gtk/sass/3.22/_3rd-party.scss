@@ -48,11 +48,6 @@ $orientation: ((top, bottom),
   color: $inverted_fg_color;
   font-weight: 700;
 
-  // panel border styling
-  @each $along_side, $opp_side in $orientation {
-    .#{$along_side} & { border-#{$along_side}: 2px solid #000000; }
-  }
-
   // used to indicate unread notifications
   .alert { color: $accent_color; }
 }
