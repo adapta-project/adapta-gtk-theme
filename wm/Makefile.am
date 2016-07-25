@@ -123,7 +123,7 @@ if ENABLE_PARALLEL
 		render-assets-xfwm-edge.sh \
 		render-assets-xfwm-title.sh
 else
-	cd $(srcdir)/asset/assets-xfwm && \
+	cd $(srcdir)/asset/assets-xfwm-scripts && \
 		./render-assets-xfwm.sh
 endif
 endif
