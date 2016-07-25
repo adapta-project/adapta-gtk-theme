@@ -743,13 +743,36 @@ endif
 endif
 
 if ENABLE_PARALLEL
-	cd $(srcdir)/asset && \
+	cd $(srcdir)/asset/assets-gtk2-scripts && \
+		./recolor-assets-gtk2.sh
+	cd $(srcdir)/asset/assets-gtk3-scripts && \
+		./recolor-assets-gtk3.sh
+	cd $(srcdir)/asset/assets-gtk2-scripts && \
 	$(PARALLEL) --no-notice --line-buffer -j0 bash ::: \
-		render-assets-gtk2.sh \
-		render-assets-gtk3.sh
+		render-assets-gtk2-arrow.sh \
+		render-assets-gtk2-button.sh \
+		render-assets-gtk2-checkradio.sh \
+		render-assets-gtk2-column.sh \
+		render-assets-gtk2-entry.sh \
+		render-assets-gtk2-handle.sh \
+		render-assets-gtk2-misc.sh \
+		render-assets-gtk2-range.sh \
+		render-assets-gtk2-scrollbar.sh \
+		render-assets-gtk2-spin.sh \
+		clone-assets-gtk2.sh
+	cd $(srcdir)/asset/assets-gtk3-scripts && \
+	$(PARALLEL) --no-notice --line-buffer -j0 bash ::: \
+		render-assets-gtk3-checkbox.sh \
+		render-assets-gtk3-misc.sh \
+		render-assets-gtk3-radio.sh \
+		render-assets-gtk3-slider.sh \
+		render-assets-gtk3-toggle.sh \
+		render-assets-gtk3-windowbutton.sh \
+		clone-assets-gtk3.sh
 else
-	cd $(srcdir)/asset && \
-		./render-assets-gtk2.sh && \
+	cd $(srcdir)/asset/assets-gtk2-scripts && \
+		./render-assets-gtk2.sh
+	cd $(srcdir)/asset/assets-gtk3-scripts && \
 		./render-assets-gtk3.sh
 endif
 
