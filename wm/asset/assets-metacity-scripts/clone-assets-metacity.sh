@@ -10,17 +10,18 @@
 # (at your option) any later version.
 #
 
-SRC_DIR="assets-metacity"
-ASSETS_DIR="../metacity-1"
+SRC_DIR="../assets-metacity"
+ASSETS_DIR="../../metacity-1"
 INDEX="assets-metacity.txt"
-RECOLOR_FILE1="./assets-metacity/button_close_pressed.svg"
-RECOLOR_FILE2="./assets-metacity/button_close_prelight.svg"
-KEY_FILE="../../gtk/sass/common/_key_colors.scss"
+RECOLOR_FILE1="./../assets-metacity/button_close_pressed.svg"
+RECOLOR_FILE2="./../assets-metacity/button_close_prelight.svg"
+COL_FILE="../../../gtk/sass/common/_colors.scss"
+KEY_FILE="../../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
+selection1="`grep 'Cyan500' $COL_FILE | \
                    cut -d' ' -f3`"
-destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
+destruction1="`grep 'RedA200' $COL_FILE | \
                      cut -d' ' -f3`"
 
 # Check and re-color 'button_close_pressed' button

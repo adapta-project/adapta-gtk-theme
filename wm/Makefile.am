@@ -95,23 +95,37 @@ xfwm_file = \
 
 all:
 if ENABLE_FLASHBACK
-	cd $(srcdir)/asset && ./clone-assets-metacity.sh
+	cd $(srcdir)/asset/assets-metacity-scripts && \
+	./clone-assets-metacity.sh
 endif
 
 if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
-	cd $(srcdir)/asset && ./clone-assets-metacity.sh
+	cd $(srcdir)/asset/assets-metacity-scripts && \
+	./clone-assets-metacity.sh
 endif
 endif
 
 if ENABLE_UNITY
 if !ENABLE_FLASHBACK
-	cd $(srcdir)/asset && ./clone-assets-metacity.sh
+	cd $(srcdir)/asset/assets-metacity-scripts && \
+	./clone-assets-metacity.sh
 endif
 endif
 
 if ENABLE_XFCE
-	cd $(srcdir)/asset && ./render-assets-xfwm.sh
+if ENABLE_PARALLEL
+	cd $(srcdir)/asset/assets-xfwm-scripts && \
+		./recolor-assets-xfwm.sh
+	cd $(srcdir)/asset/assets-xfwm-scripts && \
+	$(PARALLEL) --no-notice --line-buffer -j0 bash ::: \
+		render-assets-xfwm-button.sh \
+		render-assets-xfwm-edge.sh \
+		render-assets-xfwm-title.sh
+else
+	cd $(srcdir)/asset/assets-xfwm && \
+		./render-assets-xfwm.sh
+endif
 endif
 
 # *****************
