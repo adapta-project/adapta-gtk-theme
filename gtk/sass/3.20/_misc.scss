@@ -521,7 +521,7 @@ window {
  * Gedit *
  *********/
 
-GeditViewFrame {
+.gedit-bottom-panel-paned {
   .gedit-search-slider {
     @extend toolbar.osd;
     padding: 3px;
@@ -535,13 +535,23 @@ GeditViewFrame {
 
     entry,
     .linked > entry {
+      padding: rem(5.3px) rem(8px) rem(6.7px);
+
       &,
       &.error,
       &.warning {
         color: $inverted_fg_color;
+        caret-color: $inverted_fg_color;
         &:focus { color: $selected_fg_color; }
         &:disabled { color: $insensitive_inverted_fg_color; }
       }
+    }
+
+    button,
+    .linked > button {
+      min-width: rem(13.3px);
+      min-height: rem(13.3px);
+      padding: rem(6.7px) rem(4px);
     }
   }
 }
