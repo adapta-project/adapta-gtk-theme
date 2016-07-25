@@ -15,6 +15,7 @@
 . "render-assets-gtk2-button.sh"
 . "render-assets-gtk2-checkradio.sh"
 . "render-assets-gtk2-column.sh"
+. "render-assets-gtk2-entry.sh"
 . "render-assets-gtk2-handle.sh"
 . "render-assets-gtk2-misc.sh"
 . "render-assets-gtk2-range.sh"
