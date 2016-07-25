@@ -11,8 +11,8 @@
 #
 
 . "recolor-assets-xfwm.sh"
-. "render-assets-gtk2-button.sh"
-. "render-assets-gtk2-edge.sh"
-. "render-assets-gtk2-title.sh"
+. "render-assets-xfwm-button.sh"
+. "render-assets-xfwm-edge.sh"
+. "render-assets-xfwm-title.sh"
 
 exit 0
