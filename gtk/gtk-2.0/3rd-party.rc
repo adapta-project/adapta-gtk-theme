@@ -114,6 +114,24 @@ style "indicator" = "panelbuttons" {
   ythickness = 0
 }
 
+style "xfdesktop-icon-view" {
+  XfdesktopIconView::label-alpha = 0
+  XfdesktopIconView::selected-label-alpha = 80
+  XfdesktopIconView::shadow-x-offset = 0
+  xfdesktopIconView::shadow-y-offset = 1
+  XfdesktopIconView::selected-shadow-x-offset = 0
+  XfdesktopIconView::selected-shadow-y-offset = 2
+  XfdesktopIconView::shadow-color = mix(0.4, @fg_color, @bg_color)
+  XfdesktopIconView::selected-shadow-color = mix(0.75, @fg_color, @bg_color)
+  XfdesktopIconView::shadow-blur-radius = 3
+  xfdesktopIconView::cell-spacing = 2
+  xfdesktopIconView::cell-padding = 6
+  XfdesktopIconView::cell-text-width-proportion = 1.9
+
+  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
+  fg[ACTIVE] = @selected_fg_color
+}
+
 widget "*tasklist*"                                   style "panelbuttons"
 widget_class "*Xfce*Panel*.GtkToggleButton"           style "panelbuttons"
 widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
@@ -170,6 +188,8 @@ widget "*PanelApplet*"                                style "theme-panel-text"
 widget "*indicator-applet*"                           style "indicator"
 widget "*indicator-button*"                           style "indicator"
 
+#XFDesktop icon grids
+widget_class "*XfdesktopIconView*"                    style "xfdesktop-icon-view"
 
 #
 # Eclipse/SWT
