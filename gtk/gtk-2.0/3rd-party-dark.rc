@@ -116,19 +116,19 @@ style "indicator" = "panelbuttons" {
 
 style "xfdesktop-icon-view" {
   XfdesktopIconView::label-alpha = 0
-  XfdesktopIconView::selected-label-alpha = 80
+  XfdesktopIconView::selected-label-alpha = 90
   XfdesktopIconView::shadow-x-offset = 0
   xfdesktopIconView::shadow-y-offset = 1
   XfdesktopIconView::selected-shadow-x-offset = 0
   XfdesktopIconView::selected-shadow-y-offset = 2
-  XfdesktopIconView::shadow-color = mix(0.1, @fg_color, @bg_color)
+  XfdesktopIconView::shadow-color = mix(0.2, @fg_color, @bg_color)
   XfdesktopIconView::selected-shadow-color = mix(0.2, @fg_color, @bg_color)
   XfdesktopIconView::shadow-blur-radius = 3
   xfdesktopIconView::cell-spacing = 2
   xfdesktopIconView::cell-padding = 6
   XfdesktopIconView::cell-text-width-proportion = 1.9
 
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
+  fg[NORMAL] = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
 }
 
@@ -188,7 +188,7 @@ widget "*PanelApplet*"                                style "theme-panel-text"
 widget "*indicator-applet*"                           style "indicator"
 widget "*indicator-button*"                           style "indicator"
 
-#XFDesktop icon grids
+# XFDesktop icon grids
 widget_class "*XfdesktopIconView*"                    style "xfdesktop-icon-view"
 
 #
