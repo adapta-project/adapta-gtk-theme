@@ -358,19 +358,19 @@ $orientation: ((top, bottom),
       }
     }
 
-    &.activatable:nth-child(3) {
+    @at-root .user-menu > box.vertical row.activatable:nth-child(3) {
       // separator's row should not have outlines
       outline-offset: 0;
       outline-width: 0;
-    }
 
-    // use asymmetric separators
-    separator.horizontal {
-      min-width: 1px;
-      min-height: 1px;
+      // use asymmetric separators
+      separator.horizontal {
+        min-width: 1px;
+        min-height: 1px;
 
-      &:dir(ltr) { border-left: rem(32px) solid transparent; }
-      &:dir(rtl) { border-right: rem(32px) solid transparent; }
+        &:dir(ltr) { border-left: rem(32px) solid transparent; }
+        &:dir(rtl) { border-right: rem(32px) solid transparent; }
+      }
     }
   }
 }

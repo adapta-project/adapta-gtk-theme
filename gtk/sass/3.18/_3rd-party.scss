@@ -411,13 +411,14 @@ $orientation: ((top, bottom),
       }
     }
 
-    // use asymmetric separators
-    &.activatable:nth-child(3) {
+    @at-root .user-menu > GtkBox.vertical .list-row.activatable:nth-child(3) {
+      // separator's row should not have outlines
       outline-offset: 0;
       outline-width: 0;
       // FIXME: hide weird backgrounds
       background-color: transparent;
 
+      // use asymmetric separators
       &:dir(ltr) { padding-left: 3em; }
       &:dir(rtl) { padding-right: 3em; }
     }
