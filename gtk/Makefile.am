@@ -703,6 +703,21 @@ all:
 	$(MKDIR_P) $(srcdir)/gtk-3.18 && \
 	$(MKDIR_P) $(srcdir)/gtk-3.20 && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2 && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Arrows && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Buttons && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Arrows && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Check-Radio && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Column && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Entry && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Handles && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Lines && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Others && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/ProgressBar && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Range && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Scrollbars && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Shadows && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Spin && \
+	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Toolbar && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk3
 
 	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
