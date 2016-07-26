@@ -384,7 +384,6 @@ entry {
     }
   }
 
-
   &.flat {
     border-radius: 0;
     @include entry(flat-normal);
@@ -397,8 +396,8 @@ entry {
   }
 
   image { // icons inside the entry
-    padding-left: rem(4px);
-    padding-right: rem(4px);
+    &.left { margin-right: rem(4px); }
+    &.right { margin-left: rem(4px); }
   }
 
   progress { @extend %entry_progressbar; }
