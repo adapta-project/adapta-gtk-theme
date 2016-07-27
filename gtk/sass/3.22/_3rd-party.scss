@@ -552,19 +552,36 @@ $orientation: ((top, bottom),
 // notifications
 .budgie-notification-window {
   border-radius: 2px;
-  background: none;
+  background-color: transparent;
+
+  // draw actual backgrounds
+  .drop-shadow { background-color: gtkopacity($inverted_dark_color, 0.9); }
 }
 
 .budgie-notification {
-  &.background { border-radius: 2px; }
+  // always use dark-variant
+  color: $inverted_fg_color;
+  background-color: transparent;
 
   .notification-title {
-    color: $secondary_fg_color;
+    color: $inverted_secondary_fg_color;
     font-size: 110%;
     font-weight: 500;
   }
 
-  .notification-body { color: $fg_color; }
+  .notification-body {
+    color: $inverted_fg_color;
+    font-size: 90%;
+    font-weight: 400;
+  }
+
+  button { // OSD-style buttons
+    color: $secondary_accent_color;
+    &:hover,
+    &:active,
+    &:checked { color: $accent_color; }
+    &:disabled { color: gtkopacity($accent_color, 0.4); }
+  }
 }
 
 // run-dialog styling
@@ -795,7 +812,7 @@ $orientation: ((top, bottom),
 
 // misc settings
 .drop-shadow {
-  background-color: $dark_color;
+  background-color: transparent;
   background-image: none;
   box-shadow: $z-depth-2;
 }
