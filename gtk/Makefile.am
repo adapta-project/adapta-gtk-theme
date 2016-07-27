@@ -194,10 +194,6 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/radio-unchecked-selected.png \
 	$(gtk3_assetdir)/running-dot-bottom@2.png \
 	$(gtk3_assetdir)/running-dot-bottom.png \
-	$(gtk3_assetdir)/running-dot-left@2.png \
-	$(gtk3_assetdir)/running-dot-left.png \
-	$(gtk3_assetdir)/running-dot-right@2.png \
-	$(gtk3_assetdir)/running-dot-right.png \
 	$(gtk3_assetdir)/running-dot-top@2.png \
 	$(gtk3_assetdir)/running-dot-top.png \
 	$(gtk3_assetdir)/slider@2.png \
