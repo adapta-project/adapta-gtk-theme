@@ -26,9 +26,7 @@
 
 // orientation
 $orientation: ((top, bottom),
-               (bottom, top),
-	       (left, right),
-	       (right, left));
+               (bottom, top));
 
 // main container
 .budgie-container { background-color: transparent; }
@@ -158,9 +156,7 @@ $orientation: ((top, bottom),
 
 // draw underscores and dots
 @each $along_side, $_dot in (top, top),
-                            (bottom, bottom),
-                            (left, left),
-                            (right, right) {
+                            (bottom, bottom) {
   .#{$along_side} .budgie-panel {
     .unpinned button.flat.launcher,
     .unpinned button.flat.launcher:backdrop,
