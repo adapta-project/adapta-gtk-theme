@@ -101,6 +101,7 @@ stage {
   padding: 7px 8px 8px;
   border-radius: 0;
   border-width: 0;
+  color: $osd_fg_color;
   caret-size: 1px;
   caret-color: $osd_fg_color;
 
@@ -330,7 +331,7 @@ StScrollBar {
     padding: 0.4em 1.75em;
     spacing: 1em;
     border-width: 0 1px;
-    color: secondary_fg_color;
+    color: $secondary_fg_color;
 
     &:active {
       border-image: url("assets/menu/menu-hover.svg") 9 9 0 0;
@@ -370,8 +371,8 @@ StScrollBar {
 // Don't know what this does
 .popup-combo-menu {
   padding: 1em 0em;
-  border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
   color: red;
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -645,9 +646,8 @@ $icon_size: 16px;
     padding: 4px;
     padding-right: 0;
     border: 1px solid $borders_color;
-    border-radius: 2px;
-    background-color: $base_color;
     border-radius: 0;
+    background-color: $base_color;
 
     &-innerBox {
       padding: 1.2em;
@@ -945,12 +945,12 @@ $icon_size: 16px;
 .flashspot { background-color: white; }
 
 .modal-dialog {
+  padding: 0 5px 6px 5px;
   border: none;
   border-radius: 2px;
-  padding: 0 5px 6px 5px;
+  border-image: url("assets/misc/modal.svg") 9 9 9 67;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
-  border-image: url("assets/misc/modal.svg") 9 9 9 67;
 
   > StBoxLayout:first-child {
     padding: 20px 10px 10px 10px;
@@ -1021,9 +1021,9 @@ $icon_size: 16px;
   }
   .modal-dialog-button-box {
     border: none;
-    box-shadow: none;
     background: none;
     background-gradient-direction: none;
+    box-shadow: none;
   }
 }
 
@@ -1179,7 +1179,7 @@ $icon_size: 16px;
     &-box {
       margin: auto;
       padding: 10px;
-      border: 0 solid $borders_color;
+      border: 0 solid transparent;
     }
 
     &-button { padding: 10px; }
@@ -1224,6 +1224,7 @@ $icon_size: 16px;
       color: $selected_bg_color;
     }
     &-hover {
+      @extend %button:hover;
       padding: 7px;
       border: 1px solid transparent;
       border-radius: 2px;
@@ -1458,9 +1459,9 @@ $icon_size: 16px;
       width: 22px;
       height: 13px;
       padding: 5px;
-      color: $osd_fg_color;
       border-radius: 2px;
       border: 1px solid transparentize($osd_bg_color,1);
+      color: $osd_fg_color;
 
       StIcon { icon-size: 16px; }
 
@@ -1505,7 +1506,7 @@ $icon_size: 16px;
   padding: 3px;
   padding-top: 4px;
   color: $selected_fg_color;
-  transition-duration: 300;
+  transition-duration: 0.2s;
 
   &:outlined,
   &:outlined:hover { color: $selected_bg_color; }

@@ -28,10 +28,10 @@ stage {
 }
 
 %reset_style {
-  background-color: transparent !important;
-  background-gradient-direction: none !important;
   border: none !important;
   border-radius: 0 !important;
+  background-color: transparent !important;
+  background-gradient-direction: none !important;
 }
 
 
@@ -92,18 +92,18 @@ stage {
 
   StIcon.capslock-warning {
     icon-size: 16px;
-    warning-color: $warning_color;
     padding: 0 2px;
+    warning-color: $warning_color;
   }
 }
 
 %osd_entry {
   padding: 7px 8px 8px;
-  caret-size: 1px;
-  caret-color: $osd_fg_color;
-  color: $osd_fg_color;
   border-radius: 0;
   border-width: 0;
+  color: $osd_fg_color;
+  caret-size: 1px;
+  caret-color: $osd_fg_color;
 
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
@@ -221,8 +221,8 @@ StScrollBar {
 .radiobutton {
 
   CinnamonGenericContainer {
-    spacing: 0.2em;
     height: 26px;
+    spacing: 0.2em;
     padding-top: 2px;
   }
 
@@ -289,8 +289,8 @@ StScrollBar {
 
 #Tooltip {
   @include fontscaling($ref_size * 1.0);
-  border-radius: 2px;
   padding: 4px 12px;
+  border-radius: 2px;
   background-color: transparentize($osd_bg_color, 0.1);
   color: $osd_fg_color;
   font-weight: 500;
@@ -312,8 +312,8 @@ StScrollBar {
   &-arrow { icon-size: 16px; }
 
   .popup-sub-menu {
-    background-gradient-direction: none;
     border-image: url("assets/menu/submenu.svg") 9 9 0 0;
+    background-gradient-direction: none;
     box-shadow: 0 0 transparent;
 
     .popup-menu-item:ltr { padding-right: 0; }
@@ -331,12 +331,12 @@ StScrollBar {
     padding: 0.4em 1.75em;
     spacing: 1em;
     border-width: 0 1px;
-    color: secondary_fg_color;
+    color: $secondary_fg_color;
 
     &:active {
+      border-image: url("assets/menu/menu-hover.svg") 9 9 0 0;
       color: $fg_color;
       background-color: transparent;
-      border-image: url("assets/menu/menu-hover.svg") 9 9 0 0;
     }
     &:insensitive {
       color: scale-color($fg_color, $alpha: -50%);
@@ -370,18 +370,19 @@ StScrollBar {
 
 // Don't know what this does
 .popup-combo-menu {
-  background-color: rgba(0, 0, 0, 0.4);
   padding: 1em 0em;
-  color: red;
   border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 3px;
+  color: red;
+  background-color: rgba(0, 0, 0, 0.4);
 }
+
 .popup-image-menu-item {}
 
 .popup-combobox-item { spacing: 1em; }
 
 .popup-separator-menu-item {
-  height: 1px; //not really the whole box
+  height: 1px; // not really the whole box
   margin: 0.6em 0.4em;
   border-color: $borders_color;
   border-bottom-width: 1px;
@@ -466,14 +467,15 @@ $icon_size: 16px;
   // &-bottom { border-image: url('assets/panel/panel-bottom.svg') 1 1 1 1; }
 
   &-status-button {
-    border-widht: 0;
+    height: 22px;
     -natural-hpadding: 3px;
     -minimum-hpadding: 3px;
+    border-widht: 0;
     font-weight: 700;
     color: $osd_secondary_fg_color;
-    height: 22px;
 
-    &:hover {}
+    &:hover {
+    }
   }
 
   &-button {
@@ -524,11 +526,11 @@ $icon_size: 16px;
 .expo-workspaces-name-entry,
 .expo-workspaces-name-entry#selected {
   @include fontscaling($ref_size * 0.9);
+  @include entry(osd);
   -cinnamon-caption-spacing: 12px;
   height: 15px;
-  border-radius: 2px;
   padding: 4px 8px;
-  @include entry(osd);
+  border-radius: 2px;
 
   &:focus {
     @include entry(osd-focus);
@@ -555,7 +557,7 @@ $icon_size: 16px;
 }
 
 .workspace {
-  //&-controls { visible-height: 32px; }
+  // &-controls { visible-height: 32px; }
 
   &-thumbnails {
     spacing: 26px;
@@ -564,9 +566,9 @@ $icon_size: 16px;
   }
 
   &-add-button {
-    background-image: url("assets/misc/add-workspace.svg");
     height: 200px;
     width: 35px;
+    background-image: url("assets/misc/add-workspace.svg");
     transition-duration: 0.2s;
 
     &:hover {
@@ -613,9 +615,9 @@ $icon_size: 16px;
 //  }
 
 .window-close-area {
-  background-image: url("assets/misc/trash-icon.svg");
-  height: 120px;
   width: 400px;
+  height: 120px;
+  background-image: url("assets/misc/trash-icon.svg");
 }
 
 //
@@ -641,12 +643,11 @@ $icon_size: 16px;
     padding-bottom: 14px;
   }
   &-scrollBox {
-    border: 1px solid $borders_color;
-    border-radius: 2px;
-    background-color: $base_color;
     padding: 4px;
     padding-right: 0;
+    border: 1px solid $borders_color;
     border-radius: 0;
+    background-color: $base_color;
 
     &-innerBox {
       padding: 1.2em;
@@ -675,9 +676,9 @@ $icon_size: 16px;
 }
 
 .calendar-month-label {
+  padding: 8px 0;
   color: $fg_color;
   font-weight: 700;
-  padding: 8px 0;
 }
 
 .calendar-change-month-back,
@@ -726,26 +727,26 @@ $icon_size: 16px;
 
 .datemenu-date-label {
   padding: 0.4em 1.75em;
+  border-radius: 2px;
+  color: $fg_color;
   font-weight: 700;
   text-align: center;
-  color: $fg_color;
-  border-radius: 2px;
 }
 
 .calendar-day-base {
   @include fontscaling($ref_size * 0.8);
-  text-align: center;
   width: 25px;
   height: 25px;
   padding: 0.1em;
   margin: 2px;
   border-radius: 12.5px;
+  text-align: center;
 }
 
 .calendar-day-heading {
   @include fontscaling($ref_size * 0.7);
-  color: $dim_fg_color;
   margin-top: 1em;
+  color: $dim_fg_color;
 }
 
 .calendar-day {
@@ -770,10 +771,10 @@ $icon_size: 16px;
 .calendar-today:active,
 .calendar-today:focus,
 .calendar-today:hover {
-  font-weight: 700;
+  border-width: 0;
   color: $selected_fg_color;
   background-color: $selected_bg_color;
-  border-width: 0;
+  font-weight: 700;
 }
 
 .calendar-other-month-day {
@@ -905,7 +906,7 @@ $icon_size: 16px;
   }
 }
 
-//.switcher-preview-backdrop { background-color: rgba(25,25,25,0.95); }
+// .switcher-preview-backdrop { background-color: rgba(25, 25, 25, 0.95); }
 
 .thumbnail-scroll-gradient-left {
   width: 60px;
@@ -959,8 +960,8 @@ $icon_size: 16px;
     spacing: 0;
     margin: 0;
     padding: 14px 10px;
-    // border-image: url("assets/misc/button-box.svg") 9 9 9 9;
     border: none;
+    // border-image: url("assets/misc/button-box.svg") 9 9 9 9;
     background: none;
 
     .modal-dialog-button {
@@ -1026,7 +1027,7 @@ $icon_size: 16px;
   }
 }
 
-/* CinnamonMountOperation Dialogs */
+// CinnamonMountOperation Dialogs
 .cinnamon-mount-operation-icon {
   icon-size: 48px;
 }
@@ -1050,8 +1051,8 @@ $icon_size: 16px;
     }
   }
   &-description {
-    padding-left: 17px;
     width: 28em;
+    padding-left: 17px;
 
     &:rtl { padding-right: 17px; }
   }
@@ -1262,11 +1263,11 @@ $icon_size: 16px;
 }
 
 #menu-search-entry {
+  @extend %entry;
   width: 250px;
   height: 15px;
   caret-color: $fg_color;
   font-weight: 500;
-  @extend %entry;
 }
 
 .menu-search-entry-icon {
@@ -1493,7 +1494,7 @@ $icon_size: 16px;
   padding: 3px;
 }
 
-/* Controls the styling when using the "Simple buttons" option */
+// Controls the styling when using the "Simple buttons" option
 .workspace-switcher {
   padding-left: 3px;
   padding-right: 3px;
@@ -1512,7 +1513,7 @@ $icon_size: 16px;
   &:hover { color: transparentize($selected_bg_color, 0.5) }
 }
 
-/* Controls the style when using the "Visual representation" option */
+// Controls the style when using the "Visual representation" option
 .workspace-graph {
   padding: 3px;
   spacing: 3px;
@@ -1687,10 +1688,9 @@ $icon_size: 16px;
 //
 // Workspace OSD
 //
-/*FIXME*/
-.workspace-osd {
+.workspace-osd { // FIXME
   @include fontscaling($ref_size * 3.6);
-  /*color: red;*/
+  // color: red;
   text-shadow: black 5px 5px 5px;
   font-weight: 700;
 }
