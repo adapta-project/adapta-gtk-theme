@@ -3347,9 +3347,8 @@ switch {
       &:hover {
         -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
                                       url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
-        animation: none;
         -gtk-icon-shadow: none;
-        transition: none;
+        transition: 0.2s;
       }
     }
   }
@@ -3471,11 +3470,39 @@ check {
       border-color: transparent;
       background-image: none;
       background-color: transparent;
+      color: inherit;
       box-shadow: none;
       -gtk-icon-shadow: none;
-      color: inherit;
       animation: none;
     }
+  }
+}
+
+// ANIMATION:
+// this is made with those pretty convoluted transitions,
+// since checks and radios have to animate only on state changes,
+// the transformation is set on the active state
+// and it get reset on the checked state.
+radio:not(:indeterminate):not(:checked):active:not(:backdrop) {
+  -gtk-icon-transform: scale(0);
+}
+check:not(:indeterminate):not(:checked):active:not(:backdrop) {
+  -gtk-icon-transform: translate(6px, -3px)
+                       rotate(-45deg)
+                       scaleY(0.2)
+                       rotate(45deg)
+                       scaleX(0);
+}
+
+radio,
+check {
+  &:active { // should tackle the indeterminate state, untested
+    -gtk-icon-transform: scale(0, 1);
+  }
+  &:checked:not(:backdrop),
+  &:indeterminate:not(:backdrop) {
+    -gtk-icon-transform: unset;
+    transition: 0.2s;
   }
 }
 
