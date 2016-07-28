@@ -3450,8 +3450,8 @@ check {
     animation: check_radio_hover 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   &:active {
-    animation: check_radio_active_reverse 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    transition-duration: 0.15s;
+    animation: check_radio_active_reverse 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition-duration: 0.2s;
   }
   &:hover:checked,
   &:hover:indeterminate {
@@ -3476,7 +3476,9 @@ check {
       animation: none;
     }
     &:checked:not(:backdrop),
-    &:indeterminate:not(:backdrop) { transition: none; }
+    &:indeterminate:not(:backdrop),
+    &:not(:active):not(:checked):not(:backdrop),
+    &:not(:active):not(:indeterminate):not(:backdrop) { transition: none; }
   }
 }
 
@@ -3494,13 +3496,16 @@ check:not(:indeterminate):not(:checked):active:not(:backdrop) {
 
 radio,
 check {
-  &:active { // should tackle the indeterminate state, untested
-    -gtk-icon-transform: scale(0, 1);
-  }
-  &:checked:not(:backdrop),
-  &:indeterminate:not(:backdrop) {
+  &:not(:active):not(:checked):not(:backdrop),
+  &:not(:active):not(:indeterminate):not(:backdrop) { // ease-out
     -gtk-icon-transform: unset;
-    transition: 0.2s;
+    transition: 0.4s;
+  }
+  &:active { -gtk-icon-transform: scale(0, 1); }
+  &:checked:not(:backdrop),
+  &:indeterminate:not(:backdrop) { // ease-in
+    -gtk-icon-transform: unset;
+    transition: 0.4s;
   }
 }
 
