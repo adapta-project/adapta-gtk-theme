@@ -3599,7 +3599,10 @@ scale {
     min-width: 20px;
     margin: -9px;
 
-    &:not(:hover):not(:active) { background-size: $scale; }
+    &:not(:hover):not(:active) {
+      background-size: $scale;
+      transition: 0.2s;
+    }
     // @include entry(normal);
     // border-radius: 50%;
     // background-color: $success_color;
