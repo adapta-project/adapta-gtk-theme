@@ -1119,3 +1119,36 @@ window > popover > stack > grid > button {
   }
 }
 
+
+/************
+ * Gtk-demo *
+ ************/
+
+.background.csd > box.horizontal > frame > scrolledwindow {
+  // side-bar styling
+  background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                            rgba(18, 22, 0, 0.04));
+
+  &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
+  }
+  &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
+  }
+
+  treeview.view {
+    background-color: transparent;
+    &:selected {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+
+  undershoot {
+    &.top { @include undershoot(top, $secondary_dark_color); }
+    &.bottom { @include undershoot(bottom, $secondary_dark_color); }
+    &.left { @include undershoot(left, $secondary_dark_color); }
+    &.right { @include undershoot(right, $secondary_dark_color); }
+  }
+}
+
