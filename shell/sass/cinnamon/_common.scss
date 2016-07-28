@@ -177,7 +177,9 @@ StScrollBar {
   color: $accent_color;
 
   -slider-height: 2px;
-  -slider-background-color: scale-color($fg_color, $alpha: -90%); // background of the trough
+  -slider-background-color: if($nokto == 'false',
+                               scale-color($fg_color, $alpha: -90%),
+                               $fill_color); // background of the trough
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $accent_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
@@ -794,7 +796,12 @@ $icon_size: 16px;
   margin-from-right-edge-of-screen: 20px;
   padding: 13px;
   border-radius: 2px;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
+  @if $nokto==false {
+    border-image: url("assets/misc/osd.svg") 9 9 9 9;
+  }
+  @else {
+    border-image: url("assets/misc/bg.svg") 9 9 9 9;
+  }
   color: $osd_fg_color;
 
   .popup-menu & {
@@ -858,7 +865,12 @@ $icon_size: 16px;
 .switcher-list {
   padding: 20px;
   border: none;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
+  @if $nokto==false {
+    border-image: url("assets/misc/osd.svg") 9 9 9 9;
+  }
+  @else {
+    border-image: url("assets/misc/bg.svg") 9 9 9 9;
+  }
   border-radius: 2px;
   color: $osd_fg_color;
   background: none;
@@ -985,7 +997,12 @@ $icon_size: 16px;
 
 .run-dialog {
   padding: 0 15px 10px 15px;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
+  @if $nokto==false {
+    border-image: url("assets/misc/osd.svg") 9 9 9 9;
+  }
+  @else {
+    border-image: url("assets/misc/bg.svg") 9 9 9 9;
+  }
 
   > * { padding: 0; }
 
@@ -1477,7 +1494,9 @@ $icon_size: 16px;
     padding: 0;
     border: none;
     -slider-height: 2px;
-    -slider-background-color: scale-color($fg_color, $alpha: -20%); // background of the trough
+    -slider-background-color: if($nokto == 'false',
+                                 scale-color($fg_color, $alpha: -20%),
+                                 $fill_color); // background of the trough
     -slider-border-color: transparent; // trough border color
     -slider-active-background-color: $accent_color; // active trough fill
     -slider-active-border-color: transparent; // active trough border
