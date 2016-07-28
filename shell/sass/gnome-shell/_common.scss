@@ -92,7 +92,7 @@ StEntry {
   padding: 7px 8px 8px;
   border-radius: 0;
   border-width: 0;
-  color: $inverted_fg_color;
+  color: if($nokto == 'false', $inverted_fg_color, $fg_color);
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
   &:hover { @include entry(hover); }
@@ -133,11 +133,18 @@ StScrollBar {
   StButton#vhandle, StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: scale-color($inverted_fg_color, $alpha: -40%);
+    background-color: if($nokto == 'false', scale-color($inverted_fg_color, $alpha: -40%),
+                                            scale-color($fg_color, $alpha: -40%));
     // would be nice to margin or at least to transparent
     // border: 4px solid transparent;
-    &:hover { background-color: scale-color($inverted_fg_color, $alpha: -20%); }
-    &:active { background-color: scale-color($inverted_fg_color, $alpha: -0%); }
+    &:hover {
+      background-color: if($nokto == 'false', scale-color($inverted_fg_color, $alpha: -20%),
+                                              scale-color($fg_color, $alpha: -20%));
+    }
+    &:active {
+      background-color: if($nokto == 'false', scale-color($inverted_fg_color, $alpha: -0%),
+                                              scale-color($fg_color, $alpha: -0%));
+    }
   }
 }
 
@@ -150,7 +157,8 @@ StScrollBar {
   height: 16px;
   color: $accent_color;
   -slider-height: 2px;
-  -slider-background-color: scale-color($fg_color, $alpha: -90%); // background of the trough
+  -slider-background-color: if($nokto == 'false', scale-color($fg_color, $alpha: -90%),
+                                                  $fill_color); // background of the trough
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $accent_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
@@ -169,7 +177,8 @@ StScrollBar {
     width: 20px;
     height: 20px;
     background-image: url("assets/checkbox-off.svg");
-    color: $inverted_secondary_fg_color;
+    color: if($nokto == 'false', $inverted_secondary_fg_color,
+                                 $secondary_fg_color);
   }
   &:focus StBin { background-image: url("assets/checkbox-off-hover.svg"); }
   &:checked StBin { background-image: url("assets/checkbox.svg"); }
@@ -233,7 +242,7 @@ StScrollBar {
 .modal-dialog {
   border: none;
   border-radius: 2px;
-  color: $inverted_fg_color;
+  color: if($nokto == 'false', $inverted_fg_color, $fg_color);
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-4;
 
@@ -255,7 +264,8 @@ StScrollBar {
     @include fontscaling($ref_size * 1.1);
     padding-bottom: 0.4em;
     font-weight: 400;
-    color: $inverted_dim_fg_color;
+    color: if($nokto == 'false', $inverted_dim_fg_color,
+                                 $dim_fg_color);
   }
 }
 
@@ -332,7 +342,8 @@ StScrollBar {
 
 .end-session-dialog-app-list-item-description {
   @include fontscaling($ref_size * 1.0);
-  color: $inverted_dim_fg_color;
+  color: if($nokto == 'false', $inverted_dim_fg_color,
+                               $dim_fg_color);
 }
 
 
@@ -379,8 +390,12 @@ StScrollBar {
 }
 
 .show-processes-dialog-app-list-item {
-  color: $inverted_secondary_fg_color;
-  &:hover { color: $inverted_fg_color; }
+  color: if($nokto == 'false', $inverted_secondary_fg_color,
+                               $secondary_fg_color);
+  &:hover {
+    color: if($nokto == 'false', $inverted_fg_color,
+                                 $fg_color);
+  }
   &:ltr { padding-right: 1em; }
   &:rtl { padding-left: 1em; }
 }
@@ -415,7 +430,8 @@ StScrollBar {
 .prompt-dialog-headline {
   @include fontscaling($ref_size * 1.3);
   font-weight: 500;
-  color: $inverted_fg_color;
+  color: if($nokto == 'false', $inverted_fg_color,
+                               $fg_color);
 }
 
 .prompt-dialog-description:rtl { text-align: right; }
@@ -525,7 +541,8 @@ StScrollBar {
 
 .access-dialog-subtitle {
   @include fontscaling($ref_size * 1.1);
-  color: $inverted_dim_fg_color;
+  color: if($nokto == 'false', $inverted_dim_fg_color,
+                               $dim_fg_color);
   font-weight: 700;
 }
 
@@ -545,7 +562,8 @@ StScrollBar {
 .geolocation-dialog-title { font-weight: 700; }
 
 .geolocation-dialog-reason {
-  color: $inverted_dim_fg_color;
+  color: if($nokto == 'false', $inverted_dim_fg_color,
+                               $dim_fg_color);
   font-weight: 400;
 }
 
@@ -606,12 +624,14 @@ StScrollBar {
       &:insensitive { color: scale-color($selected_fg_color, $alpha: -50%); }
     }
     &.selected {
-      background-color: scale-color($fg_color, $alpha: -90%);
+      background-color: if($nokto == 'false', scale-color($fg_color, $alpha: -90%),
+                                              $semi_fill_color);
       color: $fg_color;
       transition-duration: 0;
     }
     &:active {
-      background-color: scale-color($fg_color, $alpha: -80%);
+      background-color: if($nokto == 'false', scale-color($fg_color, $alpha: -80%),
+                                              $fill_color);
       color: $fg_color;
       transition-duration: 0.2s;
     }
@@ -773,7 +793,7 @@ StScrollBar {
 
 .switcher-list .item-box:outlined {
   padding: 6px;
-  border: 2px solid $osd_fill_color;
+  border: 2px solid if($nokto == 'false', $osd_fill_color, $fill_color);
 }
 
 .switcher-list .item-box:selected {
@@ -797,8 +817,10 @@ StScrollBar {
 
 .switcher-arrow {
   border-color: transparent;
-  color: $osd_dim_fg_color;
-  &:highlighted { color: $osd_fg_color; }
+  color: if($nokto == 'false', $osd_dim_fg_color, $dim_fg_color);
+  &:highlighted {
+    color: if($nokto == 'false', $osd_fg_color, $fg_color);
+  }
 }
 
 .input-source-switcher-symbol {
@@ -933,7 +955,8 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: 700;
-    color: $inverted_secondary_fg_color;
+    color: if($nokto == 'false', $inverted_secondary_fg_color,
+                                 $secondary_fg_color);
     transition-duration: 0.2s;
 
     .app-menu-icon {
@@ -1459,7 +1482,9 @@ StScrollBar {
   text-align: center;
 }
 
-.nm-dialog-airplane-text { color: $osd_fg_color; }
+.nm-dialog-airplane-text {
+  color: if($nokto == 'false', $osd_fg_color, $fg_color);
+}
 
 .nm-dialog-header-icon { icon-size: 32px; }
 
@@ -1483,7 +1508,9 @@ StScrollBar {
 
 .nm-dialog-icon { icon-size: 16px; }
 
-.no-networks-label { color: $osd_dim_fg_color; }
+.no-networks-label {
+  color: if($nokto == 'false', $osd_dim_fg_color, $dim_fg_color);
+}
 
 .no-networks-box { spacing: 12px; }
 
@@ -1538,8 +1565,9 @@ StScrollBar {
   border-radius: 2px;
   border-color: transparent;
   border-top: 1px solid $borders_highlight;
-  color: $osd_dim_fg_color;
-  background-color: $osd_semi_fill_color;
+  color: if($nokto == 'false', $osd_dim_fg_color, $dim_fg_color);
+  background-color: if($nokto == 'false', $osd_semi_fill_color,
+                                          $inverted_dim_bg_color);
   font-weight: 500;
   box-shadow: $z-depth-2;
 
@@ -1549,8 +1577,9 @@ StScrollBar {
   &:hover,
   &:focus {
     border-top: 1px solid $borders_highlight;
-    color: $fg_color;
-    background-color: transparentize($bg_color, 0.1);
+    color: if($nokto == 'false', $fg_color, $inverted_fg_color);
+    background-color: if($nokto == 'false', transparentize($bg_color, 0.1),
+                                            transparentize($inverted_bg_color, 0.1));
     box-shadow: $z-depth-3;
     transition-duration: 0.2s;
   }
@@ -1558,12 +1587,14 @@ StScrollBar {
   .search-entry-icon {
     padding: 0 2px;
     icon-size: 16px;
-    color: $osd_dim_fg_color;
+    color: if($nokto == 'false', $osd_dim_fg_color, $dim_fg_color);
   }
 
   &:hover,
   &:focus {
-    .search-entry-icon { color: $fg_color; }
+    .search-entry-icon {
+      color: if($nokto == 'false', $fg_color, $inverted_fg_color);
+    }
   }
 }
 
@@ -1648,7 +1679,7 @@ StScrollBar {
 .dash-label { // osd tooltip
   padding: 4px 12px;
   border-radius: 2px;
-  color: $osd_fg_color;
+  color: if($nokto == 'false', $osd_fg_color, $fg_color);
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-2;
   text-align: center;
@@ -1746,11 +1777,13 @@ StScrollBar {
   padding: 7px 32px 8px;
   border-radius: 0;
   font-weight: 700;
-  color: $osd_secondary_fg_color;
+  color: if($nokto == 'false', $osd_secondary_fg_color,
+                               $secondary_fg_color);
   background-color: rgba(0, 0, 0, 0.01) !important;
   &:hover {
     color: $osd_fg_color;
-    background-color: $osd_slight_fill_color !important;
+    background-color: if($nokto == 'false', $osd_slight_fill_color !important,
+                                            $fill_color !important);
     box-shadow: inset 0 2px 0 $osd_semi_fill_color;
   }
   &:active {
@@ -1765,7 +1798,8 @@ StScrollBar {
   }
   &:hover:checked {
     color: $osd_fg_color;
-    background-color: $osd_semi_fill_color !important;
+    background-color: if($nokto == 'false', $osd_semi_fill_color !important,
+                                            $fill_color !important);
     box-shadow: inset 0 2px 0 $osd_indicator_color;
   }
 }
@@ -1793,7 +1827,8 @@ StScrollBar {
 .grid-search-result {
   & .overview-icon {
     @extend %icon_tile;
-    color: $osd_secondary_fg_color;
+    color: if($nokto == 'false', $osd_secondary_fg_color,
+                                 $secondary_fg_color);
   }
 
   &:hover .overview-icon,
@@ -1880,8 +1915,10 @@ StScrollBar {
 .app-folder-popup-bin {
   padding: 5px;
   border-radius: 2px;
-  border-top: 1px solid $borders_highlight;
-  background-color: $inverted_bg_color;
+  border-top: 1px solid if($nokto == 'false', $borders_highlight,
+                                              $base_color);
+  background-color: if($nokto == 'false', $inverted_bg_color,
+                                          $bg_color);
   box-shadow: $z-depth-1;
 }
 
@@ -1989,7 +2026,7 @@ StScrollBar {
   color: $osd_dim_fg_color;
 }
 
-// Add Workspace to Dock Support
+// Add Dash to Dock Support
 #workspacestodockContainer,
 #workspacestodockContainer:overview,
 #workspacestodockContainer.fullheight:overview {
@@ -2075,7 +2112,10 @@ StScrollBar {
 // Chat bubbles
 .chat-body { spacing: 5px; }
 .chat-response { margin: 5px; }
-.chat-log-message { color: $osd_secondary_fg_color; }
+.chat-log-message {
+  color: if($nokto == 'false', $osd_secondary_fg_color,
+                               $secondary_fg_color);
+}
 .chat-new-group { padding-top: 1em; }
 .chat-received {
   padding-left: 4px;
@@ -2087,7 +2127,8 @@ StScrollBar {
 
 .chat-sent {
   padding-left: 18pt;
-  color: $osd_secondary_fg_color;
+  color: if($nokto == 'false', $osd_secondary_fg_color,
+                               $secondary_fg_color);
   &:rtl {
     padding-left: 0;
     padding-right: 18pt;
@@ -2098,7 +2139,8 @@ StScrollBar {
   @include fontscaling($ref_size * 0.9);
   padding-left: 4px;
   font-weight: 700;
-  color: $insensitive_osd_fg_color;
+  color: if($nokto == 'false', $insensitive_osd_fg_color,
+                               $insensitive_fg_color);
   &:rtl {
     padding-left: 0;
     padding-right: 4px;
@@ -2126,8 +2168,14 @@ StScrollBar {
 .hotplug-resident-mount {
   spacing: 8px;
   border-radius: 2px;
-  &:hover { background-color: $osd_semi_fill_color; }
-  &:active { background-color: $osd_fill_color; }
+  &:hover {
+    background-color: if($nokto == 'false', $osd_semi_fill_color,
+                                            $semi_fill_color);
+  }
+  &:active {
+    background-color: if($nokto == 'false', $osd_fill_color,
+                                            $fill_color);
+  }
 }
 
 .hotplug-resident-mount-label {
@@ -2220,8 +2268,10 @@ $legacy_icon_size: 24px;
   border-radius: 2px;
   border-width: 1px 0 0;
   border-top-color: $borders_highlight;
-  color: $inverted_secondary_fg_color;
-  background-color: $inverted_bg_color;
+  color: if($nokto == 'false', $inverted_secondary_fg_color,
+                               $secondary_fg_color);
+  background-color: if($nokto == 'false', $inverted_bg_color,
+                                          $bg_color);
   box-shadow: $z-depth-1;
   text-shadow: none;
   icon-shadow: none;
@@ -2232,11 +2282,13 @@ $legacy_icon_size: 24px;
   &:hover,
   &:checked {
     color: $selected_fg_color;
-    background-color: $inverted_bg_color;
+    background-color: if($nokto == 'false', $inverted_bg_color,
+                                            $bg_color);
   }
   &:active {
     color: $selected_fg_color;
-    background-color: $inverted_base_color;
+    background-color: if($nokto == 'false', $inverted_base_color,
+                                            $base_color);
   }
   &:grayed { // FIXME
     border-top-color: $osd_borders_color;
@@ -2256,7 +2308,8 @@ $legacy_icon_size: 24px;
   -arrow-rise: 0;
   -boxpointer-gap: 5px;
   background-color: transparentize($osd_bg_color, 0.1);
-  color: $inverted_secondary_fg_color;
+  color: if($nokto == 'false', $inverted_secondary_fg_color,
+                               $secondary_fg_color);
   box-shadow: $z-depth-2;
 }
 
@@ -2272,7 +2325,7 @@ $legacy_icon_size: 24px;
 
 .candidate-index {
   padding: 0 0.5em 0 0;
-  color: $osd_dim_fg_color;
+  color: if($nokto == 'false', $osd_dim_fg_color, $dim_fg_color);
 }
 
 .candidate-box {
@@ -2367,19 +2420,50 @@ $legacy_icon_size: 24px;
     @include fontscaling($ref_size * 1.1);
     padding: 7px 16px 8px;
     font-weight: 700;
-    @include button(flat-normal, $tc:$inverted_secondary_fg_color);
+    @if $nokto==false {
+      @include button(flat-normal, $tc:$inverted_secondary_fg_color);
+    }
+    @else {
+      @include button(flat-normal, $tc:$secondary_fg_color);
+    }
     &:hover,
-    &:focus { @include button(flat-hover, $c:$osd_semi_fill_color,
-                                          $tc:$inverted_fg_color);
+    &:focus {
+      @if $nokto==false {
+        @include button(flat-hover, $c:$osd_semi_fill_color,
+                                    $tc:$inverted_fg_color);
+      }
+      @else {
+        @include button(flat-hover, $c:$osd_semi_fill_color,
+                                    $tc:$fg_color);
+      }
     }
-    &:active { @include button(flat-active, $c:$osd_fill_color,
-                                            $tc:$inverted_fg_color);
+    &:active {
+      @if $nokto==false {
+        @include button(flat-active, $c:$osd_fill_color,
+                                     $tc:$inverted_fg_color);
+      }
+      @else {
+        @include button(flat-active, $c:$osd_fill_color,
+                                     $tc:$fg_color);
+      }
     }
-    &:insensitive { @include button(flat-insensitive,
-                                    $tc:$inverted_dim_fg_color);
+    &:insensitive {
+      @if $nokto==false {
+        @include button(flat-insensitive, $tc:$inverted_dim_fg_color);
+      }
+      @else {
+        @include button(flat-insensitive,
+                        $tc:$insensitive_secondary_fg_color);
+      }
     }
     &:default { // raised button
-      @include button(normal, $c:$suggested_color, $tc:$inverted_fg_color);
+      @if $nokto==false {
+        @include button(normal, $c:$suggested_color,
+                                $tc:$inverted_fg_color);
+      }
+      @else {
+        @include button(normal, $c:$suggested_color, $tc:$fg_color);
+      }
       &:hover,
       &:focus { @include button(hover, $c:$suggested_color,
                                        $tc:$selected_fg_color);
@@ -2387,8 +2471,14 @@ $legacy_icon_size: 24px;
       &:active { @include button(active, $c:$selected_bg_color,
                                          $tc:$selected_fg_color);
       }
-      &:insensitive { @include button(flat-insensitive,
-                                      $tc:$inverted_dim_fg_color);
+      &:insensitive {
+        @if $nokto==false {
+          @include button(flat-insensitive, $tc:$inverted_dim_fg_color);
+        }
+        @else {
+          @include button(flat-insensitive,
+                          $tc:$insensitive_secondary_fg_color);
+        }
       }
     }
   }
@@ -2585,8 +2675,8 @@ $legacy_icon_size: 24px;
   StButton#vhandle, StButton#hhandle {
     background-color: transparentize($osd_fg_color,0.4);
     &:hover,
-    &:focus { background-color: transparentize($osd_fg_color,0.2); }
-    &:active { background-color: transparentize($osd_fg_color,0.0); }
+    &:focus { background-color: transparentize($osd_fg_color, 0.2); }
+    &:active { background-color: $osd_fg_color; }
   }
 }
 
@@ -2630,7 +2720,7 @@ $legacy_icon_size: 24px;
       border-color: transparent;
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset 0 -2px 0 $osd_fill_color;
-      color: $osd_fg_color;
+      color: if($nokto == 'false', $osd_fg_color, $fg_color);
       text-shadow: none;
     }
     &:selected {
