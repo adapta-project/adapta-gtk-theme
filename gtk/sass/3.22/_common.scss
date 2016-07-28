@@ -3352,7 +3352,7 @@ switch {
         -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
                                       url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
         -gtk-icon-shadow: none;
-        transition: 0.2s;
+        transition: none;
       }
     }
   }
@@ -3480,6 +3480,8 @@ check,
       -gtk-icon-shadow: none;
       animation: none;
     }
+    &:checked:not(:backdrop),
+    &:indeterminate:not(:backdrop) { transition: none; }
   }
 }
 
