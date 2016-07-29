@@ -1016,8 +1016,10 @@ $icon_size: 16px;
   &-error-label { color: $error_color; }
 
   &-error-box {
+    @include fontscaling($ref_size * 0.9);
     padding-top: 15px;
     spacing: 5px;
+    color: $error_color;
   }
   &-completion-box {
     @include fontscaling($ref_size * 1.0);
