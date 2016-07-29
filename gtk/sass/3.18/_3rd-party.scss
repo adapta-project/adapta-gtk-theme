@@ -221,6 +221,13 @@ $orientation: ((top, bottom),
   }
 }
 
+// add slight lateral spacing for symbolic icons
+.budgie-panel StatusApplet {
+  // FIXME: Paper icon-pack has thin 'battery' and 'bluetooth' symbolic icon
+  GtkEventBox > GtkBox.horizontal > GtkImage,
+  GtkEventBox > GtkImage { padding: 0 0.1em 0; }
+}
+
 // main menu styling
 .budgie-panel BudgieMenuApplet {
   GtkImage.primary-control {
