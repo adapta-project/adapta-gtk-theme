@@ -177,6 +177,16 @@ $orientation: ((top, bottom),
   }
 }
 
+// limit minimum lateral spacing for symbolic icons
+.budgie-panel box.horizontal > widget > widget {
+  // FIXME: Paper icon-pack has thin 'battery' and 'bluetooth' symbolic icon
+  > box.horizontal > image,
+  > image {
+    min-width: 16px;
+    padding: 0 rem(1.3px) 0;
+  }
+}
+
 // main menu styling
 .budgie-panel widget > box.horizontal > image.primary-control {
   // this is backward-compat for legacy
