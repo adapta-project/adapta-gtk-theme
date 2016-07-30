@@ -920,9 +920,12 @@ UnityPanelWidget,
 
 // workaround for stupid compiz
 .background:not(.csd):not(.ssd) .header-bar {
-  border-radius: 0;
-  border-top-color: transparent;
-  box-shadow: $menubar-shadow;
+  &, &:not(:last-child) {
+    padding: 0.4em;
+    border-radius: 0;
+    border-top-color: transparent;
+    box-shadow: $menubar-shadow;
+  }
 }
 
 // greeter styling
