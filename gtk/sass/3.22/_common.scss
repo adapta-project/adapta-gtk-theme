@@ -2251,6 +2251,16 @@ window:not(.maximized):not(.tiled) {
   }
 }
 
+// workaround for ugly Ubuntu-related CSD patches
+.background:not(.csd):not(.ssd) headerbar {
+  &, &:not(:last-child) {
+    padding: rem(5.3px);
+    border-radius: 0;
+    border-top-color: transparent;
+    box-shadow: $menubar-shadow;
+  }
+}
+
 // squared corners when the window is max'd or tiled
 %tiled_integration {
   border-radius: 0;
