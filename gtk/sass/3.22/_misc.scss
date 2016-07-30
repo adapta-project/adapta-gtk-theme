@@ -980,6 +980,41 @@ headerbar > button.flat.popup.title-menu-button.toggle {
   }
 }
 
+.background.csd > box.vertical > stack > box.horizontal {
+  list.categories { // side-pane
+    border: none;
+    background-color: $secondary_dark_color;
+    color: $secondary_fg_color;
+
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
+    }
+
+    row.activatable.category { // use side-bar styling
+      // paddings in row were hard-coded with crazy large values...
+      // padding: rem(2.7px) rem(8px) rem(4px);
+      color: $secondary_fg_color;
+      background-color: transparent;
+      font-weight: 500;
+      &:hover { color: $fg_color; }
+      &:selected {
+        color: $selected_bg_color;
+        background-color: transparent;
+
+        label { color: $selected_bg_color; }
+      }
+
+      > label {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
 
 /************
  * Deja-dup *
