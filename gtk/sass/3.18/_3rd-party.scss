@@ -395,19 +395,51 @@ $orientation: ((top, bottom),
         box-shadow: $z-depth-1,
                     inset 0 1px $highlight_color;
 
-          .label,
-          GtkImage { color: $inverted_secondary_fg_color; }
+        &:dir(ltr) { // mask avatar's background
+          padding-left: 7px; // non-scaling unit
+          background-image: linear-gradient(to right, $borders_color);
+          background-position: left center;
+          background-repeat: no-repeat;
+          background-size: 38px auto; // non-scaling unit
+        }
+        &:dir(rtl) {
+          padding-right: 7px;
+          background-image: linear-gradient(to left, $borders_color);
+          background-position: right center;
+          background-repeat: no-repeat;
+          background-size: 38px auto;
+        }
+
+        .label {
+          color: $inverted_secondary_fg_color;
+
+          &:dir(ltr) { padding-left: 0.6em; }
+          &:dir(rtl) { padding-right: 0.6em; }
+        }
+
+        GtkImage {
+          color: $inverted_secondary_fg_color;
+
+          &:first-child { // avatar image
+            padding-top: 0.4em;
+            opacity: 0.9;
+          }
+        }
 
         &:hover {
-          background-image: none;
           box-shadow: $z-depth-2,
                       inset 0 1px $highlight_color;
           transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
           transition-property: box-shadow;
           transition-duration: 0.2s;
 
-            .label,
-            GtkImage { color: $inverted_fg_color; }
+          .label { color: $inverted_fg_color; }
+
+          GtkImage {
+            color: $inverted_fg_color;
+
+            &:first-child { opacity: 1.0; }
+          }
         }
 
         .label { font-weight: 700; }
