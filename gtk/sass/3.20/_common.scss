@@ -3175,15 +3175,10 @@ switch {
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
   grid & {
-    margin-bottom: rem(-9px);
-    padding-top: rem(6px);
+    min-width: rem(50px);
+    min-height: rem(28px);
     font-size: 0;
     outline-color: transparent;
-
-    slider {
-      min-width: rem(50px);
-      min-height: rem(35px);
-    }
 
     // reset all of default troughs
     &,
@@ -3192,8 +3187,8 @@ switch {
     &:checked:hover,
     &:checked:disabled,
     &:disabled {
-      margin-bottom: rem(-9px);
-      padding-top: rem(6px);
+      margin-bottom: rem(-7px);
+      padding: 0;
       border: none;
       color: transparent;
       background: none;
@@ -3213,8 +3208,8 @@ switch {
     &:checked:hover slider,
     &:checked:disabled slider,
     &:disabled slider {
-      margin-bottom: rem(-9px);
-      padding-top: rem(6px);
+      margin: 0;
+      padding: 0;
       border: none;
       border-radius: 0;
       color: transparent;
