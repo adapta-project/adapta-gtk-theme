@@ -3100,13 +3100,14 @@ scrollbar {
  **********/
 
 switch {
-  outline-offset: rem(-4px);
-  font-size: 0;
+  min-width: rem(30px); // 40px - 5px * 2
   // similar to the scale
   border: rem(10px) solid transparent;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
   background-color: $track_color;
+  font-size: 0;
+  outline-offset: rem(-4px);
 
   &:disabled { color: $insensitive_fg_color; }
   &:checked {
@@ -3125,11 +3126,15 @@ switch {
     @include button(normal);
     min-width: rem(20px);
     min-height: rem(20px);
-    margin: rem(-4px) rem(-1px);
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
   }
+
+  // trough-based indentation
+  slider { margin: rem(-5px) 0 rem(-5px) rem(-5px); }
+  &:checked slider { margin: rem(-5px) rem(-5px) rem(-5px) 0; }
+
   &:hover slider {
     @include button(hover);
     background-image: linear-gradient(to bottom,
