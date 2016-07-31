@@ -2458,8 +2458,10 @@ GtkSwitch {
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
   GtkGrid & {
-    -GtkSwitch-slider-width: 40;
-    -GtkSwitch-slider-height: 20;
+    -GtkSwitch-slider-width: 50;
+    -GtkSwitch-slider-height: 35;
+    margin-bottom: -9px;
+    padding-top: 6px;
     font-size: 0;
     outline-color: transparent;
 
@@ -2472,11 +2474,11 @@ GtkSwitch {
       &:active:insensitive,
       &:insensitive {
         padding: 0;
-        border: 4px solid transparent;
+        border: none;
         color: transparent;
         background: none;
         background-image: none;
-        background-size: 40px 20px;
+        background-size: 50px 35px;
         background-repeat: no-repeat;
         background-position: right center;
         box-shadow: none;
@@ -2495,19 +2497,23 @@ GtkSwitch {
                           url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
       }
       &:active {
-        background-image: -gtk-scaled(url("assets/toggle-on.png"),
-                                      url("assets/toggle-on@2.png"));
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on#{$asset_suffix}.png"),
+                          url("assets/toggle-on#{$asset_suffix}@2.png"));
         &:hover {
-          background-image: -gtk-scaled(url("assets/toggle-on-hover.png"),
-                                        url("assets/toggle-on-hover@2.png"));
+          background-image: -gtk-scaled(
+                            url("assets/toggle-on-hover#{$asset_suffix}.png"),
+                            url("assets/toggle-on-hover#{$asset_suffix}@2.png"));
         }
-        &:insensitive {
+        &:insensitive,
+        &:insensitive:hover {
           background-image: -gtk-scaled(
                             url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
                             url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
         }
       }
-      &:insensitive {
+      &:insensitive,
+      &:insensitive:hover {
         background-image: -gtk-scaled(
                           url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
                           url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
