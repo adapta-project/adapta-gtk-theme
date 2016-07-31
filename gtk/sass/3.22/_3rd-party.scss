@@ -30,6 +30,11 @@
 $orientation: ((top, bottom),
                (bottom, top));
 
+$full_orientation: ((top, bottom),
+                    (bottom, top),
+                    (left, right),
+                    (right, left));
+
 // main container
 .budgie-container { background-color: transparent; }
 
@@ -50,7 +55,7 @@ $orientation: ((top, bottom),
   .alert { color: $accent_color; }
 }
 
-@each $along_side, $opp_side in $orientation {
+@each $along_side, $opp_side in $full_orientation {
   // panel shadow styling
   .#{$along_side} .shadow-block {
     background-color: transparent;
