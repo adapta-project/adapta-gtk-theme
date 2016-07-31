@@ -3175,13 +3175,14 @@ switch {
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
   grid & {
-    margin: rem(6px) rem(5px);
+    margin-bottom: rem(-9px);
+    padding-top: rem(6px);
     font-size: 0;
     outline-color: transparent;
 
     slider {
-      min-width: rem(40px);
-      min-height: rem(20px);
+      min-width: rem(50px);
+      min-height: rem(35px);
     }
 
     // reset all of default troughs
@@ -3191,12 +3192,13 @@ switch {
     &:checked:hover,
     &:checked:disabled,
     &:disabled {
-      margin: rem(6px) rem(5px);
+      margin-bottom: rem(-9px);
+      padding-top: rem(6px);
       border: none;
       color: transparent;
       background: none;
       background-image: none;
-      background-size: rem(40px) rem(20px);
+      background-size: rem(50px) rem(35px);
       background-repeat: no-repeat;
       background-position: right center;
       box-shadow: none;
@@ -3211,13 +3213,14 @@ switch {
     &:checked:hover slider,
     &:checked:disabled slider,
     &:disabled slider {
-      margin: 0;
+      margin-bottom: rem(-9px);
+      padding-top: rem(6px);
       border: none;
       border-radius: 0;
       color: transparent;
       background: none;
       background-image: none;
-      background-size: rem(40px) rem(20px);
+      background-size: rem(50px) rem(35px);
       background-repeat: no-repeat;
       background-position: right center;
       box-shadow: none;
@@ -3237,19 +3240,23 @@ switch {
                         url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
     }
     &:checked {
-      background-image: -gtk-scaled(url("assets/toggle-on.png"),
-                                    url("assets/toggle-on@2.png"));
+      background-image: -gtk-scaled(
+                        url("assets/toggle-on#{$asset_suffix}.png"),
+                        url("assets/toggle-on#{$asset_suffix}@2.png"));
       &:hover {
-        background-image: -gtk-scaled(url("assets/toggle-on-hover.png"),
-                                      url("assets/toggle-on-hover@2.png"));
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on-hover#{$asset_suffix}.png"),
+                          url("assets/toggle-on-hover#{$asset_suffix}@2.png"));
       }
-      &:disabled {
+      &:disabled,
+      &:disabled:hover {
         background-image: -gtk-scaled(
                           url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
                           url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
       }
     }
-    &:disabled {
+    &:disabled,
+    &:disabled:hover {
       background-image: -gtk-scaled(
                         url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
                         url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));

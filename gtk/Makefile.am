@@ -269,7 +269,11 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/toggle-off-insensitive.png \
 	$(gtk3_assetdir)/toggle-off.png \
 	$(gtk3_assetdir)/toggle-on@2.png \
+	$(gtk3_assetdir)/toggle-on-dark@2.png \
+	$(gtk3_assetdir)/toggle-on-dark.png \
 	$(gtk3_assetdir)/toggle-on-hover@2.png \
+	$(gtk3_assetdir)/toggle-on-hover-dark@2.png \
+	$(gtk3_assetdir)/toggle-on-hover-dark.png \
 	$(gtk3_assetdir)/toggle-on-hover.png \
 	$(gtk3_assetdir)/toggle-on-insensitive@2.png \
 	$(gtk3_assetdir)/toggle-on-insensitive-dark@2.png \
