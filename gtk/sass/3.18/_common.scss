@@ -2458,10 +2458,8 @@ GtkSwitch {
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
   GtkGrid & {
-    -GtkSwitch-slider-width: 50;
-    -GtkSwitch-slider-height: 35;
-    margin-bottom: -9px;
-    padding-top: 6px;
+    -GtkSwitch-slider-width: 50px;
+    -GtkSwitch-slider-height: 28px;
     font-size: 0;
     outline-color: transparent;
 
@@ -2480,10 +2478,10 @@ GtkSwitch {
         background-image: none;
         background-size: 50px 35px;
         background-repeat: no-repeat;
-        background-position: right center;
+        background-position: right top;
         box-shadow: none;
 
-        &:dir(rtl) { background-position: left center; }
+        &:dir(rtl) { background-position: left top; }
       }
     }
 
