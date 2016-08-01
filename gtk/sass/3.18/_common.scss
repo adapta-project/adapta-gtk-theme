@@ -2457,7 +2457,7 @@ GtkSwitch {
   // need to protect geometry by using pixmaps images...
   GtkGrid & {
     -GtkSwitch-slider-width: 50px;
-    -GtkSwitch-slider-height: 28px;
+    -GtkSwitch-slider-height: 28px; // 20px + 4px * 2
     font-size: 0;
     outline-color: transparent;
 
@@ -2476,10 +2476,10 @@ GtkSwitch {
         background-image: none;
         background-size: 50px 35px;
         background-repeat: no-repeat;
-        background-position: right top;
+        background-position: right 0;
         box-shadow: none;
 
-        &:dir(rtl) { background-position: left top; }
+        &:dir(rtl) { background-position: left 0; }
       }
     }
 
