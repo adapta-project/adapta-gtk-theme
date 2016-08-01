@@ -30,11 +30,11 @@ if [ -e $KEY_FILE ]; then
     cp -f $SRC_FILE.in $SRC_FILE && sleep 1
 
     if [ $selection1 != $selection2 ]; then
-        sed -i "s/$selection1/$selection2/g" $SRC_FILE
+        sed -i "s/$selection1/$selection2/gi" $SRC_FILE
         echo $selection1 is re-colored with $selection2.
     fi
     if [ $accent1 != $accent2 ]; then
-        sed -i "s/$accent1/$accent2/g" $SRC_FILE
+        sed -i "s/$accent1/$accent2/gi" $SRC_FILE
         echo $accent1 is re-colored with $accent2.
     fi
 else

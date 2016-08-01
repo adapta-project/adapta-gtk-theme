@@ -25,9 +25,9 @@ if [ -e "../sass/common/_key_colors.scss" ]; then
     cp -f $SRC_FILE.in $SRC_FILE && cp -f $SRC_DARK_FILE.in $SRC_DARK_FILE
 
     if [ $selection1 != $selection2 ]; then
-        sed -i "s/$selection1/$selection2/g" $SRC_FILE
+        sed -i "s/$selection1/$selection2/gi" $SRC_FILE
         echo $selection1 is re-colored with $selection2 in $SRC_FILE.
-        sed -i "s/$selection1/$selection2/g" $SRC_DARK_FILE
+        sed -i "s/$selection1/$selection2/gi" $SRC_DARK_FILE
         echo $selection1 is re-colored with $selection2 in $SRC_DARK_FILE.
     fi
 else

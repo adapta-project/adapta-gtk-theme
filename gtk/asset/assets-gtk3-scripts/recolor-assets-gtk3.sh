@@ -38,19 +38,19 @@ if [ -e $KEY_FILE ]; then
     cp -f $SRC_FILE.in $SRC_FILE && sleep 1
 
     if [ $selection1 != $selection2 ]; then
-        sed -i "s/$selection1/$selection2/g" $SRC_FILE
+        sed -i "s/$selection1/$selection2/gi" $SRC_FILE
         echo $selection1 is re-colored with $selection2.
     fi
     if [ $accent1 != $accent2 ]; then
-        sed -i "s/$accent1/$accent2/g" $SRC_FILE
+        sed -i "s/$accent1/$accent2/gi" $SRC_FILE
         echo $accent1 is re-colored with $accent2.
     fi
     if [ $suggestion1 != $suggestion2 ]; then
-        sed -i "s/$suggestion1/$suggestion2/g" $SRC_FILE
+        sed -i "s/$suggestion1/$suggestion2/gi" $SRC_FILE
         echo $suggestion1 is re-colored with $suggestion2.
     fi
     if [ $destruction1 != $destruction2 ]; then
-        sed -i "s/$destruction1/$destruction2/g" $SRC_FILE
+        sed -i "s/$destruction1/$destruction2/gi" $SRC_FILE
         echo $destruction1 is re-colored with $destruction2.
     fi
 else

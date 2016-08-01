@@ -44,21 +44,21 @@ do
         cp -f $SRC_DIR/$s.in $SRC_DIR/$s
 
         if [ $selection1 != $selection2 ]; then
-            sed -i "s/$selection1/$selection2/g" $SRC_DIR/$s
+            sed -i "s/$selection1/$selection2/gi" $SRC_DIR/$s
             echo $s is re-colored with $selection2.
         fi
     elif [ "$r" = "r2" ]; then
         cp -f $SRC_DIR/$s.in $SRC_DIR/$s
 
         if [ $accent1 != $accent2 ]; then
-            sed -i "s/$accent1/$accent2/g" $SRC_DIR/$s
+            sed -i "s/$accent1/$accent2/gi" $SRC_DIR/$s
             echo $s is re-colored with $accent2.
         fi
     elif [ "$r" = "r3" ]; then
         cp -f $SRC_DIR/$s.in $SRC_DIR/$s
 
         if [ $destruction1 != $destruction2 ]; then
-            sed -i "s/$destruction1/$destruction2/g" $SRC_DIR/$s
+            sed -i "s/$destruction1/$destruction2/gi" $SRC_DIR/$s
             echo $s is re-colored with $destruction2.
         fi
     fi

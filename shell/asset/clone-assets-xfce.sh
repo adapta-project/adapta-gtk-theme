@@ -30,8 +30,8 @@ if [ -e $KEY_FILE ]; then
     cp -f $RECOLOR_FILE2.in $RECOLOR_FILE2
 
     if [ $accent1 != $accent2 ]; then
-        sed -i "s/$accent1/$accent2/g" $RECOLOR_FILE1
-        sed -i "s/$accent1/$accent2/g" $RECOLOR_FILE2
+        sed -i "s/$accent1/$accent2/gi" $RECOLOR_FILE1
+        sed -i "s/$accent1/$accent2/gi" $RECOLOR_FILE2
         echo $accent1 is re-colored with $accent2.
     fi
 else
