@@ -2382,17 +2382,15 @@ column-header.button.dnd { // for treeview-like derive widgets
  **********/
 
 GtkSwitch {
-  -GtkSwitch-slider-width: 20px; // 55px is the right value to make it as tall
-                                 // as buttons, not doing that for now
+  -GtkSwitch-slider-width: 20px;
   -GtkSwitch-slider-height: 20px;
-
+  font-size: 0;
   outline-offset: -4px;
   outline-radius: 100px;
-  font-size: 0;
 
   &.trough {
     // similar to the .scale
-    border: 8px solid transparent;
+    border: 8.5px solid transparent;
     border-radius: 100px;
     background-color: $track_color;
     &:active {
