@@ -1734,6 +1734,7 @@ headerbar {
 
   // text colours
   color: $inverted_secondary_fg_color;
+
   label,
   image {
     // &:hover { color: $inverted_fg_color; }
@@ -1743,6 +1744,7 @@ headerbar {
     // color: $inverted_fg_color;
       &:disabled { color: $insensitive_inverted_fg_color; }
     }
+
     button:disabled > &,
     .linked > button:disabled > &,
     &:disabled { color: $insensitive_inverted_secondary_fg_color; }
@@ -1813,9 +1815,11 @@ headerbar {
   button:not(.suggested-action):not(.destructive-action) {
     border-radius: 100px;
     -gtk-outline-radius: 100px;
+
     &.text-button {
       border-radius: 2px;
       -gtk-outline-radius: 2px;
+
       &.image-button {
         border-radius: 2px;
         -gtk-outline-radius: 2px;
@@ -1832,12 +1836,14 @@ headerbar {
       padding: 0 rem(6.7px) 0;
     }
   }
+
   button.toggle {
     min-width: rem(17.3px);
     min-height: rem(37.3px);
     padding: 0 rem(10px) 0;
 
     label { padding: rem(9.3px) rem(8px) rem(10.7px); }
+
     menu menuitem { // reset padding
       label { padding: 0; }
     }
@@ -1856,6 +1862,7 @@ headerbar {
       }
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
+
     label.text-button { // workaround for Gnome-Software
       border-image: none;
       box-shadow: none;
@@ -1887,6 +1894,7 @@ headerbar {
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
       &:backdrop { opacity: 0.5; }
     }
+
     & > button.combo {
       color: $inverted_secondary_fg_color;
       &:hover { color: $inverted_fg_color; }
@@ -1903,10 +1911,13 @@ headerbar {
   menu menuitem { // reset text colour
     color: $secondary_fg_color;
     &:hover { color: $fg_color; }
+
     label {
       &:disabled { color: $insensitive_fg_color; }
     }
+
     & accelerator { color: gtkalpha(currentColor, 0.55); }
+
     & separator { color: $borders_color; }
   }
 
@@ -1914,6 +1925,7 @@ headerbar {
   popover button.flat {
     color: $secondary_fg_color;
     &:hover { color: $fg_color; }
+
     label {
       &:hover { color: $fg_color; }
       &:disabled { color: $insensitive_fg_color; }
@@ -1991,6 +2003,7 @@ headerbar {
           > label { color: inherit; }
         }
       }
+
       &.suggested-action {
         // NOTE: do not use @extend button;
         @include button(normal);
@@ -2013,10 +2026,12 @@ headerbar {
     button:not(.suggested-action):not(.destructive-action) {
       border-radius: 100px;
       -gtk-outline-radius: 100px;
+
       &.text-button,
       &.flat.selection-menu {
         border-radius: 2px;
         -gtk-outline-radius: 2px;
+
         &.image-button {
           border-radius: 100px;
           -gtk-outline-radius: 100px;
@@ -2033,6 +2048,7 @@ headerbar {
     .selection-menu {
       padding-left: rem(16px);
       padding-right: rem(16px);
+
       &, &.popup {
         color: $secondary_selected_fg_color;
         &:hover,
