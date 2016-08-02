@@ -591,6 +591,17 @@ $full_orientation: ((top, bottom),
     }
   }
 
+  BudgieAppearanceSettings {
+    // override built-in vertical spacing
+    GtkGrid > .label:first-child,
+    GtkGrid > .label:nth-child(2) { padding: 8px 0; }
+  }
+
+  BudgieBackgroundSettings {
+    // override built-in vertical spacing
+    GtkGrid > .label:first-child { padding: 8px 0; }
+  }
+
   GtkCalendar {
     border: none;
     background-color: transparent;
