@@ -4306,7 +4306,7 @@ calendar {
   &:selected {
     border: none;
     border-radius: 100px;
-    color: $selected_bg_color;
+    color: $selected_fg_color;
     background-color: transparent;
     background-image: -gtk-scaled(url("assets/calendar-day-selected.png"),
                                   url("assets/calendar-day-selected@2.png"));
@@ -4323,11 +4323,18 @@ calendar {
   &.button,
   &.header.button {
     @extend %button_flat_normal;
-    color: gtkalpha(currentColor, 0.20);
+    color: gtkalpha(currentColor, 0.2);
     background-color: transparent;
     background-size: $image_button_small;
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
+    &:hover {
+      @extend %button_flat_hover;
+      color: currentColor;
+      background-color: gtkalpha(currentColor, 0.1);
+    }
+    &:active {
+      @extend %button_flat_active;
+      color: currentColor;
+    }
     &:disabled { @include button(flat-insensitive); }
   }
 
