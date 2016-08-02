@@ -1117,6 +1117,25 @@ GtkStack .button.profile-button {
   }
 }
 
+// use asymmetric separators
+.list.stream > .list-row.activatable.tweet {
+  &:dir(ltr) {
+    border-image: linear-gradient(to right,
+                                  transparent 72px,
+                                  $borders_color 72px,
+                                  $borders_color)
+                                  0 0 1 / 0 0 1px;
+  }
+  &:dir(rtl) {
+    border-image: linear-gradient(to left,
+                                  transparent 72px,
+                                  $borders_color 72px,
+                                  $borders_color)
+                                  0 0 1 / 0 0 1px;
+  }
+}
+
+
 /********
  * Nemo *
  ********/
