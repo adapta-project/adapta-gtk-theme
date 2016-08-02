@@ -1124,15 +1124,22 @@ NemoWindow {
   .toolbar.primary-toolbar {
     border-bottom: 1px solid $borders_color;
 
+    .button.image-button { // damned 'reload' button
+      GtkAlignment > GtkBox > GtkImage { padding: 0 0.3em; }
+    }
+
     .button.toggle,
     .linked > .button {
       padding: 0 1.2em 0.1em;
 
       &.image-button {
         border-radius: 100px;
-	outline-radius: 100px;
+        outline-radius: 100px;
+
+        GtkImage { padding: 0 0.1em; }
       }
     }
+
   }
 
   // tweak path-bar buttons
