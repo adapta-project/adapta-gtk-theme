@@ -177,7 +177,10 @@ StScrollBar {
   color: $accent_color;
 
   -slider-height: 2px;
-  -slider-background-color: scale-color($fg_color, $alpha: -90%); // background of the trough
+   // background of the trough
+  -slider-background-color: if($nokto == 'false',
+                               scale-color($fg_color, $alpha: -90%),
+                               $fill_color);
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $accent_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
@@ -1479,7 +1482,10 @@ $icon_size: 16px;
     padding: 0;
     border: none;
     -slider-height: 2px;
-    -slider-background-color: scale-color($fg_color, $alpha: -20%); // background of the trough
+     // background of the trough
+    -slider-background-color: if($nokto == 'false',
+                                 scale-color($fg_color, $alpha: -80%),
+				 $fill_color);
     -slider-border-color: transparent; // trough border color
     -slider-active-background-color: $accent_color; // active trough fill
     -slider-active-border-color: transparent; // active trough border
