@@ -36,14 +36,12 @@ $full_orientation: ((top, bottom),
 // main container
 .budgie-container { background-color: transparent; }
 
-// disable backdrop transparency
 .budgie-panel {
+  // disable backdrop transparency
   &:backdrop,
   *:backdrop { opacity: 1.0; }
-}
 
-// panel styling
-.budgie-panel {
+  // panel styling
   // always use dark-color of dark variant
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
@@ -51,6 +49,21 @@ $full_orientation: ((top, bottom),
 
   // used to indicate unread notifications
   .alert { color: $accent_color; }
+
+  // do no make un-clickable gaps
+  .start-region {
+    margin: -2px 0 -2px -4px;
+    &:dir(rtl) { margin: -2px -4px -2px 0; }
+  }
+
+  .center-region {
+    margin: -2px 0 -2px 0;
+  }
+
+  .end-region {
+    margin: -2px -4px -2px 0;
+    &:dir(rtl) { margin: -2px 0 -2px -4px; }
+  }
 }
 
 @each $along_side, $opp_side in $full_orientation {
@@ -208,7 +221,7 @@ $full_orientation: ((top, bottom),
     // override stock icon with specific one
     min-width: 20px;
     min-height: 20px;
-    margin: -2px 0;
+    margin: -1px 0;
     background-image: url("assets/show-apps.svg");
     background-position: center;
     background-repeat: no-repeat;
