@@ -3584,19 +3584,19 @@ check {
   }
 }
 
-$_marks_lenght: 6px;
-$_marks_distance: 6px;
+$_marks_lenght: rem(6px);
+$_marks_distance: rem(6px);
 
 scale {
   // remove ugly outlines
-  // outline-offset: -4px;
+  // outline-offset: rem(-4px);
   // -gtk-outline-radius: 100px;
   outline-offset: 0;
   outline-width: 0;
 
-  min-height: 10px;
-  min-width: 10px;
-  padding: 10px;
+  min-height: rem(10px);
+  min-width: rem(10px);
+  padding: rem(10px);
 
   &.fine-tune {
     // remove ugly outlines
@@ -3604,19 +3604,19 @@ scale {
     outline-offset: 0;
     outline-width: 0;
     &.horizontal {
-      padding-top: 9px;
-      padding-bottom: 9px;
-      min-height: 10px;
+      padding-top: rem(9px);
+      padding-bottom: rem(9px);
+      min-height: rem(10px);
     }
 
     &.vertical {
-      padding-left: 9px;
-      padding-right: 9px;
-      min-width: 10px;
+      padding-left: rem(9px);
+      padding-right: rem(9px);
+      min-width: rem(10px);
     }
 
     // to make the trough grow in fine-tune mode
-    slider { margin: -9px; }
+    slider { margin: rem(-9px); }
 
     highlight,
     fill,
@@ -3625,9 +3625,9 @@ scale {
   }
 
   slider {
-    min-height: 20px;
-    min-width: 20px;
-    margin: -9px;
+    min-height: rem(20px);
+    min-width: rem(20px);
+    margin: rem(-9px);
 
     &:not(:hover):not(:active) {
       background-size: $scale;
@@ -3726,7 +3726,7 @@ scale { // marks color
                                                      (bottom, right, left) {
       &.#{$marks_class} {
         margin-#{$marks_margin}: $_marks_distance;
-        margin-#{$marks_pos}: -($_marks_distance + $_marks_lenght - 3px);
+        margin-#{$marks_pos}: -($_marks_distance + $_marks_lenght - rem(3px));
       }
     }
   }
@@ -3737,7 +3737,7 @@ scale { // marks color
       min-width: 1px;
     }
 
-    &.fine-tune indicator { min-height: ($_marks_lenght - 3px); }
+    &.fine-tune indicator { min-height: ($_marks_lenght - rem(3px)); }
   }
 
   &.vertical {
@@ -3746,7 +3746,7 @@ scale { // marks color
       min-width: $_marks_lenght;
     }
 
-    &.fine-tune indicator { min-width: ($_marks_lenght - 3px); }
+    &.fine-tune indicator { min-width: ($_marks_lenght - rem(3px)); }
   }
 }
 
@@ -3807,44 +3807,44 @@ scale { // scales for colour
     }
 
     &.horizontal {
-      padding: 0 0 10px 0;
+      padding: 0 0 rem(10px) 0;
 
-      trough { padding-bottom: 5px; }
+      trough { padding-bottom: rem(5px); }
 
       slider {
         &, &:hover, &:disabled {
           @extend %scale-has-marks-above-horz;
-          margin-top: 5px;
-          margin-bottom: -10px;
+          margin-top: rem(5px);
+          margin-bottom: rem(-10px);
         }
       }
     }
 
     &.vertical {
       &:dir(ltr) {
-        padding: 0 0 0 10px;
+        padding: 0 0 0 rem(10px);
 
-        trough { padding-left: 5px; }
+        trough { padding-left: rem(5px); }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-below-vert;
-            margin-left: -10px;
-            margin-right: 5px;
+            margin-left: rem(-10px);
+            margin-right: rem(5px);
           }
         }
       }
 
       &:dir(rtl) {
-        padding: 0 10px 0 0;
+        padding: 0 rem(10px) 0 0;
 
-        trough { padding-right: 5px; }
+        trough { padding-right: rem(5px); }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-above-vert;
-            margin-left: 5px;
-            margin-right: -10px;
+            margin-left: rem(5px);
+            margin-right: rem(-10px);
           }
         }
       }
@@ -3852,39 +3852,39 @@ scale { // scales for colour
 
     &.fine-tune {
       &.horizontal {
-        padding: 0 0 10px 0;
+        padding: 0 0 rem(10px) 0;
 
-        trough { padding-bottom: 5px; }
+        trough { padding-bottom: rem(5px); }
 
         slider {
           @extend %scale-has-marks-above-horz-fine-tune;
-          margin-top: 5px;
-          margin-bottom: -10px;
+          margin-top: rem(5px);
+          margin-bottom: rem(-10px);
         }
       }
 
       &.vertical {
         &:dir(ltr) {
-          padding: 0 0 0 10px;
+          padding: 0 0 0 rem(10px);
 
-          trough { padding-left: 5px; }
+          trough { padding-left: rem(5px); }
 
           slider {
             @extend %scale-has-marks-below-vert-fine-tune;
-            margin-left: -10px;
-            margin-right: 5px;
+            margin-left: rem(-10px);
+            margin-right: rem(5px);
           }
         }
 
         &:dir(rtl) {
-          padding: 0 10px 0 0;
+          padding: 0 rem(10px) 0 0;
 
-          trough { padding-right: 5px; }
+          trough { padding-right: rem(5px); }
 
           slider {
             @extend %scale-has-marks-above-vert-fine-tune;
-            margin-left: 5px;
-            margin-right: -10px;
+            margin-left: rem(5px);
+            margin-right: rem(-10px);
           }
         }
       }
@@ -3892,14 +3892,30 @@ scale { // scales for colour
   }
 }
 
-%scale_marks_above_horz { margin: -15px -10px -10px -10px; }
-%scale_marks_below_horz { margin: -10px -10px -15px -10px; }
-%scale_marks_above_vert { margin: -10px -10px -10px -15px; }
-%scale_marks_below_vert { margin: -10px -15px -10px -10px; }
-%scale_marks_above_horz_ft { margin: -15px -10px -10px -10px; }
-%scale_marks_below_horz_ft { margin: -10px -10px -15px -10px; }
-%scale_marks_above_vert_ft { margin: -10px -10px -10px -15px; }
-%scale_marks_below_vert_ft { margin: -10px -15px -10px -10px; }
+%scale_marks_above_horz {
+  margin: rem(-15px) rem(-10px) rem(-10px) rem(-10px);
+}
+%scale_marks_below_horz {
+  margin: rem(-10px) rem(-10px) rem(-15px) rem(-10px);
+}
+%scale_marks_above_vert {
+  margin: rem(-10px) rem(-10px) rem(-10px) rem(-15px);
+}
+%scale_marks_below_vert {
+  margin: rem(-10px) rem(-15px) rem(-10px) rem(-10px);
+}
+%scale_marks_above_horz_ft {
+  margin: rem(-15px) rem(-10px) rem(-10px) rem(-10px);
+}
+%scale_marks_below_horz_ft {
+  margin: rem(-10px) rem(-10px) rem(-15px) rem(-10px);
+}
+%scale_marks_above_vert_ft {
+  margin: rem(-10px) rem(-10px) rem(-10px) rem(-15px);
+}
+%scale_marks_below_vert_ft {
+  margin: rem(-10px) rem(-15px) rem(-10px) rem(-10px);
+}
 
 
 /*****************
