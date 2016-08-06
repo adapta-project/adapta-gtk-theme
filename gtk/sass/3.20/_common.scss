@@ -3591,8 +3591,13 @@ scale {
   // remove ugly outlines
   // outline-offset: rem(-4px);
   // -gtk-outline-radius: 100px;
-  outline-offset: 0;
-  outline-width: 0;
+  &,
+  & trough,
+  & trough highlight {
+    outline-style: none;
+    outline-offset: 0;
+    outline-width: 0;
+  }
 
   min-height: rem(10px);
   min-width: rem(10px);
