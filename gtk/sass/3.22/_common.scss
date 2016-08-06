@@ -5062,10 +5062,10 @@ colorchooser .popover.osd {
 }
 
 .scale-popup {
-   .osd & { @extend %osd; }
+  .osd & { @extend %osd; }
 
-   .osd & button.flat { // FIXME: quick hack, redo properly
-   }
+  .osd & button.flat { // FIXME: quick hack, redo properly
+  }
 
   .osd & .vertical button,
   & .vertical button { // +/- buttons on GtkVolumeButton popup
@@ -5102,6 +5102,7 @@ colorchooser .popover.osd {
       }
     }
   }
+
   .osd & button,
   button {
     border-radius: 100px;
@@ -5247,6 +5248,7 @@ decoration {
       @extend %tiled_integration;
       transition: none;
     }
+
     .maximized & .titlebar {
       @extend %maxd_integration;
       transition: none;
@@ -5257,10 +5259,12 @@ decoration {
     border-radius: 2px;
     box-shadow: $z-depth-3;
   }
+
   tooltip.csd & {
     border-radius: 2px;
     box-shadow: $z-depth-2;
   }
+
   message-dialog.csd & {
     border-radius: 2px;
     box-shadow: $z-depth-4;
