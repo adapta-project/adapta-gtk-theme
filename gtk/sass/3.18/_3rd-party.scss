@@ -45,6 +45,19 @@ $full_orientation: ((top, bottom),
 
   // used to indicate unread notifications
   .alert { color: $accent_color; }
+
+  // do no make un-clickable gaps
+  > GtkBox:first-child {
+    margin: -2px 0 -2px -2px;
+    &:dir(rtl) { margin: -2px -2px -2px 0; }
+  }
+
+  > GtkBox:nth-child(2) { margin: -2px 0 -2px 0; }
+
+  > GtkBox:last-child {
+    margin: -2px -2px -2px 0;
+    &:dir(rtl) { margin: -2px 0 -2px -2px; }
+  }
 }
 
 @each $along_side, $opp_side in $full_orientation {
