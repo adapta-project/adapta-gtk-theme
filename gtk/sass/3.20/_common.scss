@@ -2430,27 +2430,28 @@ treeview.view {
 
   header {
     button {
-      @extend row.activatable;
-      min-height: rem(20px);
-      padding: 0 rem(6.7px) 0;
-      border-style: none solid solid none;
-      border-width: 1px;
-      border-color: $borders_color;
-      border-radius: 0;
-      box-shadow: none;
+      @extend %column_header_button;
       background-color: $base_color;
-      // font-weight: 700;
       color: $tertiary_fg_color;
+
+      &:hover {
+        @extend %column_header_button;
+        background-color: gtkalpha(currentColor, 0.1);
+        color: $secondary_fg_color;
+      }
+      &:active {
+        background-color: gtkalpha(currentColor, 0.1);
+        color: $fg_color;
+      }
+      &:disabled {
+        @extend %column_header_button;
+        background-color: $base_color;
+        color: $insensitive_fg_color;
+      }
     }
-    &:hover,
-    &:active {
-      color: $fg_color;
-      box-shadow: none;
-    }
-    &:disabled { background-color: $base_color; }
-    &.dnd { @extend column-header.button.dnd; }
   }
-  & button:last-child,
+
+  button:last-child,
   &:last-child button { // treeview-like derived widgets in Banshee
                         // and Evolution
     border-right-style: none;
@@ -2462,14 +2463,37 @@ treeview.view {
     background-color: $borders_color;
   }
 
+  button.dnd,
+  header.button.dnd { // for treeview-like derive widgets
+    &,
+    &:hover,
+    &:active,
+    &:selected {
+      min-height: rem(20px);
+      padding: 0 rem(6.7px) 0;
+      border-style: none;
+      border-radius: 0;
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+      box-shadow: $z-depth-2;
+      font-weight: 400;
+      transition: none;
+    }
+  }
+
   // see tests/testaccel to test
   acceleditor > label { background-color: $selected_bg_color; }
 }
 
-column-header.button.dnd { // for treeview-like derive widgets
-  transition: none;
-  border-left-style: solid;
-  color: $selected_bg_color;
+%column_header_button {
+  min-height: rem(20px);
+  padding: 0 rem(6.7px) 0;
+  border-style: none solid solid none;
+  border-width: 1px;
+  border-color: $borders_color;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 400;
 }
 
 
