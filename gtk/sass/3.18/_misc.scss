@@ -360,9 +360,13 @@ ConversationViewer > GtkPaned > GtkOverlay > GtkScrolledWindow {
  * Epiphany *
  ************/
 
-// reset inverted foreground colour
 EphyWindow {
-  .floating-bar { color: $secondary_fg_color; }
+  .floating-bar {
+    // we don't need to set semi-transparent background-images,
+    // since WebKit2Gtk composites it with transparentized automatically.
+    color: $inverted_secondary_fg_color;
+    background-image: linear-gradient(to bottom, $inverted_dark_color);
+  }
 
   .search-bar {
     // sset same padding with GtkEntry
