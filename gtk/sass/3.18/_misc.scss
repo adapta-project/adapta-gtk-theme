@@ -776,18 +776,32 @@ TerminalWindow.background { // dark variant as default
 
 TerminalWindow {
   .notebook {
-    &.header { background-color: $inverted_bg_color; }
+    &.header.top {
+      background-color: $inverted_bg_color;
+      box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
+                  inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
+                  inset 0 -1px $borders_color;
+    }
 
     tab {
-      @each $_tab, $_border in (top, bottom),
-                               (bottom, top),
-                               (left, right),
-                               (right, left) {
-        &.reorderable-page.#{$_tab} {
-          &:hover, &.prelight-page,
-          &:active, &.active-page {
-            background-color: $inverted_base_color;
-          }
+      &.reorderable-page.top {
+        &:hover,
+        &.prelight-page {
+          background-color: $inverted_base_color;
+          box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
+                      inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
+                      inset 0 -1px $borders_color;
+        }
+        &:active,
+        &.active-page {
+          background-color: $inverted_base_color;
+          box-shadow: -1px 0 2px rgba(0, 0, 0, 0.02),
+                      -1px 0 4px rgba(0, 0, 0, 0.03),
+                      1px 0 2px rgba(0, 0, 0, 0.02),
+                      1px 0 4px rgba(0, 0, 0, 0.03),
+                      inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
+                      inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
+                      inset 0 -1px $borders_color;
         }
       }
 
@@ -820,8 +834,7 @@ TerminalWindow {
       }
     }
 
-    &.header.top, &.header.bottom,
-    &.header.left, &.header.right { // button outside the tabs
+    &.header.top { // button outside the tabs
       .button {
         color: $inverted_tertiary_fg_color;
         &:hover,
