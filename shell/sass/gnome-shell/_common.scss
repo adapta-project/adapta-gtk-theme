@@ -1410,6 +1410,75 @@ StScrollBar {
 }
 
 
+/*********************
+ * MailNag Extension *
+ *********************/
+
+.mailnag-counter {
+  @include fontscaling($ref_size * 0.6);
+  min-width: 14px;
+  min-height: 14px;
+  border-radius: 100px;
+  background-color: $accent_color;
+  color: $selected_fg_color;
+  -mailnag-counter-overlap-x: -4px;
+  -mailnag-counter-overlap-y: -2px;
+}
+
+.menu-item-box {
+  width: 24em;
+  spacing: 12px;
+  padding: 8px;
+  border-radius: 2px;
+  color: $secondary_fg_color;
+  background-color: $secondary_dark_color;
+  &:hover,
+  &:focus {
+    color: $fg_color;
+    background-color: $semi_fill_color;
+  }
+  &:active {
+    color: $fg_color;
+    background-color: $fill_color;
+  }
+}
+
+.account-group-label {
+  @include fontscaling($ref_size * 1.0);
+  color: $tertiary_fg_color;
+  font-weight: 700;
+}
+
+.more-label,
+.subject-label,
+.date-label {
+  @include fontscaling($ref_size * 0.9);
+  color: $tertiary_fg_color;
+  font-weight: 400;
+}
+
+.sender-label {
+  @include fontscaling($ref_size * 1.0);
+  color: $fg_color;
+  font-weight: 700;
+}
+
+.generic-box { spacing: 8px; }
+
+.overflow-badge {
+  @include fontscaling($ref_size * 0.9);
+  padding: 0.4em 0;
+  border-radius: 2px;
+  color: $tertiary_fg_color;
+  background-color: $accent_fill_color;
+}
+
+.avatar {
+  border-radius: 2px;
+  background-size: contain;
+}
+
+
 /**********************
  * Activities Ripples *
  **********************/
