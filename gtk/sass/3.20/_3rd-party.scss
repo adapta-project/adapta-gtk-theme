@@ -4,23 +4,23 @@
 
 // specific ripple-effect for IconTaskList
 @keyframes budgie_ripple_effect {
-  from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.001,
-                                    to(gtkalpha($inverted_fg_color, 0.2)),
-                                    to(transparent)),
-                      linear-gradient(to bottom,
-                                      gtkalpha($inverted_fg_color, 0.2));
+  0% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      gtkalpha($inverted_fg_color, 0.2) 0%,
+                                      transparent 0%),
+                      image(gtkalpha($inverted_fg_color, 0.2));
   }
-  to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.4,
-                                    to(gtkalpha($inverted_fg_color, 0.2)),
-                                    to(transparent)),
-                      linear-gradient(to bottom,
-                                      gtkalpha($inverted_fg_color, 0.2));
+  66% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      gtkalpha($inverted_fg_color, 0.2) 100%,
+                                      transparent 0%),
+                      image(gtkalpha($inverted_fg_color, 0.2));
+  }
+  100% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      gtkalpha($inverted_fg_color, 0) 100%,
+                                      transparent 0%),
+                      image(gtkalpha($inverted_fg_color, 0.2));
   }
 }
 
@@ -97,36 +97,27 @@ $full_orientation: ((top, bottom),
       min-height: rem(24px);
       padding: 0;
       border: 2px solid transparent;
-      background-image: -gtk-gradient(radial,
-                                      center center, 0,
-                                      center center, 0.4,
-                                      to(gtkalpha($inverted_fg_color, 0)),
-                                      to(transparent)),
-                        linear-gradient(to bottom,
-                                        gtkalpha($inverted_fg_color, 0));
-      background-size: $image_button_large;
+      background-image: radial-gradient(circle farthest-corner at center,
+                                        gtkalpha($inverted_fg_color, 0) 100%,
+                                        transparent 0%),
+                        image(gtkalpha($inverted_fg_color, 0));
       background-position: center center;
       opacity: 0.5;
-      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
       transition-property: opacity,
                            border-color,
                            background-color,
-                           background-image,
                            box-shadow;
-      transition-duration: 0.2s;
       &:hover {
         opacity: 0.75;
         -gtk-icon-effect: highlight;
       }
       &:active {
         opacity: 1.0;
-        transition-duration: 0;
-        animation: budgie_ripple_effect 0.2s
-                   cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        animation: budgie_ripple_effect 0.3s $slope_slow forwards;
       }
       &:checked {
-        opacity: 1.0;
         background-color: transparent;
+        opacity: 1.0;
         &:hover { -gtk-icon-effect: highlight; }
       }
     }
@@ -389,7 +380,7 @@ $full_orientation: ((top, bottom),
         &:hover {
           box-shadow: $z-depth-2,
                       inset 0 1px $highlight_color;
-          transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
           transition-property: box-shadow;
           transition-duration: 0.2s;
 
@@ -780,7 +771,6 @@ $full_orientation: ((top, bottom),
     border-radius: 0;
     color: $secondary_accent_color;
     background-color: transparent;
-    background-size: $text_button_small;
     &:hover {
       @extend %button_flat_hover;
       background-color: transparent;
