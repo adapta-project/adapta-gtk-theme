@@ -256,7 +256,7 @@ assistant {
 // button box is always shown with flat-buttons
 buttonbox {
   &, &.dialog-action-area {
-    button {
+    &:not(.linked) button {
       @extend %button_flat_normal;
       background-color: transparent;
       color: $secondary_accent_color;
@@ -271,16 +271,19 @@ buttonbox {
         background-color: transparent;
         color: $accent_color;
       }
-      &:disabled { @include button(flat-insensitive); }
+      &:disabled {
+        @extend %button_flat_disabled;
+        color: $insensitive_fg_color;
+      }
       &:checked {
         @extend %button_flat_checked;
         background-color: transparent;
         color: $accent_color;
-      }
-      &:checked:disabled {
-        @extend %button_flat_checked_disabled;
-        background-color: transparent;
-        color: gtkopacity($accent_color, 0.4);
+        &:disabled {
+          @extend %button_flat_checked_disabled;
+          background-color: transparent;
+          color: gtkopacity($accent_color, 0.4);
+        }
       }
     }
   }
