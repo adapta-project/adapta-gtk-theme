@@ -888,7 +888,7 @@ UnityDecoration {
   -UnityDecoration-extents: 28px 0 0 0;
   -UnityDecoration-input-extents: 8px;
 
-  -UnityDecoration-shadow-offset-x: 0px;
+  -UnityDecoration-shadow-offset-x: 0;
   -UnityDecoration-shadow-offset-y: 8px;
   -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.24);
   -UnityDecoration-active-shadow-radius: 12px;
@@ -902,7 +902,7 @@ UnityDecoration {
   -UnityDecoration-title-fade: 32px;
   -UnityDecoration-title-alignment: 0.0;
 
-  &.top {
+  .top {
     border-width: 1px 0 0;
     border-style: solid none none;
     border-color: $borders_color;
@@ -917,10 +917,15 @@ UnityDecoration {
     &:backdrop { color: $insensitive_inverted_fg_color; }
   }
 
-  &.left,
-  &.right,
-  &.bottom {
-    &, &:backdrop { background-image: none; }
+  .left,
+  .right,
+  .bottom {
+    &, &:backdrop {
+      border-width: 1px;
+      border-style: solid;
+      border-color: $borders_color;
+      background-image: none;
+    }
   }
 }
 
@@ -930,11 +935,13 @@ UnityPanelWidget,
   &, &:backdrop {
     border-bottom: 1px solid $panel_bg_color;
     color: $inverted_fg_color;
-    background-image: linear-gradient(to bottom,
-                                      opacify($panel_bg_color, 0.9));
+    background-image: linear-gradient(to bottom, $panel_bg_color);
     box-shadow: none;
   }
 }
+
+.unity-panel.menuitem,
+.unity-panel .menuitem { padding: 1px 1px 0; }
 
 .unity-panel.menubar,
 .unity-panel .menubar {
