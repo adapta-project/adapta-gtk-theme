@@ -161,26 +161,43 @@ sn-button { padding: rem(4px); }
 
   row {
     &, &.activatable {
-      padding: rem(9.3px) rem(12px) rem(10.7px);
+      padding: rem(8px);
       background-image: image($bg_color);
       background-repeat: repeat-x;
       background-size: auto;
-      &:hover { background-image: image(gtkalpha($secondary_fg_color, 0.1)); }
+      &:hover {
+        > grid { background-image: image(gtkalpha($secondary_fg_color, 0.1)); }
+      }
+      &:active {
+        transition: none;
+        animation: none;
 
-      > grid > button { // 'remove' buttons
-        color: $secondary_selected_fg_color;
-        background-color: $suggested_color;
-        &:hover { color: $selected_fg_color; }
-        &:active {
-          color: $selected_fg_color;
-          background-color: $selected_bg_color;
+        > grid {
+          transition: none;
+          animation: list_ripple_effect 0.3s $slope_slow forwards;
         }
-        &:checked {
+      }
+
+      > grid { // actual container
+        border-radius: 2px;
+        padding: rem(8px);
+
+        > button { // 'remove' buttons
           color: $secondary_selected_fg_color;
-          background-color: mix($selected_fg_color, $suggested_color, 20%);
-        }
-        &:disabled {
-          @include button(flat-insensitive, $track_color, $insensitive_fg_color);
+          background-color: $suggested_color;
+          &:hover { color: $selected_fg_color; }
+          &:active {
+            color: $selected_fg_color;
+            background-color: $selected_bg_color;
+          }
+          &:checked {
+            color: $secondary_selected_fg_color;
+            background-color: mix($selected_fg_color, $suggested_color, 20%);
+          }
+          &:disabled {
+            @include button(flat-insensitive, $track_color,
+                                              $insensitive_fg_color);
+          }
         }
       }
     }
