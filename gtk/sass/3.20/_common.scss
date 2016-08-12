@@ -738,11 +738,18 @@ button,
       &:checked { @include button(flat-checked); }
       &:checked:disabled { @include button(flat-checked-insensitive); }
     }
+
     &.text-button {
       border-radius: 2px;
       -gtk-outline-radius: 2px;
     }
+
+    &.image-button.toggle {
+      // hide unneeded background
+      &:checked { background-color: transparent; }
+    }
   }
+
   .inline-toolbar .linked > &,
   actionbar .linked > & {
     &, &:not(.text-button).image-button {
@@ -752,6 +759,7 @@ button,
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
+
     &.image-button.toggle {
       min-width: rem(13.3px);
       min-height: rem(13.3px);
@@ -759,13 +767,15 @@ button,
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
+
     &.text-button {
       border-radius: 2px;
       -gtk-outline-radius: 2px;
     }
   }
 
-  .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
+  // tango icons don't need shadows
+  .primary-toolbar & { -gtk-icon-shadow: none; }
 }
 
 %button_array {
