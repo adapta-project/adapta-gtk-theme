@@ -303,9 +303,11 @@ $full_orientation: ((top, bottom),
 
   row {
     // stop weird and unhandled ripple-effect
-    &.activatable .indicator-item {
-      &:active,
-      &:selected { animation: none; }
+    &.activatable {
+      &, & .indicator-item {
+        &:active,
+        &:selected { animation: none; }
+      }
     }
 
     &.activatable {
