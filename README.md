@@ -42,10 +42,9 @@ Supported Desktop Environments
  * GNOME-Flashback >= 3.20.1 (or 3.18.2)
  * Budgie-Desktop  >= 10.2.5
  * Cinnamon        >= 3.0.1 (or 2.8.6)
+ * Unity           >= 7.4.0
  * XFce4           >= 4.12.2
  ```
-
- > **Note:** Unity7 support will be dropped in future.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
@@ -75,8 +74,6 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
  >   * For Gtk+ 3.18.x users, there's no need to upgrade Gnome-Tweak-Tool to 3.20.0 since Adapta revived `gtk-3.0` directory.
  >   * In Xeinal, Gtk+ 3.21.x support is disabled (Yakkety package enabled it as default though).
  >   * When updating package, Adapta automatically does cleaning up pre-installed directories.
- >
- >   * In Yakkety, Unity7 support was dropped.
 
 Installation from Git Source
 ------------
