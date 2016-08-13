@@ -1475,7 +1475,7 @@ toolbar {
       &:disabled {
         @extend %button_flat_disabled;
         background-color: transparent;
-        color: gtkopacity($accent_color, 0.4);
+        color: gtkalpha($inverted_fg_color, 0.4);
       }
     }
 
@@ -4444,7 +4444,10 @@ messagedialog { // Message Dialog styling
           background-color: transparent;
           color: $secondary_accent_color;
         }
-        &:disabled { @include button(flat-insensitive); }
+        &:disabled {
+          @extend %button_flat_disabled;
+          color: gtkalpha($inverted_fg_color, 0.4);
+        }
 
         &:first-child {
           border-radius: 0 0 0 2px;
