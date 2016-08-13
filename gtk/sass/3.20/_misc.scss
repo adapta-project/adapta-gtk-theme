@@ -921,6 +921,49 @@ actionbar {
  * Gnome-contacts *
  ******************/
 
+.contacts-left-header-bar {
+  &:dir(ltr) {
+    border-right-width: 0; // hide hard-coded ugly separator
+    border-right-style: none;
+    // FIXME: swapped left/right?
+    box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
+                                        $sub-header-shadow-dark-rtl);
+
+    .tiled &  { @extend %tiled_integration; }
+    .maximized & { @extend %maxd_integration; }
+  }
+  &:dir(rtl) {
+    border-left-width: 0;
+    border-left-style: none;
+    box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
+                                        $sub-header-shadow-dark-ltr);
+
+    .tiled &  { @extend %tiled_integration; }
+    .maximized & { @extend %maxd_integration; }
+  }
+
+  &.selection-mode {
+    &:dir(ltr) {
+      border-right-width: 0;
+      border-right-style: none;
+      box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
+                                          $selected-header-shadow-dark-rtl);
+
+      .tiled &  { @extend %tiled_integration; }
+      .maximized & { @extend %maxd_integration; }
+    }
+    &:dir(rtl) {
+      border-left-width: 0;
+      border-left-style: none;
+      box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
+                                          $selected-header-shadow-dark-ltr);
+
+      .tiled &  { @extend %tiled_integration; }
+      .maximized & { @extend %maxd_integration; }
+    }
+  }
+}
+
 window overlay > grid > frame > grid {
   toolbar { box-shadow: none; }
 
