@@ -1300,19 +1300,35 @@ TopMenuAppMenuBar {
 // Notify-OSD
 // FIXME: not tested yet
 #XfceNotifyWindow {
-  border-radius: 2px;
-  border: 1px solid $borders_color;
-  background-color: gtkopacity($inverted_dark_color, 0.9);
-  color: $inverted_fg_color;
-  box-shadow: $z-depth-2;
-  &:hover { box-shadow: $z-depth-3; }
+  // OSD-style drop-shadows
+  &, &:hover {
+    padding: 3px;
+    border-style: solid;
+    border-width: 9px;
+    border-radius: 2px;
+    border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
+                              url("assets/osd-shadow#{$asset_suffix}@2.png"))
+                  10 / 10px stretch;
+    box-shadow: none;
+    color: $inverted_fg_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+  }
+  &:backdrop {
+    border-image: -gtk-scaled(url("assets/osd-shadow-backdrop#{$asset_suffix}.png"),
+                              url("assets/osd-shadow-backdrop#{$asset_suffix}@2.png"))
+                  10 / 10px stretch;
+  }
 
-  label { color: $inverted_fg_color; }
+  box.vertical {
+    > label#summary {
+      color: $inverted_fg_color;
+      font-weight: 700;
+    }
 
-  label#summary { font-weight: 700; }
+    > label#body { color: $inverted_secondary_fg_color; }
+  }
 
-  button,
-  .linked > button {
+  buttonbox button {
     @extend %button_flat_normal;
     background-color: transparent;
     &:not(:active):not(:disabled):not(hover) {
