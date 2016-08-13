@@ -1359,6 +1359,76 @@ TopMenuAppMenuBar {
   }
 }
 
+// Notify-OSD
+// FIXME: not tested yet
+#XfceNotifyWindow {
+  .osd {
+    border-radius: 2px;
+    border: 1px solid $borders_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    color: $inverted_fg_color;
+    box-shadow: $z-depth-2;
+  }
+
+  &.osd {
+    .button,
+    .linked > .button {
+      @extend %button_flat_normal;
+      background-color: transparent;
+      &:not(:active):not(:insensitive):not(hover) {
+        background-color: transparent;
+        color: $secondary_accent_color;
+      }
+      &:hover {
+        @extend %button_flat_hover;
+        background-color: transparent;
+        color: $accent_color;
+      }
+      &:active {
+        @extend %button_flat_active;
+        border-image: none;
+        background-color: transparent;
+        color: $accent_color;
+        box-shadow: none;
+      }
+      &:checked {
+        @extend %button_flat_checked;
+        border-image: none;
+        background-color: transparent;
+        color: $accent_color;
+        box-shadow: none;
+      }
+      &:insensitive { @include button(flat-insensitive); }
+    }
+
+    GtkProgressBar {
+      &, &.osd {
+        -GtkProgressBar-xspacing: 0;
+        -GtkProgressBar-yspacing: 0;
+        -GtkProgressBar-min-horizontal-bar-height: 4;
+        color: $inverted_secondary_fg_color;
+      }
+
+      &.trough {
+        &, &.osd {
+          border-style: none;
+          background-color: gtkopacity($accent_color, 0.2);
+          box-shadow: none;
+        }
+      }
+    }
+
+    .progressbar {
+      &, &.osd {
+        border-style: none;
+        border-radius: 0;
+        background-image: none;
+        background-color: $accent_color;
+      }
+    }
+  }
+}
+
 
 /************
  * Synaptic *

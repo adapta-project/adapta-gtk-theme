@@ -1213,6 +1213,72 @@ TopMenuAppMenuBar {
   }
 }
 
+// Notify-OSD
+// FIXME: not tested yet
+#XfceNotifyWindow {
+  .osd {
+    border-radius: 2px;
+    border: 1px solid $borders_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    color: $inverted_fg_color;
+    box-shadow: $z-depth-2;
+  }
+
+  &.osd {
+    button,
+    .linked > button {
+      @extend %button_flat_normal;
+      background-color: transparent;
+      &:not(:active):not(:disabled):not(hover) {
+        background-color: transparent;
+        color: $secondary_accent_color;
+      }
+      &:hover {
+        @extend %button_flat_hover;
+        background-color: transparent;
+        color: $accent_color;
+      }
+      &:active {
+        @extend %button_flat_active;
+        border-image: none;
+        background-color: transparent;
+        color: $accent_color;
+        box-shadow: none;
+      }
+      &:checked {
+        @extend %button_flat_checked;
+        border-image: none;
+        background-color: transparent;
+        color: $accent_color;
+        box-shadow: none;
+      }
+      &:disabled {
+        @extend %button_flat_disabled;
+        background-color: transparent;
+        color: gtkopacity($accent_color, 0.4);
+      }
+    }
+
+    progressbar {
+      min-width: 4px;
+      min-height: 4px;
+
+      trough {
+        border-style: none;
+        background-color: gtkopacity($accent_color, 0.2);
+        box-shadow: none;
+      }
+
+      progress {
+        border-style: none;
+        border-radius: 0;
+        background-image: none;
+        background-color: $accent_color;
+      }
+    }
+  }
+}
+
 
 /**************
  * FeedReader *
