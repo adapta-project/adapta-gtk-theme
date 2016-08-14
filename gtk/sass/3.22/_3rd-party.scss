@@ -33,6 +33,13 @@ $full_orientation: ((top, bottom),
                     (left, right),
                     (right, left));
 
+// specific transition
+$budgie_transition: opacity 0.2s $slope_medium,
+                    border-color 0.2s $slope_medium,
+                    background-color 0.4s $slope_slow,
+                    background-image 0.4s $slope_slow,
+                    box-shadow 0.4s $slope_slow;
+
 // main container
 .budgie-container { background-color: transparent; }
 
@@ -103,25 +110,15 @@ $full_orientation: ((top, bottom),
                         image(gtkalpha($inverted_fg_color, 0));
       background-position: center center;
       opacity: 0.5;
-      transition-property: opacity,
-                           border-color,
-                           background-color,
-                           background-image,
-                           box-shadow;
-      transition-timing-function: $slope_slow;
-      transition-duration: 0.4s;
+      transition: $budgie_transition;
       &:hover {
         opacity: 0.75;
         -gtk-icon-effect: highlight;
       }
       &:active {
         opacity: 1.0;
-        transition-property: opacity,
-                             border-color,
-                             background-color,
-                             box-shadow;
-        transition-timing-function: $slope_slow;
-        transition-duration: 0.4s;
+        transition: $budgie_transition,
+                    background-image 0;
         animation: budgie_ripple_effect 0.3s $slope_slow forwards;
       }
       &:checked {
