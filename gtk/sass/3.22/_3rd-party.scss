@@ -1312,25 +1312,14 @@ TopMenuAppMenuBar {
 }
 
 // Notify-OSD
-// FIXME: not tested yet
+// FIXME: drop-shadow composition does not work
 #XfceNotifyWindow {
-  // OSD-style drop-shadows
   &, &:hover {
-    padding: 3px;
-    border-width: 9px;
     border-radius: 2px;
-    border-color: transparent;
-    border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
-                              url("assets/osd-shadow#{$asset_suffix}@2.png"))
-                  10 / 10px stretch;
+    border: 1px solid $borders_color;
     color: $inverted_fg_color;
     background-color: gtkopacity($inverted_dark_color, 0.9);
     box-shadow: none;
-  }
-  &:backdrop {
-    border-image: -gtk-scaled(url("assets/osd-shadow-backdrop#{$asset_suffix}.png"),
-                              url("assets/osd-shadow-backdrop#{$asset_suffix}@2.png"))
-                  10 / 10px stretch;
   }
 
   box.vertical {
