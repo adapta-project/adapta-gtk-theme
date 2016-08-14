@@ -106,13 +106,22 @@ $full_orientation: ((top, bottom),
       transition-property: opacity,
                            border-color,
                            background-color,
+                           background-image,
                            box-shadow;
+      transition-timing-function: $slope_slow;
+      transition-duration: 0.4s;
       &:hover {
         opacity: 0.75;
         -gtk-icon-effect: highlight;
       }
       &:active {
         opacity: 1.0;
+        transition-property: opacity,
+                             border-color,
+                             background-color,
+                             box-shadow;
+        transition-timing-function: $slope_slow;
+        transition-duration: 0.4s;
         animation: budgie_ripple_effect 0.3s $slope_slow forwards;
       }
       &:checked {
