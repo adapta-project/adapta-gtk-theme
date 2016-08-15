@@ -1137,11 +1137,47 @@ headerbar.titlebar box {
     }
   }
 
-  // draw bottom border and shadows
+  // main tool-bar styling
   grid > box > box > toolbar.primary-toolbar {
+    // draw bottom border and shadows
     border-bottom: 1px solid $borders_color;
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
                                         $toolbar-shadow-dark);
+
+    .linked.raised > button,
+    .raised > button {
+      // path-bar widget buttons
+      &, &.text-button.toggle {
+        min-height: rem(13.3px);
+        min-width: rem(13.3px);
+        padding-top: rem(5.3px);
+        padding-bottom: rem(6.7px);
+      }
+
+      // general circle buttons
+      &.image-button,
+      &.image-button.toggle {
+        min-height: rem(13.3px);
+        min-width: rem(13.3px);
+        padding: rem(6.7px);
+      }
+    }
+
+    // optional buttons
+    .raised:not(.linked) > button {
+      &:not(.text-button):not(.toggle) {
+        image {
+          padding-left: rem(5.3px);
+          padding-right: rem(5.3px);
+        }
+      }
+    }
+
+    // shrink height of entry node
+    box.horizontal > widget > entry {
+      padding-top: rem(5.3px);
+      padding-bottom: rem(6.7px);
+    }
   }
 
   // tweak notebook colour
@@ -1160,9 +1196,9 @@ headerbar.titlebar box {
 
   // force using flat-style on bottom bar
   grid.vertical > widget {
-    // FIXME: conflicts with lollypop.
-    // background-color: $secondary_dark_color;
-    // box-shadow: $inline-shadow;
+    background-color: $secondary_dark_color;
+    box-shadow: if($variant=='light', $inline-shadow-light,
+                                      $inline-shadow-dark);
 
     > box { padding: rem(2.7px); }
 
