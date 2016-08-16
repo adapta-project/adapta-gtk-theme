@@ -2065,6 +2065,18 @@ headerbar {
   border-top-color: $top_edge_border_color;
   border-bottom-color: $solid_dark_borders_color;
 
+  // reduce hidden gap reserved for separators
+  > box.horizontal {
+    &.right {
+      &:dir(ltr) { margin-left: rem(-8px); }
+      &:dir(rtl) { margin-right: rem(-8px); }
+    }
+    &.left {
+      &:dir(ltr) { margin-right: rem(-8px); }
+      &:dir(rtl) { margin-left: rem(-8px); }
+    }
+  }
+
   // To avoid double-padding, set it only for titlebar in case it
   // is placed on the header-bar.
   &.titlebar,
