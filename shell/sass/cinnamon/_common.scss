@@ -19,12 +19,13 @@ $_bubble_borders_color: $borders_color;
 
 stage {
   font-family: $font-family;
+  font-weight: 400;
   @include fontscaling($ref_size);
   color: $fg_color;
 }
 
 .label-shadow {
-  color: rgba(0, 0, 0, 0);
+  color: transparent;
 }
 
 %reset_style {
@@ -40,29 +41,25 @@ stage {
  ***********/
 
 %button {
+  @include button(flat-normal);
   min-height: 2em;
   padding: 7px 16px 8px;
   border-width: 0;
   font-weight: 500;
-
-  &, &:focus, &:hover, &:hover:focus,
-  &:active, &:active:focus, &:insensitive { border-radius: 2px; }
-
-  @include button(flat-normal);
-
   &:focus { @include button(flat-focus); }
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:insensitive { @include button(flat-insensitive); }
+
+  &, &:focus, &:hover, &:hover:focus,
+  &:active, &:active:focus, &:insensitive { border-radius: 2px; }
 }
 
 %osd_button {
+  @include button(osd-normal);
   min-height: 2.5em;
   padding: 9px 16px 10px;
   border-radius: 2px;
-
-  @include button(osd-normal);
-
   &:focus { @include button(osd-focus); }
   &:hover { @include button(osd-hover); }
   &:active { @include button(osd-active); }
@@ -75,17 +72,15 @@ stage {
  ***********/
 
 %entry {
+  @include entry(normal);
   padding: 7px 8px 8px;
   caret-size: 1px;
   border-radius: 0;
   border-width: 0;
   color: $fg_color;
   transition: none;
-
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
-
-  @include entry(normal);
   &:focus { @include entry(focus); }
   &:hover { @include entry(hover); }
   &:insensitive { @include entry(insensitive); }
@@ -98,17 +93,15 @@ stage {
 }
 
 %osd_entry {
+  @include entry(normal);
   padding: 7px 8px 8px;
   border-radius: 0;
   border-width: 0;
   color: $osd_fg_color;
   caret-size: 1px;
   caret-color: $osd_fg_color;
-
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
-
-  @include entry(normal);
   &:hover { @include entry(hover); }
   &:focus { @include entry(focus); }
   &:insensitive { @include entry(insensitive); }
@@ -194,7 +187,6 @@ StScrollBar {
  ***************/
 
 .check-box {
-
   CinnamonGenericContainer {
     spacing: 0.2em;
     min-height: 30px;
@@ -209,11 +201,17 @@ StScrollBar {
     background-image: url("assets/checkbox/checkbox-unchecked.svg");
   }
 
-  // &:focus StBin { background-image: url("assets/checkbox/checkbox-unchecked-focused.svg"); }
+  // &:focus StBin {
+  //   background-image: url("assets/checkbox/checkbox-unchecked-focused.svg");
+  // }
 
-  &:checked StBin { background-image: url("assets/checkbox/checkbox-checked.svg"); }
+  &:checked StBin {
+    background-image: url("assets/checkbox/checkbox-checked.svg");
+  }
 
-  // &:focus:checked StBin { background-image: url("assets/checkbox/checkbox-checked-focused.svg"); }
+  // &:focus:checked StBin {
+  //   background-image: url("assets/checkbox/checkbox-checked-focused.svg");
+  // }
 }
 
 
@@ -222,7 +220,6 @@ StScrollBar {
  *****************/
 
 .radiobutton {
-
   CinnamonGenericContainer {
     height: 26px;
     spacing: 0.2em;
@@ -241,11 +238,17 @@ StScrollBar {
     background-image: url("assets/checkbox/radiobutton-unchecked.svg");
   }
 
-  // &:focus StBin { background-image: url("assets/checkbox/radiobutton-unchecked-focused.svg"); }
+  // &:focus StBin {
+  //   background-image: url("assets/checkbox/radiobutton-unchecked-focused.svg");
+  // }
 
-  &:checked StBin { background-image: url("assets/checkbox/radiobutton-checked.svg"); }
+  &:checked StBin {
+    background-image: url("assets/checkbox/radiobutton-checked.svg");
+  }
 
-  // &:focus:checked StBin { background-image: url("assets/checkbox/radiobutton-checked-focused.svg"); }
+  // &:focus:checked StBin {
+  //   background-image: url("assets/checkbox/radiobutton-checked-focused.svg");
+  // }
 }
 
 
@@ -274,7 +277,6 @@ StScrollBar {
   border-radius: 2px;
   color: $link_color;
   text-decoration: underline;
-
   &:hover {
     color: $link_color;
     background-color: transparentize($link_color, 0.9);
@@ -296,7 +298,7 @@ StScrollBar {
   border-radius: 2px;
   background-color: transparentize($osd_bg_color, 0.1);
   color: $osd_fg_color;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -319,11 +321,14 @@ StScrollBar {
     background-gradient-direction: none;
     box-shadow: 0 0 transparent;
 
-    .popup-menu-item:ltr { padding-right: 0; }
-    .popup-menu-item:rtl { padding-left: 0; }
+    .popup-menu-item {
+      &:ltr { padding-right: 0; }
+      &:rtl { padding-left: 0; }
+    }
 
     StScrollBar {
       padding: 4px;
+
       StBin#trough,
       StBin#vhandle { border-width: 0; }
     }
@@ -335,7 +340,6 @@ StScrollBar {
     spacing: 1em;
     border-width: 0 1px;
     color: $secondary_fg_color;
-
     &:active {
       border-image: url("assets/menu/menu-hover.svg") 9 9 0 0;
       color: $fg_color;
@@ -347,60 +351,62 @@ StScrollBar {
     }
   }
 
-  .popup-inactive-menu-item { //all icons and other graphical elements
+  // all icons and other graphical elements
+  .popup-inactive-menu-item {
     color: $fg_color;
-
     &:insensitive { color: $insensitive_fg_color; }
   }
 
   &-icon { icon-size: 16px; }
 }
 
-.popup-menu-boxpointer {
-  -arrow-border-radius: 0;
-  -arrow-background-color: transparent;
-  -arrow-border-width: 0;
-  -arrow-border-color: transparent;
-  -arrow-base: 0;
-  -arrow-rise: 0;
-  -arrow-box-shadow: none; // dreaming. bug #689995
-  margin: 0.4em 0.5em 0.5em;
-  border-radius: 2px;
-  border-top: 1px solid $base_color;
-  background-color: $bg_color;
-  box-shadow: $z-depth-3;
+.popup {
+  &-menu-boxpointer {
+    -arrow-border-radius: 0;
+    -arrow-background-color: transparent;
+    -arrow-border-width: 0;
+    -arrow-border-color: transparent;
+    -arrow-base: 0;
+    -arrow-rise: 0;
+    -arrow-box-shadow: none; // dreaming. bug #689995
+    margin: 0.4em 0.5em 0.5em;
+    border-radius: 2px;
+    border-top: 1px solid $base_color;
+    background-color: $bg_color;
+    box-shadow: $z-depth-3;
+  }
+
+  &-combo-menu {
+    padding: 1em;
+    border: 1px solid $borders_color;
+    border-radius: 2px;
+    color: $osd_fg_color;
+    background-color: scale-color($osd_bg_color, $alpha: -10%);
+  }
+
+  &-image-menu-item {
+  }
+
+  &-combobox-item { spacing: 1em; }
+
+  &-separator-menu-item {
+    height: 1px; // not really the whole box
+    margin: 0.6em 0.4em;
+    border-color: $borders_color;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    // border-image: url("assets/menu/menu-separator.svg") 1 1 1 1;
+    background-color: transparent;
+  }
+
+  &-alternating-menu-item:alternate {
+    font-weight: 500;
+  }
+
+  &-device-menu-item { spacing: 0.5em; }
+
+  &-subtitle-menu-item { font-weight: 500; }
 }
-
-// Don't know what this does
-.popup-combo-menu {
-  padding: 1em 0em;
-  border: 1px solid rgba(0, 0, 0, 0.6);
-  border-radius: 3px;
-  color: red;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.popup-image-menu-item {}
-
-.popup-combobox-item { spacing: 1em; }
-
-.popup-separator-menu-item {
-  height: 1px; // not really the whole box
-  margin: 0.6em 0.4em;
-  border-color: $borders_color;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  // border-image: url("assets/menu/menu-separator.svg") 1 1 1 1;
-  background-color: transparent;
-}
-
-.popup-alternating-menu-item:alternate {
-  font-weight: 500;
-}
-
-.popup-device-menu-item { spacing: 0.5em; }
-
-.popup-subtitle-menu-item { font-weight: 500; }
 
 .nm-menu-item-icons { spacing: 0.5em; }
 
@@ -466,9 +472,6 @@ $icon_size: 16px;
     background-color: $panel_bg_color;
   }
 
-  // &-top { border-image: url('assets/panel/panel-top.svg') 1 1 1 1; }
-  // &-bottom { border-image: url('assets/panel/panel-bottom.svg') 1 1 1 1; }
-
   &-status-button {
     height: 22px;
     -natural-hpadding: 3px;
@@ -517,7 +520,6 @@ $icon_size: 16px;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-1;
-
   &#selected {
     spacing: 25px;
     color: $osd_fg_color;
@@ -534,7 +536,6 @@ $icon_size: 16px;
   height: 15px;
   padding: 4px 8px;
   border-radius: 2px;
-
   &:focus {
     @include entry(osd-focus);
     color: $selected_fg_color;
@@ -547,7 +548,6 @@ $icon_size: 16px;
   border-radius: 2px;
   border: 4px solid $osd_semi_fill_color;
   background-color: transparent;
-
   &#active {
     border-radius: 2px;
     border: 4px solid $selected_bg_color;
@@ -555,9 +555,7 @@ $icon_size: 16px;
   }
 }
 
-.expo-background {
-  background-color: opacify($osd_bg_color, 1);
-}
+.expo-background { background-color: opacify($osd_bg_color, 1); }
 
 .workspace {
   // &-controls { visible-height: 32px; }
@@ -565,7 +563,8 @@ $icon_size: 16px;
   &-thumbnails {
     spacing: 26px;
 
-    &-background, &-background:rtl { padding: 8px; }
+    &-background,
+    &-background:rtl { padding: 8px; }
   }
 
   &-add-button {
@@ -573,7 +572,6 @@ $icon_size: 16px;
     width: 35px;
     background-image: url("assets/misc/add-workspace.svg");
     transition-duration: 0.2s;
-
     &:hover {
       background-image: url("assets/misc/add-workspace-hover.svg");
       transition-duration: 0.2s;
@@ -583,6 +581,7 @@ $icon_size: 16px;
       transition-duration: 0.2s;
     }
   }
+
   &-overview-background-shade { background-color: rgba(0, 0, 0, 0.5); }
 }
 
@@ -593,7 +592,6 @@ $icon_size: 16px;
   -cinnamon-close-overlap: 24px;
   background-image: url("assets/misc/close.svg");
   background-size: 36px;
-
   &:hover {
     height: 36px;
     width: 36px;
@@ -633,18 +631,22 @@ $icon_size: 16px;
     spacing: 8px;
     padding-bottom: 10px;
   }
+
   &-title {
     @include fontscaling($ref_size * 2.0);
     font-weight: 700;
   }
+
   &-uuid {
     @include fontscaling($ref_size * 1.0);
     color: $dim_fg_color;
   }
+
   &-icon {
     padding-right: 20px;
     padding-bottom: 14px;
   }
+
   &-scrollBox {
     padding: 4px;
     padding-right: 0;
@@ -657,10 +659,12 @@ $icon_size: 16px;
       spacing: 1.2em;
     }
   }
+
   &-description {
     padding-top: 4px;
     padding-bottom: 16px;
   }
+
   &-version {
     @include fontscaling($ref_size * 1.0);
     padding-left: 7px;
@@ -676,55 +680,55 @@ $icon_size: 16px;
   padding: 0.4em 1.75em;
   spacing-rows: 0;
   spacing-columns: 0;
-}
 
-.calendar-month-label {
-  padding: 8px 0;
-  color: $fg_color;
-  font-weight: 700;
-}
-
-.calendar-change-month-back,
-.calendar-change-month-forward {
-  width: 16px;
-  height: 16px;
-}
-
-//arrow back
-.calendar-change-month-back {
-  background-image: url("assets/misc/calendar-arrow-left.svg");
-
-  // &:focus,
-  // &:hover { background-image: url("assets/misc/calendar-arrow-left-hover.svg"); }
-
-  // &:active { background-image: url("assets/misc/calendar-arrow-left.svg"); }
-
-  &:rtl {
-    background-image: url("assets/misc/calendar-arrow-right.svg");
-
-  // &:focus,
-  // &:hover { background-image: url("assets/misc/calendar-arrow-right-hover.svg"); }
-
-  // &:active { background-image: url("assets/misc/calendar-arrow-right.svg"); }
+  &-month-label {
+    padding: 8px 0;
+    color: $fg_color;
+    font-weight: 700;
   }
-}
 
-//arrow forward
-.calendar-change-month-forward {
-  background-image: url("assets/misc/calendar-arrow-right.svg");
+  &-change-month-back,
+  &-change-month-forward {
+    width: 16px;
+    height: 16px;
+  }
 
-  // &:focus,
-  // &:hover { background-image: url("assets/misc/calendar-arrow-right-hover.svg"); }
-
-  // &:active { background-image: url("assets/misc/calendar-arrow-right.svg"); }
-
-  &:rtl {
+  // arrow back
+  &-change-month-back {
     background-image: url("assets/misc/calendar-arrow-left.svg");
 
     // &:focus,
     // &:hover { background-image: url("assets/misc/calendar-arrow-left-hover.svg"); }
 
     // &:active { background-image: url("assets/misc/calendar-arrow-left.svg"); }
+
+    &:rtl {
+      background-image: url("assets/misc/calendar-arrow-right.svg");
+
+      // &:focus,
+      // &:hover { background-image: url("assets/misc/calendar-arrow-right-hover.svg"); }
+
+      // &:active { background-image: url("assets/misc/calendar-arrow-right.svg"); }
+    }
+  }
+
+  // arrow forward
+  &-change-month-forward {
+    background-image: url("assets/misc/calendar-arrow-right.svg");
+
+    // &:focus,
+    // &:hover { background-image: url("assets/misc/calendar-arrow-right-hover.svg"); }
+
+    // &:active { background-image: url("assets/misc/calendar-arrow-right.svg"); }
+
+    &:rtl {
+      background-image: url("assets/misc/calendar-arrow-left.svg");
+
+      // &:focus,
+      // &:hover { background-image: url("assets/misc/calendar-arrow-left-hover.svg"); }
+
+      // &:active { background-image: url("assets/misc/calendar-arrow-left.svg"); }
+    }
   }
 }
 
@@ -736,33 +740,29 @@ $icon_size: 16px;
   text-align: center;
 }
 
-.calendar-day-base {
-  @include fontscaling($ref_size * 0.8);
-  width: 25px;
-  height: 25px;
-  padding: 0.1em;
-  margin: 2px;
-  border-radius: 12.5px;
-  text-align: center;
-}
-
-.calendar-day-heading {
-  @include fontscaling($ref_size * 0.7);
-  margin-top: 1em;
-  color: $dim_fg_color;
-}
-
 .calendar-day {
   border-width: 0;
   color: $secondary_fg_color;
-}
 
-.calendar-day-top {
-  border-top-width: 0;
-}
+  &-base {
+    @include fontscaling($ref_size * 0.8);
+    width: 25px;
+    height: 25px;
+    padding: 0.1em;
+    margin: 2px;
+    border-radius: 12.5px;
+    text-align: center;
+  }
 
-.calendar-day-left {
-  border-left-width: 0;
+  &-heading {
+    @include fontscaling($ref_size * 0.7);
+    margin-top: 1em;
+    color: $dim_fg_color;
+  }
+
+  &-top { border-top-width: 0; }
+
+  &-left { border-left-width: 0; }
 }
 
 .calendar-nonwork-day {
@@ -770,14 +770,16 @@ $icon_size: 16px;
   background-color: transparent;
 }
 
-.calendar-today,
-.calendar-today:active,
-.calendar-today:focus,
-.calendar-today:hover {
-  border-width: 0;
-  color: $selected_fg_color;
-  background-color: $selected_bg_color;
-  font-weight: 700;
+.calendar-today {
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    border-width: 0;
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    font-weight: 700;
+  }
 }
 
 .calendar-other-month-day {
@@ -828,6 +830,7 @@ $icon_size: 16px;
   }
 
   &-body { spacing: 5px; }
+
   &-actions { spacing: 10px; }
 }
 
@@ -838,7 +841,8 @@ $icon_size: 16px;
     color: $osd_fg_color;
   }
 
-  &-button, &-icon-button {
+  &-button,
+  &-icon-button {
     @extend %osd_button;
     padding: 5px;
   }
@@ -866,21 +870,17 @@ $icon_size: 16px;
   color: $osd_fg_color;
   background: none;
 
-  > StBoxLayout {
-    padding: 4px;
-  }
+  > StBoxLayout { padding: 4px; }
 
   &-item-container { spacing: 8px; }
 
   .item-box {
     padding: 8px;
     border-radius: 2px;
-
     &:outlined {
       padding: 6px;
       border: 2px solid $fill_color;
     }
-
     &:selected {
       background-color: $accent_fill_color;
       color: $accent_color;
@@ -893,6 +893,7 @@ $icon_size: 16px;
     padding: 2px;
     spacing: 4px;
   }
+
   .separator {
     width: 1px;
     background: $borders_color;;
@@ -902,7 +903,6 @@ $icon_size: 16px;
 .switcher-arrow {
   border-color: transparent;
   color: $osd_fg_color;
-
   &:highlighted {
     border-color: transparent;
     color: $selected_fg_color;
@@ -911,20 +911,22 @@ $icon_size: 16px;
 
 // .switcher-preview-backdrop { background-color: rgba(25, 25, 25, 0.95); }
 
-.thumbnail-scroll-gradient-left {
-  width: 60px;
-  border-radius: 24px;
-  border-radius-topright: 0;
-  border-radius-bottomright: 0;
-  background-color: transparent;
-}
+.thumbnail-scroll-gradient {
+  &-left {
+    width: 60px;
+    border-radius: 24px;
+    border-radius-topright: 0;
+    border-radius-bottomright: 0;
+    background-color: transparent;
+  }
 
-.thumbnail-scroll-gradient-right {
-  width: 60px;
-  border-radius: 24px;
-  border-radius-topleft: 0;
-  border-radius-bottomleft: 0;
-  background-color: transparent;
+  &-right {
+    width: 60px;
+    border-radius: 24px;
+    border-radius-topleft: 0;
+    border-radius-bottomleft: 0;
+    background-color: transparent;
+  }
 }
 
 
@@ -968,11 +970,10 @@ $icon_size: 16px;
     background: none;
 
     .modal-dialog-button {
+      @extend %osd_button;
       height: 30px;
       padding-top: 0;
       padding-bottom: 0;
-
-      @extend %osd_button;
       color: $osd_secondary_fg_color;
       &:hover,
       &:active,
@@ -994,9 +995,9 @@ $icon_size: 16px;
 
   &-label {
     padding-bottom: 0;
+    color: $osd_fg_color;
     font-size: 0;
     font-weight: 700;
-    color: $osd_fg_color;
   }
 
   &-error-label { color: $error_color; }
@@ -1007,11 +1008,14 @@ $icon_size: 16px;
     spacing: 5px;
     color: $error_color;
   }
+
   &-completion-box {
     @include fontscaling($ref_size * 1.0);
     padding-left: 15px;
   }
+
   &-entry {
+    @include entry(osd);
     width: 20em;
     padding: 7px;
     border-radius: 0;
@@ -1019,11 +1023,9 @@ $icon_size: 16px;
     caret-color: $osd_fg_color;
     selected-color: $selected_fg_color;
     selection-background-color: $selected_bg_color;
-
-    @include entry(osd);
-
     &:focus { @include entry(osd-focus); }
   }
+
   .modal-dialog-button-box {
     border: none;
     background: none;
@@ -1055,6 +1057,7 @@ $icon_size: 16px;
       padding-right: 17px;
     }
   }
+
   &-description {
     width: 28em;
     padding-left: 17px;
@@ -1076,7 +1079,6 @@ $icon_size: 16px;
 
   &-item {
     color: $osd_secondary_fg_color;
-
     &:hover { color: $selected_fg_color; }
 
     &:ltr { padding-right: 1em; }
@@ -1096,6 +1098,7 @@ $icon_size: 16px;
 
 .magnifier-zoom-region {
   border: 2px solid $selected_bg_color;
+
   &.full-screen { border-width: 0; }
 }
 
@@ -1107,51 +1110,49 @@ $icon_size: 16px;
 #keyboard {
   border-width: 0;
   background-color: transparentize($osd_bg_color, 0.3);
-}
 
-.keyboard-layout {
-  spacing: 10px;
-  padding: 10px;
-}
-
-.keyboard-row {
-  spacing: 15px;
-}
-
-.keyboard-key {
-  @include fontscaling($ref_size * 2.0);
-  min-height: 2em;
-  min-width: 2em;
-  border-radius: 2px;
-  border: 1px 0 0;
-  color: inherit;
-  font-weight: 700;
-
-  @include button(normal);
-  &:focus { @include button(focus); }
-  &:hover,
-  &:checked { @include button(hover); }
-  &:active { @include button(active);}
-  &:grayed { // FIXME
-    border-color: $osd_borders_color;
-    background-color: $osd_bg_color;
-    color: $osd_fg_color;
+  &-layout {
+    spacing: 10px;
+    padding: 10px;
   }
-}                             
 
-.keyboard-subkeys { //long press on a key popup
-  padding: 5px;
-  border-radius: 2px;
-  -arrow-border-radius: 0;
-  -arrow-background-color: transparent;
-  -arrow-border-width: 0;
-  -arrow-border-color: transparent;
-  -arrow-base: 0;
-  -arrow-rise: 0;
-  -boxpointer-gap: 5px;
-  background-color: $bg_color;
-  color: $osd_fg_color;
-  box-shadow: $z-depth-2;
+  &-row { spacing: 15px; }
+
+  &-key {
+    @include fontscaling($ref_size * 2.0);
+    @include button(normal);
+    min-height: 2em;
+    min-width: 2em;
+    border-radius: 2px;
+    border: 1px 0 0;
+    color: inherit;
+    font-weight: 700;
+    &:focus { @include button(focus); }
+    &:hover,
+    &:checked { @include button(hover); }
+    &:active { @include button(active);}
+
+    &:grayed { // FIXME
+      border-color: $osd_borders_color;
+      background-color: $osd_bg_color;
+      color: $osd_fg_color;
+    }
+  }
+
+  &-subkeys { // long press on a key popup
+    padding: 5px;
+    border-radius: 2px;
+    -arrow-border-radius: 0;
+    -arrow-background-color: transparent;
+    -arrow-border-width: 0;
+    -arrow-border-color: transparent;
+    -arrow-base: 0;
+    -arrow-rise: 0;
+    -boxpointer-gap: 5px;
+    background-color: $bg_color;
+    color: $osd_fg_color;
+    box-shadow: $z-depth-2;
+  }
 }
 
 
@@ -1175,12 +1176,10 @@ $icon_size: 16px;
   &-favorites-button {
     padding: 10px;
     border: 1px solid transparent;
-
     &:hover { @extend %button:hover; }
   }
 
   &-places {
-
     &-box {
       margin: auto;
       padding: 10px;
@@ -1205,11 +1204,10 @@ $icon_size: 16px;
     &:highlighted { font-weight: 700; }
 
     &-selected {
+      @extend %button:hover;
       padding: 7px;
       border: 1px solid transparent;
-      @extend %button:hover;
       color: $fg_color;
-
       &:highlighted { font-weight: 700; }
     }
 
@@ -1228,6 +1226,7 @@ $icon_size: 16px;
       background-color: transparent;
       color: $selected_bg_color;
     }
+
     &-hover {
       @extend %button:hover;
       padding: 7px;
@@ -1235,6 +1234,7 @@ $icon_size: 16px;
       border-radius: 2px;
       color: $fg_color;
     }
+
     &-greyed {
       padding: 7px;
       border: 1px solid transparent;
@@ -1273,11 +1273,11 @@ $icon_size: 16px;
   height: 15px;
   caret-color: $fg_color;
   font-weight: 500;
-}
 
-.menu-search-entry-icon {
-  icon-size: 1em;
-  color: $fg_color;
+  &-icon {
+    icon-size: 1em;
+    color: $fg_color;
+  }
 }
 
 // Context menu (at the moment only for favorites)
@@ -1310,7 +1310,7 @@ $icon_size: 16px;
   font-weight: 700;
   text-align: center;
 
-.osd-monitor-label { @include fontscaling($ref_size * 3.0); }
+  .osd-monitor-label { @include fontscaling($ref_size * 3.0); }
 
   .level {
     height: 4px;
@@ -1325,12 +1325,12 @@ $icon_size: 16px;
 // Window list (windowList.js)
 //
 .window-list {
-
   &-box {
     spacing: 6px;
     padding-left: 10px;
 
     .panel-bottom & { padding-top: 1px; }
+
     .panel-top & { padding-bottom: 1px; }
   }
 
@@ -1346,12 +1346,16 @@ $icon_size: 16px;
     background-image: none;
     color: $osd_secondary_fg_color;
     font-weight: 700;
-
     &:hover {
       color: $osd_fg_color;
 
-      .panel-bottom & { border-image: url("assets/panel/window-list-hover-bottom.svg") 3 3 1 3; }
-      .panel-top & { border-image: url("assets/panel/window-list-hover-top.svg") 3 3 3 1; }
+      .panel-bottom & {
+        border-image: url("assets/panel/window-list-hover-bottom.svg") 3 3 1 3;
+      }
+
+      .panel-top & {
+        border-image: url("assets/panel/window-list-hover-top.svg") 3 3 3 1;
+      }
     }
     &:active,
     &:checked,
@@ -1359,8 +1363,13 @@ $icon_size: 16px;
       &, &:hover {
         color: $osd_fg_color;
 
-        .panel-bottom & { border-image: url("assets/panel/window-list-active-bottom.svg") 3 3 1 3; }
-        .panel-top & { border-image: url("assets/panel/window-list-active-top.svg") 3 3 3 1; }
+        .panel-bottom & {
+          border-image: url("assets/panel/window-list-active-bottom.svg") 3 3 1 3;
+        }
+
+        .panel-top & {
+          border-image: url("assets/panel/window-list-active-top.svg") 3 3 3 1;
+        }
       }
     }
   }
@@ -1375,21 +1384,22 @@ $icon_size: 16px;
 // Sound Applet (status/volume.js)
 //
 .sound-button {
+  @extend %button;
   width: 22px;
   height: 13px;
   padding: 8px;
-
-  @extend %button;
 
   &-container {
     padding-right: 3px;
     padding-left: 3px;
   }
+
   StIcon { icon-size: 1.4em; }
 }
 
 .sound-track {
   &-infos { padding: 5px; }
+
   &-info {
     padding-top: 2px;
     padding-bottom: 2px;
@@ -1401,6 +1411,7 @@ $icon_size: 16px;
       padding-right: 5px;
     }
   }
+
   &-box {
     max-width: 220px;
     padding-left: 15px;
@@ -1412,6 +1423,7 @@ $icon_size: 16px;
   padding-left: 15px;
 
   StLabel { padding-top: 2px; }
+
   StIcon { icon-size: 16px; }
 }
 
@@ -1465,13 +1477,12 @@ $icon_size: 16px;
       height: 13px;
       padding: 5px;
       border-radius: 2px;
-      border: 1px solid transparentize($osd_bg_color,1);
+      border: 1px solid transparentize($osd_bg_color, 1);
       color: $osd_fg_color;
-
-      StIcon { icon-size: 16px; }
-
       &:hover{ @include button(osd-hover); }
       &:active { @include button(active); }
+
+      StIcon { icon-size: 16px; }
     }
 
     StBoxLayout { padding-top: 2px; }
@@ -1515,7 +1526,6 @@ $icon_size: 16px;
   padding-top: 4px;
   color: $selected_fg_color;
   transition-duration: 0.2s;
-
   &:outlined,
   &:outlined:hover { color: $selected_bg_color; }
   &:hover { color: transparentize($selected_bg_color, 0.5) }
@@ -1525,31 +1535,31 @@ $icon_size: 16px;
 .workspace-graph {
   padding: 3px;
   spacing: 3px;
-}
 
-.workspace-graph .workspace {
-  border: 1px solid transparentize(black, 0.6);
-  background-gradient-direction: none;
-  background-color: transparentize(black, 0.8);
-}
+  .workspace {
+    border: 1px solid transparentize(black, 0.6);
+    background-gradient-direction: none;
+    background-color: transparentize(black, 0.8);
+  }
 
-.workspace-graph .workspace:active {
-  border: 1px solid $selected_bg_color;
-  background-gradient-direction: none;
-}
+  .workspace:active {
+    border: 1px solid $selected_bg_color;
+    background-gradient-direction: none;
+  }
 
-.workspace-graph .workspace .windows {
-  -active-window-background: lighten($osd_bg_color, 15%);
-  -active-window-border: rgba(0, 0, 0, 0.8);
-  -inactive-window-background: lighten($osd_bg_color, 15%);
-  -inactive-window-border: rgba(0, 0, 0, 0.8);
-}
+  .workspace .windows {
+    -active-window-background: lighten($osd_bg_color, 15%);
+    -active-window-border: rgba(0, 0, 0, 0.8);
+    -inactive-window-background: lighten($osd_bg_color, 15%);
+    -inactive-window-border: rgba(0, 0, 0, 0.8);
+  }
 
-.workspace-graph .workspace:active .windows {
-  -active-window-background: lighten($osd_bg_color, 20%);
-  -active-window-border: rgba(0, 0, 0, 0.8);
-  -inactive-window-background: lighten($osd_bg_color, 5%);
-  -inactive-window-border: rgba(0, 0, 0, 0.8);
+  .workspace:active .windows {
+    -active-window-background: lighten($osd_bg_color, 20%);
+    -active-window-border: rgba(0, 0, 0, 0.8);
+    -inactive-window-background: lighten($osd_bg_color, 5%);
+    -inactive-window-border: rgba(0, 0, 0, 0.8);
+  }
 }
 
 //
@@ -1562,7 +1572,6 @@ $icon_size: 16px;
 .panel-launcher {
   margin: 2px;
   padding: 2px 6px;
-
   &:hover {
     border: 0 solid $selected_bg_color;
     background-gradient-direction: none;
@@ -1571,6 +1580,7 @@ $icon_size: 16px;
       padding-bottom: 0;
       border-bottom-width: 2px;
     }
+
     .panel-top & {
       padding-top: 0;
       border-top-width: 2px;
@@ -1583,8 +1593,9 @@ $icon_size: 16px;
 //
 #overview-corner {
   background-image: url("assets/misc/overview.svg");
-
-  &:hover { background-image: url("assets/misc/overview-hover.svg"); }
+  &:hover {
+    background-image: url("assets/misc/overview-hover.svg");
+  }
 }
 
 //
@@ -1604,7 +1615,6 @@ $icon_size: 16px;
     padding-right: 3px;
     color: $osd_secondary_fg_color;
     text-shadow: none;
-
     &:hover {
       color: $osd_fg_color;
       background-color: rgba(0, 0, 0, 0.01);
@@ -1616,7 +1626,8 @@ $icon_size: 16px;
     color: $osd_secondary_fg_color;
     font-weight: 700;
 
-    &:hover, .applet-box:hover > & {
+    &:hover,
+    .applet-box:hover > & {
       color: $osd_fg_color;
       text-shadow: none;
     }
@@ -1626,7 +1637,8 @@ $icon_size: 16px;
     icon-size: 22px;
     color: $osd_secondary_fg_color;
 
-    &:hover, .applet-box:hover > & {
+    &:hover,
+    .applet-box:hover > & {
       color: $osd_fg_color;
       text-shadow: none;
     }
@@ -1637,19 +1649,21 @@ $icon_size: 16px;
 //
 // User Applet
 //
-.user-icon {
+.user {
+  &-icon {
     width: 32px;
     height: 32px;
     border: none;
     border-radius: 0;
     background-color: transparent;
-}
+  }
 
-.user-label {
+  &-label {
     @include fontscaling($ref_size * 1.0);
     margin: 0;
     color: $fg_color;
     font-weight: 700;
+  }
 }
 
 //
@@ -1664,6 +1678,7 @@ $icon_size: 16px;
     border-image: url("assets/misc/osd.svg") 9 9 9 9;
     color: $osd_fg_color;
   }
+
   &-with-borders-and-header {
     padding: 12px;
     padding-bottom: 17px;
@@ -1673,6 +1688,7 @@ $icon_size: 16px;
     border-image: url("assets/misc/desklet.svg") 9 9 9 9;
     color: $osd_fg_color;
   }
+
   &-header {
     @include fontscaling($ref_size * 1.0);
     padding: 12px;
@@ -1680,6 +1696,7 @@ $icon_size: 16px;
     border-image: url("assets/misc/desklet-header.svg") 9 9 9 9;
     color: $osd_fg_color;
   }
+
   &-drag-placeholder { 
     border: 2px solid $accent_color;
     background-color: transparentize($accent_color, 0.2);
@@ -1706,17 +1723,22 @@ $icon_size: 16px;
 //
 // Notification Applet
 //
-.notification-applet-padding { padding: 0.5em 1em; }
+.notification-applet {
+  &-padding { padding: 0.5em 1em; }
 
-.notification-applet-container { max-height: 100px; }
+  &-container { max-height: 100px; }
+}
 
 //
 // Tile Preview
 //
-.tile-preview, .tile-preview.snap,
-.tile-hud, .tile-hud.snap {
-  border: 1px solid $accent_color;
-  background-color: transparentize($accent_color, 0.2);
+.tile-preview,
+.tile-hud {
+  &,
+  &.snap {
+    border: 1px solid $accent_color;
+    background-color: transparentize($accent_color, 0.2);
+  }
 }
 
 //
