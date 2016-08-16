@@ -320,8 +320,6 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   //
   // normal button
   //
-    box-shadow: $z-depth-1,
-                inset 0 1px $highlight_color;
     background-color: $c;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
@@ -330,14 +328,14 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
     color: $secondary_fg_color;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
   }
 
   @else if $t==hover {
   //
   // hovered button
   //
-    box-shadow: $z-depth-2,
-                inset 0 1px $highlight_color;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
@@ -345,15 +343,17 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
     color: $fg_color;
+    box-shadow: $z-depth-2,
+                inset 0 1px $highlight_color;
   }
 
   @else if $t==active {
   //
   // pushed button
   //
+    color: $fg_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
-    color: $fg_color;
     transition-duration: 0;
     animation: ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
@@ -361,28 +361,30 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   //
   // insensitive button
   //
-    box-shadow: none;
     background-color: $track_color;
     color: if($tc!=$fg_color, $insensitive_fg_color,
                               $insensitive_secondary_fg_color);
+    box-shadow: none;
+
     > .label { color: inherit; }
   }
   @else if $t==checked {
   //
   // checked button
   //
-    box-shadow: $z-depth-1,
-                inset 0 1px $highlight_color;
     background-color: $selected_bg_color;
     color: $selected_fg_color;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
   }
   @else if $t==checked-insensitive {
   //
   // checked insensitive button
   //
-    box-shadow: none;
     background-color: $track_color;
     color: gtkopacity($selected_bg_color, 0.4);
+    box-shadow: none;
+
     > .label { color: inherit; }
   }
 
@@ -390,7 +392,6 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   //
   // normal flat button
   //
-    box-shadow: none;
     background-color: transparent;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
@@ -398,18 +399,19 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                     to(gtkalpha(currentColor, 0)),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
+    box-shadow: none;
   }
   @else if $t==flat-hover {
   //
   // hovered flat button
   //
-    box-shadow: none;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
                                     to(gtkalpha(currentColor, 0)),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0.1));
+    box-shadow: none;
   }
   @else if $t==flat-active {
   //
@@ -422,8 +424,8 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   //
   // insensitive flat button
   //
-    box-shadow: none;
     background-color: transparent;
+    box-shadow: none;
   }
   @else if $t==flat-checked {
   //
@@ -483,10 +485,8 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                   $_position, 0.75,
                                   to(gtkopacity($c, 0.2)),
                                   to(transparent));
-
   background-repeat: no-repeat;
   background-position: $_position;
-
   // reset some properties to be sure to not inherit them somehow
   background-color: transparent;
   border: none;
@@ -522,15 +522,14 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
     $_bg_pos: $p center;
   }
 
-  // this is the dashed line
+  // this is the 'fader' effect
+  padding-#{$p}: 0;
   background-image: linear-gradient(to $_gradient_dir,
                                     gtkopacity($fading_color, 0.01),
                                     gtkopacity($fading_color, 0.04),
                                     gtkopacity($fading_color, 0.20),
                                     gtkopacity($fading_color, 0.44),
                                     gtkopacity($fading_color, 0.94));
-
-  padding-#{$p}: 0;
   background-size: $_fader_size;
   background-repeat: $_gradient_repeat;
   background-origin: content-box;
