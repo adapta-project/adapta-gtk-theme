@@ -682,7 +682,8 @@ $icon_size: 16px;
   spacing-columns: 0;
 
   &-month-label {
-    padding: 8px 0;
+    margin: 8px 0;
+    padding: 0;
     color: $fg_color;
     font-weight: 700;
   }
@@ -691,6 +692,13 @@ $icon_size: 16px;
   &-change-month-forward {
     width: 16px;
     height: 16px;
+    padding: 2px;
+    border-radius: 100px;
+    &:focus,
+    &:hover {
+      background-color: $semi_fill_color;
+    }
+    &:active { background-color: $fill_color; }
   }
 
   // arrow back
@@ -748,21 +756,39 @@ $icon_size: 16px;
     @include fontscaling($ref_size * 0.8);
     width: 25px;
     height: 25px;
-    padding: 0.1em;
+    padding: 0;
     margin: 2px;
-    border-radius: 12.5px;
+    border-radius: 25px;
     text-align: center;
   }
 
   &-heading {
     @include fontscaling($ref_size * 0.7);
-    margin-top: 1em;
+    width: 25px;
+    height: 20px;
+    margin-top: 2px;
+    padding: 5px 0 0;
+    background-color: transparent;
     color: $dim_fg_color;
+    font-weight: 700;
+    text-align: center;
   }
 
   &-top { border-top-width: 0; }
 
   &-left { border-left-width: 0; }
+}
+
+.calendar-week-number {
+  width: 25px;
+  height: 20px;
+  margin: 2px;
+  padding: 5px 0 0;
+  background-color: transparent;
+  color: $dim_fg_color;
+  font-weight: 700;
+  font-size: inherit;
+  text-align: center;
 }
 
 .calendar-nonwork-day {
