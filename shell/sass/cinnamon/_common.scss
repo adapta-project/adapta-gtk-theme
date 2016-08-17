@@ -13,15 +13,15 @@
 }
 
 $font-family: Noto Sans, Cantarell, Sans-Serif;
-$_bubble_bg_color: opacify($osd_bg_color,0.1);
+$_bubble_bg_color: opacify($osd_bg_color, 0.1);
 $_bubble_fg_color: $osd_fg_color;
 $_bubble_borders_color: $borders_color;
 
 stage {
-  font-family: $font-family;
-  font-weight: 400;
   @include fontscaling($ref_size);
   color: $fg_color;
+  font-family: $font-family;
+  font-weight: 400;
 }
 
 .label-shadow {
@@ -606,14 +606,14 @@ $icon_size: 16px;
   }
 }
 
-//  .workspace-thumbnail-indicator {
-//    outline: 2px solid red;
-//    border: 1px solid green;
-//  }
+// .workspace-thumbnail-indicator {
+//   outline: 2px solid red;
+//   border: 1px solid green;
+// }
 //
-//  .window-close:rtl {
-//    -st-background-image-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-//  }
+// .window-close:rtl {
+//   -st-background-image-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+// }
 
 .window-close-area {
   width: 400px;
@@ -621,9 +621,11 @@ $icon_size: 16px;
   background-image: url("assets/misc/trash-icon.svg");
 }
 
-//
-// About Dialog (applet.js and desklet.js)
-//
+
+/*******************************************
+ * About Dialog (applet.js and desklet.js) *
+ *******************************************/
+
 .about {
   &-content {
     width: 550px;
@@ -673,9 +675,10 @@ $icon_size: 16px;
 }
 
 
-//
-// Calendar 
-//
+/************
+ * Calendar *
+ ************/
+
 .calendar {
   padding: 0.4em 1.75em;
   spacing-rows: 0;
@@ -1060,7 +1063,11 @@ $icon_size: 16px;
   }
 }
 
-// CinnamonMountOperation Dialogs
+
+/**********************************
+ * CinnamonMountOperation Dialogs *
+ **********************************/
+
 .cinnamon-mount-operation-icon {
   icon-size: 48px;
 }
@@ -1186,9 +1193,11 @@ $icon_size: 16px;
  * Cinnamon Specific Section *
  *****************************/
 
-//
-// Menu (menu.js)
-//
+
+/******************
+ * Menu (menu.js) *
+ ******************/
+
 .menu {
   &-favorites-box {
     margin: auto;
@@ -1267,8 +1276,10 @@ $icon_size: 16px;
       color: $insensitive_fg_color;
     }
 
-    &-label:ltr { padding-left: 5px; }
-    &-label:rtl { padding-right: 5px; }
+    &-label {
+      &:ltr { padding-left: 5px; }
+      &:rtl { padding-right: 5px; }
+    }
   }
 
   // Name and description of the currently hovered item in the menu
@@ -1310,9 +1321,11 @@ $icon_size: 16px;
 .menu-context-menu {
 }
 
-//
-// OSD
-//
+
+/*******
+ * OSD *
+ *******/
+
 .info-osd {
   spacing: 1em;
   padding: 16px;
@@ -1347,9 +1360,11 @@ $icon_size: 16px;
   }
 }
 
-//
-// Window list (windowList.js)
-//
+
+/*******************************
+ * Window list (windowList.js) *
+ *******************************/
+
 .window-list {
   &-box {
     spacing: 6px;
@@ -1406,9 +1421,11 @@ $icon_size: 16px;
   }
 }
 
-///
-// Sound Applet (status/volume.js)
-//
+
+/***********************************
+ * Sound Applet (status/volume.js) *
+ ***********************************/
+
 .sound-button {
   @extend %button;
   width: 22px;
@@ -1531,9 +1548,11 @@ $icon_size: 16px;
   }
 }
 
-//
-// Workspace Switcher applet (workspaceSwitcher.js)
-//
+
+/****************************************************
+ * Workspace Switcher applet (workspaceSwitcher.js) *
+ ****************************************************/
+
 #workspaceSwitcher {
   spacing: 0;
   padding: 3px;
@@ -1588,9 +1607,11 @@ $icon_size: 16px;
   }
 }
 
-//
-// Panel Launchers Applet (panelLaunchers.js)
-//
+
+/**********************************************
+ * Panel Launchers Applet (panelLaunchers.js) *
+ **********************************************/
+
 #panel-launchers-box {
   padding: 0 7px;
 }
@@ -1614,9 +1635,10 @@ $icon_size: 16px;
   }
 }
 
-//
-// Overview corner
-//
+/*******************
+ * Overview corner *
+ *******************/
+
 #overview-corner {
   background-image: url("assets/misc/overview.svg");
   &:hover {
@@ -1624,9 +1646,11 @@ $icon_size: 16px;
   }
 }
 
-//
-// Applets (applet.js) 
-//
+
+/***********************
+ * Applets (applet.js) *
+ ***********************/
+
 .applet {
   &-separator { padding: 1px 4px; }
 
@@ -1672,9 +1696,11 @@ $icon_size: 16px;
 
 }
 
-//
-// User Applet
-//
+
+/***************
+ * User Applet *
+ ***************/
+
 .user {
   &-icon {
     width: 32px;
@@ -1692,9 +1718,11 @@ $icon_size: 16px;
   }
 }
 
-//
-// Desklets (desklet.js) 
-//
+
+/*************************
+ * Desklets (desklet.js) *
+ *************************/
+
 .desklet {
   color: $osd_secondary_fg_color;
 
@@ -1736,9 +1764,11 @@ $icon_size: 16px;
   color: $osd_fg_color;
 }
 
-//
-// Workspace OSD
-//
+
+/*****************
+ * Workspace OSD *
+ *****************/
+
 .workspace-osd { // FIXME
   @include fontscaling($ref_size * 3.6);
   // color: red;
@@ -1746,18 +1776,22 @@ $icon_size: 16px;
   font-weight: 700;
 }
 
-//
-// Notification Applet
-//
+
+/***********************
+ * Notification Applet *
+ ***********************/
+
 .notification-applet {
   &-padding { padding: 0.5em 1em; }
 
   &-container { max-height: 100px; }
 }
 
-//
-// Tile Preview
-//
+
+/****************
+ * Tile Preview *
+ ****************/
+
 .tile-preview,
 .tile-hud {
   &,
@@ -1767,9 +1801,11 @@ $icon_size: 16px;
   }
 }
 
-//
-// Xkcd Desklet
-//
+
+/****************
+ * Xkcd Desklet *
+ ****************/
+
 .xkcd-box {
   padding: 6px;
   border: none;;
