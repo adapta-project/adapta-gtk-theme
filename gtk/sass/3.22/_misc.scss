@@ -518,6 +518,51 @@ window > box.vertical > box.vertical > toolbar {
   }
 }
 
+// hard-coded spacing depends on non-scalable unit,
+// seems cover-art widget is the most biggest thing?
+$album_art: 54px;
+$min_circle: 24px;
+$toolitem_margin: ($album_art - $min_circle) * 0.5;
+
+window > box.vertical > toolbar.primary-toolbar {
+  toolitem {
+    &:first-child { // 'prev/play/next'
+      .linked > button.image-button.raised {
+        min-width: $min_circle * 2.0;
+        min-height: $min_circle * 2.0;
+        margin: 0;
+        padding: 0;
+
+        > widget > box > image { padding: 0; }
+      }
+    }
+
+    .linked > button.image-button.raised { // 'shuffle/repeat'
+      min-width: $min_circle * 1.5;
+      min-height: $min_circle * 1.5;
+      padding: 0;
+    }
+
+    button.flat.scale { // 'volume'
+      min-width: $min_circle;
+      min-height: $min_circle;
+      margin-top: $toolitem_margin;
+      margin-bottom: $toolitem_margin;
+      padding: 0;
+    }
+
+    &:last-child { // 'gear'
+      button.popup.raised.toggle {
+        min-width: $min_circle * 1.5;
+        min-height: $min_circle * 1.5;
+        padding: 0;
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+      }
+    }
+  }
+}
+
 
 /**************
  * Calculator *

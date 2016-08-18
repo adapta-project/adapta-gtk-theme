@@ -1613,6 +1613,18 @@ toolbar {
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
+
+      &.raised.toggle,
+      &.toggle { // revive underlines
+        &:checked {
+          border-image: -gtk-gradient(radial,
+                                      center bottom, 0,
+                                      center bottom, 0.5,
+                                      to($selected_bg_color),
+                                      to(transparent))
+                                      0 0 2 / 0 0 2px;
+        }
+      }
     }
 
     .image-button {
