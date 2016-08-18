@@ -2035,8 +2035,8 @@ headerbar {
   }
 
   &.default-decoration {
-    min-height: 26.7px;
-    padding: 5.3px;
+    min-height: 28px;
+    padding: 3px 2px 2px;
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -2045,8 +2045,8 @@ headerbar {
     }
 
     button.titlebutton {
-      min-width: 26.7px;
-      min-height: 26.7px;
+      min-width: 28px;
+      min-height: 28px;
       margin: 0;
       padding: 0;
       color: $inverted_secondary_fg_color;
@@ -5377,6 +5377,9 @@ decoration {
 // specific button styling for SSDs
 .ssd .titlebar {
   button.titlebutton {
+    min-width: 28px;
+    min-height: 28px;
+
     &.close,
     &.minimize,
     &.maximize { // reset styling
@@ -5391,14 +5394,16 @@ decoration {
       &:active:backdrop { color: transparent; }
     }
 
+    // tiny 2px padding causes truncation of shadows,
+    // so elevate down to depth-1 at hover/active.
     @each $_class,
           $_state,
           $_shadow in ('', '', none),
-                      (':hover', '-hover', $z-depth-2),
-                      (':active', '-active', $z-depth-2),
+                      (':hover', '-hover', $z-depth-1),
+                      (':active', '-active', $z-depth-1),
                       (':backdrop', '-backdrop', none),
-                      (':backdrop:hover', '-backdrop-hover', $z-depth-2),
-                      (':backdrop:active', '-backdrop-active', $z-depth-2) {
+                      (':backdrop:hover', '-backdrop-hover', $z-depth-1),
+                      (':backdrop:active', '-backdrop-active', $z-depth-1) {
       &.close#{$_class} {
         background-image: -gtk-scaled(
                           url("assets/window-close-ssd#{$_state}.png"),
@@ -5452,16 +5457,11 @@ decoration {
   }
 }
 
-.ssd decoration .titlebar {
-  // shrink titlebar height for SSD
-  button.titlebutton {
-    min-width: 26.7px;
-    min-height: 26.7px;
-    padding: 0;
-  }
-}
 
-// catch all extend :)
+/***********************
+ * catch all extend :) *
+ ***********************/
+
 %selected_items {
   background-color: $selected_bg_color;
 
