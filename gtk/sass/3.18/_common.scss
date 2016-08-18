@@ -1583,7 +1583,7 @@ GtkComboBox {
   }
 
   &.default-decoration { // FIXME: do not use scalable units
-    padding: 5.3px;
+    padding: 3px 2px 2px;
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -3946,14 +3946,16 @@ GtkVolumeButton.button {
       &:active:backdrop { color: transparent; }
     }
 
+    // tiny 2px padding causes truncation of shadows,
+    // so elevate down to depth-1 at hover/active.
     @each $_class,
           $_state,
           $_shadow in ('', '', none),
-                      (':hover', '-hover', $z-depth-2),
-                      (':active', '-active', $z-depth-2),
+                      (':hover', '-hover', $z-depth-1),
+                      (':active', '-active', $z-depth-1),
                       (':backdrop', '-backdrop', none),
-                      (':backdrop:hover', '-backdrop-hover', $z-depth-2),
-                      (':backdrop:active', '-backdrop-active', $z-depth-2) {
+                      (':backdrop:hover', '-backdrop-hover', $z-depth-1),
+                      (':backdrop:active', '-backdrop-active', $z-depth-1) {
       &.close#{$_class} {
         background-image: -gtk-scaled(
                           url("assets/window-close-ssd#{$_state}.png"),
@@ -4007,7 +4009,10 @@ GtkVolumeButton.button {
   }
 }
 
-// catch all extend :)
+
+/***********************
+ * catch all extend :) *
+ ***********************/
 
 %selected_items {
   background-color: $selected_bg_color;
