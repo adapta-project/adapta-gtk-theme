@@ -2509,12 +2509,12 @@ $legacy_icon_size: 24px;
  * Login Dialog *
  ****************/
 
-.login-dialog-banner-view {
-  max-width: 23em;
-  padding-top: 24px;
-}
-
 .login-dialog {
+  &-banner-view {
+    max-width: 23em;
+    padding-top: 24px;
+  }
+
   // reset
   border: none;
   background-color: transparent;
@@ -2538,65 +2538,45 @@ $legacy_icon_size: 24px;
     @include fontscaling($ref_size * 1.1);
     padding: 7px 16px 8px;
     font-weight: 700;
-    @if $nokto==false {
-      @include button(flat-normal, $tc:$inverted_secondary_fg_color);
-    }
-    @else {
-      @include button(flat-normal, $tc:$secondary_fg_color);
-    }
+    @include button(flat-normal, $tc: if($nokto == 'false',
+                                      $inverted_secondary_fg_color,
+                                      $secondary_fg_color));
     &:hover,
     &:focus {
-      @if $nokto==false {
-        @include button(flat-hover, $c:$osd_semi_fill_color,
-                                    $tc:$inverted_fg_color);
-      }
-      @else {
-        @include button(flat-hover, $c:$osd_semi_fill_color,
-                                    $tc:$fg_color);
-      }
+      @include button(flat-hover, $c: $osd_semi_fill_color,
+                                  $tc: if($nokto == 'false',
+                                  $inverted_fg_color,
+                                  $fg_color));
     }
     &:active {
-      @if $nokto==false {
-        @include button(flat-active, $c:$osd_fill_color,
-                                     $tc:$inverted_fg_color);
-      }
-      @else {
-        @include button(flat-active, $c:$osd_fill_color,
-                                     $tc:$fg_color);
-      }
+      @include button(flat-active, $c: $osd_fill_color,
+                                   $tc: if($nokto == 'false',
+                                   $inverted_fg_color,
+                                   $fg_color));
     }
     &:insensitive {
-      @if $nokto==false {
-        @include button(flat-insensitive, $tc:$inverted_dim_fg_color);
-      }
-      @else {
-        @include button(flat-insensitive,
-                        $tc:$insensitive_secondary_fg_color);
-      }
+      @include button(flat-insensitive, $tc: if($nokto == 'false',
+                                        $inverted_dim_fg_color,
+                                        $insensitive_secondary_fg_color));
     }
     &:default { // raised button
-      @if $nokto==false {
-        @include button(normal, $c:$suggested_color,
-                                $tc:$inverted_fg_color);
-      }
-      @else {
-        @include button(normal, $c:$suggested_color, $tc:$fg_color);
-      }
+      @include button(normal, $c: $suggested_color,
+                              $tc: if($nokto == 'false',
+                              $inverted_fg_color,
+                              $fg_color));
       &:hover,
-      &:focus { @include button(hover, $c:$suggested_color,
-                                       $tc:$selected_fg_color);
+      &:focus {
+        @include button(hover, $c:$suggested_color,
+                               $tc:$selected_fg_color);
       }
-      &:active { @include button(active, $c:$selected_bg_color,
-                                         $tc:$selected_fg_color);
+      &:active {
+        @include button(active, $c:$selected_bg_color,
+                                $tc:$selected_fg_color);
       }
       &:insensitive {
-        @if $nokto==false {
-          @include button(flat-insensitive, $tc:$inverted_dim_fg_color);
-        }
-        @else {
-          @include button(flat-insensitive,
-                          $tc:$insensitive_secondary_fg_color);
-        }
+        @include button(flat-insensitive, $tc: if($nokto == 'false',
+                                          $inverted_dim_fg_color,
+                                          $insensitive_secondary_fg_color));
       }
     }
   }
@@ -2640,7 +2620,7 @@ $legacy_icon_size: 24px;
 
   &-user-list {
     width: 23em;
-    padding: 0.2em;
+    padding: 4px;
     spacing: 12px;
 
     &:expanded .login-dialog-user-list-item {
@@ -2661,7 +2641,7 @@ $legacy_icon_size: 24px;
   }
 
   &-user-list-item {
-    padding: 0.2em;
+    padding: 4px 4px 0;
     border-radius: 2px;
     color: $osd_secondary_fg_color;
 
