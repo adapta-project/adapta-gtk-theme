@@ -677,8 +677,21 @@ notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
   }
 }
 
+$fake-shadow-light: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.32),
+                    rgba(0, 0, 0, 0.12) 3px,
+                    rgba(0, 0, 0, 0.04) 5px,
+                    rgba(0, 0, 0, 0.01) 6px);
+$fake-shadow-dark: linear-gradient(to bottom,
+                   rgba(0, 0, 0, 0.20),
+                   rgba(0, 0, 0, 0.08) 3px,
+                   rgba(0, 0, 0, 0.02) 5px,
+                   rgba(0, 0, 0, 0.01) 6px);
+
 .gedit-document-panel { // left-side-pane
   background-color: $secondary_dark_color;
+  background-image: if($variant == 'light', $fake-shadow-light,
+                                            $fake-shadow-dark);
 
   &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
                                                    $sidebar-dark-ltr);
