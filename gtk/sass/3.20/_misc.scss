@@ -677,6 +677,46 @@ notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
   }
 }
 
+.gedit-document-panel { // left-side-pane
+  background-color: $secondary_dark_color;
+
+  &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
+  }
+  &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
+  }
+
+  row.activatable {
+    color: $secondary_fg_color;
+    background-color: transparent;
+    font-weight: 500;
+    &:hover { color: $fg_color; }
+    &:selected {
+      color: $selected_bg_color;
+      background-color: transparent;
+
+      label { color: $selected_bg_color; }
+
+      button {
+        color: gtkalpha($selected_bg_color, 0.75);
+        &:hover,
+        &:active { color: $selected_bg_color; }
+      }
+    }
+
+    // 'close' button
+    widget > box.horizontal > button.flat.small-button {
+      min-height: rem(13.3px);
+      min-width: rem(13.3px);
+      margin: rem(2.7px);
+      padding: rem(5.3px);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+    }
+  }
+}
+
 
 /***********
  * Builder *
