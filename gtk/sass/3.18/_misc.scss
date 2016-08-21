@@ -484,6 +484,60 @@ GtkApplicationWindow > GtkBox.vertical > GtkBox.vertical > .toolbar {
   box-shadow: none;
 }
 
+// improve without alternate-toolbar plugin
+GtkApplicationWindow > GtkBox.vertical {
+  .toolbar.horizontal.primary-toolbar {
+    GtkToolItem:first-child { // 'prev/play/next'
+      .linked {
+        padding: 2px 0;
+
+        > .button.image-button.raised {
+          margin: 2px;
+
+          &:first-child,
+          &:last-child { padding: 2px 3px; }
+          &:nth-child(2) { padding: 2px 0; }
+        }
+      }
+    }
+
+    .separator { -GtkWidget-wide-separators: true; }
+
+    GtkToolItem:nth-child(2) { // 'repeat/shuffle'
+      .linked {
+        padding: 8px 0;
+
+        > .button.image-button.raised {
+          padding: 3px 4px;
+        }
+      }
+    }
+
+    GtkToolItem > RBHeader {
+      > RBFadingImage {
+      }
+
+      > GtkVolumeButton.flat { // 'volume'
+        padding: 0 4px;
+        border-radius: 2px;
+        outline-radius: 2px;
+
+        > GtkImage { padding: 0; }
+      }
+    }
+
+    GtkToolItem:last-child { // 'gear'
+      padding: 8px 0;
+
+      > GtkMenuButton.button.raised {
+        padding: 3px 4px;
+        border-radius: 100px;
+        outline-radius: 100px;
+      }
+    }
+  }
+}
+
 
 /**************
  * Calculator *
