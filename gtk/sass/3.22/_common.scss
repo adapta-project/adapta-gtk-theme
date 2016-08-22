@@ -1327,7 +1327,8 @@ combobox {
 
   button.combo { // button styling
     @extend %button_flat_normal;
-    color: $secondary_fg_color;
+    // FIXME: Ephy needs fixed colours
+    color: $secondary_fixed_fg_color;
     background: transparent;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
@@ -1335,11 +1336,14 @@ combobox {
                                 to($track_color),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
+
+    .background & { color: $secondary_fg_color; }
+
     &:hover,
     &:active {
       @extend %button_flat_hover;
       border-radius: 0;
-      color: $fg_color;
+      color: $fixed_fg_color;
       background: transparent;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
@@ -1347,11 +1351,13 @@ combobox {
                                   to($selected_bg_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
+
+      .background & { color: $fg_color; }
     }
     &:disabled,
     &:checked:disabled {
       @extend %button_flat_disabled;
-      color: $insensitive_fg_color;
+      color: $insensitive_fixed_fg_color;
       background: transparent;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
@@ -1360,6 +1366,7 @@ combobox {
                                   to(transparent))
                                   0 0 1 / 0 0 1px;
 
+      .background & { color: $insensitive_fg_color; }
     }
   }
 
