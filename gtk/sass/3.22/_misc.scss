@@ -645,6 +645,54 @@ window {
       padding: rem(6.7px) rem(4px);
     }
   }
+
+  notebook > header.top { // show drop-shadows
+    @if $variant==light {
+      box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
+                  inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
+                  inset 0 -1px $borders_color;
+    }
+    @else {
+      box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
+                  inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
+                  inset 0 -1px $borders_color;
+    }
+
+    tab.reorderable-page {
+      &:hover {
+        @if $variant==light {
+          box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
+                      inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
+                      inset 0 -1px $borders_color;
+        }
+        @else {
+          box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
+                      inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
+                      inset 0 -1px $borders_color;
+        }
+      }
+      &:checked {
+        @if $variant==light {
+          box-shadow: -1px 0 2px rgba(0, 0, 0, 0.02),
+                      -1px 0 4px rgba(0, 0, 0, 0.02),
+                      1px 0 2px rgba(0, 0, 0, 0.02),
+                      1px 0 4px rgba(0, 0, 0, 0.02),
+                      inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
+                      inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
+                      inset 0 -1px $borders_color;
+        }
+        @else {
+          box-shadow: -1px 0 2px rgba(0, 0, 0, 0.02),
+                      -1px 0 4px rgba(0, 0, 0, 0.03),
+                      1px 0 2px rgba(0, 0, 0, 0.02),
+                      1px 0 4px rgba(0, 0, 0, 0.03),
+                      inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
+                      inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
+                      inset 0 -1px $borders_color;
+        }
+      }
+    }
+  }
 }
 
 paned.titlebar.horizontal {
@@ -692,11 +740,13 @@ notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
 $fake-shadow-light: linear-gradient(to bottom, rgba(0, 0, 0, 0.36),
                                                rgba(0, 0, 0, 0.15) 2px,
                                                rgba(0, 0, 0, 0.05) 4px,
-                                               rgba(0, 0, 0, 0.01) 6px);
+                                               rgba(0, 0, 0, 0.01) 6px,
+                                               transparent);
 $fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
                                               rgba(0, 0, 0, 0.08) 2px,
                                               rgba(0, 0, 0, 0.02) 3px,
-                                              rgba(0, 0, 0, 0.01) 4px);
+                                              rgba(0, 0, 0, 0.01) 4px,
+                                              transparent);
 
 .gedit-document-panel { // left-side-pane
   background-color: $secondary_dark_color;
