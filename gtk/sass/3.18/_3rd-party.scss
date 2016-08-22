@@ -541,19 +541,44 @@ $full_orientation: ((top, bottom),
   }
 
   .powerstrip {
-    border-top: 1px solid $borders_color;
-    background-color: if($variant == 'light', $dark_color,
-                      mix($dark_color, $secondary_dark_color, 50%));
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    background-color: $secondary_dark_color;
+    background-image: -gtk-gradient(linear,
+                                    left bottom,
+                                    left top,
+                      color-stop(0.48, if($variant == 'light',
+                        $dark_color,
+                        mix($dark_color, $secondary_dark_color, 50%))),
+                      color-stop(0.50, if($variant == 'light',
+                        gtkopacity($top_edge_border_color, 0.01),
+                        gtkopacity($solid_dark_borders_color, 0.4))),
+                      color-stop(0.50, transparent),
+                      to(transparent));
+    box-shadow: none;
+    transition: none;
 
-    .button {
-      padding: 1em;
-      color: $secondary_accent_color;
-      &:hover,
-      &:active,
-      &:checked { color: $accent_color; }
-      &:insensitive { color: gtkopacity($accent_color, 0.4); }
+    .button.flat.image-button { // FIXME: non-scaling unit
+      @extend %button_normal;
+      margin: 4px 8px;
+      padding: 10px;
+      color: $secondary_selected_fg_color;
+      background-color: $suggested_color;
+      &:hover {
+        @extend %button_hover;
+        color: $selected_fg_color;
+      }
+      &:active {
+        @extend %button_active;
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+      &:checked {
+        @extend %button_checked;
+        color: $secondary_selected_fg_color;
+        background-color: mix($selected_fg_color, $suggested_color, 20%);
+      }
+      &:insensitive {
+        @include button(flat-insensitive, $track_color, $insensitive_fg_color);
+      }
     }
   }
 
