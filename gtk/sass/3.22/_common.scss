@@ -2129,15 +2129,33 @@ headerbar {
         box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
                                             $sub-header-shadow-dark-ltr);
 
-        .tiled &  { @extend %tiled_integration; }
-        .maximized & { @extend %maxd_integration; }
+        .tiled &  {
+          @extend %tiled_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
+                                              $tiled-header-shadow-dark-ltr);
+        }
+
+        .maximized & {
+          @extend %maxd_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
+                                              $tiled-header-shadow-dark-ltr);
+        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
                                             $sub-header-shadow-dark-rtl);
 
-        .tiled &  { @extend %tiled_integration; }
-        .maximized & { @extend %maxd_integration; }
+        .tiled &  {
+          @extend %tiled_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
+                                              $tiled-header-shadow-dark-rtl);
+        }
+
+        .maximized & {
+          @extend %maxd_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
+                                              $tiled-header-shadow-dark-rtl);
+        }
       }
     }
   }
@@ -2166,15 +2184,33 @@ headerbar.selection-mode { // selection-mode specific
         box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
                                             $selected-header-shadow-dark-ltr);
 
-        .tiled &  { @extend %tiled_integration; }
-        .maximized & { @extend %maxd_integration; }
+        .tiled &  {
+          @extend %tiled_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
+                                              $tiled-header-shadow-dark-ltr);
+        }
+
+        .maximized & {
+          @extend %maxd_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
+                                              $tiled-header-shadow-dark-ltr);
+        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
                                             $selected-header-shadow-dark-rtl);
 
-        .tiled &  { @extend %tiled_integration; }
-        .maximized & { @extend %maxd_integration; }
+        .tiled &  {
+          @extend %tiled_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
+                                              $tiled-header-shadow-dark-rtl);
+        }
+
+        .maximized & {
+          @extend %maxd_integration;
+          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
+                                              $tiled-header-shadow-dark-rtl);
+        }
       }
     }
   }
@@ -2260,7 +2296,6 @@ window:not(.maximized):not(.tiled) {
   border-width: 2px 0 0 0;
   border-top-color: $secondary_selected_bg_color;
   background-color: $panel_bg_color;
-  box-shadow: none;
   &:backdrop { border-top-color: $track_color; }
 }
 
@@ -2269,7 +2304,6 @@ window:not(.maximized):not(.tiled) {
   border-color: $panel_bg_color;
   border-width: 1px 0 0 0;
   background-color: $panel_bg_color;
-  box-shadow: none;
 }
 
 
