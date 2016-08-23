@@ -753,7 +753,8 @@ GtkTextView { // This will get overridden by .view,
   background-color: transparent;
   color: $secondary_fg_color;
   &:hover {
-    @include button(flat-hover);
+    @extend %button_flat_hover;
+    color: $fg_color;
     &:dir(ltr) { box-shadow: inset 2px 0 $track_color; }
     &:dir(rtl) { box-shadow: inset -2px 0 $track_color; }
   }
