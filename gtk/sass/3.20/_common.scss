@@ -13,6 +13,7 @@ $attention: rem(5.3px) rem(5.3px);
 $scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
+$titlebutton_small: 28px;
 
 
 //
@@ -2058,7 +2059,7 @@ headerbar {
   }
 
   &.default-decoration {
-    min-height: 28px;
+    min-height: $titlebutton_small;
     padding: 3px 2px 2px;
     border-width: 0;
 
@@ -2068,8 +2069,8 @@ headerbar {
     }
 
     button.titlebutton {
-      min-width: 28px;
-      min-height: 28px;
+      min-width: $titlebutton_small;
+      min-height: $titlebutton_small;
       margin: 0;
       padding: 0;
       color: $inverted_secondary_fg_color;
@@ -5430,14 +5431,14 @@ decoration {
 // specific button styling for SSDs
 .ssd .titlebar {
   button.titlebutton {
-    min-width: 28px;
-    min-height: 28px;
+    min-width: $titlebutton_small;
+    min-height: $titlebutton_small;
 
     &.close,
     &.minimize,
     &.maximize { // reset styling
       color: transparent;
-      background-size: 28px 28px;
+      background-size: $titlebutton_small $titlebutton_small;
       background-repeat: no-repeat;
       background-position: center;
       background: none;
