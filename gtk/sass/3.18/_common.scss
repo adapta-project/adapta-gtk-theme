@@ -1485,9 +1485,17 @@ GtkComboBox {
       }
       &:active {
         background-color: $selected_bg_color;
-        &:insensitive { background-color: #3F4E56; }
+        &:insensitive {
+          background-color: mix($top_edge_border_color,
+                                $inverted_fg_color,
+                                95.5%);
+        }
       }
-      &:insensitive { background-color: #3F4E56; }
+      &:insensitive {
+        background-color: mix($top_edge_border_color,
+                              $inverted_fg_color,
+                              95.5%);
+      }
     }
   }
 
@@ -2418,15 +2426,18 @@ GtkSwitch {
       @include button(checked);
       &:hover { box-shadow: $z-depth-2; }
       &:insensitive {
-        @include button(checked-insensitive);
         // do not use any transparentized materials
-        background-color: if($variant == 'light', #F0F2F3, #3F4E56);
+        background-color: if($variant == 'light',
+                          mix($bg_color, $fg_color, 95.3%),
+                          mix($solid_light_borders_color, $fg_color, 95.5%));
         background-image: none;
         box-shadow: none;
       }
     }
     &:insensitive {
-      background-color: if($variant == 'light', #F0F2F3, #3F4E56);
+        background-color: if($variant == 'light',
+                          mix($bg_color, $fg_color, 95.3%),
+                          mix($solid_light_borders_color, $fg_color, 95.5%));
       background-image: none;
       box-shadow: none;
     }
@@ -3599,8 +3610,8 @@ GtkColorSwatch {
   }
 
   // indicator and keynav outline colors
-  &.color-dark { color: #FFFFFF; }
-  &.color-light { color: gtkopacity(#000000, 0.8); }
+  &.color-dark { color: $selected_fg_color; }
+  &.color-light { color: gtkopacity($panel_bg_color, 0.8); }
 
   // border color
   &.overlay,
@@ -3616,7 +3627,7 @@ GtkColorSwatch {
                                     $info_bg_color 50%,
                                     $info_bg_color 75%,
                                     $question_bg_color 75%);
-  color: #FFFFFF;
+  color: $selected_fg_color;
   }
 }
 
