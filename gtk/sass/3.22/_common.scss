@@ -5604,10 +5604,13 @@ popover.touch-selection {
 }
 
 button.circular {
-  border-radius: 9999px;
-  -gtk-outline-radius: 9999px;
+  &,
+  &.radio.text-button {
+    border-radius: 9999px;
+    -gtk-outline-radius: 9999px;
 
-  label { padding: 0; }
+    label { padding: 0; }
+  }
 }
 
 // shortcut window keys
@@ -5619,11 +5622,24 @@ button.circular {
   padding: 0 rem(6px);
   border: none;
   border-radius: 2px;
-  color: $fg_color;
-  background-color: $base_color;
-  box-shadow: $z-depth-1;
+  color: $inverted_fg_color;
+  background-color: $inverted_base_color;
+  box-shadow: $z-depth-1,
+              inset 0 1px $highlight_color;;
   font-size: 90%;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+// shortcut-window
+.background.csd > box.vertical > stack > box.vertical > box.horizontal {
+  stackswitcher.stack-switcher { // draw centric separator
+    margin: 0 rem(-120px);
+    padding: 0 rem(120px);
+    background-image: image($borders_color);
+    background-size: auto 1px;
+    background-position: center center;
+    background-repeat: repeat-x;
+  }
 }
 
 // FIXME: needs to be done widget by widget,
