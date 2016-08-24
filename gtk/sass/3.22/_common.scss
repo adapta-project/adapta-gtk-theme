@@ -1921,9 +1921,17 @@ headerbar {
     }
     &:checked slider {
       background-color: $selected_bg_color;
-      &:disabled { background-color: #3F4E56; }
+      &:disabled {
+        background-color: mix($top_edge_border_color,
+                              $inverted_fg_color,
+                              95.5%);
+      }
     }
-    &:disabled slider { background-color: #3F4E56; }
+    &:disabled slider {
+      background-color: mix($top_edge_border_color,
+                            $inverted_fg_color,
+                            95.5%);
+    }
   }
 
   // spinner spacing
@@ -3209,14 +3217,17 @@ switch {
                 inset 0 1px $highlight_color;
   }
   &:checked:disabled slider {
-    @include button(checked-insensitive);
     // do not use any transparentize
-    background-color: if($variant == 'light', #F0F2F3, #3F4E56);
+    background-color: if($variant == 'light',
+                      mix($bg_color, $fg_color, 95.3%),
+                      mix($solid_light_borders_color, $fg_color, 95.5%));
     background-image: none;
     box-shadow: none;
   }
   &:disabled slider {
-    background-color: if($variant == 'light', #F0F2F3, #3F4E56);
+    background-color: if($variant == 'light',
+                      mix($bg_color, $fg_color, 95.3%),
+                      mix($solid_light_borders_color, $fg_color, 95.5%));
     background-image: none;
     box-shadow: none;
  }
