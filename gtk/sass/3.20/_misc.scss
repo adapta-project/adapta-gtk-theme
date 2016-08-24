@@ -612,6 +612,17 @@ window {
  * Gedit *
  *********/
 
+$fake-shadow-light: linear-gradient(to bottom, rgba(0, 0, 0, 0.36),
+                                               rgba(0, 0, 0, 0.15) 2px,
+                                               rgba(0, 0, 0, 0.05) 4px,
+                                               rgba(0, 0, 0, 0.01) 6px,
+                                               transparent);
+$fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
+                                              rgba(0, 0, 0, 0.08) 2px,
+                                              rgba(0, 0, 0, 0.02) 3px,
+                                              rgba(0, 0, 0, 0.01) 4px,
+                                              transparent);
+
 .gedit-bottom-panel-paned {
   .gedit-search-slider {
     @extend toolbar.osd;
@@ -725,7 +736,8 @@ notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
   }
 }
 
-.gedit-side-panel-paned.horizontal { // gradient separator
+.gedit-side-panel-paned.horizontal {
+  // gradient separator
   separator {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
                                                  rgba(0, 0, 0, 0.11) 2px,
@@ -735,20 +747,49 @@ notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
     background-repeat: no-repeat;
     background-size: 1px auto;
   }
+
+  // 'file-browser' pane
+  > box.vertical > stack > grid.horizontal {
+    padding: rem(2.7px);
+    background-color: $secondary_dark_color;
+    background-image: if($variant == 'light', $fake-shadow-light,
+                                              $fake-shadow-dark);
+
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
+    }
+
+    > box.horizontal {  // header-part
+      margin-bottom: rem(4px);
+
+      button.image-button.small-button { // add spacers
+        margin: rem(2.7px);
+        padding: rem(5.3px);
+
+        // FIXME: why does gedit break our geometry everytime?
+        > widget > box > image { padding: 0 rem(2.7px); }
+      }
+
+      .linked > .small-button { margin: rem(2.7px) 0; }
+
+      button.popup.small-button.toggle {
+        margin: rem(2.7px);
+        padding: rem(5.3px);
+      }
+    }
+
+    > scrolledwindow { // raised widget
+      margin: rem(5.3px);
+      border-radius: 2px;
+      box-shadow: $z-depth-1;
+    }
+  }
 }
 
-$fake-shadow-light: linear-gradient(to bottom, rgba(0, 0, 0, 0.36),
-                                               rgba(0, 0, 0, 0.15) 2px,
-                                               rgba(0, 0, 0, 0.05) 4px,
-                                               rgba(0, 0, 0, 0.01) 6px,
-                                               transparent);
-$fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
-                                              rgba(0, 0, 0, 0.08) 2px,
-                                              rgba(0, 0, 0, 0.02) 3px,
-                                              rgba(0, 0, 0, 0.01) 4px,
-                                              transparent);
-
-.gedit-document-panel { // left-side-pane
+.gedit-document-panel { // 'documents' pane
   background-color: $secondary_dark_color;
   background-image: if($variant == 'light', $fake-shadow-light,
                                             $fake-shadow-dark);
