@@ -1618,3 +1618,16 @@ window > popover > stack > grid > button {
   }
 }
 
+
+/************************
+ * Gnome-control-center *
+ ************************/
+
+// network settings
+.background.csd > box.vertical > stack > box.vertical > widget {
+  notebook > stack > notebook > stack > box.vertical {
+    // use buttonbox's flat-buttons
+    > box.horizontal { @extend buttonbox; }
+  }
+}
+
