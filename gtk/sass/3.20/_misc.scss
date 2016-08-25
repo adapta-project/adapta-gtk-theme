@@ -311,6 +311,17 @@ sn-button { padding: rem(4px); }
   &:selected { text-shadow: none; }
 }
 
+.background.nautilus-window {
+  // main content pane
+  notebook > stack overlay > scrolledwindow > widget.view {
+    // some extends pull background-image for ripple-effects,
+    // but notebook node does not need that.
+    // FIXME: that caused fading colours of background
+    // even if that was completely transparent.
+    background-image: none;
+  }
+}
+
 .nautilus-canvas-item {
   border-radius: 2px;
 }
