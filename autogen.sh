@@ -14,7 +14,6 @@ if test -z "${NOCONFIGURE}"; then
     set -x
     $srcdir/configure --prefix=/usr \
                       --disable-parallel \
-                      --disable-gtk_next \
                       --disable-chrome \
                       --disable-plank \
                       "$@"
