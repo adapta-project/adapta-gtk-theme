@@ -497,6 +497,13 @@ $icon_size: 16px;
     }
   }
 
+  &-top {
+    .panel-button,
+    .panel-status-button { // flip indicators vertically
+      &:hover { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+    }
+  }
+
   * StIcon { icon-size: $icon_size; }
 }
 
@@ -1669,6 +1676,10 @@ $icon_size: 16px;
       color: $osd_fg_color;
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset 0 -2px 0 $osd_indicator_color;
+    }
+
+    .panel-top & { // flip indicators vertically
+      &:hover { box-shadow: inset 0 2px 0 $osd_indicator_color; }
     }
   }
 
