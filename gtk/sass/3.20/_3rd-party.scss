@@ -581,9 +581,9 @@ $budgie_transition: opacity 0.2s $slope_medium,
     > .linked { margin: 0 rem(10.7px); }
 
     > button.image-button { // 'gear' button
-      min-width: rem(37.3px);
-      min-height: rem(37.3px);
-      padding: 0;
+      min-width: 16px;
+      min-height: 16px;
+      padding: rem(10.7px);
     }
 
     > button.text-button { // 'exit' button
@@ -1015,10 +1015,10 @@ stack button.profile-button {
 
 headerbar.titlebar box {
   button.toggle.account-button { // left-most account-button
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
+    min-width: $icon_size;
+    min-height: $icon_size;
     // it doesn't work
-    padding: rem(6.7px) rem(10px) rem(6.7px);
+    padding: rem(6.7px) rem(10.7px) rem(6.7px);
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
@@ -1028,9 +1028,9 @@ headerbar.titlebar box {
   }
 
   button.image-button.toggle { // tweet button
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
-    padding: rem(6.7px) rem(10px) rem(6.7px);
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(10.7px);
   }
 }
 
@@ -1210,16 +1210,16 @@ headerbar.titlebar box {
 
 window > headerbar > widget > box.horizontal {
   > grid.horizontal > button.toggle.image-button {
-    min-width: rem(17.3px);
-    min-height: rem(37.3px);
-    padding: 0 rem(10px) 0;
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(10.7px);
   }
 
   > button.image-button {
-    min-width: rem(17.3px);
-    min-height: rem(37.3px);
-    margin: rem(-2px) 0;
-    padding: 0 rem(10px) 0;
+    min-width: $icon_size;
+    min-height: $icon_size;
+    margin: -2px 0;
+    padding: rem(10.7px);
   }
 }
 
@@ -1383,7 +1383,8 @@ window > paned.titlebar > headerbar.titlebar {
   button.flat {
     // FIXME: when developer will use .image-button class?
     &:not(.titlebutton):not(.image-button):not(.text-button):not(.toggle) {
-      min-width: rem(13.3px);
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding-left: rem(12px);
       padding-right: rem(12px);
     }
@@ -1440,7 +1441,14 @@ window > box.vertical > box.horizontal {
 window > box.vertical > box.background.horizontal {
   padding: rem(2.7px);
 
-  button,
+  button {
+    min-width: $widget_size;
+    min-height: $widget_size;
+    margin-left: rem(2.7px);
+    margin-right: rem(2.7px);
+    padding: 0;
+  }
+  
   scale {
     margin-left: rem(2.7px);
     margin-right: rem(2.7px);
@@ -1450,9 +1458,9 @@ window > box.vertical > box.background.horizontal {
 
   // stop using 'with-marks' sliders
   scale contents > trough > slider {
-    min-height: 20px;
-    min-width: 20px;
-    margin: -9px;
+    min-height: rem(20px, $sw: 1.0);
+    min-width: rem(20px, $sw: 1.0);
+    margin: rem(-9px, $sw: 1.0);
     background-repeat: no-repeat;
     background-position: center;
     &:not(:hover):not(:active) { background-size: $scale; }
@@ -1461,13 +1469,13 @@ window > box.vertical > box.background.horizontal {
       background-image: -gtk-scaled(url('assets/slider.png'),
                                     url('assets/slider@2.png'));
       &:hover {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider.png'),
                                       url('assets/slider@2.png'));
         background-size: 100%;
       }
       &:active {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider-active.png'),
                                       url('assets/slider-active@2.png'));
       }
@@ -1481,13 +1489,13 @@ window > box.vertical > box.background.horizontal {
       background-image: -gtk-scaled(url('assets/slider-dark.png'),
                                     url('assets/slider-dark@2.png'));
       &:hover {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider-dark.png'),
                                       url('assets/slider-dark@2.png'));
         background-size: 100%;
       }
       &:active {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider-active-dark.png'),
                                       url('assets/slider-active-dark@2.png'));
       }
