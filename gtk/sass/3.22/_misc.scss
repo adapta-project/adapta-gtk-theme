@@ -393,6 +393,18 @@ EphyWindow {
   .nautilus-window .floating-bar { color: $secondary_fg_color; }
 }
 
+// hide double-title remained in GtkHeaderBar when SSDs
+.background:not(.csd) > box.vertical > headerbar > stack {
+  > box.vertical { // title-box
+    .title { color: transparent; }
+
+    .subtitle { // move subtitlebox to center
+      margin-top: rem(-17.3px);
+      font-size: 100%;
+    }
+  }
+}
+
 
 /************
  * Seahorse *
