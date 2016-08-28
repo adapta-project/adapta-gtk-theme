@@ -56,19 +56,6 @@ $budgie_transition: opacity 0.2s $slope_medium,
 
   // used to indicate unread notifications
   .alert { color: $accent_color; }
-
-  // do no make un-clickable gaps
-  .start-region {
-    margin: -2px 0 -2px -4px;
-    &:dir(rtl) { margin: -2px -4px -2px 0; }
-  }
-
-  .center-region { margin: -2px 0 -2px 0; }
-
-  .end-region {
-    margin: -2px -4px -2px 0;
-    &:dir(rtl) { margin: -2px 0 -2px -4px; }
-  }
 }
 
 @each $along_side, $opp_side in $full_orientation {
@@ -100,8 +87,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-panel {
   button.flat.launcher {
     &, &:backdrop {
-      min-width: rem(24px);
-      min-height: rem(24px);
+      min-width: $icon_size + 8px;
+      min-height: $icon_size + 8px;
       padding: 0;
       border: 2px solid transparent;
       background-image: radial-gradient(circle farthest-corner at center,
@@ -222,9 +209,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-panel button.flat.budgie-menu-launcher {
   image {
     // override stock icon with specific one
-    min-width: 20px;
-    min-height: 20px;
-    margin: -1px 0;
+    min-width: $icon_size + 4px;
+    min-height: $icon_size + 4px;
     background-image: url("assets/show-apps.svg");
     background-position: center;
     background-repeat: no-repeat;
@@ -581,8 +567,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
     > .linked { margin: 0 rem(10.7px); }
 
     > button.image-button { // 'gear' button
-      min-width: 16px;
-      min-height: 16px;
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(10.7px);
     }
 
@@ -607,8 +593,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
     }
 
     button.flat.expander-button { // expander arrow buttons
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(10.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
@@ -886,8 +872,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-panel > box.horizontal {
   widget > button.flat {
     // use non-scaling units
-    min-width: 24px;
-    min-height: 24px;
+    min-width: $icon_size + 8px;
+    min-height: $icon_size + 8px;
     padding: 4px 0;
     border-radius: 0;
     color: $inverted_fg_color;
@@ -1438,10 +1424,10 @@ window > box.vertical > box.horizontal {
  *************/
 
 // control-bar styling
-window > box.vertical > box.background.horizontal {
+.background.csd > box.vertical > box.background.horizontal {
   padding: rem(2.7px);
 
-  button {
+  button.image-button {
     min-width: $widget_size;
     min-height: $widget_size;
     margin-left: rem(2.7px);
