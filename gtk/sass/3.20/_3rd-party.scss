@@ -1083,14 +1083,22 @@ headerbar.titlebar box {
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
                                         $toolbar-shadow-dark);
 
+    > button.flat.toggle { // 'back/forward'?
+      min-height: rem(13.3px);
+      min-width: rem(13.3px);
+      padding: rem(6.7px);
+    }
+
     .linked.raised > button,
     .raised > button {
       // path-bar widget buttons
       &, &.text-button.toggle {
-        min-height: rem(13.3px);
-        min-width: rem(13.3px);
-        padding-top: rem(5.3px);
-        padding-bottom: rem(6.7px);
+        min-height: rem(26.7px);
+        min-width: rem(26.7px);
+        padding-top: 0;
+        padding-bottom: 0;
+
+        > widget { padding: rem(4px) 0; } // GtkArrow?
       }
 
       // general circle buttons
