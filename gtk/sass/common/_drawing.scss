@@ -24,7 +24,7 @@ $ref_size: 13.33px; // = 10pt = 1em
 $ref_weight: 1;
 
 @function rem($px, $fs: $ref_size, $sw: $ref_weight) {
-  @return ($sw * ($px / $fs) + (1 - $sw) * ($px / $fs * $sw)) * 1rem;
+  @return ($px / $fs * $sw) * 1rem;
 }
 
 
