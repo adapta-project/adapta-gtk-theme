@@ -15,13 +15,14 @@
 // Generic drawing of more complex things
 //
 
+// Import key scaling coefficient defined at build-time.
+@import 'key_scale';
 
 //
 // Scaling function
 //
 
 $ref_size: 13.33px; // = 10pt = 1em
-$ref_weight: 1;
 
 @function rem($px, $fs: $ref_size, $sw: $ref_weight) {
   @return ($px / $fs * $sw) * 1rem;

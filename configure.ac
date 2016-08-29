@@ -47,6 +47,7 @@ if test x"$GLIB_COMPILE_RESOURCES" = x; then
 fi
 
 ADAPTA_COLOR_SCHEME
+ADAPTA_WEIGHTED_SCALE
 
 AC_CONFIG_FILES([ \
 	Makefile \
@@ -61,7 +62,7 @@ AC_MSG_RESULT([
         ===========================================================
 
         -----------------------------------------------------------
-        | Supported Gtk+ version: 3.20 & 3.18
+        | Supported Gtk+ version: 3.21 & 3.20 & 3.18
         -----------------------------------------------------------
 
          prefix:                 ${prefix}
@@ -83,11 +84,13 @@ AC_MSG_RESULT([
          suggestion-color:       $SUGGESTION (default: $suggestion_default)
          destruction-color:      $DESTRUCTION (default: $destruction_default)
 
+         scaling weight:         $WEIGHTED_SCALE (Default: 1.0, Gtk+ 3.2x only)
+
         -----------------------------------------------------------
         | Default DE support
         -----------------------------------------------------------
 
-         GNOME:                >= 3.20 (or 3.18)
+         GNOME:                >= 3.21 (or 3.20 or 3.18)
          Budgie-Desktop:       >= 10.2.5
 
         -----------------------------------------------------------

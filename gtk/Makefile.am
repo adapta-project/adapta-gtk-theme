@@ -924,8 +924,9 @@ CLEANFILES = \
 	$(srcdir)/asset/assets-gtk3/*.png \
 	$(srcdir)/asset/assets-gtk2.svg \
 	$(srcdir)/asset/assets-gtk3.svg \
-	$(srcdir)/sass/common/_key_colors.scss
-	$(srcdir)/gtk-2.0/colors.rc
+	$(srcdir)/sass/common/_key_colors.scss \
+	$(srcdir)/sass/common/_key_scale.scss \
+	$(srcdir)/gtk-2.0/colors.rc \
 	$(srcdir)/gtk-2.0/colors-dark.rc
 if ENABLE_GTK_NEXT
 CLEANFILES += \
