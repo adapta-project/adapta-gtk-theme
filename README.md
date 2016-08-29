@@ -197,9 +197,9 @@ Installation from Git Source
  >     Once this option was given, Adapta deals with "rem" unit convesion as 70% scaling.
  >     For example, `rem(5.3px)` is converted to `0.4rem` as default, then with this option,
  >     `0.4rem x 0.7 = 0.28rem` will be set.
- >   * This option affects to most of Gtk+ widgets (GtkScale and GtkCalendar ignores this),
- >     So some combinations of font-scaling and window-scaling may or may not see incomplete
- >     circular buttons...
+ >   * This option affects to most of Gtk+ widgets (GtkScale, GtkSwitch, GtkCheck/Radio
+ >     and GtkCalendar ignore this though), unfortunately some combinations of font-scaling
+ >     and window-scaling may or may not see incomplete circular buttons...
 
 Extra Browser Support
 ---------------------
