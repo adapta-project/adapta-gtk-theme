@@ -183,6 +183,24 @@ Installation from Git Source
  >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
 
+8. If users want to reduce the element spacing, please pass this option:
+
+ ```
+ --with-weighted-scaling      enable weighted scaling with coefficient to reduce the widget size
+ ```
+
+ > **Note:**
+ >
+ >   * This option is only for Gtk+ 3.21.x or 3.20.x (3.18.x ignores this).
+ >   * This can decrease the padding/margin in most of elements. The default coefficient
+ >     is 1.0 ( 1:1 scaling with 10pt font-size at 96 px/inch and 72 pt/inch setting.
+ >     Once this option was given, Adapta deals with "rem" unit convesion as 70% scaling.
+ >     For example, `rem(5.3px)` is converted to `0.4rem` as default, then with this option,
+ >     `0.4rem x 0.7 = 0.28rem` will be set.
+ >   * This option affects to most of Gtk+ widgets (GtkScale and GtkCalendar ignores this),
+ >     So some combinations of font-scaling and window-scaling may or may not see incomplete
+ >     circular buttons...
+
 Extra Browser Support
 ---------------------
  If users want to try experimental browser specific theming, please pass this option:
