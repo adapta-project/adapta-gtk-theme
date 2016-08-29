@@ -56,19 +56,6 @@ $budgie_transition: opacity 0.2s $slope_medium,
 
   // used to indicate unread notifications
   .alert { color: $accent_color; }
-
-  // do no make un-clickable gaps
-  .start-region {
-    margin: -2px 0 -2px -4px;
-    &:dir(rtl) { margin: -2px -4px -2px 0; }
-  }
-
-  .center-region { margin: -2px 0 -2px 0; }
-
-  .end-region {
-    margin: -2px -4px -2px 0;
-    &:dir(rtl) { margin: -2px 0 -2px -4px; }
-  }
 }
 
 @each $along_side, $opp_side in $full_orientation {
@@ -100,8 +87,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-panel {
   button.flat.launcher {
     &, &:backdrop {
-      min-width: rem(24px);
-      min-height: rem(24px);
+      min-width: $icon_size + 8px;
+      min-height: $icon_size + 8px;
       padding: 0;
       border: 2px solid transparent;
       background-image: radial-gradient(circle farthest-corner at center,
@@ -222,9 +209,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-panel button.flat.budgie-menu-launcher {
   image {
     // override stock icon with specific one
-    min-width: 20px;
-    min-height: 20px;
-    margin: -1px 0;
+    min-width: $icon_size + 4px;
+    min-height: $icon_size + 4px;
     background-image: url("assets/show-apps.svg");
     background-position: center;
     background-repeat: no-repeat;
@@ -584,9 +570,9 @@ $budgie_transition: opacity 0.2s $slope_medium,
     > .linked { margin: 0 rem(10.7px); }
 
     > button.image-button { // 'gear' button
-      min-width: rem(37.3px);
-      min-height: rem(37.3px);
-      padding: 0;
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(10.7px);
     }
 
     > button.text-button { // 'exit' button
@@ -610,8 +596,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
     }
 
     button.flat.expander-button { // expander arrow buttons
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(10.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
@@ -889,8 +875,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-panel > box.horizontal {
   widget > button.flat {
     // use non-scaling units
-    min-width: 24px;
-    min-height: 24px;
+    min-width: $icon_size + 8px;
+    min-height: $icon_size + 8px;
     padding: 4px 0;
     border-radius: 0;
     color: $inverted_fg_color;
@@ -1099,10 +1085,10 @@ stack button.profile-button {
 
 headerbar.titlebar box {
   button.toggle.account-button { // left-most account-button
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
+    min-width: $icon_size;
+    min-height: $icon_size;
     // it doesn't work
-    padding: rem(6.7px) rem(10px) rem(6.7px);
+    padding: rem(6.7px) rem(10.7px) rem(6.7px);
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
@@ -1112,9 +1098,9 @@ headerbar.titlebar box {
   }
 
   button.image-button.toggle { // tweet button
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
-    padding: rem(6.7px) rem(10px) rem(6.7px);
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(10.7px);
   }
 }
 
@@ -1294,16 +1280,16 @@ headerbar.titlebar box {
 
 window > headerbar > widget > box.horizontal {
   > grid.horizontal > button.toggle.image-button {
-    min-width: rem(17.3px);
-    min-height: rem(37.3px);
-    padding: 0 rem(10px) 0;
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(10.7px);
   }
 
   > button.image-button {
-    min-width: rem(17.3px);
-    min-height: rem(37.3px);
-    margin: rem(-2px) 0;
-    padding: 0 rem(10px) 0;
+    min-width: $icon_size;
+    min-height: $icon_size;
+    margin: -2px 0;
+    padding: rem(10.7px);
   }
 }
 
@@ -1467,9 +1453,11 @@ window > paned.titlebar > headerbar.titlebar {
   button.flat {
     // FIXME: when developer will use .image-button class?
     &:not(.titlebutton):not(.image-button):not(.text-button):not(.toggle) {
-      min-width: rem(13.3px);
-      padding-left: rem(12px);
-      padding-right: rem(12px);
+      min-height: $icon_size - 2px;
+      margin: rem(5.3px + 2px) 0;
+      padding: 0 rem(($widget_size - $icon_size - 2px) / 2);
+
+      stack > spinner.feedlist-spinner { margin: 0; }
     }
   }
 }
@@ -1521,10 +1509,17 @@ window > box.vertical > box.horizontal {
  *************/
 
 // control-bar styling
-window > box.vertical > box.background.horizontal {
+.background.csd > box.vertical > box.background.horizontal {
   padding: rem(2.7px);
 
-  button,
+  button.image-button {
+    min-width: $widget_size;
+    min-height: $widget_size;
+    margin-left: rem(2.7px);
+    margin-right: rem(2.7px);
+    padding: 0;
+  }
+
   scale {
     margin-left: rem(2.7px);
     margin-right: rem(2.7px);
@@ -1534,9 +1529,9 @@ window > box.vertical > box.background.horizontal {
 
   // stop using 'with-marks' sliders
   scale contents > trough > slider {
-    min-height: 20px;
-    min-width: 20px;
-    margin: -9px;
+    min-height: rem(20px, $sw: 1.0);
+    min-width: rem(20px, $sw: 1.0);
+    margin: rem(-9px, $sw: 1.0);
     background-repeat: no-repeat;
     background-position: center;
     &:not(:hover):not(:active) { background-size: $scale; }
@@ -1545,13 +1540,13 @@ window > box.vertical > box.background.horizontal {
       background-image: -gtk-scaled(url('assets/slider.png'),
                                     url('assets/slider@2.png'));
       &:hover {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider.png'),
                                       url('assets/slider@2.png'));
         background-size: 100%;
       }
       &:active {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider-active.png'),
                                       url('assets/slider-active@2.png'));
       }
@@ -1565,13 +1560,13 @@ window > box.vertical > box.background.horizontal {
       background-image: -gtk-scaled(url('assets/slider-dark.png'),
                                     url('assets/slider-dark@2.png'));
       &:hover {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider-dark.png'),
                                       url('assets/slider-dark@2.png'));
         background-size: 100%;
       }
       &:active {
-        margin: -9px;
+        margin: rem(-9px, $sw: 1.0);
         background-image: -gtk-scaled(url('assets/slider-active-dark.png'),
                                       url('assets/slider-active-dark@2.png'));
       }

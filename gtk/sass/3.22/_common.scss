@@ -9,6 +9,8 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 // Background sizing
 //
 
+$icon_size: 16px;
+$widget_size: 37.3px;
 $attention: rem(5.3px) rem(5.3px);
 $scale: 80%;
 $separator_narrow: 1px 1px;
@@ -337,8 +339,8 @@ buttonbox {
 }
 
 spinner {
-  min-height: rem(16px);
-  min-width: rem(16px);
+  min-height: rem($icon_size);
+  min-width: rem($icon_size);
   // FIXME: workaround for 3.20.1. Needs vertical padding more than 4px?
   padding: rem(5.3px) 0 rem(5.3px);
   margin: 0;
@@ -581,8 +583,8 @@ button {
 
   &.image-button {
     @extend %image_button;
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
+    min-width: $icon_size;
+    min-height: $icon_size;
   }
 
   &.text-button {
@@ -590,6 +592,11 @@ button {
     border-radius: 2px;
     -gtk-outline-radius: 2px;
     font-weight: 700;
+  }
+
+  &.lock {
+    padding-top: rem(9.3px);
+    padding-bottom: rem(10.7px);
   }
 
   &.text-button.image-button {
@@ -716,9 +723,11 @@ button {
   // generic switcher image buttons
   .linked > &.image-button.radio,
   .linked.vertical > &.image-button.radio {
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
-      padding: rem(8px);
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(10.7px);
+
+      image { padding: 0; }
   }
 
   // inline-toolbar and action-bar buttons
@@ -726,9 +735,9 @@ button {
   actionbar & {
     &, &:not(.text-button).image-button {
       @include button(flat-normal);
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
-      padding: rem(10px);
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(6.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       &:hover { @include button(flat-hover); }
@@ -752,17 +761,17 @@ button {
   .inline-toolbar .linked > &,
   actionbar .linked > & {
     &, &:not(.text-button).image-button {
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(6.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
 
     &.image-button.toggle {
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
-      padding: rem(8px) rem(4px) rem(8px);
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(6.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
@@ -890,7 +899,7 @@ button {
 }
 
 %image_button {
-  padding: rem(10px);
+  padding: rem(($widget_size - $icon_size - 4px) / 2);
   border-radius: 100px;
   -gtk-outline-radius: 100px;
 }
@@ -1125,9 +1134,9 @@ spinbutton {
 
     button {
       @extend %button_flat_normal;
-      min-width: rem(33.3px);
-      min-height: rem(33.3px);
-      padding: 0;
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(8.7px);
       border: solid rem(2.7px) transparent;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
@@ -1206,9 +1215,9 @@ spinbutton {
     }
 
     button {
-      min-width: rem(26.7px);
-      min-height: rem(26.7px);
-      padding: rem(2.7px);
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(8px);
       border: rem(2.7px) solid transparent;
       border-radius: 200px;
       -gtk-outline-radius: 200px;
@@ -1287,8 +1296,8 @@ spinbutton {
 combobox {
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
-    min-height: rem(16px);
-    min-width: rem(16px);
+    min-height: rem($icon_size);
+    min-width: rem($icon_size);
   }
 
   &.linked {
@@ -1321,8 +1330,8 @@ combobox {
     }
 
     image {
-      min-height: rem(16px);
-      min-width: rem(16px);
+      min-height: rem($icon_size);
+      min-width: rem($icon_size);
       padding-left: rem(4px);
       padding-right: rem(4px);
     }
@@ -1501,9 +1510,9 @@ toolbar {
       }
 
       &.image-button {
-        min-width: rem(13.3px);
-        min-height: rem(29.3px);
-        padding: 0 rem(6.7px) 0;
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(6.7px);
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
@@ -1580,9 +1589,9 @@ toolbar {
     }
 
     .image-button {
-      min-width: rem(13.3px);
-      min-height: rem(29.3px);
-      padding: 0 rem(6.7px) 0;
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(6.7px);
     }
 
     &.toggle,
@@ -1632,9 +1641,9 @@ toolbar {
     }
 
     .image-button {
-      min-width: rem(13.3px);
-      min-height: rem(29.3px);
-      padding: 0 rem(6.7px) 0;
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(6.7px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
@@ -1676,14 +1685,15 @@ searchbar,
   background-color: $secondary_dark_color;
 
   .linked > button.image-button {
-    padding-top: rem(9.3px);
-    padding-bottom: rem(10.7px);
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(10.7px);
   }
 
   button.flat.close.raised {
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
-    padding: rem(10px);
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(10.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
   }
@@ -1732,7 +1742,7 @@ headerbar {
     padding-left: rem(13.3px);
     padding-right: rem(13.3px);
     color: $inverted_secondary_fg_color;
-    font-size: 90%;
+    font-size: if($ref_weight < 1.0, 80%, 90%);
     &:backdrop { @extend .dim-label; }
   }
 
@@ -1795,24 +1805,41 @@ headerbar {
   }
 
   // adjust spacing for finer aspect-ratio
-  .linked > button {
-    &.image-button:not(.text-button) {
-      min-width: rem(37.3px);
-      min-height: rem(37.3px);
-      padding: 0;
+  button.text-button {
+    &,
+    &.lock,
+    &.toggle {
+      min-height: $icon_size;
+      padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
     }
   }
 
-  button.toggle {
-    min-width: rem(17.3px);
-    min-height: rem(37.3px);
-    padding: 0 rem(10px) 0;
+  button:not(.text-button),
+  button.image-button:not(.text-button) {
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(($widget_size - $icon_size) / 2);
+  }
 
-    label { padding: rem(9.3px) rem(8px) rem(10.7px); }
-
-    menu menuitem { // reset padding
-      label { padding: 0; }
+  .linked > button {
+    &.image-button:not(.text-button) {
+      min-width: $icon_size * 1.5;
+      min-height: $icon_size * 1.5;
+      padding: rem(($widget_size - $icon_size * 1.5 - 2px) / 2);
     }
+  }
+
+  button.toggle:not(.text-button) {
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(($widget_size - $icon_size) / 2);
+
+    // label { padding: rem(9.3px) rem(8px) rem(10.7px); }
+
+    // menu menuitem { // reset padding
+    //   label { padding: 0; }
+    // }
   }
 
   button,
@@ -1830,8 +1857,12 @@ headerbar {
     }
 
     label.text-button { // workaround for Gnome-Software
+      padding: 0;
       border-image: none;
       box-shadow: none;
+
+      &:dir(ltr) { padding-right: rem(4px); }
+      &:dir(rtl) { padding-left: rem(4px); }
     }
   }
 
@@ -1839,6 +1870,9 @@ headerbar {
   entry,
   .linked > entry,
   .linked.raised > entry {
+    min-height: $icon_size;
+    padding-top: rem(($widget_size - $icon_size - 3.7px) / 2);
+    padding-bottom: rem(($widget_size - $icon_size - 3.7px) / 2);
     color: $inverted_secondary_fg_color;
     caret-color: $inverted_secondary_fg_color;
     &:focus {
@@ -1852,6 +1886,9 @@ headerbar {
   combobox,
   .linked > combobox {
     & > entry.combo {
+      min-height: $icon_size;
+      padding-top: rem(($widget_size - $icon_size - 3.7px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 3.7px) / 2);
       color: $inverted_secondary_fg_color;
       caret-color: $inverted_secondary_fg_color;
       &:focus {
@@ -1863,6 +1900,9 @@ headerbar {
     }
 
     & > button.combo {
+      min-height: $icon_size;
+      padding-top: rem(($widget_size - $icon_size - 3.7px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 3.7px) / 2);
       color: $inverted_secondary_fg_color;
       &:hover { color: $inverted_fg_color; }
       &:checked {
@@ -1901,7 +1941,6 @@ headerbar {
 
   // switch styling
   switch {
-    margin: rem(2.7px) 0;
     color: $inverted_secondary_fg_color;
     background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
     &:checked {
@@ -2112,10 +2151,23 @@ headerbar {
   &.titlebar,
   .csd &,
   box &:only-child {
-    padding: rem(5.3px);
+    padding: 0 rem(5.3px); // only add lateral spacer
     // draw hilight and shadows
     box-shadow: if($variant == 'light', $header-shadow-light,
                                         $header-shadow-dark);
+
+    button, // set spacer with vertical margin
+    entry,
+    spinbutton,
+    scale,
+    spinner { margin: rem(5.3px) 0; }
+
+    switch { margin: rem(8px) 0; }
+
+    box.vertical > label {
+      &.title,
+      &.subtitle { margin: rem(-2.7px) 0; }
+    }
 
     .tiled &  { @extend %tiled_integration; }
     .maximized & { @extend %maxd_integration; }
@@ -2348,9 +2400,9 @@ window:not(.maximized):not(.tiled) {
 
     image { padding: rem(1.3px) rem(5.3px) 0; }
 
-    &.slider-button, // FIXME: workaround for Nautilus 3.20.0
+    &.slider-button, // workaround for Nautilus 3.20.0
     &.image-button.text-button.toggle {
-      min-height: rem(17.3px);
+      min-height: $icon_size;
       padding: 0 rem(1.3px) 0;
       -gtk-outline-radius: 2px;
     }
@@ -2606,8 +2658,8 @@ menu {
 
     // submenu indicators
     arrow {
-      min-height: rem(16px);
-      min-width: rem(16px);
+      min-height: rem($icon_size);
+      min-width: rem($icon_size);
 
       &:dir(ltr) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
@@ -2629,8 +2681,8 @@ menu {
 
   > arrow { // overflow buttons
     @extend button.flat;
-    min-height: rem(16px);
-    min-width: rem(16px);
+    min-height: rem($icon_size);
+    min-width: rem($icon_size);
     padding: rem(4px);
     border-style: none;
     border-radius: 0;
@@ -2935,8 +2987,8 @@ notebook {
     }
     & > tabs > arrow {
       transition: none;
-      min-height: rem(16px);
-      min-width: rem(16px);
+      min-height: rem($icon_size);
+      min-width: rem($icon_size);
       margin: 0 rem(6.7px);
       border-radius: 0;
       color: $tertiary_fg_color;
@@ -2948,8 +3000,8 @@ notebook {
     &.top, &.bottom,
     &.left, &.right { // button outside the tabs
       button {
-        min-height: rem(16px);
-        min-width: rem(16px);
+        min-height: rem($icon_size);
+        min-width: rem($icon_size);
         padding: 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
@@ -2989,8 +3041,8 @@ notebook {
 
     button { // tab close button
       @extend %button_flat_normal;
-      min-width: rem(16px);
-      min-height: rem(16px);
+      min-width: rem($icon_size);
+      min-height: rem($icon_size);
       padding: 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
@@ -3015,8 +3067,8 @@ notebook {
 
     // special case for Gedit's tab 'close' button
     button.flat.image-button.small-button {
-      min-width: rem(16px);
-      min-height: rem(16px);
+      min-width: rem($icon_size);
+      min-height: rem($icon_size);
       padding: 0;
       // weird wdiget gets in our way
       & > widget > box > image { padding: rem(6.7px); }
@@ -3527,8 +3579,8 @@ radiobutton.text-button {
 
 radio,
 check {
-  min-width: rem(16px);
-  min-height: rem(16px);
+  min-width: rem($icon_size);
+  min-height: rem($icon_size);
   // margin: 0 rem(6.7px) 0 rem(6.7px);
   margin: rem(-10px) rem(-3.3px);
   padding: rem(10px);
@@ -3546,8 +3598,8 @@ check {
   }
 
   menu menuitem & {
-    min-width: rem(16px);
-    min-height: rem(16px);
+    min-width: rem($icon_size);
+    min-height: rem($icon_size);
     margin: 0;
     padding: 0;
     &:dir(ltr) { margin-right: rem(8px); }
@@ -3641,8 +3693,8 @@ check {
   }
 }
 
-$_marks_lenght: rem(6px);
-$_marks_distance: rem(6px);
+$_marks_lenght: rem(6px, $sw: 1.0);
+$_marks_distance: rem(6px, $sw: 1.0);
 
 scale {
   // remove ugly outlines
@@ -3656,9 +3708,9 @@ scale {
     outline-width: 0;
   }
 
-  min-height: rem(10px);
-  min-width: rem(10px);
-  padding: rem(10px);
+  min-height: rem(10px, $sw: 1.0);
+  min-width: rem(10px, $sw: 1.0);
+  padding: rem(10px, $sw: 1.0);
 
   &.fine-tune {
     // remove ugly outlines
@@ -3666,19 +3718,19 @@ scale {
     outline-offset: 0;
     outline-width: 0;
     &.horizontal {
-      padding-top: rem(9px);
-      padding-bottom: rem(9px);
-      min-height: rem(10px);
+      min-height: rem(10px, $sw: 1.0);
+      padding-top: rem(9px, $sw: 1.0);
+      padding-bottom: rem(9px, $sw: 1.0);
     }
 
     &.vertical {
-      padding-left: rem(9px);
-      padding-right: rem(9px);
-      min-width: rem(10px);
+      min-width: rem(10px, $sw: 1.0);
+      padding-left: rem(9px, $sw: 1.0);
+      padding-right: rem(9px, $sw: 1.0);
     }
 
     // to make the trough grow in fine-tune mode
-    slider { margin: rem(-9px); }
+    slider { margin: rem(-9px, $sw: 1.0); }
 
     highlight,
     fill,
@@ -3687,9 +3739,9 @@ scale {
   }
 
   slider {
-    min-height: rem(20px);
-    min-width: rem(20px);
-    margin: rem(-9px);
+    min-height: rem(20px, $sw: 1.0);
+    min-width: rem(20px, $sw: 1.0);
+    margin: rem(-9px, $sw: 1.0);
 
     &:not(:hover):not(:active) {
       background-size: $scale;
@@ -3869,44 +3921,44 @@ scale { // scales for colour
     }
 
     &.horizontal {
-      padding: 0 0 rem(10px) 0;
-
-      trough { padding-bottom: rem(5px); }
+      padding: 0 0 rem(10px, $sw: 1.0) 0;
+ 
+      trough { padding-bottom: rem(5px, $sw: 1.0); }
 
       slider {
         &, &:hover, &:disabled {
           @extend %scale-has-marks-above-horz;
-          margin-top: rem(5px);
-          margin-bottom: rem(-10px);
+          margin-top: rem(5px, $sw: 1.0);
+          margin-bottom: rem(-10px, $sw: 1.0);
         }
       }
     }
 
     &.vertical {
       &:dir(ltr) {
-        padding: 0 0 0 rem(10px);
+        padding: 0 0 0 rem(10px, $sw: 1.0);
 
-        trough { padding-left: rem(5px); }
+        trough { padding-left: rem(5px, $sw: 1.0); }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-below-vert;
-            margin-left: rem(-10px);
-            margin-right: rem(5px);
+            margin-left: rem(-10px, $sw: 1.0);
+            margin-right: rem(5px, $sw: 1.0);
           }
         }
       }
 
       &:dir(rtl) {
-        padding: 0 rem(10px) 0 0;
+        padding: 0 rem(10px, $sw: 1.0) 0 0;
 
-        trough { padding-right: rem(5px); }
+        trough { padding-right: rem(5px, $sw: 1.0); }
 
         slider {
           &, &:hover, &:disabled {
             @extend %scale-has-marks-above-vert;
-            margin-left: rem(5px);
-            margin-right: rem(-10px);
+            margin-left: rem(5px, $sw: 1.0);
+            margin-right: rem(-10px, $sw: 1.0);
           }
         }
       }
@@ -3914,39 +3966,39 @@ scale { // scales for colour
 
     &.fine-tune {
       &.horizontal {
-        padding: 0 0 rem(10px) 0;
+        padding: 0 0 rem(10px, $sw: 1.0) 0;
 
-        trough { padding-bottom: rem(5px); }
+        trough { padding-bottom: rem(5px, $sw: 1.0); }
 
         slider {
           @extend %scale-has-marks-above-horz-fine-tune;
-          margin-top: rem(5px);
-          margin-bottom: rem(-10px);
+          margin-top: rem(5px, $sw: 1.0);
+          margin-bottom: rem(-10px, $sw: 1.0);
         }
       }
 
       &.vertical {
         &:dir(ltr) {
-          padding: 0 0 0 rem(10px);
+          padding: 0 0 0 rem(10px, $sw: 1.0);
 
-          trough { padding-left: rem(5px); }
+          trough { padding-left: rem(5px, $sw: 1.0); }
 
           slider {
             @extend %scale-has-marks-below-vert-fine-tune;
-            margin-left: rem(-10px);
-            margin-right: rem(5px);
+            margin-left: rem(-10px, $sw: 1.0);
+            margin-right: rem(5px, $sw: 1.0);
           }
         }
 
         &:dir(rtl) {
-          padding: 0 rem(10px) 0 0;
+          padding: 0 rem(10px, $sw: 1.0) 0 0;
 
-          trough { padding-right: rem(5px); }
+          trough { padding-right: rem(5px, $sw: 1.0); }
 
           slider {
             @extend %scale-has-marks-above-vert-fine-tune;
-            margin-left: rem(5px);
-            margin-right: rem(-10px);
+            margin-left: rem(5px, $sw: 1.0);
+            margin-right: rem(-10px, $sw: 1.0);
           }
         }
       }
@@ -3955,28 +4007,36 @@ scale { // scales for colour
 }
 
 %scale_marks_above_horz {
-  margin: rem(-15px) rem(-10px) rem(-10px) rem(-10px);
+  margin: rem(-15px, $sw: 1.0) rem(-10px, $sw: 1.0)
+          rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0);
 }
 %scale_marks_below_horz {
-  margin: rem(-10px) rem(-10px) rem(-15px) rem(-10px);
+  margin: rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0)
+          rem(-15px, $sw: 1.0) rem(-10px, $sw: 1.0);
 }
 %scale_marks_above_vert {
-  margin: rem(-10px) rem(-10px) rem(-10px) rem(-15px);
+  margin: rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0)
+          rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0);
 }
 %scale_marks_below_vert {
-  margin: rem(-10px) rem(-15px) rem(-10px) rem(-10px);
+  margin: rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0)
+          rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0);
 }
 %scale_marks_above_horz_ft {
-  margin: rem(-15px) rem(-10px) rem(-10px) rem(-10px);
+  margin: rem(-15px, $sw: 1.0) rem(-10px, $sw: 1.0)
+          rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0);
 }
 %scale_marks_below_horz_ft {
-  margin: rem(-10px) rem(-10px) rem(-15px) rem(-10px);
+  margin: rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0)
+          rem(-15px, $sw: 1.0) rem(-10px, $sw: 1.0);
 }
 %scale_marks_above_vert_ft {
-  margin: rem(-10px) rem(-10px) rem(-10px) rem(-15px);
+  margin: rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0)
+          rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0);
 }
 %scale_marks_below_vert_ft {
-  margin: rem(-10px) rem(-15px) rem(-10px) rem(-10px);
+  margin: rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0)
+          rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0);
 }
 
 
@@ -4265,8 +4325,8 @@ row {
   & button.image-button { padding: rem(8px); }
 
   & button.circular {
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
+    min-width: $icon_size;
+    min-height: $icon_size;
     padding: rem(8px);
   }
 }
@@ -4349,8 +4409,8 @@ expander {
 
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-    min-width: rem(16px);
-    min-height: rem(16px);
+    min-width: rem($icon_size);
+    min-height: rem($icon_size);
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
@@ -4382,7 +4442,7 @@ calendar {
     background-color: transparent;
     background-image: -gtk-scaled(url("assets/calendar-day-selected.png"),
                                   url("assets/calendar-day-selected@2.png"));
-    background-size: rem(19.3px) rem(19.3px);
+    background-size: rem(19.3px, $sw: 1.0) rem(19.3px, $sw: 1.0);
     background-position: center top;
     background-repeat: no-repeat;
   }
@@ -4908,9 +4968,9 @@ infobar {
 
       &.image-button:not(.text-button),
       &.close {
-        min-height: rem(13.3px);
-        min-width: rem(13.3px);
-        padding: rem(10px);
+        min-height: $icon_size;
+        min-width: $icon_size;
+        padding: rem(10.7px);
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
@@ -5196,9 +5256,9 @@ button.flat.scale { // standalone Speaker/Mic buttons
   // with the image-button/text-button classes automagically applied
   // depending on the button child these selectors can be deleted.
   // @extend %image_button;
-  min-width: rem(17.3px);
-  min-height: rem(17.3px);
-  padding: rem(10px);
+  min-width: $icon_size;
+  min-height: $icon_size;
+  padding: rem(10.7px);
   border-radius: 100px;
   -gtk-outline-radius: 100px;
 }
@@ -5214,8 +5274,8 @@ button.flat.scale { // standalone Speaker/Mic buttons
   transition: none;
 
   button {
-    min-height: rem(13.3px);
-    min-width: rem(13.3px);
+    min-height: $icon_size;
+    min-width: $icon_size;
     padding: rem(4px);
     margin: 0 rem(4px);
     color: $secondary_accent_color;
@@ -5226,8 +5286,8 @@ button.flat.scale { // standalone Speaker/Mic buttons
   }
 
   spinner {
-    min-height: rem(12px);
-    min-width: rem(12px);
+    min-height: $icon_size - 4px;
+    min-width: $icon_size - 4px;
     padding: rem(6.7px) 0 rem(6.7px);
     margin: 0 rem(-1px);
   }
@@ -5342,9 +5402,9 @@ decoration {
   &.selection-mode button.titlebutton {
     @extend %fade_effect;
     @extend button.flat;
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
-    padding: rem(10px);
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(($widget_size - $icon_size) / 2);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     
@@ -5356,10 +5416,10 @@ decoration {
       &:active:backdrop { opacity: 1.0; }
 
       > image {
-        min-height: 16px;
-	min-width: 16px;
+        min-height: $icon_size;
+        min-width: $icon_size;
         color: transparent;
-        background-size: 16px 16px;
+        background-size: $icon_size $icon_size;
         background-repeat: no-repeat;
         background-position: center;
       }
@@ -5606,6 +5666,9 @@ popover.touch-selection {
 button.circular {
   &,
   &.radio.text-button {
+    min-height: $icon_size;
+    min-width: $icon_size;
+    padding: rem(10.7px);
     border-radius: 9999px;
     -gtk-outline-radius: 9999px;
 
@@ -5654,9 +5717,9 @@ button.circular {
 // FIXME: aggregate with buttons
 stackswitcher button.circular,
 stackswitcher button.text-button.circular {
-  min-width: rem(37.3px);
-  min-height: rem(37.3px);
-  padding: 0;
+  min-width: $icon_size;
+  min-height: $icon_size;
+  padding: rem(($widget_size - $icon_size) / 2);
 }
 
 // undershoot for speciic-cases

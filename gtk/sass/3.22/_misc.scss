@@ -372,6 +372,10 @@ NautilusTrashBar {
 .geary-titlebar-right {
   // stop double-shadows on right paned header-bar
   box-shadow: none;
+
+  button.image-button:not(.text-button):not(.titlebutton) { // need to override geoemtry
+    padding: rem(($widget_size - $icon_size - 8px - 2px) / 2)
+             rem(($widget_size - $icon_size - 8px + 2px) / 2);
 }
 
 window box > paned > overlay > scrolledwindow {
@@ -596,8 +600,8 @@ window {
       @extend button.flat;
       min-width: rem(13.3px);
       min-height: rem(13.3px);
-      padding: 0.75em 1em 0.75em;  // FIXME: broken in 12pt fonts?
-      border: 0.75em solid transparent;
+      padding: rem(10.7px) rem(13.3px) rem(10.7px);  // FIXME: broken in 12pt fonts?
+      border: rem(10.7px) solid transparent;
       border-radius: 2px;
       font-weight: 700;
 
@@ -673,8 +677,8 @@ $fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
 
     button,
     .linked > button {
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(6.7px) rem(4px);
     }
   }
@@ -851,8 +855,8 @@ notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
 
     // 'close' button
     widget > box.horizontal > button.flat.small-button {
-      min-height: rem(13.3px);
-      min-width: rem(13.3px);
+      min-height: $icon_size;
+      min-width: $icon_size;
       margin: rem(2.7px);
       padding: rem(5.3px);
       border-radius: 100px;
@@ -1324,8 +1328,6 @@ window > box.vertical > grid.vertical > stack {
  **********/
 
 window.background {
-  padding: rem(5.3px);
-
   > box.vertical > box.horizontal {
     > widget > label {
       color: $fixed_fg_color;
@@ -1333,8 +1335,8 @@ window.background {
     }
 
     > button.flat:not(.image-button):not(.text-button):not(.toggle):not(.scale) {
-      min-width: rem(13.3px);
-      min-height: rem(13.3px);
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(10.7px);
       border: none;
       border-radius: 100px;
@@ -1527,9 +1529,9 @@ window stack > frame > frame > grid.horizontal > grid.horizontal {
   }
 
   button.osd {
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
-    padding: rem(13.3px);
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem($icon_size);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     background-color: gtkopacity($dark_color, 0.9);
@@ -1570,9 +1572,9 @@ window headerbar > box.horizontal {
     &:not(.toggle):not(.popup):not(.color):not(.titlebutton) {
       &:not(.destructive-action):not(.suggested-action) {
         // 'list/grid' view changer
-        min-width: rem(26.7px);
-        padding-left: rem(6.7px);
-        padding-right: rem(6.7px);
+        min-width: $icon_size;
+        min-width: $icon_size;
+        padding: rem(($widget_size - $icon_size) / 2);
       }
     }
   }
@@ -1580,9 +1582,9 @@ window headerbar > box.horizontal {
   > button.color {
     &:not(.destructive-action):not(.suggested-action) {
       // force using square-button
-      min-width: rem(26.7px);
-      padding-left: rem(6.7px);
-      padding-right: rem(6.7px);
+      min-width: $icon_size + 8px;
+      min-height: $icon_size;
+      padding: rem(($widget_size - $icon_size) / 2);
       border-radius: 2px;
       -gtk-outline-radius: 2px;
     }
