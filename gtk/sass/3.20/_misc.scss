@@ -1356,10 +1356,15 @@ headerbar > button.flat.popup.title-menu-button.toggle {
   -gtk-outline-radius: 2px;
 
   > grid {
-    .title,
+    .title {
+      margin: rem(-2.7px) 0;
+      padding: rem(1.3px) rem(13.3px) 0;
+      font-size: if($ref_weight < 1.0, 90%, 100%);
+    }
     .subtitle {
-      padding: rem(1.3px) rem(13.3px) rem(1.3px);
-      font-size: 90%;
+      margin: rem(-2.7px) 0;
+      padding: 0 rem(13.3px) rem(1.3px);
+      font-size: if($ref_weight < 1.0, 80%, 90%);
     }
   }
 }
