@@ -1942,8 +1942,11 @@ headerbar {
 
   // switch styling
   switch {
+    min-width: rem(30px);
+    border: rem(10px) solid transparent;
     color: $inverted_secondary_fg_color;
     background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
+    outline-offset: rem(-4px);
     &:checked {
       background-color: gtkopacity($selected_bg_color, 0.2);
       &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
@@ -1953,13 +1956,19 @@ headerbar {
       background-color: $track_color;
     }
 
-    slider { background-color: $inverted_bg_color; }
+    slider {
+      min-width: rem(20px);
+      min-height: rem(20px);
+      margin: rem(-5px) 0 rem(-5px) rem(-5px);
+      background-color: $inverted_bg_color;
+    }
     &:hover slider {
       background-image: linear-gradient(to bottom,
                                         gtkalpha($selected_fg_color, 0.2),
                                         gtkalpha($selected_fg_color, 0.2));
     }
     &:checked slider {
+      margin: rem(-5px) rem(-5px) rem(-5px) 0;
       background-color: $selected_bg_color;
       &:disabled {
         background-color: mix($top_edge_border_color,
@@ -3219,14 +3228,14 @@ scrollbar,
  **********/
 
 switch {
-  min-width: rem(30px); // 40px - 5px * 2
+  min-width: rem(30px, $sw: 1.0);
   // similar to the scale
-  border: rem(10px) solid transparent;
+  border: rem(10px, $sw: 1.0) solid transparent;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
   background-color: $track_color;
   font-size: 0;
-  outline-offset: rem(-4px);
+  outline-offset: rem(-4px, $sw: 1.0);
 
   &:disabled { color: $insensitive_fg_color; }
   &:checked {
@@ -3243,16 +3252,22 @@ switch {
   // but relies on the switch ones
   slider {
     @include button(normal);
-    min-width: rem(20px);
-    min-height: rem(20px);
+    min-width: rem(20px, $sw: 1.0);
+    min-height: rem(20px, $sw: 1.0);
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
   }
 
   // trough-based indentation
-  slider { margin: rem(-5px) 0 rem(-5px) rem(-5px); }
-  &:checked slider { margin: rem(-5px) rem(-5px) rem(-5px) 0; }
+  slider {
+    margin: rem(-5px, $sw: 1.0) 0
+            rem(-5px, $sw: 1.0) rem(-5px, $sw: 1.0);
+  }
+  &:checked slider {
+    margin: rem(-5px, $sw: 1.0) rem(-5px, $sw: 1.0)
+    rem(-5px, $sw: 1.0) 0;
+  }
 
   &:hover slider {
     @include button(hover);
@@ -3305,8 +3320,8 @@ switch {
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
   grid & {
-    min-width: rem(50px);
-    min-height: rem(28px);
+    min-width: rem(50px, $sw: 1.0);
+    min-height: rem(28px, $sw: 1.0);
     font-size: 0;
     outline-color: transparent;
 
@@ -3317,13 +3332,13 @@ switch {
     &:checked:hover,
     &:checked:disabled,
     &:disabled {
-      margin-bottom: rem(-7px);
+      margin-bottom: rem(-7px, $sw: 1.0);
       padding: 0;
       border: none;
       color: transparent;
       background: none;
       background-image: none;
-      background-size: rem(50px) rem(35px);
+      background-size: rem(50px, $sw: 1.0) rem(35px, $sw: 1.0);
       background-repeat: no-repeat;
       background-position: right center;
       box-shadow: none;
@@ -3345,7 +3360,7 @@ switch {
       color: transparent;
       background: none;
       background-image: none;
-      background-size: rem(50px) rem(35px);
+      background-size: rem(50px, $sw: 1.0) rem(35px, $sw: 1.0);
       background-repeat: no-repeat;
       background-position: right center;
       box-shadow: none;
@@ -3564,7 +3579,7 @@ treeview.view radio {
 checkbutton.text-button,
 radiobutton.text-button {
   // this is for a nice focus on check and radios text
-  padding: rem(2.7px) rem(6.7px);
+  padding: rem(2.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
   outline-offset: 0;
   color: $secondary_fg_color;
   &:hover,
@@ -3580,11 +3595,11 @@ radiobutton.text-button {
 
 radio,
 check {
-  min-width: rem($icon_size);
-  min-height: rem($icon_size);
-  // margin: 0 rem(6.7px) 0 rem(6.7px);
-  margin: rem(-10px) rem(-3.3px);
-  padding: rem(10px);
+  min-width: rem($icon_size, $sw: 1.0);
+  min-height: rem($icon_size, $sw: 1.0);
+  // margin: 0 rem(6.7px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
+  margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
+  padding: rem(10px, $sw: 1.0);
 
   &:hover {
     animation: check_radio_hover 0.2s $slope_quick forwards;
@@ -3599,12 +3614,12 @@ check {
   }
 
   menu menuitem & {
-    min-width: rem($icon_size);
-    min-height: rem($icon_size);
+    min-width: rem($icon_size, $sw: 1.0);
+    min-height: rem($icon_size, $sw: 1.0);
     margin: 0;
     padding: 0;
-    &:dir(ltr) { margin-right: rem(8px); }
-    &:dir(rtl) { margin-left: rem(8px); }
+    &:dir(ltr) { margin-right: rem(8px, $sw: 1.0); }
+    &:dir(rtl) { margin-left: rem(8px, $sw: 1.0); }
 
     &, &:hover, &:disabled { //FIXME: use button reset mixin
       border-color: transparent;
