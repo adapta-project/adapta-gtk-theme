@@ -1691,8 +1691,9 @@ searchbar,
   background-color: $secondary_dark_color;
 
   .linked > button.image-button {
-    padding-top: rem(9.3px);
-    padding-bottom: rem(10.7px);
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(10.7px);
   }
 
   button.flat.close.raised {
@@ -1832,7 +1833,7 @@ headerbar {
     &.image-button:not(.text-button) {
       min-width: $icon_size * 1.5;
       min-height: $icon_size * 1.5;
-      padding: rem(($widget_size - $icon_size * 1.5) / 2);
+      padding: rem(($widget_size - $icon_size * 1.5 - 2px) / 2);
     }
   }
 
@@ -2164,6 +2165,11 @@ headerbar {
     spinner { margin: rem(5.3px) 0; }
 
     switch { margin: rem(8px) 0; }
+
+    box.vertical > label {
+      &.title,
+      &.subtitle { margin: rem(-2.7px) 0; }
+    }
 
     .tiled &  { @extend %tiled_integration; }
     .maximized & { @extend %maxd_integration; }

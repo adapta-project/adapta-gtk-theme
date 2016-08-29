@@ -596,8 +596,8 @@ window {
       @extend button.flat;
       min-width: rem(13.3px);
       min-height: rem(13.3px);
-      padding: 0.75em 1em 0.75em;  // FIXME: broken in 12pt fonts?
-      border: 0.75em solid transparent;
+      padding: rem(10.7px) rem(13.3px) rem(10.7px);  // FIXME: broken in 12pt fonts?
+      border: rem(10.7px) solid transparent;
       border-radius: 2px;
       font-weight: 700;
 
@@ -1564,9 +1564,9 @@ window headerbar > box.horizontal {
     &:not(.toggle):not(.popup):not(.color):not(.titlebutton) {
       &:not(.destructive-action):not(.suggested-action) {
         // 'list/grid' view changer
-        min-width: rem(26.7px);
-        padding-left: rem(6.7px);
-        padding-right: rem(6.7px);
+        min-width: $icon_size;
+        min-width: $icon_size;
+        padding: rem(($widget_size - $icon_size) / 2);
       }
     }
   }
@@ -1574,10 +1574,9 @@ window headerbar > box.horizontal {
   > button.color {
     &:not(.destructive-action):not(.suggested-action) {
       // force using square-button
-      min-width: rem(26.7px);
-      min-height: rem(26.7px);
-      padding-left: rem(6.7px);
-      padding-right: rem(6.7px);
+      min-width: $icon_size + 8px;
+      min-height: $icon_size;
+      padding: rem(($widget_size - $icon_size) / 2);
       border-radius: 2px;
       -gtk-outline-radius: 2px;
     }
