@@ -798,20 +798,21 @@ notebook grid.horizontal > widget > box.horizontal > scrolledwindow {
     }
 
     > box.horizontal {  // header-part
-      margin-bottom: rem(4px);
+      margin: rem(4px) 0;
 
-      button.image-button.small-button { // add spacers
-        margin: rem(2.7px);
-        padding: rem(5.3px);
-
+      button.image-button.small-button {
         // FIXME: why does gedit break our geometry everytime?
-        > widget > box > image { padding: 0 rem(2.7px); }
+        min-width: $icon_size + 4px;
+        min-height: $icon_size + 4px;
+        padding: rem(5.3px);
+	border-radius: 2px;
+	-gtk-outline-radius: 2px;
       }
 
-      .linked > .small-button { margin: rem(2.7px) 0; }
+      .linked > .small-button { min-height: $icon_size + 4px; }
 
       button.popup.small-button.toggle {
-        margin: rem(2.7px);
+        min-height: $icon_size + 4px;
         padding: rem(5.3px);
       }
     }
