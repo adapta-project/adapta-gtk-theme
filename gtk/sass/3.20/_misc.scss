@@ -372,6 +372,11 @@ NautilusTrashBar {
 .geary-titlebar-right {
   // stop double-shadows on right paned header-bar
   box-shadow: none;
+
+  button.image-button:not(.text-button):not(.titlebutton) { // need to override geoemtry
+    padding: rem(($widget_size - $icon_size - 8px - 2px) / 2)
+             rem(($widget_size - $icon_size - 8px + 2px) / 2);
+  }
 }
 
 window box > paned > overlay > scrolledwindow {
