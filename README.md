@@ -187,7 +187,7 @@ Installation from Git Source
 
  ```
  --with-weighted-scaling      enable weighted scaling with coefficient to reduce the widget size
-                              (type: bool)
+                               (type: bool)
  ```
 
  > **Note:**
@@ -207,7 +207,7 @@ Extra Browser Support
  If users want to try experimental browser specific theming, please pass this option:
 
  ```
- --enable-chrome         enable Chrome(ium) support
+ --enable-chrome         enable Chrome(ium) support (type: bool)
  ```
 
  The compressed `crx` files will be installed into `Adapta/chrome` and `Adapta-Nokto/chrome`.
@@ -233,7 +233,7 @@ Extra Dock Support
  If users want to try "Plank" theming, please pass this option:
 
  ```
- --enable-plank         enable Plank support
+ --enable-plank         enable Plank support (type: bool)
  ```
 
  Then select `Gtk+` via `plank --preferences`.
