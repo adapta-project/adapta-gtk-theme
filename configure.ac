@@ -47,7 +47,6 @@ if test x"$GLIB_COMPILE_RESOURCES" = x; then
 fi
 
 ADAPTA_COLOR_SCHEME
-ADAPTA_WEIGHTED_SCALE
 
 AC_CONFIG_FILES([ \
 	Makefile \
@@ -69,6 +68,8 @@ AC_MSG_RESULT([
          datarootdir:            ${datarootdir}
          target directories:     ${datarootdir}/themes/Adapta
                                  ${datarootdir}/themes/Adapta-Nokto
+                                 ${datarootdir}/themes/Adapta-Eta
+                                 ${datarootdir}/themes/Adapta-Nokto-Eta
 
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL
@@ -83,8 +84,6 @@ AC_MSG_RESULT([
          accent-color:           $ACCENT (default: $accent_default)
          suggestion-color:       $SUGGESTION (default: $suggestion_default)
          destruction-color:      $DESTRUCTION (default: $destruction_default)
-
-         scaling weight:         $WEIGHTED_SCALE (Default: 1.0, Gtk+ 3.2x only)
 
         -----------------------------------------------------------
         | Default DE support

@@ -17,4 +17,8 @@ bundle exec sass --update --sourcemap=none --watch \
 	3.20/gtk.scss:../gtk-3.20/gtk.css \
 	3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css \
 	3.22/gtk.scss:../gtk-3.22/gtk.css \
-	3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css
+	3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css \
+	3.20/gtk-eta.scss:../gtk-3.20-eta/gtk.css \
+	3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css \
+	3.22/gtk-eta.scss:../gtk-3.22-eta/gtk.css \
+	3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css

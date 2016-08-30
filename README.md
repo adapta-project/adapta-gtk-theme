@@ -3,14 +3,14 @@ Adapta
 An adaptive Gtk+ theme based on Material Design Guidelines.
 Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Plat) at the start.
 
-<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta**:
+<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta** and **Adapta-Eta**:
  * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
  * Light/Dark variant Budgie-Desktop theme
  * Light variant Gtk+ 2.0 theme
  * Light variant Gnome-Shell theme
  * Light variant Cinnamon theme
 
-<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto**:
+<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto** and **Adapta-Nokto-Eta**:
  * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
  * Light/Dark variant Budgie-Desktop theme
  * Dark variant Gtk+ 2.0 theme
@@ -63,9 +63,11 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
  sudo apt install adapta-gtk-theme
  ```
 
-2. select `Adapta` or `Adapta-Nokto` via proper tools.
+2. select `Adapta` or `Adapta-Eta` or `Adapta-Nokto` or `Adapta-Nokto-Eta` via proper tools.
 
  > **Note:**
+ >
+ >   * `-Eta` is the smaller widget variant.
  >
  >   * `Adapta-Nokto` is for dark variant theming:
  >     * `Adapta` + `global dark theme = off` make all light variant.
@@ -182,25 +184,6 @@ Installation from Git Source
  >     and `second_selection_color` and `accent_color` should be with `300` colors.
  >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
-
-8. If users want to reduce the element spacing, please pass this option:
-
- ```
- --with-weighted-scaling      enable weighted scaling with coefficient to reduce the widget size
-                               (type: bool)
- ```
-
- > **Note:**
- >
- >   * This option is only for Gtk+ 3.21.x or 3.20.x (3.18.x ignores this).
- >   * This can decrease the padding/margin in most of elements. The default coefficient
- >     is 1.0 ( 1:1 scaling with 10pt font-size at 96 px/inch and 72 pt/inch setting.
- >     Once this option was given, Adapta deals with "rem" unit convesion as 70% scaling.
- >     For example, `rem(5.3px)` is converted to `0.4rem` as default, then with this option,
- >     `0.4rem x 0.7 = 0.28rem` will be set.
- >   * This option affects to most of Gtk+ widgets (GtkScale, GtkSwitch, GtkCheck/Radio
- >     and GtkCalendar ignore this though), unfortunately some combinations of font-scaling
- >     and window-scaling may or may not see incomplete circular buttons...
 
 Extra Browser Support
 ---------------------

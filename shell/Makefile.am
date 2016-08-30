@@ -1,6 +1,8 @@
-themedir  = $(datadir)/themes
-adaptadir = $(DESTDIR)$(themedir)/Adapta
-noktodir  = $(DESTDIR)$(themedir)/Adapta-Nokto
+themedir     = $(datadir)/themes
+adaptadir    = $(DESTDIR)$(themedir)/Adapta
+noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
 shelldir   = $(srcdir)/gnome-shell
 shell_file = \
@@ -434,6 +436,8 @@ if ENABLE_UNITY
 	cp -Rv $(unity_file) $(adaptadir)/unity
 	cd $(adaptadir)
 	ln -sf ../Adapta/unity $(noktodir)/unity
+	ln -sf ../Adapta/unity $(adaptaetadir)/unity
+	ln -sf ../Adapta/unity $(noktoetadir)/unity
 endif
 
 if ENABLE_XFCE
@@ -441,6 +445,8 @@ if ENABLE_XFCE
 	cp -Rv $(xfce_file) $(adaptadir)/xfce-notify-4.0
 	cd $(adaptadir)
 	ln -sf ../Adapta/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
+	ln -sf ../Adapta/xfce-notify-4.0 $(adaptaetadir)/xfce-notify-4.0
+	ln -sf ../Adapta/xfce-notify-4.0 $(noktoetadir)/xfce-notify-4.0
 endif
 
 # *******************
@@ -459,6 +465,8 @@ endif
 if ENABLE_UNITY
 	test -e $(noktodir)/unity && rm -rfv $(noktodir)/unity
 	test -e $(adaptadir)/unity && rm -rfv $(adaptadir)/unity
+	test -e $(noktoetadir)/unity && rm -rfv $(noktoetadir)/unity
+	test -e $(adaptaetadir)/unity && rm -rfv $(adaptaetadir)/unity
 endif
 
 if ENABLE_XFCE
@@ -466,6 +474,10 @@ if ENABLE_XFCE
 		rm -rfv $(noktodir)/xfce-notify-4.0
 	test -e $(adaptadir)/xfce-notify-4.0 && \
 		rm -rfv $(adaptadir)/xfce-notify-4.0
+	test -e $(noktoetadir)/xfce-notify-4.0 && \
+		rm -rfv $(noktoetadir)/xfce-notify-4.0
+	test -e $(adaptaetadir)/xfce-notify-4.0 && \
+		rm -rfv $(adaptaetadir)/xfce-notify-4.0
 endif
 
 # ****************************

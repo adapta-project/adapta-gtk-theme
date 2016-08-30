@@ -1,6 +1,8 @@
-themedir  = $(datadir)/themes
-adaptadir = $(DESTDIR)$(themedir)/Adapta
-noktodir  = $(DESTDIR)$(themedir)/Adapta-Nokto
+themedir     = $(datadir)/themes
+adaptadir    = $(DESTDIR)$(themedir)/Adapta
+noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
 metacitydir = $(srcdir)/metacity-1
 metacity_file = \
@@ -138,6 +140,8 @@ if ENABLE_FLASHBACK
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
 	ln -sf ../Adapta/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Adapta/metacity-1 $(adaptaetadir)/metacity-1
+	ln -sf ../Adapta/metacity-1 $(noktoetadir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
@@ -146,6 +150,8 @@ if !ENABLE_FLASHBACK
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
 	ln -sf ../Adapta/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Adapta/metacity-1 $(adaptaetadir)/metacity-1
+	ln -sf ../Adapta/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -155,6 +161,8 @@ if !ENABLE_FLASHBACK
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
 	ln -sf ../Adapta/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Adapta/metacity-1 $(adaptaetadir)/metacity-1
+	ln -sf ../Adapta/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -163,6 +171,8 @@ if ENABLE_XFCE
 	cp -Rv $(xfwm_file) $(adaptadir)/xfwm4
 	cd $(adaptadir)
 	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
+	ln -sf ../Adapta/xfwm4 $(adaptaetadir)/xfwm4
+	ln -sf ../Adapta/xfwm4 $(noktoetadir)/xfwm4
 endif
 
 # *******************
@@ -173,12 +183,16 @@ uninstall-local:
 if ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
+	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
+	test -e $(adaptaetadir)/metacity-1 && rm -rfv $(adaptaetadir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
+	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
+	test -e $(adaptaetadir)/metacity-1 && rm -rfv $(adaptaetadir)/metacity-1
 endif
 endif
 
@@ -186,12 +200,16 @@ if ENABLE_UNITY
 if !ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
+	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
+	test -e $(adaptaetadir)/metacity-1 && rm -rfv $(adaptaetadir)/metacity-1
 endif
 endif
 
 if ENABLE_XFCE
 	test -e $(noktodir)/xfwm4 && rm -rfv $(noktodir)/xfwm4
 	test -e $(adaptadir)/xfwm4 && rm -rfv $(adaptadir)/xfwm4
+	test -e $(noktoetadir)/xfwm4 && rm -rfv $(noktoetadir)/xfwm4
+	test -e $(adaptaetadir)/xfwm4 && rm -rfv $(adaptaetadir)/xfwm4
 endif
 
 # ****************************
