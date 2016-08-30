@@ -752,7 +752,7 @@ else
 		3.18/gtk.scss:../gtk-3.18/gtk.css \
 		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
 		3.20/gtk.scss:../gtk-3.20/gtk.css \
-		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css
+		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css \
 		3.20/gtk-eta.scss:../gtk-3.20-eta/gtk.css \
 		3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css
 endif
