@@ -3,14 +3,14 @@ Adapta
 An adaptive Gtk+ theme based on Material Design Guidelines.
 Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Plat) at the start.
 
-<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta** and **Adapta-Eta**:
+<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta**:
  * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
  * Light/Dark variant Budgie-Desktop theme
  * Light variant Gtk+ 2.0 theme
  * Light variant Gnome-Shell theme
  * Light variant Cinnamon theme
 
-<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto** and **Adapta-Nokto-Eta**:
+<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto**:f
  * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
  * Light/Dark variant Budgie-Desktop theme
  * Dark variant Gtk+ 2.0 theme
@@ -20,6 +20,19 @@ Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Pla
 > **Note:**
 >
 >   Both also includes common GNOME-Flashback, Unity7 and XFce4 theming.
+
+<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta-Eta**:
+ * Light/Dark variant Gtk+ 3.22/3.20 theme
+ * Light/Dark variant Budgie-Desktop theme
+
+<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto-Eta**:f
+ * Light/Dark variant Gtk+ 3.22/3.20 theme
+ * Light/Dark variant Budgie-Desktop theme
+
+> **Note:**
+>
+>   Eta is tiny Gtk+ 3.2x widget variant for space-saving (Gtk+ 3.21.x/3.20.x only).
+>   Others are the same as Adapta/Adapta-Nokto.
 
 Elements
 --------
