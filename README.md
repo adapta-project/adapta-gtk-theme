@@ -10,7 +10,7 @@ Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Pla
  * Light variant Gnome-Shell theme
  * Light variant Cinnamon theme
 
-<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto**:f
+<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto**:
  * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
  * Light/Dark variant Budgie-Desktop theme
  * Dark variant Gtk+ 2.0 theme
@@ -25,7 +25,7 @@ Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Pla
  * Light/Dark variant Gtk+ 3.22/3.20 theme
  * Light/Dark variant Budgie-Desktop theme
 
-<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto-Eta**:f
+<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto-Eta**:
  * Light/Dark variant Gtk+ 3.22/3.20 theme
  * Light/Dark variant Budgie-Desktop theme
 
