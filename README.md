@@ -127,7 +127,7 @@ Installation from Git Source
 4. If users want to speed up with concurrency-build, please pass this specific options to `autogen.sh`:
 
  ```
- --enable-parallel       enable parallel-build support
+ --enable-parallel       enable parallel-build support (type: bool)
  ```
 
  > **Note:**
@@ -141,10 +141,10 @@ Installation from Git Source
 5. If users want to disable some DE supports, please pass these specific options to `autogen.sh`:
 
  ```
- --disable-cinnamon      disable cinnamon support
- --disable-flashback     disable flashback support
- --disable-unity         disable unity support
- --disable-xfce          disable xfce support
+ --disable-cinnamon      disable cinnamon support (type: bool)
+ --disable-flashback     disable flashback support (type: bool)
+ --disable-unity         disable unity support (type: bool)
+ --disable-xfce          disable xfce support (type: bool)
  ```
 
  > **Note:**
@@ -155,17 +155,17 @@ Installation from Git Source
 6. If users want to disable next Gtk+ release support, please pass this option:
 
  ```
- --disable-gtk_next      disable Gtk+ 3.21.x support
+ --disable-gtk_next      disable Gtk+ 3.21.x support (type: bool)
  ```
 
 7. If users want to change default 5 **Key-Colors**, please pass these options:
 
  ```
- --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500)
- --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300)
- --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300)
- --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500)
- --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200)
+ --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: int)
+ --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: int)
+ --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: int)
+ --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: int)
+ --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: int)
  ```
 
  > **Note:**
@@ -187,6 +187,7 @@ Installation from Git Source
 
  ```
  --with-weighted-scaling      enable weighted scaling with coefficient to reduce the widget size
+                              (type: bool)
  ```
 
  > **Note:**
