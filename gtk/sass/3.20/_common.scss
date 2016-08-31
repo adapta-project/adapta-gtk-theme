@@ -455,6 +455,11 @@ entry,
     }
   }
 
+  grid & { // set limit
+    padding-top: rem(9.3px - 2.7px);
+    padding-bottom: rem(10.7px - 2.7px);
+  }
+
   .osd & {
   }
 }
@@ -901,7 +906,7 @@ button,
 }
 
 %image_button {
-  padding: rem(($widget_size - $icon_size - 4px) / 2);
+  padding: rem(($widget_size - $icon_size) / 2);
   -gtk-outline-radius: 100px;
   border-radius: 100px;
 }
@@ -1338,6 +1343,11 @@ combobox {
       min-width: rem($icon_size);
       padding-left: rem(4px);
       padding-right: rem(4px);
+    }
+
+    grid & { // set limit
+      padding-top: rem(8px - 2.7px);
+      padding-bottom: rem(8.7px - 2.7px);
     }
   }
 
