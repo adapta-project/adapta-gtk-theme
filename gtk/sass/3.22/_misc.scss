@@ -528,6 +528,14 @@ box > headerbar > label.polari-titlebar-separator {
                   inset 3px 0 3px -2px rgba(0, 0, 0, 0.04);
     }
   }
+
+  button.image-button {
+    min-width: $icon_size;
+    min-width: $icon_size;
+    padding: rem(5.3px);
+
+    > widget > box > image { padding: 0; }
+  }
 }
 
 // tweak sidebar styling
@@ -553,8 +561,11 @@ window > box.vertical > box.vertical {
 }
 
 // force using circle buttons for 'play/pause' etc
-window > box.vertical > box.vertical > toolbar {
+.background.csd > box.vertical > box.vertical > toolbar {
   .linked > button {
+    min-width: $widget_size;
+    min-height: $widget_size;
+    padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
   }
