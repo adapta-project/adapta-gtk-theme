@@ -1436,8 +1436,10 @@ window > box.vertical > box.horizontal {
   padding: rem(2.7px);
 
   button {
-    min-width: $widget_size;
-    min-height: $widget_size;
+    min-width: if($ref_weight < 1.0, $icon_size * 1.8,
+                                     $widget_size);
+    min-height: if($ref_weight < 1.0, $icon_size * 1.8,
+                                      $widget_size);
     margin-left: rem(2.7px);
     margin-right: rem(2.7px);
     padding: 0;
