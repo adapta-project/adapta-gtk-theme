@@ -706,6 +706,8 @@ gtknexteta_file = \
 
 index_file       = $(srcdir)/index.theme
 index_nokto_file = $(srcdir)/index.theme-nokto
+indexeta_file       = $(srcdir)/index.theme-eta
+index_noktoeta_file = $(srcdir)/index.theme-nokto-eta
 
 # *******************************************
 # * Generate CSS stylesheets and PNG images *
@@ -825,8 +827,8 @@ install-data-local:
 
 	cp -Rv $(index_file) $(adaptadir)
 	cp -Rv $(index_nokto_file) $(noktodir)/index.theme
-	cp -Rv $(index_file) $(adaptaetadir)
-	cp -Rv $(index_nokto_file) $(noktoetadir)/index.theme
+	cp -Rv $(indexeta_file) $(adaptaetadir)
+	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.0
 	$(MKDIR_P) $(adaptadir)/gtk-3.0/assets
