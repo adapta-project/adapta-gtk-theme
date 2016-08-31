@@ -298,6 +298,18 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/window-close-ssd-hover@2.png \
 	$(gtk3_assetdir)/window-close-ssd-hover.png \
 	$(gtk3_assetdir)/window-close-ssd.png \
+	$(gtk3_assetdir)/window-close-ssd-eta@2.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-active@2.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-active.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-backdrop@2.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-backdrop-active@2.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-backdrop-active.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-backdrop-hover@2.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-backdrop-hover.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-backdrop.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-hover@2.png \
+	$(gtk3_assetdir)/window-close-ssd-eta-hover.png \
+	$(gtk3_assetdir)/window-close-ssd-eta.png \
 	$(gtk3_assetdir)/window-maximize@2.png \
 	$(gtk3_assetdir)/window-maximize-active@2.png \
 	$(gtk3_assetdir)/window-maximize-active.png \
@@ -314,6 +326,18 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/window-maximize-ssd-hover@2.png \
 	$(gtk3_assetdir)/window-maximize-ssd-hover.png \
 	$(gtk3_assetdir)/window-maximize-ssd.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta@2.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-active@2.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-active.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-backdrop@2.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-backdrop-active@2.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-backdrop-active.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-backdrop-hover@2.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-backdrop-hover.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-backdrop.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-hover@2.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta-hover.png \
+	$(gtk3_assetdir)/window-maximize-ssd-eta.png \
 	$(gtk3_assetdir)/window-minimize@2.png \
 	$(gtk3_assetdir)/window-minimize-active@2.png \
 	$(gtk3_assetdir)/window-minimize-active.png \
@@ -330,6 +354,18 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/window-minimize-ssd-hover@2.png \
 	$(gtk3_assetdir)/window-minimize-ssd-hover.png \
 	$(gtk3_assetdir)/window-minimize-ssd.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta@2.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-active@2.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-active.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-backdrop@2.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-backdrop-active@2.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-backdrop-active.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-backdrop-hover@2.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-backdrop-hover.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-backdrop.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-hover@2.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta-hover.png \
+	$(gtk3_assetdir)/window-minimize-ssd-eta.png \
 	$(gtk3_assetdir)/window-unmaximize@2.png \
 	$(gtk3_assetdir)/window-unmaximize-active@2.png \
 	$(gtk3_assetdir)/window-unmaximize-active.png \
@@ -345,7 +381,19 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/window-unmaximize-ssd-backdrop.png \
 	$(gtk3_assetdir)/window-unmaximize-ssd-hover@2.png \
 	$(gtk3_assetdir)/window-unmaximize-ssd-hover.png \
-	$(gtk3_assetdir)/window-unmaximize-ssd.png
+	$(gtk3_assetdir)/window-unmaximize-ssd.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta@2.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-active@2.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-active.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-backdrop@2.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-backdrop-active@2.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-backdrop-active.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-backdrop-hover@2.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-backdrop-hover.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-backdrop.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-hover@2.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta-hover.png \
+	$(gtk3_assetdir)/window-unmaximize-ssd-eta.png
 
 gtk318dir   = $(srcdir)/gtk-3.18
 gtk318_file = \
