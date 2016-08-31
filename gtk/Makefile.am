@@ -827,7 +827,7 @@ install-data-local:
 
 	cp -Rv $(index_file) $(adaptadir)
 	cp -Rv $(index_nokto_file) $(noktodir)/index.theme
-	cp -Rv $(indexeta_file) $(adaptaetadir)
+	cp -Rv $(indexeta_file) $(adaptaetadir)/index.theme
 	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.0
