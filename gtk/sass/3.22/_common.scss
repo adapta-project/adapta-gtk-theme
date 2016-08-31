@@ -15,7 +15,7 @@ $attention: rem(5.3px) rem(5.3px);
 $scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
-$titlebutton_small: 28px;
+$titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 
 
 //
@@ -2127,7 +2127,7 @@ headerbar {
 
   &.default-decoration {
     min-height: $titlebutton_small;
-    padding: 3px 2px 2px;
+    padding: if($ref_weight < 1.0, 4px 3px 3px, 3px 2px 2px);
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -5570,6 +5570,12 @@ decoration {
                           url("assets/window-close-ssd#{$_state}.png"),
                           url("assets/window-close-ssd#{$_state}@2.png"));
         box-shadow: #{$_shadow};
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-close-ssd-eta#{$_state}.png"),
+                            url("assets/window-close-ssd-eta#{$_state}@2.png"));
+        }
       }
     }
 
@@ -5583,6 +5589,12 @@ decoration {
         background-image: -gtk-scaled(
                           url("assets/window-minimize-ssd#{$_state}.png"),
                           url("assets/window-minimize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-minimize-ssd-eta#{$_state}.png"),
+                            url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+        }
       }
     }
 
@@ -5596,6 +5608,12 @@ decoration {
         background-image: -gtk-scaled(
                           url("assets/window-maximize-ssd#{$_state}.png"),
                           url("assets/window-maximize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-maximize-ssd-eta#{$_state}.png"),
+                            url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+        }
       }
     }
   }
@@ -5613,6 +5631,12 @@ decoration {
         background-image: -gtk-scaled(
                           url("assets/window-unmaximize-ssd#{$_state}.png"),
                           url("assets/window-unmaximize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
+                            url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+        }
       }
     }
   }
