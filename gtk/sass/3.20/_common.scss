@@ -1746,8 +1746,7 @@ headerbar {
 
   // titles
   .title {
-    padding-left: rem(13.3px);
-    padding-right: rem(13.3px);
+    padding: 0 rem(13.3px);
     color: $inverted_fg_color;
     font-weight: 700;
     &:backdrop { @extend .dim-label; }
@@ -1755,8 +1754,7 @@ headerbar {
 
   .subtitle {
     @extend .dim-label;
-    padding-left: rem(13.3px);
-    padding-right: rem(13.3px);
+    padding: 0 rem(13.3px);
     color: $inverted_secondary_fg_color;
     font-size: if($ref_weight < 1.0, 80%, 90%);
     &:backdrop { @extend .dim-label; }
@@ -1827,8 +1825,8 @@ headerbar {
     &.lock,
     &.toggle {
       min-height: $icon_size;
-      padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
-      padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
+      padding-top: rem(($widget_size - $icon_size - 4px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 1.3px) / 2);
     }
   }
 
@@ -1890,8 +1888,8 @@ headerbar {
   .linked > entry,
   .linked.raised > entry {
     min-height: $icon_size;
-    padding-top: rem(($widget_size - $icon_size - 3.7px) / 2);
-    padding-bottom: rem(($widget_size - $icon_size - 3.7px) / 2);
+    padding-top: rem(($widget_size - $icon_size - 5px) / 2);
+    padding-bottom: rem(($widget_size - $icon_size - 2.3px) / 2);
     color: $inverted_secondary_fg_color;
     caret-color: $inverted_secondary_fg_color;
     &:focus {
@@ -1906,8 +1904,8 @@ headerbar {
   .linked > combobox {
     & > entry.combo {
       min-height: $icon_size;
-      padding-top: rem(($widget_size - $icon_size - 3.7px) / 2);
-      padding-bottom: rem(($widget_size - $icon_size - 3.7px) / 2);
+      padding-top: rem(($widget_size - $icon_size - 5px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 2.3px) / 2);
       color: $inverted_secondary_fg_color;
       caret-color: $inverted_secondary_fg_color;
       &:focus {
@@ -1919,8 +1917,8 @@ headerbar {
     }
     & > button.combo {
       min-height: $icon_size;
-      padding-top: rem(($widget_size - $icon_size - 3.7px) / 2);
-      padding-bottom: rem(($widget_size - $icon_size - 3.7px) / 2);
+      padding-top: rem(($widget_size - $icon_size - 5px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 2.3px) / 2);
       color: $inverted_secondary_fg_color;
       &:hover { color: $inverted_fg_color; }
       &:checked {
@@ -2188,9 +2186,13 @@ headerbar {
 
     switch { margin: rem(8px) 0; }
 
-    box.vertical > label {
-      &.title,
-      &.subtitle { margin: rem(-2.7px) 0; }
+    label {
+      &.title { margin-bottom: rem(5.3px - 1.3px); }
+
+      box.vertical > & {
+        &.title,
+        &.subtitle { margin: rem(-2.7px) 0; }
+      }
     }
 
     .tiled &  { @extend %tiled_integration; }
