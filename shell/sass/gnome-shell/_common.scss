@@ -756,21 +756,19 @@ StScrollBar {
  *******/
 
 .osd-window {
-  text-align: center;
-  font-weight: 700;
-  spacing: 1em;
-  margin: 32px;
   min-width: 64px;
   min-height: 64px;
+  margin: 32px;
+  spacing: 1em;
+  font-weight: 700;
+  text-align: center;
 
-  .osd-monitor-label {
-    @include fontscaling($ref_size * 3.0);
-  }
+  .osd-monitor-label { @include fontscaling($ref_size * 3.0); }
 
   .level {
     height: 3px;
     border-radius: 0;
-    background-color: $fill_color;
+    background-color: $osd_semi_fill_color;
     color: $success_color;
   }
 
