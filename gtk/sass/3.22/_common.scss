@@ -2729,9 +2729,10 @@ menu {
     }
   }
 
-  > separator {
-    &:dir(ltr) { margin-left: rem(32px); }
-    &:dir(rtl) { margin-right: rem(32px); }
+  > separator { // asymmetric separators with gaps
+                // same as check/radio width and its paddings
+    &:dir(ltr) { margin-left: rem($icon_size + 10px * 2); }
+    &:dir(rtl) { margin-right: rem($icon_size + 10px * 2); }
   }
 }
 
