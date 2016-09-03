@@ -2,9 +2,7 @@
  * Gnome panel *
  ***************/
 
-panel-toplevel.background {
-  background-color: $panel_bg_color;
-}
+panel-toplevel.background { background-color: $panel_bg_color; }
 
 panel-plug,
 panel-toplevel > grid.horizontal > widget > widget {
@@ -21,6 +19,7 @@ panel-applet > menubar,
   color: $inverted_secondary_fg_color;
   background-color: transparent;
   box-shadow: none;
+
   label:backdrop,
   &:backdrop { opacity: 1.0; }
 }
@@ -28,6 +27,7 @@ panel-applet > menubar,
 .gnome-panel-menu-bar,
 panel-applet menubar {
   box-shadow: none;
+
   & menuitem {
     color: $inverted_secondary_fg_color;
     background-color: transparent;
@@ -37,9 +37,11 @@ panel-applet menubar {
     }
     &:backdrop { opacity: 1.0; }
   }
+
   & menu {
     font-weight: 400;
     font-size: 100%;
+
     & menuitem {
       color: $secondary_fg_color;
       background-color: $base_color;
@@ -50,6 +52,7 @@ panel-applet menubar {
       }
       &:backdrop { opacity: 1.0; }
     }
+
     separator { color: $borders_color; }
   }
 }
@@ -76,6 +79,7 @@ panel-applet menubar {
     background-color: transparent;
     box-shadow: inset 0 -2px $selected_bg_color;
   }
+
   label:backdrop,
   &:backdrop { opacity: 1.0; }
 }
