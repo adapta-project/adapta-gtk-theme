@@ -2184,13 +2184,11 @@ headerbar {
 
     switch { margin: rem(8px) 0; }
 
-    label {
-      &.title { margin-bottom: rem(5.3px - 1.3px); }
+    .title { margin-bottom: rem(5.3px - 1.3px); }
 
-      box.vertical > & {
-        &.title,
-        &.subtitle { margin: rem(-2.7px) 0; }
-      }
+    > box.vertical {
+        > .title,
+        > .subtitle { margin: rem(-2.7px) 0; }
     }
 
     .tiled &  { @extend %tiled_integration; }
