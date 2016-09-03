@@ -5346,11 +5346,13 @@ button.flat.scale { // standalone Speaker/Mic buttons
  *********************/
 
 decoration {
-  transition: none;
   border-radius: 2px 2px 0 0;
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0;
   box-shadow: $z-depth-4;
+  transition-property: box-shadow;
+  transition-timing-function: $slope_slow;
+  transition-duration: 0.2s;
 
   // FIXME rationalize shadows
 
@@ -5363,15 +5365,11 @@ decoration {
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
     box-shadow: $z-depth-2-backdrop;
-    transition: none;
   }
 
   .fullscreen &,
   .maximized &,
-  .tiled & {
-    border-radius: 0;
-    transition: none;
-  }
+  .tiled & { border-radius: 0; }
 
   .popup & { box-shadow: none; }
 
@@ -5387,15 +5385,9 @@ decoration {
       -gtk-outline-radius: 100px;
     }
 
-    .tiled & .titlebar {
-      @extend %tiled_integration;
-      transition: none;
-    }
+    .tiled & .titlebar { @extend %tiled_integration; }
 
-    .maximized & .titlebar {
-      @extend %maxd_integration;
-      transition: none;
-    }
+    .maximized & .titlebar { @extend %maxd_integration; }
   }
 
   .csd.popup & {
@@ -5411,10 +5403,7 @@ decoration {
   message-dialog.csd & {
     border-radius: 2px;
     box-shadow: $z-depth-4;
-    &:backdrop {
-      box-shadow: $z-depth-2-backdrop;
-      transition: none;
-    }
+    &:backdrop { box-shadow: $z-depth-2-backdrop; }
   }
 
   .solid-csd & {
