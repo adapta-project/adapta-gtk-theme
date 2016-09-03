@@ -1814,39 +1814,54 @@ StScrollBar {
     }
   }
 
-  .app-well-app-running-dot { background: transparent; }
-  .app-well-app .overview-icon { background-size: contain; }
+  .app-well-app {
+    &-running-dot { background: transparent; }
+
+    .overview-icon {
+      padding: 9px - 2px; // remove margin of parent StWidget
+      background-size: contain;
+    }
+  }
+
+  .show-apps .overview-icon {
+    padding: 9px - 2px; // remove margin of parent StWidget
+  }
+
+  .dash-item-container > StWidget { // actual parent container
+    margin: 2px;
+    background-size: contain;
+  }
 }
 
 // running-dot styling
-@each $_dock, $_dot in (top, -vert),
-                       (bottom, -vert),
-                       (left, ),
-                       (right, ) {
+@each $_dock, $_dot in (top, -top),
+                       (bottom, -bottom),
+                       (left, -left),
+                       (right, -right) {
   #dashtodockContainer.#{$_dock},
   #dashtodockContainer.extended.#{$_dock} {
-    .app-well-app.running1 {
-      .overview-icon { background-image: url("assets/dot/running1#{$_dot}.svg"); }
+    .dash-item-container > StWidget.running1 {
+      background-image: url("assets/dot/running1#{$_dot}.svg");
       &.focused {
-        .overview-icon { background-image: url("assets/dot/running1#{$_dot}-focused.svg"); }
+        background-image: url("assets/dot/running1#{$_dot}-focused.svg");
       }
     }
-    .app-well-app.running2 {
-      .overview-icon { background-image: url("assets/dot/running2#{$_dot}.svg"); }
+    .dash-item-container > StWidget.running2 {
+      background-image: url("assets/dot/running2#{$_dot}.svg");
       &.focused {
-        .overview-icon { background-image: url("assets/dot/running2#{$_dot}-focused.svg"); }
+        background-image: url("assets/dot/running2#{$_dot}-focused.svg");
       }
     }
-    .app-well-app.running3 {
-      .overview-icon { background-image: url("assets/dot/running3#{$_dot}.svg"); }
+    .dash-item-container > StWidget.running3 {
+      background-image: url("assets/dot/running3#{$_dot}.svg");
       &.focused  {
-        .overview-icon { background-image: url("assets/dot/running3#{$_dot}-focused.svg"); }
+        background-image: url("assets/dot/running3#{$_dot}-focused.svg");
       }
     }
-    .app-well-app.running4 {
-      .overview-icon { background-image: url("assets/dot/running4#{$_dot}.svg"); }
+    .dash-item-container > StWidget.running4 {
+      background-image: url("assets/dot/running4#{$_dot}.svg");
       &.focused {
-        .overview-icon { background-image: url("assets/dot/running4#{$_dot}-focused.svg"); }
+        background-image: url("assets/dot/running4#{$_dot}-focused.svg");
       }
     }
   }

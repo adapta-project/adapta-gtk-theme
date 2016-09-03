@@ -38,22 +38,38 @@ shell_asset_file = \
 	$(shelldir)/assets/window-close-hover.svg \
 	$(shelldir)/assets/window-close.svg
 shell_asset_dot_file = \
-	$(shelldir)/assets/dot/running1-focused.svg \
-	$(shelldir)/assets/dot/running1.svg \
-	$(shelldir)/assets/dot/running1-vert-focused.svg \
-	$(shelldir)/assets/dot/running1-vert.svg \
-	$(shelldir)/assets/dot/running2-focused.svg \
-	$(shelldir)/assets/dot/running2.svg \
-	$(shelldir)/assets/dot/running2-vert-focused.svg \
-	$(shelldir)/assets/dot/running2-vert.svg \
-	$(shelldir)/assets/dot/running3-focused.svg \
-	$(shelldir)/assets/dot/running3.svg \
-	$(shelldir)/assets/dot/running3-vert-focused.svg \
-	$(shelldir)/assets/dot/running3-vert.svg \
-	$(shelldir)/assets/dot/running4-focused.svg \
-	$(shelldir)/assets/dot/running4.svg \
-	$(shelldir)/assets/dot/running4-vert-focused.svg \
-	$(shelldir)/assets/dot/running4-vert.svg
+	$(shelldir)/assets/dot/running1-bottom-focused.svg \
+	$(shelldir)/assets/dot/running1-bottom.svg \
+	$(shelldir)/assets/dot/running1-left-focused.svg \
+	$(shelldir)/assets/dot/running1-left.svg \
+	$(shelldir)/assets/dot/running1-right-focused.svg \
+	$(shelldir)/assets/dot/running1-right.svg \
+	$(shelldir)/assets/dot/running1-top-focused.svg \
+	$(shelldir)/assets/dot/running1-top.svg \
+	$(shelldir)/assets/dot/running2-bottom-focused.svg \
+	$(shelldir)/assets/dot/running2-bottom.svg \
+	$(shelldir)/assets/dot/running2-left-focused.svg \
+	$(shelldir)/assets/dot/running2-left.svg \
+	$(shelldir)/assets/dot/running2-right-focused.svg \
+	$(shelldir)/assets/dot/running2-right.svg \
+	$(shelldir)/assets/dot/running2-top-focused.svg \
+	$(shelldir)/assets/dot/running2-top.svg \
+	$(shelldir)/assets/dot/running3-bottom-focused.svg \
+	$(shelldir)/assets/dot/running3-bottom.svg \
+	$(shelldir)/assets/dot/running3-left-focused.svg \
+	$(shelldir)/assets/dot/running3-left.svg \
+	$(shelldir)/assets/dot/running3-right-focused.svg \
+	$(shelldir)/assets/dot/running3-right.svg \
+	$(shelldir)/assets/dot/running3-top-focused.svg \
+	$(shelldir)/assets/dot/running3-top.svg \
+	$(shelldir)/assets/dot/running4-bottom-focused.svg \
+	$(shelldir)/assets/dot/running4-bottom.svg \
+	$(shelldir)/assets/dot/running4-left-focused.svg \
+	$(shelldir)/assets/dot/running4-left.svg \
+	$(shelldir)/assets/dot/running4-right-focused.svg \
+	$(shelldir)/assets/dot/running4-right.svg \
+	$(shelldir)/assets/dot/running4-top-focused.svg \
+	$(shelldir)/assets/dot/running4-top.svg
 shell_extension_windowlist_file = \
 	$(shelldir)/extensions/window-list/classic.css \
 	$(shelldir)/extensions/window-list/stylesheet.css \
