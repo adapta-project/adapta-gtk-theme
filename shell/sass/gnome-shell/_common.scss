@@ -1698,8 +1698,13 @@ StScrollBar {
   spacing: 16px;
 }
 
-.search-section { spacing: 16px; } // This should be equal to #searchResultsContent spacing
-.search-section-content { spacing: 32px; } // This is the space between the provider icon and the results container
+ // This should be equal to #searchResultsContent spacing
+.search-section {
+  spacing: 16px;
+
+  // This is the space between the provider icon and the results container
+  &-content { spacing: 32px; }
+}
 .search-statustext { // "no results"
   @extend %status_text;
 }
@@ -1707,11 +1712,14 @@ StScrollBar {
 .list-search-results { spacing: 3px; }
 
 .search-section-separator {
-  -gradient-height: 1px;
-  -gradient-start: rgba(255,255,255,0);
-  -gradient-end: rgba(255,255,255,0.4);
-  -margin-horizontal: 1.5em;
   height: 1px;
+  margin-left: 96px;
+  &:dir(rtl) { margin-right: 96px; }
+
+  -gradient-height: 1px;
+  -gradient-start: rgba(236,239,241, 0.2); // $osd_semi_fill_color
+  -gradient-end: rgba(236,239,241, 0.2);
+  // -margin-horizontal: 1.5em;
 }
 
 .list-search-result {
