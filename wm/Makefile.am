@@ -171,8 +171,6 @@ if ENABLE_XFCE
 	cp -Rv $(xfwm_file) $(adaptadir)/xfwm4
 	cd $(adaptadir)
 	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
-	ln -sf ../Adapta/xfwm4 $(adaptaetadir)/xfwm4
-	ln -sf ../Adapta/xfwm4 $(noktoetadir)/xfwm4
 endif
 
 # *******************
@@ -208,8 +206,6 @@ endif
 if ENABLE_XFCE
 	test -e $(noktodir)/xfwm4 && rm -rfv $(noktodir)/xfwm4
 	test -e $(adaptadir)/xfwm4 && rm -rfv $(adaptadir)/xfwm4
-	test -e $(noktoetadir)/xfwm4 && rm -rfv $(noktoetadir)/xfwm4
-	test -e $(adaptaetadir)/xfwm4 && rm -rfv $(adaptaetadir)/xfwm4
 endif
 
 # ****************************
