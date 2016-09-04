@@ -698,8 +698,23 @@ $budgie_transition: opacity 0.2s $slope_medium,
       row,
       row.activatable {
         background-color: transparent;
-        color: $inverted_fg_color;
+        color: $inverted_secondary_fg_color;
         transition: none;
+
+        .dim-label {
+          color: $inverted_secondary_fg_color;
+          opacity: 1.0;
+        }
+
+        &:hover,
+        &:active {
+          color: $inverted_fg_color;
+
+          .dim-label {
+            color: $inverted_fg_color;
+            opacity: 1.0;
+          }
+        }
       }
     }
 
