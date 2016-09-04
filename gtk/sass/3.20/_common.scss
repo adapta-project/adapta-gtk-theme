@@ -3046,21 +3046,24 @@ notebook {
     &:hover { border-color: $track_color; }
     &:checked { border-color: $selected_bg_color; }
 
-    & label { // tab text
+    color: $tertiary_fg_color;
+    &:hover,
+    &:checked {
+      color: $fg_color;
+
+      label { // hover/active tab text
+        color: $fg_color;
+      }
+    }
+
+    label { // tab text
       padding: rem(1.3px);
       font-weight: 700;
       color: $tertiary_fg_color;
     }
+
     &.reorderable-page label { // reorderable-page tab text
       padding: rem(5.3px) 0 rem(5.3px);
-    }
-    &:hover label {
-      // hover tab text
-      color: $fg_color;
-    }
-    &:checked label {
-      // active tab text
-      color: $fg_color;
     }
 
     button { // tab close button
