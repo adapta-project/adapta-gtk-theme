@@ -1233,11 +1233,28 @@ StScrollBar {
 .message {
   min-height: 22px;
   padding: 6px;
-  border-radius: 2px;
-  background-color: transparent;
+  border-radius: 0;
+  background-color: $semi_fill_color;
+  color: $secondary_fg_color;
+  box-shadow: inset 4px 0 0 $semi_fill_color;
+
+  &:rtl { box-shadow: inset -4px 0 0 $semi_fill_color; }
+
   &:hover,
-  &:focus { background-color: $semi_fill_color; }
-  &:active { background-color: $fill_color; }
+  &:focus {
+    background-color: $accent_fill_color;
+    color: $fg_color;
+    box-shadow: inset 4px 0 0 $secondary_accent_color;
+
+    &:rtl { box-shadow: inset -4px 0 0 $secondary_accent_color; }
+  }
+  &:active {
+    background-color: $accent_active_fill_color;
+    color: $fg_color;
+    box-shadow: inset 4px 0 0 $accent_color;
+
+    &:rtl { box-shadow: inset -4px 0 0 $accent_color; }
+  }
 
   &-icon-bin {
     padding: 3px 0 3px 6px;
@@ -2175,7 +2192,11 @@ StScrollBar {
   color: $osd_fg_color;
   box-shadow: $z-depth-2;
   &:hover,
-  &:focus { background-color: transparentize($osd_bg_color, 0.1); }
+  &:focus {
+    background-color: transparentize($osd_bg_color, 0.1);
+    color: $osd_fg_color;
+    box-shadow: $z-depth-2;
+  }
 
   .notification-icon { padding: 8px; }
 
