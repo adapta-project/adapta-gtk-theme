@@ -2186,6 +2186,18 @@ StScrollBar {
 
   .secondary-icon { icon-size: 14px; }
 
+  * > StIcon { color: $secondary_accent_color; }
+
+  *:hover > StIcon,
+  *:focus > StIcon {
+    color: $accent_color;
+    background-color: $accent_fill_color;
+  }
+  *:active > StIcon {
+    color: $accent_color;
+    background-color: $accent_active_fill_color;
+  }
+
   .notification-actions {
     padding-top: 0;
     border: transparent;
