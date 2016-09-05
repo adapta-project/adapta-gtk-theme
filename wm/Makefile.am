@@ -44,6 +44,7 @@ metacity_file = \
 	$(metacitydir)/max_button_unshade_prelight.svg \
 	$(metacitydir)/max_button_unshade_pressed.svg \
 	$(metacitydir)/max_button_unshade.svg \
+	$(metacitydir)/metacity-theme-2.xml \
 	$(metacitydir)/metacity-theme-3.xml
 
 xfwmdir = $(srcdir)/xfwm4
