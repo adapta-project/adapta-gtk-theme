@@ -1639,3 +1639,30 @@ window.background:not(.csd) {
   }
 }
 
+
+/**************
+ * Mate panel *
+ **************/
+
+// Most parts are themed in Gnome-panel section
+#PanelWidget,
+#PanelPlug,
+#PanelApplet,
+PanelToplevel.background {
+  // Always use dark-color of dark variant
+  color: $inverted_secondary_fg_color;
+  background-color: $panel_bg_color;
+  box-shadow: none;
+}
+
+PanelSeparator {
+  border-width: 0;
+  background: none;
+  background-image: none;
+}
+
+.mate-panel-menu-bar menubar,
+#PanelApplet-window-menu-applet-button {
+  background-color: transparent;
+}
+
