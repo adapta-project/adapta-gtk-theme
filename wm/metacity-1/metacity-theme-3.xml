@@ -18,8 +18,6 @@
 <constant name="C_icons_focused_pressed" value="gtk:custom(theme_inverted_fg_color,gtk:fg[NORMAL])" />
 <constant name="C_icons_unfocused_pressed" value="gtk:custom(theme_unfocused_inverted_fg_color,gtk:fg[NORMAL])" />
 <constant name="D_icons_unfocused_offset" value="0" /> <!-- offset of the unfocused icons -->
-<constant name="D_icons_shrink" value="1.4" /> <!-- increasing this value makes the icons in buttons smaller -->
-<constant name="D_icons_grow" value="0" /> <!-- increasing this value makes the icons in buttons bigger -->
 
 <!-- geometries -->
 
@@ -29,7 +27,7 @@
 	<distance name="bottom_height" value="0" />
 	<distance name="left_titlebar_edge" value="0"/>
 	<distance name="right_titlebar_edge" value="0"/>
-	<distance name="title_vertical_pad" value="19"/>
+	<distance name="title_vertical_pad" value="14"/>
 	<border name="title_border" left="10" right="10" top="0" bottom="0"/>
 	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
 	<aspect_ratio name="button" value="1"/>
@@ -50,7 +48,7 @@
 </frame_geometry>
 
 <frame_geometry name="small" title_scale="small" parent="normal" rounded_top_left="false" rounded_top_right="false">
-	<distance name="title_vertical_pad" value="15"/>
+	<distance name="title_vertical_pad" value="14"/>
 </frame_geometry>
 
 <frame_geometry name="nobuttons" hide_buttons="true" parent="normal">
@@ -70,7 +68,7 @@
 </frame_geometry>
 
 <frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="false" rounded_top_right="false" parent="small">
-	<distance name="title_vertical_pad" value="15"/>
+	<distance name="title_vertical_pad" value="14"/>
 </frame_geometry>
 
 <frame_geometry name="attached" title_scale="medium" hide_buttons="true" rounded_top_left="1" rounded_top_right="1" rounded_bottom_left="1" rounded_bottom_right="1" parent="normal">
