@@ -219,8 +219,8 @@ Extra Browser Support
  >     Highlight:  #00BCD4
  >     Accent:     #2A373E
  >     Accent Color from Active Page: [ ]
- >     Apply Accent Color to Window:  [x]
- >     Transparent Tabs:              [x]
+ >     Apply Accent Color to Window:  [*]
+ >     Transparent Tabs:              [*]
  >     Corner Rounding:               2px
  >     ```
 
