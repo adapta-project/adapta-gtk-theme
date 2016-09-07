@@ -94,6 +94,11 @@ widget { // ubuntu-indicator container
       background-color: $inverted_dark_color;
       box-shadow: $menubar-shadow;
     }
+
+    .maximized & { // .tiled is meaningless in Mate
+      background-color: $panel_bg_color;
+      box-shadow: none;
+    }
   }
 }
 
