@@ -255,7 +255,7 @@ Work in Progress
 
 TODO
 ----
-* Add Mate 1.14 integration (priority: mid)
+* Add Mate 1.14 integration (**in progress**)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
