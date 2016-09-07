@@ -4,6 +4,7 @@
 
 panel-toplevel.background { background-color: $panel_bg_color; }
 
+panel-applet,
 panel-plug,
 panel-toplevel > grid.horizontal > widget > widget {
   // Always use dark-color of dark variant
@@ -15,10 +16,10 @@ panel-toplevel > grid.horizontal > widget > widget {
 .gnome-panel-menu-bar,
 panel-applet > menubar,
 #clock-applet-button {
-  font-weight: 700;
   color: $inverted_secondary_fg_color;
   background-color: transparent;
   box-shadow: none;
+  font-weight: 700;
 
   label:backdrop,
   &:backdrop { opacity: 1.0; }
@@ -66,7 +67,6 @@ panel-applet menubar {
   border-radius: 0;
   color: $inverted_secondary_fg_color;
   background-color: transparent;
-  font-weight: 700;
   &:hover {
     color: $inverted_fg_color;
     background-color: transparent;
@@ -84,22 +84,8 @@ panel-applet menubar {
   &:backdrop { opacity: 1.0; }
 }
 
-widget { // ubuntu-indicator container
-  > menubar {
-    background-color: $panel_bg_color;
-    box-shadow: none;
-
-    // FIXME: conflicts with Caja?
-    .background & {
-      background-color: $inverted_dark_color;
-      box-shadow: $menubar-shadow;
-    }
-
-    .maximized & { // .tiled is meaningless in Mate
-      background-color: $panel_bg_color;
-      box-shadow: none;
-    }
-  }
+wnck-tasklist {
+  button.toggle { font-weight: 400; }
 }
 
 wnck-pager {
