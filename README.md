@@ -96,9 +96,9 @@ Installation from Git Source
 1. If previous version was installed/existed, remove them at first.
 
  ```
- sudo rm -rf /usr/share/themes/{Adapta,Adapta-Nokto}
- rm -rf ~/.local/share/themes/{Adapta,Adapta-Nokto}
- rm -rf ~/.themes/{Adapta,Adapta-Nokto}
+ sudo rm -rf /usr/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ rm -rf ~/.local/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ rm -rf ~/.themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
  ```
 
 2. Check build-requirements:
