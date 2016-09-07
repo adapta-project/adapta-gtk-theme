@@ -1774,3 +1774,24 @@ PanelSeparator {
   > box > box > label { font-weight: 700; }
 }
 
+
+/********************
+ * Mate-Screensaver *
+ ********************/
+
+.lock-dialog {
+  @extend messagedialog;
+  border-radius: 2px;
+  border: 1px solid gtkopacity($inverted_dark_color, 0.9);
+  background-color: transparent;
+  // outset-shadow does not work since decoration node wasn't implemented
+  box-shadow: none;
+
+  &.background {
+    border-radius: 2px;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+  }
+
+  frame { border: none; }
+}
+
