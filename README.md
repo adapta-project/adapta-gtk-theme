@@ -59,11 +59,15 @@ Supported Desktop Environments
  * Cinnamon        >= 3.0.1 (or 2.8.6)
  * Unity           >= 7.4.0
  * XFce4           >= 4.12.2
+ * Mate            >= 1.14.0 (Gtk+ 3.2x only)
  ```
+
+ > **Note:**
+ >
+ >   * Mate-Desktop support is under W.I.P.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
- * Mate
  * Pantheon
 
 Installation from PPA (Ubuntu 16.04 LTS and 16.10)
