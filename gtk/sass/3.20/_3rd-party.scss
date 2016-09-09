@@ -1663,8 +1663,19 @@ PanelSeparator {
  * Caja *
  ********/
 
-.caja-desktop.caja-canvas-item {
+widget.caja-desktop.view { // desktop icon-grid styling
   @extend .nautilus-desktop.nautilus-canvas-item;
+
+  > widget.entry { // = EelEditableLabel.entry
+    &, &:focus {
+      transition: none;
+
+      &:selected { // FIXME: selection node doesn't work?
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+    }
+  }
 }
 
 .caja-navigation-window {
