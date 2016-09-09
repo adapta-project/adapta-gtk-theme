@@ -1746,6 +1746,10 @@ PanelSeparator {
  * Caja *
  ********/
 
+.caja-desktop.caja-canvas-item {
+  @extend .nautilus-desktop.nautilus-canvas-item;
+}
+
 .caja-navigation-window {
   // side-panel styling
   .caja-side-pane {
@@ -1844,10 +1848,18 @@ PanelSeparator {
     box-shadow: if($variant == 'light', $inline-shadow-light,
                                         $inline-shadow-dark);
   }
-}
 
-.caja-desktop.caja-canvas-item {
-  @extend .nautilus-desktop.nautilus-canvas-item;
+  // workaround for invisible text in rename entry
+  scrolledwindow widget > widget {
+    &, &:focus {
+      transition: none;
+
+      &:selected { // FIXME: selection node doesn't work?
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+    }
+  }
 }
 
 #caja-extra-view-widget {
