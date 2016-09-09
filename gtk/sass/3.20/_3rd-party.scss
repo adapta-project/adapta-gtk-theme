@@ -1709,6 +1709,12 @@ PanelSeparator {
     border-bottom: 1px solid $borders_color;
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
                                         $toolbar-shadow-dark);
+
+    button { // uniform button sizes
+      min-width: $icon_size * 1.5;
+      min-height: $icon_size * 1.5;
+      padding: rem(4px);
+    }
   }
 
   // path-bar styling
