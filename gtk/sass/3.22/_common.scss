@@ -448,9 +448,7 @@ entry {
       background-color: $base_color;
       color: $fg_color;
       box-shadow: none;
-      transition-property: color,
-                           background;
-
+      transition: none;
       &:selected { @extend %selected_items; }
     }
   }
@@ -838,6 +836,7 @@ button {
                                 0 0 2 / 0 0 2px;
     &:disabled {
       color: $insensitive_fg_color;
+      background-color: transparent;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -970,6 +969,8 @@ menuitem button.flat {
   min-height: rem(26.6px);
   padding: rem(2.7px) rem(5.3px) rem(3.3px);
   outline-offset: rem(-1px);
+  background-color: transparent;
+  color: $secondary_fg_color;
   transition: none;
   &:hover {
     @extend %button_flat_hover;
@@ -1149,7 +1150,6 @@ spinbutton {
       background-size: contain;
       background-color: transparent;
       color: $secondary_fg_color;
-      box-shadow: none;
       transition-property: opacity,
                            color,
                            background-color,
@@ -1167,7 +1167,7 @@ spinbutton {
           @extend %button_flat_active;
           background: none;
           color: $error_color;
-          animation: spin_hover 0.2s $slope_quick forwards;
+          animation: spin_active 0.2s $slope_quick forwards;
           transition-duration: 0.2s;
         }
         &:disabled {
@@ -1494,12 +1494,14 @@ toolbar {
         border-image: none;
         background-color: transparent;
         color: $accent_color;
+        box-shadow: none;
       }
       &:checked {
         @extend %button_flat_checked;
         border-image: none;
         background-color: transparent;
         color: $accent_color;
+        box-shadow: none;
       }
       &:disabled {
         @extend %button_flat_disabled;
@@ -1605,7 +1607,7 @@ toolbar {
     }
 
     &.toggle,
-    &.toggle,popup { // remove double-background
+    &.popup.toggle { // remove double-background
       &,
       &:hover,
       &:active,
@@ -1791,6 +1793,7 @@ headerbar {
       &:disabled {
         background-color: transparent;
         color: $insensitive_inverted_fg_color;
+
         > label { color: inherit; }
       }
     }
@@ -2764,7 +2767,7 @@ popover.background {
   & {
     border: 1px solid;
     border-color: $base_color $secondary_base_color $secondary_base_color;
-    border-radius: 2px + 1px;
+    border-radius: 2px;
   }
 
   &:backdrop { box-shadow: $z-depth-1; }
@@ -2785,6 +2788,7 @@ popover.background {
     background-color: transparent;
     color: $secondary_fg_color;
     font-weight: 400;
+    font-size: 100%;
     &:hover {
       background-color: transparent; // remove double-bg
       color: $fg_color;
@@ -3283,7 +3287,7 @@ switch {
   }
   &:checked slider {
     margin: rem(-5px, $sw: 1.0) rem(-5px, $sw: 1.0)
-    rem(-5px, $sw: 1.0) 0;
+            rem(-5px, $sw: 1.0) 0;
   }
 
   &:hover slider {
@@ -3955,7 +3959,7 @@ scale { // scales for colour
 
     &.horizontal {
       padding: 0 0 rem(10px, $sw: 1.0) 0;
- 
+
       trough { padding-bottom: rem(5px, $sw: 1.0); }
 
       slider {
@@ -4170,26 +4174,26 @@ levelbar {
   box-shadow: $z-depth-1; // needs to be set here to avoid clipping
 
   block {
-    min-width: rem(36px);
-    min-height: rem(4px);
+    min-width: 36px;
+    min-height: 4px;
   }
 
   &.vertical block {
-    min-width: rem(4px);
-    min-height: rem(36px);
+    min-width: 4px;
+    min-height: 36px;
   }
 
   trough {
-    padding: rem(2px);
+    padding: 2px;
     border-radius: 2px;
     box-shadow: $z-depth-1;
     &:disabled { box-shadow: none; }
-    &.horizontal { padding: rem(2px) rem(1px); }
-    &.vertical { padding: rem(1px) rem(2px); }
+    &.horizontal { padding: 2px 1px; }
+    &.vertical { padding: 1px 2px; }
   }
 
-  &.horizontal.discrete block { margin: 0 rem(1px); }
-  &.vertical.discrete block { margin: rem(1px) 0; }
+  &.horizontal.discrete block { margin: 0 1px; }
+  &.vertical.discrete block { margin: 1px 0; }
 
   block {
     border-radius: 0;
@@ -4543,6 +4547,7 @@ messagedialog { // Message Dialog styling
   .linked > button {
     border: 2px solid transparent;
     border-radius: 2px;
+    -gtk-outline-radius: 2px;
     border-image: none;
     box-shadow: none;
   }
@@ -5429,7 +5434,6 @@ decoration {
     padding: rem(($widget_size - $icon_size) / 2);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    
 
     &.close,
     &.minimize,
@@ -5711,6 +5715,7 @@ popover.touch-selection {
 
 button.circular {
   &,
+  &-button.image-button,
   &.radio.text-button {
     min-height: $icon_size;
     min-width: $icon_size;

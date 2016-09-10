@@ -413,7 +413,7 @@ entry,
     -gtk-outline-radius: 0;
   }
 
-  // entry error,warning and missing style
+  // entry error, warning and missing style
   @each $e_type, $e_color in (error, $error_color),
                              (warning, $warning_color),
                              (search-missing, $error_color) {
@@ -436,7 +436,7 @@ entry,
   }
 
   &:drop(active) {
-    &:focus, & {
+    &, &:focus {
       border-color: $drop_target_color;
       box-shadow: inset 0 0 0 1px $drop_target_color;
     }
@@ -852,6 +852,7 @@ button,
   }
   &:disabled {
     color: $insensitive_fg_color;
+    background-color: transparent;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
@@ -907,8 +908,8 @@ button,
 
 %image_button {
   padding: rem(($widget_size - $icon_size) / 2);
-  -gtk-outline-radius: 100px;
   border-radius: 100px;
+  -gtk-outline-radius: 100px;
 }
 
 %needs_attention {
@@ -1158,7 +1159,6 @@ spinbutton {
                            background-color,
                            background-image,
                            box-shadow;
-
 
       &:not(:last-child) { // '-' button
         &:hover {
@@ -1674,10 +1674,10 @@ toolbar {
     background: none;
   }
   &.horizontal {
-    & separator { margin: 0 rem(6px); }
+    separator { margin: 0 rem(6px); }
   }
   &.vertical {
-    & separator { margin: rem(6px) 0; }
+    separator { margin: rem(6px) 0; }
   }
 }
 
@@ -1760,7 +1760,7 @@ headerbar {
     &:backdrop { @extend .dim-label; }
   }
 
-  // separator
+  // separators
   & separator.vertical,
   & > box > separator.vertical,
   & > box > box > separator.vertical {
@@ -1874,7 +1874,7 @@ headerbar {
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
 
-    label.text-button { // workaround stupid Gnome-Software
+    label.text-button { // workaround for Gnome-Software
       padding: 0;
       border-image: none;
       box-shadow: none;
@@ -1916,6 +1916,7 @@ headerbar {
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
       &:backdrop { opacity: 0.5; }
     }
+
     & > button.combo {
       min-height: $icon_size;
       padding-top: rem(($widget_size - $icon_size - 5px) / 2);
@@ -2043,6 +2044,7 @@ headerbar {
           > label { color: inherit; }
         }
       }
+
       &.suggested-action {
         // NOTE: do not use @extend button;
         @include button(normal);
@@ -2065,10 +2067,12 @@ headerbar {
     button:not(.suggested-action):not(.destructive-action) {
       border-radius: 100px;
       -gtk-outline-radius: 100px;
+
       &.text-button,
       &.flat.selection-menu {
         border-radius: 2px;
         -gtk-outline-radius: 2px;
+
         &.image-button {
           border-radius: 100px;
           -gtk-outline-radius: 100px;
@@ -2222,6 +2226,7 @@ headerbar {
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                               $tiled-header-shadow-dark-ltr);
         }
+
         .maximized & {
           @extend %maxd_integration;
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
@@ -2237,6 +2242,7 @@ headerbar {
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                               $tiled-header-shadow-dark-rtl);
         }
+
         .maximized & {
           @extend %maxd_integration;
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
@@ -2451,8 +2457,8 @@ treeview.view {
   border-top-color: $borders_color;  // while this is the grid lines color,
                                      // better then nothing
 
-  & rubberband { @extend rubberband; } // to avoid borders being overridden
-                                       // by the previously set props
+  rubberband { @extend rubberband; } // to avoid borders being overridden
+                                     // by the previously set props
 
   border-radius: 0; // rest border radius in lists
 
@@ -2464,8 +2470,8 @@ treeview.view {
   }
 
   // override foreground colours
-  &, & entry,
-  & entry > label {
+  &, entry,
+  entry > label {
     color: $secondary_fg_color;
     &:hover,
     &:active,
@@ -2747,6 +2753,7 @@ menuitem {
   }
 }
 
+// round corners for CSD menus
 .csd.popup { border-radius: 2px; }
 
 
@@ -2896,7 +2903,7 @@ notebook {
                                 (left, 1px 0),
                                 (right, -1px 0) {
       &.#{$_header} {
-        // outset borders
+        // FIXME: outset borders
         box-shadow: #{$_border} $borders_color;
       }
     }
@@ -3123,8 +3130,8 @@ $_slider_min_length: rem(32px);
   to { min-height: $_slider_min_width; }
 }
 
-.scrollbar,
-scrollbar {
+scrollbar,
+.scrollbar {
   // disable steppers
   @at-root * {
     -GtkScrollbar-has-backward-stepper: false;
@@ -3750,15 +3757,15 @@ scale {
     outline-offset: 0;
     outline-width: 0;
     &.horizontal {
+      min-height: rem(10px, $sw: 1.0);
       padding-top: rem(9px, $sw: 1.0);
       padding-bottom: rem(9px, $sw: 1.0);
-      min-height: rem(10px, $sw: 1.0);
     }
 
     &.vertical {
+      min-width: rem(10px, $sw: 1.0);
       padding-left: rem(9px, $sw: 1.0);
       padding-right: rem(9px, $sw: 1.0);
-      min-width: rem(10px, $sw: 1.0);
     }
 
     // to make the trough grow in fine-tune mode
@@ -4168,7 +4175,7 @@ progressbar {
 levelbar {
   box-shadow: $z-depth-1; // needs to be set here to avoid clipping
 
-  & block {
+  block {
     min-width: 36px;
     min-height: 4px;
   }
@@ -4178,7 +4185,7 @@ levelbar {
     min-height: 36px;
   }
 
-  & trough {
+  trough {
     padding: 2px;
     border-radius: 2px;
     box-shadow: $z-depth-1;
@@ -4487,10 +4494,17 @@ calendar {
   &.button,
   &.header.button {
     @extend %button_flat_normal;
-    color: gtkalpha(currentColor, 0.20);
+    color: gtkalpha(currentColor, 0.2);
     background-color: transparent;
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
+    &:hover {
+      @extend %button_flat_hover;
+      color: currentColor;
+      background-color: gtkalpha(currentColor, 0.1);
+    }
+    &:active {
+      @extend %button_flat_active;
+      color: currentColor;
+    }
     &:disabled { @include button(flat-insensitive); }
   }
 
@@ -4656,7 +4670,7 @@ filechooserbutton:drop(active) {
 
   &, list { // draw shadows
      &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                     $sidebar-dark-ltr);
+                                                      $sidebar-dark-ltr);
     }
     &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
                                                      $sidebar-dark-rtl);
@@ -4897,7 +4911,7 @@ paned {
       min-height: rem(6px);
       margin: 0;
       padding: 0;
-      // use opaque borders to avoid double-border
+      // FIXME: use opaque borders to avoid double-border
       background-color: $bg_color;
       background-image: image($solid_light_borders_color),
                         image($solid_light_borders_color);
@@ -5413,7 +5427,7 @@ decoration {
 // Window manager buttons
 .csd headerbar,
 .csd .titlebar {
-  & button.titlebutton,
+  button.titlebutton,
   &.selection-mode button.titlebutton {
     @extend %fade_effect;
     @extend button.flat;
@@ -5646,9 +5660,7 @@ decoration {
   }
 }
 
-.monospace {
-  font-family: Monospace;
-}
+.monospace { font-family: Monospace; }
 
 
 /**********************
