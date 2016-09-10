@@ -668,7 +668,9 @@ $budgie_transition: opacity 0.2s $slope_medium,
   }
 
   button,
-  .linked > button { // OSD-style buttons
+  buttonbox button,
+  buttonbox .linked > button { // OSD-style buttons
+    border-image: none; // hide underlines
     color: $secondary_accent_color;
     &:hover,
     &:active,
