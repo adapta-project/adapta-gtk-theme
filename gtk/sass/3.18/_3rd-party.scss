@@ -668,8 +668,15 @@ $full_orientation: ((top, bottom),
   .button.image-button { padding: 0.6em; }
 }
 
+// clock-applet styling
+.budgie-panel {
+  // shrink label
+  ClockApplet .label { font-size: 90%; }
+}
+
 // notifications
-.budgie-notification-window {
+.budgie-notification-window,
+.budgie-osd-window {
   border-radius: 2px;
   background-color: transparent;
 
@@ -677,13 +684,8 @@ $full_orientation: ((top, bottom),
   .drop-shadow { background-color: gtkopacity($inverted_dark_color, 0.9); }
 }
 
-// clock-applet styling
-.budgie-panel {
-  // shrink label
-  ClockApplet .label { font-size: 90%; }
-}
-
-.budgie-notification {
+.budgie-notification,
+.budgie-osd {
   // always use dark-variant
   color: $inverted_fg_color;
   background-color: transparent;
@@ -706,6 +708,11 @@ $full_orientation: ((top, bottom),
     &:active,
     &:checked { color: $accent_color; }
     &:insensitive { color: gtkopacity($accent_color, 0.4); }
+  }
+
+  .budgie-osd-text {
+    color: $inverted_fg_color;
+    font-size: 110%;
   }
 }
 

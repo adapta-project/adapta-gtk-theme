@@ -640,7 +640,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
 }
 
 // notifications
-.budgie-notification-window {
+.budgie-notification-window,
+.budgie-osd-window {
   border-radius: 2px;
   background-color: transparent;
 
@@ -648,7 +649,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
   .drop-shadow { background-color: gtkopacity($inverted_dark_color, 0.9); }
 }
 
-.budgie-notification {
+.budgie-notification,
+.budgie-osd {
   // always use dark-variant
   color: $inverted_fg_color;
   background-color: transparent;
@@ -672,6 +674,11 @@ $budgie_transition: opacity 0.2s $slope_medium,
     &:active,
     &:checked { color: $accent_color; }
     &:disabled { color: gtkopacity($accent_color, 0.4); }
+  }
+
+  .budgie-osd-text {
+    color: $inverted_fg_color;
+    font-size: 110%;
   }
 }
 
