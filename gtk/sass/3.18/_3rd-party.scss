@@ -702,7 +702,10 @@ $full_orientation: ((top, bottom),
     font-weight: 400;
   }
 
-  .button { // OSD-style buttons
+  .button,
+  GtkButtonBox > botton,
+  GtkButtonBox > .linked > botton { // OSD-style buttons
+    border-image: none;
     color: $secondary_accent_color;
     &:hover,
     &:active,
