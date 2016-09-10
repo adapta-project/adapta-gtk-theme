@@ -1179,10 +1179,12 @@ actionbar {
                                 to($track_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
+    background-color: transparent;
     color: $secondary_fg_color;
     &:hover {
       @extend %button_flat_hover;
       border-image: none;
+      background-color: transparent;
       color: $fg_color;
     }
     &:checked {
@@ -1266,6 +1268,7 @@ actionbar {
         box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                             $tiled-header-shadow-dark-rtl);
       }
+
       .maximized & {
         @extend %maxd_integration;
         box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
@@ -1668,6 +1671,7 @@ window > popover > stack > grid > button {
     &.right { @include undershoot(right, $secondary_dark_color); }
   }
 }
+
 
 /***************
  * Gnome-disks *
