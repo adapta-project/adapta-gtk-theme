@@ -642,6 +642,42 @@ $budgie_transition: opacity 0.2s $slope_medium,
   }
 }
 
+// popover of sound-indicator styling
+.budgie-container.top,
+.budgie-container.bottom {
+  > popover.background > box.vertical > button.flat.image-button {
+    padding: rem(6.7px, $sw: 1.0);
+
+    &:first-child { // '+' button
+      &:hover {
+        @extend %button_flat_hover;
+        background: none;
+        color: $success_color;
+        animation: volume_hover 0.2s linear forwards;
+      }
+      &:disabled {
+        @extend %button_flat_disabled;
+        background: none;
+        color: gtkalpha($success_color, 0.4);
+      }
+    }
+
+    &:last-child { // '-' button
+      &:hover {
+        @extend %button_flat_hover;
+        background: none;
+        color: $error_color;
+        animation: volume_hover 0.2s linear forwards;
+      }
+      &:disabled {
+        @extend %button_flat_disabled;
+        background: none;
+        color: gtkalpha($error_color, 0.4);
+      }
+    }
+  }
+}
+
 // notifications
 .budgie-notification-window,
 .budgie-osd-window {
