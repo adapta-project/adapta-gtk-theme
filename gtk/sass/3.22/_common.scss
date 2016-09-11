@@ -2670,7 +2670,8 @@ menu {
     & > arrow { color: $secondary_fg_color; }
 
     &:hover {
-      background-color: gtkalpha(currentColor, 0.1);
+      // do not use 'currentColor' (damned Atom can't recognize)
+      background-color: gtkopacity($fg_color, 0.1);
       transition: none;
 
       &,
