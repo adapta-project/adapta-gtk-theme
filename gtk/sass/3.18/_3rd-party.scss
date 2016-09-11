@@ -674,6 +674,40 @@ $full_orientation: ((top, bottom),
   ClockApplet .label { font-size: 90%; }
 }
 
+// popover of sound-indicator styling
+.budgie-container.top,
+.budgie-container.bottom {
+  > .popover > GtkBox.vertical > .button.flat.image-button {
+    padding: 0.5em;
+
+    &:first-child { // '+' button
+      &:hover {
+        @extend %button_flat_hover;
+        background: none;
+        color: $success_color;
+      }
+      &:insensitive {
+        @extend %button_flat_insensitive;
+        background: none;
+        color: gtkalpha($success_color, 0.4);
+      }
+    }
+
+    &:last-child { // '-' button
+      &:hover {
+        @extend %button_flat_hover;
+        background: none;
+        color: $error_color;
+      }
+      &:insensitive {
+        @extend %button_flat_insensitive;
+        background: none;
+        color: gtkalpha($error_color, 0.4);
+      }
+    }
+  }
+}
+
 // notifications
 .budgie-notification-window,
 .budgie-osd-window {
