@@ -1570,6 +1570,18 @@ window.background:not(.csd) {
 }
 
 
+/********
+ * Atom *
+ ********/
+
+// workaround for Atom with Gtk+ 3.x
+window:not(.background):not(.csd) > menubar > menuitem {
+  color: $secondary_fg_color;
+  &:hover { color: $secondary_fg_color; }
+  &:disabled { color: $insensitive_fg_color; }
+}
+
+
 /**************
  * Mate-Panel *
  **************/
