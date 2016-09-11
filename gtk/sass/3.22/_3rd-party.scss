@@ -1577,7 +1577,10 @@ window.background:not(.csd) {
 // workaround for Atom with Gtk+ 3.x
 window:not(.csd) > menubar > menuitem {
   color: $inverted_secondary_fg_color;
-  &:hover { color: $inverted_fg_color; }
+  &:hover {
+    color: $inverted_fg_color;
+    background-color: $track_color;
+  }
   &:disabled { color: $insensitive_inverted_fg_color; }
 }
 
