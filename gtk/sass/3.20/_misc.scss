@@ -1545,6 +1545,18 @@ terminal-window {
       }
     }
   }
+
+  scrollbar { // always use dark-variant
+    background-color: transparent;
+
+    slider {
+      background-color: gtkopacity($inverted_fg_color, 0.55 * 0.5);
+      &:hover {
+        background-color: gtkopacity($inverted_secondary_fg_color, 0.55);
+      }
+      &:active { background-color: $inverted_fg_color; }
+    }
+  }
 }
 
 
