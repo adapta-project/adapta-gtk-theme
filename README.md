@@ -19,7 +19,7 @@ Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Pla
 
 > **Note:**
 >
->   Both also includes common GNOME-Flashback, Unity7 and XFce4 theming.
+>   Both also includes common GNOME-Flashback, Unity7, XFce4 and Mate theming.
 
 <img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta-Eta**:
  * Light/Dark variant Gtk+ 3.22/3.20 theme
@@ -164,12 +164,13 @@ Installation from Git Source
  --disable-flashback     disable flashback support (type: bool)
  --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
+ --disable-mate          disable mate support (type: bool)
  ```
 
  > **Note:**
  >
  >   * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
- >   * Cinnamon/Unity support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
+ >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
 6. If users want to disable next Gtk+ release support, please pass this option:
 
@@ -256,10 +257,10 @@ I mainly use it when running Budgie, and it might be suitable for night owls...
 Work in Progress
 ----------------
 * Conversion to Gtk+ 3.22
+* Add Mate 1.14 integration
 
 TODO
 ----
-* Add Mate 1.14 integration (**in progress**)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
