@@ -16,6 +16,7 @@ ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
 ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
+ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
 
@@ -100,6 +101,7 @@ AC_MSG_RESULT([
          GNOME-Flashback:      $ENABLE_FLASHBACK
          Unity:                $ENABLE_UNITY
          XFce:                 $ENABLE_XFCE
+         Mate:                 $ENABLE_MATE
 
         -----------------------------------------------------------
         | Next Gtk+ support
