@@ -1464,6 +1464,12 @@ window > box.vertical > box.vertical > widget > grid.vertical {
  ******************/
 
 terminal-window {
+  &.background,
+  vte-terminal { // set the same background with Mutter
+    background-color: $inverted_dark_color;
+    color: $inverted_fg_color;
+  }
+
   // Re-define menubar node to fix side-effect
   // of the workarounds for LibreOffice
   menubar > menuitem {
