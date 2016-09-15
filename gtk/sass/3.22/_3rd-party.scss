@@ -44,10 +44,6 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-container { background-color: transparent; }
 
 .budgie-panel {
-  // disable backdrop transparency
-  &:backdrop,
-  *:backdrop { opacity: 1.0; }
-
   // panel styling
   // always use dark-color of dark variant
   background-color: $panel_bg_color;
@@ -1337,9 +1333,6 @@ window > headerbar > widget > box.horizontal {
       background-color: transparent;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
-
-    label:backdrop,
-    &:backdrop { opacity: 1.0; }
   }
 
   menu { -gtk-icon-effect: none; }
@@ -1357,7 +1350,6 @@ TopMenuAppMenuBar {
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
-    &:backdrop { opacity: 1.0; }
   }
 }
 
