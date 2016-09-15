@@ -1610,18 +1610,18 @@ window.background:not(.csd) {
  * Atom/Electron *
  *****************/
 
-// workaround for Atom with Gtk+ 3.x
+// workaround for Electron with Gtk+ 3.x
 window.background:not(.csd) { // blind shot :/
   > menubar {
-    background-color: $inverted_dark_color;
+    background-color: $dark_color;
 
     > menuitem {
-      color: $inverted_secondary_fg_color;
+      color: $secondary_fg_color;
       &:hover {
-        color: $inverted_fg_color;
-        background-color: gtkopacity($inverted_fg_color, 0.1);
+        color: $fg_color;
+        background-color: gtkopacity($fg_color, 0.1);
       }
-      &:disabled { color: $insensitive_inverted_fg_color; }
+      &:disabled { color: $insensitive_fg_color; }
     }
   }
 }
