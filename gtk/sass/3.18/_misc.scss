@@ -25,8 +25,6 @@ ClockBox {
   background-color: transparent;
   box-shadow: none;
   font-weight: 700;
-  .label:backdrop,
-  &:backdrop { opacity: 1.0; }
 }
 
 .gnome-panel-menu-bar,
@@ -39,7 +37,6 @@ PanelApplet > GtkMenuBar.menubar {
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
-    &:backdrop { opacity: 1.0; }
   }
   .menu {
     font: regular;
@@ -51,7 +48,6 @@ PanelApplet > GtkMenuBar.menubar {
         background-color: gtkalpha(currentColor, 0.1);
 	box-shadow: none;
       }
-      &:backdrop { opacity: 1.0; }
     }
     .separator { color: $borders_color; }
   }
@@ -86,8 +82,6 @@ PanelApplet {
         background-color: transparent;
         box-shadow: inset 0 -2px $selected_bg_color;
       }
-      .label:backdrop,
-      &:backdrop { opacity: 1.0; }
     }
   }
 }
@@ -112,8 +106,6 @@ TaskList TaskItem {
     background-color: transparent;
     box-shadow: inset 0 -2px $selected_bg_color;
   }
-  .label:backdrop,
-  &:backdrop { opacity: 1.0; }
 }
 
 WpTaskTitle {
@@ -123,7 +115,6 @@ WpTaskTitle {
 
 WnckPager {
   &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
-  &:backdrop { opacity: 1.0; }
 }
 
 NaTrayApplet {
