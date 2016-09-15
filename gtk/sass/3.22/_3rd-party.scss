@@ -1929,3 +1929,54 @@ widget.caja-desktop.view { // desktop icon-grid styling
   // }
 }
 
+
+/*********
+ * Pluma *
+ *********/
+
+.pluma-window {
+  paned.horizontal notebook {
+    > header.top { // revive top-border when tabs are shown
+      border-top: 1px solid $borders_color;
+      background-color: $secondary_dark_color;
+      box-shadow: if($variant == 'light', $inline-shadow-light,
+                                          $inline-shadow-dark);
+    }
+
+    scrolledwindow {
+      undershoot { // remove undershoot
+        &.top,
+        &.bottom,
+        &.left,
+        &.right { background-image: none; }
+      }
+    }
+  }
+
+  statusbar {
+    margin: 0 -10px; // hide weird lateral gaps
+    padding: 0 rem(6.7px);
+    background-color: $secondary_dark_color;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
+
+    frame,
+    .frame { border-style: none; }
+  }
+
+  // side-pane styling
+  paned.horizontal box.vertical notebook {
+    &.frame { border-style: solid none; }
+  }
+
+  // print-preview styling
+  .pluma-print-preview toolbar.horizontal {
+    border-width: 1px 0;
+    border-style: solid none;
+    border-color: $borders_color transparent;
+    background-color: $secondary_dark_color;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
+  }
+}
+
