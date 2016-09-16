@@ -925,7 +925,7 @@ StScrollBar {
  ***********/
 
 #panel {
-  height: 30px; // = 2.25em
+  height: 25px; // = 1.875em
   font-weight: 700;
   background-color: $panel_bg_color;
 
@@ -969,12 +969,12 @@ StScrollBar {
       -panel-corner-border-color: transparent;
     }
 
-    StLabel { padding-bottom: 1px; }
+    StLabel { padding: 0 2px 1px; }
   }
 
   .panel-button {
-    -natural-hpadding: 12px;
-    -minimum-hpadding: 6px;
+    -natural-hpadding: 8px - 2px;
+    -minimum-hpadding: 8px - 2px;
     font-weight: 700;
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
@@ -982,8 +982,7 @@ StScrollBar {
 
     .app-menu-icon {
       -st-icon-style: symbolic;
-      margin-left: 4px;
-      margin-right: 4px;
+      padding: 0; // set gap in #appmenu
       //dimensions of the icon are hardcoded
     }
 
@@ -1007,7 +1006,8 @@ StScrollBar {
 
     .system-status-icon {
       icon-size: 16px;
-      padding: 0 2px;
+      // padding: 0 2px;
+      spacing: 2px;
     }
 
     .unlock-screen &,
@@ -1019,11 +1019,15 @@ StScrollBar {
       &:active { color: $selected_fg_color; }
     }
 
-    StLabel { padding-bottom: 1px; }
+    StLabel { padding: 0 2px 1px; }
+
+    .popup-menu-arrow { // hide down-arrows
+      width: 0;
+    }
   }
 
   .panel-status-indicators-box,
-  .panel-status-menu-box { spacing: 6px; }
+  .panel-status-menu-box { spacing: 0; }
 
   .screencast-indicator { color: $accent_color; }
 }
@@ -1370,7 +1374,9 @@ StScrollBar {
 
 #appMenu {
   spinner-image: url("process-working.svg");
-  spacing: 4px;
+  padding: 0 8px - 2px;
+
+  StLabel { padding: 0 2px 1px; }
 
   .label-shadow { color: transparent; }
 }
