@@ -1212,6 +1212,11 @@ spinbutton {
 
   &.vertical { // FIXME: try using linking templates for
                // vertically linked stuff
+
+    // FIXME: this should not be set at all, but otherwise it gets the wrong
+    // color
+    &:disabled { color: $insensitive_fg_color; }
+
     entry {
       min-width: rem(33.3px);
       min-height: rem(33.3px);
