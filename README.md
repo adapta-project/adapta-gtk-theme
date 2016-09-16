@@ -1,7 +1,6 @@
 Adapta
 =========
 An adaptive Gtk+ theme based on Material Design Guidelines.
-Lots of elements were forked from [Flat-Plat](https://github.com/nana-4/Flat-Plat) at the start.
 
 <img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta**:
  * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
