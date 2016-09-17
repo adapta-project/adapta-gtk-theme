@@ -10,7 +10,7 @@
 # (at your option) any later version.
 #
 
-INKSCAPE="`which inkscape`"
+INKSCAPE="`command -v inkscape`"
 
 SRC_FILE="../assets-gtk2.svg"
 ASSETS_DIR="../assets-gtk2"

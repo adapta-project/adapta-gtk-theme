@@ -10,7 +10,7 @@
 # (at your option) any later version.
 #
 
-INKSCAPE="`which inkscape`"
+INKSCAPE="`command -v inkscape`"
 
 SRC_DIR="../assets-xfwm"
 ASSETS_DIR="../../xfwm4"
