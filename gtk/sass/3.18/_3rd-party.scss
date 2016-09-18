@@ -708,6 +708,68 @@ $full_orientation: ((top, bottom),
   }
 }
 
+// places-indicator styling
+.popover.places-menu {
+  padding: 0;
+
+  .places-section-header {
+    padding: 0.3em;
+
+    > .label {
+      color: $secondary_fg_color;
+      font-weight: 400;
+    }
+
+    > GtkImage {
+      padding-left: 4px;
+      color: $accent_color;
+
+      &:dir(rtl) { padding-right: 4px; }
+    }
+
+    .button.image-button { margin: 0.2em; }
+  }
+
+  GtkBox.vertical > GtkRevealer {
+    > .list { // drop-down list
+      border-top: 1px solid $borders_color;
+      box-shadow: if($variant == 'light', $inline-shadow-light,
+                                          $inline-shadow-dark);
+    }
+  }
+
+  GtkInfobar.message-bar {
+    border-radius: 2px 2px 0 0;
+  }
+
+  .list {
+    background-color: transparent;
+
+    > .list-row.activatable {
+      &,
+      &:hover,
+      &:active {
+        .name-button { // = 'toolbutton > button'
+          &,
+          &:hover,
+          &:active { // parent 'row' has them
+            background-color: transparent;
+            background-image: none;
+            animation: none;
+          }
+        }
+      }
+
+      .unmount-button { margin: 0.2em; }
+    }
+
+    .label.dim-label {
+      font-size: 90%;
+      font-weight: 700;
+    }
+  }
+}
+
 // notifications
 .budgie-notification-window,
 .budgie-osd-window {
