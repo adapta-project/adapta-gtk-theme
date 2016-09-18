@@ -681,6 +681,70 @@ $budgie_transition: opacity 0.2s $slope_medium,
   }
 }
 
+// places-indicator styling
+popover.places-menu {
+  padding: 0;
+
+  .places-section-header {
+    padding: rem(4px);
+
+    > label {
+      color: $accent_color;
+      font-weight: 400;
+    }
+
+    > image {
+      padding-left: 4px;
+      color: $accent_color;
+
+      &:dir(rtl) { padding-right: 4px; }
+    }
+
+    button.image-button {
+      margin: rem(2.7px);
+    }
+  }
+
+  box.vertical > revealer {
+    > list { // drop-down list
+      border-top: 1px solid $borders_color;
+      box-shadow: if($variant == 'light', $inline-shadow-light,
+                                          $inline-shadow-dark);
+    }
+
+    infobar.message-bar {
+      border-radius: 2px 2px 0 0;
+    }
+  }
+
+  list {
+    background-color: transparent;
+
+    > row.activatable {
+      &,
+      &:hover,
+      &:active {
+        .name-button { // = 'toolbutton > button'
+          &,
+          &:hover,
+          &:active { // parent 'row' has them
+            background-color: transparent;
+            background-image: none;
+            animation: none;
+          }
+        }
+      }
+
+      .unmount-button { margin: rem(2.7px); }
+    }
+
+    label.dim-label {
+      font-size: 90%;
+      font-weight: 700;
+    }
+  }
+}
+
 // notifications
 .budgie-notification-window,
 .budgie-osd-window {
