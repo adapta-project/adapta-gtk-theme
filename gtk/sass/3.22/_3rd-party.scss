@@ -724,17 +724,20 @@ popover.places-menu {
     background-color: transparent;
 
     > row.activatable {
-      &,
       &:hover,
       &:active {
+        color: $fg_color;
+
         .name-button { // = 'toolbutton > button'
           &,
           &:hover,
-          &:active { // parent 'row' has them
+          &:active {
+            color: $fg_color;
             background-color: transparent;
             background-image: none;
             animation: none;
           }
+          &:active { animation: list_ripple_effect 0.3s $slope_slow forwards; }
         }
       }
 
