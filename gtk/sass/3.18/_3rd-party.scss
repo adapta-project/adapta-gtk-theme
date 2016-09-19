@@ -721,20 +721,26 @@ $full_orientation: ((top, bottom),
     }
 
     > GtkImage {
-      padding-left: 4px;
+      padding-left: 0.4em;
       color: $accent_color;
 
-      &:dir(rtl) { padding-right: 4px; }
+      &:dir(rtl) { padding-right: 0.4em; }
     }
 
-    .button.image-button { margin: 0.2em; }
+    // FIXME: use border as positive margins
+    .button.image-button {
+      padding: 0.6em;
+      border: 2px solid transparent;
+    }
   }
 
   GtkBox.vertical > GtkRevealer {
     > .list { // drop-down list
-      border-top: 1px solid $borders_color;
       box-shadow: if($variant == 'light', $inline-shadow-light,
                                           $inline-shadow-dark);
+
+      // draw top-border in row class
+      .list-row:first-child { border-top: 1px solid $borders_color; }
     }
   }
 
@@ -746,21 +752,29 @@ $full_orientation: ((top, bottom),
     background-color: transparent;
 
     > .list-row.activatable {
-      &,
       &:hover,
       &:active {
+        color: $fg_color;
+
         .name-button { // = 'toolbutton > button'
           &,
           &:hover,
-          &:active { // parent 'row' has them
+          &:active {
+            color: $fg_color;
             background-color: transparent;
             background-image: none;
             animation: none;
           }
+          &:active {
+            animation: list_ripple_effect 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
         }
       }
 
-      .unmount-button { margin: 0.2em; }
+      .unmount-button {
+        padding: 0.6em;
+        border: 2px solid transparent;
+      }
     }
 
     .label.dim-label {
