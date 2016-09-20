@@ -1010,19 +1010,23 @@ StScrollBar {
       // spacing: 2px;
     }
 
-    .unlock-screen &,
-    .login-screen &,
-    .lock-screen & {
-      color: $osd_fg_color;
-      &:focus,
-      &:hover,
-      &:active { color: $selected_fg_color; }
-    }
-
     StLabel { padding: 0 2px 1px; }
 
     .popup-menu-arrow { // hide down-arrows
       width: 0;
+    }
+  }
+
+  &.unlock-screen,
+  &.login-screen,
+  &.lock-screen {
+    .panel-corner,
+    .panel-button { // tone-up foregrounds
+      color: $osd_fg_color;
+      &:focus,
+      &:hover,
+      &:active,
+      &:checked { color: $selected_fg_color; }
     }
   }
 
