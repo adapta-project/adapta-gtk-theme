@@ -1137,11 +1137,14 @@ UnityPanelWidget,
 .lightdm-gtk-greeter {
   // top-panel styling
   #panel_window {
-    background-color: $panel_bg_color;
     color: $inverted_fg_color;
     box-shadow: none;
     font-weight: 700;
     text-shadow: none;
+    box-shadow: inset 0 2px $panel_bg_color;
+
+    &, &.background,
+    & > * > * { background-color: transparent; } // FIXME: ugly wildcard
 
     & label {
       padding: 0 3px;
@@ -1150,6 +1153,7 @@ UnityPanelWidget,
 
     menubar {
       @extend .gnome-panel-menu-bar;
+      background-color: transparent;
       color: $inverted_fg_color;
 
       & label,
@@ -1158,21 +1162,33 @@ UnityPanelWidget,
         color: $inverted_fg_color;
       }
 
-      &:hover,
-      &:hover label,
-      &:hover image { color: $selected_fg_color; }
+      &:hover {
+        color: $selected_fg_color;
+        box-shadow: inset 0 2px $selected_bg_color;
 
-      menu menuitem {
-        padding: rem(5.3px) rem(8px) rem(6.7px);
-        font-weight: 400;
-        text-shadow: none;
+        label,
+        image { color: $selected_fg_color; }
+      }
 
-        // override above hacks
-        &, & label { color: $secondary_fg_color; }
-        &:hover,
-        &:hover label { color: $fg_color; }
-	&:disabled,
-	&:disabled label { color: $insensitive_fg_color; }
+      // flip underline-indicator vertically
+      > menuitem {
+        background-color: transparent;
+        &:hover { box-shadow: inset 0 2px $selected_bg_color; }
+      }
+
+      menu {
+        menuitem {
+          padding: rem(5.3px) rem(8px) rem(6.7px);
+          font-weight: 400;
+          text-shadow: none;
+
+          // override above hacks
+          &, & label { color: $secondary_fg_color; }
+          &:hover,
+          &:hover label { color: $fg_color; }
+          &:disabled,
+          &:disabled label { color: $insensitive_fg_color; }
+        }
       }
     }
   }
@@ -1182,15 +1198,19 @@ UnityPanelWidget,
   #shutdown_dialog,
   #restart_dialog {
     @extend messagedialog;
-    border: 1px solid $borders_color;
-    border-radius: 2px;
-    background-color: $inverted_dark_color;
+    border: none;
+    border-radius: 0;
     color: $inverted_fg_color;
     box-shadow: none;
 
+    &, &.background { background-color: transparent; }
+
     button {
-      // non-scaling unit
-      padding: 9.3px 13.3px 10.7px;
+      padding: rem(9.3px, $sw: 1.0) rem(13.3px, $sw: 1.0) rem(10.7px, $sw: 1.0);
+      color: $inverted_secondary_fg_color;
+      &:hover,
+      &:active { color: $inverted_fg_color; }
+      &:disabled { color: $insensitive_inverted_fg_color; }
 
       &#login_button,
       &#restart_button { @extend button.suggested-action; }
@@ -1204,7 +1224,9 @@ UnityPanelWidget,
                                     to($track_color),
                                     to(transparent))
                                     0 0 1 / 0 0 1px;
-        color: $inverted_secondary_fg_color;
+        color: $inverted_fg_color;
+        font-weight: 700;
+        font-size: 110%;
         &:hover,
         &:active {
           border-image: -gtk-gradient(radial,
@@ -1213,7 +1235,7 @@ UnityPanelWidget,
                                       to($selected_bg_color),
                                       to(transparent))
                                       0 0 2 / 0 0 2px;
-          color: $inverted_fg_color;
+          color: $selected_fg_color;
         }
         &:disabled,
         &:checked:disabled {
@@ -1229,11 +1251,17 @@ UnityPanelWidget,
     }
 
     infobar.error { // notification revealer
-      margin: 0 1px; // prevent unwanted overflow
-      border-width: 1px;
-      border-color: $inverted_dark_color;
-      box-shadow: if($variant == 'light', $inline-shadow-light,
-                                          $inline-shadow-dark);
+      margin: 0 4px; // prevent unwanted overflow
+      border: none;
+      background-color: transparent;
+      // show notification icons at the left of label
+      background-image: -gtk-icontheme("dialog-error-symbolic");
+      background-position: left center;
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      color: $error_color;
+      font-weight: 700;
+      font-size: 110%;
     }
   }
 
