@@ -549,9 +549,17 @@ box > headerbar > label.polari-titlebar-separator {
   }
 }
 
-// remove unwanted drop-shadow
-window > box.vertical > box.vertical {
-  > toolbar.horizontal { box-shadow: none; }
+// tweak drop-shadow and frame in alt-toolbar
+window.csd > box.vertical > box.vertical {
+  > toolbar.horizontal {
+    margin-top: -1px;
+    border-top: 1px solid $borders_color;
+    background-color: $secondary_dark_color;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
+  }
+
+  > frame > border { border: none; }
 }
 
 // force using circle buttons for 'play/pause' etc
