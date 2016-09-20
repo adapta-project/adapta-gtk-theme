@@ -1,6 +1,6 @@
 AC_INIT(
 	[Adapta ],
-	3.21.6,
+	3.22.0,
 	[https://github.com/tista500/Adapta],
 	[adapta-gtk-theme]
 )
@@ -11,7 +11,7 @@ AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
 ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
-ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-3.22],       [disable])
+ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-3.24],       [disable])
 ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
@@ -62,7 +62,7 @@ AC_MSG_RESULT([
         ===========================================================
 
         -----------------------------------------------------------
-        | Supported Gtk+ version: 3.21 & 3.20 & 3.18
+        | Supported Gtk+ version: 3.22 & 3.20 & 3.18
         -----------------------------------------------------------
 
          prefix:                 ${prefix}
@@ -90,7 +90,7 @@ AC_MSG_RESULT([
         | Default DE support
         -----------------------------------------------------------
 
-         GNOME:                >= 3.21 (or 3.20 or 3.18)
+         GNOME:                >= 3.22 (or 3.20 or 3.18)
          Budgie-Desktop:       >= 10.2.5
 
         -----------------------------------------------------------
@@ -107,7 +107,7 @@ AC_MSG_RESULT([
         | Next Gtk+ support
         -----------------------------------------------------------
 
-         Gtk+ 3.22:            $ENABLE_GTK_NEXT
+         Gtk+ 3.24:            $ENABLE_GTK_NEXT
 
         -----------------------------------------------------------
         | Extra support

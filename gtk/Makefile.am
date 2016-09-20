@@ -410,6 +410,16 @@ gtk320eta_file = \
 	$(gtk320etadir)/gtk.css \
 	$(gtk320etadir)/gtk-dark.css
 
+gtk322dir   = $(srcdir)/gtk-3.22
+gtk322_file = \
+	$(gtk322dir)/gtk.css \
+	$(gtk322dir)/gtk-dark.css
+
+gtk322etadir   = $(srcdir)/gtk-3.22-eta
+gtk322eta_file = \
+	$(gtk322etadir)/gtk.css \
+	$(gtk322etadir)/gtk-dark.css
+
 gtk2dir   = $(srcdir)/gtk-2.0
 gtk2_file = \
 	$(gtk2dir)/3rd-party.rc \
@@ -742,12 +752,12 @@ gtk2_nokto_spin_file = \
 gtk2_nokto_toolbar_file = \
 	$(gtk2_assetdir)/Toolbar/inline-toolbar-dark.png
 
-gtknextdir   = $(srcdir)/gtk-3.22
+gtknextdir   = $(srcdir)/gtk-3.24
 gtknext_file = \
 	$(gtknextdir)/gtk.css \
 	$(gtknextdir)/gtk-dark.css
 
-gtknextetadir   = $(srcdir)/gtk-3.22-eta
+gtknextetadir   = $(srcdir)/gtk-3.24-eta
 gtknexteta_file = \
 	$(gtknextetadir)/gtk.css \
 	$(gtknextetadir)/gtk-dark.css
@@ -765,6 +775,8 @@ all:
 	$(MKDIR_P) $(srcdir)/gtk-3.18 && \
 	$(MKDIR_P) $(srcdir)/gtk-3.20 && \
 	$(MKDIR_P) $(srcdir)/gtk-3.20-eta && \
+	$(MKDIR_P) $(srcdir)/gtk-3.22 && \
+	$(MKDIR_P) $(srcdir)/gtk-3.22-eta && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2 && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Arrows && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Buttons && \
@@ -795,7 +807,11 @@ if ENABLE_PARALLEL
 		3.20/gtk.scss:../gtk-3.20/gtk.css \
 		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css \
 		3.20/gtk-eta.scss:../gtk-3.20-eta/gtk.css \
-		3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css
+		3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css \
+		3.22/gtk.scss:../gtk-3.22/gtk.css \
+		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css \
+		3.22/gtk-eta.scss:../gtk-3.22-eta/gtk.css \
+		3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css
 else
 	cd $(srcdir)/sass && \
 	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
@@ -804,28 +820,32 @@ else
 		3.20/gtk.scss:../gtk-3.20/gtk.css \
 		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css \
 		3.20/gtk-eta.scss:../gtk-3.20-eta/gtk.css \
-		3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css
+		3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css \
+		3.22/gtk.scss:../gtk-3.22/gtk.css \
+		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css \
+		3.22/gtk-eta.scss:../gtk-3.22-eta/gtk.css \
+		3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css
 endif
 
 if ENABLE_GTK_NEXT
-	$(MKDIR_P) $(srcdir)/gtk-3.22
-	$(MKDIR_P) $(srcdir)/gtk-3.22-eta
+	$(MKDIR_P) $(srcdir)/gtk-3.24
+	$(MKDIR_P) $(srcdir)/gtk-3.24-eta
 
 if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
 	$(PARALLEL) --no-notice --line-buffer -j0 \
 	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none ::: \
-		3.22/gtk.scss:../gtk-3.22/gtk.css \
-		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css \
-		3.22/gtk-eta.scss:../gtk-3.22-eta/gtk.css \
-		3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css
+		3.24/gtk.scss:../gtk-3.24/gtk.css \
+		3.24/gtk-dark.scss:../gtk-3.24/gtk-dark.css \
+		3.24/gtk-eta.scss:../gtk-3.24-eta/gtk.css \
+		3.24/gtk-dark-eta.scss:../gtk-3.24-eta/gtk-dark.css
 else
 	cd $(srcdir)/sass && \
 	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
-		3.22/gtk.scss:../gtk-3.22/gtk.css \
-		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css \
-		3.22/gtk-eta.scss:../gtk-3.22-eta/gtk.css \
-		3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css
+		3.24/gtk.scss:../gtk-3.24/gtk.css \
+		3.24/gtk-dark.scss:../gtk-3.24/gtk-dark.css \
+		3.24/gtk-eta.scss:../gtk-3.24-eta/gtk.css \
+		3.24/gtk-dark-eta.scss:../gtk-3.24-eta/gtk-dark.css
 endif
 endif
 
@@ -888,17 +908,29 @@ install-data-local:
 	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.20
 	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.20/assets
 
+	$(MKDIR_P) $(adaptadir)/gtk-3.22
+	$(MKDIR_P) $(adaptadir)/gtk-3.22/assets
+	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
+	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.22/assets
+
 	cd $(adaptadir)
 	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
 	ln -sf ../Adapta/gtk-3.20 $(noktodir)/gtk-3.20
+	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20/assets
 	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.20
 	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-3.20/assets
 
+	$(MKDIR_P) $(adaptaetadir)/gtk-3.22
+	$(MKDIR_P) $(adaptaetadir)/gtk-3.22/assets
+	cp -Rv $(gtk322eta_file) $(adaptaetadir)/gtk-3.22
+	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-3.22/assets
+
 	cd $(adaptadir)
 	ln -sf ../Adapta-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
+	ln -sf ../Adapta-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptadir)/gtk-2.0
 	$(MKDIR_P) $(adaptadir)/gtk-2.0/Arrows
@@ -969,19 +1001,19 @@ install-data-local:
 	ln -sf ../Adapta-Nokto/gtk-2.0 $(noktoetadir)/gtk-2.0
 
 if ENABLE_GTK_NEXT
-	$(MKDIR_P) $(adaptadir)/gtk-3.22
-	$(MKDIR_P) $(adaptadir)/gtk-3.22/assets
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.22
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.22/assets
-	cp -Rv $(gtknext_file) $(adaptadir)/gtk-3.22
-	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.22/assets
+	$(MKDIR_P) $(adaptadir)/gtk-3.24
+	$(MKDIR_P) $(adaptadir)/gtk-3.24/assets
+	$(MKDIR_P) $(adaptaetadir)/gtk-3.24
+	$(MKDIR_P) $(adaptaetadir)/gtk-3.24/assets
+	cp -Rv $(gtknext_file) $(adaptadir)/gtk-3.24
+	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.24/assets
 	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
+	ln -sf ../Adapta/gtk-3.24 $(noktodir)/gtk-3.24
 
-	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-3.22
-	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-3.22/assets
+	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-3.24
+	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-3.24/assets
 	cd $(adaptadir)
-	ln -sf ../Adapta-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
+	ln -sf ../Adapta-Eta/gtk-3.24 $(noktoetadir)/gtk-3.24
 endif
 
 # *******************
@@ -992,29 +1024,33 @@ uninstall-local:
 	test -e $(noktodir)/index.theme && rm -rfv $(noktodir)/index.theme
 	test -e $(noktodir)/gtk-3.0 && rm -rfv $(noktodir)/gtk-3.0
 	test -e $(noktodir)/gtk-3.20 && rm -rfv $(noktodir)/gtk-3.20
+	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
 	test -e $(noktodir)/gtk-2.0 && rm -rfv $(noktodir)/gtk-2.0
 
 	test -e $(adaptadir)/index.theme && rm -rfv $(adaptadir)/index.theme
 	test -e $(adaptadir)/gtk-3.0 && rm -rfv $(adaptadir)/gtk-3.0
 	test -e $(adaptadir)/gtk-3.20 && rm -rfv $(adaptadir)/gtk-3.20
+	test -e $(adaptadir)/gtk-3.22 && rm -rfv $(adaptadir)/gtk-3.22
 	test -e $(adaptadir)/gtk-2.0 && rm -rfv $(adaptadir)/gtk-2.0
 
 	test -e $(noktoetadir)/index.theme && rm -rfv $(noktoetadir)/index.theme
 	test -e $(noktoetadir)/gtk-3.0 && rm -rfv $(noktoetadir)/gtk-3.0
 	test -e $(noktoetadir)/gtk-3.20 && rm -rfv $(noktoetadir)/gtk-3.20
+	test -e $(noktoetadir)/gtk-3.22 && rm -rfv $(noktoetadir)/gtk-3.22
 	test -e $(noktoetadir)/gtk-2.0 && rm -rfv $(noktoetadir)/gtk-2.0
 
 	test -e $(adaptaetadir)/index.theme && rm -rfv $(adaptaetadir)/index.theme
 	test -e $(adaptaetadir)/gtk-3.0 && rm -rfv $(adaptaetadir)/gtk-3.0
 	test -e $(adaptaetadir)/gtk-3.20 && rm -rfv $(adaptaetadir)/gtk-3.20
+	test -e $(adaptaetadir)/gtk-3.22 && rm -rfv $(adaptaetadir)/gtk-3.22
 	test -e $(adaptaetadir)/gtk-2.0 && rm -rfv $(adaptaetadir)/gtk-2.0
 
 if ENABLE_GTK_NEXT
-	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
-	test -e $(adaptadir)/gtk-3.22 && rm -rfv $(adaptadir)/gtk-3.22
+	test -e $(noktodir)/gtk-3.24 && rm -rfv $(noktodir)/gtk-3.24
+	test -e $(adaptadir)/gtk-3.24 && rm -rfv $(adaptadir)/gtk-3.24
 
-	test -e $(noktoetadir)/gtk-3.22 && rm -rfv $(noktoetadir)/gtk-3.22
-	test -e $(adaptaetadir)/gtk-3.22 && rm -rfv $(adaptaetadir)/gtk-3.22
+	test -e $(noktoetadir)/gtk-3.24 && rm -rfv $(noktoetadir)/gtk-3.24
+	test -e $(adaptaetadir)/gtk-3.24 && rm -rfv $(adaptaetadir)/gtk-3.24
 endif
 
 # ****************************
@@ -1028,6 +1064,10 @@ CLEANFILES = \
 	$(srcdir)/gtk-3.20/gtk-dark.css \
 	$(srcdir)/gtk-3.20-eta/gtk.css \
 	$(srcdir)/gtk-3.20-eta/gtk-dark.css \
+	$(srcdir)/gtk-3.22/gtk.css \
+	$(srcdir)/gtk-3.22/gtk-dark.css \
+	$(srcdir)/gtk-3.22-eta/gtk.css \
+	$(srcdir)/gtk-3.22-eta/gtk-dark.css \
 	$(srcdir)/asset/assets-gtk2/*/*.svg \
 	$(srcdir)/asset/assets-gtk2/*/*.png \
 	$(srcdir)/asset/assets-gtk3/*.svg \
@@ -1040,10 +1080,10 @@ CLEANFILES = \
 	$(srcdir)/gtk-2.0/colors-dark.rc
 if ENABLE_GTK_NEXT
 CLEANFILES += \
-	$(srcdir)/gtk-3.22/gtk.css \
-	$(srcdir)/gtk-3.22/gtk-dark.css \
-	$(srcdir)/gtk-3.22-eta/gtk.css \
-	$(srcdir)/gtk-3.22-eta/gtk-dark.css
+	$(srcdir)/gtk-3.24/gtk.css \
+	$(srcdir)/gtk-3.24/gtk-dark.css \
+	$(srcdir)/gtk-3.24-eta/gtk.css \
+	$(srcdir)/gtk-3.24-eta/gtk-dark.css
 endif
 
 DISTCLEANFILES = \

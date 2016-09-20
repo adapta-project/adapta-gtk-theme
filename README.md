@@ -30,7 +30,7 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 
 > **Note:**
 >
->   Eta is tiny Gtk+ 3.2x widget variant for space-saving (Gtk+ 3.21.x/3.20.x only).
+>   Eta is tiny Gtk+ 3.2x widget variant for space-saving (Gtk+ 3.22.x/3.20.x only).
 >   Others are the same as Adapta/Adapta-Nokto.
 
 Elements
@@ -39,10 +39,10 @@ Elements
 
 Required Components
 -------------------
-Adapta supports Gtk+ 3.21.x, 3.20.x and 3.18.x
+Adapta supports Gtk+ 3.22.x, 3.20.x and 3.18.x
 
  ```
- * Gtk+-3.0             >= 3.21.4 (or 3.20.1 or  3.18.9)
+ * Gtk+-3.0             >= 3.22.0 (or 3.20.1 or  3.18.9)
  * Gtk+-2.0             >= 2.24.30
  * gtk2-engines-pixbuf  >= 2.24.30
  * gtk2-engines-murrine >= 0.98.1
@@ -52,7 +52,7 @@ Supported Desktop Environments
 ------------------------------
 
  ```
- * GNOME-Shell     >= 3.21.4 (or 3.20.1 or 3.18.3)
+ * GNOME-Shell     >= 3.22.0 (or 3.20.1 or 3.18.3)
  * GNOME-Flashback >= 3.20.1 (or 3.18.2)
  * Budgie-Desktop  >= 10.2.5
  * Cinnamon        >= 3.0.1 (or 2.8.6)
@@ -91,7 +91,6 @@ Installation from PPA (Ubuntu 16.04 LTS and 16.10)
  >     * `Adapta-Nokto` + `global dark theme = off` make light variant Gtk+3 and dark variant Gtk+2.
  >     * `Adapta-Nokto` + `global dark theme = on` make dark variant.
  >
- >   * In Xeinal, Gtk+ 3.21.x support is disabled (Yakkety package enabled it as default though).
  >   * When updating package, Adapta automatically does cleaning up pre-installed directories.
 
 Installation from Git Source
@@ -171,10 +170,10 @@ Installation from Git Source
  >   * Installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-6. If users want to disable next Gtk+ release support, please pass this option:
+6. If users want to enable next Gtk+ release support, please pass this option:
 
  ```
- --disable-gtk_next      disable Gtk+ 3.21.x support (type: bool)
+ --enable-gtk_next      enable Gtk+ 3.23.x support (type: bool)
  ```
 
 7. If users want to change default 5 **Key-Colors**, please pass these options:
@@ -255,7 +254,7 @@ I mainly use it when running Budgie, and it might be suitable for night owls...
 
 Work in Progress
 ----------------
-* Conversion to Gtk+ 3.22
+* Conversion to Gtk+ 3.23
 * Add Mate 1.14 integration
 
 TODO
