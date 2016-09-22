@@ -1783,6 +1783,10 @@ window > popover > stack > grid > button {
  * Dconf-Editor *
  ****************/
 
+@keyframes label_color {
+  to { color: transparent; }
+}
+
 // most parts are hard-coded, crazy... :/
 .dconf-editor > headerbar.titlebar {
   > box.pathbar {
@@ -1805,26 +1809,42 @@ window > popover > stack > grid > button {
         font-weight: 700;
       }
 
-      &:not(:hover):not(:active):not(:checked):not(:disabled) {
-        > .item { color: $inverted_secondary_fg_color; }
+      &, &:backdrop {
+        > .item {
+          text-shadow: 0 0 0 $inverted_secondary_fg_color;
+          transition: none;
+          animation: label_color 0s linear forwards;
+        }
       }
       &:hover,
       &:active,
-      &:checked {
-        > .item { color: $inverted_fg_color; }
+      &:checked,
+      &:disabled {
+        &, &:backdrop {
+          > .item {
+            text-shadow: 0 0 0 $inverted_fg_color;
+            transition: none;
+            animation: label_color 0s linear forwards;
+          }
+        }
       }
-      &:disabled > .item { color: $insensitive_inverted_fg_color; }
     }
 
     // slash symbols
-    > label { color: $insensitive_inverted_fg_color; }
+    > label {
+      &, &:backdrop { color: $insensitive_inverted_fg_color; }
+    }
   }
 }
 
 .dconf-editor {
   list.properties-list > row > grid.horizontal {
     .greyed-label { // left-side labels
-      &, &:backdrop { color: $insensitive_fg_color; }
+      &, &:backdrop {
+        text-shadow: 0 0 0 $insensitive_fg_color;
+        transition: none;
+        animation: label_color 0s linear forwards;
+      }
     }
   }
 }
