@@ -1783,7 +1783,6 @@ window > popover > stack > grid > button {
  * Dconf-Editor *
  ****************/
 
-// most parts are hard-coded, crazy... :/
 .dconf-editor > headerbar.titlebar {
   > box.pathbar {
     min-height: $icon_size;
@@ -1802,22 +1801,27 @@ window > popover > stack > grid > button {
         margin: rem(-10.7px) 0;
         padding: rem(4px) rem(6px) rem(5.3px);
         border: 0 none transparent;
+        color: $inverted_secondary_fg_color;
         font-weight: 700;
       }
 
-      &:not(:hover):not(:active):not(:checked):not(:disabled) {
-        > .item { color: $inverted_secondary_fg_color; }
-      }
       &:hover,
       &:active,
-      &:checked {
+      &:checked,
+      &.active { // '.active' class = :checked class
+        color: $inverted_fg_color;
+
         > .item { color: $inverted_fg_color; }
       }
-      &:disabled > .item { color: $insensitive_inverted_fg_color; }
-    }
+      &:disabled {
+        color: $insensitive_inverted_fg_color;
 
-    // slash symbols
-    > label { color: $insensitive_inverted_fg_color; }
+        > .item { color: $insensitive_inverted_fg_color; }
+      }
+
+      // slash symbols
+      > label { color: $insensitive_inverted_fg_color; }
+    }
   }
 }
 
@@ -1828,6 +1832,7 @@ window > popover > stack > grid > button {
     }
   }
 }
+
 
 /*******************
  * Gnome-Documents *
