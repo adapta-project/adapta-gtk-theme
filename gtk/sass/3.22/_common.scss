@@ -5457,31 +5457,45 @@ decoration {
 
 // Window manager buttons
 .csd headerbar,
-.csd .titlebar {
-  button.titlebutton,
-  &.selection-mode button.titlebutton {
+.csd headerbar.titlebar,
+.csd .titlebar headerbar,
+grid.titlebar,
+paned.titlebar,
+box .titlebar,
+paned .titlebar {
+  box > button.titlebutton,
+  &.selection-mode box > button.titlebutton {
     @extend %fade_effect;
     @extend button.flat;
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(($widget_size - $icon_size) / 2);
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
 
     &.close,
     &.minimize,
     &.maximize {
+      &,
+      &:hover,
+      &:active,
+      &:backdrop,
+      &:backdrop:hover,
+      &:backdrop:active {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(($widget_size - $icon_size) / 2);
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+        background-image: none;
+
+        > image {
+          min-height: $icon_size;
+          min-width: $icon_size;
+          color: transparent;
+          background-size: $icon_size $icon_size;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
       &:hover:backdrop,
       &:active:backdrop { opacity: 1.0; }
-
-      > image {
-        min-height: $icon_size;
-        min-width: $icon_size;
-        color: transparent;
-        background-size: $icon_size $icon_size;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
     }
 
     // raised 'Close' button
@@ -5521,6 +5535,9 @@ decoration {
 
       &:hover,
       &:active {
+        color: $inverted_fg_color;
+        background-color: gtkopacity($inverted_fg_color, 0.1);
+
         > image {
           background-image: -gtk-scaled(url("assets/window-minimize-active.png"),
                                         url("assets/window-minimize-active@2.png"));
@@ -5536,6 +5553,9 @@ decoration {
 
       &:hover,
       &:active {
+        color: $inverted_fg_color;
+        background-color: gtkopacity($inverted_fg_color, 0.1);
+
         > image {
           background-image: -gtk-scaled(url("assets/window-maximize-active.png"),
                                         url("assets/window-maximize-active@2.png"));
@@ -5546,8 +5566,13 @@ decoration {
 }
 
 .csd.maximized headerbar,
-.csd.maximized .titlebar {
-  & button.titlebutton,
+.csd.maximized headerbar.titlebar,
+.csd.maximized .titlebar headerbar,
+.maximized grid.titlebar,
+.maximized paned.titlebar,
+.maximized box .titlebar,
+.maximized paned .titlebar {
+  button.titlebutton,
   &.selection-mode button.titlebutton {
     &.maximize {
       > image {
@@ -5575,15 +5600,17 @@ decoration {
     &.close,
     &.minimize,
     &.maximize { // reset styling
-      color: transparent;
-      background-size: $titlebutton_small $titlebutton_small;
-      background-repeat: no-repeat;
-      background-position: center;
-      background: none;
-      box-shadow: none;
-      &:backdrop,
-      &:hover:backdrop,
-      &:active:backdrop { color: transparent; }
+      &* {
+        min-width: $titlebutton_small;
+        min-height: $titlebutton_small;
+        padding: 0;
+        color: transparent;
+        background-size: $titlebutton_small $titlebutton_small;
+        background-repeat: no-repeat;
+        background-position: center;
+        background: none;
+        box-shadow: none;
+      }
     }
 
     // tiny 2px padding causes truncation of shadows,
@@ -5652,6 +5679,172 @@ decoration {
 
 .maximized.ssd .titlebar {
   button.titlebutton {
+    @each $_class, $_state in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-active'),
+                              (':backdrop', '-backdrop'),
+                              (':backdrop:hover', '-backdrop-hover'),
+                              (':backdrop:active', '-backdrop-active') {
+      &.maximize#{$_class} {
+        background-image: -gtk-scaled(
+                          url("assets/window-unmaximize-ssd#{$_state}.png"),
+                          url("assets/window-unmaximize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
+                            url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+  }
+}
+
+// specific button styling for Metacity's CSDs
+.titlebar,
+.maximized .titlebar {
+  button.titlebutton {
+    @extend %fade_effect;
+    @extend button.flat;
+    min-width: $titlebutton_small;
+    min-height: $titlebutton_small;
+    padding: 0;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+
+    &.close,
+    &.minimize,
+    &.maximize {
+      &:hover:backdrop,
+      &:active:backdrop { opacity: 1.0; }
+
+      &,
+      &:hover,
+      &:active,
+      &:backdrop,
+      &:backdrop:hover,
+      &:backdrop:active {
+        min-width: $titlebutton_small;
+        min-height: $titlebutton_small;
+        padding: 0;
+        color: transparent;
+        background-size: $titlebutton_small $titlebutton_small;
+        background-repeat: no-repeat;
+        background-position: center;
+        background: none;
+        box-shadow: none;
+      }
+    }
+
+    // tiny 2px padding causes truncation of shadows,
+    // so elevate down to depth-1 at hover/active.
+    @each $_class,
+          $_state,
+          $_shadow in ('', '', none),
+                      (':hover', '-hover', $z-depth-1),
+                      (':active', '-active', $z-depth-1),
+                      (':backdrop', '-backdrop', none),
+                      (':backdrop:hover', '-backdrop-hover', $z-depth-1),
+                      (':backdrop:active', '-backdrop-active', $z-depth-1) {
+      &.close#{$_class} {
+        background-image: -gtk-scaled(
+                          url("assets/window-close-ssd#{$_state}.png"),
+                          url("assets/window-close-ssd#{$_state}@2.png"));
+        box-shadow: #{$_shadow};
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-close-ssd-eta#{$_state}.png"),
+                            url("assets/window-close-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+
+    @each $_class, $_state in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-active'),
+                              (':backdrop', '-backdrop'),
+                              (':backdrop:hover', '-backdrop-hover'),
+                              (':backdrop:active', '-backdrop-active') {
+      &.minimize#{$_class} {
+        background-image: -gtk-scaled(
+                          url("assets/window-minimize-ssd#{$_state}.png"),
+                          url("assets/window-minimize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-minimize-ssd-eta#{$_state}.png"),
+                            url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+
+    @each $_class, $_state in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-active'),
+                              (':backdrop', '-backdrop'),
+                              (':backdrop:hover', '-backdrop-hover'),
+                              (':backdrop:active', '-backdrop-active') {
+      &.maximize#{$_class} {
+        background-image: -gtk-scaled(
+                          url("assets/window-maximize-ssd#{$_state}.png"),
+                          url("assets/window-maximize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-maximize-ssd-eta#{$_state}.png"),
+                            url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+  }
+}
+
+.maximized .titlebar {
+  button.titlebutton {
+    // tiny 2px padding causes truncation of shadows,
+    // so elevate down to depth-1 at hover/active.
+    @each $_class,
+          $_state,
+          $_shadow in ('', '', none),
+                      (':hover', '-hover', $z-depth-1),
+                      (':active', '-active', $z-depth-1),
+                      (':backdrop', '-backdrop', none),
+                      (':backdrop:hover', '-backdrop-hover', $z-depth-1),
+                      (':backdrop:active', '-backdrop-active', $z-depth-1) {
+      &.close#{$_class} {
+        background-image: -gtk-scaled(
+                          url("assets/window-close-ssd#{$_state}.png"),
+                          url("assets/window-close-ssd#{$_state}@2.png"));
+        box-shadow: #{$_shadow};
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-close-ssd-eta#{$_state}.png"),
+                            url("assets/window-close-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+
+    @each $_class, $_state in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-active'),
+                              (':backdrop', '-backdrop'),
+                              (':backdrop:hover', '-backdrop-hover'),
+                              (':backdrop:active', '-backdrop-active') {
+      &.minimize#{$_class} {
+        background-image: -gtk-scaled(
+                          url("assets/window-minimize-ssd#{$_state}.png"),
+                          url("assets/window-minimize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image: -gtk-scaled(
+                            url("assets/window-minimize-ssd-eta#{$_state}.png"),
+                            url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+
     @each $_class, $_state in ('', ''),
                               (':hover', '-hover'),
                               (':active', '-active'),
