@@ -763,6 +763,29 @@ button,
       // hide unneeded background
       &:checked { background-color: transparent; }
     }
+
+    &.suggested-action {
+      &, &.image-button {
+        @extend %button_normal;
+        background-color: $suggested_color;
+        color: $secondary_selected_fg_color;
+        &:hover {
+          @extend %button_hover;
+          color: $selected_fg_color;
+        }
+        &:active {
+          @extend %button_active;
+          color: $selected_fg_color;
+          background-color: $selected_bg_color;
+        }
+        &:checked {
+          @extend %button_checked;
+          background-color: $suggested_color;
+          color: $inverted_fg_color;
+        }
+        &:disabled { @include button(insensitive); }
+      }
+    }
   }
 
   .inline-toolbar .linked > &,
