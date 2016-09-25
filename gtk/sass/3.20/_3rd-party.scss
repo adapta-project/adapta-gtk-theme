@@ -1545,33 +1545,42 @@ window > headerbar > widget > box.horizontal {
   text-shadow: none;
 }
 
-.xfce4-panel.panel {
+.xfce4-panel {
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
   font-weight: 700;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
 
   button {
-    @extend %button_flat_normal;
     padding: 0px 4px;
     border: none;
     border-radius: 0;
     color: $inverted_fg_color;
-    background-color: transparent;
+    background-color: $panel_bg_color;
+    transition: none;
     &:hover {
       color: $selected_fg_color;
-      background-color: transparent;
+      background-color: $panel_bg_color;
       box-shadow: inset 0 -2px $track_color;
+      transition: none;
     }
+    &:active,
     &:checked,
     &:hover:checked,
     &:disabled:checked { // 'checked' = 'active'
       color: $selected_fg_color;
-      background-color: transparent;
+      background-color: $panel_bg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
+      transition: none;
+      animation: none;
     }
   }
 
-  menu { -gtk-icon-effect: none; }
+  menu {
+    text-shadow: none;
+    -gtk-icon-effect: none;
+  }
 }
 
 TopMenuAppMenuBar {
@@ -1585,6 +1594,7 @@ TopMenuAppMenuBar {
     &:hover {
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
+      transition: none;
     }
   }
 }
