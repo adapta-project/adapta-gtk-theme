@@ -2177,6 +2177,13 @@ headerbar {
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
     }
   }
+
+  .solid-csd & {
+    &:dir(rtl), &:dir(ltr) { // specificity bump
+      margin: -1px -1px -1px 0;
+      box-shadow: inset 0 1px $highlight_color;
+    }
+  }
 }
 
 headerbar {
@@ -2394,6 +2401,20 @@ window:not(.maximized):not(.tiled) {
     border-style: solid;
     border-color: $highlight_color;
     box-shadow: none;
+  }
+}
+
+// revive top-edge highlight border for Metacity's CSDs
+headerbar.titlebar {
+  &, &:not(:last-child) {
+    // Metacity can not detect any margins outside the button nodes,
+    // So we need to define the lower limit of headerbar height.
+    min-height: rem($widget_size - 10.7px, $sw: 1.0);
+    border-top: 1px solid $top_edge_border_color;
+
+    .tiled & { @extend %tiled_integration; }
+
+    .maximized & { @extend %maxd_integration; }
   }
 }
 
@@ -5591,7 +5612,7 @@ paned .titlebar {
   }
 }
 
-// specific button styling for SSDs
+// specific button styling for Mutter's SSDs
 .ssd .titlebar {
   button.titlebutton {
     min-width: $titlebutton_small;
@@ -5701,8 +5722,8 @@ paned .titlebar {
 }
 
 // specific button styling for Metacity's CSDs
-.titlebar,
-.maximized .titlebar {
+headerbar.titlebar,
+.maximized headerbar.titlebar {
   button.titlebutton {
     @extend %fade_effect;
     @extend button.flat;
@@ -5724,9 +5745,6 @@ paned .titlebar {
       &:backdrop,
       &:backdrop:hover,
       &:backdrop:active {
-        min-width: $titlebutton_small;
-        min-height: $titlebutton_small;
-        padding: 0;
         color: transparent;
         background-size: $titlebutton_small $titlebutton_small;
         background-repeat: no-repeat;
@@ -5735,9 +5753,11 @@ paned .titlebar {
         box-shadow: none;
       }
     }
+  }
+}
 
-    // tiny 2px padding causes truncation of shadows,
-    // so elevate down to depth-1 at hover/active.
+headerbar.titlebar {
+  button.titlebutton {
     @each $_class,
           $_state,
           $_shadow in ('', '', none),
@@ -5800,10 +5820,8 @@ paned .titlebar {
   }
 }
 
-.maximized .titlebar {
+.maximized headerbar.titlebar { // maxd-mode need to be re-defined
   button.titlebutton {
-    // tiny 2px padding causes truncation of shadows,
-    // so elevate down to depth-1 at hover/active.
     @each $_class,
           $_state,
           $_shadow in ('', '', none),
