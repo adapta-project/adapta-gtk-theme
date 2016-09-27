@@ -4684,6 +4684,11 @@ filechooser {
   .dialog-action-box { border-top: 1px solid $borders_color; }
 
   #pathbarbox { border-bottom: 1px solid $bg_color; }
+
+  // override defaults to prevent to be bold
+  box > paned.horizontal > separator {
+    background-image: image($solid_light_borders_color);
+  }
 }
 
 filechooserbutton:drop(active) {
