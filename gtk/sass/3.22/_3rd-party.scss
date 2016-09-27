@@ -1564,11 +1564,13 @@ window > headerbar > widget > box.horizontal {
     border-radius: 0;
     color: $inverted_fg_color;
     background-color: $panel_bg_color;
+    background-image: none;
     transition: none;
     &:hover {
       color: $selected_fg_color;
       background-color: $panel_bg_color;
       box-shadow: inset 0 -2px $track_color;
+      background-image: none;
       transition: none;
     }
     &:active,
@@ -1577,6 +1579,7 @@ window > headerbar > widget > box.horizontal {
     &:disabled:checked { // 'checked' = 'active'
       color: $selected_fg_color;
       background-color: $panel_bg_color;
+      background-image: none;
       box-shadow: inset 0 -2px $selected_bg_color;
       transition: none;
       animation: none;
