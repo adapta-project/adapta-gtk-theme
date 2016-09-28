@@ -2406,9 +2406,6 @@ window:not(.maximized):not(.tiled) {
 
 // revive top-edge highlight border for Metacity's CSDs
 headerbar.titlebar.default-decoration {
-  // Metacity can not detect any margins outside the button nodes,
-  // So we need to define the lower limit of headerbar height.
-  min-height: rem($widget_size - 10.7px);
   border-top: 1px solid $highlight_color;
   box-shadow: none; // reset outset shadows
 }
