@@ -1130,6 +1130,32 @@ layoutstack { // remove undershoot from main editor pane
   }
 }
 
+headerbar > box > box.linked {
+  > button.image-button.popup.toggle {
+    &.run-arrow-button { // back to rectangular button
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+}
+
+popover {
+  > list > row.activatable > box.horizontal {
+    > image {
+    }
+
+    > label { // add lateral gaps
+      &:dir(ltr) { margin-left: rem(8px); }
+      &:dir(rtl) { margin-right: rem(8px); }
+    }
+  }
+
+  // use action-area style buttons
+  box.popover-action-area {
+    @extend buttonbox.dialog-action-area;
+  }
+}
+
 
 /***************
  * Gnome-Music *
