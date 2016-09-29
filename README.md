@@ -111,7 +111,7 @@ Installation from Git Source
  * autoconf
  * automake
  * inkscape
- * libglib-2.0-dev (glib2)         >= 2.48.0
+ * libglib2.0-dev (glib2)          >= 2.48.0
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
  * ruby-bundler (rubygem-bundler)  >= 1.11
