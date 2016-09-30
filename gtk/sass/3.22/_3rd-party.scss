@@ -173,8 +173,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
   }
 }
 
-// limit minimum lateral spacing for symbolic icons
 .budgie-panel .end-region {
+  // limit minimum lateral spacing for symbolic icons
   // FIXME: Paper icon-pack has thin 'battery' and 'bluetooth' symbolic icon
   > widget > widget > box.horizontal {
     // battery
@@ -186,6 +186,9 @@ $budgie_transition: opacity 0.2s $slope_medium,
       &:dir(rtl) { margin: 0 -2px 0 0; }
     }
   }
+
+  // dim symbolic icons to get better uniformity same as NaTray icons
+  * > image { opacity: 0.8; }
 }
 
 // main menu styling

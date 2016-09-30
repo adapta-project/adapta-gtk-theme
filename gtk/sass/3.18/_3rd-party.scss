@@ -239,8 +239,8 @@ $full_orientation: ((top, bottom),
   }
 }
 
-// add slight lateral spacing for symbolic icons
 .budgie-panel .end-region {
+  // add slight lateral spacing for symbolic icons
   // FIXME: Paper icon-pack has thin 'battery' and 'bluetooth' symbolic icon
   // battery
   PowerIndicator GtkImage { padding: 0 2px 0; }
@@ -249,6 +249,9 @@ $full_orientation: ((top, bottom),
     &:dir(ltr) { padding-right: 2px; }
     &:dir(rtl) { padding-left: 2px; }
   }
+
+  // dim symbolic icons to get better uniformity same as NaTray icons
+  * > GtkImage { opacity: 0.8; }
 }
 
 // main menu styling
