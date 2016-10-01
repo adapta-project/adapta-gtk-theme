@@ -401,12 +401,19 @@ $full_orientation: ((top, bottom),
     &.activatable:selected {
       background-image: none;
       background-color: $secondary_base_color;
-      color: $fg_color;
+      color: $secondary_fg_color;
       transition: none;
 
-      &, & .indicator-item {
+      .indicator-item {
         .label,
-        GtkImage { color: $fg_color; }
+        GtkImage { color: $secondary_fg_color; }
+
+        &:hover,
+        &:active,
+        &:checked {
+          .label,
+          GtkImage { color: $fg_color; }
+        }
       }
     }
 
