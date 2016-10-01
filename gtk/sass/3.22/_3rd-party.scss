@@ -327,12 +327,19 @@ $budgie_transition: opacity 0.2s $slope_medium,
     &.activatable:selected {
       background-image: none;
       background-color: $secondary_base_color;
-      color: $fg_color;
+      color: $secondary_fg_color;
       transition: none;
 
-      &, & .indicator-item {
+      .indicator-item {
         label,
-        image { color: $fg_color; }
+        image { color: $secondary_fg_color; }
+
+        &:hover,
+        &:active,
+        &:checked {
+          label,
+          image { color: $fg_color; }
+        }
       }
     }
 
