@@ -2160,7 +2160,7 @@ headerbar {
 
   &.default-decoration {
     min-height: $titlebutton_small;
-    padding: 0 3px; // override scaling-unit
+    padding: if($ref_weight < 1.0, 3px, 3px 2px 2px);
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -2168,10 +2168,10 @@ headerbar {
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
     }
 
-    .titlebutton {
+    button.titlebutton {
       min-width: $titlebutton_small;
       min-height: $titlebutton_small;
-      margin: 3px 0 2px; // concern top-edge border
+      margin: 0;
       padding: 0;
       color: $inverted_secondary_fg_color;
       &:hover,
