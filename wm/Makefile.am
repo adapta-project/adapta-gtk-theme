@@ -49,6 +49,12 @@ metacity_file = \
 
 xfwmdir = $(srcdir)/xfwm4
 xfwm_file = \
+	$(xfwmdir)/bottom-active.png \
+	$(xfwmdir)/bottom-inactive.png \
+	$(xfwmdir)/bottom-left-active.png \
+	$(xfwmdir)/bottom-left-inactive.png \
+	$(xfwmdir)/bottom-right-active.png \
+	$(xfwmdir)/bottom-right-inactive.png \
 	$(xfwmdir)/close-active.png \
 	$(xfwmdir)/close-inactive.png \
 	$(xfwmdir)/close-prelight.png \
@@ -57,6 +63,8 @@ xfwm_file = \
 	$(xfwmdir)/hide-inactive.png \
 	$(xfwmdir)/hide-prelight.png \
 	$(xfwmdir)/hide-pressed.png \
+	$(xfwmdir)/left-active.png \
+	$(xfwmdir)/left-inactive.png \
 	$(xfwmdir)/maximize-active.png \
 	$(xfwmdir)/maximize-inactive.png \
 	$(xfwmdir)/maximize-prelight.png \
@@ -65,6 +73,8 @@ xfwm_file = \
 	$(xfwmdir)/menu-inactive.png \
 	$(xfwmdir)/menu-prelight.png \
 	$(xfwmdir)/menu-pressed.png \
+	$(xfwmdir)/right-active.png \
+	$(xfwmdir)/right-inactive.png \
 	$(xfwmdir)/shade-active.png \
 	$(xfwmdir)/shade-inactive.png \
 	$(xfwmdir)/shade-prelight.png \
