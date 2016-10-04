@@ -1377,6 +1377,18 @@ window.background {
   }
 }
 
+window.background > box.vertical > paned.horizontal > box.vertical {
+  > overlay > scrolledwindow {
+    // remove undershoots from main view
+    undershoot {
+      &.top,
+      &.bottom,
+      &.left,
+      &.right { background-image: none; }
+    }
+  }
+}
+
 
 /**************
  * Gnome-Logs *
