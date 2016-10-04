@@ -431,14 +431,7 @@ EphyWindow {
  * Seahorse *
  ************/
 
-// remove double borders
-SeahorseWidget {
-  .sidebar {
-    paned separator { border: none; }
-  }
-}
-
-window paned > box.vertical {
+window.background box.vertical > paned.horizontal > box.vertical {
   // remove drop-shadow
   > box.vertical > toolbar.primary-toolbar {
     box-shadow: none;
