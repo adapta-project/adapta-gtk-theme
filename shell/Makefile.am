@@ -233,6 +233,14 @@ unity_file = \
 	$(unitydir)/close_unfocused_prelight.svg \
 	$(unitydir)/close_unfocused_pressed.svg \
 	$(unitydir)/close_unfocused.svg \
+	$(unitydir)/launcher_arrow_btt_19.svg \
+	$(unitydir)/launcher_arrow_btt_37.svg \
+	$(unitydir)/launcher_arrow_ltr_19.svg \
+	$(unitydir)/launcher_arrow_ltr_37.svg \
+	$(unitydir)/launcher_arrow_rtl_19.svg \
+	$(unitydir)/launcher_arrow_rtl_37.svg \
+	$(unitydir)/launcher_arrow_ttb_19.svg \
+	$(unitydir)/launcher_arrow_ttb_37.svg \
 	$(unitydir)/launcher_icon_back_150.svg \
 	$(unitydir)/launcher_icon_back_54.svg \
 	$(unitydir)/launcher_icon_edge_150.svg \
@@ -245,6 +253,14 @@ unity_file = \
 	$(unitydir)/launcher_icon_shadow_62.svg \
 	$(unitydir)/launcher_icon_shine_150.svg \
 	$(unitydir)/launcher_icon_shine_54.svg \
+	$(unitydir)/launcher_pip_btt_19.svg \
+	$(unitydir)/launcher_pip_btt_37.svg \
+	$(unitydir)/launcher_pip_ltr_19.svg \
+	$(unitydir)/launcher_pip_ltr_37.svg \
+	$(unitydir)/launcher_pip_rtl_19.svg \
+	$(unitydir)/launcher_pip_rtl_37.svg \
+	$(unitydir)/launcher_pip_ttb_19.svg \
+	$(unitydir)/launcher_pip_ttb_37.svg \
 	$(unitydir)/maximize_dash_disabled.svg \
 	$(unitydir)/maximize_dash_prelight.svg \
 	$(unitydir)/maximize_dash_pressed.svg \
