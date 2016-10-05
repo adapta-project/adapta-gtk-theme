@@ -69,7 +69,7 @@ Unsupported Gtk+ Based Desktops
 -------------------------------
  * Pantheon
 
-Installation from Packages
+Installation from Package(s)
 ------------
  * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/ and some others
 
