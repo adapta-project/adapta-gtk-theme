@@ -5484,6 +5484,16 @@ decoration {
 // Window manager buttons
 .csd headerbar,
 .csd .titlebar {
+  // appmenu buttons
+  button.titlebutton.popup.toggle,
+  &.selection-mode button.titlebutton.popup.toggle {
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(($widget_size - $icon_size) / 2);
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
+
   button.titlebutton,
   &.selection-mode button.titlebutton {
     @extend %fade_effect;
