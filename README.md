@@ -69,29 +69,17 @@ Unsupported Gtk+ Based Desktops
 -------------------------------
  * Pantheon
 
-Installation from PPA (Ubuntu 16.04 LTS and 16.10)
+Installation from Packages
 ------------
-1. Run
+ * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/ and some others
 
- ```
- sudo apt-add-repository ppa:tista/adapta -y
- sudo apt update
- sudo apt install adapta-gtk-theme
- ```
+ * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
 
-2. select `Adapta` or `Adapta-Eta` or `Adapta-Nokto` or `Adapta-Nokto-Eta` via proper tools.
+ * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
 
  > **Note:**
  >
- >   * `-Eta` is the smaller widget variant.
- >
- >   * `Adapta-Nokto` is for dark variant theming:
- >     * `Adapta` + `global dark theme = off` make all light variant.
- >     * `Adapta` + `global dark theme = on` make dark variant Gtk+3 and light variant Gtk+2.
- >     * `Adapta-Nokto` + `global dark theme = off` make light variant Gtk+3 and dark variant Gtk+2.
- >     * `Adapta-Nokto` + `global dark theme = on` make dark variant.
- >
- >   * When updating package, Adapta automatically does cleaning up pre-installed directories.
+ >   * Solus OS has an eopkg (ypkg) in main repository.
 
 Installation from Git Source
 ------------
