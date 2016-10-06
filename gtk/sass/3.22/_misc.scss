@@ -1890,3 +1890,60 @@ window.background > grid.horizontal.titlebar {
   .titlebar { background-color: $panel_bg_color; }
 }
 
+
+/***********************
+ * Gnome-Character-Map *
+ ***********************/
+
+window.background > grid.horizontal {
+  > paned.horizontal {
+    > scrolledwindow.frame {
+      border-width: 1px 0 1px;
+
+      // prevent unwanted shrinking
+      > treeview.view > header > button {
+        min-width: rem(133.3px, $sw: 1.0);
+      }
+    }
+
+    > notebook.frame {
+      border: none;
+
+      // FIXME: it doesn't work
+      > stack > scrolledwindow > widget {
+        &, &:backdrop {
+          border-color: $borders_color;
+          color: $secondary_fg_color;
+          &:hover {
+            color: $fg_color;
+            background-color: $track_color;
+          }
+          &:selected,
+          &:checked {
+            color: $selected_fg_color;
+            background-color: $selected_bg_color;
+          }
+        }
+      }
+    }
+  }
+
+  > statusbar {
+    margin: -8px -10px;
+    border-top: 1px solid $borders_color;
+    background-color: $secondary_dark_color;
+
+    > frame {
+      background: none;
+      box-shadow: if($variant == 'light', $inline-shadow-light,
+                                          $inline-shadow-dark);
+
+      > box > label {
+        margin: rem(-5.3px) rem(8px);
+        color: $tertiary_fg_color;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
