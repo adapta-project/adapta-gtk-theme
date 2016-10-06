@@ -16,7 +16,7 @@ THREADS="$(($(getconf _NPROCESSORS_ONLN)+1))"
 
 if [ -f "$PARALLEL" ]; then
 	$PARALLEL --no-notice --line-buffer -j$THREADS \
-        bundle exec sass --update --sourcemap=none --watch ::: \
+        bundle exec sass --update --sourcemap=none --watch --style=compact ::: \
 		3.18/gtk.scss:../gtk-3.18/gtk.css \
 		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
 		3.20/gtk.scss:../gtk-3.20/gtk.css \
@@ -32,7 +32,7 @@ if [ -f "$PARALLEL" ]; then
 		3.24/gtk-eta.scss:../gtk-3.24-eta/gtk.css \
 		3.24/gtk-dark-eta.scss:../gtk-3.24-eta/gtk-dark.css
 else
-        bundle exec sass --update --sourcemap=none --watch \
+        bundle exec sass --update --sourcemap=none --watch --style=compact \
 		3.18/gtk.scss:../gtk-3.18/gtk.css \
 		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
 		3.20/gtk.scss:../gtk-3.20/gtk.css \

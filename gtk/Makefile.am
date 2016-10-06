@@ -801,7 +801,7 @@ all:
 if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
 	$(PARALLEL) --no-notice --line-buffer -j0 \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none ::: \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
 		3.18/gtk.scss:../gtk-3.18/gtk.css \
 		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
 		3.20/gtk.scss:../gtk-3.20/gtk.css \
@@ -814,7 +814,7 @@ if ENABLE_PARALLEL
 		3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css
 else
 	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
 		3.18/gtk.scss:../gtk-3.18/gtk.css \
 		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
 		3.20/gtk.scss:../gtk-3.20/gtk.css \
@@ -834,14 +834,14 @@ if ENABLE_GTK_NEXT
 if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
 	$(PARALLEL) --no-notice --line-buffer -j0 \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none ::: \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
 		3.24/gtk.scss:../gtk-3.24/gtk.css \
 		3.24/gtk-dark.scss:../gtk-3.24/gtk-dark.css \
 		3.24/gtk-eta.scss:../gtk-3.24-eta/gtk.css \
 		3.24/gtk-dark-eta.scss:../gtk-3.24-eta/gtk-dark.css
 else
 	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
 		3.24/gtk.scss:../gtk-3.24/gtk.css \
 		3.24/gtk-dark.scss:../gtk-3.24/gtk-dark.css \
 		3.24/gtk-eta.scss:../gtk-3.24-eta/gtk.css \
