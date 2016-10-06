@@ -318,7 +318,7 @@ all:
 if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
 	$(PARALLEL) --no-notice --line-buffer -j0 \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none ::: \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
 		gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css \
 		gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css \
 		gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css \
@@ -326,7 +326,7 @@ if ENABLE_PARALLEL
 		gnome-shell/workspaces-to-dock.scss:../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 else
 	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
 		gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css \
 		gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css \
 		gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css \
@@ -350,12 +350,12 @@ if ENABLE_CINNAMON
 if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
 	$(PARALLEL) --no-notice --line-buffer -j0 \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none ::: \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
 		cinnamon/cinnamon.scss:../cinnamon/cinnamon.css \
 		cinnamon/cinnamon-dark.scss:../cinnamon-nokto/cinnamon.css
 else
 	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
 		cinnamon/cinnamon.scss:../cinnamon/cinnamon.css \
 		cinnamon/cinnamon-dark.scss:../cinnamon-nokto/cinnamon.css
 endif
