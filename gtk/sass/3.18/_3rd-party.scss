@@ -432,6 +432,9 @@ $full_orientation: ((top, bottom),
         background-color: $suggested_color;
         box-shadow: $z-depth-1,
                     inset 0 1px $highlight_color;
+        transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-property: box-shadow;
+        transition-duration: 0.2s;
 
         &:dir(ltr) { // mask avatar's background
           padding-left: 7px; // non-scaling unit
