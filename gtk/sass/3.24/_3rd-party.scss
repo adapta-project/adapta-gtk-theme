@@ -1880,27 +1880,6 @@ window.background:not(.csd) {
 }
 
 
-/*****************
- * Atom/Electron *
- *****************/
-
-// workaround for Electron with Gtk+ 3.x
-window.background:not(.csd) { // blind shot :/
-  > menubar {
-    background-color: $dark_color;
-
-    > menuitem {
-      color: $secondary_fg_color;
-      &:hover {
-        color: $fg_color;
-        background-color: gtkopacity($fg_color, 0.1);
-      }
-      &:disabled { color: $insensitive_fg_color; }
-    }
-  }
-}
-
-
 /**************
  * Mate-Panel *
  **************/
