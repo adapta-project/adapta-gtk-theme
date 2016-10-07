@@ -59,11 +59,13 @@ Supported Desktop Environments
  * Unity7          >= 7.4.0
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0 (Gtk+ 3.2x only)
+ * Openbox         >= 3.6.1 (not LXDE)
  ```
 
  > **Note:**
  >
  >   * Mate-Desktop support is under W.I.P.
+ >   * Openbox support is under W.I.P.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
@@ -151,6 +153,7 @@ Installation from Git Source
  --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
  --disable-mate          disable mate support (type: bool)
+ --disable-openbox       disable openbox support (type: bool)
  ```
 
  > **Note:**
