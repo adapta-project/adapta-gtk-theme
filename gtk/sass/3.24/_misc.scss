@@ -422,6 +422,9 @@ EphyWindow {
     .subtitle { // move subtitlebox to center
       margin-top: rem(-17.3px, $sw: 1.0);
       font-size: 100%;
+
+      &:dir(ltr) { margin-left: rem(-$widget_size * 3, $sw: 1.0); }
+      &:dir(rtl) { margin-right: rem(-$widget_size * 3, $sw: 1.0); }
     }
   }
 }
