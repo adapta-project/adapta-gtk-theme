@@ -102,9 +102,24 @@ xfwm_file = \
 	$(xfwmdir)/top-right-active.png \
 	$(xfwmdir)/top-right-inactive.png
 
-# *******************************************
-# * Generate PNG images and clone SVG files *
-# *******************************************
+openboxdir = $(srcdir)/openbox-3
+openbox_file = \
+	$(openboxdir)/close.xbm \
+	$(openboxdir)/desk_toggled.xbm \
+	$(openboxdir)/desk.xbm \
+	$(openboxdir)/iconify.xbm \
+	$(openboxdir)/max_toggled.xbm \
+	$(openboxdir)/max.xbm \
+	$(openboxdir)/shade_toggled.xbm \
+	$(openboxdir)/shade.xbm
+openbox_rc_file = \
+	$(openboxdir)/themerc
+openbox_rc_nokto_file = \
+	$(openboxdir)/themerc-nokto
+
+# ***************************************************
+# * Generate PNG images and clone SVG and XBM files *
+# ***************************************************
 
 all:
 if ENABLE_FLASHBACK
@@ -139,6 +154,11 @@ else
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
 		./render-assets-xfwm.sh
 endif
+endif
+
+if ENABLE_OPENBOX
+	cd $(srcdir)/asset/assets-openbox-scripts && \
+	./clone-assets-openbox.sh
 endif
 
 # *****************
@@ -204,6 +224,15 @@ if ENABLE_XFCE
 	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
 endif
 
+if ENABLE_OPENBOX
+	$(MKDIR_P) $(adaptadir)/openbox-3
+	$(MKDIR_P) $(noktodir)/openbox-3
+	cp -Rv $(openbox_file) $(adaptadir)/openbox-3
+	cp -Rv $(openbox_rc_file) $(adaptadir)/openbox-3/themerc
+	cp -Rv $(openbox_file) $(noktodir)/openbox-3
+	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
+endif
+
 # *******************
 # * Uninstall files *
 # *******************
@@ -253,6 +282,11 @@ endif
 if ENABLE_XFCE
 	test -e $(noktodir)/xfwm4 && rm -rfv $(noktodir)/xfwm4
 	test -e $(adaptadir)/xfwm4 && rm -rfv $(adaptadir)/xfwm4
+endif
+
+if ENABLE_OPENBOX
+	test -e $(noktodir)/openbox-3 && rm -rfv $(noktodir)/openbox-3
+	test -e $(adaptadir)/openbox-3 && rm -rfv $(adaptadir)/openbox-3
 endif
 
 # ****************************
@@ -308,6 +342,11 @@ CLEANFILES += \
 	$(srcdir)/asset/assets-xfwm/close-pressed.svg \
 	$(srcdir)/asset/assets-xfwm/close-prelight.svg \
 	$(srcdir)/asset/assets-xfwm/menu-pressed.svg
+endif
+
+if ENABLE_OPENBOX
+CLEANFILES += \
+	$(openboxdir)/*.xbm
 endif
 
 DISTCLEANFILES = \

@@ -17,6 +17,7 @@ ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
 ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
 ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
+ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
 
@@ -102,6 +103,7 @@ AC_MSG_RESULT([
          Unity:                $ENABLE_UNITY
          XFce:                 $ENABLE_XFCE
          Mate:                 $ENABLE_MATE
+         Openbox:              $ENABLE_OPENBOX
 
         -----------------------------------------------------------
         | Next Gtk+ support
