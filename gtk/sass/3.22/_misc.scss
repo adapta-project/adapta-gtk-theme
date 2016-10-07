@@ -1507,21 +1507,6 @@ terminal-window {
     color: $inverted_fg_color;
   }
 
-  // Re-define menubar node to fix side-effect
-  // of the workarounds for LibreOffice
-  menubar > menuitem {
-    color: $inverted_secondary_fg_color;
-    background-color: transparent;
-    &:hover { // Seems like it :hover even with keyboard focus
-      color: $inverted_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
-    }
-    &:disabled {
-      color: $insensitive_inverted_fg_color;
-      box-shadow: none;
-    }
-  }
-
   notebook > header.top { // show drop-shadows
     @if $variant==light {
       box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
