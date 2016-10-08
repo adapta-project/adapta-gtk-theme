@@ -1609,6 +1609,14 @@ GtkComboBox {
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
     }
   }
+
+  .solid-csd & {
+    &:dir(rtl),
+    &:dir(ltr) { // specificity bump
+      margin: -1px -1px -1px 0;
+      box-shadow: inset 0 1px $highlight_color;
+    }
+  }
 }
 
 .header-bar { // draw hilight and shadows
