@@ -285,25 +285,32 @@ EelEditableLabel.entry {
   &, &:focus { transition: none; }
 }
 
-.nautilus-desktop-window,
-.nautilus-desktop-window .notebook,
-.nautilus-desktop-window .notebook > GtkStack {
-  background: transparent;
-}
+.nautilus {
+  &-desktop-window {
+    .notebook {
+      &, & > GtkStack { background: transparent; }
+    }
+  }
 
-.nautilus-desktop.nautilus-canvas-item {
-  color: $selected_fg_color;
-  text-shadow: $z-depth-1;
-  &:selected { text-shadow: none; }
-}
+  &-desktop.nautilus-canvas-item {
+    color: $selected_fg_color;
+    text-shadow: $z-depth-1;
+    &:selected { text-shadow: none; }
+  }
 
-.nautilus-canvas-item {
-  border-radius: 2px;
-}
+  &-canvas-item {
+    border-radius: 2px;
 
-.nautilus-circular-button {
-  border-radius: 100px;
-  outline-radius: 100px;
+    // FIXME: these are needed by 3.14.x?
+    &.dim-label { @extend .dim-label }
+  }
+
+  &-list-dim-label { @extend .dim-label }
+
+  &-circular-button {
+    border-radius: 100px;
+    outline-radius: 100px;
+  }
 }
 
 NautilusTrashBar {
