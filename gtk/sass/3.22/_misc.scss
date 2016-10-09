@@ -1935,3 +1935,29 @@ window.background:not(.csd) > grid.horizontal {
   }
 }
 
+
+/***********************
+ * Gnome-Power-Manager *
+ ***********************/
+
+window.background:not(.csd) > box.horizontal > notebook.frame > stack {
+  margin: 0 -1px 0;
+  border-width: 0 1px 1px;
+  border-style: none solid solid;
+  border-color: $borders_color;
+
+  > scrolledwindow.frame {
+    margin: -13px 0 0;
+    border-style: none;
+
+    > treeview.view > header > button > box > widget > label { padding: 3px 0; }
+
+    > undershoot,
+    > overshoot {
+      &.top { background-position: center 13px - 1px; }
+    }
+
+    > scrollbar.vertical { padding: 13px - 1px 0 0; }
+  }
+}
+
