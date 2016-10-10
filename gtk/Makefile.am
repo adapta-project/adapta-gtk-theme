@@ -282,6 +282,8 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/toggle-on-insensitive-dark.png \
 	$(gtk3_assetdir)/toggle-on-insensitive.png \
 	$(gtk3_assetdir)/toggle-on.png \
+	$(gtk3_assetdir)/thumbnail@2.png \
+	$(gtk3_assetdir)/thumbnail.png \
 	$(gtk3_assetdir)/window-close@2.png \
 	$(gtk3_assetdir)/window-close-active@2.png \
 	$(gtk3_assetdir)/window-close-active.png \
@@ -917,6 +919,8 @@ install-data-local:
 	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
 	ln -sf ../Adapta/gtk-3.20 $(noktodir)/gtk-3.20
 	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
+	cd $(adaptadir)/gtk-3.0 && \
+		ln -sf ./assets/thumbnail.png thumbnail.png
 
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20/assets
@@ -1075,7 +1079,6 @@ CLEANFILES = \
 	$(srcdir)/asset/assets-gtk2.svg \
 	$(srcdir)/asset/assets-gtk3.svg \
 	$(srcdir)/sass/common/_key_colors.scss \
-	$(srcdir)/sass/common/_key_scale.scss \
 	$(srcdir)/gtk-2.0/colors.rc \
 	$(srcdir)/gtk-2.0/colors-dark.rc
 if ENABLE_GTK_NEXT
