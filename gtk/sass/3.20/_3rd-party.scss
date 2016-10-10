@@ -720,6 +720,13 @@ popover.places-menu {
 
     button.image-button {
       margin: rem(2.7px);
+      &:not(:active) {
+        transition: opacity 0.2s $slope_medium,
+                    border-color 0.2s $slope_medium,
+                    background-color 0.2s $slope_slow,
+                    background-image 0.2s $slope_slow,
+                    box-shadow 0.2s $slope_slow;
+      }
     }
   }
 
@@ -739,6 +746,7 @@ popover.places-menu {
     background-color: transparent;
 
     > row.activatable {
+      transition: none;
       &:hover,
       &:active {
         color: $fg_color;
@@ -750,6 +758,7 @@ popover.places-menu {
             color: $fg_color;
             background-color: transparent;
             background-image: none;
+            transition: none;
             animation: none;
           }
           &:active { animation: list_ripple_effect 0.3s $slope_slow forwards; }
@@ -759,6 +768,16 @@ popover.places-menu {
       .unmount-button {
         margin: rem(1.3px) rem(5.3px);
         padding: rem(4px);
+      }
+
+      button.image-button { // revive button transitions
+        &:not(:active) {
+          transition: opacity 0.2s $slope_medium,
+                      border-color 0.2s $slope_medium,
+                      background-color 0.2s $slope_slow,
+                      background-image 0.2s $slope_slow,
+                      box-shadow 0.2s $slope_slow;
+        }
       }
     }
 
