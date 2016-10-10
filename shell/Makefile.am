@@ -175,6 +175,8 @@ cinnamon_asset_panel_file = \
 cinnamon_asset_switch_file = \
 	$(cinnamondir)/assets/switch/switch-off.svg \
 	$(cinnamondir)/assets/switch/switch-on.svg
+cinnamon_asset_thumb_file = \
+	$(cinnamondir)/assets/thumbnail.png
 
 cinnamonnoktodir = $(srcdir)/cinnamon-nokto
 cinnamon_nokto_file = \
@@ -219,6 +221,8 @@ cinnamon_nokto_asset_panel_file = \
 cinnamon_nokto_asset_switch_file = \
 	$(cinnamonnoktodir)/assets/switch/switch-off.svg \
 	$(cinnamonnoktodir)/assets/switch/switch-on.svg
+cinnamon_nokto_asset_thumb_file = \
+	$(cinnamonnoktodir)/assets/thumbnail.png
 
 unitydir   = $(srcdir)/unity
 unity_file = \
@@ -373,6 +377,7 @@ endif
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/panel
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/switch
 	cd $(srcdir)/asset && ./clone-assets-cinnamon.sh
+	cd $(srcdir)/asset && ./render-assets-cinnamon-thumb.sh
 endif
 
 if ENABLE_UNITY
@@ -442,6 +447,10 @@ if ENABLE_CINNAMON
 		$(adaptadir)/cinnamon/assets/panel
 	cp -Rv $(cinnamon_asset_switch_file) \
 		$(adaptadir)/cinnamon/assets/switch
+	cp -Rv $(cinnamon_asset_thumb_file) \
+		$(adaptadir)/cinnamon/assets
+	cd $(adaptadir)/cinnamon && \
+		ln -sf ./assets/thumbnail.png thumbnail.png
 
 	$(MKDIR_P) $(noktodir)/cinnamon
 	$(MKDIR_P) $(noktodir)/cinnamon/assets
@@ -461,6 +470,10 @@ if ENABLE_CINNAMON
 		$(noktodir)/cinnamon/assets/panel
 	cp -Rv $(cinnamon_nokto_asset_switch_file) \
 		$(noktodir)/cinnamon/assets/switch
+	cp -Rv $(cinnamon_nokto_asset_thumb_file) \
+		$(noktodir)/cinnamon/assets
+	cd $(noktodir)/cinnamon && \
+		ln -sf ./assets/thumbnail.png thumbnail.png
 endif
 
 if ENABLE_UNITY
@@ -555,6 +568,8 @@ if ENABLE_CINNAMON
 CLEANFILES += \
 	$(srcdir)/cinnamon/cinnamon.css \
 	$(srcdir)/cinnamon-nokto/cinnamon.css \
+	$(srcdir)/cinnamon/assets/thumbnail.png \
+	$(srcdir)/cinnamon-nokto/assets/thumbnail.png \
 	$(srcdir)/cinnamon/assets/*/*.svg \
 	$(srcdir)/cinnamon-nokto/assets/*/*.svg \
 	$(srcdir)/asset/assets-cinnamon/common/checkbox/*.svg \
