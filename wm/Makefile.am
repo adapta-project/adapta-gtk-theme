@@ -44,6 +44,7 @@ metacity_file = \
 	$(metacitydir)/max_button_unshade_prelight.svg \
 	$(metacitydir)/max_button_unshade_pressed.svg \
 	$(metacitydir)/max_button_unshade.svg \
+	$(metacitydir)/thumbnail.png \
 	$(metacitydir)/metacity-theme-2.xml \
 	$(metacitydir)/metacity-theme-3.xml
 
@@ -124,20 +125,23 @@ openbox_rc_nokto_file = \
 all:
 if ENABLE_FLASHBACK
 	cd $(srcdir)/asset/assets-metacity-scripts && \
-	./clone-assets-metacity.sh
+	./clone-assets-metacity.sh && \
+	./render-assets-metacity.sh
 endif
 
 if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
 	cd $(srcdir)/asset/assets-metacity-scripts && \
-	./clone-assets-metacity.sh
+	./clone-assets-metacity.sh && \
+	./render-assets-metacity.sh
 endif
 endif
 
 if ENABLE_UNITY
 if !ENABLE_FLASHBACK
 	cd $(srcdir)/asset/assets-metacity-scripts && \
-	./clone-assets-metacity.sh
+	./clone-assets-metacity.sh && \
+	./render-assets-metacity.sh
 endif
 endif
 
@@ -298,6 +302,7 @@ CLEANFILES =
 if ENABLE_FLASHBACK
 CLEANFILES += \
 	$(metacitydir)/*.svg \
+	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
 	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
@@ -305,6 +310,7 @@ endif
 if ENABLE_MATE
 CLEANFILES += \
 	$(metacitydir)/*.svg \
+	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
 	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
@@ -313,6 +319,7 @@ if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
 CLEANFILES += \
 	$(metacitydir)/*.svg \
+	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
 	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
@@ -322,6 +329,7 @@ if ENABLE_UNITY
 if !ENABLE_FLASHBACK
 CLEANFILES += \
 	$(metacitydir)/*.svg \
+	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
 	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
@@ -331,6 +339,7 @@ if ENABLE_MATE
 if !ENABLE_FLASHBACK
 CLEANFILES += \
 	$(metacitydir)/*.svg \
+	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
 	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
 endif
