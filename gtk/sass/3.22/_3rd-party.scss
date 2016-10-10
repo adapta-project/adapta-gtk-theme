@@ -735,7 +735,10 @@ popover.places-menu {
 
   box.vertical > revealer {
     > list { // drop-down list
-      border-top: 1px solid $borders_color;
+      border-width: 1px 0 1px;
+      border-style: solid none solid;
+      border-color: $borders_color transparent $borders_color;
+      background-color: $secondary_dark_color;
       box-shadow: if($variant == 'light', $inline-shadow-light,
                                           $inline-shadow-dark);
     }
