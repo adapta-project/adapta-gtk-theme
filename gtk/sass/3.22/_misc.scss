@@ -1750,6 +1750,44 @@ window > popover > stack > grid > button {
   }
 }
 
+// keyboard section
+viewport.frame > list > row.activatable {
+  // employ flat-destructive style
+  .reset-shortcut-button { // remove fill-area and ripple-effect at all
+    color: gtkopacity($destructive_color, 0.75);
+    background-color: transparent;
+    transition-property: opacity,
+                         border-color,
+                         border-image,
+                         background-color,
+                         background-image,
+                         color;
+    &:hover {
+      color: $destructive_color;
+      background-color: transparent;
+      background-image: none;
+    }
+    &:active {
+      color: $selected_bg_color;
+      background-color: transparent;
+      background-image: none;
+      animation: none;
+    }
+    &:checked {
+      color: $selected_bg_color;
+      background-color: transparent;
+      &:disabled {
+        color: gtkopacity($selected_bg_color, 0.4);
+        background-color: transparent;
+      }
+    }
+    &:disabled {
+      color: gtkopacity($destructive_color, 0.4);
+      background-color: transparent;
+    }
+  }
+}
+
 
 /*************
  * Evolution *
