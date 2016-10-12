@@ -5998,11 +5998,12 @@ button.circular {
 
 // FIXME: needs to be done widget by widget,
 // this wildcard should really die
-*:drop(active):focus,
-*:drop(active) {
-  border-color: $drop_target_color;
-  box-shadow: inset 0 0 0 1px $drop_target_color;
-  caret-color: $drop_target_color;
+*:not(decoration):not(window):drop(active) {
+  &, &:focus {
+    border-color: $drop_target_color;
+    box-shadow: inset 0 0 0 1px $drop_target_color;
+    caret-color: $drop_target_color;
+  }
 }
 
 // FIXME: aggregate with buttons
