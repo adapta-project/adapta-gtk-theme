@@ -1558,19 +1558,6 @@ terminal-window {
     }
   }
 
-  // workaround for XWayland-mode
-  // to keep tiny 34px headerbar height.
-  .titlebar {
-    box.left,
-    box.right {
-      button.titlebutton {
-        min-width: $titlebutton_small;
-        min-height: $titlebutton_small;
-        padding: 0;
-      }
-    }
-  }
-
   scrollbar { // always use dark-variant
     background-color: gtkopacity($inverted_base_color, 0.55);
 
