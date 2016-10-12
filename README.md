@@ -255,6 +255,7 @@ Work in Progress
 
 TODO
 ----
+* Polish XWayland mode (priority: high)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
