@@ -1743,7 +1743,7 @@ window > popover > stack > grid > button {
  * Evolution *
  *************/
 
-.background:not(.csd) > box.vertical {
+window.background > box.vertical {
   > box.horizontal #main-toolbar { // main toolbar styling
     border-bottom: 1px solid $borders_color;
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
@@ -1803,7 +1803,7 @@ window.background > grid.horizontal.titlebar {
  * Gnome-Character-Map *
  ***********************/
 
-window.background:not(.csd) > grid.horizontal {
+window.background > grid.horizontal {
   > paned.horizontal {
     > scrolledwindow.frame {
       border-width: 1px 0 1px;
@@ -1860,7 +1860,7 @@ window.background:not(.csd) > grid.horizontal {
  * Gnome-Power-Manager *
  ***********************/
 
-window.background:not(.csd) > box.horizontal > notebook.frame > stack {
+window.background > box.horizontal > notebook.frame > stack {
   margin: 0 -1px 0;
   border-width: 0 1px 1px;
   border-style: none solid solid;

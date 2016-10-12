@@ -1769,7 +1769,7 @@ window > box.vertical > box.horizontal {
  * Eclipse/SWT (neon) *
  **********************/
 
-.background:not(.csd) > box.vertical {
+window.background > box.vertical {
   > menubar { // force setting foreground colour
     color: $inverted_secondary_fg_color;
   }
@@ -1862,7 +1862,7 @@ window > box.vertical > box.horizontal {
  ***********/
 
 // FIXME: Gtk+3 firefox needs this!
-.background:not(.csd) {
+window.background {
   > widget > menubar {
     color: $inverted_secondary_fg_color;
     &:hover {
@@ -1876,7 +1876,7 @@ window > box.vertical > box.horizontal {
     > menuitem > label:disabled { color: $insensitive_fg_color; }
   }
 
-  > .background > menu > separator { color: $borders_color; }
+  > window.background > menu > separator { color: $borders_color; }
 
   > widget > frame { color: $borders_color; }
 }
@@ -1886,7 +1886,7 @@ window > box.vertical > box.horizontal {
  * Wireshark *
  *************/
 
-window.background:not(.csd) {
+window.background {
   > box.vertical > toolbar:not(.primary-toolbar).horizontal {
     border-bottom: 1px solid $borders_color;
     box-shadow: none; // hide fake-shadows
