@@ -215,6 +215,7 @@ sn-button { padding: rem(4px); }
 // use message-dialog style for popup osd windows
 
 // popup window widget
+#gf-label-window,
 #gf-bubble,
 #gf-osd-window,
 #gf-input-source-popup {
@@ -231,21 +232,21 @@ sn-button { padding: rem(4px); }
 }
 
 // FIXME: it doesn't work at all...
-// #gf-label-window {
-//   font-size: rem(45px);
-//   font-weight: 400;
-// }
+#gf-label-window {
+  font-size: rem(45px, $sw: 1.0);
+  font-weight: 400;
+}
 
 // input-source switcher labels
 #gf-input-source {
-  min-width: rem(120px);
-  min-height: rem(120px);
+  min-width: rem(120px, $sw: 1.0);
+  min-height: rem(120px, $sw: 1.0);
   color: $inverted_fg_color;
-  font-size: rem(24px);
+  font-size: rem(24px, $sw: 1.0);
   font-weight: 400;
   &:selected {
     border-radius: 2px;
-    background-color: $track_color;
+    background-color: gtkopacity($accent_color, 0.2);
     color: $accent_color;
   }
 }
@@ -262,7 +263,10 @@ sn-button { padding: rem(4px); }
   gf-candidate-box {
     transition: none;
     // a half of .menuitem
-    label { padding: rem(2.7px) rem(2.7px) rem(4px); }
+    label {
+      padding: rem(2.7px) rem(2.7px) rem(4px);
+      font-size: 110%;
+    }
 
     &:last-child { padding-left: 0; }
     &:hover,
