@@ -2167,6 +2167,7 @@ headerbar {
   &.default-decoration {
     min-height: $titlebutton_small;
     padding: if($ref_weight < 1.0, 3px, 3px 2px 2px);
+    border-radius: 2px 2px 0 0;
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -2174,7 +2175,7 @@ headerbar {
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
     }
 
-    button.titlebutton {
+    .titlebutton {
       min-width: $titlebutton_small;
       min-height: $titlebutton_small;
       margin: 0;
@@ -2403,6 +2404,12 @@ window:not(.maximized):not(.tiled) {
     border-color: $highlight_color;
     box-shadow: none;
   }
+}
+
+// revive top-edge highlight border for XWayland
+headerbar.titlebar.default-decoration {
+  border-top: 1px solid $highlight_color;
+  box-shadow: none; // reset outset shadows
 }
 
 // workaround for ugly Ubuntu-related CSD patches
@@ -5482,9 +5489,8 @@ decoration {
 }
 
 // Window manager buttons
-.csd headerbar,
-.solid-csd headerbar,
-.csd .titlebar {
+.csd headerbar:not(.default-decoration),
+.solid-csd headerbar:not(.default-decoration) {
   // appmenu buttons
   button.titlebutton.popup.toggle,
   &.selection-mode button.titlebutton.popup.toggle {
@@ -5495,30 +5501,39 @@ decoration {
     -gtk-outline-radius: 100px;
   }
 
-  button.titlebutton,
-  &.selection-mode button.titlebutton {
+  box > button.titlebutton,
+  &.selection-mode box > button.titlebutton {
     @extend %fade_effect;
     @extend button.flat;
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(($widget_size - $icon_size) / 2);
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
 
     &.close,
     &.minimize,
     &.maximize {
+      &,
+      &:hover,
+      &:active,
+      &:backdrop,
+      &:backdrop:hover,
+      &:backdrop:active {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(($widget_size - $icon_size) / 2);
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+        background-image: none;
+
+        > image {
+          min-height: $icon_size;
+          min-width: $icon_size;
+          color: transparent;
+          background-size: $icon_size $icon_size;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
       &:hover:backdrop,
       &:active:backdrop { opacity: 1.0; }
-
-      > image {
-        min-height: $icon_size;
-        min-width: $icon_size;
-        color: transparent;
-        background-size: $icon_size $icon_size;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
     }
 
     // raised 'Close' button
@@ -5558,6 +5573,9 @@ decoration {
 
       &:hover,
       &:active {
+        color: $inverted_fg_color;
+        background-color: gtkopacity($inverted_fg_color, 0.1);
+
         > image {
           background-image: -gtk-scaled(url("assets/window-minimize-active.png"),
                                         url("assets/window-minimize-active@2.png"));
@@ -5573,6 +5591,9 @@ decoration {
 
       &:hover,
       &:active {
+        color: $inverted_fg_color;
+        background-color: gtkopacity($inverted_fg_color, 0.1);
+
         > image {
           background-image: -gtk-scaled(url("assets/window-maximize-active.png"),
                                         url("assets/window-maximize-active@2.png"));
@@ -5582,11 +5603,10 @@ decoration {
   }
 }
 
-.csd.maximized headerbar,
-.solid-csd.maximized headerbar,
-.csd.maximized .titlebar {
-  & button.titlebutton,
-  &.selection-mode button.titlebutton {
+.csd.maximized headerbar:not(.default-decoration),
+.solid-csd.maximized headerbar:not(.default-decoration) {
+  box > button.titlebutton,
+  &.selection-mode box > button.titlebutton {
     &.maximize {
       > image {
         background-image: -gtk-scaled(url("assets/window-unmaximize.png"),
@@ -5606,22 +5626,32 @@ decoration {
 
 // specific button styling for SSDs
 .ssd .titlebar {
-  button.titlebutton {
+  .titlebutton {
     min-width: $titlebutton_small;
     min-height: $titlebutton_small;
+    padding: 0;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
 
     &.close,
     &.minimize,
     &.maximize { // reset styling
-      color: transparent;
-      background-size: $titlebutton_small $titlebutton_small;
-      background-repeat: no-repeat;
-      background-position: center;
-      background: none;
-      box-shadow: none;
+      &,
+      &:hover,
+      &:active,
       &:backdrop,
-      &:hover:backdrop,
-      &:active:backdrop { color: transparent; }
+      &:backdrop:hover,
+      &:backdrop:active {
+        color: transparent;
+        background: none;
+        box-shadow: none;
+
+        &, image {
+          background-size: $titlebutton_small $titlebutton_small;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
     }
 
     // tiny 2px padding causes truncation of shadows,
@@ -5635,15 +5665,18 @@ decoration {
                       (':backdrop:hover', '-backdrop-hover', $z-depth-1),
                       (':backdrop:active', '-backdrop-active', $z-depth-1) {
       &.close#{$_class} {
-        background-image: -gtk-scaled(
-                          url("assets/window-close-ssd#{$_state}.png"),
-                          url("assets/window-close-ssd#{$_state}@2.png"));
         box-shadow: #{$_shadow};
 
-        @if $ref_weight < 1.0 {
-          background-image: -gtk-scaled(
-                            url("assets/window-close-ssd-eta#{$_state}.png"),
-                            url("assets/window-close-ssd-eta#{$_state}@2.png"));
+        > image {
+          background-image:
+            -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
+                        url("assets/window-close-ssd#{$_state}@2.png"));
+
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
+                          url("assets/window-close-ssd-eta#{$_state}@2.png"));
+          }
         }
       }
     }
@@ -5655,14 +5688,16 @@ decoration {
                               (':backdrop:hover', '-backdrop-hover'),
                               (':backdrop:active', '-backdrop-active') {
       &.minimize#{$_class} {
-        background-image: -gtk-scaled(
-                          url("assets/window-minimize-ssd#{$_state}.png"),
-                          url("assets/window-minimize-ssd#{$_state}@2.png"));
+        > image {
+          background-image:
+            -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
+                        url("assets/window-minimize-ssd#{$_state}@2.png"));
 
-        @if $ref_weight < 1.0 {
-          background-image: -gtk-scaled(
-                            url("assets/window-minimize-ssd-eta#{$_state}.png"),
-                            url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-minimize-ssd-eta#{$_state}.png"),
+                          url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+          }
         }
       }
     }
@@ -5674,14 +5709,16 @@ decoration {
                               (':backdrop:hover', '-backdrop-hover'),
                               (':backdrop:active', '-backdrop-active') {
       &.maximize#{$_class} {
-        background-image: -gtk-scaled(
-                          url("assets/window-maximize-ssd#{$_state}.png"),
-                          url("assets/window-maximize-ssd#{$_state}@2.png"));
+        > image {
+          background-image:
+            -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
+                        url("assets/window-maximize-ssd#{$_state}@2.png"));
 
-        @if $ref_weight < 1.0 {
-          background-image: -gtk-scaled(
-                            url("assets/window-maximize-ssd-eta#{$_state}.png"),
-                            url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-maximize-ssd-eta#{$_state}.png"),
+                          url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+          }
         }
       }
     }
@@ -5689,7 +5726,7 @@ decoration {
 }
 
 .maximized.ssd .titlebar {
-  button.titlebutton {
+  .titlebutton {
     @each $_class, $_state in ('', ''),
                               (':hover', '-hover'),
                               (':active', '-active'),
@@ -5697,14 +5734,146 @@ decoration {
                               (':backdrop:hover', '-backdrop-hover'),
                               (':backdrop:active', '-backdrop-active') {
       &.maximize#{$_class} {
-        background-image: -gtk-scaled(
-                          url("assets/window-unmaximize-ssd#{$_state}.png"),
-                          url("assets/window-unmaximize-ssd#{$_state}@2.png"));
+        > image {
+          background-image:
+            -gtk-scaled(url("assets/window-unmaximize-ssd#{$_state}.png"),
+                        url("assets/window-unmaximize-ssd#{$_state}@2.png"));
+
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
+                          url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+          }
+        }
+      }
+    }
+  }
+}
+
+// specific button styling for and XWayland
+headerbar.titlebar.default-decoration {
+  &, maximized & {
+    button.titlebutton {
+      @extend %fade_effect;
+      @extend button.flat;
+      min-width: $titlebutton_small;
+      min-height: $titlebutton_small;
+      padding: 0;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+
+      &.close,
+      &.minimize,
+      &.maximize {
+        &:hover:backdrop,
+        &:active:backdrop { opacity: 1.0; }
+
+        &,
+        &:hover,
+        &:active,
+        &:backdrop,
+        &:backdrop:hover,
+        &:backdrop:active {
+          color: transparent;
+          background: none;
+          box-shadow: none;
+          animation: none; // FIXME: XWayland hides :active buttons
+
+          &, image {
+            background-size: $titlebutton_small $titlebutton_small;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+headerbar.titlebar.default-decoration {
+  %wayland_csd_button,
+  button.titlebutton {
+    @each $_class,
+          $_state,
+          $_shadow in ('', '', none),
+                      (':hover', '-hover', $z-depth-1),
+                      (':active', '-active', $z-depth-1),
+                      (':backdrop', '-backdrop', none),
+                      (':backdrop:hover', '-backdrop-hover', $z-depth-1),
+                      (':backdrop:active', '-backdrop-active', $z-depth-1) {
+      &.close#{$_class} {
+        background-image:
+          -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
+                      url("assets/window-close-ssd#{$_state}@2.png"));
+        box-shadow: #{$_shadow};
 
         @if $ref_weight < 1.0 {
-          background-image: -gtk-scaled(
-                            url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
-                            url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+          background-image:
+            -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
+                        url("assets/window-close-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+
+    @each $_class, $_state in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-active'),
+                              (':backdrop', '-backdrop'),
+                              (':backdrop:hover', '-backdrop-hover'),
+                              (':backdrop:active', '-backdrop-active') {
+      &.minimize#{$_class} {
+        background-image:
+          -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
+                      url("assets/window-minimize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image:
+            -gtk-scaled(url("assets/window-minimize-ssd-eta#{$_state}.png"),
+                        url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+
+    @each $_class, $_state in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-active'),
+                              (':backdrop', '-backdrop'),
+                              (':backdrop:hover', '-backdrop-hover'),
+                              (':backdrop:active', '-backdrop-active') {
+      &.maximize#{$_class} {
+        background-image:
+          -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
+                      url("assets/window-maximize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image:
+            -gtk-scaled(url("assets/window-maximize-ssd-eta#{$_state}.png"),
+                        url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
+  }
+
+  .maximized & {
+    button.titlebutton {
+      @extend %wayland_csd_button;
+
+      @each $_class, $_state in ('', ''),
+                                (':hover', '-hover'),
+                                (':active', '-active'),
+                                (':backdrop', '-backdrop'),
+                                (':backdrop:hover', '-backdrop-hover'),
+                                (':backdrop:active', '-backdrop-active') {
+        &.maximize#{$_class} {
+          background-image:
+            -gtk-scaled(url("assets/window-unmaximize-ssd#{$_state}.png"),
+                        url("assets/window-unmaximize-ssd#{$_state}@2.png"));
+
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
+                          url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+          }
         }
       }
     }
