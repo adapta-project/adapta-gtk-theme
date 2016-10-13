@@ -41,6 +41,11 @@ else
   css_minor="$minor"
 fi
 
+if [ ! -d ./"$major"."$css_minor" ]; then
+  echo version "$major"."$minor".x is not supported.
+  exit 1
+fi
+
 #################
 # Generate CSSs #
 #################
