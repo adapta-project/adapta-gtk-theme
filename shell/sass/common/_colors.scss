@@ -11,6 +11,7 @@
 //
 // Foreground colors
 //
+
 $fg_color: if($nokto == 'false', #263238, #ECEFF1);
 $secondary_fg_color: scale-color($fg_color, $alpha: -25%);
 
@@ -25,6 +26,7 @@ $insensitive_secondary_fg_color: scale-color($secondary_fg_color, $alpha: -60%);
 //
 // Inverted foreground colors
 //
+
 $inverted_fg_color: if($nokto == 'false', #ECEFF1, #263238);
 $inverted_secondary_fg_color: scale-color($inverted_fg_color, $alpha: -25%);
 $inverted_dim_fg_color: scale-color($inverted_fg_color, $alpha: -60%);
@@ -33,6 +35,7 @@ $inverted_dim_fg_color: scale-color($inverted_fg_color, $alpha: -60%);
 //
 // Background colors
 //
+
 $bg_color: if($nokto == 'false', #FAFBFC, #3E515A);
 $base_color: if($nokto == 'false', #FFFFFF, #445A64);
 $secondary_dark_color: if($nokto == 'false', #ECEFF1, #37474F);
@@ -51,6 +54,7 @@ $insensitive_fill_color: scale-color($fill_color, $alpha: -60%);
 //
 // Inverted background colors
 //
+
 $inverted_bg_color: if($nokto == 'false', #3E515A, #FAFBFC);
 $inverted_base_color: #455A64;
 $inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
@@ -59,6 +63,7 @@ $inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
 //
 // Accent colors
 //
+
 $accent_color: $key_accent_color;
 $secondary_accent_color: scale-color($accent_color, $alpha: -20%);
 $accent_fill_color: scale-color($accent_color, $alpha: -90%);
@@ -68,6 +73,7 @@ $accent_active_fill_color: scale-color($accent_color, $alpha: -75%);
 //
 // Misc colors
 //
+
 $borders_color: if($nokto == 'false', scale-color(#000000, $alpha: -91%),
                                       scale-color(#000000, $alpha: -89%));
 $borders_edge: scale-color(#000000, $alpha: -95%);
@@ -88,6 +94,7 @@ $suggested_color: $key_suggestion_color;
 //
 // OSD Foreground colors
 //
+
 $osd_fg_color: if($nokto == 'false', $inverted_fg_color, $fg_color);
 $osd_secondary_fg_color: scale-color($osd_fg_color, $alpha: -25%);
 
@@ -100,6 +107,7 @@ $insensitive_osd_secondary_fg_color: scale-color($osd_secondary_fg_color, $alpha
 //
 // OSD Background colors
 //
+
 $osd_bg_color: mix(#263238, #37474F, 75%);
 $osd_base_color: if($nokto == 'false', $inverted_base_color, $bg_color);
 
