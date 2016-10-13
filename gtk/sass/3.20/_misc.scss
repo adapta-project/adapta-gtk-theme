@@ -385,9 +385,46 @@ NautilusTrashBar {
   // stop double-shadows on right paned header-bar
   box-shadow: none;
 
-  button.image-button:not(.text-button):not(.titlebutton) { // need to override geoemtry
-    padding: rem(($widget_size - $icon_size - 8px - 2px) / 2)
-             rem(($widget_size - $icon_size - 8px + 2px) / 2);
+  > .linked.raised > button {
+    // tool-button array
+    &.image-button:not(.text-button) {
+      min-height: $icon_size;
+      min-width: $icon_size;
+      padding: rem(($widget_size - $icon_size - 2.7px) / 2)
+               rem(($widget_size - $icon_size) / 2);
+    }
+
+    // should be .text-button
+    &:not(.image-button):not(.text-button):not(.suggested-action) {
+      min-height: $icon_size;
+      padding-top: rem(($widget_size - $icon_size - 4px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 1.3px) / 2);
+    }
+  }
+
+  button.image-button:not(.text-button):not(.titlebutton) {
+    > widget > box > image { padding: 0 rem(1.3px); }
+  }
+}
+
+// left-pane styling
+.sidebar.vertical > paned.sidebar-pane-separator {
+  // remove unwanted frame
+  .folder-frame > border {
+    border-width: 0 0 1px;
+  }
+
+  .conversation-frame > border { border: none; }
+
+  .folder-frame > scrolledwindow {
+    background-color: $secondary_dark_color;
+
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
+    }
   }
 }
 
@@ -1619,7 +1656,7 @@ window stack > frame > frame > grid.horizontal {
  * Gnome-Todo *
  **************/
 
-window headerbar > box.horizontal {
+window headerbar > box.horizontal:not(.linked) {
   > button.toggle.popup { // 'new-list' text-button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
