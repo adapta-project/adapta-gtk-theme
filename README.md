@@ -1,10 +1,6 @@
 Adapta
 =========
 
-
-#- Adapta is going to move to https://github.com/adapta-project in Fri, 14 Oct 2016.
-   And will be renamed to `adapta-project/adapta-gtk-theme`...
-
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
 <img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta**:
