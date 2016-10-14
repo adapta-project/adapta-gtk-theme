@@ -991,7 +991,9 @@ style "button" {
   ythickness = 5
 
   fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
-  font_name = "Medium"
+  fg[PRELIGHT] = @fg_color
+  fg[ACTIVE] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
@@ -1045,7 +1047,18 @@ style "button" {
 
 style "button_label" {
   fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[PRELIGHT] = @fg_color
   fg[ACTIVE] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  font_name = "Bold"
+}
+
+style "misc_button_label" {
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[PRELIGHT] = @fg_color
+  fg[ACTIVE] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  font_name = "Regular"
 }
 
 style "flat_button" {
@@ -1053,7 +1066,9 @@ style "flat_button" {
   ythickness = 5
 
   fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
-  font_name = "Medium"
+  fg[PRELIGHT] = @fg_color
+  fg[ACTIVE] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
@@ -2198,7 +2213,12 @@ class "GtkScrolledWindow"    style "scrolled_window"
 class "GtkFrame"             style "frame"
 class "GtkToolbar"           style "toolbar"
 
-widget_class "*<GtkButton>*<GtkLabel>"           style "button_label"
+widget_class "*<GtkButton>*<GtkLabel>"               style "button_label"
+widget_class "*<GtkComboBox>*<GtkButton>*<GtkLabel>" style "misc_button_label"
+widget_class "*<GtkCombo>*<GtkButton>*<GtkLabel>"    style "misc_button_label"
+widget_class "*<GtkFontButton>*<GtkLabel>"           style "misc_button_label"
+widget_class "*<GtkSpinButton>*<GtkLabel>"           style "misc_button_label"
+widget_class "*<GtkCheckButton>*<GtkLabel>"          style "misc_button_label"
 
 widget_class "*<GtkMenuBar>*"                    style "menubar"
 widget_class "*<GtkMenu>*"                       style "menu"
