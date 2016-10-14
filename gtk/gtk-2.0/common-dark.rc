@@ -1120,6 +1120,10 @@ style "flat_button" {
   }
 }
 
+style "button_check_radio" = "bg" {
+  bg[PRELIGHT] = @bg_color
+}
+
 style "button_separator" {
   xthickness = 0
   ythickness = 0
@@ -2250,7 +2254,7 @@ widget_class "*<GtkSpinButton>*"  style "bg"
 widget_class "*<GtkCheckButton>*" style "bg"
 widget_class "*<GtkExpander>*"    style "bg"
 widget_class "*<GtkNotebook>*<GtkSpinButton>"  style "base"
-widget_class "*<GtkNotebook>*<GtkCheckButton>" style "base"
+widget_class "*<GtkNotebook>*<GtkCheckButton>" style "button_check_radio"
 widget_class "*<GtkNotebook>*<GtkExpander>"    style "base"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkSpinButton>"  style "bg"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkCheckButton>" style "bg"
