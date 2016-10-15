@@ -70,6 +70,10 @@ xfwm_file = \
 	$(xfwmdir)/maximize-inactive.png \
 	$(xfwmdir)/maximize-prelight.png \
 	$(xfwmdir)/maximize-pressed.png \
+	$(xfwmdir)/maximize-toggled-active.png \
+	$(xfwmdir)/maximize-toggled-inactive.png \
+	$(xfwmdir)/maximize-toggled-prelight.png \
+	$(xfwmdir)/maximize-toggled-pressed.png \
 	$(xfwmdir)/menu-active.png \
 	$(xfwmdir)/menu-inactive.png \
 	$(xfwmdir)/menu-prelight.png \
