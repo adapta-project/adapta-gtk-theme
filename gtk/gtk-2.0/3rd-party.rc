@@ -279,6 +279,54 @@ widget_class "*XfsmLogoutDialog*"                         style "xfsm-logout"
 widget_class "*XfsmLogoutDialog*GtkVBox.GtkVBox.GtkLabel" style "xfsm-label"
 
 #
+# Thunar
+#
+
+style "location_button" = "flat_button" {
+  ThunarLocationButtons::spacing = 0
+  xthickness = 2
+  ythickness = 5
+
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[PRELIGHT] = @fg_color
+  fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+
+  engine "pixmap" {
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "Others/null.svg"
+      border   = { 2, 2, 5, 5 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      file     = "Buttons/flat-button-hover.png"
+      border   = { 2, 2, 5, 5 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "Others/top.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      file     = "Others/null.svg"
+      border   = { 2, 2, 5, 5 }
+      stretch  = TRUE
+    }
+  }
+}
+
+widget_class "*ThunarLocationButtons*" style "location_button"
+
+#
 # Eclipse/SWT
 #
 style "eclipse-tooltips" {
