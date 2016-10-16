@@ -587,8 +587,9 @@ $budgie_transition: opacity 0.2s $slope_medium,
     }
 
     > button.text-button { // 'exit' button
-      min-height: rem(13.3px);
-      min-width: rem(13.3px);
+      min-width: $icon_size;
+      min-height: $icon_size;
+      margin: -1px 0;
       padding: rem(9.3px) rem(10.7px) rem(10.7px);
       color: $secondary_selected_fg_color;
       background-color: $suggested_color;
@@ -604,6 +605,14 @@ $budgie_transition: opacity 0.2s $slope_medium,
       &:disabled {
         @include button(flat-insensitive, $track_color, $insensitive_fg_color);
       }
+    }
+
+    > stackswitcher.linked > button.text-button.radio { // switcher buttons
+      min-width: $icon_size;
+      min-height: $icon_size;
+      margin: -1px 0;
+      padding-top: rem(9.3px);
+      padding-bottom: rem(10.7px);
     }
 
     button.flat.expander-button { // expander arrow buttons
