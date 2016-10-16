@@ -278,6 +278,7 @@ widget "xfwm4-tabwin*GtkButton*"                      style "xfwm-tabwin-button"
 widget_class "*XfsmLogoutDialog*"                         style "xfsm-logout"
 widget_class "*XfsmLogoutDialog*GtkVBox.GtkVBox.GtkLabel" style "xfsm-label"
 
+
 #
 # Thunar
 #
@@ -324,7 +325,16 @@ style "location_button" = "flat_button" {
   }
 }
 
+style "thunar_side_pane" {
+  font_name = "Medium"
+
+  base[NORMAL] = mix(0.6, "#FFFFFF", "#ECEFF1")
+}
+
 widget_class "*ThunarLocationButtons*" style "location_button"
+widget_class "*ThunarShortcutsView*"   style "thunar_side_pane"
+widget_class "*ThunarTreeView*"        style "thunar_side_pane"
+
 
 #
 # Eclipse/SWT
@@ -502,6 +512,8 @@ widget "*libreoffice-toplevel*GtkMenuBar.*GtkMenuItem" style "menubar_item_libre
 #
 
 style "fm_side_pane" {
+  font_name = "Medium"
+
   base[NORMAL] = mix(0.6, "#FFFFFF", "#ECEFF1")
 }
 
@@ -520,3 +532,4 @@ style "fm_toolbar" {
 
 widget_class "*<FmMainWin>*<GtkToolbar>" style "fm_toolbar"
 widget_class "*<FmMainWin>*<FmSidePane>*<GtkTreeView>" style "fm_side_pane"
+widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>" style "location_button"
