@@ -236,7 +236,7 @@ Extra Dock Support
 
 Official Wallpaper of Adapta <img src=".github/img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
 ----------------------------
-Raw image is [here](https://github.com/tista500/Adapta/raw/master/.github/img/tri-fadeno.jpg).
+Raw image is [here](https://github.com/adapta-project/adapta-gtk-theme/raw/master/.github/img/tri-fadeno.jpg).
 
  * Resolution: 3840 x 2160 (4K = 2160p)
  * Created with Gimp and Inkscape
