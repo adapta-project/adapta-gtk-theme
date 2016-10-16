@@ -48,10 +48,11 @@ style "default" {
   GtkScrolledWindow::scrollbar-spacing = 0
   GtkScrolledWindow::scrollbars-within-bevel = 1
 
-  GtkVScale::slider_length = 20
-  GtkVScale::slider_width = 20
-  GtkHScale::slider_length = 20
-  GtkHScale::slider_width = 20
+  GtkVScale::slider_length = 16
+  GtkVScale::slider_width = 16
+  GtkHScale::slider_length = 16
+  GtkHScale::slider_width = 16
+  GtkScale::trough-side-details = 1
 
   GtkStatusbar::shadow_type = GTK_SHADOW_NONE
   GtkSpinButton::shadow_type = GTK_SHADOW_NONE
@@ -654,37 +655,73 @@ style "range" {
   engine "pixmap" {
     image {
       function    = BOX
-      # state     = NORMAL
-      detail      = "trough"
+      state       = ACTIVE
+      detail      = "trough-upper"
       file        = "Range/h-scale-trough-dark.png"
-      border      = { 10, 10, 0, 0 }
+      border      = { 8, 8, 0, 0 }
+      stretch     = TRUE
+      orientation = HORIZONTAL
+    }
+    image {
+      function    = BOX
+      state       = ACTIVE
+      detail      = "trough-lower"
+      file        = "Range/h-scale-trough-active.png"
+      border      = { 8, 8, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
     }
     image {
       function    = BOX
       state       = INSENSITIVE
-      detail      = "trough"
+      detail      = "trough-upper"
       file        = "Range/h-scale-trough-insensitive-dark.png"
-      border      = { 10, 10, 0, 0 }
+      border      = { 8, 8, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
     }
     image {
       function    = BOX
-      # state     = NORMAL
-      detail      = "trough"
+      state       = INSENSITIVE
+      detail      = "trough-lower"
+      file        = "Range/h-scale-trough-dark.png"
+      border      = { 8, 8, 0, 0 }
+      stretch     = TRUE
+      orientation = HORIZONTAL
+    }
+    image {
+      function    = BOX
+      state       = ACTIVE
+      detail      = "trough-upper"
       file        = "Range/v-scale-trough-dark.png"
-      border      = { 0, 0, 10, 10 }
+      border      = { 0, 0, 8, 8 }
+      stretch     = TRUE
+      orientation = VERTICAL
+    }
+    image {
+      function    = BOX
+      state       = ACTIVE
+      detail      = "trough-lower"
+      file        = "Range/v-scale-trough-active.png"
+      border      = { 0, 0, 8, 8 }
       stretch     = TRUE
       orientation = VERTICAL
     }
     image {
       function    = BOX
       state       = INSENSITIVE
-      detail      = "trough"
+      detail      = "trough-upper"
       file        = "Range/v-scale-trough-insensitive-dark.png"
-      border      = { 0, 0, 10, 10 }
+      border      = { 0, 0, 8, 8 }
+      stretch     = TRUE
+      orientation = VERTICAL
+    }
+    image {
+      function    = BOX
+      state       = INSENSITIVE
+      detail      = "trough-lower"
+      file        = "Range/v-scale-trough-dark.png"
+      border      = { 0, 0, 8, 8 }
       stretch     = TRUE
       orientation = VERTICAL
     }
@@ -709,16 +746,6 @@ style "range" {
       border          = { 0, 0, 0, 0 }
       stretch         = TRUE
       overlay_file    = "Range/scale-slider-hover.png"
-      overlay_stretch = FALSE
-      orientation     = HORIZONTAL
-    }
-    image {
-      function        = SLIDER
-      state           = ACTIVE
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-active.png"
       overlay_stretch = FALSE
       orientation     = HORIZONTAL
     }
@@ -753,16 +780,6 @@ style "range" {
       border          = { 0, 0, 0, 0 }
       stretch         = TRUE
       overlay_file    = "Range/scale-slider-hover.png"
-      overlay_stretch = FALSE
-      orientation     = VERTICAL
-    }
-    image {
-      function        = SLIDER
-      state           = ACTIVE
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-active.png"
       overlay_stretch = FALSE
       orientation     = VERTICAL
     }
