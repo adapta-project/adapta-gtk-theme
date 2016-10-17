@@ -84,10 +84,18 @@ xfwm_file = \
 	$(xfwmdir)/shade-inactive.png \
 	$(xfwmdir)/shade-prelight.png \
 	$(xfwmdir)/shade-pressed.png \
+	$(xfwmdir)/shade-toggled-active.png \
+	$(xfwmdir)/shade-toggled-inactive.png \
+	$(xfwmdir)/shade-toggled-prelight.png \
+	$(xfwmdir)/shade-toggled-pressed.png \
 	$(xfwmdir)/stick-active.png \
 	$(xfwmdir)/stick-inactive.png \
 	$(xfwmdir)/stick-prelight.png \
 	$(xfwmdir)/stick-pressed.png \
+	$(xfwmdir)/stick-toggled-active.png \
+	$(xfwmdir)/stick-toggled-inactive.png \
+	$(xfwmdir)/stick-toggled-prelight.png \
+	$(xfwmdir)/stick-toggled-pressed.png \
 	$(xfwmdir)/themerc \
 	$(xfwmdir)/title-1-active-shaded.png \
 	$(xfwmdir)/title-1-active.png \
