@@ -234,16 +234,6 @@ Extra Dock Support
  >   * Both Adapta and Adapta-Nokto shares same theming.
  >   * Don't expect too much. Plank is NOT themeable widget for me!
 
-Official Wallpaper of Adapta <img src=".github/img/tri-fadeno-thumbnail.jpg" alt="Tri-Fadeno-Thumbnail" align="right" />
-----------------------------
-Raw image is [here](https://github.com/adapta-project/adapta-gtk-theme/raw/master/.github/img/tri-fadeno.jpg).
-
- * Resolution: 3840 x 2160 (4K = 2160p)
- * Created with Gimp and Inkscape
- * License under GPLv2
-
-I mainly use it when running Budgie, and it might be suitable for night owls...
-
 Work in Progress
 ----------------
 * Conversion to Gtk+ 3.23
