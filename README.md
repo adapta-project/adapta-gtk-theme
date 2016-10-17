@@ -21,11 +21,11 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 >
 >   Both also includes common GNOME-Flashback, Unity7, XFce4 and Mate theming.
 
-<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta-Eta**:
+<img src=".github/img/sunlight-eta.png" alt="Day" align="left" /> **Adapta-Eta**:
  * Light/Dark variant Gtk+ 3.22/3.20 theme
  * Light/Dark variant Budgie-Desktop theme
 
-<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto-Eta**:
+<img src=".github/img/moon-eta.png" alt="Night" align="left" /> **Adapta-Nokto-Eta**:
  * Light/Dark variant Gtk+ 3.22/3.20 theme
  * Light/Dark variant Budgie-Desktop theme
 
