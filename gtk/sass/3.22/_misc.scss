@@ -469,6 +469,18 @@ EphyWindow {
   }
 }
 
+window.background.csd > headerbar.titlebar > stack > box.vertical {
+  > box.subtitle {
+    // Keep minimum header-bar height in Eta variant
+    > label {
+      margin-top:if($ref_weight < 1.0, rem(-1.3px, $sw: 1.0), 0);
+      padding-bottom: if($ref_weight < 1.0, rem(1.3px, $sw: 1.0), 0);
+    }
+
+    > image { margin: if($ref_weight < 1.0, -1px 0, 0); }
+  }
+}
+
 
 /************
  * Seahorse *
