@@ -430,6 +430,13 @@ gtk2_file = \
 	$(gtk2dir)/misc.rc
 gtk2_gtkrc_file = \
 	$(gtk2dir)/gtkrc
+gtk2_eta_file = \
+	$(gtk2dir)/3rd-party-eta.rc \
+	$(gtk2dir)/colors.rc \
+	$(gtk2dir)/common-eta.rc \
+	$(gtk2dir)/misc-eta.rc
+gtk2_eta_gtkrc_file = \
+	$(gtk2dir)/gtkrc-eta
 gtk2_assetdir   = $(srcdir)/asset/assets-gtk2
 gtk2_arrow_file = \
 	$(gtk2_assetdir)/Arrows/down-alt-hover.png \
@@ -595,8 +602,15 @@ gtk2_nokto_file = \
 	$(gtk2dir)/colors-dark.rc \
 	$(gtk2dir)/common-dark.rc \
 	$(gtk2dir)/misc-dark.rc
+gtk2_nokto_eta_file = \
+	$(gtk2dir)/3rd-party-dark-eta.rc \
+	$(gtk2dir)/colors-dark.rc \
+	$(gtk2dir)/common-dark-eta.rc \
+	$(gtk2dir)/misc-dark-eta.rc
 gtk2_nokto_gtkrc_file = \
 	$(gtk2dir)/gtkrc-dark
+gtk2_nokto_eta_gtkrc_file = \
+	$(gtk2dir)/gtkrc-dark-eta
 gtk2_nokto_arrow_file = \
 	$(gtk2_assetdir)/Arrows/down-alt-dark.png \
 	$(gtk2_assetdir)/Arrows/down-alt-hover-dark.png \
@@ -970,6 +984,38 @@ install-data-local:
 	cp -Rv $(gtk2_spin_file) $(adaptadir)/gtk-2.0/Spin
 	cp -Rv $(gtk2_toolbar_file) $(adaptadir)/gtk-2.0/Toolbar
 
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Arrows
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Buttons
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Check-Radio
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Column
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Entry
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Handles
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Lines
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Others
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/ProgressBar
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Range
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Scrollbars
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Shadows
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Spin
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Toolbar
+	cp -Rv $(gtk2_eta_file) $(adaptaetadir)/gtk-2.0
+	cp -Rv $(gtk2_eta_gtkrc_file) $(adaptaetadir)/gtk-2.0/gtkrc
+	cp -Rv $(gtk2_arrow_file) $(adaptaetadir)/gtk-2.0/Arrows
+	cp -Rv $(gtk2_button_file) $(adaptaetadir)/gtk-2.0/Buttons
+	cp -Rv $(gtk2_checkradio_file) $(adaptaetadir)/gtk-2.0/Check-Radio
+	cp -Rv $(gtk2_column_file) $(adaptaetadir)/gtk-2.0/Column
+	cp -Rv $(gtk2_entry_file) $(adaptaetadir)/gtk-2.0/Entry
+	cp -Rv $(gtk2_handle_file) $(adaptaetadir)/gtk-2.0/Handles
+	cp -Rv $(gtk2_line_file) $(adaptaetadir)/gtk-2.0/Lines
+	cp -Rv $(gtk2_other_file) $(adaptaetadir)/gtk-2.0/Others
+	cp -Rv $(gtk2_progress_file) $(adaptaetadir)/gtk-2.0/ProgressBar
+	cp -Rv $(gtk2_range_file) $(adaptaetadir)/gtk-2.0/Range
+	cp -Rv $(gtk2_scrollbar_file) $(adaptaetadir)/gtk-2.0/Scrollbars
+	cp -Rv $(gtk2_shadow_file) $(adaptaetadir)/gtk-2.0/Shadows
+	cp -Rv $(gtk2_spin_file) $(adaptaetadir)/gtk-2.0/Spin
+	cp -Rv $(gtk2_toolbar_file) $(adaptaetadir)/gtk-2.0/Toolbar
+
 	$(MKDIR_P) $(noktodir)/gtk-2.0
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Arrows
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Buttons
@@ -1002,9 +1048,37 @@ install-data-local:
 	cp -Rv $(gtk2_nokto_spin_file) $(noktodir)/gtk-2.0/Spin
 	cp -Rv $(gtk2_nokto_toolbar_file) $(noktodir)/gtk-2.0/Toolbar
 
-	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-2.0 $(adaptaetadir)/gtk-2.0
-	ln -sf ../Adapta-Nokto/gtk-2.0 $(noktoetadir)/gtk-2.0
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Arrows
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Buttons
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Check-Radio
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Column
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Entry
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Handles
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Lines
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Others
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/ProgressBar
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Range
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Scrollbars
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Shadows
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Spin
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Toolbar
+	cp -Rv $(gtk2_nokto_eta_file) $(noktoetadir)/gtk-2.0
+	cp -Rv $(gtk2_nokto_eta_gtkrc_file) $(noktoetadir)/gtk-2.0/gtkrc
+	cp -Rv $(gtk2_nokto_arrow_file) $(noktoetadir)/gtk-2.0/Arrows
+	cp -Rv $(gtk2_nokto_button_file) $(noktoetadir)/gtk-2.0/Buttons
+	cp -Rv $(gtk2_nokto_checkradio_file) $(noktoetadir)/gtk-2.0/Check-Radio
+	cp -Rv $(gtk2_nokto_column_file) $(noktoetadir)/gtk-2.0/Column
+	cp -Rv $(gtk2_nokto_entry_file) $(noktoetadir)/gtk-2.0/Entry
+	cp -Rv $(gtk2_nokto_handle_file) $(noktoetadir)/gtk-2.0/Handles
+	cp -Rv $(gtk2_nokto_line_file) $(noktoetadir)/gtk-2.0/Lines
+	cp -Rv $(gtk2_nokto_other_file) $(noktoetadir)/gtk-2.0/Others
+	cp -Rv $(gtk2_nokto_progress_file) $(noktoetadir)/gtk-2.0/ProgressBar
+	cp -Rv $(gtk2_nokto_range_file) $(noktoetadir)/gtk-2.0/Range
+	cp -Rv $(gtk2_nokto_scrollbar_file) $(noktoetadir)/gtk-2.0/Scrollbars
+	cp -Rv $(gtk2_nokto_shadow_file) $(noktoetadir)/gtk-2.0/Shadows
+	cp -Rv $(gtk2_nokto_spin_file) $(noktoetadir)/gtk-2.0/Spin
+	cp -Rv $(gtk2_nokto_toolbar_file) $(noktoetadir)/gtk-2.0/Toolbar
 
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(adaptadir)/gtk-3.24
