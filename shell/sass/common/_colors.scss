@@ -65,9 +65,16 @@ $inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
 //
 
 $accent_color: $key_accent_color;
+$accent_label_color: mix($key_accent_color, $fg_color, 80%);
 $secondary_accent_color: scale-color($accent_color, $alpha: -20%);
+$secondary_accent_label_color: scale-color($accent_label_color, $alpha: -20%);
 $accent_fill_color: scale-color($accent_color, $alpha: -90%);
 $accent_active_fill_color: scale-color($accent_color, $alpha: -75%);
+
+$inverted_accent_label_color:
+  mix($key_accent_color, $inverted_fg_color, 80%);
+$inverted_secondary_accent_label_color:
+  scale-color($inverted_accent_label_color, $alpha: -20%);
 
 
 //

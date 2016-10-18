@@ -51,21 +51,21 @@ stage {
 .modal-dialog-linked-button {
   padding: 9px 16px 10px;
   border: none;
-  color: $secondary_accent_color;
+  color: $inverted_secondary_accent_label_color;
   background-color: transparent;
   box-shadow: none;
   text-shadow: none;
   icon-shadow: none;
   font-weight: 700;
   &:hover {
-    color: $accent_color;
+    color: $inverted_accent_label_color;
     background-color: $accent_fill_color;
   }
   &:focus {
-    color: $accent_color;
+    color: $inverted_accent_label_color;
   }
   &:active {
-    color: $accent_color;
+    color: $inverted_accent_label_color;
     background-color: $accent_active_fill_color;
     box-shadow: none;
   }
@@ -808,7 +808,7 @@ StScrollBar {
     }
     &:selected {
       background-color: $accent_active_fill_color;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
     }
   }
 
@@ -1328,17 +1328,17 @@ StScrollBar {
   padding: 0 8px;
   margin: 0 6px;
   border-radius: 100px;
-  color: $secondary_accent_color;
+  color: $secondary_accent_label_color;
   background: transparent;
   background-size: 32px 32px;
 
   &:hover {
-    color: $accent_color;
+    color: $accent_label_color;
     background-image: url("assets/media-control-hover.svg");
     background-size: 32px 32px;
   }
   &:active {
-    color: $accent_color;
+    color: $accent_label_color;
     background-image: url("assets/media-control-active.svg");
     background-size: 32px 32px;
   }
@@ -1399,16 +1399,16 @@ StScrollBar {
   padding: 16px;
   border-radius: 32px; // wish we could do 50%
   border: none;
-  color: $secondary_accent_color;
+  color: $secondary_accent_label_color;
   &:hover,
   &:focus {
     padding: 16px;
     border: none;
     background-color: $accent_fill_color;
-    color: $accent_color;
+    color: $accent_label_color;
   }
   &:active {
-    color: $accent_color;
+    color: $accent_label_color;
     background-color: $accent_active_fill_color;
   }
 
@@ -2232,15 +2232,15 @@ StScrollBar {
 
   .secondary-icon { icon-size: 14px; }
 
-  * > StIcon { color: $secondary_accent_color; }
+  * > StIcon { color: $inverted_secondary_accent_label_color; }
 
   *:hover > StIcon,
   *:focus > StIcon {
-    color: $accent_color;
+    color: $inverted_accent_label_color;
     background-color: $accent_fill_color;
   }
   *:active > StIcon {
-    color: $accent_color;
+    color: $inverted_accent_label_color;
     background-color: $accent_active_fill_color;
   }
 
@@ -2248,25 +2248,25 @@ StScrollBar {
     padding-top: 0;
     border: transparent;
     spacing: 1px;
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     background-color: transparent;
   }
 
   .notification-button {
     padding: 9px 4px 10px;
     background-color: transparent;
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     font-weight: 700;
 
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
     &:hover {
-      color: $accent_color;
+      color: $inverted_accent_label_color;
       background-color: $accent_fill_color;
     }
-    &:focus { color: $accent_color; }
+    &:focus { color: $inverted_accent_label_color; }
     &:active {
-      color: $accent_color;
+      color: $inverted_accent_label_color;
       background-color: $accent_active_fill_color;
     }
   }
@@ -2531,7 +2531,7 @@ $legacy_icon_size: 24px;
     &:active,
     &:selected {
       background-color: $accent_fill_color;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
     }
   }
 
@@ -2544,14 +2544,14 @@ $legacy_icon_size: 24px;
 
   &-page-button {
     padding: 4px;
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     &:hover {
       background-color: $accent_fill_color;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
     }
     &:active {
       background-color: $accent_active_fill_color;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
     }
 
     &-previous {
