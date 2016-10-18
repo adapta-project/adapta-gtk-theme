@@ -263,17 +263,17 @@ buttonbox {
     &:not(.linked) button {
       @extend %button_flat_normal;
       background-color: transparent;
-      color: $secondary_accent_color;
+      color: $secondary_accent_label_color;
       font-weight: 700;
       &:hover {
         @extend %button_flat_hover;
         background-color: transparent;
-        color: $accent_color;
+        color: $accent_label_color;
       }
       &:active {
         @extend %button_flat_active;
         background-color: transparent;
-        color: $accent_color;
+        color: $accent_label_color;
       }
       &:disabled {
         @extend %button_flat_disabled;
@@ -282,11 +282,11 @@ buttonbox {
       &:checked {
         @extend %button_flat_checked;
         background-color: transparent;
-        color: $accent_color;
+        color: $accent_label_color;
         &:disabled {
           @extend %button_flat_checked_disabled;
           background-color: transparent;
-          color: gtkopacity($accent_color, 0.4);
+          color: gtkopacity($accent_label_color, 0.4);
         }
       }
     }
@@ -526,15 +526,15 @@ button {
       padding: rem(17.3px);
       background-color: $inverted_dark_color;
       &:not(:active):not(:disabled):not(hover) {
-        color: $secondary_accent_color;
+        color: $inverted_secondary_accent_label_color;
       }
       &:hover {
-        color: $accent_color;
+        color: $inverted_accent_label_color;
         background-color: gtkopacity($inverted_dark_color, 0.7);
         background-image: linear-gradient(to bottom, $track_color, $track_color);
       }
       &:active {
-        color: $accent_color;
+        color: $inverted_accent_label_color;
         background-color: gtkopacity($inverted_dark_color, 0.7);
         background-image: linear-gradient(to bottom, $accent_fill_color, $accent_fill_color);
       }
@@ -1515,25 +1515,25 @@ toolbar {
       background-color: transparent;
       &:not(:active):not(:disabled):not(hover) {
         background-color: transparent;
-        color: $secondary_accent_color;
+        color: $inverted_secondary_accent_label_color;
       }
       &:hover {
         @extend %button_flat_hover;
         background-color: transparent;
-        color: $accent_color;
+        color: $inverted_accent_label_color;
       }
       &:active {
         @extend %button_flat_active;
         border-image: none;
         background-color: transparent;
-        color: $accent_color;
+        color: $inverted_accent_label_color;
         box-shadow: none;
       }
       &:checked {
         @extend %button_flat_checked;
         border-image: none;
         background-color: transparent;
-        color: $accent_color;
+        color: $inverted_accent_label_color;
         box-shadow: none;
       }
       &:disabled {
@@ -4594,10 +4594,10 @@ messagedialog { // Message Dialog styling
   }
 
   button { // set foregrounds for fallback-mode
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     &:hover,
     &:active,
-    &:checked { color: $accent_color; }
+    &:checked { color: $inverted_accent_label_color; }
     &:disabled { color: $insensitive_inverted_fg_color; }
   }
   .linked > button {
@@ -4663,7 +4663,7 @@ messagedialog { // Message Dialog styling
         border: 2px solid transparent;
         border-radius: 0;
         background-color: transparent;
-        color: $secondary_accent_color;
+        color: $inverted_secondary_accent_label_color;
         font-size: initial;
         font-weight: 700;
 
@@ -4672,17 +4672,17 @@ messagedialog { // Message Dialog styling
         &:hover {
           @extend %button_flat_hover;
           background-color: transparent;
-          color: $accent_color;
+          color: $inverted_accent_label_color;
         }
         &:active {
           @extend %button_flat_active;
           background-color: transparent;
-          color: $accent_color;
+          color: $inverted_accent_label_color;
         }
         &:checked {
           @extend %button_flat_checked;
           background-color: transparent;
-          color: $secondary_accent_color;
+          color: $inverted_secondary_accent_label_color;
         }
         &:disabled {
           @extend %button_flat_disabled;
@@ -5245,7 +5245,7 @@ colorchooser .popover.osd {
   }
 
   label {
-    color: $accent_color;
+    color: $inverted_accent_label_color;
     font-weight: 700;
   }
 }
@@ -5385,11 +5385,11 @@ button.flat.scale { // standalone Speaker/Mic buttons
     min-width: $icon_size;
     padding: rem(4px);
     margin: 0 rem(4px);
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     &:hover,
     &:active,
-    &:checked { color: $accent_color; }
-    &:disabled { color: gtkopacity($accent_color, 0.4); }
+    &:checked { color: $inverted_accent_label_color; }
+    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
   }
 
   spinner {

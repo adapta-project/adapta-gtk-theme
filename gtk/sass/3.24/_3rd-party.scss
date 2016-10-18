@@ -51,7 +51,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
   font-weight: 700;
 
   // used to indicate unread notifications
-  .alert { color: $accent_color; }
+  .alert { color: $inverted_accent_label_color; }
 }
 
 @each $along_side, $opp_side in $full_orientation {
@@ -824,11 +824,11 @@ popover.places-menu {
   buttonbox button,
   buttonbox .linked > button { // OSD-style buttons
     border-image: none; // hide underlines
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     &:hover,
     &:active,
-    &:checked { color: $accent_color; }
-    &:disabled { color: gtkopacity($accent_color, 0.4); }
+    &:checked { color: $inverted_accent_label_color; }
+    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
   }
 
   .budgie-osd-text {
@@ -945,11 +945,11 @@ popover.places-menu {
 
   // 'close' button
   button.image-button {
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     &:hover,
     &:active,
-    &:checked { color: $accent_color; }
-    &:disabled { color: gtkopacity($accent_color, 0.4); }
+    &:checked { color: $inverted_accent_label_color; }
+    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
   }
 }
 
@@ -986,22 +986,22 @@ popover.places-menu {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border: 2px solid transparent;
     border-radius: 0;
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     background-color: transparent;
     &:hover {
       @extend %button_flat_hover;
       background-color: transparent;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
     }
     &:active {
       @extend %button_flat_active;
       background-color: transparent;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
     }
     &:checked {
       @extend %button_flat_checked;
       background-color: transparent;
-      color: $secondary_accent_color;
+      color: $inverted_secondary_accent_label_color;
     }
     &:disabled { @include button(flat-insensitive); }
 
@@ -1686,31 +1686,31 @@ TopMenuAppMenuBar {
     background-color: transparent;
     &:not(:active):not(:disabled):not(hover) {
       background-color: transparent;
-      color: $secondary_accent_color;
+      color: $inverted_secondary_accent_label_color;
     }
     &:hover {
       @extend %button_flat_hover;
       background-color: transparent;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
     }
     &:active {
       @extend %button_flat_active;
       border-image: none;
       background-color: transparent;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
       box-shadow: none;
     }
     &:checked {
       @extend %button_flat_checked;
       border-image: none;
       background-color: transparent;
-      color: $accent_color;
+      color: $inverted_accent_label_color;
       box-shadow: none;
     }
     &:disabled {
       @extend %button_flat_disabled;
       background-color: transparent;
-      color: gtkopacity($accent_color, 0.4);
+      color: gtkopacity($inverted_accent_label_color, 0.4);
     }
   }
 
