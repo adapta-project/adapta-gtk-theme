@@ -231,6 +231,18 @@ sn-button { padding: rem(4px); }
   }
 }
 
+#gf-bubble {
+  box.horizontal > button {
+    color: $inverted_secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $inverted_fg_color; }
+    &:disabled { color: gtkopacity($inverted_fg_color, 0.4); }
+
+    // > image { -gtk-icon-source: -gtk-icontheme("window-close-symbolic"); }
+  }
+}
+
 #gf-label-window {
   font-size: rem(40px, $sw: 1.0);
   font-weight: 400;
