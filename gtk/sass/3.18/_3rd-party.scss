@@ -845,6 +845,21 @@ $full_orientation: ((top, bottom),
     color: $inverted_fg_color;
     font-size: 110%;
   }
+
+  GtkProgressBar { // mimic level-bar
+    -GtkProgressBar-min-horizontal-bar-height: 4;
+    padding: 2px;
+    border-radius: 2px;
+    background-color: $inverted_dark_color;
+    box-shadow: $z-depth-1;
+
+    &.trough {
+      color: $inverted_fg_color;
+      background-color: $track_color;
+    }
+
+    .progressbar { background-color: $success_color; }
+  }
 }
 
 // dialog styling
