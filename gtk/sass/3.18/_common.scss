@@ -510,15 +510,15 @@ GtkTextView { // This will get overridden by .view,
       padding: 1.3em;
       background-color: $inverted_dark_color;
       &:not(:active):not(:insensitive):not(hover) {
-        color: $secondary_accent_color;
+        color: $inverted_secondary_accent_label_color;
       }
       &:hover {
-        color: $accent_color;
+        color: $inverted_accent_label_color;
         background-color: gtkopacity($inverted_dark_color, 0.7);
         background-image: linear-gradient(to bottom, $track_color);
       }
       &:active {
-        color: $accent_color;
+        color: $inverted_accent_label_color;
         background-color: gtkopacity($inverted_dark_color, 0.7);
         background-image: linear-gradient(to bottom, $accent_fill_color);
       }
@@ -881,28 +881,28 @@ GtkColorButton.button {
 GtkButtonBox > .button {
   @extend %button_flat_normal;
   background-color: transparent;
-  color: $secondary_accent_color;
+  color: $secondary_accent_label_color;
   font-weight: 700;
   &:hover {
     @extend %button_flat_hover;
     background-color: transparent;
-    color: $accent_color;
+    color: $accent_label_color;
   }
   &:active {
     @extend %button_flat_active;
     background-color: transparent;
-    color: $accent_color;
+    color: $accent_label_color;
   }
   &:insensitive { @include button(flat-insensitive); }
   &:checked {
     @extend %button_flat_checked;
     background-color: transparent;
-    color: $accent_color;
+    color: $accent_label_color;
   }
   &:checked:insensitive {
     @extend %button_flat_checked_insensitive;
     background-color: transparent;
-    color: gtkopacity($accent_color, 0.4);
+    color: gtkopacity($accent_label_color, 0.4);
   }
 }
 
@@ -1186,10 +1186,10 @@ GtkComboBox {
     .button {
       @extend .button.flat;
       &:not(:active):not(:insensitive):not(hover) {
-        color: $secondary_accent_color;
+        color: $inverted_secondary_accent_label_color;
       }
       &:hover,
-      &:active { color: $accent_color; }
+      &:active { color: $inverted_accent_label_color; }
       &:active,
       &:checked {
         border-image: none;
@@ -3168,10 +3168,10 @@ GtkCalendar {
   }
 
   .button { // set foregrounds for fallback-mode
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     &:hover,
     &:active,
-    &:checked { color: $accent_color; }
+    &:checked { color: $inverted_accent_label_color; }
     &:insensitive { color: $insensitive_inverted_fg_color; }
   }
   .linked > .button {
@@ -3234,21 +3234,21 @@ GtkCalendar {
         border-radius: 0;
         background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
         background-color: transparent;
-        color: $secondary_accent_color;
+        color: $inverted_secondary_accent_label_color;
         &:hover {
           @extend %button_flat_hover;
           background-color: transparent;
-          color: $accent_color;
+          color: $inverted_accent_label_color;
         }
         &:active {
           @extend %button_flat_active;
           background-color: transparent;
-          color: $accent_color;
+          color: $inverted_accent_label_color;
         }
         &:checked {
           @extend %button_flat_checked;
           background-color: transparent;
-          color: $secondary_accent_color;
+          color: $inverted_secondary_accent_label_color;
         }
         &:insensitive {
           @extend %button_flat_insensitive;
@@ -3752,11 +3752,11 @@ GtkVolumeButton.button {
   .button {
     padding: 0.3em;
     margin: 0 0.3em;
-    color: $secondary_accent_color;
+    color: $inverted_secondary_accent_label_color;
     &:hover,
     &:active,
-    &:checked { color: $accent_color; }
-    &:insensitive { color: gtkopacity($accent_color, 0.4); }
+    &:checked { color: $inverted_accent_label_color; }
+    &:insensitive { color: gtkopacity($inverted_accent_label_color, 0.4); }
   }
 }
 
