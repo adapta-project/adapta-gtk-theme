@@ -431,26 +431,15 @@ $budgie_transition: opacity 0.2s $slope_medium,
 }
 
 // raven styling
-.raven-frame { border: none; }
+.raven-frame { // hide frame
+  > border { border: none 0 transparent; }
+}
 
 .raven {
-  margin: -1px; // FIXME: unwanted 1px gap exists around raven
   padding: 0;
   border: none;
   color: $secondary_fg_color;
   background-color: $secondary_dark_color;
-
-  // mixin with drop-shadows to avoid the raven edge shine-through
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light',
-                               -1px 0 1px rgba(0, 0, 0, 0.12),
-                               -1px 0 1px rgba(0, 0, 0, 0.22));
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light',
-                               1px 0 1px rgba(0, 0, 0, 0.12),
-                               1px 0 1px rgba(0, 0, 0, 0.22));
-  }
 
   .raven-header {
     border: none;
