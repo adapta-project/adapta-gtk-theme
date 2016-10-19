@@ -1,4 +1,4 @@
-Adapta
+<img src=".github/img/logo_thumb.png" alt="Logo" align="left" /> Adapata-gtk-theme
 ======
 
 An adaptive Gtk+ theme based on Material Design Guidelines.
