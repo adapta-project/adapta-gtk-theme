@@ -4905,12 +4905,17 @@ placessidebar {
 
     &:drop(active):not(:disabled) {
       color: $drop_target_color;
-      box-shadow: inset 0 1px $drop_target_color,
-                  inset 0 -1px $drop_target_color;
+      background-color: $drop_target_fill_color;
+      // draw vertical indicators
+      &:dir(ltr) { box-shadow: inset 4px 0 $drop_target_color; }
+      &:dir(rtl) { box-shadow: inset -4px 0 $drop_target_color; }
 
       &:selected {
-        color: $selected_fg_color;
         background-color: $drop_target_color;
+
+        &,
+        .sidebar-label,
+        .sidebar-icon { color: $selected_fg_color; }
       }
     }
   }
