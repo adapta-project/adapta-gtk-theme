@@ -129,6 +129,8 @@ openbox_rc_file = \
 	$(openboxdir)/themerc
 openbox_rc_nokto_file = \
 	$(openboxdir)/themerc-nokto
+openbox_compton_file = \
+	$(openboxdir)/compton.conf
 
 # ***************************************************
 # * Generate PNG images and clone SVG and XBM files *
@@ -245,6 +247,7 @@ if ENABLE_OPENBOX
 	$(MKDIR_P) $(noktodir)/openbox-3
 	cp -Rv $(openbox_file) $(adaptadir)/openbox-3
 	cp -Rv $(openbox_rc_file) $(adaptadir)/openbox-3/themerc
+	cp -Rv $(openbox_compton_file) $(adaptadir)/openbox-3/
 	cp -Rv $(openbox_file) $(noktodir)/openbox-3
 	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
 endif
