@@ -1,5 +1,5 @@
 Adapta
-=========
+======
 
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
@@ -73,7 +73,7 @@ Unsupported Gtk+ Based Desktops
  * Pantheon
 
 Installation from Package(s)
-------------
+----------------------------
  * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/ and some others
 
  * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
@@ -85,7 +85,7 @@ Installation from Package(s)
  >   * Solus OS has an eopkg (ypkg) in main repository.
 
 Installation from Git Source
-------------
+----------------------------
 1. If previous version was installed/existed, remove them at first.
 
  ```
@@ -220,7 +220,7 @@ Extra Browser Support
  >     ```
 
 Extra Dock Support
----------------------
+------------------
  If users want to try "Plank" theming, please pass this option:
 
  ```
@@ -233,6 +233,12 @@ Extra Dock Support
  >
  >   * Both Adapta and Adapta-Nokto shares same theming.
  >   * Don't expect too much. Plank is NOT themeable widget for me!
+
+Extra Compositor Support
+------------------------
+ Compton is the famous stand-alone compositor worked well with Openbox window-manager. Installer installs recommended configuration file `compton.conf` into `Adapta/openbox-3` directory if Openbox support was enabled.
+
+ Then copy that file into `~/.config/` and restart compton to read settings.  Still that compositor had some limitations in its features for Adapta though...
 
 Work in Progress
 ----------------
