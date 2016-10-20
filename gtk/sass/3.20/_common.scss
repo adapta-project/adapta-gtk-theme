@@ -4138,18 +4138,26 @@ progressbar {
   // sizing
   &.horizontal {
     trough,
-    progress { min-height: 4px; }
+    progress {
+      min-width: 0;
+      min-height: 4px;
+      border-style: none;
+    }
   }
 
   &.vertical {
     trough,
-    progress { min-width: 4px; }
+    progress {
+      min-width: 4px;
+      min-height: 0;
+      border-style: none;
+    }
   }
 
   // the progress node is positioned after the trough border
   // this moves it over it.
-  &.horizontal progress { margin: 0 -1px; }
-  &.vertical progress { margin: -1px 0; }
+  // &.horizontal progress { margin: 0 -1px; }
+  // &.vertical progress { margin: -1px 0; }
 
 
   // FIXME: insensitive state missing and some other state
@@ -4186,8 +4194,15 @@ progressbar {
   }
 
   &.osd {
-    min-width: 4px;
-    min-height: 4px;
+    &.horizontal {
+      min-width: 0;
+      min-height: 4px;
+    }
+    &.vertical {
+      min-width: 4px;
+      min-height: 0;
+    }
+
     trough {
       border-style: none;
       box-shadow: none;
