@@ -283,10 +283,8 @@ widget_class "*XfsmLogoutDialog*GtkVBox.GtkVBox.GtkLabel" style "xfsm-label"
 # Thunar
 #
 
-style "location_button" = "flat_button" {
+style "thunar_location_button" = "location_button" {
   ThunarLocationButtons::spacing = 0
-  xthickness = 2
-  ythickness = 3
 
   fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
@@ -331,7 +329,7 @@ style "thunar_side_pane" {
   base[NORMAL] = mix(0.25, "#455A64", "#37474F")
 }
 
-widget_class "*ThunarLocationButtons*" style "location_button"
+widget_class "*ThunarLocationButtons*" style "thunar_location_button"
 widget_class "*ThunarShortcutsView*"   style "thunar_side_pane"
 widget_class "*ThunarTreeView*"        style "thunar_side_pane"
 
