@@ -3748,6 +3748,11 @@ check {
   to { background-size: 100%; }
 }
 
+@keyframes scale_color_enlarge {
+  from { background-size: $scale; }
+  to { background-size: 90%; }
+}
+
 %scale_trough {
   border: 1px solid transparent;
   border-radius: 0;
@@ -3783,7 +3788,7 @@ check {
   }
 }
 
-$_marks_lenght: rem(6px, $sw: 1.0);
+$_marks_length: rem(6px, $sw: 1.0);
 $_marks_distance: rem(6px, $sw: 1.0);
 
 scale {
@@ -3809,18 +3814,15 @@ scale {
     outline-width: 0;
     &.horizontal {
       min-height: rem(10px, $sw: 1.0);
-      padding-top: rem(9px, $sw: 1.0);
-      padding-bottom: rem(9px, $sw: 1.0);
+      padding-top: rem(10px, $sw: 1.0);
+      padding-bottom: rem(10px, $sw: 1.0);
     }
 
     &.vertical {
       min-width: rem(10px, $sw: 1.0);
-      padding-left: rem(9px, $sw: 1.0);
-      padding-right: rem(9px, $sw: 1.0);
+      padding-left: rem(10px, $sw: 1.0);
+      padding-right: rem(10px, $sw: 1.0);
     }
-
-    // to make the trough grow in fine-tune mode
-    slider { margin: rem(-9px, $sw: 1.0); }
 
     highlight,
     fill,
@@ -3828,7 +3830,8 @@ scale {
     }
   }
 
-  slider {
+  slider,
+  &.fine-tune slider {
     min-height: rem(20px, $sw: 1.0);
     min-width: rem(20px, $sw: 1.0);
     margin: rem(-9px, $sw: 1.0);
@@ -3882,6 +3885,9 @@ scale {
   // the colored part of the backing bit
   highlight { @extend %scale_highlight; }
 
+  // switch to orange tracking bit
+  &.fine-tune highlight { background-color: $warning_color; }
+
   // this is another differently styled part of the backing bit,
   // the most relevant use case is for example in media player
   // to indicate how much video stream as been cached
@@ -3918,39 +3924,23 @@ scale { // marks color
                                                      (bottom, right, left) {
       &.#{$marks_class} {
         margin-#{$marks_margin}: $_marks_distance;
-        margin-#{$marks_pos}: -($_marks_distance + $_marks_lenght);
-      }
-    }
-  }
-
-  &.fine-tune marks {
-    @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
-                                                     (bottom, bottom, top),
-                                                     (top, left, right),
-                                                     (bottom, right, left) {
-      &.#{$marks_class} {
-        margin-#{$marks_margin}: $_marks_distance;
-        margin-#{$marks_pos}: -($_marks_distance + $_marks_lenght - rem(3px));
+        margin-#{$marks_pos}: -($_marks_distance + $_marks_length);
       }
     }
   }
 
   &.horizontal {
     indicator {
-      min-height: $_marks_lenght;
+      min-height: $_marks_length;
       min-width: 1px;
     }
-
-    &.fine-tune indicator { min-height: ($_marks_lenght - rem(3px)); }
   }
 
   &.vertical {
     indicator {
       min-height: 1px;
-      min-width: $_marks_lenght;
+      min-width: $_marks_length;
     }
-
-    &.fine-tune indicator { min-width: ($_marks_lenght - rem(3px)); }
   }
 }
 
@@ -3982,114 +3972,63 @@ scale { // marks color
           }
         }
       }
-      &.fine-tune {
-        %#{$w}-#{$dn}-fine-tune,
-        contents#{$ws} > tough > slider {
-          @each $s,$as in ('',''),
-                          // (':hover','-hover'),
-                          (':active','-active'),
-                          (':disabled','-insensitive') {
-            &#{$s} { @extend %#{$we}_#{$dn}_ft; }
-	  }
-        }
-      }
     }
   }
 }
 
 scale { // scales for colour
-  &.color {
+  &.color,
+  &.fine-tune.color {
     min-height: 0;
     min-width: 0;
 
     // not actual trough colour
     trough {
-      min-width: 2px;
-      min-height: 2px;
+      min-width: 4px;
+      min-height: 4px;
       border-radius: 0;
-      background-color: transparent;
+      background-color: red;
+    }
+
+    slider {
+      min-height: 20px;
+      min-width: 20px;
+      margin: -8px;
+      // FIXME: horizontal slider bit seems to be truncated with 100%
+      &:hover { animation: scale_color_enlarge 0.2s $slope_medium forwards; }
     }
 
     &.horizontal {
-      padding: 0 0 rem(10px, $sw: 1.0) 0;
-
-      trough { padding-bottom: rem(5px, $sw: 1.0); }
+      margin: 0 -10px 10px;
 
       slider {
-        &, &:hover, &:disabled {
-          @extend %scale-has-marks-above-horz;
-          margin-top: rem(5px, $sw: 1.0);
-          margin-bottom: rem(-10px, $sw: 1.0);
-        }
+        &,
+        &:hover,
+        &:active,
+        &:disabled { @extend %scale-has-marks-above-horz; }
       }
     }
 
     &.vertical {
       &:dir(ltr) {
-        padding: 0 0 0 rem(10px, $sw: 1.0);
-
-        trough { padding-left: rem(5px, $sw: 1.0); }
+        margin: -10px 0 -10px 10px;
 
         slider {
-          &, &:hover, &:disabled {
-            @extend %scale-has-marks-below-vert;
-            margin-left: rem(-10px, $sw: 1.0);
-            margin-right: rem(5px, $sw: 1.0);
-          }
+          &,
+          &:hover,
+          &:active,
+          &:disabled { @extend %scale-has-marks-below-vert; }
         }
       }
 
       &:dir(rtl) {
-        padding: 0 rem(10px, $sw: 1.0) 0 0;
-
-        trough { padding-right: rem(5px, $sw: 1.0); }
+        margin: -10px 10px -10px 0;
 
         slider {
-          &, &:hover, &:disabled {
-            @extend %scale-has-marks-above-vert;
-            margin-left: rem(5px, $sw: 1.0);
-            margin-right: rem(-10px, $sw: 1.0);
-          }
-        }
-      }
-    }
-
-    &.fine-tune {
-      &.horizontal {
-        padding: 0 0 rem(10px, $sw: 1.0) 0;
-
-        trough { padding-bottom: rem(5px, $sw: 1.0); }
-
-        slider {
-          @extend %scale-has-marks-above-horz-fine-tune;
-          margin-top: rem(5px, $sw: 1.0);
-          margin-bottom: rem(-10px, $sw: 1.0);
-        }
-      }
-
-      &.vertical {
-        &:dir(ltr) {
-          padding: 0 0 0 rem(10px, $sw: 1.0);
-
-          trough { padding-left: rem(5px, $sw: 1.0); }
-
-          slider {
-            @extend %scale-has-marks-below-vert-fine-tune;
-            margin-left: rem(-10px, $sw: 1.0);
-            margin-right: rem(5px, $sw: 1.0);
-          }
-        }
-
-        &:dir(rtl) {
-          padding: 0 rem(10px, $sw: 1.0) 0 0;
-
-          trough { padding-right: rem(5px, $sw: 1.0); }
-
-          slider {
-            @extend %scale-has-marks-above-vert-fine-tune;
-            margin-left: rem(5px, $sw: 1.0);
-            margin-right: rem(-10px, $sw: 1.0);
-          }
+          &,
+          &:hover,
+          &:active,
+          &:disabled { @extend %scale-has-marks-above-vert; }
         }
       }
     }
@@ -4109,22 +4048,6 @@ scale { // scales for colour
           rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0);
 }
 %scale_marks_below_vert {
-  margin: rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0)
-          rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0);
-}
-%scale_marks_above_horz_ft {
-  margin: rem(-15px, $sw: 1.0) rem(-10px, $sw: 1.0)
-          rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0);
-}
-%scale_marks_below_horz_ft {
-  margin: rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0)
-          rem(-15px, $sw: 1.0) rem(-10px, $sw: 1.0);
-}
-%scale_marks_above_vert_ft {
-  margin: rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0)
-          rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0);
-}
-%scale_marks_below_vert_ft {
   margin: rem(-10px, $sw: 1.0) rem(-15px, $sw: 1.0)
           rem(-10px, $sw: 1.0) rem(-10px, $sw: 1.0);
 }
