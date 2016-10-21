@@ -1073,6 +1073,8 @@ layouttabbar {
   padding: rem(5.3px);
   border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
+  background-image: if($variant == 'light', $fake-shadow-light,
+                                            $fake-shadow-dark);
 
   > box > button {
     opacity: 0.55;
@@ -1150,6 +1152,8 @@ tabstrip {
   padding: rem(5.3px) rem(16px);
   border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
+  background-image: if($variant == 'light', $fake-shadow-light,
+                                            $fake-shadow-dark);
 
   docktab,
   tab {
@@ -1175,6 +1179,13 @@ layoutstack { // remove undershoot from main editor pane
       &.left,
       &.right {background-image: none; }
     }
+  }
+}
+
+greeter > box.vertical > stack > box.vertical > stack {
+  > box.vertical > scrolledwindow {
+    background-image: if($variant == 'light', $fake-shadow-light,
+                                              $fake-shadow-dark);
   }
 }
 
