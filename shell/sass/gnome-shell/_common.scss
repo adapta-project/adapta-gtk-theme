@@ -1694,40 +1694,46 @@ StScrollBar {
 .search-entry { // use raised entry-box styling
   @include fontscaling($ref_size * 1.1);
   width: 320px;
-  padding: 7px 8px 8px;
-  border-radius: 2px;
+  padding: 0;
+  border-radius: 100px;
   border-color: transparent;
   border-top: 1px solid $borders_highlight;
-  color: if($nokto == 'false', $osd_fg_color, $fg_color);
-  background-color: if($nokto == 'false', $osd_semi_fill_color,
-                                          $inverted_dim_bg_color);
+  color: $secondary_fg_color;
+  background-color: $bg_color;
   font-weight: 500;
   box-shadow: $z-depth-2;
 
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
 
+  StLabel {
+    margin: 0 8px 7px;
+  }
+
   &:hover,
   &:focus {
     border-top: 1px solid $borders_highlight;
-    color: if($nokto == 'false', $fg_color, $inverted_fg_color);
-    background-color: if($nokto == 'false', transparentize($bg_color, 0.1),
-                                            transparentize($inverted_bg_color, 0.1));
+    color: $fg_color;
     box-shadow: $z-depth-3;
     transition-duration: 0.2s;
   }
 
   .search-entry-icon {
-    padding: 0 2px;
+    margin: 0;
+    padding: 8px 16px 7px;
     icon-size: 16px;
-    color: if($nokto == 'false', $osd_fg_color, $fg_color);
+    border-radius: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent $borders_color $borders_color;
+    color: $secondary_fg_color;
+    background-color: $base_color;
+    box-shadow: $z-depth-3;
   }
 
   &:hover,
   &:focus {
-    .search-entry-icon {
-      color: if($nokto == 'false', $fg_color, $inverted_fg_color);
-    }
+    .search-entry-icon { color: $fg_color; }
   }
 }
 
