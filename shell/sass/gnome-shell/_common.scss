@@ -1803,14 +1803,13 @@ StScrollBar {
 
 #dash {
   @include fontscaling($ref_size * 0.9);
-  padding: 4px 0;
+  padding: 2px 0;
   border: none;
-  border-radius: 0;
+  border-radius: 0 2px 2px 0;
   color: $osd_fg_color;
-  background-color: rgba(19, 25, 28, 0.01);
-  box-shadow: inset -1px 0 0 $osd_semi_fill_color;
-
-  &:rtl { box-shadow: inset 1px 0 0 $osd_semi_fill_color; }
+  background-color: if($nokto == 'false', $osd_dash_fill_color,
+                                          rgba(19, 25, 28, 0.08));
+  box-shadow: none;
 
   .placeholder {
     background-image: url("assets/dash-placeholder.svg");
@@ -1824,7 +1823,7 @@ StScrollBar {
   }
 }
 
-.dash-item-container > StWidget { padding: 4px; }
+.dash-item-container > StWidget { padding: 2px; }
 
 .dash-label { // osd tooltip
   padding: 4px 12px;
@@ -1843,22 +1842,33 @@ StScrollBar {
   &.extended #dash,
   &.extended:overview #dash {
     padding: 0;
-    border-radius: 0;
+    border: none;
     box-shadow: none;
   }
 
   // draw edge if dock were not extended
-  @each $_dock, $_line, $_edge in (top, 0 -1px, 0 2px),
-                                  (bottom, 0 1px, 0 -2px),
-                                  (left, -1px 0, 2px 0),
-                                  (right, 1px 0, -2px 0) {
-    &.#{$_dock}:overview #dash {
-      background-color: rgba(19, 25, 28, 0.01);
-      box-shadow: inset #{$_line} 0 $osd_semi_fill_color;
-    }
+  @each $_dock, $_radius in (top, 0 0 2px 2px),
+                            (bottom, 2px 2px 0 0),
+                            (left, 0 2px 2px 0),
+                            (right, 2px 0 0 2px) {
     &.#{$_dock} #dash {
-      background-color: rgba(19, 25, 28, 0.01);
-      box-shadow: inset #{$_edge} 0 $panel_bg_color;
+      background-color: if($nokto == 'false',
+                        $osd_slight_fill_color,
+                        rgba(19, 25, 28, 0.12));
+      border-dadius: #{$_radius};
+    }
+    &.#{$_dock}:overview #dash {
+      background-color: if($nokto == 'false',
+                        $osd_dash_fill_color,
+                        rgba(19, 25, 28, 0.08));
+      border-dadius: #{$_radius};
+    }
+    &.#{$_dock}.extended #dash,
+    &.#{$_dock}.extended:overview #dash {
+      background-color: if($nokto == 'false',
+                        $osd_dash_fill_color,
+                        rgba(19, 25, 28, 0.08));
+      border-radius: 0;
     }
   }
 
