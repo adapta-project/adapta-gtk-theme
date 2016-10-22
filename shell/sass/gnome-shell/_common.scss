@@ -1803,13 +1803,14 @@ StScrollBar {
 
 #dash {
   @include fontscaling($ref_size * 0.9);
-  padding: 2px 0;
+  padding: 1px 0;
   border: none;
   border-radius: 0 2px 2px 0;
   color: $osd_fg_color;
-  background-color: if($nokto == 'false', $osd_dash_fill_color,
-                                          rgba(19, 25, 28, 0.08));
+  background-color: $osd_slight_fill_color;
   box-shadow: none;
+
+  &:rtl { border-radius: 2px 0 0 2px; }
 
   .placeholder {
     background-image: url("assets/dash-placeholder.svg");
@@ -1823,7 +1824,12 @@ StScrollBar {
   }
 }
 
-.dash-item-container > StWidget { padding: 2px; }
+.dash-item-container {
+  margin: 2px;
+  background: transparent;
+
+  > StWidget { padding: 0; }
+}
 
 .dash-label { // osd tooltip
   padding: 4px 12px;
@@ -1837,6 +1843,8 @@ StScrollBar {
 
 // Add Dash to Dock Support
 #dashtodockContainer {
+  background: transparent;
+
   #dash,
   &:overview #dash,
   &.extended #dash,
@@ -1852,23 +1860,20 @@ StScrollBar {
                             (left, 0 2px 2px 0),
                             (right, 2px 0 0 2px) {
     &.#{$_dock} #dash {
-      background-color: if($nokto == 'false',
-                        $osd_slight_fill_color,
-                        rgba(19, 25, 28, 0.12));
       border-dadius: #{$_radius};
+      background-color: rgba(19, 25, 28, 1.0);
     }
     &.#{$_dock}:overview #dash {
-      background-color: if($nokto == 'false',
-                        $osd_dash_fill_color,
-                        rgba(19, 25, 28, 0.08));
       border-dadius: #{$_radius};
+      background-color: $osd_slight_fill_color;
     }
-    &.#{$_dock}.extended #dash,
-    &.#{$_dock}.extended:overview #dash {
-      background-color: if($nokto == 'false',
-                        $osd_dash_fill_color,
-                        rgba(19, 25, 28, 0.08));
+    &.#{$_dock}.extended #dash {
       border-radius: 0;
+      background-color: rgba(19, 25, 28, 1.0);
+    }
+    &.#{$_dock}.extended:overview #dash {
+      border-radius: 0;
+      background-color: $osd_slight_fill_color;
     }
   }
 
@@ -1885,9 +1890,11 @@ StScrollBar {
     padding: 9px - 2px; // remove margin of parent StWidget
   }
 
-  .dash-item-container > StWidget { // actual parent container
+  .dash-item-container { // actual parent container
     margin: 2px;
-    background-size: contain;
+    background: transparent;
+
+    > StWidget { background-size: contain; }
   }
 }
 
