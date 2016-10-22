@@ -1176,6 +1176,14 @@ style "location_button" {
   }
 }
 
+style "location_button_label" {
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[PRELIGHT] = @fg_color
+  fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  font_name = "Bold"
+}
+
 style "button_check_radio" = "bg" {
   bg[PRELIGHT] = @bg_color
 }
@@ -2319,6 +2327,7 @@ widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkExpander>"    style "bg"
 widget_class "*<GtkToolbar>*<GtkButton>"            style "flat_button"
 widget_class "*<GtkToolbar>*<GtkButton>*<GtkLabel>" style "button_label"
 widget_class "*<GtkPathBar>*<GtkButton>"            style "location_button"
+widget_class "*<GtkPathBar>*<GtkButton>*<GtkLabel>" style "location_button_label"
 
 # Entries in notebooks draw with notebook's base color, but not if there's
 # something else in the middle that draws gray again
