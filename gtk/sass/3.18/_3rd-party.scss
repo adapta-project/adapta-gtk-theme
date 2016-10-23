@@ -507,6 +507,8 @@ $full_orientation: ((top, bottom),
   border: none;
   color: $secondary_fg_color;
   background-color: $secondary_dark_color;
+  // FIXME: jst bad idea
+  font-size: 90%;
 
   // mixin with drop-shadows to avoid the raven edge shine-through
   &:dir(ltr) {
@@ -632,9 +634,13 @@ $full_orientation: ((top, bottom),
   }
 
   .raven-header {
+    > .button.image-button { // 'gear' button
+      padding: 0.6em;
+    }
+
     > .button.text-button { // 'exit' button
       @extend .button.suggested-action;
-      padding: 0.85em 1.2em 0.95em;
+      padding: 0.5em 1em 0.6em;
       color: $secondary_selected_fg_color;
       &:hover { color: $selected_fg_color; }
       &:active {
@@ -644,13 +650,18 @@ $full_orientation: ((top, bottom),
     }
 
     .expander-button { // expander arrow buttons
-      padding: 1.0em;
+      padding: 0.5em;
       border-radius: 100px;
       outline-radius: 100px;
       color: $tertiary_fg_color;
       &:hover,
       &:active { color: $fg_color; }
     }
+  }
+
+  .linked.stack-switcher > .button.text-button { // switcher buttons
+    padding-top: 0.45em;
+    padding-bottom: 0.55em;
   }
 
   BudgieAppearanceSettings {
@@ -661,6 +672,12 @@ $full_orientation: ((top, bottom),
 
   BudgieBackgroundSettings {
     // override built-in vertical spacing
+    GtkGrid > .label:first-child { padding: 8px 0; }
+  }
+
+  BudgieWmSettings {
+    // override built-in vertical spacing
+    // FIXME: if 'window-scaling' was unveiled, should move to nth-child(2)
     GtkGrid > .label:first-child { padding: 8px 0; }
   }
 
