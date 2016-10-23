@@ -370,6 +370,26 @@ NautilusTrashBar {
   }
 }
 
+.nautilus {
+  &-canvas-item {
+    border-radius: 2px;
+
+    &.dim-label {
+      color: $tertiary_fg_color;
+      &:selected {
+        &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+      }
+    }
+  }
+
+  &-list-dim-label {
+    color: $tertiary_fg_color;
+    &:selected {
+      &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+    }
+  }
+}
+
 
 /*********
  * Geary *

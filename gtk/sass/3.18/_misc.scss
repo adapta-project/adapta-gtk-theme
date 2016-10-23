@@ -301,11 +301,20 @@ EelEditableLabel.entry {
   &-canvas-item {
     border-radius: 2px;
 
-    // FIXME: these are needed by 3.14.x?
-    &.dim-label { @extend .dim-label }
+    &.dim-label {
+      color: $tertiary_fg_color;
+      &:selected {
+        &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+      }
+    }
   }
 
-  &-list-dim-label { @extend .dim-label }
+  &-list-dim-label {
+    color: $tertiary_fg_color;
+    &:selected {
+      &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+    }
+  }
 
   &-circular-button {
     border-radius: 100px;
