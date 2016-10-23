@@ -1206,13 +1206,9 @@ UnityPanelWidget,
       background-color: transparent;
       color: $inverted_fg_color;
 
-      label {
-        padding: 0 6px;
-        color: $inverted_fg_color;
-      }
-
+      label,
       image {
-        padding: 0 2px;
+        padding: 0 rem(6.7px, $sw: 1.0);
         color: $inverted_fg_color;
       }
 
@@ -1226,6 +1222,7 @@ UnityPanelWidget,
 
       // flip underline-indicator vertically
       > menuitem {
+        padding: rem(5.3px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
         background-color: transparent;
         &:hover { box-shadow: inset 0 2px $selected_bg_color; }
       }
