@@ -622,6 +622,28 @@ $budgie_transition: opacity 0.2s $slope_medium,
     background-color: transparent;
   }
 
+  // notification list
+  stack > box.vertical > stack > box.vertical > .raven-background {
+    > viewport.frame > list > row.activatable {
+      border-bottom: 1px;
+
+      &:dir(ltr) {
+        border-image: linear-gradient(to right,
+                                      transparent 48px,
+                                      $borders_color 48px,
+                                      $borders_color)
+                                      0 0 1 / 0 0 1px;
+      }
+      &:dir(rtl) {
+        border-image: linear-gradient(to left,
+                                      transparent 48px,
+                                      $borders_color 48px,
+                                      $borders_color)
+                                      0 0 1 / 0 0 1px;
+      }
+    }
+  }
+
   undershoot { // remove undershoot
     &.top,
     &.bottom,
