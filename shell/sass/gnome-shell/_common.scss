@@ -1899,34 +1899,30 @@ StScrollBar {
 }
 
 // running-dot styling
-@each $_dock, $_dot in (top, -top),
-                       (bottom, -bottom),
-                       (left, -left),
-                       (right, -right) {
+@each $_dock, $_dot, $_inv in (top, -top, -top),
+                              (bottom, -bottom, -bottom),
+                              (left, -left, -right),
+                              (right, -right, -left) {
   #dashtodockContainer.#{$_dock},
   #dashtodockContainer.extended.#{$_dock} {
-    .dash-item-container > StWidget.running1 {
-      background-image: url("assets/dot/running1#{$_dot}.svg");
-      &.focused {
-        background-image: url("assets/dot/running1#{$_dot}-focused.svg");
+    @each $_num in 1, 2, 3, 4 {
+      &:ltr {
+        .dash-item-container > StWidget.running#{$_num} {
+          background-image: url("assets/dot/running#{$_num}#{$_dot}.svg");
+          &.focused {
+            background-image:
+              url("assets/dot/running#{$_num}#{$_dot}-focused.svg");
+          }
+        }
       }
-    }
-    .dash-item-container > StWidget.running2 {
-      background-image: url("assets/dot/running2#{$_dot}.svg");
-      &.focused {
-        background-image: url("assets/dot/running2#{$_dot}-focused.svg");
-      }
-    }
-    .dash-item-container > StWidget.running3 {
-      background-image: url("assets/dot/running3#{$_dot}.svg");
-      &.focused  {
-        background-image: url("assets/dot/running3#{$_dot}-focused.svg");
-      }
-    }
-    .dash-item-container > StWidget.running4 {
-      background-image: url("assets/dot/running4#{$_dot}.svg");
-      &.focused {
-        background-image: url("assets/dot/running4#{$_dot}-focused.svg");
+      &:rtl {
+        .dash-item-container > StWidget.running#{$_num} {
+          background-image: url("assets/dot/running#{$_num}#{$_inv}.svg");
+          &.focused {
+            background-image:
+              url("assets/dot/running#{$_num}#{$_inv}-focused.svg");
+          }
+        }
       }
     }
   }
