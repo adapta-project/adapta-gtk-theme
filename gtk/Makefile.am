@@ -853,17 +853,17 @@ if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
 	$(PARALLEL) --no-notice --line-buffer -j0 \
 	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
-		3.24/gtk.scss:../gtk-3.24/gtk.css \
-		3.24/gtk-dark.scss:../gtk-3.24/gtk-dark.css \
-		3.24/gtk-eta.scss:../gtk-3.24-eta/gtk.css \
-		3.24/gtk-dark-eta.scss:../gtk-3.24-eta/gtk-dark.css
+		4.0/gtk.scss:../gtk-4.0/gtk.css \
+		4.0/gtk-dark.scss:../gtk-4.0/gtk-dark.css \
+		4.0/gtk-eta.scss:../gtk-4.0-eta/gtk.css \
+		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css
 else
 	cd $(srcdir)/sass && \
 	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
-		3.24/gtk.scss:../gtk-3.24/gtk.css \
-		3.24/gtk-dark.scss:../gtk-3.24/gtk-dark.css \
-		3.24/gtk-eta.scss:../gtk-3.24-eta/gtk.css \
-		3.24/gtk-dark-eta.scss:../gtk-3.24-eta/gtk-dark.css
+		4.0/gtk.scss:../gtk-4.0/gtk.css \
+		4.0/gtk-dark.scss:../gtk-4.0/gtk-dark.css \
+		4.0/gtk-eta.scss:../gtk-4.0-eta/gtk.css \
+		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css
 endif
 endif
 
