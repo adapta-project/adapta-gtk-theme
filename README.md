@@ -166,7 +166,7 @@ Installation from Git Source
 6. If users want to enable next Gtk+ release support, please pass this option:
 
  ```
- --enable-gtk_next      enable Gtk+ 3.23.x support (type: bool)
+ --enable-gtk_next      enable Gtk+ 4.0 support (type: bool)
  ```
 
 7. If users want to change default 5 **Key-Colors**, please pass these options:

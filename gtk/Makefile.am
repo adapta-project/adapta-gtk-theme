@@ -770,12 +770,12 @@ gtk2_nokto_spin_file = \
 gtk2_nokto_toolbar_file = \
 	$(gtk2_assetdir)/Toolbar/inline-toolbar-dark.png
 
-gtknextdir   = $(srcdir)/gtk-3.24
+gtknextdir   = $(srcdir)/gtk-4.0
 gtknext_file = \
 	$(gtknextdir)/gtk.css \
 	$(gtknextdir)/gtk-dark.css
 
-gtknextetadir   = $(srcdir)/gtk-3.24-eta
+gtknextetadir   = $(srcdir)/gtk-4.0-eta
 gtknexteta_file = \
 	$(gtknextetadir)/gtk.css \
 	$(gtknextetadir)/gtk-dark.css
@@ -846,8 +846,8 @@ else
 endif
 
 if ENABLE_GTK_NEXT
-	$(MKDIR_P) $(srcdir)/gtk-3.24
-	$(MKDIR_P) $(srcdir)/gtk-3.24-eta
+	$(MKDIR_P) $(srcdir)/gtk-4.0
+	$(MKDIR_P) $(srcdir)/gtk-4.0-eta
 
 if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
@@ -1081,19 +1081,19 @@ install-data-local:
 	cp -Rv $(gtk2_nokto_toolbar_file) $(noktoetadir)/gtk-2.0/Toolbar
 
 if ENABLE_GTK_NEXT
-	$(MKDIR_P) $(adaptadir)/gtk-3.24
-	$(MKDIR_P) $(adaptadir)/gtk-3.24/assets
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.24
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.24/assets
-	cp -Rv $(gtknext_file) $(adaptadir)/gtk-3.24
-	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.24/assets
+	$(MKDIR_P) $(adaptadir)/gtk-4.0
+	$(MKDIR_P) $(adaptadir)/gtk-4.0/assets
+	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
+	$(MKDIR_P) $(adaptaetadir)/gtk-4.0/assets
+	cp -Rv $(gtknext_file) $(adaptadir)/gtk-4.0
+	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-4.0/assets
 	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-3.24 $(noktodir)/gtk-3.24
+	ln -sf ../Adapta/gtk-4.0 $(noktodir)/gtk-4.0
 
-	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-3.24
-	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-3.24/assets
+	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-4.0
+	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-4.0/assets
 	cd $(adaptadir)
-	ln -sf ../Adapta-Eta/gtk-3.24 $(noktoetadir)/gtk-3.24
+	ln -sf ../Adapta-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
 endif
 
 # *******************
@@ -1126,11 +1126,11 @@ uninstall-local:
 	test -e $(adaptaetadir)/gtk-2.0 && rm -rfv $(adaptaetadir)/gtk-2.0
 
 if ENABLE_GTK_NEXT
-	test -e $(noktodir)/gtk-3.24 && rm -rfv $(noktodir)/gtk-3.24
-	test -e $(adaptadir)/gtk-3.24 && rm -rfv $(adaptadir)/gtk-3.24
+	test -e $(noktodir)/gtk-4.0 && rm -rfv $(noktodir)/gtk-4.0
+	test -e $(adaptadir)/gtk-4.0 && rm -rfv $(adaptadir)/gtk-4.0
 
-	test -e $(noktoetadir)/gtk-3.24 && rm -rfv $(noktoetadir)/gtk-3.24
-	test -e $(adaptaetadir)/gtk-3.24 && rm -rfv $(adaptaetadir)/gtk-3.24
+	test -e $(noktoetadir)/gtk-4.0 && rm -rfv $(noktoetadir)/gtk-4.0
+	test -e $(adaptaetadir)/gtk-4.0 && rm -rfv $(adaptaetadir)/gtk-4.0
 endif
 
 # ****************************
@@ -1158,10 +1158,10 @@ CLEANFILES = \
 	$(srcdir)/gtk-2.0/colors-dark.rc
 if ENABLE_GTK_NEXT
 CLEANFILES += \
-	$(srcdir)/gtk-3.24/gtk.css \
-	$(srcdir)/gtk-3.24/gtk-dark.css \
-	$(srcdir)/gtk-3.24-eta/gtk.css \
-	$(srcdir)/gtk-3.24-eta/gtk-dark.css
+	$(srcdir)/gtk-4.0/gtk.css \
+	$(srcdir)/gtk-4.0/gtk-dark.css \
+	$(srcdir)/gtk-4.0-eta/gtk.css \
+	$(srcdir)/gtk-4.0-eta/gtk-dark.css
 endif
 
 DISTCLEANFILES = \
