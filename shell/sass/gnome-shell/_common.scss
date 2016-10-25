@@ -13,7 +13,7 @@ $panel-corner-radius: 0;
  ***********/
 
 * {
-  transition-timing-function : cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.2s;
 }
 
@@ -311,9 +311,9 @@ StScrollBar {
 
   &-logout-icon {
     // border: 2px solid #8b8b8b;
-    border-radius: 5px;
     width: 48px;
     height: 48px;
+    border-radius: 5px;
     background-size: contain;
   }
 
@@ -431,9 +431,9 @@ StScrollBar {
 
   &-headline {
     @include fontscaling($ref_size * 1.3);
-    font-weight: 500;
     color: if($nokto == 'false', $inverted_fg_color,
                                  $fg_color);
+    font-weight: 500;
   }
 
   &-description:rtl { text-align: right; }
@@ -449,11 +449,7 @@ StScrollBar {
     color: $error_color;
   }
 
-  &-info-label {
-    @include fontscaling($ref_size * 1.0);
-    padding-bottom: 8px;
-  }
-
+  &-info-label,
   &-null-label {
     @include fontscaling($ref_size * 1.0);
     padding-bottom: 8px;
@@ -584,11 +580,7 @@ StScrollBar {
  * Network Agent Dialog *
  ************************/
 
-.network-dialog-secret-table {
-  spacing-rows: 15px;
-  spacing-columns: 1em;
-}
-
+.network-dialog-secret-table,
 .keyring-dialog-control-table {
   spacing-rows: 15px;
   spacing-columns: 1em;
@@ -907,7 +899,7 @@ StScrollBar {
  *************************/
 
 .tile-preview {
-  background-color: transparentize($selected_bg_color,0.8);
+  background-color: transparentize($selected_bg_color, 0.8);
   border: 1px solid $selected_bg_color;
 
   &-left.on-primary {
@@ -930,15 +922,15 @@ StScrollBar {
 
 #panel {
   height: 25px; // = 1.875em
-  font-weight: 700;
   background-color: $panel_bg_color;
+  font-weight: 700;
 
   // remain top-edge solid part
   &:overview,
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
-    background-color: rgba(0, 0, 0, 0.01);
+    background-color: rgba(19, 25, 28, 0.01);
     box-shadow: inset 0 2px 0 $panel_bg_color;
   }
 
@@ -954,14 +946,14 @@ StScrollBar {
     -panel-corner-border-color: transparent;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: rgba(19, 25, 28, 0.01);
       box-shadow: inset 0 2px 0 $osd_fill_color;
     }
     &:active,
     &:overview,
     &:focus {
       -panel-corner-border-color: transparent;
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: rgba(19, 25, 28, 0.01);
       box-shadow: inset 0 2px 0 $osd_indicator_color;
     }
 
@@ -979,9 +971,9 @@ StScrollBar {
   .panel-button {
     -natural-hpadding: 6px;
     -minimum-hpadding: 6px;
-    font-weight: 700;
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
+    font-weight: 700;
     transition-duration: 0.2s;
 
     .app-menu-icon {
@@ -992,7 +984,7 @@ StScrollBar {
 
     &:hover {
       color: $selected_fg_color;
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: rgba(19, 25, 28, 0.01);
       box-shadow: inset 0 2px 0 $osd_fill_color;
     }
     &:active,
@@ -1001,9 +993,9 @@ StScrollBar {
     &:overview {
       // Trick due to St limitations. It needs a background to draw
       // a box-shadow
-      background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 2px 0 $osd_indicator_color;
+      background-color: rgba(19, 25, 28, 0.01);
       color: $selected_fg_color;
+      box-shadow: inset 0 2px 0 $osd_indicator_color;
 
       & > .system-status-icon { icon-shadow: none; }
     }
@@ -1283,7 +1275,7 @@ StScrollBar {
     padding: 3px 0 3px 6px;
     &:rtl { padding: 3px 6px 3px 0; }
 
-    & > StIcon { icon-size: 32px; }
+    > StIcon { icon-size: 32px; }
   }
 
   &-secondary-bin {
@@ -1291,7 +1283,7 @@ StScrollBar {
     &:ltr { padding-left: 6px; }
     &:rtl { padding-right: 6px; }
 
-    & > StIcon { icon-size: 16px; }
+    > StIcon { icon-size: 16px; }
   }
 
   &-title {
@@ -1412,7 +1404,7 @@ StScrollBar {
     background-color: $accent_active_fill_color;
   }
 
-  & > StIcon { icon-size: 16px; }
+  > StIcon { icon-size: 16px; }
 }
 
 
@@ -2059,9 +2051,7 @@ StScrollBar {
   StLabel { padding-top: 6px; }
 }
 
-.app-well-app.app-folder > .overview-icon {
-  background: transparent;
-}
+.app-well-app.app-folder > .overview-icon { background: transparent; }
 
 .show-apps {
   .show-apps-icon {
@@ -2281,6 +2271,7 @@ StScrollBar {
 
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
+
     &:hover {
       color: $inverted_accent_label_color;
       background-color: $accent_fill_color;
@@ -2430,7 +2421,7 @@ $legacy_icon_size: 24px;
     &:focus { background-color: $osd_slight_fill_color; }
     &:active { background-color: $osd_semi_fill_color; }
 
-    & StIcon { icon-size: $legacy_icon_size; }
+    StIcon { icon-size: $legacy_icon_size; }
   }
 
   &-icon-box {
@@ -2438,7 +2429,7 @@ $legacy_icon_size: 24px;
     &:ltr { padding-left: 12px; }
     &:rtl { padding-right: 12px; }
 
-    & StButton {
+    StButton {
       width: $legacy_icon_size;
       height: $legacy_icon_size
     }
@@ -2771,9 +2762,9 @@ $legacy_icon_size: 24px;
 .user-widget-label {
   @include fontscaling($ref_size * 1.2);
   padding-left: 15px;
+  color: $osd_fg_color;
   font-weight: 700;
   text-align: left;
-  color: $osd_fg_color;
 }
 
 .user-widget-label {
@@ -2827,8 +2818,8 @@ $legacy_icon_size: 24px;
 
   &-clock {
     padding-bottom: 1.5em;
-    text-align: center;
     color: $selected_fg_color;
+    text-align: center;
 
     &-time {
       @include fontscaling($ref_size * 8.4);
@@ -2844,10 +2835,10 @@ $legacy_icon_size: 24px;
   }
 
   &-notifications-container {
+    max-height: 500px;
     spacing: 6px;
     width: 30em;
     background-color: transparent;
-    max-height: 500px;
 
     .summary-notification-stack-scrollview {
       padding-top: 0;
@@ -2858,9 +2849,9 @@ $legacy_icon_size: 24px;
     .screen-shield-notification-source {
       padding: 12px 6px;
       border: none;
+      border-radius: 2px;
       background-color: transparentize($osd_bg_color, 0.1);
       color: $osd_fg_color;
-      border-radius: 2px;
     }
 
     // compensate for space allocated to the scrollbar
@@ -2881,7 +2872,7 @@ $legacy_icon_size: 24px;
 }
 
 #lockDialogGroup {
-  background: #2A373E url("noise-texture.png");
+  background: $osd_bg_color url("noise-texture.png");
   background-repeat: repeat;
 }
 
@@ -2909,14 +2900,12 @@ $legacy_icon_size: 24px;
   color: $osd_fg_color;
   box-shadow: $z-depth-4;
 
-  & > #Toolbar {
+  > #Toolbar {
     padding: 0 8px;
     border: none;
     border-radius: 0;
     background-color: $osd_bg_color;
-    box-shadow: inset 0 -1px 0 $borders_color,
-                      0 1px 1.5px rgba(0, 0, 0, 0.12), // z-depth-1
-		      0 1px 1px rgba(0, 0, 0, 0.24);
+    box-shadow: $z-depth-1;
   }
 
   .labels { spacing: 0; }
@@ -2924,26 +2913,24 @@ $legacy_icon_size: 24px;
   .notebook-tab {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
     padding: 7px 32px 8px;
-    font-weight: 700;
     color: $osd_secondary_fg_color;
+    font-weight: 700;
     transition-duration: 0.2s;
     &:hover {
       border-bottom-width: 0;
       border-color: transparent;
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0 $osd_fill_color;
       color: if($nokto == 'false', $osd_fg_color, $fg_color);
+      box-shadow: inset 0 -2px 0 $osd_fill_color;
       text-shadow: none;
     }
     &:selected {
       border-bottom-width: 0;
       border-color: transparent;
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0 $osd_indicator_color;
       color: $selected_fg_color;
+      box-shadow: inset 0 -2px 0 $osd_indicator_color;
       text-shadow: none;
     }
   }
