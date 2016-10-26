@@ -2018,3 +2018,29 @@ window.background > box.vertical > stack > widget > stack {
   }
 }
 
+// sidebar-pane styling
+window.background > box.vertical > stack > widget > box.horizontal {
+  > scrolledwindow.category-sidebar.frame > viewport.frame > list {
+    margin-top: -4px; // hide weird header-gap
+    background-color: $secondary_dark_color;
+    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                                     $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                                     $sidebar-dark-rtl);
+    }
+
+    > row.activatable {
+      color: $secondary_fg_color;
+      font-weight: 500;
+      &:hover { color: $fg_color; }
+      &:selected {
+        color: $selected_bg_color;
+        background-color: transparent;
+
+        > label { color: $selected_bg_color; }
+      }
+    }
+  }
+}
+
