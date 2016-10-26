@@ -2088,3 +2088,44 @@ window.background > box.horizontal > notebook.frame > stack {
   }
 }
 
+
+/******************
+ * Gnome-Software *
+ ******************/
+
+// get more uniformity for all 'All', 'Installed', 'Updates' buttons
+headerbar > box.horizontal > buttonbox.linked {
+  > button.toggle.toolbar-primary-buttons-software {
+    > box.horizontal > label.text-button { font-weight: 700; }
+
+    &:hover,
+    &:active,
+    &:checked {
+      color: $inverted_fg_color;
+
+      > box.horizontal > label.text-button {
+        color: $inverted_fg_color;
+      }
+    }
+  }
+}
+
+window.background > box.vertical > stack > widget > stack > box.vertical {
+  > scrolledwindow > viewport.frame > widget > list {
+    background-color: $bg_color; // override $base_color
+
+    // > row.activatable > box.horizontal widget button.star {
+    //   > image { // star images
+    //     &.star-enabled { color: $accent_color; }
+    //     &.star-disabled { color: gtkopacity($accent_color, 0.2); }
+    //   }
+    // }
+
+    // use asymmetric separators
+    > separator {
+      &:dir(ltr) { border-left: $icon_size * 6 solid transparent; }
+      &:dir(rtl) { border-right: $icon_size * 6 solid transparent; }
+    }
+  }
+}
+
