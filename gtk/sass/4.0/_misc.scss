@@ -2110,8 +2110,9 @@ headerbar > box.horizontal > buttonbox.linked {
   }
 }
 
-window.background > box.vertical > stack > widget > stack > box.vertical {
-  > scrolledwindow > viewport.frame > widget > list {
+window.background > box.vertical > stack > widget > stack {
+  // "Installed" stack
+  > box.vertical > scrolledwindow > viewport.frame > widget > list {
     background-color: $bg_color; // override $base_color
 
     // > row.activatable > box.horizontal widget button.star {
@@ -2120,6 +2121,18 @@ window.background > box.vertical > stack > widget > stack > box.vertical {
     //     &.star-disabled { color: gtkopacity($accent_color, 0.2); }
     //   }
     // }
+
+    // use asymmetrical separators
+    > separator {
+      &:dir(ltr) { border-left: $icon_size * 6 solid transparent; }
+      &:dir(rtl) { border-right: $icon_size * 6 solid transparent; }
+    }
+  }
+
+  // "Updates" stack
+  > scrolledwindow > viewport.frame > widget > box.vertical {
+    // override $base_color
+    > list { background-color: $bg_color; }
 
     // use asymmetrical separators
     > separator {
