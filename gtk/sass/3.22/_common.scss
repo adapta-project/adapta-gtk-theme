@@ -5423,10 +5423,12 @@ decoration {
   }
 
   .solid-csd & {
+    margin: -1px 0 1px;
     border-radius: 0;
-    margin: -1px 0 0;
-    background-color: $bg_color;
     border: none;
+    background-color: $bg_color;
+    background-image: linear-gradient(to top, $borders_color 1px,
+                                              $borders_color 1px);
     box-shadow: none;
   }
 }
