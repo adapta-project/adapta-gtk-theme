@@ -34,6 +34,9 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 >
 >   Eta is tiny Gtk+ 3.2x widget variant for space-saving (Gtk+ 3.22.x/3.20.x only).
 >   Others are the same as Adapta/Adapta-Nokto.
+>
+>   For example, 
+>   * If your LCDs resolution is lower than FHD (1080p), I can suggest you should use Eta variants.
 
 Elements
 --------
