@@ -20,7 +20,7 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 
 > **Note:**
 >
->   Both also includes common GNOME-Flashback, Unity7, XFce4 and Mate theming.
+>   Both also includes common GNOME-Flashback, Unity7, XFce4, Mate and LXDE theming.
 
 <img src=".github/img/sunlight-eta.png" alt="Day" align="left" /> **Adapta-Eta**:
  * Light/Dark variant Gtk+ 3.22/3.20 theme
@@ -61,13 +61,12 @@ Supported Desktop Environments
  * Unity7          >= 7.4.0
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0 (Gtk+ 3.2x only)
- * Openbox         >= 3.6.1 (not LXDE)
+ * LXDE            >= 0.99.1 (Gtk+ 2.x only)
  ```
 
  > **Note:**
  >
  >   * Mate-Desktop support is under W.I.P.
- >   * Openbox support is under W.I.P.
 
 Unsupported Gtk+ Based Desktops
 -------------------------------
