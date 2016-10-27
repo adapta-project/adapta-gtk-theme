@@ -637,7 +637,8 @@ box > headerbar > label.polari-titlebar-separator {
 }
 
 // tweak drop-shadow and frame in alt-toolbar
-window.csd > box.vertical > box.vertical {
+window.csd > box.vertical > box.vertical,
+window.solid-csd > box.vertical > box.vertical {
   > toolbar.horizontal {
     margin-top: -1px;
     border-top: 1px solid $borders_color;
@@ -650,7 +651,8 @@ window.csd > box.vertical > box.vertical {
 }
 
 // force using circle buttons for 'play/pause' etc
-.background.csd > box.vertical > box.vertical > toolbar {
+.background.csd > box.vertical > box.vertical > toolbar,
+.background.solid-csd > box.vertical > box.vertical > toolbar {
   button,
   .linked > button {
     min-width: $widget_size;
