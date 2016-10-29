@@ -464,6 +464,9 @@ $budgie_transition: opacity 0.2s $slope_medium,
       }
     }
 
+    // reduce the gap between child elements
+    &:not(.top):not(.bottom) { margin-top: rem(-10.7px); }
+
     // last-child is constructed without header-label
     &:not(.top):not(.bottom):not(:last-child) {
       > label,
@@ -603,13 +606,19 @@ $budgie_transition: opacity 0.2s $slope_medium,
     button.flat.expander-button { // expander arrow buttons
       min-width: $icon_size;
       min-height: $icon_size;
-      padding: rem(10.7px);
+      padding: rem(8px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       color: $tertiary_fg_color;
       &:hover,
       &:active { color: $fg_color; }
+
+      &:dir(ltr) { margin-right: rem(2.7px) }
+      &:dir(rtl) { margin-left: rem(2.7px) }
     }
+
+    // reduce height of scale node
+    scale { padding: rem(10px - 2px, $sw: 1.0); }
   }
 
   stackswitcher.linked > button.text-button.radio { // switcher buttons
