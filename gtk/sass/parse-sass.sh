@@ -92,18 +92,31 @@ case "$1" in
         ;;
     *)
         if [ -f "$PARALLEL" ]; then
-            $PARALLEL --no-notice --line-buffer -j$THREADS \
-            bundle exec sass --update --sourcemap=none --watch --style=compact ::: \
-		"$major"."$css_minor"/gtk.scss:../gtk-"$major"."$css_minor"/gtk.css \
-		"$major"."$css_minor"/gtk-dark.scss:../gtk-"$major"."$css_minor"/gtk-dark.css \
-		"$major"."$css_minor"/gtk-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk.css \
-		"$major"."$css_minor"/gtk-dark-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk-dark.css
+            if [ "$major" = 3 ] && [ "$css_minor" = 18 ]; then
+                $PARALLEL --no-notice --line-buffer -j$THREADS \
+                bundle exec sass --update --sourcemap=none --watch --style=compact ::: \
+		    "$major"."$css_minor"/gtk.scss:../gtk-"$major"."$css_minor"/gtk.css \
+		    "$major"."$css_minor"/gtk-dark.scss:../gtk-"$major"."$css_minor"/gtk-dark.css
+            else
+                $PARALLEL --no-notice --line-buffer -j$THREADS \
+                bundle exec sass --update --sourcemap=none --watch --style=compact ::: \
+		    "$major"."$css_minor"/gtk.scss:../gtk-"$major"."$css_minor"/gtk.css \
+		    "$major"."$css_minor"/gtk-dark.scss:../gtk-"$major"."$css_minor"/gtk-dark.css \
+		    "$major"."$css_minor"/gtk-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk.css \
+		    "$major"."$css_minor"/gtk-dark-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk-dark.css
+            fi
         else
-            bundle exec sass --update --sourcemap=none --watch --style=compact \
-		"$major"."$css_minor"/gtk.scss:../gtk-"$major"."$css_minor"/gtk.css \
-		"$major"."$css_minor"/gtk-dark.scss:../gtk-"$major"."$css_minor"/gtk-dark.css \
-		"$major"."$css_minor"/gtk-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk.css \
-		"$major"."$css_minor"/gtk-dark-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk-dark.css
+            if [ "$major" = 3 ] && [ "$css_minor" = 18 ]; then
+                bundle exec sass --update --sourcemap=none --watch --style=compact \
+		    "$major"."$css_minor"/gtk.scss:../gtk-"$major"."$css_minor"/gtk.css \
+		    "$major"."$css_minor"/gtk-dark.scss:../gtk-"$major"."$css_minor"/gtk-dark.css
+            else
+                bundle exec sass --update --sourcemap=none --watch --style=compact \
+		    "$major"."$css_minor"/gtk.scss:../gtk-"$major"."$css_minor"/gtk.css \
+		    "$major"."$css_minor"/gtk-dark.scss:../gtk-"$major"."$css_minor"/gtk-dark.css \
+		    "$major"."$css_minor"/gtk-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk.css \
+		    "$major"."$css_minor"/gtk-dark-eta.scss:../gtk-"$major"."$css_minor"-eta/gtk-dark.css
+            fi
         fi
         ;;
 esac
