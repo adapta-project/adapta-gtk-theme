@@ -427,22 +427,29 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
   > .linked.raised > button {
     // tool-button array
     &.image-button:not(.text-button) {
-      min-height: $icon_size;
-      min-width: $icon_size;
-      padding: rem(($widget_size - $icon_size - 2.7px) / 2)
-               rem(($widget_size - $icon_size) / 2);
+      min-height: $icon_size * 1.5;
+      min-width: $icon_size * 1.5;
+      margin: rem(5.3px + 1.3px) 0;
+      padding: if($ref_weight < 1.0,
+               rem(($widget_size - $icon_size * 1.5 - 2.7px) / 2),
+               rem(($widget_size - $icon_size * 1.5) / 2));
     }
 
     // should be .text-button
     &:not(.image-button):not(.text-button):not(.suggested-action) {
       min-height: $icon_size;
-      padding-top: rem(($widget_size - $icon_size - 4px) / 2);
-      padding-bottom: rem(($widget_size - $icon_size - 1.3px) / 2);
+      margin: if($ref_weight < 1.0, rem(5.3px - 1.3px),
+                                    rem(5.3px));
+      padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
     }
   }
 
   button.image-button:not(.text-button):not(.titlebutton) {
-    > widget > box > image { padding: 0 rem(1.3px); }
+    margin: rem(5.3px + 1.3px) 0;
+    padding: rem(($widget_size - $icon_size - 2.7px) / 2)
+             if($ref_weight < 1.0, rem(($widget_size - $icon_size + 2.7px) / 2),
+                                   rem(($widget_size - $icon_size) / 2));
   }
 }
 
