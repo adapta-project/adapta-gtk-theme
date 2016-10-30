@@ -33,10 +33,8 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 > **Note:**
 >
 >   Eta is a tiny Gtk+ 3.2x widget variant for saving space (Gtk+ 3.22.x/3.20.x only).
->   In earlier versions, they are the same as Adapta/Adapta-Nokto.
 >
->   For example, 
->   * If your LCDs resolution is lower than FHD (1080p), I suggest you use the Eta variants.
+>   I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p).
 
 Elements
 --------
@@ -165,7 +163,7 @@ Installation from Git Source
  >   * The installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-6. To enable next Gtk+ release support, please pass this option:
+6. To enable next Gtk+ release support, pass this option:
 
  ```
  --enable-gtk_next      enable Gtk+ 4.0 support (type: bool)
@@ -245,7 +243,7 @@ Extra Compositor Support
 
 Work in Progress
 ----------------
-* Conversion to Gtk+ 3.23
+* Conversion to Gtk+ 4.0
 * Add Mate 1.14 integration
 
 TODO
