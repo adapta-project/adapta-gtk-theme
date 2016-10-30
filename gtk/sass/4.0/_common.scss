@@ -2192,13 +2192,8 @@ headerbar {
 
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
-      margin: -1px 0 0;
-      box-shadow: inset 0 1px $highlight_color;
+      border-radius: 0;
     }
-  }
-
-  .solid-csd.maximized & {
-    &:dir(rtl), &:dir(ltr) { box-shadow: none; }
   }
 }
 
@@ -5427,7 +5422,7 @@ decoration {
   }
 
   .solid-csd & {
-    margin: -1px 0 1px;
+    margin: 0 0 1px;
     border-radius: 0;
     border: none;
     background-color: $bg_color;
