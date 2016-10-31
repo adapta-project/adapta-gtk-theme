@@ -10,7 +10,6 @@ shell_file = \
 	$(shelldir)/gnome-shell-theme.gresource \
 	$(shelldir)/no-events.svg \
 	$(shelldir)/no-notifications.svg \
-	$(shelldir)/noise-texture.png \
 	$(shelldir)/process-working.svg \
 	$(shelldir)/toggle-off-hover.svg \
 	$(shelldir)/toggle-off.svg \
@@ -105,7 +104,6 @@ shell_nokto_file = \
 	$(shellnoktodir)/gnome-shell-theme.gresource \
 	$(shellnoktodir)/no-events.svg \
 	$(shellnoktodir)/no-notifications.svg \
-	$(shellnoktodir)/noise-texture.png \
 	$(shellnoktodir)/process-working.svg \
 	$(shellnoktodir)/toggle-off-hover.svg \
 	$(shellnoktodir)/toggle-off.svg \
