@@ -1520,7 +1520,7 @@ $icon_size: 16px;
     border: 0 solid darken($osd_bg_color, 10%);
     border-bottom: 1px ;
     color: $osd_fg_color;
-    background: transparentize(darken($osd_bg_color, 5%), 0.1);
+    background: transparentize($osd_bg_color, 0.1);
 
     StButton {
       width: 22px;
@@ -1530,12 +1530,14 @@ $icon_size: 16px;
       border: 1px solid transparentize($osd_bg_color, 1);
       color: $osd_fg_color;
       &:hover{ @include button(osd-hover); }
-      &:active { @include button(active); }
+      &:active { @include button(osd-active); }
 
       StIcon { icon-size: 16px; }
     }
 
     StBoxLayout { padding-top: 2px; }
+
+    StLabel { padding: 0 5px; }
   }
 
   .slider {
@@ -1545,7 +1547,7 @@ $icon_size: 16px;
     -slider-height: 2px;
      // background of the trough
     -slider-background-color: if($nokto == 'false',
-                                 scale-color($fg_color, $alpha: -80%),
+                                 scale-color($fg_color, $alpha: -90%),
 				 $fill_color);
     -slider-border-color: transparent; // trough border color
     -slider-active-background-color: $accent_color; // active trough fill
