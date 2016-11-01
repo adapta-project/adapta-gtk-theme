@@ -658,8 +658,8 @@ window.solid-csd > box.vertical > box.vertical {
 }
 
 // force using circle buttons for 'play/pause' etc
-.background.csd > box.vertical > box.vertical > toolbar,
-.background.solid-csd > box.vertical > box.vertical > toolbar {
+window.background.csd > box.vertical > box.vertical > toolbar,
+window.background.solid-csd > box.vertical > box.vertical > toolbar {
   button,
   .linked > button {
     min-width: $widget_size;
@@ -710,6 +710,30 @@ window > box.vertical > toolbar.primary-toolbar {
         padding: 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
+      }
+    }
+  }
+}
+
+// 'plugins' dialog
+dialog.background > box.dialog-vbox.vertical > box.vertical {
+  > toolbar.inline-toolbar.horizontal {
+    // remove weird margins
+    margin: -2px -2px;
+
+    > toolitem {
+      box > button {
+        min-width: $widget_size - 10.7px;
+        min-height: $widget_size - 10.7px;
+        padding: 0;
+      }
+
+      buttonbox > button {
+        min-width: $widget_size - 10.7px;
+        min-height: $widget_size - 10.7px;
+        padding: 0;
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
       }
     }
   }
