@@ -342,7 +342,7 @@ endif
 
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
-	$(MKDIR_P) $(srcdir)/gnome-shell/extensions//workspaces-to-dock/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets/dot
 	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
