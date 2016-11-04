@@ -96,10 +96,10 @@ na-tray-applet {
 gp-arrow-button {
   min-width: rem(20px);
   min-height: 0;
+  margin: rem(2px);
   border: 1px solid transparent;
   background-image: none;
   color: $inverted_secondary_fg_color;
-  margin: rem(2px);
   &:hover,
   &:active { color: $inverted_fg_color; }
 }
@@ -438,9 +438,7 @@ NautilusTrashBar {
 // left-pane styling
 .sidebar.vertical > paned.sidebar-pane-separator {
   // remove unwanted frame
-  .folder-frame > border {
-    border-width: 0 0 1px;
-  }
+  .folder-frame > border { border-width: 0 0 1px; }
 
   .conversation-frame > border { border: none; }
 
@@ -739,7 +737,8 @@ window {
       @extend button.flat;
       min-width: rem(13.3px);
       min-height: rem(13.3px);
-      padding: rem(10.7px) rem(13.3px) rem(10.7px);  // FIXME: broken in 12pt fonts?
+      // FIXME: broken in 12pt fonts?
+      padding: rem(10.7px) rem(13.3px) rem(10.7px);
       border: rem(10.7px) solid transparent;
       border-radius: 2px;
       font-weight: 700;
@@ -1107,13 +1106,16 @@ perspectiveswitcher {
     box-shadow: none;
 
     image { opacity: 0.55; }
+
     &:hover {
       background: none;
+
       image { opacity: 0.75; }
     }
     &:active,
     &:checked {
       background: none;
+
       image { opacity: 1.0; }
     }
   }
@@ -1181,9 +1183,13 @@ layouttab > box {
     &:disabled { @include button(flat-insensitive); }
   }
 
-  > button:last-child image { opacity: 0.55; }
-  > button:last-child:hover image { opacity: 0.75; }
-  > button:last-child:active image { opacity: 1.0; }
+  > button:last-child {
+    image { opacity: 0.55; }
+
+    &:hover image { opacity: 0.75; }
+
+    &:active image { opacity: 1.0; }
+  }
 }
 
 layout {
@@ -1596,7 +1602,7 @@ window > box.vertical > box.vertical > widget > grid.vertical {
 
 terminal-window {
   &.background,
-  vte-terminal { // set the same background with Mutter
+  vte-terminal { // set the same background with decorations
     background-color: $inverted_dark_color;
     color: $inverted_fg_color;
   }
@@ -1908,7 +1914,7 @@ window.background > grid.horizontal.titlebar {
  ***************/
 
 // override semi-transparent window node
-// FIXME: any colours will turn black, caused their cairo codes?
+// FIXME: any colours will turn black, caused by their cairo codes?
 #MainWindow.csd {
   &,
   &.background,
@@ -1987,7 +1993,9 @@ window.background > box.horizontal > notebook.frame > stack {
     margin: -13px 0 0;
     border-style: none;
 
-    > treeview.view > header > button > box > widget > label { padding: 3px 0; }
+    > treeview.view > header > button > box > widget > label {
+      padding: 3px 0;
+    }
 
     > undershoot,
     > overshoot {
