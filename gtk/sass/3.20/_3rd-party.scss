@@ -2338,3 +2338,58 @@ MsdOsdWindow {
   }
 }
 
+
+/************
+ * Inkscape *
+ ************/
+
+// 2nd-row toolbars
+#SelectToolbar,
+#Kludge {
+  border-top: 1px solid $borders_color;
+  box-shadow: none;
+}
+
+// jeft/right-side, vertical toolbars
+#SnapToolbar,
+#ToolToolbar {
+  > button,
+  > toolitem > button,
+  > toolbutton > button { // revert to rectangular buttons
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    &:checked { // revert to Gtk+ 2.x styling
+      border-image: none;
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
+
+// scrolled colour-palette
+#PreviewHolderScroller > viewport.frame {
+  padding: 1px 0;
+  border-style: solid none; // add fake border to top/bottom
+  border-width: 1px 0;
+  border-color: transparent;
+}
+
+// re-colour progress bit inside entry node
+#PanelContents box > spinbutton > entry > progress {
+  border-image: -gtk-gradient(radial,
+                              center bottom, 0,
+                              center bottom, 0.5,
+                              to($accent_color),
+                              to(transparent))
+                              0 0 2 / 0 0 2px;
+}
+
+// misc
+spinbutton#ZoomStatus {
+  > button {
+    min-width: rem($widget_size, $sw: 1.0);
+    min-height: rem($widget_size, $sw: 1.0);
+    padding: 0;
+  }
+}
+
