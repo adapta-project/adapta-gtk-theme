@@ -37,7 +37,7 @@ stage {
  ***********/
 
 .button {
-  padding: 7px 16px 8px;
+  padding: if($eta == 'false', 7px 16px 8px, 5px 12px 6px);
   border-radius: 2px;
   border-width: 0;
   font-weight: 500;
@@ -49,7 +49,7 @@ stage {
 }
 
 .modal-dialog-linked-button {
-  padding: 9px 16px 10px;
+  padding: if($eta == 'false', 9px 16px 10px, 6px 12px 7px);
   border: none;
   color: $inverted_secondary_accent_label_color;
   background-color: transparent;
@@ -89,7 +89,7 @@ stage {
 
 StEntry {
   @include entry(normal);
-  padding: 7px 8px 8px;
+  padding: if($eta == 'false', 7px 8px 8px, 5px 6px 6px);
   border-radius: 0;
   border-width: 0;
   color: if($nokto == 'false', $inverted_fg_color, $fg_color);
@@ -120,8 +120,8 @@ StScrollBar {
   padding: 0;
 
   StScrollView & {
-    min-width: 6px;
-    min-height: 6px;
+    min-width: if($eta == 'false', 6px, 4px);
+    min-height: if($eta == 'false', 6px, 4px);
   }
 
   StBin#trough {
@@ -247,26 +247,26 @@ StScrollBar {
   background-color: transparentize($osd_bg_color, 0.1);
   box-shadow: $z-depth-4;
 
-  &-content-box { padding: 24px; }
+  &-content-box { padding: if($eta == 'false', 24px, 20px); }
 
   .run-dialog {
     &-entry {
       width: 20em;
-      margin-bottom: 6px;
+      margin-bottom: if($eta == 'false', 6px, 4px);
     }
 
     &-error-box {
       @include fontscaling($ref_size * 0.9);
-      padding-top: 16px;
-      spacing: 6px;
+      padding-top: if($eta == 'false', 16px, 12px);
+      spacing: if($eta == 'false', 6px, 4px);
       color: $error_color;
     }
 
-    &-button-box { padding-top: 1em; }
+    &-button-box { padding-top: if($eta == 'false', 1em, 0.7em); }
 
     &-label {
       @include fontscaling($ref_size * 1.1);
-      padding-bottom: 0.4em;
+      padding-bottom: if($eta == 'false', 0.4em, 0.3em);
       font-weight: 400;
       color: if($nokto == 'false', $inverted_dim_fg_color,
                                    $dim_fg_color);
@@ -286,31 +286,30 @@ StScrollBar {
  **********************/
 
 .end-session-dialog {
-  spacing: 42px;
+  spacing: if($eta == 'false', 42px, 30px);
   border: none;
 
-  &-list { padding-top: 20px; }
+  &-list { padding-top: if($eta == 'false', 20px, 14px); }
 
   &-layout {
-    padding-left: 17px;
-    &:rtl { padding-right: 17px; }
+    padding-left: if($eta == 'false', 17px, 12px);
+    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
   }
 
   &-description {
     width: 28em;
-    padding-bottom: 10px;
+    padding-bottom: if($eta == 'false', 10px, 7px);
     &:rtl { text-align: right; }
   }
 
   &-warning {
     width: 28em;
-    padding-top: 6px;
+    padding-top: if($eta == 'false', 6px, 4px);
     color: $warning_color;
     &:rtl { text-align: right; }
   }
 
   &-logout-icon {
-    // border: 2px solid #8b8b8b;
     width: 48px;
     height: 48px;
     border-radius: 5px;
@@ -324,14 +323,14 @@ StScrollBar {
   }
 
   &-inhibitor-layout {
-    spacing: 16px;
-    max-height: 200px;
-    padding-right: 65px;
-    padding-left: 65px;
+    spacing: if($eta == 'false', 16px, 12px);
+    max-height: if($eta == 'false', 200px, 180px);
+    padding-right: if($eta == 'false', 65px, 50px);
+    padding-left: if($eta == 'false', 65px, 50px);
   }
 
   &-session-list,
-  &-app-list { spacing: 1em; }
+  &-app-list { spacing: if($eta == 'false', 1em, 0.7em); }
 
   &-list-header {
     font-weight: 700;
@@ -339,7 +338,7 @@ StScrollBar {
   }
 
   &-app-list-item,
-  &-session-list-item { spacing: 1em; }
+  &-session-list-item { spacing: if($eta == 'false', 1em, 0.7em); }
 
   &-app-list-item-name,
   &-session-list-item-name { font-weight: 700; }
@@ -358,38 +357,40 @@ StScrollBar {
 
 .shell-mount-operation-icon { icon-size: 48px; }
 
-.mount-question-dialog-subject { max-width: 500px; }
+.mount-question-dialog-subject {
+  max-width: if($eta == 'false', 500px, 400px);
+}
 
 .show-processes,
 .mount-question {
-  &-dialog { spacing: 24px; }
+  &-dialog { spacing: if($eta == 'false', 24px, 18px); }
 
   &-dialog-subject {
-    padding-top: 10px;
-    padding-left: 17px;
-    padding-bottom: 6px;
+    padding-top: if($eta == 'false', 10px, 8px);
+    padding-left: if($eta == 'false', 17px, 12px);
+    padding-bottom: if($eta == 'false', 6px, 5px);
     &:rtl {
       padding-left: 0;
-      padding-right: 17px;
+      padding-right: if($eta == 'false', 17px, 12px);
     }
   }
 
   &-dialog-description {
-    padding-left: 17px;
+    padding-left: if($eta == 'false', 17px, 12px);
     width: 28em;
-    &:rtl { padding-right: 17px; }
+    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
   }
 }
 
 .show-processes-dialog {
   &-app-list {
-    max-height: 200px;
-    padding-top: 24px;
-    padding-left: 49px;
-    padding-right: 32px;
+    max-height: if($eta == 'false', 200px, 180px);
+    padding-top: if($eta == 'false', 24px, 18px);
+    padding-left: if($eta == 'false', 49px, 37px);
+    padding-right: if($eta == 'false', 32px, 26px);
     &:rtl {
-      padding-right: 49px;
-      padding-left: 32px;
+      padding-right: if($eta == 'false', 49px, 37px);
+      padding-left: if($eta == 'false', 32px, 26px);
     }
 
     &-item {
@@ -399,13 +400,13 @@ StScrollBar {
         color: if($nokto == 'false', $inverted_fg_color,
                                      $fg_color);
       }
-      &:ltr { padding-right: 1em; }
-      &:rtl { padding-left: 1em; }
+      &:ltr { padding-right: if($eta == 'false', 1em, 0.7em); }
+      &:rtl { padding-left: if($eta == 'false', 1em, 0.7em); }
     }
 
     &-item-icon {
-      &:ltr { padding-right: 17px; }
-      &:rtl { padding-left: 17px; }
+      &:ltr { padding-right: if($eta == 'false', 17px, 12px); }
+      &:rtl { padding-left: if($eta == 'false', 17px, 12px); }
     }
 
     &-item-name { @include fontscaling($ref_size * 1.0); }
@@ -419,15 +420,15 @@ StScrollBar {
 
 .prompt-dialog {
   // this is the width of the entire modal popup
-  width: 500px;
+  width: if($eta == 'false', 500px, 440px);
   border: none;
 
   &-main-layout {
-    spacing: 24px;
-    padding: 10px;
+    spacing: if($eta == 'false', 24px, 18px);
+    padding: if($eta == 'false', 10px, 8px);
   }
 
-  &-message-layout { spacing: 16px; }
+  &-message-layout { spacing: if($eta == 'false', 16px, 12px); }
 
   &-headline {
     @include fontscaling($ref_size * 1.3);
@@ -440,12 +441,12 @@ StScrollBar {
 
   &-password-box {
     spacing: 1em;
-    padding-bottom: 1em;
+    padding-bottom: if($eta == 'false', 1em, 0.7em);
   }
 
   &-error-label {
     @include fontscaling($ref_size * 1.0);
-    padding-bottom: 8px;
+    padding-bottom: if($eta == 'false', 8px, 6px);
     color: $error_color;
   }
 
@@ -465,11 +466,11 @@ StScrollBar {
 
 .polkit-dialog {
   &-user-layout {
-    padding-left: 10px;
-    spacing: 10px;
+    padding-left: if($eta == 'false', 10px, 7px);
+    spacing: if($eta == 'false', 10px, 7px);
     &:rtl {
       padding-left: 0;
-      padding-right: 10px;
+      padding-right: if($eta == 'false', 10px, 7px);
     }
   }
 
@@ -488,12 +489,12 @@ StScrollBar {
  * Audio selection dialog *
  **************************/
 
-.audio-device-selection-dialog { spacing: 3em; }
+.audio-device-selection-dialog { spacing: if($eta == 'false', 3em, 2.2em); }
 
 .audio-selection {
   &-content {
-    padding: 2.2em;
-    spacing: 2em;
+    padding: if($eta == 'false', 2.2em, 1.8em);
+    spacing: if($eta == 'false', 2em, 1.6em);
   }
 
   &-title {
@@ -501,7 +502,7 @@ StScrollBar {
     text-align: center;
   }
 
-  &-box { spacing: 2em; }
+  &-box { spacing: if($eta == 'false', 2em, 1.6em); }
 
   &-device {
     border: 1px solid $borders_color;
@@ -512,8 +513,8 @@ StScrollBar {
   }
 
   &-device-box {
-    padding: 2em;
-    spacing: 2em;
+    padding: if($eta == 'false', 2em, 1.6em);
+    spacing: if($eta == 'false', 2em, 1.6em);
   }
 
   &-device-icon { icon-size: 64px; }
@@ -525,16 +526,16 @@ StScrollBar {
  *****************/
 
 .access-dialog {
-  spacing: 30px;
+  spacing: if($eta == 'false', 30px, 24px);
 
   &-main-layout {
-    padding: 1em 1.6em 0;
-    spacing: 1em;
+    padding: if($eta == 'false', 1em 1.6em 0, 0.7em 1.2em 0);
+    spacing: if($eta == 'false', 1em, 0.7em);
   }
 
   &-content {
     max-width: 28em;
-    spacing: 2em;
+    spacing: if($eta == 'false', 2em, 1.6em);
   }
 
   &-icon {
@@ -558,11 +559,11 @@ StScrollBar {
  **********************/
 
 .geolocation-dialog {
-  spacing: 30px;
+  spacing: if($eta == 'false', 30px, 24px);
 
-  &-main-layout { spacing: 1em; }
+  &-main-layout { spacing: if($eta == 'false', 1em, 0.7em); }
 
-  &-content { spacing: 2em; }
+  &-content { spacing: if($eta == 'false', 2em, 1.6em); }
 
   &-icon { icon-size: 48px; }
 
@@ -603,14 +604,16 @@ StScrollBar {
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.12);
   }
 
-  .popup-menu-content { padding: 0.45em 0; }
+  .popup-menu-content { padding: if($eta == 'false', 0.45em 0, 0.3em 0); }
 
   .popup-menu-item {
-    spacing: 8px;
+    spacing: if($eta == 'false', 8px, 6px);
     color: $secondary_fg_color;
 
-    &:ltr { padding: 0.45em 1.75em 0.45em 0; }
-    &:rtl { padding: 0.45em 0 0.45em 1.75em; }
+    &:ltr { padding: if($eta == 'false', 0.45em 1.75em 0.45em 0,
+                                         0.3em 1.2em 0.3em 0); }
+    &:rtl { padding: if($eta == 'false', 0.45em 0 0.45em 1.75em,
+                                         0.3em 0 0.3em 1.2em); }
 
     &:checked {
       background-color: $selected_bg_color;
@@ -656,7 +659,7 @@ StScrollBar {
 
   &.panel-menu {
     -boxpointer-gap: 4px;
-    margin-bottom: 1.75em;
+    margin-bottom: if($eta == 'false', 1.75em, 1.2em);
   }
 
   StEntry { // use variant-sensitive foreground colours
@@ -750,8 +753,8 @@ StScrollBar {
 .osd-window {
   min-width: 64px;
   min-height: 64px;
-  margin: 32px;
-  spacing: 1em;
+  margin: if($eta == 'false', 32px, 24px);
+  spacing: if($eta == 'false', 1em, 0.7em);
   font-weight: 700;
   text-align: center;
 
@@ -776,8 +779,8 @@ StScrollBar {
  ****************/
 
 .switcher-popup {
-  padding: 8px;
-  spacing: 16px;
+  padding: if($eta == 'false', 8px, 6px);
+  spacing: if($eta == 'false', 16px, 12px);
 }
 
 .osd-window,
@@ -787,14 +790,14 @@ StScrollBar {
 }
 
 .switcher-list {
-  &-item-container { spacing: 8px; }
+  &-item-container { spacing: if($eta == 'false', 8px, 6px); }
 
   .item-box {
-    padding: 8px;
+    padding: if($eta == 'false', 8px, 6px);
     border-radius: 2px;
 
     &:outlined {
-      padding: 6px;
+      padding: if($eta == 'false', 6px, 4px);
       border: 2px solid if($nokto == 'false', $osd_fill_color,
                                               $fill_color);
     }
@@ -809,7 +812,7 @@ StScrollBar {
     spacing: 4px;
   }
 
-  .thumbnail { width: 256px; }
+  .thumbnail { width: if($eta == 'false', 256px, 192px); }
 
   .separator {
     width: 1px;
@@ -826,9 +829,9 @@ StScrollBar {
 }
 
 .input-source-switcher-symbol {
-  @include fontscaling($ref_size * 3.0);
-  width: 96px;
-  height: 96px;
+  @include fontscaling($ref_size * if($eta == 'false', 3.0, 2.4));
+  width: if($eta == 'false', 96px, 72px);
+  height: if($eta == 'false', 96px, 72px);
 }
 
 
@@ -849,19 +852,19 @@ StScrollBar {
 
 .workspace-switcher {
   padding: 0;
-  spacing: 8px;
+  spacing: if($eta == 'false', 8px, 6px);
   border: 0;
   border-radius: 0;
   background: transparent;
 
-  &-group { padding: 12px; }
+  &-group { padding: if($eta == 'false', 12px, 8px); }
 
   &-container { @extend %osd-panel; }
 }
 
 .ws-switcher {
   &-active-up {
-    height: 50px;
+    height: if($eta == 'false', 50px, 36px);
     background-color: $accent_active_fill_color;
     background-image: url("assets/go-up.svg");
     background-size: 24px;
@@ -869,7 +872,7 @@ StScrollBar {
   }
 
   &-active-down {
-    height: 50px;
+    height: if($eta == 'false', 50px, 36px);
     background-color: $accent_active_fill_color;
     background-image: url("assets/go-down.svg");
     background-size: 24px;
@@ -877,7 +880,7 @@ StScrollBar {
   }
 
   &-box {
-    height: 50px;
+    height: if($eta == 'false', 50px, 36px);
     border: 2px solid $osd_semi_fill_color;
     border-radius: 2px;
     background: transparent;
@@ -885,7 +888,7 @@ StScrollBar {
 }
 
 %osd-panel {
-  padding: 12px;
+  padding: if($eta == 'false', 12px, 8px);
   border-radius: 2px;
   border: none;
   color: $osd_fg_color;
@@ -1036,15 +1039,16 @@ StScrollBar {
  * Calendar popover *
  ********************/
 
-#calendarArea { padding: 0.75em 1.0em; }
+#calendarArea { padding: if($eta == 'false', 0.75em 1.0em,
+                                             0.5em 0.7em); }
 
-.calendar { margin-bottom: 1em; }
+.calendar { margin-bottom: if($eta == 'false', 1em, 0.7em); }
 
 .calendar,
 .datemenu-today-button,
 .datemenu-displays-box,
 .message-list-sections {
-  margin: 0 1.5em;
+  margin: if($eta == 'false', 0 1.5em, 0 1em);
 }
 
 .datemenu-calendar-column { spacing: 0.5em; }
@@ -1213,9 +1217,9 @@ StScrollBar {
  ****************/
 
 .message-list {
-  width: 420px;
+  width: if($eta == 'false', 420px, 380px);
 
-  &-sections { spacing: 1.5em; }
+  &-sections { spacing: if($eta == 'false', 1.5em, 1.2em); }
 
   &-section,
   &-section-list { spacing: 0.7em; }
@@ -1477,8 +1481,8 @@ StScrollBar {
 
 .menu-item-box {
   width: 24em;
-  spacing: 12px;
-  padding: 8px;
+  spacing: if($eta == 'false', 12px, 9px);
+  padding: if($eta == 'false', 8px, 6px);
   border-radius: 2px;
   color: $secondary_fg_color;
   background-color: $secondary_dark_color;
@@ -1513,7 +1517,7 @@ StScrollBar {
   font-weight: 700;
 }
 
-.generic-box { spacing: 8px; }
+.generic-box { spacing: if($eta == 'false', 8px, 6px); }
 
 .overflow-badge {
   @include fontscaling($ref_size * 0.9);
@@ -1584,19 +1588,19 @@ StScrollBar {
  *******************/
 
 .nm-dialog {
-  max-height: 500px;
+  max-height: if($eta == 'false', 500px, 450px);
   min-height: 450px;
   min-width: 470px;
 
   &-content {
-    spacing: 20px;
-    padding: 24px;
+    spacing: if($eta == 'false', 20px, 16px);
+    padding: if($eta == 'false', 24px, 18px);
   }
 
-  &-header-hbox { spacing: 10px; }
+  &-header-hbox { spacing: if($eta == 'false', 10px, 7px); }
 
   &-airplane {
-    &-box { spacing: 12px; }
+    &-box { spacing: if($eta == 'false', 12px, 9px); }
 
     &-headline {
       font-weight: 700;
@@ -1614,8 +1618,8 @@ StScrollBar {
 
   &-item {
     @include fontscaling($ref_size * 1.1);
-    spacing: 20px;
-    padding: 12px;
+    spacing: if($eta == 'false', 20px, 16px);
+    padding: if($eta == 'false', 12px, 8px);
     border-bottom: 1px solid $borders_color;
     &:selected {
       background-color: $selected_bg_color;
@@ -1633,7 +1637,7 @@ StScrollBar {
     color: if($nokto == 'false', $osd_dim_fg_color, $dim_fg_color);
   }
 
-  &-box { spacing: 12px; }
+  &-box { spacing: if($eta == 'false', 12px, 8px); }
 }
 
 
@@ -1642,19 +1646,19 @@ StScrollBar {
  ************/
 
 #overview {
-  spacing: 24px;
+  spacing: if($eta == 'false', 24px, 18px);
 
-  &-controls { padding-bottom: 32px; }
+  &-controls { padding-bottom: if($eta == 'false', 32px, 26px); }
 }
 
 .window-picker { // container around window thumbnails
-  -horizontal-spacing: 32px;
-  -vertical-spacing: 32px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 48px;
+  -horizontal-spacing: if($eta == 'false', 32px, 26px);
+  -vertical-spacing: if($eta == 'false', 32px, 26px);
+  padding-left: if($eta == 'false', 32px, 26px);
+  padding-right: if($eta == 'false', 32px, 26px);
+  padding-bottom: if($eta == 'false', 48px, 36px);
 
-  &.external-monitor { padding: 32px; }
+  &.external-monitor { padding: if($eta == 'false', 32px, 26px); }
 }
 
 .window-clone-border {
@@ -1667,12 +1671,12 @@ StScrollBar {
 }
 
 .window-caption {
-  spacing: 25px;
-  padding: 4px 8px;
+  spacing: if($eta == 'false', 25px, 19px);
+  padding: if($eta == 'false', 4px 8px, 3px 6px);
   border-radius: 2px;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
-  -shell-caption-spacing: 12px;
+  -shell-caption-spacing: if($eta == 'false', 12px, 8px);
   box-shadow: $z-depth-1;
   &:hover {
     color: $osd_fg_color;
@@ -1732,14 +1736,14 @@ StScrollBar {
 #searchResultsBin { max-width: 1000px; }
 
 #searchResultsContent {
-  padding-left: 20px;
-  padding-right: 20px;
-  spacing: 16px;
+  padding-left: if($eta == 'false', 20px, 16px);
+  padding-right: if($eta == 'false', 20px, 16px);
+  spacing: if($eta == 'false', 16px, 12px);
 }
 
  // This should be equal to #searchResultsContent spacing
 .search-section {
-  spacing: 16px;
+  spacing: if($eta == 'false', 16px, 12px);
 
   // This is the space between the provider icon and the results container
   &-content { spacing: 32px; }
@@ -1823,7 +1827,7 @@ StScrollBar {
 }
 
 .dash-label { // osd tooltip
-  padding: 4px 12px;
+  padding: if($eta == 'false', 4px 12px, 3px 8px);
   border-radius: 2px;
   color: if($nokto == 'false', $osd_fg_color, $fg_color);
   background-color: transparentize($osd_bg_color, 0.1);
@@ -1937,13 +1941,13 @@ StScrollBar {
 
 .app-view-controls { // favorties | all toggle container
   width: 344px; // search entry width + search icon width(24) ?
-  padding-bottom: 24px;
+  padding-bottom: if($eta == 'false', 24px, 18px);
   background-color: rgba(0, 0, 0, 0.01) !important;
   box-shadow: inset 0 1px $osd_semi_fill_color;
 }
 
 .app-view-control { // favorties | all toggle button
-  padding: 7px 32px 8px;
+  padding: if($eta == 'false', 7px 32px 8px, 5px 26px 6px);
   border-radius: 0;
   font-weight: 700;
   color: if($nokto == 'false', $osd_secondary_fg_color,
@@ -2220,7 +2224,7 @@ StScrollBar {
 .notification-banner {
   @include fontscaling($ref_size * 1.1);
   width: 34em;
-  min-height: 4.5em;
+  min-height: if($eta == 'false', 4.5em, 3.6em);
   margin: 5px;
   border: none;
   border-radius: 2px;
@@ -2234,11 +2238,11 @@ StScrollBar {
     box-shadow: $z-depth-2;
   }
 
-  .notification-icon { padding: 8px; }
+  .notification-icon { padding: if($eta == 'false', 8px, 6px); }
 
   .notification-content {
-    padding: 8px;
-    spacing: 8px;
+    padding: if($eta == 'false', 8px, 6px);
+    spacing: if($eta == 'false', 8px, 6px);
   }
 
   .secondary-icon { icon-size: 14px; }
@@ -2264,7 +2268,7 @@ StScrollBar {
   }
 
   .notification-button {
-    padding: 9px 4px 10px;
+    padding: if($eta == 'false', 9px 4px 10px, 6px 3px 7px);
     background-color: transparent;
     color: $inverted_secondary_accent_label_color;
     font-weight: 700;

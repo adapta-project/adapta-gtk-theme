@@ -14,6 +14,8 @@
 bundle exec sass --update --sourcemap=none --watch --style=compact \
 	gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css \
 	gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css \
+	gnome-shell/gnome-shell-eta.scss:../gnome-shell-eta/gnome-shell.css \
+	gnome-shell/gnome-shell-dark-eta.scss:../gnome-shell-nokto-eta/gnome-shell.css \
 	gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css \
 	gnome-shell/classic.scss:../gnome-shell/extensions/window-list/classic.css \
 	gnome-shell/workspaces-to-dock.scss:../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css

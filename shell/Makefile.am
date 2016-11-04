@@ -134,6 +134,76 @@ shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/window-close-hover.svg \
 	$(shellnoktodir)/assets/window-close.svg
 
+shelletadir   = $(srcdir)/gnome-shell-eta
+shelleta_file = \
+	$(shelletadir)/gnome-shell.css \
+	$(shelletadir)/gnome-shell-theme.gresource \
+	$(shelletadir)/no-events.svg \
+	$(shelletadir)/no-notifications.svg \
+	$(shelletadir)/noise-texture.png \
+	$(shelletadir)/process-working.svg \
+	$(shelletadir)/toggle-off-hover.svg \
+	$(shelletadir)/toggle-off.svg \
+	$(shelletadir)/toggle-on-hover.svg \
+	$(shelletadir)/toggle-on.svg
+shelleta_asset_file = \
+	$(shelletadir)/assets/calendar-arrow-left-hover.svg \
+	$(shelletadir)/assets/calendar-arrow-left.svg \
+	$(shelletadir)/assets/calendar-arrow-right-hover.svg \
+	$(shelletadir)/assets/calendar-arrow-right.svg \
+	$(shelletadir)/assets/checkbox-hover.svg \
+	$(shelletadir)/assets/checkbox-off-hover.svg \
+	$(shelletadir)/assets/checkbox-off.svg \
+	$(shelletadir)/assets/checkbox.svg \
+	$(shelletadir)/assets/corner-ripple-ltr.svg \
+	$(shelletadir)/assets/corner-ripple-rtl.svg \
+	$(shelletadir)/assets/dash-placeholder.svg \
+	$(shelletadir)/assets/go-down.svg \
+	$(shelletadir)/assets/go-up.svg \
+	$(shelletadir)/assets/media-control-active.svg \
+	$(shelletadir)/assets/media-control-hover.svg \
+	$(shelletadir)/assets/more-results.svg \
+	$(shelletadir)/assets/show-apps-active.svg \
+	$(shelletadir)/assets/show-apps.svg \
+	$(shelletadir)/assets/window-close-active.svg \
+	$(shelletadir)/assets/window-close-hover.svg \
+	$(shelletadir)/assets/window-close.svg
+
+shellnoktoetadir    = $(srcdir)/gnome-shell-nokto-eta
+shell_nokto_eta_file = \
+	$(shellnoktoetadir)/gnome-shell.css \
+	$(shellnoktoetadir)/gnome-shell-theme.gresource \
+	$(shellnoktoetadir)/no-events.svg \
+	$(shellnoktoetadir)/no-notifications.svg \
+	$(shellnoktoetadir)/noise-texture.png \
+	$(shellnoktoetadir)/process-working.svg \
+	$(shellnoktoetadir)/toggle-off-hover.svg \
+	$(shellnoktoetadir)/toggle-off.svg \
+	$(shellnoktoetadir)/toggle-on-hover.svg \
+	$(shellnoktoetadir)/toggle-on.svg
+shell_nokto_eta_asset_file = \
+	$(shellnoktoetadir)/assets/calendar-arrow-left-hover.svg \
+	$(shellnoktoetadir)/assets/calendar-arrow-left.svg \
+	$(shellnoktoetadir)/assets/calendar-arrow-right-hover.svg \
+	$(shellnoktoetadir)/assets/calendar-arrow-right.svg \
+	$(shellnoktoetadir)/assets/checkbox-hover.svg \
+	$(shellnoktoetadir)/assets/checkbox-off-hover.svg \
+	$(shellnoktoetadir)/assets/checkbox-off.svg \
+	$(shellnoktoetadir)/assets/checkbox.svg \
+	$(shellnoktoetadir)/assets/corner-ripple-ltr.svg \
+	$(shellnoktoetadir)/assets/corner-ripple-rtl.svg \
+	$(shellnoktoetadir)/assets/dash-placeholder.svg \
+	$(shellnoktoetadir)/assets/go-down.svg \
+	$(shellnoktoetadir)/assets/go-up.svg \
+	$(shellnoktoetadir)/assets/media-control-active.svg \
+	$(shellnoktoetadir)/assets/media-control-hover.svg \
+	$(shellnoktoetadir)/assets/more-results.svg \
+	$(shellnoktoetadir)/assets/show-apps-active.svg \
+	$(shellnoktoetadir)/assets/show-apps.svg \
+	$(shellnoktoetadir)/assets/window-close-active.svg \
+	$(shellnoktoetadir)/assets/window-close-hover.svg \
+	$(shellnoktoetadir)/assets/window-close.svg
+
 cinnamondir   = $(srcdir)/cinnamon
 cinnamon_file = \
 	$(cinnamondir)/cinnamon.css
@@ -327,6 +397,8 @@ if ENABLE_PARALLEL
 	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
 		gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css \
 		gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css \
+		gnome-shell/gnome-shell-eta.scss:../gnome-shell-eta/gnome-shell.css \
+		gnome-shell/gnome-shell-dark-eta.scss:../gnome-shell-nokto-eta/gnome-shell.css \
 		gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css \
 		gnome-shell/classic.scss:../gnome-shell/extensions/window-list/classic.css \
 		gnome-shell/workspaces-to-dock.scss:../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
@@ -335,6 +407,8 @@ else
 	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
 		gnome-shell/gnome-shell.scss:../gnome-shell/gnome-shell.css \
 		gnome-shell/gnome-shell-dark.scss:../gnome-shell-nokto/gnome-shell.css \
+		gnome-shell/gnome-shell-eta.scss:../gnome-shell-eta/gnome-shell.css \
+		gnome-shell/gnome-shell-dark-eta.scss:../gnome-shell-nokto-eta/gnome-shell.css \
 		gnome-shell/stylesheet.scss:../gnome-shell/extensions/window-list/stylesheet.css \
 		gnome-shell/classic.scss:../gnome-shell/extensions/window-list/classic.css \
 		gnome-shell/workspaces-to-dock.scss:../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
@@ -342,15 +416,24 @@ endif
 
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
-	$(MKDIR_P) $(srcdir)/gnome-shell/extensions//workspaces-to-dock/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets/dot
+	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets/dot
+	$(MKDIR_P) $(srcdir)/gnome-shell-eta/extensions/workspaces-to-dock/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
 	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
 
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shelldir) \
 		$(shelldir)/gnome-shell-theme.gresource.xml
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktodir) \
 		$(shellnoktodir)/gnome-shell-theme.gresource.xml
+	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shelletadir) \
+		$(shelletadir)/gnome-shell-theme.gresource.xml
+	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktoetadir) \
+		$(shellnoktoetadir)/gnome-shell-theme.gresource.xml
 
 if ENABLE_CINNAMON
 if ENABLE_PARALLEL
@@ -430,6 +513,40 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
 
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/assets
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shelleta_file) $(adaptaetadir)/gnome-shell
+	cp -Rv $(shelleta_asset_file) $(adaptaetadir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(adaptaetadir)/gnome-shell/assets/dot
+	cp -Rv $(shell_extension_windowlist_file) \
+		$(adaptaetadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_extension_workspace_file) \
+		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
+	cp -Rv $(shell_extension_workspace_asset_file) \
+		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+
+	$(MKDIR_P) $(noktoetadir)/gnome-shell
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shell_nokto_eta_file) $(noktoetadir)/gnome-shell
+	cp -Rv $(shell_nokto_eta_asset_file) $(noktoetadir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(noktoetadir)/gnome-shell/assets/dot
+	cp -Rv $(shell_extension_windowlist_file) \
+		$(noktoetadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_extension_workspace_file) \
+		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
+	cp -Rv $(shell_extension_workspace_asset_file) \
+		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(adaptadir)/cinnamon
 	$(MKDIR_P) $(adaptadir)/cinnamon/assets
@@ -503,6 +620,8 @@ endif
 uninstall-local:
 	test -e $(noktodir)/gnome-shell && rm -rfv $(noktodir)/gnome-shell
 	test -e $(adaptadir)/gnome-shell && rm -rfv $(adaptadir)/gnome-shell
+	test -e $(noktoetadir)/gnome-shell && rm -rfv $(noktoetadir)/gnome-shell
+	test -e $(adaptaetadir)/gnome-shell && rm -rfv $(adaptaetadir)/gnome-shell
 
 if ENABLE_CINNAMON
 	test -e $(noktodir)/cinnamon && rm -rfv $(noktodir)/cinnamon
@@ -534,20 +653,33 @@ endif
 CLEANFILES = \
 	$(srcdir)/gnome-shell/gnome-shell.css \
 	$(srcdir)/gnome-shell-nokto/gnome-shell.css \
+	$(srcdir)/gnome-shell-eta/gnome-shell.css \
+	$(srcdir)/gnome-shell-nokto-eta/gnome-shell.css \
 	$(srcdir)/gnome-shell/extensions/window-list/stylesheet.css \
 	$(srcdir)/gnome-shell/extensions/window-list/classic.css \
 	$(srcdir)/gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css \
 	$(srcdir)/gnome-shell/gnome-shell-theme.gresource \
 	$(srcdir)/gnome-shell-nokto/gnome-shell-theme.gresource \
+	$(srcdir)/gnome-shell-eta/gnome-shell-theme.gresource \
+	$(srcdir)/gnome-shell-nokto-eta/gnome-shell-theme.gresource \
 	$(srcdir)/gnome-shell/*.svg \
 	$(srcdir)/gnome-shell/*.png \
 	$(srcdir)/gnome-shell/assets/*.svg \
 	$(srcdir)/gnome-shell/assets/dot/*.svg \
 	$(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets/*.svg \
+	$(srcdir)/gnome-shell-eta/extensions/workspaces-to-dock/assets/*.svg \
+	$(srcdir)/gnome-shell-eta/*.svg \
+	$(srcdir)/gnome-shell-eta/*.png \
+	$(srcdir)/gnome-shell-eta/assets/*.svg \
+	$(srcdir)/gnome-shell-eta/assets/dot/*.svg \
 	$(srcdir)/gnome-shell-nokto/*.svg \
 	$(srcdir)/gnome-shell-nokto/*.png \
 	$(srcdir)/gnome-shell-nokto/assets/*.svg \
 	$(srcdir)/gnome-shell-nokto/assets/dot/*.svg \
+	$(srcdir)/gnome-shell-nokto-eta/*.svg \
+	$(srcdir)/gnome-shell-nokto-eta/*.png \
+	$(srcdir)/gnome-shell-nokto-eta/assets/*.svg \
+	$(srcdir)/gnome-shell-nokto-eta/assets/dot/*.svg \
 	$(srcdir)/sass/common/_key_colors.scss \
 	$(srcdir)/asset/assets-gnome-shell/common/toggle-on-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/toggle-on.svg \

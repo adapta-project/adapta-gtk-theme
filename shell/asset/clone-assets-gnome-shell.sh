@@ -13,6 +13,8 @@
 SRC_DIR="assets-gnome-shell"
 ASSETS_DIR="../gnome-shell"
 ASSETS_DARK_DIR="../gnome-shell-nokto"
+ASSETS_ETA_DIR="../gnome-shell-eta"
+ASSETS_DARK_ETA_DIR="../gnome-shell-nokto-eta"
 INDEX="assets-gnome-shell.txt"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
@@ -85,47 +87,71 @@ do
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
             echo $ASSETS_DARK_DIR/$d/$f exists.
+            echo $ASSETS_ETA_DIR/$d/$f exists.
+            echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
         elif [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -nt $ASSETS_DIR/$d/$f ]; then
             echo Re-cloning $ASSETS_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            echo Re-cloning $ASSETS_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
             echo Re-cloning $ASSETS_DARK_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DAKR_DIR/$d/$f
+            echo Re-cloning $ASSETS_DARK_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_DAKR_ETA_DIR/$d/$f
         elif [ $i = "common/noise-texture.png ." ]; then # PNG special case
             f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.png"
             echo Cloning $ASSETS_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            echo Cloning $ASSETS_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
             echo Cloning $ASSETS_DARK_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
+            echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         else
             echo Cloning $ASSETS_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            echo Cloning $ASSETS_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
             echo Cloning $ASSETS_DARK_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
+            echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         fi
     elif [ $v = "l" ] || [ $v = "w" ]; then # 'light'
         if [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
+            echo $ASSETS_ETA_DIR/$d/$f exists.
         elif [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -nt $ASSETS_DIR/$d/$f ]; then
             echo Re-cloning $ASSETS_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            echo Re-cloning $ASSETS_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
         else
             echo Cloning $ASSETS_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            echo Cloning $ASSETS_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
         fi
     else # 'dark'
         if [ -f $ASSETS_DARK_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DARK_DIR/$d/$f ]; then
             echo $ASSETS_DARK_DIR/$d/$f exists.
+            echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
         elif [ -f $ASSETS_DARK_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -nt $ASSETS_DARK_DIR/$d/$f ]; then
             echo Re-cloning $ASSETS_DARK_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
+            echo Re-cloning $ASSETS_DARK_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         else
             echo Cloning $ASSETS_DARK_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
+            echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
+            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         fi
     fi
 done
