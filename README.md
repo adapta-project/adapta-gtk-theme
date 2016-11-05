@@ -16,7 +16,7 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 |Compiz      |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
 |XFwm4       |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
 |Marco       |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
-|Opnebox     |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
+|Opnebox-3   |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
 
 > **Note:**
 >
