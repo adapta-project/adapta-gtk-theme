@@ -6,7 +6,6 @@
 $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 /* #{$cakeisalie} */
 
-$panel-corner-radius: 0;
 
 /***********
  * Globals *
@@ -16,6 +15,8 @@ $panel-corner-radius: 0;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.2s;
 }
+
+$panel-corner-radius: 0;
 
 $font-family: Noto Sans, Cantarell, Sans-Serif;
 
@@ -134,17 +135,20 @@ StScrollBar {
   StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: if($nokto == 'false', scale-color($inverted_fg_color, $alpha: -40%),
-                                            scale-color($fg_color, $alpha: -40%));
+    background-color: if($nokto == 'false',
+                      scale-color($inverted_fg_color, $alpha: -40%),
+                      scale-color($fg_color, $alpha: -40%));
     // would be nice to margin or at least to transparent
     // border: 4px solid transparent;
     &:hover {
-      background-color: if($nokto == 'false', scale-color($inverted_fg_color, $alpha: -20%),
-                                              scale-color($fg_color, $alpha: -20%));
+      background-color: if($nokto == 'false',
+                        scale-color($inverted_fg_color, $alpha: -20%),
+                        scale-color($fg_color, $alpha: -20%));
     }
     &:active {
-      background-color: if($nokto == 'false', scale-color($inverted_fg_color, $alpha: -0%),
-                                              scale-color($fg_color, $alpha: -0%));
+      background-color: if($nokto == 'false',
+                        scale-color($inverted_fg_color, $alpha: -0%),
+                        scale-color($fg_color, $alpha: -0%));
     }
   }
 }
@@ -158,8 +162,9 @@ StScrollBar {
   height: 16px;
   color: $accent_color;
   -slider-height: 2px;
-  -slider-background-color: if($nokto == 'false', scale-color($fg_color, $alpha: -90%),
-                                                  $fill_color); // background of the trough
+  -slider-background-color: if($nokto == 'false',
+                            scale-color($fg_color, $alpha: -90%),
+                            $fill_color); // background of the trough
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $accent_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
@@ -631,14 +636,16 @@ StScrollBar {
       &:insensitive { color: scale-color($selected_fg_color, $alpha: -50%); }
     }
     &.selected {
-      background-color: if($nokto == 'false', scale-color($fg_color, $alpha: -90%),
-                                              $semi_fill_color);
+      background-color: if($nokto == 'false',
+                        scale-color($fg_color, $alpha: -90%),
+                        $semi_fill_color);
       color: $fg_color;
       transition-duration: 0;
     }
     &:active {
-      background-color: if($nokto == 'false', scale-color($fg_color, $alpha: -80%),
-                                              $fill_color);
+      background-color: if($nokto == 'false',
+                        scale-color($fg_color, $alpha: -80%),
+                        $fill_color);
       color: $fg_color;
       transition-duration: 0.2s;
     }
@@ -1135,7 +1142,9 @@ StScrollBar {
 
     &:rtl { background-image: url("assets/calendar-arrow-right.svg"); }
     &:rtl:hover,
-    &:rtl:focus { background-image: url("assets/calendar-arrow-right-hover.svg"); }
+    &:rtl:focus {
+      background-image: url("assets/calendar-arrow-right-hover.svg");
+    }
   }
 
   &-forward { // arrow foreward
@@ -1145,7 +1154,9 @@ StScrollBar {
 
     &:rtl { background-image: url("assets/calendar-arrow-left.svg"); }
     &:rtl:hover,
-    &:rtl:focus { background-image: url("assets/calendar-arrow-left-hover.svg"); }
+    &:rtl:focus {
+      background-image: url("assets/calendar-arrow-left-hover.svg");
+    }
   }
 }
 
