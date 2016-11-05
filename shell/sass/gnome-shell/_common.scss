@@ -1414,13 +1414,13 @@ StScrollBar {
 }
 
 .system-menu-action {
-  padding: 16px;
-  border-radius: 32px; // wish we could do 50%
+  padding: if($eta == 'false', 16px, 10px);
+  border-radius: 100px;
   border: none;
   color: $secondary_accent_label_color;
   &:hover,
   &:focus {
-    padding: 16px;
+    padding: if($eta == 'false', 16px, 10px);
     border: none;
     background-color: $accent_fill_color;
     color: $accent_label_color;
