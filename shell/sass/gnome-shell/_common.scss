@@ -1748,14 +1748,14 @@ StScrollBar {
 #searchResultsBin { max-width: 1000px; }
 
 #searchResultsContent {
-  padding-left: if($eta == 'false', 20px, 16px);
-  padding-right: if($eta == 'false', 20px, 16px);
-  spacing: if($eta == 'false', 16px, 12px);
+  padding-left: if($eta == 'false', 20px, 14px);
+  padding-right: if($eta == 'false', 20px, 14px);
+  spacing: if($eta == 'false', 16px, 10px);
 }
 
  // This should be equal to #searchResultsContent spacing
 .search-section {
-  spacing: if($eta == 'false', 16px, 12px);
+  spacing: if($eta == 'false', 16px, 10px);
 
   // This is the space between the provider icon and the results container
   &-content { spacing: 32px; }
@@ -1779,8 +1779,8 @@ StScrollBar {
 
 .list-search-result {
   &-content {
-    spacing: 12px;
-    padding: 12px;
+    spacing: if($eta == 'false', 12px, 8px);
+    padding: if($eta == 'false', 12px, 8px);
   }
 
   &-title {
