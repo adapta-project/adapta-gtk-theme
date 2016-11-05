@@ -4,37 +4,28 @@
 
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
-<img src=".github/img/sunlight.png" alt="Day" align="left" /> **Adapta**:
- * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
- * Light/Dark variant Budgie-Desktop theme
- * Light variant Gtk+ 2.0 theme
- * Light variant Gnome-Shell theme
- * Light variant Cinnamon theme
-
-<img src=".github/img/moon.png" alt="Night" align="left" /> **Adapta-Nokto**:
- * Light/Dark variant Gtk+ 3.22/3.20/3.18 theme
- * Light/Dark variant Budgie-Desktop theme
- * Dark variant Gtk+ 2.0 theme
- * Dark variant Gnome-Shell theme
- * Dark variant Cinnamon theme
-
-> **Note:**
->
->   Both also include common GNOME-Flashback, Unity7, XFce4, Mate and LXDE theming.
-
-<img src=".github/img/sunlight-eta.png" alt="Day" align="left" /> **Adapta-Eta**:
- * Light/Dark variant Gtk+ 3.22/3.20 theme
- * Light/Dark variant Budgie-Desktop theme
-
-<img src=".github/img/moon-eta.png" alt="Night" align="left" /> **Adapta-Nokto-Eta**:
- * Light/Dark variant Gtk+ 3.22/3.20 theme
- * Light/Dark variant Budgie-Desktop theme
+| |<img src=".github/img/sunlight.png" align="left" /> Adapta|<imgsrc=".github/img/moon.png" align="left" /> Adapta-Nokto|<img src=".github/img/sunlight-eta.png" alt="Day" align="left" /> Adapta-Eta|<img src=".github/img/moon-eta.png" alt="Night" align="left" /> Adapta-Nokto-Eta|
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Gtk+ 3.18.x    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
+|Gtk+ 3.20.x    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|Gtk+ 3.22.x    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|Gtk+ 2.x       |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|Gnome-Shell    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|Budgie-Desktop |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|Gnome-Flashback|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|Cinnamon       |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
+|Unity7         |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
+|XFce4          |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
+|Mate-Desktop   |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|LXDE           |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
 
 > **Note:**
 >
->   Eta is a tiny Gtk+ 3.2x widget variant for saving space (Gtk+ 3.22.x/3.20.x only).
+>   **Nokto** is a dark variant.
+>   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >
->   I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p).
+>   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool and/or edit `$HOME/.config/gtk-3.0/settings.ini`.
+>   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% or -30% spacing.
 
 Elements
 --------
