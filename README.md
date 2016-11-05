@@ -4,12 +4,12 @@
 
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
-| |<img src=".github/img/sunlight.png" align="left" /> Adapta|<imgsrc=".github/img/moon.png" align="left" /> Adapta-Nokto|<img src=".github/img/sunlight-eta.png" alt="Day" align="left" /> Adapta-Eta|<img src=".github/img/moon-eta.png" alt="Night" align="left" /> Adapta-Nokto-Eta|
+| |<img src=".github/img/sunlight.png" align="left"/> Adapta|<img src=".github/img/moon.png" align="left"/> Adapta-Nokto|<img src=".github/img/sunlight-eta.png" align="left"/> Adapta-Eta|<img src=".github/img/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
 |Gtk+ 3.18.x    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
 |Gtk+ 3.20.x    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
 |Gtk+ 3.22.x    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
-|Gtk+ 2.x       |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
+|Gtk+ 2.24.x    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
 |Gnome-Shell    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
 |Budgie-Desktop |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
 |Gnome-Flashback|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
