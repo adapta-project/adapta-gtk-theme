@@ -1,8 +1,42 @@
 <img src=".github/img/logo_thumb.png" alt="Logo" align="left" /> Adapta-gtk-theme
 ======
 
-
 An adaptive Gtk+ theme based on Material Design Guidelines.
+
+Before using Adapta
+-------------------
+
+Adapta strongly depends on results of the Material Design, especially **fonts** are very important stuffs.
+
+####Typography
+ 1. [**Noto Sans**](https://www.google.com/get/noto/#sans-lgc)
+   - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
+   - Developed by Google and Adobe.
+   - Supported weight: 400, 700
+
+ 2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
+   - Very famous as the default truetype font in Android (English ver.).
+   - Multilingal support is not good.
+   - Supported weight: 400, 500, 700
+
+ > **Note:**
+ >
+ > * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
+ > * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight.
+
+ Adapta uses **NotoSans** as the primary font-family in Gnome-Shell (Cantarell is for fallback).
+ In some distributions, users may need to install `fonts-noto-hinted`.
+
+ Adapta is designed with nominal **13px (or 14px)** Roboto font.
+ In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
+   ```
+   13 [px] x 72 [pt/inch] / 96 [px/inch] = 9.75 [pt]
+   14 [px] x 72 [pt/inch] / 96 [px/inch] = 10.5 [pt]
+   ```
+ That's because `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x (In Gtk+ 3.18.x, em unit is directly used).
+
+Variant Matrix
+--------------
 
 | |<img src=".github/img/sunlight.png" align="left"/> Adapta|<img src=".github/img/moon.png" align="left"/> Adapta-Nokto|<img src=".github/img/sunlight-eta.png" align="left"/> Adapta-Eta|<img src=".github/img/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
