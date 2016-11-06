@@ -9,7 +9,7 @@ Before using Adapta
 Adapta strongly depends on results of the Material Design, especially **fonts** are very important stuffs.
 
 ####Typography
- 1. [**Noto Sans**](https://www.google.com/get/noto/#sans-lgc)
+ 1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
    - Developed by Google and Adobe.
    - Weight used in Adapta: 400, 700
