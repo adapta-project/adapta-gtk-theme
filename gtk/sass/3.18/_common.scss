@@ -382,14 +382,14 @@ GtkTextView { // This will get overridden by .view,
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent));
   }
 }
@@ -796,7 +796,7 @@ GtkTextView { // This will get overridden by .view,
 %needs_attention {
   background-repeat: no-repeat;
   background-position: right 3px;
-  background-size: 0.4em 0.4em;
+  background-size: 0.5em 0.5em;
   animation: needs_attention 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   transition: none;
 
