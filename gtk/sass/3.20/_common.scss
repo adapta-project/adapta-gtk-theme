@@ -455,9 +455,12 @@ entry,
     }
   }
 
-  grid & { // set limit
+  grid &,
+  spinbutton:not(.vertical) > & { // special case
     padding-top: rem(9.3px - 2.7px);
     padding-bottom: rem(10.7px - 2.7px);
+
+    > progress { margin: rem(-9.3px + 2.7px) 0 rem(-10.7px + 2.7px); }
   }
 
   .osd & {
@@ -4140,18 +4143,11 @@ progressbar {
 }
 
 %entry_progressbar { // progress inside entry
-  margin: rem(-10px) rem(-8px);
-  border-style: none none solid;
-  border-width: 2px;
-  border-image: -gtk-gradient(radial,
-                              center bottom, 0,
-                              center bottom, 0.5,
-                              to($warning_color),
-                              to(transparent))
-                              0 0 2 / 0 0 2px;
+  margin: rem(-9.3px) 0 rem(-10.7px); // same values with entry node padding
+  padding: 0;
+  border: none;
   border-radius: 0;
-  box-shadow: none;
-  background-color: transparent;
+  background-color: gtkopacity($selected_bg_color, 0.2);
   background-image: none;
 }
 
