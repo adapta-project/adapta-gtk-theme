@@ -11,7 +11,7 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 
 $icon_size: 16px;
 $widget_size: 37.3px;
-$attention: rem(5.3px) rem(5.3px);
+$attention: rem(6.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
 $scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
@@ -478,14 +478,14 @@ entry,
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent));
   }
 }
@@ -940,10 +940,10 @@ button,
 
 %needs_attention {
   background-repeat: no-repeat;
-  background-position: right rem(3px);
+  background-position: right rem(3px, $sw: 1.0);
   background-size: $attention;
   animation: needs_attention 0.3s $slope_slow forwards;
-  &:dir(rtl) { background-position: left rem(3px); }
+  &:dir(rtl) { background-position: left rem(3px, $sw: 1.0); }
 }
 
 // all the following is for the +|- buttons on inline toolbars, that way
