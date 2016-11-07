@@ -1881,8 +1881,9 @@ headerbar {
     &.image-button:not(.text-button) {
       min-width: $icon_size * 1.5;
       min-height: $icon_size * 1.5;
-      padding: if($ref_weight < 1.0, rem(($widget_size - $icon_size * 1.5 - 3.3px) / 2),
-                                     rem(($widget_size - $icon_size * 1.5 - 2px) / 2));
+      padding: if($ref_weight < 1.0,
+               rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+               rem(($widget_size - $icon_size * 1.5) / 2));
     }
   }
 
@@ -1897,6 +1898,13 @@ headerbar {
     // menu menuitem { // reset padding
     //   label { padding: 0; }
     // }
+  }
+
+  stackswitcher button:not(.image-button),
+  .stack-switcher > button:not(.image-button) {
+    min-height: $icon_size;
+    padding-top: rem(($widget_size - $icon_size - 4px) / 2);
+    padding-bottom: rem(($widget_size - $icon_size - 4px) / 2);
   }
 
   button,

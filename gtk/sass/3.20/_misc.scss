@@ -702,6 +702,17 @@ window > box.vertical > toolbar.primary-toolbar {
   }
 }
 
+window.background.csd > headerbar.titlebar > box.horizontal > box.horizontal,
+window.background.solid-csd > headerbar.titlebar > box.horizontal > box.horizontal {
+  // 'search' button
+  > button.toggle:not(.text-button):not(.image-button):not(.popup) {
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(($widget_size - $icon_size) / 2)
+             rem(($widget_size - $icon_size + 2px) / 2);
+  }
+}
+
 // 'plugins' dialog
 dialog.background > box.dialog-vbox.vertical > box.vertical {
   > toolbar.inline-toolbar.horizontal {
