@@ -35,6 +35,10 @@ In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
   ```
 That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x theming (In Gtk+ 3.18.x theming, em unit is directly used).
 
+> **Note:**
+>
+> NotoSans CJK (ChineseKoreanJapanese) opentype fonts are actually **0.1em taller than English fonts**, so if 10pt Roboto was suitable on your LCDs, set 9pt for NotoSans CJK families.
+
 ####Verify the fonts are rendered correctly via font-viewer tools like Gnome-Font-Viewer.
 
 Variant Matrix
