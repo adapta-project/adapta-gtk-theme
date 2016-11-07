@@ -33,7 +33,7 @@ In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
   13 [px] x 72 [pt/inch] / 96 [px/inch] = 9.75 [pt]
   14 [px] x 72 [pt/inch] / 96 [px/inch] = 10.5 [pt]
   ```
-That's because `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x (In Gtk+ 3.18.x, em unit is directly used).
+That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x theming (In Gtk+ 3.18.x theming, em unit is directly used).
 
 ####Verify the fonts are rendered correctly via font-viewer tools like Gnome-Font-Viewer.
 
