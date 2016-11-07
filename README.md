@@ -37,7 +37,7 @@ That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2
 
 > **Note:**
 >
-> NotoSans CJK (ChineseJapaneseKorean) opentype fonts are actually **0.1em taller than English fonts**, so if 10pt Roboto was suitable on your LCDs, set 9pt for NotoSans CJK families.
+> NotoSans CJK (ChineseJapaneseKorean) opentype fonts are actually **0.1em taller than Roboto fonts**, so if 10pt Roboto was suitable on your LCDs, set 9pt for NotoSans CJK families.
 
 ####Verify the fonts are rendered correctly via font-viewer tools like Gnome-Font-Viewer.
 
