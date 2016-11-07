@@ -12,7 +12,7 @@ Adapta strongly depends on results of the Material Design, especially **fonts** 
  1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
    - Developed by Google and Adobe.
-   - Weight used in Adapta: 400, 700
+   - Weight used in Adapta: 400, (500), 700
 
  2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
    - Very famous as the default truetype font in Android (English ver.).
@@ -23,6 +23,7 @@ Adapta strongly depends on results of the Material Design, especially **fonts** 
 >
 > * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
 > * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
+> * NotoSans CJK supports 500 weight.
 
 Adapta uses **NotoSans** as the primary font-family in Gnome-Shell (Cantarell is for fallback).
 In some distributions, users may need to install `fonts-noto-hinted`.
