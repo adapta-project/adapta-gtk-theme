@@ -1859,7 +1859,7 @@ headerbar {
 
   // adjust spacing for finer aspect-ratio
   button.text-button,
-  button:not(.image-button):not(.text-button) {
+  button:not(.image-button):not(.text-button):not(.title-button) {
     &,
     &.lock,
     &.toggle {
@@ -1870,7 +1870,8 @@ headerbar {
   }
 
   button:not(.text-button),
-  button.image-button:not(.text-button) {
+  button.image-button:not(.text-button),
+  button.title-button:not(.text-button) {
     min-width: $icon_size;
     min-height: $icon_size;
     padding: rem(($widget_size - $icon_size) / 2);
@@ -1886,7 +1887,8 @@ headerbar {
     }
   }
 
-  button.toggle:not(.text-button) {
+  button.toggle:not(.text-button),
+  button.toggle.title-button {
     min-width: $icon_size;
     min-height: $icon_size;
     padding: rem(($widget_size - $icon_size) / 2)
