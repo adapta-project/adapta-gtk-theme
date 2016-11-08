@@ -631,6 +631,20 @@ button {
     }
   }
 
+  &.circular {
+    &,
+    &-button.image-button,
+    &.radio.text-button {
+      min-height: $icon_size * 1.5;
+      min-width: $icon_size * 1.5;
+      padding: rem(($widget_size - $icon_size * 1.5) / 2);
+      border-radius: 9999px;
+      -gtk-outline-radius: 9999px;
+
+      label { padding: 0; }
+    }
+  }
+
   separator { // remove vertical separator
     @extend separator.wide;
     min-height: 0;
@@ -5903,20 +5917,6 @@ popover.touch-selection {
   }
 }
 
-button.circular {
-  &,
-  &-button.image-button,
-  &.radio.text-button {
-    min-height: $icon_size;
-    min-width: $icon_size;
-    padding: rem(10.7px + 1.3px);
-    border-radius: 9999px;
-    -gtk-outline-radius: 9999px;
-
-    label { padding: 0; }
-  }
-}
-
 // shortcut window keys
 .keycap {
   min-width: rem(20px);
@@ -5954,14 +5954,6 @@ button.circular {
     box-shadow: inset 0 0 0 1px $drop_target_color;
     caret-color: $drop_target_color;
   }
-}
-
-// FIXME: aggregate with buttons
-stackswitcher button.circular,
-stackswitcher button.text-button.circular {
-  min-width: $icon_size;
-  min-height: $icon_size;
-  padding: rem(($widget_size - $icon_size) / 2);
 }
 
 // undershoot for speciic-cases
