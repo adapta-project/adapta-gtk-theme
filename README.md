@@ -281,6 +281,7 @@ Work in Progress
 
 TODO
 ----
+* Convert cinnamon theming to version 3.2.x compat. (priority: high)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
