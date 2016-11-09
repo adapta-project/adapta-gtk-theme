@@ -347,6 +347,7 @@ StScrollBar {
   }
 
   .popup-menu-content { padding: 1em 0 1em 0; }
+
   .popup-menu-item {
     padding: 0.4em 1.75em;
     spacing: 1em;
@@ -411,9 +412,7 @@ StScrollBar {
     background-color: transparent;
   }
 
-  &-alternating-menu-item:alternate {
-    font-weight: 500;
-  }
+  &-alternating-menu-item:alternate { font-weight: 500; }
 
   &-device-menu-item { spacing: 0.5em; }
 
@@ -501,7 +500,7 @@ $icon_size: 16px;
   padding: 0;
 
   &-dummy {
-    // = insensitive state?
+    // placeholder fill-area for 'Move Panels'
     background-color: scale-color($panel_bg_color, $alpha: -60%);
 
     &:entered { background-color: $accent_active_fill_color; }
@@ -514,7 +513,6 @@ $icon_size: 16px;
     border-width: 0;
     font-weight: 700;
     color: $osd_secondary_fg_color;
-
     &:hover { color: $selected_fg_color; }
   }
 
@@ -533,7 +531,7 @@ $icon_size: 16px;
 
   &-top {
     .panel-button,
-    .panel-status-button { // flip indicators vertically
+    .panel-status-button {
       &:hover { box-shadow: inset 0 2px 0 $osd_fill_color; }
       &:active { box-shadow: inset 0 2px 0 $osd_indicator_color; }
     }
@@ -541,7 +539,7 @@ $icon_size: 16px;
 
   &-bottom {
     .panel-button,
-    .panel-status-button { // flip indicators vertically
+    .panel-status-button {
       &:hover { box-shadow: inset 0 -2px 0 $osd_fill_color; }
       &:active { box-shadow: inset 0 -2px 0 $osd_indicator_color; }
     }
@@ -549,7 +547,7 @@ $icon_size: 16px;
 
   &-left {
     .panel-button,
-    .panel-status-button { // vertical indicators
+    .panel-status-button {
       -natural-hpadding: 0;
       -minimum-hpadding: 0;
       -natural-vpadding: 2px;
@@ -876,9 +874,10 @@ $icon_size: 16px;
   color: $osd_fg_color;
 
   .popup-menu & {
-    border-image: url("assets/misc/message.svg") 9 9 9 9;
-
-    &, &.multi-line-notification { color: $fg_color; }
+    &, &.multi-line-notification {
+      border-image: url("assets/misc/message.svg") 9 9 9 9;
+      color: $fg_color;
+    }
 
     .notification-button,
     .notification-icon-button {
@@ -1033,9 +1032,7 @@ $icon_size: 16px;
   color: $osd_fg_color;
   background-color: transparentize($osd_bg_color, 0.1);
 
-  > StBoxLayout:first-child {
-    padding: 20px 10px 10px 10px;
-  }
+  > StBoxLayout:first-child { padding: 20px 10px 10px 10px; }
 
   &-button-box {
     spacing: 0;
@@ -1119,13 +1116,9 @@ $icon_size: 16px;
  * CinnamonMountOperation Dialogs *
  **********************************/
 
-.cinnamon-mount-operation-icon {
-  icon-size: 48px;
-}
+.cinnamon-mount-operation-icon { icon-size: 48px; }
 
-.mount-password-reask {
-  color: $warning_color;
-}
+.mount-password-reask { color: $warning_color; }
 
 .show-processes-dialog,
 .mount-question-dialog {
@@ -1649,18 +1642,17 @@ $icon_size: 16px;
     border: 1px solid transparentize(black, 0.6);
     background-gradient-direction: none;
     background-color: transparentize(black, 0.8);
-  }
+    &:active {
+      border: 1px solid $selected_bg_color;
+      background-gradient-direction: none;
+    }
 
-  .workspace:active {
-    border: 1px solid $selected_bg_color;
-    background-gradient-direction: none;
-  }
-
-  .workspace .windows {
-    -active-window-background: lighten($osd_bg_color, 15%);
-    -active-window-border: rgba(0, 0, 0, 0.8);
-    -inactive-window-background: lighten($osd_bg_color, 15%);
-    -inactive-window-border: rgba(0, 0, 0, 0.8);
+    .windows {
+      -active-window-background: lighten($osd_bg_color, 15%);
+      -active-window-border: rgba(0, 0, 0, 0.8);
+      -inactive-window-background: lighten($osd_bg_color, 15%);
+      -inactive-window-border: rgba(0, 0, 0, 0.8);
+    }
   }
 
   .workspace:active .windows {
@@ -1676,9 +1668,7 @@ $icon_size: 16px;
  * Panel Launchers Applet (panelLaunchers.js) *
  **********************************************/
 
-#panel-launchers-box {
-  padding: 0 7px;
-}
+#panel-launchers-box { padding: 0 7px; }
 
 .panel-launcher {
   border: 0 solid transparent;
@@ -1810,9 +1800,7 @@ $icon_size: 16px;
 
 #overview-corner {
   background-image: url("assets/misc/overview.svg");
-  &:hover {
-    background-image: url("assets/misc/overview-hover.svg");
-  }
+  &:hover { background-image: url("assets/misc/overview-hover.svg"); }
 }
 
 
@@ -1947,7 +1935,9 @@ $icon_size: 16px;
   // 3.2.x?
   &:highlight,
   &:highlight-with-borders,
-  &:highlight-with-borders-and-header { background-color: $accent_active_fill_color; }
+  &:highlight-with-borders-and-header {
+    background-color: $accent_active_fill_color;
+  }
 }
 
 .photoframe-box {
