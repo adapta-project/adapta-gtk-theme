@@ -1681,6 +1681,28 @@ $icon_size: 16px;
 }
 
 .panel-launcher {
+  border: 0 solid transparent;
+
+  .panel-top & {
+    padding: 0 6px 2px 6px;
+    border-top-width: 2px;
+  }
+
+  .panel-bottom & {
+    padding: 2px 6px 0 6px;
+    border-bottom-width: 2px;
+  }
+
+  .panel-left & {
+    padding: 2px 2px 2px 0;
+     border-left-width: 2px;
+  }
+
+  .panel-right & {
+    padding: 2px 0 2px 2px;
+    border-right-width: 2px;
+  }
+
   &:hover {
     border: 0 solid $selected_bg_color;
     background-gradient-direction: none;
