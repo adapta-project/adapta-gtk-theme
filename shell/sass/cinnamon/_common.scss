@@ -2008,11 +2008,15 @@ $icon_size: 16px;
  * Workspace OSD *
  *****************/
 
-.workspace-osd { // FIXME
-  @include fontscaling($ref_size * 3.6);
-  // color: red;
-  text-shadow: black 5px 5px 5px;
-  font-weight: 700;
+.workspace-osd { // workspace name
+  @include fontscaling($ref_size * 3.0);
+  padding: 8px;
+  border-radius: 2px;
+  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  color: $osd_fg_color;
+  box-shadow: $z-depth-4;
+  font-weight: 400;
+  text-shadow: none;
 }
 
 .expo-workspaces-name-entry,
