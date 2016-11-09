@@ -430,8 +430,8 @@ $icon_size: 16px;
 
 #panel {
   @include fontscaling($ref_size * 1.0);
-  min-height: 28px;
-  min-width: 32px;
+  height: 28px;
+  width: 32px; // setting under 32px causes blurred window-list icons
   color: $osd_secondary_fg_color;
   background-color: $panel_bg_color;
   font-weight: 700;
@@ -704,11 +704,11 @@ $icon_size: 16px;
 
 #LookingGlassDialog {
   spacing: 4px;
-  padding: 0;
+  padding: 6px;
   border: none;
   border-radius: 2px;
-  background-color: scale-color($base_color, $alpha: -10%);
-  color: $fg_color;
+  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  color: $osd_fg_color;
   box-shadow: $z-depth-4;
 }
 
@@ -1420,7 +1420,7 @@ $icon_size: 16px;
     spacing: 2px;
 
     .panel-top,
-    .panel-bottom & { padding: 0 0 0 6px; }
+    .panel-bottom & { padding: 0 0 0 8px; }
 
     &.vertical { padding: 6px 0 0 0; }
   }
@@ -1439,10 +1439,14 @@ $icon_size: 16px;
     font-weight: 700;
 
     .panel-top &,
-    .panel-bottom & { padding: 0 6px; }
+    .panel-bottom & {
+      // padding: 0 3px;
+    }
 
     .panel-left &,
-    .panel-right & { padding: 3px 0; }
+    .panel-right & {
+      // padding: 2px 0;
+    }
 
     &:hover {
       color: $osd_fg_color;
