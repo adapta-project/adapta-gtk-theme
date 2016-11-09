@@ -239,11 +239,7 @@ cinnamon_asset_misc_file = \
 	$(cinnamondir)/assets/misc/trash-icon.svg
 cinnamon_asset_panel_file = \
 	$(cinnamondir)/assets/panel/activities-active.svg \
-	$(cinnamondir)/assets/panel/activities.svg \
-	$(cinnamondir)/assets/panel/window-list-active-bottom.svg \
-	$(cinnamondir)/assets/panel/window-list-active-top.svg \
-	$(cinnamondir)/assets/panel/window-list-hover-bottom.svg \
-	$(cinnamondir)/assets/panel/window-list-hover-top.svg
+	$(cinnamondir)/assets/panel/activities.svg
 cinnamon_asset_switch_file = \
 	$(cinnamondir)/assets/switch/switch-off.svg \
 	$(cinnamondir)/assets/switch/switch-on.svg
@@ -285,11 +281,7 @@ cinnamon_nokto_asset_misc_file = \
 	$(cinnamonnoktodir)/assets/misc/trash-icon.svg
 cinnamon_nokto_asset_panel_file = \
 	$(cinnamonnoktodir)/assets/panel/activities-active.svg \
-	$(cinnamonnoktodir)/assets/panel/activities.svg \
-	$(cinnamonnoktodir)/assets/panel/window-list-active-bottom.svg \
-	$(cinnamonnoktodir)/assets/panel/window-list-active-top.svg \
-	$(cinnamonnoktodir)/assets/panel/window-list-hover-bottom.svg \
-	$(cinnamonnoktodir)/assets/panel/window-list-hover-top.svg
+	$(cinnamonnoktodir)/assets/panel/activities.svg
 cinnamon_nokto_asset_switch_file = \
 	$(cinnamonnoktodir)/assets/switch/switch-off.svg \
 	$(cinnamonnoktodir)/assets/switch/switch-on.svg
