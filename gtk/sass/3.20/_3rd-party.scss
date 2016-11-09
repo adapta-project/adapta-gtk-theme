@@ -1768,7 +1768,7 @@ TopMenuAppMenuBar {
  * FeedReader *
  **************/
 
-window > paned.titlebar > headerbar.titlebar {
+window.background > paned.titlebar > headerbar.titlebar {
   button.flat {
     // FIXME: when developer will use .image-button class?
     &:not(.titlebutton):not(.image-button):not(.text-button):not(.toggle) {
@@ -1776,8 +1776,21 @@ window > paned.titlebar > headerbar.titlebar {
       min-height: $icon_size - 2px;
       margin: rem(5.3px + 2px) 0;
       padding: 0 rem(($widget_size - $icon_size - 2px) / 2);
+    }
+  }
 
-      stack > spinner.feedlist-spinner { margin: 0; }
+  // prevent filled allocation
+  spinner.feedlist-spinner { padding: rem(12px) 0; }
+}
+
+// hide unneeded spinner
+overlay.article-list > stack > box.horizontal {
+  spinner {
+    &,
+    &:checked,
+    &:checked:disabled,
+    &:checked:backdrop {
+      opacity: 0; // makes no sense here
     }
   }
 }
