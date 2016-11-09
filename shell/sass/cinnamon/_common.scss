@@ -430,8 +430,8 @@ $icon_size: 16px;
 
 #panel {
   @include fontscaling($ref_size * 1.0);
-  min-height: 25px;
-  min-width: 28px;
+  min-height: 28px;
+  min-width: 32px;
   color: $osd_secondary_fg_color;
   background-color: $panel_bg_color;
   font-weight: 700;
@@ -452,7 +452,10 @@ $icon_size: 16px;
     &:ltr { padding-right: 4px; }
     &:rtl { padding-left: 4px; }
 
-    &.vertical { padding: 0; }
+    &.vertical {
+      padding: 0;
+      spacing: 0;
+    }
   }
 
   &Right {
@@ -471,7 +474,10 @@ $icon_size: 16px;
       spacing: 0;
     }
 
-    &.vertical { padding: 0; }
+    &.vertical {
+      padding: 0;
+      spacing: 0;
+    }
   }
 
   &Center {
@@ -484,8 +490,8 @@ $icon_size: 16px;
     }
 
     &.vertical {
-      padding-left: 0;
-      padding-right: 0;
+      padding: 0;
+      spacing: 0;
     }
   }
 }
@@ -517,15 +523,10 @@ $icon_size: 16px;
     color: $osd_secondary_fg_color;
     font-weight: 700;
     transition-duration: 0.2s;
-    &:hover {
-      color: $selected_fg_color;
-      background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0 $osd_fill_color;
-    }
+    &:hover,
     &:active {
       color: $selected_fg_color;
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0 $osd_indicator_color;
     }
   }
 
@@ -537,9 +538,21 @@ $icon_size: 16px;
     }
   }
 
+  &-bottom {
+    .panel-button,
+    .panel-status-button { // flip indicators vertically
+      &:hover { box-shadow: inset 0 -2px 0 $osd_fill_color; }
+      &:active { box-shadow: inset 0 -2px 0 $osd_indicator_color; }
+    }
+  }
+
   &-left {
     .panel-button,
-    .panel-status-button {  // vertical indicators
+    .panel-status-button { // vertical indicators
+      -natural-hpadding: 0;
+      -minimum-hpadding: 0;
+      -natural-vpadding: 2px;
+      -minimum-vpadding: 2px;
       &:hover { box-shadow: inset 2px 0 0 $osd_fill_color; }
       &:active { box-shadow: inset 2px 0 0 $osd_indicator_color; }
     }
@@ -547,13 +560,17 @@ $icon_size: 16px;
 
   &-right {
     .panel-button,
-    .panel-status-button {  // vertical indicators
+    .panel-status-button {
+      -natural-hpadding: 0;
+      -minimum-hpadding: 0;
+      -natural-vpadding: 2px;
+      -minimum-vpadding: 2px;
       &:hover { box-shadow: inset -2px 0 0 $osd_fill_color; }
       &:active { box-shadow: inset -2px 0 0 $osd_indicator_color; }
     }
   }
 
-  * StIcon { icon-size: $icon_size; }
+  StIcon { icon-size: $icon_size; }
 
   &-corner {
     &,
@@ -569,10 +586,10 @@ $icon_size: 16px;
     }
   }
 
-  &-menu { -boxpointer-gap: 4px }
+  // &-menu { -boxpointer-gap: 4px }
 }
 
-#appMenu { spacing: 4px; }
+// #appMenu { spacing: 4px; }
 
 .system-status-icon {
   icon-size: $icon_size;
@@ -1401,19 +1418,11 @@ $icon_size: 16px;
 .window-list {
   &-box {
     spacing: 2px;
-    padding-left: 10px;
-    padding-top: 0;
 
-    .panel-bottom & { padding-top: 1px; }
+    .panel-top,
+    .panel-bottom & { padding: 0 0 0 6px; }
 
-    .panel-top & { padding-bottom: 1px; }
-
-    &.vertical {
-      spacing: 3px;
-      padding: 10px 0;
-
-      #appMenuIcon { padding-top: 3px; }
-    }
+    &.vertical { padding: 6px 0 0 0; }
   }
 
   &-item-label {
@@ -1423,21 +1432,28 @@ $icon_size: 16px;
   }
 
   &-item-box {
-    padding-left: 8px;
-    padding-right: 8px;
+    border: none;
     background-image: none;
+    background-color: rgba(0, 0, 0, 0.01);
     color: $osd_secondary_fg_color;
     font-weight: 700;
+
+    .panel-top &,
+    .panel-bottom & { padding: 0 6px; }
+
+    .panel-left &,
+    .panel-right & { padding: 3px 0; }
+
     &:hover {
       color: $osd_fg_color;
 
-      .panel-bottom & {
-        border-image: url("assets/panel/window-list-hover-bottom.svg") 3 3 1 3;
-      }
+      .panel-top & { box-shadow: inset 0 2px $osd_fill_color; }
 
-      .panel-top & {
-        border-image: url("assets/panel/window-list-hover-top.svg") 3 3 3 1;
-      }
+      .panel-bottom & { box-shadow: inset 0 -2px $osd_fill_color; }
+
+      .panel-left & { box-shadow: inset 2px 0 $osd_fill_color; }
+
+      .panel-right & { box-shadow: inset -2px 0 $osd_fill_color; }
     }
     &:active,
     &:checked,
@@ -1445,13 +1461,13 @@ $icon_size: 16px;
       &, &:hover {
         color: $osd_fg_color;
 
-        .panel-bottom & {
-          border-image: url("assets/panel/window-list-active-bottom.svg") 3 3 1 3;
-        }
+        .panel-top & { box-shadow: inset 0 2px $osd_indicator_color; }
 
-        .panel-top & {
-          border-image: url("assets/panel/window-list-active-top.svg") 3 3 3 1;
-        }
+        .panel-bottom & { box-shadow: inset 0 -2px $osd_indicator_color; }
+
+        .panel-left & { box-shadow: inset 2px 0 $osd_indicator_color; }
+
+        .panel-right & { box-shadow: inset -2px 0 $osd_indicator_color; }
       }
     }
   }
@@ -1660,29 +1676,36 @@ $icon_size: 16px;
 }
 
 .panel-launcher {
-  margin: 2px;
-  padding: 2px 6px;
   &:hover {
     border: 0 solid $selected_bg_color;
     background-gradient-direction: none;
 
+    .panel-top & {
+      padding: 0 6px 2px 6px;
+      border-top-width: 2px;
+    }
+
     .panel-bottom & {
-      padding-bottom: 0;
+      padding: 2px 6px 0 6px;
       border-bottom-width: 2px;
     }
 
-    .panel-top & {
-      padding-top: 0;
-      border-top-width: 2px;
+    .panel-left & {
+      padding: 2px 2px 2px 0;
+      border-left-width: 2px;
+    }
+
+    .panel-right & {
+      padding: 2px 0 2px 2px;
+      border-right-width: 2px;
     }
   }
 }
 
 // 3.2.x
 .launcher {
-  margin: 2px;
   padding: 2px;
-  spacing: 3px;
+  spacing: 2px;
   transition-duration: 0.2s;
   &:hover {
     border: 0 solid $selected_bg_color;
@@ -1699,30 +1722,38 @@ $icon_size: 16px;
     }
 
     .panel-right & {
-      padding-top: 0;
+      padding-right: 0;
       border-right-width: 2px;
     }
 
     .panel-left & {
-      padding-bottom: 0;
+      padding-left: 0;
       border-left-width: 2px;
     }
   }
 
-  .icon-box { padding-top: 2px; }
+  .icon-box {
+    padding: 0 2px;
+
+    &.vertical { padding: 2px 0; }
+  }
 }
 
 .panel-launchers {
-  padding-left: 7px;
+  padding: 0 0 0 4px;
   spacing: 2px;
 
   &.vertical {
-    padding: 2px 0;
-    spacing: 3px;
+    padding: 2px 0 0 0;
+    spacing: 2px;
   }
 
   .launcher {
-    .icon-box { padding-top: 0; }
+    .icon-box {
+      padding: 0 2px;
+
+      &.vertical { padding: 2px 0; }
+    }
   }
 }
 
@@ -1774,28 +1805,31 @@ $icon_size: 16px;
   }
 
   &-box {
-    padding-left: 3px;
-    padding-right: 3px;
     color: $osd_secondary_fg_color;
     text-shadow: none;
     &:hover {
       color: $osd_fg_color;
       background-color: rgba(0, 0, 0, 0.01);
-      box-shadow: inset 0 -2px 0 $osd_indicator_color;
     }
     &:highlight { background-color: $accent_active_fill_color; }
 
-    &.vertical { padding: 3px 0; }
-
     .panel-top & { // flip indicators vertically
+      padding: 0 3px;
       &:hover { box-shadow: inset 0 2px 0 $osd_indicator_color; }
     }
 
+    .panel-bottom & {
+      padding: 0 3px;
+      &:hover { box-shadow: inset 0 -2px 0 $osd_indicator_color; }
+    }
+
     .panel-left & { // vertical indicators
+      padding: 2px 0;
       &:hover { box-shadow: inset 2px 0 0 $osd_indicator_color; }
     }
 
-    .panel-right & { // vertical indicators
+    .panel-right & {
+      padding: 2px 0;
       &:hover { box-shadow: inset -2px 0 0 $osd_indicator_color; }
     }
   }
