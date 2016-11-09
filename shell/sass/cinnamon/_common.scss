@@ -307,6 +307,20 @@ StScrollBar {
  * Popovers/Menus *
  ******************/
 
+// .popup-menu-boxpointer and .popup-menu are kept for compatibility
+// with cinnamon version under 3.2. Use .menu in version 3.2 and above
+
+.menu {
+  min-width: 200px;
+  margin: 0.4em 0.5em 0.5em;
+  padding: 0;
+  border-radius: 2px;
+  border-top: 1px solid $base_color;
+  background-color: $bg_color;
+  color: $secondary_fg_color;
+  box-shadow: $z-depth-3;
+}
+
 .popup-menu {
   min-width: 200px;
   padding: 0;
@@ -418,10 +432,18 @@ StScrollBar {
 $icon_size: 16px;
 
 #panel {
-  height: 2.25em;
-  min-height: 27px;
+  @include fontscaling($ref_size * 1.0);
+  min-height: 25px;
+  min-width: 28px;
+  color: $osd_secondary_fg_color;
+  background-color: $panel_bg_color;
   font-weight: 700;
 
+  &:highlight { background-color: $accent_active_fill_color; }
+}
+
+#panel,
+.panel {
   &Left {
     spacing: 4px;
 
@@ -432,6 +454,8 @@ $icon_size: 16px;
     }
     &:ltr { padding-right: 4px; }
     &:rtl { padding-left: 4px; }
+
+    &.vertical { padding: 0; }
   }
 
   &Right {
@@ -449,6 +473,8 @@ $icon_size: 16px;
       padding-right: 4px;
       spacing: 0;
     }
+
+    &.vertical { padding: 0; }
   }
 
   &Center {
@@ -459,38 +485,47 @@ $icon_size: 16px;
       background-gradient-start: rgba(0, 255, 0, 0.05);
       background-gradient-end: rgba(0, 255, 0, 0.2);
     }
+
+    &.vertical {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
 
 .panel {
   padding: 0;
 
-  &-top,
-  &-bottom {
-    @include fontscaling($ref_size * 1.0);
-    color: $osd_secondary_fg_color;
-    background-color: $panel_bg_color;
+  &-dummy {
+    // = insensitive state?
+    background-color: scale-color($panel_bg_color, $alpha: -60%);
+
+    &:entered { background-color: $accent_active_fill_color; }
   }
 
   &-status-button {
     height: 22px;
     -natural-hpadding: 3px;
     -minimum-hpadding: 3px;
-    border-widht: 0;
+    border-width: 0;
     font-weight: 700;
     color: $osd_secondary_fg_color;
 
-    &:hover {
-    }
+    &:hover { color: $selected_fg_color; }
   }
 
   &-button {
-    -natural-hpadding: 12px;
-    -minimum-hpadding: 6px;
-    font-weight: 700;
+    -natural-hpadding: 6px;
+    -minimum-hpadding: 3px;
     color: $osd_secondary_fg_color;
+    font-weight: 700;
     transition-duration: 0.2s;
     &:hover {
+      color: $selected_fg_color;
+      background-color: rgba(0, 0, 0, 0.01);
+      box-shadow: inset 0 -2px 0 $osd_fill_color;
+    }
+    &:active {
       color: $selected_fg_color;
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset 0 -2px 0 $osd_indicator_color;
@@ -500,16 +535,54 @@ $icon_size: 16px;
   &-top {
     .panel-button,
     .panel-status-button { // flip indicators vertically
-      &:hover { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+      &:hover { box-shadow: inset 0 2px 0 $osd_fill_color; }
+      &:active { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+    }
+  }
+
+  &-left {
+    .panel-button,
+    .panel-status-button {  // vertical indicators
+      &:hover { box-shadow: inset 2px 0 0 $osd_fill_color; }
+      &:active { box-shadow: inset 2px 0 0 $osd_indicator_color; }
+    }
+  }
+
+  &-right {
+    .panel-button,
+    .panel-status-button {  // vertical indicators
+      &:hover { box-shadow: inset -2px 0 0 $osd_fill_color; }
+      &:active { box-shadow: inset -2px 0 0 $osd_indicator_color; }
     }
   }
 
   * StIcon { icon-size: $icon_size; }
+
+  &-corner {
+    &,
+    &:active,
+    &:overview,
+    &:focus {
+      -panel-corner-radius: 0;
+      -panel-corner-background-color: $panel_bg_color;
+      -panel-corner-inner-border-width: 0;
+      -panel-corner-inner-border-color: transparent;
+      -panel-corner-outer-border-width: 0;
+      -panel-corner-outer-border-color: transparent;
+    }
+  }
+
+  &-menu { -boxpointer-gap: 4px }
 }
+
+#appMenu { spacing: 4px; }
 
 .system-status-icon {
   icon-size: $icon_size;
-  padding: 0 5px;
+  margin: 0;
+  spacing: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
@@ -535,43 +608,19 @@ $icon_size: 16px;
   }
 }
 
-.expo-workspaces-name-entry,
-.expo-workspaces-name-entry#selected {
-  @include fontscaling($ref_size * 0.9);
-  @include entry(osd);
-  -cinnamon-caption-spacing: 12px;
-  height: 15px;
-  padding: 4px 8px;
-  border-radius: 2px;
-  &:focus {
-    @include entry(osd-focus);
-    color: $selected_fg_color;
-    selection-background-color: $selected_fg_color;
-    selected-color: $selected_bg_color;
-  }
-}
-
-.expo-workspace-thumbnail-frame {
-  border-radius: 2px;
-  border: 4px solid $osd_semi_fill_color;
-  background-color: transparent;
-  &#active {
-    border-radius: 2px;
-    border: 4px solid $selected_bg_color;
-    background-color: black;
-  }
-}
-
-.expo-background { background-color: opacify($osd_bg_color, 1); }
-
 .workspace {
-  // &-controls { visible-height: 32px; }
+  &-controls { visible-height: 32px; }
 
   &-thumbnails {
     spacing: 26px;
 
     &-background,
     &-background:rtl { padding: 8px; }
+  }
+
+  &-thumbnail-indicator {
+    outline: 0 none transparent;
+    border: 2px solid $osd_indicator_color;
   }
 
   &-add-button {
@@ -613,11 +662,6 @@ $icon_size: 16px;
   }
 }
 
-// .workspace-thumbnail-indicator {
-//   outline: 2px solid red;
-//   border: 1px solid green;
-// }
-//
 // .window-close:rtl {
 //   -st-background-image-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 // }
@@ -628,57 +672,30 @@ $icon_size: 16px;
   background-image: url("assets/misc/trash-icon.svg");
 }
 
+.overview-icon {
+  padding: 9px;
+  border: none;
+  border-radius: 2px;
+  color: $osd_fg_color;
+  transition-duration: 0.2s;
+  text-align: center;
 
-/*******************************************
- * About Dialog (applet.js and desklet.js) *
- *******************************************/
+  StLabel { padding-top: 6px; }
+}
 
-.about {
-  &-content {
-    width: 550px;
-    height: 250px;
-    spacing: 8px;
-    padding-bottom: 10px;
-  }
 
-  &-title {
-    @include fontscaling($ref_size * 2.0);
-    font-weight: 700;
-  }
+/*****************
+ * Looking Glass *
+ *****************/
 
-  &-uuid {
-    @include fontscaling($ref_size * 1.0);
-    color: $dim_fg_color;
-  }
-
-  &-icon {
-    padding-right: 20px;
-    padding-bottom: 14px;
-  }
-
-  &-scrollBox {
-    padding: 4px;
-    padding-right: 0;
-    border: 1px solid $borders_color;
-    border-radius: 0;
-    background-color: $base_color;
-
-    &-innerBox {
-      padding: 1.2em;
-      spacing: 1.2em;
-    }
-  }
-
-  &-description {
-    padding-top: 4px;
-    padding-bottom: 16px;
-  }
-
-  &-version {
-    @include fontscaling($ref_size * 1.0);
-    padding-left: 7px;
-    color: $dim_fg_color;
-  }
+#LookingGlassDialog {
+  spacing: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background-color: scale-color($base_color, $alpha: -10%);
+  color: $fg_color;
+  box-shadow: $z-depth-4;
 }
 
 
@@ -705,9 +722,7 @@ $icon_size: 16px;
     padding: 2px;
     border-radius: 100px;
     &:focus,
-    &:hover {
-      background-color: $semi_fill_color;
-    }
+    &:hover { background-color: $semi_fill_color; }
     &:active { background-color: $fill_color; }
   }
 
@@ -787,6 +802,13 @@ $icon_size: 16px;
   &-top { border-top-width: 0; }
 
   &-left { border-left-width: 0; }
+
+  &-with-events {
+    background-image: none;
+    color: $link_color;
+    font-weight: 400;
+    text-decoration: underline;
+  }
 }
 
 .calendar-week-number {
@@ -840,8 +862,8 @@ $icon_size: 16px;
 
   .popup-menu & {
     border-image: url("assets/misc/message.svg") 9 9 9 9;
-    &,
-    &.multi-line-notification { color: $fg_color; }
+
+    &, &.multi-line-notification { color: $fg_color; }
 
     .notification-button,
     .notification-icon-button {
@@ -872,7 +894,11 @@ $icon_size: 16px;
 }
 
 .notification {
-
+  // We use row-span = 2 for the image cell, which prevents its height
+  // preferences to be taken into account during allocation, so its height
+  // ends up being limited by the height of the content in the other rows.
+  // To avoid showing a stretched image, we set the minimum height of the
+  // table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 = 159
   &-with-image {
     min-height: 159px;
     color: $osd_fg_color;
@@ -976,15 +1002,13 @@ $icon_size: 16px;
   height: 104px;
   background-image: url("assets/misc/corner-ripple.svg");
   background-size: contain;
+  &:rtl { background-image: url("assets/misc/corner-ripple.svg"); }
 }
 
 
 /*****************
  * Modal Dialogs *
  *****************/
-
-.lightbox { background-color: rgba(0, 0, 0, 0.4); }
-.flashspot { background-color: white; }
 
 .modal-dialog {
   padding: 0 5px 6px 5px;
@@ -1014,7 +1038,9 @@ $icon_size: 16px;
       color: $osd_secondary_fg_color;
       &:hover,
       &:active,
+      &:focus,
       &:checked { color: $osd_fg_color; }
+      &:disabled { color: $osd_dim_fg_color; }
     }
   }
 }
@@ -1070,6 +1096,8 @@ $icon_size: 16px;
     box-shadow: none;
   }
 }
+
+// .lightbox { background-color: rgba(0, 0, 0, 0.4); }
 
 
 /**********************************
@@ -1375,12 +1403,20 @@ $icon_size: 16px;
 
 .window-list {
   &-box {
-    spacing: 6px;
+    spacing: 2px;
     padding-left: 10px;
+    padding-top: 0;
 
     .panel-bottom & { padding-top: 1px; }
 
     .panel-top & { padding-bottom: 1px; }
+
+    &.vertical {
+      spacing: 3px;
+      padding: 10px 0;
+
+      #appMenuIcon { padding-top: 3px; }
+    }
   }
 
   &-item-label {
@@ -1645,6 +1681,74 @@ $icon_size: 16px;
   }
 }
 
+// 3.2.x
+.launcher {
+  margin: 2px;
+  padding: 2px;
+  spacing: 3px;
+  transition-duration: 0.2s;
+  &:hover {
+    border: 0 solid $selected_bg_color;
+    background-gradient-direction: none;
+
+    .panel-bottom & {
+      padding-bottom: 0;
+      border-bottom-width: 2px;
+    }
+
+    .panel-top & {
+      padding-top: 0;
+      border-top-width: 2px;
+    }
+
+    .panel-right & {
+      padding-top: 0;
+      border-right-width: 2px;
+    }
+
+    .panel-left & {
+      padding-bottom: 0;
+      border-left-width: 2px;
+    }
+  }
+
+  .icon-box { padding-top: 2px; }
+}
+
+.panel-launchers {
+  padding-left: 7px;
+  spacing: 2px;
+
+  &.vertical {
+    padding: 2px 0;
+    spacing: 3px;
+  }
+
+  .launcher {
+    .icon-box { padding-top: 0; }
+  }
+}
+
+.panel-launcher-add-dialog {
+  &-content-box {
+    padding: 6px;
+    spacing: 20px;
+
+    &-left {
+      padding: 6px;
+      spacing: 20px;
+    }
+
+    &-right {
+      padding: 6px;
+      spacing: 10px;
+    }
+  }
+
+  &-entry { @extend %entry; }
+}
+
+
 /*******************
  * Overview corner *
  *******************/
@@ -1668,6 +1772,8 @@ $icon_size: 16px;
     width: 1px;
     // background: rgba(255, 255, 255, 0.12);
     background: transparent;
+
+    &-vertical { background: transparent; }
   }
 
   &-box {
@@ -1680,9 +1786,20 @@ $icon_size: 16px;
       background-color: rgba(0, 0, 0, 0.01);
       box-shadow: inset 0 -2px 0 $osd_indicator_color;
     }
+    &:highlight { background-color: $accent_active_fill_color; }
+
+    &.vertical { padding: 3px 0; }
 
     .panel-top & { // flip indicators vertically
       &:hover { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+    }
+
+    .panel-left & { // vertical indicators
+      &:hover { box-shadow: inset 2px 0 0 $osd_indicator_color; }
+    }
+
+    .panel-right & { // vertical indicators
+      &:hover { box-shadow: inset -2px 0 0 $osd_indicator_color; }
     }
   }
 
@@ -1707,7 +1824,6 @@ $icon_size: 16px;
       text-shadow: none;
     }
   }
-
 }
 
 
@@ -1769,6 +1885,11 @@ $icon_size: 16px;
     border: 2px solid $accent_color;
     background-color: transparentize($accent_color, 0.2);
   }
+
+  // 3.2.x?
+  &:highlight,
+  &:highlight-with-borders,
+  &:highlight-with-borders-and-header { background-color: $accent_active_fill_color; }
 }
 
 .photoframe-box {
@@ -1776,6 +1897,59 @@ $icon_size: 16px;
   padding-bottom: 16px;
   border-image: url("assets/misc/bg.svg") 9 9 9 9;
   color: $osd_fg_color;
+}
+
+
+/*******************************************
+ * About Dialog (applet.js and desklet.js) *
+ *******************************************/
+
+.about {
+  &-content {
+    width: 550px;
+    height: 250px;
+    spacing: 8px;
+    padding-bottom: 10px;
+  }
+
+  &-title {
+    @include fontscaling($ref_size * 2.0);
+    font-weight: 700;
+  }
+
+  &-uuid {
+    @include fontscaling($ref_size * 1.0);
+    color: $dim_fg_color;
+  }
+
+  &-icon {
+    padding-right: 20px;
+    padding-bottom: 14px;
+  }
+
+  &-scrollBox {
+    padding: 4px;
+    padding-right: 0;
+    border: 1px solid $borders_color;
+    border-radius: 0;
+    background-color: $base_color;
+
+    &-innerBox {
+      padding: 1.2em;
+      spacing: 1.2em;
+    }
+  }
+
+  &-description {
+    padding-top: 4px;
+    padding-bottom: 16px;
+  }
+
+  &-version {
+    @include fontscaling($ref_size * 1.0);
+    padding-left: 7px;
+    color: $dim_fg_color;
+  }
 }
 
 
@@ -1790,6 +1964,35 @@ $icon_size: 16px;
   font-weight: 700;
 }
 
+.expo-workspaces-name-entry,
+.expo-workspaces-name-entry#selected {
+  @include fontscaling($ref_size * 0.9);
+  @include entry(osd);
+  -cinnamon-caption-spacing: 12px;
+  height: 15px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  &:focus {
+    @include entry(osd-focus);
+    color: $selected_fg_color;
+    selection-background-color: $selected_fg_color;
+    selected-color: $selected_bg_color;
+  }
+}
+
+.expo-workspace-thumbnail-frame {
+  border-radius: 2px;
+  border: 4px solid $osd_semi_fill_color;
+  background-color: transparent;
+  &#active {
+    border-radius: 2px;
+    border: 4px solid $selected_bg_color;
+    background-color: black;
+  }
+}
+
+.expo-background { background-color: opacify($osd_bg_color, 1); }
+
 
 /***********************
  * Notification Applet *
@@ -1800,6 +2003,8 @@ $icon_size: 16px;
 
   &-container { max-height: 100px; }
 }
+
+.flashspot { background-color: $selected_fg_color; }
 
 
 /****************
