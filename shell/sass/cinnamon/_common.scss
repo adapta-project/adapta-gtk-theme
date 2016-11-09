@@ -1070,10 +1070,10 @@ $icon_size: 16px;
   > * { padding: 0; }
 
   &-label {
+    @include fontscaling($ref_size * 0.9);
     padding-bottom: 0;
-    color: $osd_fg_color;
-    font-size: 0;
-    font-weight: 700;
+    color: $osd_dim_fg_color;
+    font-weight: 400;
   }
 
   &-error-label { color: $error_color; }
@@ -1092,13 +1092,15 @@ $icon_size: 16px;
 
   &-entry {
     @include entry(osd);
-    width: 20em;
+    width: 28em;
     padding: 7px;
     border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.01);
     color: $osd_fg_color;
     caret-color: $osd_fg_color;
     selected-color: $selected_fg_color;
     selection-background-color: $selected_bg_color;
+    box-shadow: inset 0 -2px $osd_indicator_color;
     &:focus { @include entry(osd-focus); }
   }
 
