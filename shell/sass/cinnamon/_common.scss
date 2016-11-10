@@ -81,7 +81,8 @@ stage {
   transition: none;
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
-  &:focus { @include entry(focus); }
+  &:focus,
+  &:focus:hover { @include entry(focus); }
   &:hover { @include entry(hover); }
   &:insensitive { @include entry(insensitive); }
 
