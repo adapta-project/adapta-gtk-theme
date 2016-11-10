@@ -1880,15 +1880,20 @@ headerbar {
       min-height: $icon_size;
       padding-top: rem(($widget_size - $icon_size - 4px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 1.3px) / 2);
+
+      // prepare for tall and dense fonts
+      label { margin: rem(-2px) 0; }
     }
   }
 
   button:not(.text-button),
   button.image-button:not(.text-button),
   button.title-button:not(.text-button) {
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(($widget_size - $icon_size) / 2);
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
   }
 
   .linked > button {
@@ -1903,17 +1908,21 @@ headerbar {
 
   button.toggle:not(.text-button),
   button.toggle.title-button {
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(($widget_size - $icon_size) / 2)
-             rem(($widget_size - $icon_size + 1px) / 2);
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
   }
 
   stackswitcher button:not(.image-button),
   .stack-switcher > button:not(.image-button) {
     min-height: $icon_size;
-    padding-top: rem(($widget_size - $icon_size - 4px) / 2);
-    padding-bottom: rem(($widget_size - $icon_size - 4px) / 2);
+    padding-top: rem(($widget_size - $icon_size - 5.3px) / 2);
+    padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
+
+    // prepare for tall and dense fonts
+    label { margin: rem(-2px) 0; }
   }
 
   button,

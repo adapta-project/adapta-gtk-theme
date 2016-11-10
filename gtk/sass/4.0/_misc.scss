@@ -430,27 +430,39 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
     &.image-button:not(.text-button) {
       min-height: $icon_size * 1.5;
       min-width: $icon_size * 1.5;
-      margin: rem(5.3px + 1.3px) 0;
+      margin: if($ref_weight < 1.0, rem(5.3px + 2.7px) 0,
+                                    rem(5.3px) 0);
       padding: if($ref_weight < 1.0,
-               rem(($widget_size - $icon_size * 1.5 - 2.7px) / 2),
+               rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                rem(($widget_size - $icon_size * 1.5) / 2));
     }
 
     // should be .text-button
     &:not(.image-button):not(.text-button):not(.suggested-action) {
       min-height: $icon_size;
-      margin: if($ref_weight < 1.0, rem(5.3px - 1.3px),
-                                    rem(5.3px));
       padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
+
+      label { margin: rem(-2px) 0; }
     }
   }
 
-  button.image-button:not(.text-button):not(.titlebutton) {
-    margin: rem(5.3px + 1.3px) 0;
-    padding: rem(($widget_size - $icon_size - 2.7px) / 2)
-             if($ref_weight < 1.0, rem(($widget_size - $icon_size + 2.7px) / 2),
-                                   rem(($widget_size - $icon_size) / 2));
+  box.horizontal:not(.linked):not(.right) {
+    button.image-button:not(.text-button):not(.titlebutton) {
+      margin: if($ref_weight < 1.0, rem(5.3px + 2.7px) 0,
+                                    rem(5.3px) 0);
+      padding: if($ref_weight < 1.0,
+               rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+               rem(($widget_size - $icon_size * 1.5) / 2));
+    }
+  }
+
+  button.suggested-action { // 'send' button
+    min-height: $icon_size;
+    padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
+    padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
+
+    label { margin: rem(-2px) 0; }
   }
 }
 
@@ -718,10 +730,11 @@ window.background.csd > headerbar.titlebar > box.horizontal > box.horizontal,
 window.background.solid-csd > headerbar.titlebar > box.horizontal > box.horizontal {
   // 'search' button
   > button.toggle:not(.text-button):not(.image-button):not(.popup) {
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(($widget_size - $icon_size) / 2)
-             rem(($widget_size - $icon_size + 2px) / 2);
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
   }
 }
 
@@ -896,6 +909,7 @@ $fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
 paned.titlebar.horizontal {
   headerbar {
     button.flat.toggle.popup:not(.image-button) { // left-pane header button
+      min-height: $icon_size;
       padding-top: rem(($widget_size - $icon_size - 4px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 1.3px) / 2);
       border-radius: 2px;
@@ -1785,9 +1799,9 @@ window headerbar > box.horizontal:not(.linked) {
     &:not(.toggle):not(.popup):not(.color):not(.titlebutton) {
       &:not(.destructive-action):not(.suggested-action) {
         // 'list/grid' view changer
-        min-width: $icon_size;
-        min-width: $icon_size;
-        padding: rem(($widget_size - $icon_size) / 2);
+        min-width: $icon_size * 1.5;
+        min-width: $icon_size * 1.5;
+        padding: rem(($widget_size - $icon_size * 1.5) / 2);
       }
     }
   }

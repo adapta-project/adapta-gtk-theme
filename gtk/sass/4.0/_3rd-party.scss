@@ -1397,9 +1397,11 @@ headerbar.titlebar box {
   }
 
   button.image-button.toggle { // tweet button
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(10.7px);
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
   }
 }
 
@@ -1586,16 +1588,20 @@ headerbar.titlebar box {
 
 window > headerbar > widget > box.horizontal {
   > grid.horizontal > button.toggle.image-button {
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(10.7px);
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
   }
 
   > button.image-button {
-    min-width: $icon_size;
-    min-height: $icon_size;
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
     margin: -2px 0;
-    padding: rem(10.7px);
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
   }
 }
 
