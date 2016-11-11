@@ -4468,13 +4468,13 @@ row {
  *********************/
 
 .app-notification {
-  &, &.frame {
+  &, &.frame { // concern WMs w/o compositor
     @extend %osd;
     @extend toolbar.osd;
     border-radius: 2px;
     border: 1px solid $inverted_dark_color;
     color: $inverted_fg_color;
-    background-color: gtkopacity($inverted_dark_color, 0.9);
+    background-color: $inverted_dark_color;
     box-shadow: none;
 
     box.vertical {
