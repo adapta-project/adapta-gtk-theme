@@ -4770,11 +4770,13 @@ filechooserbutton:drop(active) {
   color: $secondary_fg_color;
 
   &, list { // draw shadows
-     &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                      $sidebar-dark-ltr);
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                     $sidebar-dark-rtl);
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
     }
   }
 
