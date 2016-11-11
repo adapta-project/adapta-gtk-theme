@@ -1868,17 +1868,31 @@ headerbar {
         -gtk-outline-radius: 2px;
       }
     }
+
+    &.lock {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+      font-weight: 700;
+    }
   }
 
   // adjust spacing for finer aspect-ratio
   button.text-button,
   button:not(.image-button):not(.text-button):not(.title-button):not(.titlebutton) {
     &,
-    &.lock,
     &.toggle {
       min-height: $icon_size;
       padding-top: rem(($widget_size - $icon_size - 4px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 1.3px) / 2);
+
+      // prepare for tall and dense fonts
+      label { margin: rem(-2px) 0; }
+    }
+
+    &.lock {
+      min-height: $icon_size;
+      padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
+      padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
 
       // prepare for tall and dense fonts
       label { margin: rem(-2px) 0; }
