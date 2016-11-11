@@ -418,13 +418,31 @@ NautilusTrashBar {
                rem(($widget_size - $icon_size * 1.5) / 2));
     }
 
-    // should be .text-button
+    // 'archive' button
     &:not(.image-button):not(.text-button):not(.suggested-action) {
       min-height: $icon_size;
+      margin: if($ref_weight < 1.0, rem(5.3px + 2.7px) 0,
+                                    rem(5.3px) 0);
       padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
 
-      label { margin: rem(-2px) 0; }
+      label {
+        margin: rem(-2px) 0;
+        font-weight: 700;
+      }
+    }
+  }
+
+  > button.suggested-action { // 'send' button
+    min-height: $icon_size;
+    margin: if($ref_weight < 1.0, rem(5.3px + 2.7px) 0,
+                                  rem(5.3px) 0);
+    padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
+    padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
+
+    label {
+      margin: rem(-2px) 0;
+      font-weight: 700;
     }
   }
 
