@@ -780,6 +780,10 @@ gtknexteta_file = \
 	$(gtknextetadir)/gtk.css \
 	$(gtknextetadir)/gtk-dark.css
 
+xfcenotifydir   = $(srcdir)/xfce-notify-4.0
+xfcenotify_file = \
+	$(xfcenotifydir)/gtk.css
+
 index_file       = $(srcdir)/index.theme
 index_nokto_file = $(srcdir)/index.theme-nokto
 indexeta_file       = $(srcdir)/index.theme-eta
@@ -848,7 +852,6 @@ endif
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(srcdir)/gtk-4.0
 	$(MKDIR_P) $(srcdir)/gtk-4.0-eta
-
 if ENABLE_PARALLEL
 	cd $(srcdir)/sass && \
 	$(PARALLEL) --no-notice --line-buffer -j0 \
@@ -865,6 +868,13 @@ else
 		4.0/gtk-eta.scss:../gtk-4.0-eta/gtk.css \
 		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css
 endif
+endif
+
+if ENABLE_XFCE
+	$(MKDIR_P) $(srcdir)/xfce-notify-4.0
+	cd $(srcdir)/sass && \
+	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
+		common/xfce-notify-4.0.scss:../xfce-notify-4.0/gtk.css
 endif
 
 if ENABLE_PARALLEL
@@ -1096,6 +1106,11 @@ if ENABLE_GTK_NEXT
 	ln -sf ../Adapta-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
 endif
 
+if ENABLE_XFCE
+	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfcenotify_file) $(adaptadir)/xfce-notify-4.0
+endif
+
 # *******************
 # * Uninstall files *
 # *******************
@@ -1133,6 +1148,11 @@ if ENABLE_GTK_NEXT
 	test -e $(adaptaetadir)/gtk-4.0 && rm -rfv $(adaptaetadir)/gtk-4.0
 endif
 
+if ENABLE_XFCE
+	test -e $(adaptadir)/xfce-notify-4.0/gtk.css && \
+		rm -rfv $(adaptadir)/xfce-notify-4.0/gtk.css
+endif
+
 # ****************************
 # * Clean up generated files *
 # ****************************
@@ -1155,7 +1175,8 @@ CLEANFILES = \
 	$(srcdir)/asset/assets-gtk2.svg \
 	$(srcdir)/asset/assets-gtk3.svg \
 	$(srcdir)/gtk-2.0/colors.rc \
-	$(srcdir)/gtk-2.0/colors-dark.rc
+	$(srcdir)/gtk-2.0/colors-dark.rc \
+	$(srcdir)/xfce-notify-4.0/gtk.css
 if ENABLE_GTK_NEXT
 CLEANFILES += \
 	$(srcdir)/gtk-4.0/gtk.css \

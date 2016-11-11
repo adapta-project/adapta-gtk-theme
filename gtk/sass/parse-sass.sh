@@ -71,7 +71,8 @@ case "$1" in
 		4.0/gtk.scss:../gtk-4.0/gtk.css \
 		4.0/gtk-dark.scss:../gtk-4.0/gtk-dark.css \
 		4.0/gtk-eta.scss:../gtk-4.0-eta/gtk.css \
-		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css
+		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css \
+		common/xfce-notify-4.0.scss:../xfce-notify-4.0/gtk.css
         else
             bundle exec sass --update --sourcemap=none --watch --style=compact \
 		3.18/gtk.scss:../gtk-3.18/gtk.css \
@@ -87,7 +88,8 @@ case "$1" in
 		4.0/gtk.scss:../gtk-4.0/gtk.css \
 		4.0/gtk-dark.scss:../gtk-4.0/gtk-dark.css \
 		4.0/gtk-eta.scss:../gtk-4.0-eta/gtk.css \
-		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css
+		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css \
+		common/xfce-notify-4.0.scss:../xfce-notify-4.0/gtk.css
         fi
         ;;
     *)

@@ -1,0 +1,75 @@
+/*******************
+ * Xfce-Notify-4.0 *
+ *******************/
+
+// FIXME: drop-shadow composition does not work
+#XfceNotifyWindow {
+  &, &:hover {
+    border-radius: 2px;
+    border: 1px solid $inverted_dark_color;
+    color: $inverted_fg_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    box-shadow: none;
+  }
+
+  box.vertical {
+    > label#summary {
+      color: $inverted_fg_color;
+      font-weight: 700;
+    }
+
+    > label#body { color: $inverted_secondary_fg_color; }
+  }
+
+  buttonbox button {
+    @extend %button_flat_normal;
+    background-color: transparent;
+    &:not(:active):not(:disabled):not(hover) {
+      background-color: transparent;
+      color: $inverted_secondary_accent_label_color;
+    }
+    &:hover {
+      @extend %button_flat_hover;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      border-image: none;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+      box-shadow: none;
+    }
+    &:checked {
+      @extend %button_flat_checked;
+      border-image: none;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+      box-shadow: none;
+    }
+    &:disabled {
+      @extend %button_flat_disabled;
+      background-color: transparent;
+      color: gtkopacity($inverted_accent_label_color, 0.4);
+    }
+  }
+
+  progressbar {
+    min-width: 4px;
+    min-height: 4px;
+
+    trough {
+      border-style: none;
+      background-color: gtkopacity($accent_color, 0.2);
+      box-shadow: none;
+    }
+
+    progress {
+      border-style: none;
+      border-radius: 0;
+      background-image: none;
+      background-color: $accent_color;
+    }
+  }
+}
+
