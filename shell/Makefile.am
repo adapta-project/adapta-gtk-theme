@@ -599,10 +599,6 @@ endif
 if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
 	cp -Rv $(xfce_file) $(adaptadir)/xfce-notify-4.0
-	cd $(adaptadir)
-	ln -sf ../Adapta/xfce-notify-4.0 $(noktodir)/xfce-notify-4.0
-	ln -sf ../Adapta/xfce-notify-4.0 $(adaptaetadir)/xfce-notify-4.0
-	ln -sf ../Adapta/xfce-notify-4.0 $(noktoetadir)/xfce-notify-4.0
 endif
 
 # *******************
