@@ -943,7 +943,8 @@ StScrollBar {
  ***********/
 
 #panel {
-  height: 25px; // = 1.875em
+  height: if($eta == 'false', 30px,  // = 2.25em
+                              25px); // = 1.875em
   background-color: $panel_bg_color;
   font-weight: 700;
 
