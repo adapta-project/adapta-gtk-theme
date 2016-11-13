@@ -232,7 +232,6 @@ cinnamon_asset_misc_file = \
 	$(cinnamondir)/assets/misc/desklet-header.svg \
 	$(cinnamondir)/assets/misc/desklet.svg \
 	$(cinnamondir)/assets/misc/message.svg \
-	$(cinnamondir)/assets/misc/modal.svg \
 	$(cinnamondir)/assets/misc/osd.svg \
 	$(cinnamondir)/assets/misc/overview-hover.svg \
 	$(cinnamondir)/assets/misc/overview.svg \
@@ -274,7 +273,6 @@ cinnamon_nokto_asset_misc_file = \
 	$(cinnamonnoktodir)/assets/misc/desklet-header.svg \
 	$(cinnamonnoktodir)/assets/misc/desklet.svg \
 	$(cinnamonnoktodir)/assets/misc/message.svg \
-	$(cinnamonnoktodir)/assets/misc/modal.svg \
 	$(cinnamonnoktodir)/assets/misc/osd.svg \
 	$(cinnamonnoktodir)/assets/misc/overview-hover.svg \
 	$(cinnamonnoktodir)/assets/misc/overview.svg \

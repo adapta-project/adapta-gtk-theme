@@ -1031,9 +1031,9 @@ $icon_size: 16px;
   padding: 0 5px 6px 5px;
   border: none;
   border-radius: 2px;
-  border-image: url("assets/misc/modal.svg") 9 9 9 67;
   color: $osd_fg_color;
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  box-shadow: $z-depth-4;
 
   > StBoxLayout:first-child { padding: 20px 10px 10px 10px; }
 
@@ -1050,11 +1050,18 @@ $icon_size: 16px;
       height: 30px;
       padding-top: 0;
       padding-bottom: 0;
-      color: $osd_secondary_fg_color;
-      &:hover,
-      &:active,
-      &:focus,
-      &:checked { color: $osd_fg_color; }
+      color: $inverted_secondary_accent_label_color;
+      font-weight: 700;
+      &:hover {
+        color: $inverted_accent_label_color;
+        background-color: $accent_fill_color;
+      }
+      &:focus { color: $inverted_accent_label_color; }
+      &:active {
+        color: $inverted_accent_label_color;
+        background-color: $accent_active_fill_color;
+        box-shadow: none;
+      }
       &:disabled { color: $osd_dim_fg_color; }
     }
   }
