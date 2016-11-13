@@ -6,7 +6,7 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 Before using Adapta
 -------------------
 
-Adapta strongly depends on results of the Material Design, especially **fonts** are very important stuffs.
+Adapta strongly depends on Material Design resources, especially its **fonts**.
 
 ####Typography
  1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
