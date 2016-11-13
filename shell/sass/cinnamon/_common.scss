@@ -313,7 +313,7 @@ StScrollBar {
 // with cinnamon version under 3.2. Use .menu in version 3.2 and above
 
 .menu {
-  min-width: 100px;
+  min-width: 200px;
   padding: 0;
   background-color: $bg_color;
   color: $secondary_fg_color;
@@ -321,7 +321,7 @@ StScrollBar {
 
 .popup-menu,
 .menu {
-  min-width: 100px;
+  min-width: 200px;
   padding: 0;
   border-width: 3px; // same value as padding embedded in the pixmaps
   border-image: url("assets/menu/menu.svg") 9 9 9 9;
@@ -330,9 +330,10 @@ StScrollBar {
   &-arrow { icon-size: 16px; }
 
   .popup-sub-menu {
+    min-width: 200px;
     border-image: url("assets/menu/submenu.svg") 9 9 0 0;
     background-gradient-direction: none;
-    box-shadow: 0 0 transparent;
+    box-shadow: none;
 
     .popup-menu-item {
       &:ltr { padding-right: 0; }
