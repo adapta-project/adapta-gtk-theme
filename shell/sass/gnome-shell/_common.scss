@@ -138,8 +138,6 @@ StScrollBar {
     background-color: if($nokto == 'false',
                       scale-color($inverted_fg_color, $alpha: -40%),
                       scale-color($fg_color, $alpha: -40%));
-    // would be nice to margin or at least to transparent
-    // border: 4px solid transparent;
     &:hover {
       background-color: if($nokto == 'false',
                         scale-color($inverted_fg_color, $alpha: -20%),
@@ -662,11 +660,8 @@ StScrollBar {
     &:insensitive { color: scale-color($secondary_fg_color, $alpha: -50%); }
   }
 
-  // dunno what that is
-  // .popup-status-menu-item {
-  //   font-weight: 500;
-  //   color: pink;
-  // }
+  .popup-status-menu-item {
+  }
 
   &.panel-menu {
     -boxpointer-gap: 4px;
@@ -727,7 +722,6 @@ StScrollBar {
 }
 
 .popup-separator-menu-item {
-  // -margin-horizontal: 24px;
   height: 1px; // not really the whole box
   margin: 0;
   spacing: 0;
@@ -752,7 +746,7 @@ StScrollBar {
 .masterslider.smaller {
   .masterlabel,
   .slider {
-    min-width: 14.2em; // 15em - 0.4em padding * 2
+    min-width: 15em - (0.4em * 2);
   }
 }
 
@@ -1029,7 +1023,6 @@ StScrollBar {
     .system-status-icon {
       icon-size: 16px;
       padding: 0 3px;
-      // spacing: 2px;
     }
 
     StLabel { padding: 0 2px 1px; }
@@ -1230,8 +1223,6 @@ StScrollBar {
 .calendar-today {
   border: none;
   font-weight: 700 !important;
-  // color: $fg_color;
-  // background-color: transparent;
 }
 
 .calendar-other-month-day {
@@ -1389,12 +1380,12 @@ StScrollBar {
 .system-switch-user-submenu-icon {
   &.user-icon {
     icon-size: 20px;
-    padding: 0 1px; // FIXME: why 2px wasn't fitted?
+    padding: 0 2px - 1px;
   }
 
   &.default-icon {
     icon-size: 16px;
-    padding: 0 3px; // FIXME: why 4px wasn't fitted?
+    padding: 0 4px - 1px;
   }
 }
 
@@ -1877,7 +1868,6 @@ StScrollBar {
     box-shadow: none;
   }
 
-  // draw edge if dock were not extended
   @each $_dock, $_radius in (top, 0 0 2px 2px),
                             (bottom, 2px 2px 0 0),
                             (left, 0 2px 2px 0),
@@ -1968,7 +1958,7 @@ StScrollBar {
 // .app-display { spacing: 20px; }
 
 .app-view-controls { // favorties | all toggle container
-  width: 344px; // search entry width + search icon width(24) ?
+  width: 320 + 24px; // search entry width + search icon width(24) ?
   padding-bottom: if($eta == 'false', 24px, 18px);
   background-color: rgba(0, 0, 0, 0.01) !important;
   box-shadow: inset 0 1px $osd_semi_fill_color;
@@ -2086,7 +2076,6 @@ StScrollBar {
 
 .show-apps {
   .show-apps-icon {
-    // margin: 6px;
     border: none;
     background-image: url("assets/show-apps.svg");
     background-size: contain;
@@ -2184,7 +2173,6 @@ StScrollBar {
   padding: 12px;
   border: none;
   border-radius: 0;
-  // border-width: 0; // FIXME: can't have non unoform borders :(
   background-color: rgba(19, 25, 28, 0.01);
   color: $osd_fg_color;
 }
@@ -2427,7 +2415,11 @@ StScrollBar {
   }
 }
 
-// Eeeky things
+
+/***************
+ * Legacy Tray *
+ ***************/
+
 $legacy_icon_size: 24px;
 
 .legacy-tray {
