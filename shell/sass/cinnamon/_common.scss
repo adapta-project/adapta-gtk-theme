@@ -716,10 +716,11 @@ $icon_size: 16px;
   spacing-columns: 0;
 
   &-month-label {
-    margin: 8px 0;
-    padding: 0;
+    @include fontscaling($ref_size * 0.8);
+    margin: 8px 2px;
+    padding: 0.2em 0 0; // adjust base-line
     color: $fg_color;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   &-change-month-back,
