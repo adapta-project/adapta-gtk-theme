@@ -67,7 +67,7 @@ Variant Matrix
 >
 >   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool and/or edit `$HOME/.config/gtk-3.0/settings.ini`.
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
->   * Metacity can enable Eta variants ( > 3.20.x or 3.22.x).
+>   * Metacity supports Eta variants (>= 3.20.x or 3.22.x).
 
 Elements
 --------
