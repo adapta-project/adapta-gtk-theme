@@ -615,10 +615,14 @@ StScrollBar {
     spacing: if($eta == 'false', 8px, 6px);
     color: $secondary_fg_color;
 
-    &:ltr { padding: if($eta == 'false', 0.45em 1.75em 0.45em 0,
-                                         0.3em 1.2em 0.3em 0); }
-    &:rtl { padding: if($eta == 'false', 0.45em 0 0.45em 1.75em,
-                                         0.3em 0 0.3em 1.2em); }
+    &:ltr {
+      padding: if($eta == 'false', 0.45em 1.75em 0.45em 0,
+                                   0.3em 1.2em 0.3em 0);
+    }
+    &:rtl {
+      padding: if($eta == 'false', 0.45em 0 0.45em 1.75em,
+                                   0.3em 0 0.3em 1.2em);
+    }
 
     &:checked {
       background-color: $selected_bg_color;
