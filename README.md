@@ -1,4 +1,4 @@
-<img src=".github/img/logo_thumb.png" alt="Logo" align="left" /> Adapta-gtk-theme
+<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="left" /> Adapta-gtk-theme
 ======
 
 An adaptive Gtk+ theme based on Material Design Guidelines.
@@ -45,19 +45,20 @@ That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2
 Variant Matrix
 --------------
 
-| |<img src=".github/img/sunlight.png" align="left"/> Adapta|<img src=".github/img/moon.png" align="left"/> Adapta-Nokto|<img src=".github/img/sunlight-eta.png" align="left"/> Adapta-Eta|<img src=".github/img/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
+| |<img
+src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight.png" align="left"/> Adapta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon.png" align="left"/> Adapta-Nokto|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight-eta.png" align="left"/> Adapta-Eta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|Gtk+ 3.18.x |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
-|Gtk+ 3.20.x |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
-|Gtk+ 3.22.x |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
-|Gtk+ 2.24.x |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
-|Mutter      |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|
-|Metacity    |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
-|Muffin      |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
-|Compiz      |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
-|XFwm4       |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
-|Marco       |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
-|Opnebox-3   |<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-on.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|<img src=".github/img/check-off.png" align="center" />|
+|Gtk+ 3.18.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Gtk+ 3.20.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.22.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 2.24.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Mutter      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Metacity    |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Muffin      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Compiz      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|XFwm4       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Marco       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Opnebox-3   |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
 
 > **Note:**
 >
@@ -71,7 +72,7 @@ Variant Matrix
 
 Elements
 --------
-![Materials](.github/img/Materials.png)
+![Materials](https://github.com/adapta-project/adapta-github-resources/blob/master/images/Materials.png)
 
 Required Components
 -------------------
