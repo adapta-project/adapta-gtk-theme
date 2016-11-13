@@ -177,7 +177,7 @@ Installation from Git Source
  >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
  >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
  >     It could especially shorten the rendering-time via Inkscape and generation-time via sass.
- >   * `-jN` option to be passed to GNU `make` is surely usable, but Adapta currently employs `parallel.
+ >   * `-jN` option to be passed to GNU `make` is surely usable, but Adapta currently employs `parallel`.
  >   * This feature should not be applied when packaging on remote/shared build-servers.
 
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
