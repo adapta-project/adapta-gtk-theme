@@ -136,8 +136,6 @@ StScrollBar {
     margin: 0;
     border-radius: 0;
     background-color: scale-color($fg_color, $alpha: -72%);
-    // would be nice to margin or at least to transparent
-    // border: 4px solid transparent;
     &:hover { background-color: scale-color($fg_color, $alpha: -59%); }
     &:active { background-color: scale-color($fg_color, $alpha: -0%); }
   }
@@ -202,17 +200,15 @@ StScrollBar {
     background-image: url("assets/checkbox/checkbox-unchecked.svg");
   }
 
-  // &:focus StBin {
-  //   background-image: url("assets/checkbox/checkbox-unchecked-focused.svg");
-  // }
+  &:focus StBin {
+  }
 
   &:checked StBin {
     background-image: url("assets/checkbox/checkbox-checked.svg");
   }
 
-  // &:focus:checked StBin {
-  //   background-image: url("assets/checkbox/checkbox-checked-focused.svg");
-  // }
+  &:focus:checked StBin {
+  }
 }
 
 
@@ -239,17 +235,15 @@ StScrollBar {
     background-image: url("assets/checkbox/radiobutton-unchecked.svg");
   }
 
-  // &:focus StBin {
-  //   background-image: url("assets/checkbox/radiobutton-unchecked-focused.svg");
-  // }
+  &:focus StBin {
+  }
 
   &:checked StBin {
     background-image: url("assets/checkbox/radiobutton-checked.svg");
   }
 
-  // &:focus:checked StBin {
-  //   background-image: url("assets/checkbox/radiobutton-checked-focused.svg");
-  // }
+  &:focus:checked StBin {
+  }
 }
 
 
@@ -410,7 +404,6 @@ StScrollBar {
     border-color: $borders_color;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    // border-image: url("assets/menu/menu-separator.svg") 1 1 1 1;
     background-color: transparent;
   }
 
@@ -677,9 +670,8 @@ $icon_size: 16px;
   }
 }
 
-// .window-close:rtl {
-//   -st-background-image-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-// }
+.window-close:rtl {
+}
 
 .window-close-area {
   width: 400px;
@@ -744,38 +736,16 @@ $icon_size: 16px;
   // arrow back
   &-change-month-back {
     background-image: url("assets/misc/calendar-arrow-left.svg");
-
-    // &:focus,
-    // &:hover { background-image: url("assets/misc/calendar-arrow-left-hover.svg"); }
-
-    // &:active { background-image: url("assets/misc/calendar-arrow-left.svg"); }
-
     &:rtl {
       background-image: url("assets/misc/calendar-arrow-right.svg");
-
-      // &:focus,
-      // &:hover { background-image: url("assets/misc/calendar-arrow-right-hover.svg"); }
-
-      // &:active { background-image: url("assets/misc/calendar-arrow-right.svg"); }
     }
   }
 
   // arrow forward
   &-change-month-forward {
     background-image: url("assets/misc/calendar-arrow-right.svg");
-
-    // &:focus,
-    // &:hover { background-image: url("assets/misc/calendar-arrow-right-hover.svg"); }
-
-    // &:active { background-image: url("assets/misc/calendar-arrow-right.svg"); }
-
     &:rtl {
       background-image: url("assets/misc/calendar-arrow-left.svg");
-
-      // &:focus,
-      // &:hover { background-image: url("assets/misc/calendar-arrow-left-hover.svg"); }
-
-      // &:active { background-image: url("assets/misc/calendar-arrow-left.svg"); }
     }
   }
 }
@@ -989,7 +959,8 @@ $icon_size: 16px;
   }
 }
 
-// .switcher-preview-backdrop { background-color: rgba(25, 25, 25, 0.95); }
+.switcher-preview-backdrop {
+}
 
 .thumbnail-scroll-gradient {
   &-left {
@@ -1042,7 +1013,6 @@ $icon_size: 16px;
     margin: 0;
     padding: 14px 10px;
     border: none;
-    // border-image: url("assets/misc/button-box.svg") 9 9 9 9;
     background: none;
 
     .modal-dialog-button {
@@ -1121,7 +1091,8 @@ $icon_size: 16px;
   }
 }
 
-// .lightbox { background-color: rgba(0, 0, 0, 0.4); }
+.lightbox {
+}
 
 
 /**********************************
@@ -1446,12 +1417,10 @@ $icon_size: 16px;
 
     .panel-top &,
     .panel-bottom & {
-      // padding: 0 3px;
     }
 
     .panel-left &,
     .panel-right & {
-      // padding: 2px 0;
     }
 
     &:hover {
