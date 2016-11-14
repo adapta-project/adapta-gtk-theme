@@ -1605,6 +1605,30 @@ window > headerbar > widget > box.horizontal {
   }
 }
 
+// left-pane styling
+window.background > grid.vertical > stack > paned.horizontal > widget {
+  grid.vertical > scrolledwindow {
+    background-color: $secondary_dark_color;
+
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
+    }
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
+    }
+
+    > treeview.view.sidebar {
+      background-color: transpaent;
+      font-weight: 500;
+
+      // FIXME: hard-coded?
+      // separator { color: $borders_color; }
+    }
+  }
+}
+
 
 /***************************
  * Cinnamon-Control-Center *
