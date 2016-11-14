@@ -1620,7 +1620,7 @@ window.background > grid.vertical > stack > paned.horizontal > widget {
     }
 
     > treeview.view.sidebar {
-      background-color: transpaent;
+      background-color: transparent;
       font-weight: 500;
 
       // FIXME: hard-coded?
@@ -2038,11 +2038,13 @@ widget.caja-desktop.view { // desktop icon-grid styling
   .caja-side-pane {
     scrolledwindow {
       background-color: $secondary_dark_color;
-      &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                       $sidebar-dark-ltr);
+      &:dir(ltr) {
+        box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                            $sidebar-dark-ltr);
       }
-      &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                       $sidebar-dark-rtl);
+      &:dir(rtl) {
+        box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                            $sidebar-dark-rtl);
       }
 
       treeview.view {

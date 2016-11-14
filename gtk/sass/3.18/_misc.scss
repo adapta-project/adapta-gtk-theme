@@ -132,11 +132,13 @@ NaTrayApplet {
   background-color: $secondary_dark_color;
   color: $secondary_fg_color;
 
-  &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                   $sidebar-dark-ltr);
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
   }
-  &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                   $sidebar-dark-rtl);
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
   }
 
   .separator { -GtkWidget-wide-separators: true; }
@@ -791,11 +793,13 @@ GdMainView,
 ContactsWindow {
   // side-bar styling
   ContactsListPane ContactsView { // = '.list'
-    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                     $sidebar-dark-ltr);
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                     $sidebar-dark-rtl);
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
     }
 
     .list-row.activatable {
@@ -1047,11 +1051,13 @@ GduWindow {
   GtkPaned > GtkScrolledWindow { // side-panel
     background-color: $secondary_dark_color;
 
-    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                     $sidebar-dark-ltr);
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                     $sidebar-dark-rtl);
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
     }
 
     GtkTreeView.view { background-color: transparent; }
@@ -1067,11 +1073,13 @@ DConfWindow {
   GtkBox.vertical > GtkPaned > GtkScrolledWindow { // side-panel
     background-color: $secondary_dark_color;
 
-    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                     $sidebar-dark-ltr);
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                     $sidebar-dark-rtl);
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
     }
 
     GtkTreeView.view {
