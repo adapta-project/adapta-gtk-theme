@@ -80,6 +80,15 @@ $budgie_transition: opacity 0.2s $slope_medium,
 }
 
 // icon tasklist styling
+box.horizontal.pinned { // drop-target
+  &:drop(active) {
+    border-color: transparent;
+    border-radius: 2px;
+    background-color: gtkopacity($drop_target_color, 0.2);
+    box-shadow: inset 0 0 0 2px $drop_target_color;
+  }
+}
+
 .budgie-panel {
   button.flat.launcher {
     &, &:backdrop {
