@@ -108,7 +108,7 @@ Unsupported Gtk+ Based Desktops
 
 Installation from Package(s)
 ----------------------------
- * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/ and some others
+ * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/
 
  * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
 
