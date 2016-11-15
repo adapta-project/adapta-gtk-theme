@@ -129,7 +129,7 @@ Installation from Git Source
  ```
 
 2. Check build-requirements:
- Today Adapta bundles neither pre-generated stylesheets nor PNG images.
+ Currently Adapta bundles neither pre-generated stylesheets nor PNG images.
  So users and/or contributors should generate proper CSSs and PNGs at build-time.
 
  ```
@@ -160,7 +160,7 @@ Installation from Git Source
  > **Note:**
  >
  >   * Default prefix is `/usr`.
- >   * `Adapta-Nokto` dark variant is installed as default.
+ >   * All 4 variants are installed by default.
  >   * `make` generates proper CSSs and PNGs to be installed.
  >     It will take about 5min to 15min to build.
  >     For example, Ubuntu's build-server takes 10min.
@@ -176,7 +176,7 @@ Installation from Git Source
  >
  >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
  >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
- >     It could especially shorten the rendering-time via Inkscape and generation-time via sass.
+ >     It could especially shorten the rendering-time via `inkscape` and generation-time via `sass`.
  >   * `-jN` option to be passed to GNU `make` is surely usable, but Adapta currently employs `parallel`.
  >   * This feature should not be applied when packaging on remote/shared build-servers.
 
