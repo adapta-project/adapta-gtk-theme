@@ -666,7 +666,6 @@ CLEANFILES = \
 	$(srcdir)/gnome-shell-nokto-eta/*.png \
 	$(srcdir)/gnome-shell-nokto-eta/assets/*.svg \
 	$(srcdir)/gnome-shell-nokto-eta/assets/dot/*.svg \
-	$(srcdir)/sass/common/_key_colors.scss \
 	$(srcdir)/asset/assets-gnome-shell/common/toggle-on-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/toggle-on.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/checkbox-hover.svg \
