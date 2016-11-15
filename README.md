@@ -25,7 +25,7 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
 > * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
 > * NotoSans CJK supports 500 weight.
 
-Adapta uses **NotoSans** as the primary font-family in Gnome-Shell (Cantarell is for fallback).
+Adapta uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
 In some distributions, users may need to install `fonts-noto-hinted`.
 
 Adapta is designed with nominal **13px (or 14px)** Roboto font.
