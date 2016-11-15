@@ -5555,6 +5555,10 @@ decoration {
     padding: rem(($widget_size - $icon_size) / 2);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
+    &:checked { // reset fill-area
+      background-color: transparent;
+      background-image: none;
+    }
   }
 
   box > button.titlebutton,
