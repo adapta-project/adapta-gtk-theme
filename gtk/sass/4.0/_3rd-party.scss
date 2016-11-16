@@ -849,6 +849,25 @@ box.end-region {
   }
 }
 
+// workspace-switcher applet
+box.start-region,
+box.center-region,
+box.end-region {
+  .top & {
+    wnck-pager{
+      &:hover { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
+      &:selected { box-shadow: inset 0 2px $selected_bg_color; }
+    }
+  }
+
+  .bottom & {
+    wnck-pager {
+      &:hover { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
+      &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+    }
+  }
+}
+
 // notifications
 .budgie-notification-window,
 .budgie-osd-window {
