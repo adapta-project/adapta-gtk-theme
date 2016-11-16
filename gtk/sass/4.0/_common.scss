@@ -1564,6 +1564,22 @@ toolbar {
         background-color: transparent;
         color: gtkalpha($inverted_fg_color, 0.4);
       }
+
+      &.image-button {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(6.7px);
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+      }
+
+      &.text-button {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(5.3px) rem(6.7px);
+      }
+
+      label { margin: rem(-2px, $sw: 1.0) 0; }
     }
 
     .linked > button {
@@ -1584,6 +1600,11 @@ toolbar {
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
+    }
+
+    spinner {
+      min-height: 2px;
+      padding: rem(5.3px, $sw: 1.0) 0;
     }
 
     label { padding: 0 1em; }
@@ -4490,11 +4511,9 @@ row {
  *********************/
 
 .app-notification {
-  &, &.frame { // concern WMs w/o compositor
+  &, &.frame {
     @extend %osd;
     @extend toolbar.osd;
-    border-radius: 2px;
-    border: 1px solid $inverted_dark_color;
     color: $inverted_fg_color;
     background-color: $inverted_dark_color;
     box-shadow: none;
