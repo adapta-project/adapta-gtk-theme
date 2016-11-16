@@ -3464,7 +3464,7 @@ switch {
                       mix($solid_light_borders_color, $fg_color, 95.5%));
     background-image: none;
     box-shadow: none;
- }
+  }
 
   row:selected & { // return to monochrome
     background-color: $bg_color;
@@ -3485,6 +3485,8 @@ switch {
 
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
+  row grid &,
+  row:selected grid &,
   grid & {
     min-width: rem(50px, $sw: 1.0);
     min-height: rem(28px, $sw: 1.0);
@@ -3533,7 +3535,10 @@ switch {
 
       &:dir(rtl) { background-position: left center; }
     }
+  }
 
+  row grid &,
+  grid & {
     // use ugly pixmaps
     &:not(:hover):not(:checked):not(:disabled) {
       background-image: -gtk-scaled(
@@ -3559,6 +3564,41 @@ switch {
         background-image: -gtk-scaled(
                           url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
                           url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
+      }
+    }
+    &:disabled,
+    &:disabled:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
+                        url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
+    }
+  }
+
+  row:selected grid & {
+    &:not(:hover):not(:checked):not(:disabled) {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off#{$asset_suffix}.png"),
+                        url("assets/toggle-off#{$asset_suffix}@2.png"));
+    }
+    &:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off-hover#{$asset_suffix}.png"),
+                        url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
+    }
+    &:checked {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-on-row#{$asset_suffix}.png"),
+                        url("assets/toggle-on-row#{$asset_suffix}@2.png"));
+      &:hover {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on-row-hover#{$asset_suffix}.png"),
+                          url("assets/toggle-on-row-hover#{$asset_suffix}@2.png"));
+      }
+      &:disabled,
+      &:disabled:hover {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on-row-insensitive#{$asset_suffix}.png"),
+                          url("assets/toggle-on-row-insensitive#{$asset_suffix}@2.png"));
       }
     }
     &:disabled,

@@ -282,6 +282,18 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/toggle-on-insensitive-dark.png \
 	$(gtk3_assetdir)/toggle-on-insensitive.png \
 	$(gtk3_assetdir)/toggle-on.png \
+	$(gtk3_assetdir)/toggle-on-row@2.png \
+	$(gtk3_assetdir)/toggle-on-row-dark@2.png \
+	$(gtk3_assetdir)/toggle-on-row-dark.png \
+	$(gtk3_assetdir)/toggle-on-row-hover@2.png \
+	$(gtk3_assetdir)/toggle-on-row-hover-dark@2.png \
+	$(gtk3_assetdir)/toggle-on-row-hover-dark.png \
+	$(gtk3_assetdir)/toggle-on-row-hover.png \
+	$(gtk3_assetdir)/toggle-on-row-insensitive@2.png \
+	$(gtk3_assetdir)/toggle-on-row-insensitive-dark@2.png \
+	$(gtk3_assetdir)/toggle-on-row-insensitive-dark.png \
+	$(gtk3_assetdir)/toggle-on-row-insensitive.png \
+	$(gtk3_assetdir)/toggle-on-row.png \
 	$(gtk3_assetdir)/thumbnail@2.png \
 	$(gtk3_assetdir)/thumbnail.png \
 	$(gtk3_assetdir)/window-close@2.png \
