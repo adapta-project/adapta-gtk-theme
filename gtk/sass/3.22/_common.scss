@@ -1566,17 +1566,16 @@ toolbar {
       }
 
       &.image-button {
-        min-width: $icon_size;
-        min-height: $icon_size;
-        padding: rem(6.7px);
+        min-width: rem($widget_size, $sw: 1.0);
+        min-height: rem($widget_size, $sw: 1.0);
+        padding: 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
 
       &.text-button {
-        min-width: $icon_size;
-        min-height: $icon_size;
-        padding: rem(5.3px) rem(6.7px);
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
       }
 
       label { margin: rem(-2px, $sw: 1.0) 0; }
@@ -1594,9 +1593,9 @@ toolbar {
       }
 
       &.image-button {
-        min-width: $icon_size;
-        min-height: $icon_size;
-        padding: rem(6.7px);
+        min-width: rem($widget_size, $sw: 1.0);
+        min-height: rem($widget_size, $sw: 1.0);
+        padding: 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }
@@ -1604,7 +1603,7 @@ toolbar {
 
     spinner {
       min-height: 2px;
-      padding: rem(5.3px, $sw: 1.0) 0;
+      padding: 0;
     }
 
     label { padding: 0 1em; }
