@@ -471,18 +471,6 @@ $full_orientation: ((top, bottom),
         .label { font-weight: 700; }
       }
     }
-
-    @at-root .user-menu > GtkBox.vertical .list-row.activatable:nth-child(3) {
-      // separator's row should not have outlines
-      outline-offset: 0;
-      outline-width: 0;
-      // FIXME: hide weird backgrounds
-      background-color: transparent;
-
-      // use asymmetrical separators
-      &:dir(ltr) { padding-left: 3em; }
-      &:dir(rtl) { padding-right: 3em; }
-    }
   }
 }
 

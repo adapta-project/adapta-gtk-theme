@@ -323,6 +323,15 @@ box.horizontal.pinned { // drop-target
 
       // FIXME: enlarge vertical spacing with padding of icons
       image { padding: rem(5.3px) 0 rem(6.7px); }
+
+      // use asymmetrical separators
+      separator.horizontal {
+        min-width: 1px;
+        min-height: 1px;
+
+        &:dir(ltr) { border-left: $icon_size * 2 solid transparent; }
+        &:dir(rtl) { border-right: $icon_size * 2 solid transparent; }
+      }
     }
     &.activatable:hover,
     &.activatable:selected {
@@ -410,21 +419,6 @@ box.horizontal.pinned { // drop-target
         }
 
         label { font-weight: 700; }
-      }
-    }
-
-    @at-root .user-menu > box.vertical row.activatable:nth-child(3) {
-      // separator's row should not have outlines
-      outline-offset: 0;
-      outline-width: 0;
-
-      // use asymmetrical separators
-      separator.horizontal {
-        min-width: 1px;
-        min-height: 1px;
-
-        &:dir(ltr) { border-left: $icon_size * 2 solid transparent; }
-        &:dir(rtl) { border-right: $icon_size * 2 solid transparent; }
       }
     }
   }
