@@ -3663,7 +3663,8 @@ switch {
 @each $w,$a in ('check', 'checkbox'),
                ('radio','radio') {
 
-  // standard checks and radios
+  // workaround for WebKitGtk
+  // FIXME: always use light variant check/radio in WebKit
   @each $s,$as in ('','-unchecked'),
                   (':hover', '-unchecked-active'),
                   (':active', '-unchecked-active'),
@@ -3677,6 +3678,27 @@ switch {
                   (':checked:active', '-checked-active'),
                   (':checked:disabled','-checked-insensitive') {
     .#{$w}#{$s}, #{$w}#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}.png"),
+                                    url("assets/#{$a}#{$as}@2.png"));
+      -gtk-icon-shadow: none;
+    }
+  }
+
+  // standard checks and radios
+  @each $s,$as in ('','-unchecked'),
+                  (':hover', '-unchecked-active'),
+                  (':active', '-unchecked-active'),
+                  (':disabled','-unchecked-insensitive'),
+                  (':indeterminate', '-mixed'),
+                  (':indeterminate:hover', '-mixed-active'),
+                  (':indeterminate:active', '-mixed-active'),
+                  (':indeterminate:disabled', '-mixed-insensitive'),
+                  (':checked', '-checked'),
+                  (':checked:hover', '-checked-active'),
+                  (':checked:active', '-checked-active'),
+                  (':checked:disabled','-checked-insensitive') {
+    .background .#{$w}#{$s},
+    .background #{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
