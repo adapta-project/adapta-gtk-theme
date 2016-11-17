@@ -247,7 +247,7 @@ box.horizontal.pinned { // drop-target
       color: $secondary_fg_color;
       transition: none;
 
-      // FIXME: enlarge vertical spacing with icon's padding
+      // FIXME: enlarge vertical spacing with padding of icons
       image { padding: rem(5.3px) 0 rem(6.7px); }
     }
     &:hover,
@@ -321,7 +321,7 @@ box.horizontal.pinned { // drop-target
         image { color: $secondary_fg_color; }
       }
 
-      // FIXME: enlarge vertical spacing with icons' paddding
+      // FIXME: enlarge vertical spacing with padding of icons
       image { padding: rem(5.3px) 0 rem(6.7px); }
     }
     &.activatable:hover,
@@ -530,14 +530,14 @@ box.horizontal.pinned { // drop-target
     font-size: 90%;
   }
 
-  scrolledwindow { background: transparent; }
+  scrolledwindow,
+  list { background: transparent; }
 
-  list,
   row,
   row.activatable {
     background-color: transparent;
-    &:not(.list):hover { color: $fg_color; }
-    &:not(.list):selected {
+    &:hover { color: $fg_color; }
+    &:selected {
       &, label {
         color: $selected_bg_color;
       }
@@ -1120,15 +1120,15 @@ box.end-region {
     &:disabled:active,
     &:disabled:indeterminate { color: $insensitive_inverted_fg_color; }
   }
+}
 
-  // polkit-dialog specific styling
-  &:not(.budgie-session-dialog) {
-    .message { color: $inverted_secondary_fg_color; }
+// polkit-dialog specific styling
+.budgie-polkit-dialog {
+  .message { color: $inverted_secondary_fg_color; }
 
-    .failure {
-      color: $error_color;
-      font-weight: 700;
-    }
+  .failure {
+    color: $error_color;
+    font-weight: 700;
   }
 }
 

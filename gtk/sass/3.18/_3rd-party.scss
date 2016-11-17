@@ -593,14 +593,14 @@ $full_orientation: ((top, bottom),
     font-size: 90%;
   }
 
-  GtkScrolledWindow { background: transparent; }
+  GtkScrolledWindow,
+  .list{ background: transparent; }
 
-  .list,
   .list-row,
   .list-row.activatable {
     background-color: transparent;
-    &:not(.list):hover { color: $fg_color; }
-    &:not(.list):selected {
+    &:hover { color: $fg_color; }
+    &:selected {
       color: $selected_bg_color;
       &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
     }
@@ -975,7 +975,9 @@ $full_orientation: ((top, bottom),
   }
 }
 
-.budgie-session-dialog {
+// session-dialog and polkit-dialog styling
+.budgie-session-dialog,
+.budgie-polkit-dialog {
   border-radius: 2px;
   border-width: 0;
   // always use dark-color of dark variant
@@ -1063,10 +1065,10 @@ $full_orientation: ((top, bottom),
   }
 }
 
+// polkit-dialog specific styling
 .budgie-polkit-dialog {
-  @extend .budgie-session-dialog;
-
   .message { color: $inverted_secondary_fg_color; }
+
   .failure {
     color: $warning_color;
     font-weight: 700;
