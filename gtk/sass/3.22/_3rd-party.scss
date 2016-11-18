@@ -1661,6 +1661,23 @@ window.background > grid.vertical > stack > paned.horizontal > widget {
   }
 }
 
+// playlists styling
+window.background > grid.vertical > stack > paned.horizontal {
+  > paned.horizontal > grid grid > grid {
+    button.flat.image-button { // back to square button
+      &, &.toggle {
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
+      }
+    }
+  }
+
+  .track-menu-button { // back to square button
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
+}
+
 
 /***************************
  * Cinnamon-Control-Center *
