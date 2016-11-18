@@ -2484,6 +2484,8 @@ GtkSwitch {
 
   // special case inside the grid container,
   // need to protect geometry by using pixmaps images...
+  .list-row GtkGrid &,
+  .list-row:selected GtkGrid &,
   GtkGrid & {
     -GtkSwitch-slider-width: 50px;
     -GtkSwitch-slider-height: 30px; // FIXME: prevent truncation of shadows
@@ -2511,7 +2513,10 @@ GtkSwitch {
         &:dir(rtl) { background-position: left 0; }
       }
     }
+  }
 
+  .list-row GtkGrid &,
+  GtkGrid & {
     &.trough { // use ugly pixmaps
       background-image: -gtk-scaled(
                         url("assets/toggle-off#{$asset_suffix}.png"),
@@ -2542,6 +2547,41 @@ GtkSwitch {
         background-image: -gtk-scaled(
                           url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
                           url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
+      }
+    }
+  }
+
+  .list-row:selected GtkGrid & {
+    &.trough { // use ugly pixmaps
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off-row#{$asset_suffix}.png"),
+                        url("assets/toggle-off-row#{$asset_suffix}@2.png"));
+      &:hover {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-off-row-hover#{$asset_suffix}.png"),
+                          url("assets/toggle-off-row-hover#{$asset_suffix}@2.png"));
+      }
+      &:active {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on-row#{$asset_suffix}.png"),
+                          url("assets/toggle-on-row#{$asset_suffix}@2.png"));
+        &:hover {
+          background-image: -gtk-scaled(
+                            url("assets/toggle-on-row-hover#{$asset_suffix}.png"),
+                            url("assets/toggle-on-row-hover#{$asset_suffix}@2.png"));
+        }
+        &:insensitive,
+        &:insensitive:hover {
+          background-image: -gtk-scaled(
+                            url("assets/toggle-on-row-insensitive#{$asset_suffix}.png"),
+                            url("assets/toggle-on-row-insensitive#{$asset_suffix}@2.png"));
+        }
+      }
+      &:insensitive,
+      &:insensitive:hover {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-off-row-insensitive#{$asset_suffix}.png"),
+                          url("assets/toggle-off-row-insensitive#{$asset_suffix}@2.png"));
       }
     }
   }
