@@ -597,12 +597,13 @@ endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
+	$(MKDIR_P) $(adaptadir)/gtk-2.0/Xfce
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Xfce
 	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Xfce
 	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfce_image_file) $(adaptadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_rc_file) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_image_file) $(adaptadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(noktodir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(adaptaetadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(noktoetadir)/gtk-2.0/Xfce
