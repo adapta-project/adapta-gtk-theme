@@ -3464,7 +3464,7 @@ switch {
     box-shadow: none;
   }
 
-  row:selected & { // return to monochrome
+  row:selected > & { // return to monochrome
     background-color: $bg_color;
     &:checked {
       background-color: $secondary_dark_color;
@@ -3481,10 +3481,11 @@ switch {
     &:checked:disabled slider { background-color: $secondary_dark_color; }
   }
 
-  // special case inside the grid container,
+  // special case inside the grid and row container,
   // need to protect geometry by using pixmaps images...
-  row grid &,
-  row:selected grid &,
+  // FIXME: wild-card should be dropped
+  row * &,
+  row:selected * &,
   grid & {
     min-width: rem(50px, $sw: 1.0);
     min-height: rem(28px, $sw: 1.0);
@@ -3535,7 +3536,7 @@ switch {
     }
   }
 
-  row grid &,
+  row * &,
   grid & {
     // use ugly pixmaps
     &:not(:hover):not(:checked):not(:disabled) {
@@ -3572,7 +3573,7 @@ switch {
     }
   }
 
-  row:selected grid & {
+  row:selected * & {
     &:not(:hover):not(:checked):not(:disabled) {
       background-image: -gtk-scaled(
                         url("assets/toggle-off-row#{$asset_suffix}.png"),
