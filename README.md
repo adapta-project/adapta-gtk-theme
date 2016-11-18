@@ -281,6 +281,7 @@ Work in Progress
 
 TODO
 ----
+* Prepare for SassC (priority: mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
