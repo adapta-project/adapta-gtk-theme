@@ -368,11 +368,12 @@ unity_file = \
 	$(unitydir)/unmaximize_unfocused.svg
 
 xfcedir   = $(srcdir)/xfce-notify-4.0
-xfce_file = \
+xfce_image_file = \
 	$(xfcedir)/flat-button-active.svg \
 	$(xfcedir)/flat-button-hover.svg \
 	$(xfcedir)/flat-button-insensitive.svg \
-	$(xfcedir)/flat-button.svg \
+	$(xfcedir)/flat-button.svg
+xfce_rc_file = \
 	$(xfcedir)/gtkrc
 
 # ****************************
@@ -596,7 +597,15 @@ endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfce_file) $(adaptadir)/xfce-notify-4.0
+	$(MKDIR_P) $(noktodir)/gtk-2.0/Xfce
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Xfce
+	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_image_file) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_image_file) $(adaptadir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_rc_file) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_image_file) $(noktodir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_image_file) $(adaptaetadir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_image_file) $(noktoetadir)/gtk-2.0/Xfce
 endif
 
 # *******************
@@ -622,14 +631,16 @@ if ENABLE_UNITY
 endif
 
 if ENABLE_XFCE
-	test -e $(noktodir)/xfce-notify-4.0 && \
-		rm -rfv $(noktodir)/xfce-notify-4.0
 	test -e $(adaptadir)/xfce-notify-4.0 && \
 		rm -rfv $(adaptadir)/xfce-notify-4.0
-	test -e $(noktoetadir)/xfce-notify-4.0 && \
-		rm -rfv $(noktoetadir)/xfce-notify-4.0
-	test -e $(adaptaetadir)/xfce-notify-4.0 && \
-		rm -rfv $(adaptaetadir)/xfce-notify-4.0
+	test -e $(adaptadir)/gtk-2.0/Xfce && \
+		rm -rfv $(adaptadir)/gtk-2.0/Xfce
+	test -e $(noktodir)/gtk-2.0/Xfce && \
+		rm -rfv $(noktodir)/gtk-2.0/Xfce
+	test -e $(adaptaetadir)/gtk-2.0/Xfce && \
+		rm -rfv $(adaptaetadir)/gtk-2.0/Xfce
+	test -e $(noktoetadir)/gtk-2.0/Xfce && \
+		rm -rfv $(noktoetadir)/gtk-2.0/Xfce
 endif
 
 # ****************************
