@@ -85,12 +85,6 @@ do
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
             echo $ASSETS_DARK_DIR/$d/$f exists.
-        elif [ -f $ASSETS_DIR/$d/$f ] && \
-            [ $SRC_DIR/$s -nt $ASSETS_DIR/$d/$f ]; then
-            echo Re-cloning $ASSETS_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
-            echo Re-cloning $ASSETS_DARK_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DAKR_DIR/$d/$f
         else
             echo Cloning $ASSETS_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
@@ -101,10 +95,6 @@ do
         if [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
-        elif [ -f $ASSETS_DIR/$d/$f ] && \
-            [ $SRC_DIR/$s -nt $ASSETS_DIR/$d/$f ]; then
-            echo Re-cloning $ASSETS_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
         else
             echo Cloning $ASSETS_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
@@ -113,10 +103,6 @@ do
         if [ -f $ASSETS_DARK_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DARK_DIR/$d/$f ]; then
             echo $ASSETS_DARK_DIR/$d/$f exists.
-        elif [ -f $ASSETS_DARK_DIR/$d/$f ] && \
-            [ $SRC_DIR/$s -nt $ASSETS_DARK_DIR/$d/$f ]; then
-            echo Re-cloning $ASSETS_DARK_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
         else
             echo Cloning $ASSETS_DARK_DIR/$d/$f
             cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f

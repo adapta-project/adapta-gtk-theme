@@ -82,76 +82,66 @@ do
     v="`echo $i | cut -c1`"                           # variant type
     d="`echo $i | cut -d' ' -f2`"                     # target directory
 
-    if [ $v = "c" ] || [ $v = "d" ]; then # 'commmon'
+    if [ $v = "c" ]; then # 'commmon'
         if [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
             echo $ASSETS_DARK_DIR/$d/$f exists.
             echo $ASSETS_ETA_DIR/$d/$f exists.
             echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
-        elif [ -f $ASSETS_DIR/$d/$f ] && \
-            [ $SRC_DIR/$s -nt $ASSETS_DIR/$d/$f ]; then
-            echo Re-cloning $ASSETS_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
-            echo Re-cloning $ASSETS_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
-            echo Re-cloning $ASSETS_DARK_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DAKR_DIR/$d/$f
-            echo Re-cloning $ASSETS_DARK_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DAKR_ETA_DIR/$d/$f
         elif [ $i = "common/noise-texture.png ." ]; then # PNG special case
             f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.png"
             echo Cloning $ASSETS_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f
             echo Cloning $ASSETS_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
             echo Cloning $ASSETS_DARK_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         else
             echo Cloning $ASSETS_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f
             echo Cloning $ASSETS_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
             echo Cloning $ASSETS_DARK_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
+        fi
+    elif [ $v = "d" ]; then # 'dot'
+        if [ -f $ASSETS_DIR/$d/$f ] && \
+            [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
+            echo $ASSETS_DIR/$d/$f exists.
+        elif [ -f $ASSETS_DIR/$d/$f ] && \
+            [ $SRC_DIR/$s -nt $ASSETS_DIR/$d/$f ]; then
+            echo Re-cloning $ASSETS_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f
+        else
+            echo Cloning $ASSETS_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f
         fi
     elif [ $v = "l" ] || [ $v = "w" ]; then # 'light'
         if [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
             echo $ASSETS_ETA_DIR/$d/$f exists.
-        elif [ -f $ASSETS_DIR/$d/$f ] && \
-            [ $SRC_DIR/$s -nt $ASSETS_DIR/$d/$f ]; then
-            echo Re-cloning $ASSETS_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
-            echo Re-cloning $ASSETS_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
         else
             echo Cloning $ASSETS_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f
             echo Cloning $ASSETS_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
         fi
-    else # 'dark'
+    elif [ $v = "n" ]; then # 'dark'
         if [ -f $ASSETS_DARK_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DARK_DIR/$d/$f ]; then
             echo $ASSETS_DARK_DIR/$d/$f exists.
             echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
-        elif [ -f $ASSETS_DARK_DIR/$d/$f ] && \
-            [ $SRC_DIR/$s -nt $ASSETS_DARK_DIR/$d/$f ]; then
-            echo Re-cloning $ASSETS_DARK_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
-            echo Re-cloning $ASSETS_DARK_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         else
             echo Cloning $ASSETS_DARK_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
-            cp $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
+            cp -f $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         fi
     fi
 done
