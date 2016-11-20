@@ -20,10 +20,6 @@ do
     if [ -f $ASSETS_DIR/$i.xbm ] && \
         [ $SRC_DIR/$i.xbm -ot $ASSETS_DIR/$i.xbm ]; then
         echo $ASSETS_DIR/$i.xbm exists.
-    elif [ -f $ASSETS_DIR/$i.xbm ] && \
-        [ $SRC_DIR/$i.xbm -nt $ASSETS_DIR/$i.xbm ]; then
-        echo Re-cloning $ASSETS_DIR/$i.xbm
-        cp $SRC_DIR/$i.xbm $ASSETS_DIR
     else
         echo Cloning $ASSETS_DIR/$i.xbm
         cp $SRC_DIR/$i.xbm $ASSETS_DIR
