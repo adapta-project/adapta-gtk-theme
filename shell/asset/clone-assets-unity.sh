@@ -70,10 +70,6 @@ do
         if [ -f $ASSETS_DIR/$s.svg ] && \
             [ $SRC_DIR/$s.svg -ot $ASSETS_DIR/$s.svg ]; then
             echo $ASSETS_DIR/$s.svg exists.
-        elif [ -f $ASSETS_DIR/$s.svg ] && \
-            [ $SRC_DIR/$s.svg -nt $ASSETS_DIR/$s.svg ]; then
-            echo Re-cloning $ASSETS_DIR/$s.svg
-            cp $SRC_DIR/$s.svg $ASSETS_DIR
         else
             echo Cloning $ASSETS_DIR/$s.svg
             cp $SRC_DIR/$s.svg $ASSETS_DIR
