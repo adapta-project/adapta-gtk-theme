@@ -11,7 +11,7 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 
 $icon_size: 16px;
 $widget_size: 37.3px;
-$attention: rem(6.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
+$attention: 6px 6px;
 $scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
@@ -455,14 +455,8 @@ entry {
 
 // stuff for .needs-attention
 @keyframes needs_attention {
-  from {
-    background-image: radial-gradient(gtkalpha($accent_color, 0) 68%,
-                                      transparent);
-  }
-  to {
-    background-image: radial-gradient($accent_color 68%,
-                                      transparent);
-  }
+  from { background-size: 0 0; }
+  to { background-size: $attention; }
 }
 
 button {
@@ -927,6 +921,8 @@ button {
   background-repeat: no-repeat;
   background-position: right top;
   background-size: $attention;
+  background-image: -gtk-scaled(url("assets/needs-attention.png"),
+                                url("assets/needs-attention@2.png"));
   animation: needs_attention 0.3s $slope_slow forwards;
   &:dir(rtl) { background-position: left top; }
 }

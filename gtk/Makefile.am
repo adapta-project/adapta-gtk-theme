@@ -120,6 +120,8 @@ gtk3_asset_file = \
 	$(gtk3_assetdir)/equal-insensitive-dark.png \
 	$(gtk3_assetdir)/equal-insensitive.png \
 	$(gtk3_assetdir)/equal.png \
+	$(gtk3_assetdir)/needs-attention@2.png \
+	$(gtk3_assetdir)/needs-attention.png \
 	$(gtk3_assetdir)/osd-shadow@2.png \
 	$(gtk3_assetdir)/osd-shadow-backdrop@2.png \
 	$(gtk3_assetdir)/osd-shadow-backdrop-dark@2.png \
