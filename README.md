@@ -283,7 +283,6 @@ Work in Progress
 
 TODO
 ----
-* Employ a gresource compilation for Gtk+ theming (priority: mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
