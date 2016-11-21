@@ -474,18 +474,12 @@ entry {
 // stuff for .needs-attention
 @keyframes needs_attention {
   from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.001,
-                                    to($accent_color),
-                                    to(transparent));
+    background-image: radial-gradient(gtkalpha($accent_color, 0) 68%,
+                                      transparent);
   }
   to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to($accent_color),
-                                    to(transparent));
+    background-image: radial-gradient($accent_color 68%,
+                                      transparent);
   }
 }
 
@@ -846,66 +840,54 @@ button {
   -gtk-outline-radius: 0;
   color: $secondary_fg_color;
   background-color: transparent;
-  border-image: -gtk-gradient(radial,
-                              center bottom, 0,
-                              center bottom, 0.5,
-                              to($track_color),
-                              to(transparent))
-                              0 0 1 / 0 0 1px;
+  border-image: radial-gradient(circle farthest-corner at center,
+                                $track_color 100%,
+                                transparent 100%)
+                                0 0 1 / 0 0 1px;
   &:hover {
     @extend %button_flat_hover;
     border-radius: 0;
     color: $fg_color;
     background-color: transparent;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($track_color),
-                                to(transparent))
-                                0 0 2 / 0 0 2px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 100%,
+                                  transparent 100%)
+                                  0 0 2 / 0 0 2px;
   }
   &:active {
     @extend %button_flat_active;
     color: $fg_color;
     background-color: transparent;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($selected_bg_color),
-                                to(transparent))
-                                0 0 2 / 0 0 2px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $selected_bg_color 100%,
+                                  transparent 100%)
+                                  0 0 2 / 0 0 2px;
   }
   &:checked {
     @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($selected_bg_color),
-                                to(transparent))
-                                0 0 2 / 0 0 2px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $selected_bg_color 100%,
+                                  transparent 100%)
+                                  0 0 2 / 0 0 2px;
     &:disabled {
       color: $insensitive_fg_color;
       background-color: transparent;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to(gtkopacity($selected_bg_color, 0.2)),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    gtkopacity($selected_bg_color, 0.2) 100%,
+                                    transparent 100%)
+                                    0 0 2 / 0 0 2px;
       > label { color: inherit; }
     }
   }
   &:disabled {
     color: $insensitive_fg_color;
     background-color: transparent;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($track_color),
-                                to(transparent))
-                                0 0 1 / 0 0 1px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 100%,
+                                  transparent 100%)
+                                  0 0 1 / 0 0 1px;
   }
 }
 
@@ -1138,35 +1120,27 @@ button:visited {
 
 @keyframes spin_hover {
   from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.01,
-                                    to(gtkalpha(currentColor, 0)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha(currentColor, 0.1) 0%,
+                                      transparent);
   }
   to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to(gtkalpha(currentColor, 0.1)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha(currentColor, 0.1) 100%,
+                                      transparent);
   }
 }
 
 @keyframes spin_active {
   from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to(gtkalpha(currentColor, 0.2)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha(currentColor, 0.2) 100%,
+                                      transparent);
   }
   to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.01,
-                                    to(gtkalpha(currentColor, 0)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha(currentColor, 0.2) 0%,
+                                      transparent);
   }
 }
 
@@ -1408,12 +1382,10 @@ combobox {
     // FIXME: Ephy needs fixed colours
     color: $secondary_fixed_fg_color;
     background: transparent;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($track_color),
-                                to(transparent))
-                                0 0 1 / 0 0 1px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 100%,
+                                  transparent 100%)
+                                  0 0 1 / 0 0 1px;
 
     .background & { color: $secondary_fg_color; }
 
@@ -1423,12 +1395,10 @@ combobox {
       border-radius: 0;
       color: $fixed_fg_color;
       background: transparent;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent 100%)
+                                    0 0 2 / 0 0 2px;
 
       .background & { color: $fg_color; }
     }
@@ -1437,12 +1407,10 @@ combobox {
       @extend %button_flat_disabled;
       color: $insensitive_fixed_fg_color;
       background: transparent;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($track_color),
-                                  to(transparent))
-                                  0 0 1 / 0 0 1px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $track_color 100%,
+                                    transparent 100%)
+                                    0 0 1 / 0 0 1px;
 
       .background & { color: $insensitive_fg_color; }
     }
@@ -1612,12 +1580,10 @@ toolbar {
   button { // use flat-buttons
     @extend %button_flat_normal;
     background-color: transparent;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.001,
-                                to($track_color),
-                                to(transparent))
-                                0 0 0 / 0 0 0px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
     &:hover {
       @extend %button_flat_hover;
@@ -1633,12 +1599,10 @@ toolbar {
     }
     &:checked {
       @extend %button_flat_checked;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent 100%)
+                                    0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
       &:disabled {
@@ -1718,12 +1682,10 @@ toolbar {
       &.raised.toggle,
       &.toggle { // revive underlines
         &:checked {
-          border-image: -gtk-gradient(radial,
-                                      center bottom, 0,
-                                      center bottom, 0.5,
-                                      to($selected_bg_color),
-                                      to(transparent))
-                                      0 0 2 / 0 0 2px;
+          border-image: radial-gradient(circle farthest-corner at center,
+                                        $selected_bg_color 100%,
+                                        transparent 100%)
+                                        0 0 2 / 0 0 2px;
         }
       }
     }
@@ -1852,21 +1814,17 @@ headerbar {
   // button styling
   button:not(.suggested-action):not(.destructive-action) {
     @extend button.flat;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.001,
-                                to($selected_bg_color),
-                                to(transparent))
-                                0 0 0 / 0 0 0px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 0%,
+                                  transparent 100%)
+                                  0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
     &:hover { color: $inverted_fg_color; }
     &:checked {
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent 100%)
+                                    0 0 2 / 0 0 2px;
       // box-shadow: inset 0 -2px $selected_bg_color;
       background-color: transparent;
       color: $inverted_fg_color;
@@ -2139,24 +2097,20 @@ headerbar {
 
     button,
     button.image-button {
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.001,
-                                  to($selected_fg_color),
-                                  to(transparent))
-                                  0 0 0 / 0 0 0px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_fg_color 0%,
+                                    transparent 100%)
+                                    0 0 0 / 0 0 0px;
       color: $secondary_selected_fg_color;
       &:hover,
       &:active,
       &:checked { color: $selected_fg_color; }
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
       &:checked {
-        border-image: -gtk-gradient(radial,
-                                    center bottom, 0,
-                                    center bottom, 0.5,
-                                    to($selected_fg_color),
-                                    to(transparent))
-                                    0 0 2 / 0 0 2px;
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      $selected_fg_color 100%,
+                                      transparent 100%)
+                                      0 0 2 / 0 0 2px;
         color: $selected_fg_color;
         background-color: transparent;
         &:disabled {
@@ -2217,12 +2171,10 @@ headerbar {
         &:checked { color: $selected_fg_color; }
         &:disabled { color: $insensitive_inverted_secondary_fg_color; }
         &:checked {
-          border-image: -gtk-gradient(radial,
-                                      center bottom, 0,
-                                      center bottom, 0.5,
-                                      to($selected_fg_color),
-                                      to(transparent))
-                                      0 0 2 / 0 0 2px;
+          border-image: radial-gradient(circle farthest-corner at center,
+                                        $selected_fg_color 100%,
+                                        transparent 100%)
+                                        0 0 2 / 0 0 2px;
           background-color: transparent;
           &:disabled {
             color: $insensitive_selected_fg_color;
@@ -3618,52 +3570,40 @@ switch {
 
 @keyframes check_radio_hover {
   from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.001,
-                                    to(gtkalpha($secondary_fg_color, 0.1)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha($secondary_fg_color, 0.1) 0%,
+                                      transparent);
   }
   to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to(gtkalpha($secondary_fg_color, 0.1)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha($secondary_fg_color, 0.1) 100%,
+                                      transparent);
   }
 }
 
 @keyframes check_radio_active {
   from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha($selected_bg_color, 0.1) 0%,
+                                      transparent);
   }
   to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha($selected_bg_color, 0.1) 100%,
+                                      transparent);
   }
 }
 
 @keyframes check_radio_active_reverse {
   from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.2)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha($selected_bg_color, 0.2) 100%,
+                                      transparent);
   }
   to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha($selected_bg_color, 0.2) 0%,
+                                      transparent);
   }
 }
 
@@ -4475,7 +4415,7 @@ row.activatable {
   // let's take care of background colors
   background-image: radial-gradient(circle farthest-corner at center,
                                     gtkalpha(currentColor, 0) 100%,
-                                    transparent 0%),
+                                    transparent),
                     image(gtkalpha(currentColor, 0));
   background-repeat: no-repeat;
   background-position: center, center;
@@ -4485,7 +4425,7 @@ row.activatable {
     transition: none;
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha(currentColor, 0) 100%,
-                                      transparent 0%),
+                                      transparent),
                       image(gtkalpha(currentColor, 0.05));
   }
 
@@ -5406,18 +5346,14 @@ colorchooser .popover.osd {
 
 @keyframes volume_hover {
   from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.001,
-                                    to(gtkalpha(currentColor, 0)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha(currentColor, 0.1) 0%,
+                                      transparent);
   }
   to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to(gtkalpha(currentColor, 0.1)),
-                                    to(transparent));
+    background-image: radial-gradient(circle closest-side at center,
+                                      gtkalpha(currentColor, 0.1) 100%,
+                                      transparent);
   }
 }
 

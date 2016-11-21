@@ -287,22 +287,18 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     border-radius: 0;
     -gtk-outline-radius: 0;
     border-color: $solid_light_borders_color;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($track_color),
-                                to(transparent))
-                                0 0 1 / 0 0 1px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
     color: $secondary_fg_color;
   }
   @if $t==focus {
     border-color: $solid_light_borders_color;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($fc),
-                                to(transparent))
-                                0 0 2 / 0 0 2px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $fc 100%,
+                                  transparent)
+                                  0 0 2 / 0 0 2px;
     color: $fg_color;
     transition: all 0.2s $slope_medium,
                 box-shadow 0 $slope_medium 0.2s,
@@ -310,35 +306,29 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   }
   @if $t==insensitive {
     border-color: $solid_light_borders_color;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($track_color),
-                                to(transparent))
-                                0 0 1 / 0 0 1px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
     color: $insensitive_fg_color;
   }
   @if $t==flat-normal {
     border-radius: 0;
     -gtk-outline-radius: 0;
     border-color: $solid_light_borders_color;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($track_color),
-                                to(transparent))
-                                0 0 1 / 0 0 1px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
     background-color: transparent;
     color: $secondary_fg_color;
   }
   @if $t==flat-focus {
     border-color: $solid_light_borders_color;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($fc),
-                                to(transparent))
-                                0 0 2 / 0 0 2px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $fc 100%,
+                                  transparent)
+                                  0 0 2 / 0 0 2px;
     color: $fg_color;
     transition: all 0.2s $slope_medium,
                 box-shadow 0 $slope_medium 0.2s,
@@ -346,12 +336,10 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   }
   @if $t==flat-insensitive {
     border-color: $solid_light_borders_color;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.5,
-                                to($track_color),
-                                to(transparent))
-                                0 0 1 / 0 0 1px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
     background-color: transparent;
     color: $insensitive_fg_color;
   }
@@ -563,19 +551,16 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 // normal, backdrop
 //
 
-  $_position: center $p;
+  background-size: 150% 50%;
 
-  @if ($p == left) or ($p == right) {
-    $_position: $p center;
-  }
+  @if ($p == left) or ($p == right) { background-size: 50% 150%; }
 
-  background-image: -gtk-gradient(radial,
-                                  $_position, 0,
-                                  $_position, 0.75,
-                                  to(gtkopacity($c, 0.2)),
-                                  to(transparent));
+  background-image: radial-gradient(circle farthest-side at $p,
+                                    gtkopacity($c, 0.1) 50%,
+                                    gtkopacity($c, 0.1) 50%,
+                                    transparent);
   background-repeat: no-repeat;
-  background-position: $_position;
+  background-position: $p;
   // reset some properties to be sure to not inherit them somehow
   background-color: transparent;
   border: none;

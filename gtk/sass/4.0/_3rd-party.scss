@@ -1339,33 +1339,27 @@ UnityPanelWidget,
       &#shutdown_button { @extend button.destructive-action; }
 
       &.combo {
-        border-image: -gtk-gradient(radial,
-                                    center bottom, 0,
-                                    center bottom, 0.5,
-                                    to($track_color),
-                                    to(transparent))
-                                    0 0 1 / 0 0 1px;
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      $track_color 100%,
+                                      transparent 100%)
+                                      0 0 1 / 0 0 1px;
         color: $inverted_fg_color;
         font-weight: 700;
         font-size: 110%;
         &:hover,
         &:active {
-          border-image: -gtk-gradient(radial,
-                                      center bottom, 0,
-                                      center bottom, 0.5,
-                                      to($selected_bg_color),
-                                      to(transparent))
-                                      0 0 2 / 0 0 2px;
+          border-image: radial-gradient(circle farthest-corner at center,
+                                        $selected_bg_color 100%,
+                                        transparent 100%)
+                                        0 0 2 / 0 0 2px;
           color: $selected_fg_color;
         }
         &:disabled,
         &:checked:disabled {
-          border-image: -gtk-gradient(radial,
-                                      center bottom, 0,
-                                      center bottom, 0.5,
-                                      to($track_color),
-                                      to(transparent))
-                                      0 0 1 / 0 0 1px;
+          border-image: radial-gradient(circle farthest-corner at center,
+                                        $track_color 100%,
+                                        transparent 100%)
+                                        0 0 1 / 0 0 1px;
           color: $insensitive_inverted_fg_color;
         }
       }
@@ -1566,12 +1560,10 @@ headerbar.titlebar box {
       border-radius: 2px;
       -gtk-outline-radius: 2px;
       padding: 0 rem(10px) 0;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.001,
-                                  to($track_color),
-                                  to(transparent))
-                                  0 0 0 / 0 0 0px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $track_color 0%,
+                                    transparent)
+                                    0 0 0 / 0 0 0px;
       background-color: transparent;
       color: $secondary_fg_color;
       &:hover {
@@ -1582,12 +1574,10 @@ headerbar.titlebar box {
       }
       &:checked {
         @extend %button_flat_checked;
-        border-image: -gtk-gradient(radial,
-                                    center bottom, 0,
-                                    center bottom, 0.5,
-                                    to($selected_bg_color),
-                                    to(transparent))
-                                    0 0 2 / 0 0 2px;
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      $selected_bg_color 100%,
+                                      transparent)
+                                      0 0 2 / 0 0 2px;
         background-color: transparent;
         color: $fg_color;
         &:disabled {
