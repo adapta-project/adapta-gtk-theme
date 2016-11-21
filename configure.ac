@@ -11,7 +11,7 @@ AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
 ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
-ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-3.24],       [disable])
+ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
 ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
@@ -28,14 +28,9 @@ if test x"$ENABLE_PARALLEL" = xyes; then
 	fi
 fi
 
-AC_PATH_PROG([BUNDLE], [bundle])
-if test x"$BUNDLE" = x; then
-	AC_MSG_ERROR(['bundle' not found.])
-fi
-
-AC_PATH_PROG([SASS], [sass])
-if test x"$SASS" = x; then
-	AC_MSG_ERROR(['sass' not found.])
+AC_PATH_PROG([SASSC], [sassc])
+if test x"$SASSC" = x; then
+	AC_MSG_ERROR(['sassc' not found.])
 fi
 
 AC_PATH_PROG([INKSCAPE], [inkscape])
@@ -76,8 +71,7 @@ AC_MSG_RESULT([
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL
 
-         bundle:                 $BUNDLE
-         sass:                   $SASS
+         sassc:                  $SASSC
          inkscape:               $INKSCAPE
          glib-compile-resources: $GLIB_COMPILE_RESOURCES
 

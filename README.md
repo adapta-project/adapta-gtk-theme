@@ -139,13 +139,12 @@ Installation from Git Source
  * libglib2.0-dev (glib2)          >= 2.48.0
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
- * ruby-bundler (rubygem-bundler)  >= 1.11
- * ruby-sass (rubygem-sass)        >= 3.4.21
+ * sassc                           >= 3.3.6
  ```
 
  > **Note:**
  >
- >   * Adapta employs **Gem** generator for SASS/SCSS via `bundle` and `sass`.
+ >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
  >   * Adapta uses `inkscape` to generate installable PNG files.
  >   * Adapta uses `glib-compile-resources` to compile gresource file for Gnome-Shell.
 
@@ -176,7 +175,7 @@ Installation from Git Source
  >
  >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
  >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
- >     It could especially shorten the rendering-time via `inkscape` and generation-time via `sass`.
+ >     It could especially shorten the rendering-time via `inkscape`.
  >   * `-jN` option to be passed to GNU `make` is surely usable, but Adapta currently employs `parallel`.
  >   * This feature should not be applied when packaging on remote/shared build-servers.
 
@@ -281,7 +280,6 @@ Work in Progress
 
 TODO
 ----
-* Prepare for SassC (priority: mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 

@@ -845,62 +845,29 @@ all:
 
 	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
 
-# check concurrency-build mode
-if ENABLE_PARALLEL
-	cd $(srcdir)/sass && \
-	$(PARALLEL) --no-notice --line-buffer -j0 \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
-		3.18/gtk.scss:../gtk-3.18/gtk.css \
-		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
-		3.20/gtk.scss:../gtk-3.20/gtk.css \
-		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css \
-		3.20/gtk-eta.scss:../gtk-3.20-eta/gtk.css \
-		3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css \
-		3.22/gtk.scss:../gtk-3.22/gtk.css \
-		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css \
-		3.22/gtk-eta.scss:../gtk-3.22-eta/gtk.css \
-		3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css
-else
-	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
-		3.18/gtk.scss:../gtk-3.18/gtk.css \
-		3.18/gtk-dark.scss:../gtk-3.18/gtk-dark.css \
-		3.20/gtk.scss:../gtk-3.20/gtk.css \
-		3.20/gtk-dark.scss:../gtk-3.20/gtk-dark.css \
-		3.20/gtk-eta.scss:../gtk-3.20-eta/gtk.css \
-		3.20/gtk-dark-eta.scss:../gtk-3.20-eta/gtk-dark.css \
-		3.22/gtk.scss:../gtk-3.22/gtk.css \
-		3.22/gtk-dark.scss:../gtk-3.22/gtk-dark.css \
-		3.22/gtk-eta.scss:../gtk-3.22-eta/gtk.css \
-		3.22/gtk-dark-eta.scss:../gtk-3.22-eta/gtk-dark.css
-endif
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.18/gtk.scss ../gtk-3.18/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.18/gtk-dark.scss ../gtk-3.18/gtk-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk.scss ../gtk-3.20/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-dark.scss ../gtk-3.20/gtk-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk.scss ../gtk-3.22/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-dark.css
 
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(srcdir)/gtk-4.0
 	$(MKDIR_P) $(srcdir)/gtk-4.0-eta
-if ENABLE_PARALLEL
-	cd $(srcdir)/sass && \
-	$(PARALLEL) --no-notice --line-buffer -j0 \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact ::: \
-		4.0/gtk.scss:../gtk-4.0/gtk.css \
-		4.0/gtk-dark.scss:../gtk-4.0/gtk-dark.css \
-		4.0/gtk-eta.scss:../gtk-4.0-eta/gtk.css \
-		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css
-else
-	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
-		4.0/gtk.scss:../gtk-4.0/gtk.css \
-		4.0/gtk-dark.scss:../gtk-4.0/gtk-dark.css \
-		4.0/gtk-eta.scss:../gtk-4.0-eta/gtk.css \
-		4.0/gtk-dark-eta.scss:../gtk-4.0-eta/gtk-dark.css
-endif
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk.scss ../gtk-4.0/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-dark.scss ../gtk-4.0/gtk-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-dark.css
 endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(srcdir)/xfce-notify-4.0
-	cd $(srcdir)/sass && \
-	$(BUNDLE) exec $(SASS) --update --force --sourcemap=none --style=compact \
-		common/xfce-notify-4.0.scss:../xfce-notify-4.0/gtk.css
+	cd $(srcdir)/sass && $(SASSC) -t compact common/xfce-notify-4.0.scss ../xfce-notify-4.0/gtk.css
 endif
 
 if ENABLE_PARALLEL
