@@ -137,10 +137,10 @@ Installation from Git Source
  * automake
  * inkscape
  * libglib2.0-dev (glib2)          >= 2.48.0
- * libsass                         >= 3.3.4
+ * libsass                         >= 3.3.6
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
- * sassc                           >= 3.3.4
+ * sassc                           >= 3.3.2
  ```
 
  > **Note:**
