@@ -381,6 +381,17 @@ xfce_rc_file = \
 # ****************************
 
 all:
+	$(MKDIR_P) $(srcdir)/gnome-shell/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets/dot
+	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets/dot
+	$(MKDIR_P) $(srcdir)/gnome-shell-eta/extensions/workspaces-to-dock/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
+	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
+
 	cd $(srcdir)/sass && $(SASSC) -t compact \
 		gnome-shell/gnome-shell.scss ../gnome-shell/gnome-shell.css
 	cd $(srcdir)/sass && $(SASSC) -t compact \
@@ -396,16 +407,6 @@ all:
 	cd $(srcdir)/sass && $(SASSC) -t compact \
 		gnome-shell/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 
-	$(MKDIR_P) $(srcdir)/gnome-shell/assets
-	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
-	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
-	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets
-	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets/dot
-	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets
-	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets/dot
-	$(MKDIR_P) $(srcdir)/gnome-shell-eta/extensions/workspaces-to-dock/assets
-	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
-	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
 	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
 
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shelldir) \
@@ -418,6 +419,9 @@ all:
 		$(shellnoktoetadir)/gnome-shell-theme.gresource.xml
 
 if ENABLE_CINNAMON
+	$(MKDIR_P) $(srcdir)/cinnamon
+	$(MKDIR_P) $(srcdir)/cinnamon-nokto
+
 	cd $(srcdir)/sass && $(SASSC) -t compact \
 		cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
 	cd $(srcdir)/sass && $(SASSC) -t compact \
