@@ -426,27 +426,34 @@ gtk3_asset_file = \
 gtk318dir   = $(srcdir)/gtk-3.18
 gtk318_file = \
 	$(gtk318dir)/gtk.css \
-	$(gtk318dir)/gtk-dark.css
+	$(gtk318dir)/gtk-dark.css \
+	$(gtk318dir)/gtk.gresource \
+	$(gtk3_assetdir)/thumbnail@2.png \
+	$(gtk3_assetdir)/thumbnail.png
 
 gtk320dir   = $(srcdir)/gtk-3.20
 gtk320_file = \
 	$(gtk320dir)/gtk.css \
-	$(gtk320dir)/gtk-dark.css
+	$(gtk320dir)/gtk-dark.css \
+	$(gtk320dir)/gtk.gresource
 
 gtk320etadir   = $(srcdir)/gtk-3.20-eta
 gtk320eta_file = \
 	$(gtk320etadir)/gtk.css \
-	$(gtk320etadir)/gtk-dark.css
+	$(gtk320etadir)/gtk-dark.css \
+	$(gtk320etadir)/gtk.gresource
 
 gtk322dir   = $(srcdir)/gtk-3.22
 gtk322_file = \
 	$(gtk322dir)/gtk.css \
-	$(gtk322dir)/gtk-dark.css
+	$(gtk322dir)/gtk-dark.css \
+	$(gtk322dir)/gtk.gresource
 
 gtk322etadir   = $(srcdir)/gtk-3.22-eta
 gtk322eta_file = \
 	$(gtk322etadir)/gtk.css \
-	$(gtk322etadir)/gtk-dark.css
+	$(gtk322etadir)/gtk-dark.css \
+	$(gtk322etadir)/gtk.gresource
 
 gtk2dir   = $(srcdir)/gtk-2.0
 gtk2_file = \
@@ -799,12 +806,14 @@ gtk2_nokto_toolbar_file = \
 gtknextdir   = $(srcdir)/gtk-4.0
 gtknext_file = \
 	$(gtknextdir)/gtk.css \
-	$(gtknextdir)/gtk-dark.css
+	$(gtknextdir)/gtk-dark.css \
+	$(gtknextdir)/gtk.gresource
 
 gtknextetadir   = $(srcdir)/gtk-4.0-eta
 gtknexteta_file = \
 	$(gtknextetadir)/gtk.css \
-	$(gtknextetadir)/gtk-dark.css
+	$(gtknextetadir)/gtk-dark.css \
+	$(gtknextetadir)/gtk.gresource
 
 xfcenotifydir   = $(srcdir)/xfce-notify-4.0
 xfcenotify_file = \
@@ -845,24 +854,24 @@ all:
 
 	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
 
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.18/gtk.scss ../gtk-3.18/gtk.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.18/gtk-dark.scss ../gtk-3.18/gtk-dark.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk.scss ../gtk-3.20/gtk.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-dark.scss ../gtk-3.20/gtk-dark.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-dark.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk.scss ../gtk-3.22/gtk.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-dark.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.18/gtk.scss ../gtk-3.18/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.18/gtk-dark.scss ../gtk-3.18/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk.scss ../gtk-3.20/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk.scss ../gtk-3.22/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css
 
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(srcdir)/gtk-4.0
 	$(MKDIR_P) $(srcdir)/gtk-4.0-eta
-	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk.scss ../gtk-4.0/gtk.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-dark.scss ../gtk-4.0/gtk-dark.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk.css
-	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk.scss ../gtk-4.0/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
 endif
 
 if ENABLE_XFCE
@@ -904,6 +913,16 @@ else
 		./render-assets-gtk3.sh
 endif
 
+	cd $(srcdir)/sass && ./compile-gresource.sh 3.18
+	cd $(srcdir)/sass && ./compile-gresource.sh 3.20
+	cd $(srcdir)/sass && ./compile-gresource.sh 3.20-eta
+	cd $(srcdir)/sass && ./compile-gresource.sh 3.22
+	cd $(srcdir)/sass && ./compile-gresource.sh 3.22-eta
+if ENABLE_GTK_NEXT
+	cd $(srcdir)/sass && ./compile-gresource.sh 4.0
+	cd $(srcdir)/sass && ./compile-gresource.sh 4.0-eta
+endif
+
 # *****************
 # * Install files *
 # *****************
@@ -920,36 +939,24 @@ install-data-local:
 	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.0
-	$(MKDIR_P) $(adaptadir)/gtk-3.0/assets
 	cp -Rv $(gtk318_file) $(adaptadir)/gtk-3.0
-	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.0/assets
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.20
-	$(MKDIR_P) $(adaptadir)/gtk-3.20/assets
 	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.20
-	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.20/assets
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.22
-	$(MKDIR_P) $(adaptadir)/gtk-3.22/assets
 	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
-	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-3.22/assets
 
 	cd $(adaptadir)
 	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
 	ln -sf ../Adapta/gtk-3.20 $(noktodir)/gtk-3.20
 	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
-	cd $(adaptadir)/gtk-3.0 && \
-		ln -sf ./assets/thumbnail.png thumbnail.png
 
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.20/assets
 	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.20
-	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-3.20/assets
 
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.22
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.22/assets
 	cp -Rv $(gtk322eta_file) $(adaptaetadir)/gtk-3.22
-	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-3.22/assets
 
 	cd $(adaptadir)
 	ln -sf ../Adapta-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
@@ -1085,16 +1092,12 @@ install-data-local:
 
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(adaptadir)/gtk-4.0
-	$(MKDIR_P) $(adaptadir)/gtk-4.0/assets
 	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
-	$(MKDIR_P) $(adaptaetadir)/gtk-4.0/assets
 	cp -Rv $(gtknext_file) $(adaptadir)/gtk-4.0
-	cp -Rv $(gtk3_asset_file) $(adaptadir)/gtk-4.0/assets
 	cd $(adaptadir)
 	ln -sf ../Adapta/gtk-4.0 $(noktodir)/gtk-4.0
 
 	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-4.0
-	cp -Rv $(gtk3_asset_file) $(adaptaetadir)/gtk-4.0/assets
 	cd $(adaptadir)
 	ln -sf ../Adapta-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
 endif
@@ -1153,14 +1156,29 @@ endif
 CLEANFILES = \
 	$(srcdir)/gtk-3.18/gtk.css \
 	$(srcdir)/gtk-3.18/gtk-dark.css \
+	$(srcdir)/gtk-3.18/gtk-contained.css \
+	$(srcdir)/gtk-3.18/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.18/gtk.gresource \
 	$(srcdir)/gtk-3.20/gtk.css \
 	$(srcdir)/gtk-3.20/gtk-dark.css \
+	$(srcdir)/gtk-3.20/gtk-contained.css \
+	$(srcdir)/gtk-3.20/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.20/gtk.gresource \
 	$(srcdir)/gtk-3.20-eta/gtk.css \
 	$(srcdir)/gtk-3.20-eta/gtk-dark.css \
+	$(srcdir)/gtk-3.20-eta/gtk-contained.css \
+	$(srcdir)/gtk-3.20-eta/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.20-eta/gtk.gresource \
 	$(srcdir)/gtk-3.22/gtk.css \
 	$(srcdir)/gtk-3.22/gtk-dark.css \
+	$(srcdir)/gtk-3.22/gtk-contained.css \
+	$(srcdir)/gtk-3.22/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.22/gtk.gresource \
 	$(srcdir)/gtk-3.22-eta/gtk.css \
 	$(srcdir)/gtk-3.22-eta/gtk-dark.css \
+	$(srcdir)/gtk-3.22-eta/gtk-contained.css \
+	$(srcdir)/gtk-3.22-eta/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.22-eta/gtk.gresource \
 	$(srcdir)/asset/assets-gtk2/*/*.svg \
 	$(srcdir)/asset/assets-gtk2/*/*.png \
 	$(srcdir)/asset/assets-gtk3/*.svg \
@@ -1174,8 +1192,14 @@ if ENABLE_GTK_NEXT
 CLEANFILES += \
 	$(srcdir)/gtk-4.0/gtk.css \
 	$(srcdir)/gtk-4.0/gtk-dark.css \
+	$(srcdir)/gtk-4.0/gtk-contained.css \
+	$(srcdir)/gtk-4.0/gtk-contained-dark.css \
+	$(srcdir)/gtk-4.0/gtk.gresource \
 	$(srcdir)/gtk-4.0-eta/gtk.css \
-	$(srcdir)/gtk-4.0-eta/gtk-dark.css
+	$(srcdir)/gtk-4.0-eta/gtk-dark.css \
+	$(srcdir)/gtk-4.0-eta/gtk-contained.css \
+	$(srcdir)/gtk-4.0-eta/gtk-contained-dark.css \
+	$(srcdir)/gtk-4.0-eta/gtk.gresource
 endif
 
 DISTCLEANFILES = \

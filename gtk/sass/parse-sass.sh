@@ -55,34 +55,34 @@ case "$1" in
         if [ ! -d ../gtk-3.18 ]; then
             mkdir -p ../gtk-3.18
         fi
-        sassc -t compact 3.18/gtk.scss ../gtk-3.18/gtk.css
-        sassc -t compact 3.18/gtk-dark.scss ../gtk-3.18/gtk-dark.css
+        sassc -t compact 3.18/gtk.scss ../gtk-3.18/gtk-contained.css
+        sassc -t compact 3.18/gtk-dark.scss ../gtk-3.18/gtk-contained-dark.css
 
         if [ ! -d ../gtk-3.20 ]; then
             mkdir -p ../gtk-3.20 ../gtk-3.20-eta
         fi
-        sassc -t compact 3.20/gtk.scss ../gtk-3.20/gtk.css
-        sassc -t compact 3.20/gtk-dark.scss ../gtk-3.20/gtk-dark.css
-        sassc -t compact 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk.css
-        sassc -t compact 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-dark.css
+        sassc -t compact 3.20/gtk.scss ../gtk-3.20/gtk-contained.css
+        sassc -t compact 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css
+        sassc -t compact 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css
+        sassc -t compact 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-contained-dark.css
 
         if [ ! -d ../gtk-3.22 ]; then
             mkdir -p ../gtk-3.22 ../gtk-3.22-eta
         fi
-        sassc -t compact 3.22/gtk.scss ../gtk-3.22/gtk.css
-        sassc -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-dark.css
-        sassc -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk.cssn
-        sassc -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-dark.css
+        sassc -t compact 3.22/gtk.scss ../gtk-3.22/gtk-contained.css
+        sassc -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css
+        sassc -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.cssn
+        sassc -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css
 
         if [ ! -d ../gtk-4.0 ]; then
             mkdir -p ../gtk-4.0 ../gtk-4.0-eta
         fi
-        sassc -t compact 4.0/gtk.scss ../gtk-4.0/gtk.css
-        sassc -t compact 4.0/gtk-dark.scss ../gtk-4.0/gtk-dark.css
-        sassc -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk.css
-        sassc -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-dark.css
+        sassc -t compact 4.0/gtk.scss ../gtk-4.0/gtk-contained.css
+        sassc -t compact 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css
+        sassc -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css
+        sassc -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
 
-        sassc -t compact common/xfce-notify-4.0.scss ../xfce-notify-4.0/gtk.css
+        sassc -t compact common/xfce-notify-4.0.scss ../xfce-notify-4.0/gtk-contained.css
         ;;
     *)
         if [ "$major" = 3 ] && [ "$css_minor" = 18 ]; then
@@ -90,22 +90,22 @@ case "$1" in
                 mkdir -p ../gtk-"$major"."$css_minor"
             fi
             sassc -t compact \
-		    "$major"."$css_minor"/gtk.scss ../gtk-"$major"."$css_minor"/gtk.css
+		    "$major"."$css_minor"/gtk.scss ../gtk-"$major"."$css_minor"/gtk-contained.css
             sassc -t compact \
-		    "$major"."$css_minor"/gtk-dark.scss ../gtk-"$major"."$css_minor"/gtk-dark.css
+		    "$major"."$css_minor"/gtk-dark.scss ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
         else
             if [ ! -d ../gtk-"$major"."$css_minor" ]; then
                 mkdir -p ../gtk-"$major"."$css_minor" \
                          ../gtk-"$major"."$css_minor"-eta
             fi
             sassc -t compact \
-		    "$major"."$css_minor"/gtk.scss ../gtk-"$major"."$css_minor"/gtk.css
+		    "$major"."$css_minor"/gtk.scss ../gtk-"$major"."$css_minor"/gtk-contained.css
             sassc -t compact \
-		    "$major"."$css_minor"/gtk-dark.scss ../gtk-"$major"."$css_minor"/gtk-dark.css
+		    "$major"."$css_minor"/gtk-dark.scss ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
             sassc -t compact \
-		    "$major"."$css_minor"/gtk-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk.css
+		    "$major"."$css_minor"/gtk-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk-contained.css
             sassc -t compact \
-		    "$major"."$css_minor"/gtk-dark-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk-dark.css
+		    "$major"."$css_minor"/gtk-dark-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css
         fi
         ;;
 esac
