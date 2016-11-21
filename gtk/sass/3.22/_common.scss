@@ -46,24 +46,6 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   padding: 0;
   background-clip: padding-box;
 
-  -GtkToolButton-icon-spacing: 4;
-  -GtkTextView-error-underline-color: $error_color;
-
-  // The size for scrollbars. The slider is 2px smaller, but we keep it
-  // up so that the whole area is sensitive to button presses for the
-  // slider. The stepper button is larger in both directions, the slider
-  // only in the width
-
-  -GtkScrolledWindow-scrollbar-spacing: 0;
-
-  -GtkToolItemGroup-expander-size: 11;
-
-  -GtkWidget-text-handle-width: 16;
-  -GtkWidget-text-handle-height: 16;
-
-  -GtkDialog-button-spacing: 4;
-  -GtkDialog-action-area-border: 0;
-
   // We use the outline properties to signal the focus properties
   // to the adwaita engine: using real CSS properties is faster,
   // and we don't use any outlines for now.
@@ -1093,6 +1075,11 @@ toolpalette {
     > button {
       border-top: 1px solid $borders_color;
       border-radius: 0;
+    }
+
+    arrow {
+      min-width: $icon_size - 4px;
+      min-height: $icon_size - 4px;
     }
   }
 
