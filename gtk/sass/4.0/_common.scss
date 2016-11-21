@@ -842,7 +842,7 @@ button {
   background-color: transparent;
   border-image: radial-gradient(circle farthest-corner at center,
                                 $track_color 100%,
-                                transparent 100%)
+                                transparent)
                                 0 0 1 / 0 0 1px;
   &:hover {
     @extend %button_flat_hover;
@@ -851,7 +851,7 @@ button {
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $track_color 100%,
-                                  transparent 100%)
+                                  transparent)
                                   0 0 2 / 0 0 2px;
   }
   &:active {
@@ -860,7 +860,7 @@ button {
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $selected_bg_color 100%,
-                                  transparent 100%)
+                                  transparent)
                                   0 0 2 / 0 0 2px;
   }
   &:checked {
@@ -869,14 +869,14 @@ button {
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $selected_bg_color 100%,
-                                  transparent 100%)
+                                  transparent)
                                   0 0 2 / 0 0 2px;
     &:disabled {
       color: $insensitive_fg_color;
       background-color: transparent;
       border-image: radial-gradient(circle farthest-corner at center,
                                     gtkopacity($selected_bg_color, 0.2) 100%,
-                                    transparent 100%)
+                                    transparent)
                                     0 0 2 / 0 0 2px;
       > label { color: inherit; }
     }
@@ -886,7 +886,7 @@ button {
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $track_color 100%,
-                                  transparent 100%)
+                                  transparent)
                                   0 0 1 / 0 0 1px;
   }
 }
@@ -1384,7 +1384,7 @@ combobox {
     background: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $track_color 100%,
-                                  transparent 100%)
+                                  transparent)
                                   0 0 1 / 0 0 1px;
 
     .background & { color: $secondary_fg_color; }
@@ -1397,7 +1397,7 @@ combobox {
       background: transparent;
       border-image: radial-gradient(circle farthest-corner at center,
                                     $selected_bg_color 100%,
-                                    transparent 100%)
+                                    transparent)
                                     0 0 2 / 0 0 2px;
 
       .background & { color: $fg_color; }
@@ -1409,7 +1409,7 @@ combobox {
       background: transparent;
       border-image: radial-gradient(circle farthest-corner at center,
                                     $track_color 100%,
-                                    transparent 100%)
+                                    transparent)
                                     0 0 1 / 0 0 1px;
 
       .background & { color: $insensitive_fg_color; }
@@ -1601,7 +1601,7 @@ toolbar {
       @extend %button_flat_checked;
       border-image: radial-gradient(circle farthest-corner at center,
                                     $selected_bg_color 100%,
-                                    transparent 100%)
+                                    transparent)
                                     0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
@@ -1684,7 +1684,7 @@ toolbar {
         &:checked {
           border-image: radial-gradient(circle farthest-corner at center,
                                         $selected_bg_color 100%,
-                                        transparent 100%)
+                                        transparent)
                                         0 0 2 / 0 0 2px;
         }
       }
@@ -1816,14 +1816,14 @@ headerbar {
     @extend button.flat;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $track_color 0%,
-                                  transparent 100%)
+                                  transparent)
                                   0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
     &:hover { color: $inverted_fg_color; }
     &:checked {
       border-image: radial-gradient(circle farthest-corner at center,
                                     $selected_bg_color 100%,
-                                    transparent 100%)
+                                    transparent)
                                     0 0 2 / 0 0 2px;
       // box-shadow: inset 0 -2px $selected_bg_color;
       background-color: transparent;
@@ -2099,7 +2099,7 @@ headerbar {
     button.image-button {
       border-image: radial-gradient(circle farthest-corner at center,
                                     $selected_fg_color 0%,
-                                    transparent 100%)
+                                    transparent)
                                     0 0 0 / 0 0 0px;
       color: $secondary_selected_fg_color;
       &:hover,
@@ -2109,7 +2109,7 @@ headerbar {
       &:checked {
         border-image: radial-gradient(circle farthest-corner at center,
                                       $selected_fg_color 100%,
-                                      transparent 100%)
+                                      transparent)
                                       0 0 2 / 0 0 2px;
         color: $selected_fg_color;
         background-color: transparent;
@@ -2173,7 +2173,7 @@ headerbar {
         &:checked {
           border-image: radial-gradient(circle farthest-corner at center,
                                         $selected_fg_color 100%,
-                                        transparent 100%)
+                                        transparent)
                                         0 0 2 / 0 0 2px;
           background-color: transparent;
           &:disabled {
