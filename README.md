@@ -148,6 +148,8 @@ Installation from Git Source
  >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
  >   * Adapta uses `inkscape` to generate installable PNG files.
  >   * Adapta uses `glib-compile-resources` to compile gresource file for Gnome-Shell.
+ >
+ >   **Verify the output of `sassc -v` shows `sass: 3.4` or newer version.**
 
 3. Build and install system-wide:
 
