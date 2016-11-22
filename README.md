@@ -140,11 +140,12 @@ Installation from Git Source
  * autoconf
  * automake
  * inkscape
- * libglib2.0-dev (glib2)          >= 2.48.0
- * libsass0 (libsass)              >= 3.3.6
+ * libgdk-pixbuf2.0-dev (gdk-pixbuf2-devel)  >= 2.32.2
+ * libglib2.0-dev (glib2-devel)              >= 2.48.0
+ * libsass0 (libsass)                        >= 3.3.6
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
- * sassc                           >= 3.3.2
+ * sassc                                     >= 3.3.2
  ```
 
  > **Note:**
