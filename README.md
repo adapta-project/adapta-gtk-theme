@@ -134,7 +134,7 @@ Installation from Git Source
 
 2. Check build-requirements:
  Currently Adapta bundles neither pre-generated stylesheets nor PNG images.
- So users and/or contributors should generate proper CSSs and PNGs at build-time.
+ So users and/or contributors should generate proper CSSs, PNGs and gresources at build-time.
 
  ```
  * autoconf
@@ -152,9 +152,9 @@ Installation from Git Source
  >
  >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
  >   * Adapta uses `inkscape` to generate installable PNG files.
- >   * Adapta uses `glib-compile-resources` to compile gresource file for Gnome-Shell.
+ >   * Adapta uses `glib-compile-resources` to compile gresource file for Gtk+ and Gnome-Shell.
  >
- >   **Verify the output of `sassc -v` shows `sass: 3.4` or newer version.**
+ > **Verify the output of `sassc -v` shows `sass: 3.4` or newer version.**
 
 3. Build and install system-wide:
 
