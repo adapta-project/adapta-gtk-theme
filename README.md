@@ -65,7 +65,11 @@ Variant Matrix
 >
 >   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >
->   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool and/or edit `$HOME/.config/gtk-3.0/settings.ini`.
+>   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool.
+>     Or add this porperty to `[settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
+>     ```
+>     gtk-application-prefer-dark-theme=1
+>     ```
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity supports Eta variants (>= 3.20.x or 3.22.x).
 
