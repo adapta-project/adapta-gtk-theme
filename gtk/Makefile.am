@@ -477,21 +477,25 @@ gtk2_arrow_file = \
 	$(gtk2_assetdir)/Arrows/down-alt.png \
 	$(gtk2_assetdir)/Arrows/down-insensitive.png \
 	$(gtk2_assetdir)/Arrows/down.png \
+	$(gtk2_assetdir)/Arrows/down-dark.png \
 	$(gtk2_assetdir)/Arrows/left-alt-hover.png \
 	$(gtk2_assetdir)/Arrows/left-alt-insensitive.png \
 	$(gtk2_assetdir)/Arrows/left-alt.png \
 	$(gtk2_assetdir)/Arrows/left-insensitive.png \
 	$(gtk2_assetdir)/Arrows/left.png \
+	$(gtk2_assetdir)/Arrows/left-dark.png \
 	$(gtk2_assetdir)/Arrows/right-alt-hover.png \
 	$(gtk2_assetdir)/Arrows/right-alt-insensitive.png \
 	$(gtk2_assetdir)/Arrows/right-alt.png \
 	$(gtk2_assetdir)/Arrows/right-insensitive.png \
 	$(gtk2_assetdir)/Arrows/right.png \
+	$(gtk2_assetdir)/Arrows/right-dark.png \
 	$(gtk2_assetdir)/Arrows/up-alt-hover.png \
 	$(gtk2_assetdir)/Arrows/up-alt-insensitive.png \
 	$(gtk2_assetdir)/Arrows/up-alt.png \
 	$(gtk2_assetdir)/Arrows/up-insensitive.png \
-	$(gtk2_assetdir)/Arrows/up.png
+	$(gtk2_assetdir)/Arrows/up.png \
+	$(gtk2_assetdir)/Arrows/up-dark.png
 gtk2_button_file = \
 	$(gtk2_assetdir)/Buttons/button-active.png \
 	$(gtk2_assetdir)/Buttons/button-hover.png \
