@@ -23,9 +23,9 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 }
 
 
-/*****************
- * Common States *
- *****************/
+// /*****************
+//  * Common States *
+//  *****************/
 
 * {
   @extend %transition; // global transition setting
@@ -80,9 +80,9 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 }
 
 
-/***************
- * Base States *
- ***************/
+// /***************
+//  * Base States *
+//  ***************/
 
 .background {
   background-color: $bg_color;
@@ -227,9 +227,9 @@ GtkTextView { // This will get overridden by .view,
 }
 
 
-/*********************
- * Spinner Animation *
- *********************/
+// /*********************
+//  * Spinner Animation *
+//  *********************/
 
 @keyframes colorful_bar {
   0% {
@@ -285,9 +285,9 @@ GtkTextView { // This will get overridden by .view,
 }
 
 
-/****************
- * Text Entries *
- ****************/
+// /****************
+//  * Text Entries *
+//  ****************/
 
 .entry {
   padding: 0.75em 1em 0.8em;
@@ -372,9 +372,9 @@ GtkTextView { // This will get overridden by .view,
 }
 
 
-/***********
- * Buttons *
- ***********/
+// /***********
+//  * Buttons *
+//  ***********/
 
 // stuff for .needs-attention
 @keyframes needs_attention {
@@ -907,9 +907,9 @@ GtkButtonBox > .button {
 }
 
 
-/*********
- * Links *
- *********/
+// /*********
+//  * Links *
+//  *********/
 
 *:link {
   color: $link_color;
@@ -933,9 +933,9 @@ GtkButtonBox > .button {
 }
 
 
-/*****************
- * GtkSpinButton *
- *****************/
+// /*****************
+//  * GtkSpinButton *
+//  *****************/
 
 .spinbutton {
   .button,
@@ -1049,9 +1049,9 @@ GtkButtonBox > .button {
 }
 
 
-/**************
- * ComboBoxes *
- **************/
+// /**************
+//  * ComboBoxes *
+//  **************/
 
 GtkComboBox {
   > .the-button-in-the-combobox {
@@ -1142,9 +1142,9 @@ GtkComboBox {
 }
 
 
-/************
- * Toolbars *
- ************/
+// /************
+//  * Toolbars *
+//  ************/
 
 .toolbar {
   -GtkWidget-window-dragging: true;
@@ -1289,9 +1289,9 @@ GtkComboBox {
 }
 
 
-/***************
- * Header bars *
- ***************/
+// /***************
+//  * Header bars *
+//  ***************/
 
 .titlebar,
 .header-bar {
@@ -1748,9 +1748,9 @@ GtkComboBox {
 }
 
 
-/************
- * Pathbars *
- ************/
+// /************
+//  * Pathbars *
+//  ************/
 
 .path-bar .button {
   padding: 0.3em 0.7em 0.4em;
@@ -1773,9 +1773,9 @@ GtkComboBox {
 }
 
 
-/**************
- * Tree Views *
- **************/
+// /**************
+//  * Tree Views *
+//  **************/
 
 GtkTreeView.view {
   @at-root * {
@@ -1913,9 +1913,9 @@ column-header.button.dnd { // for treeview-like derive widgets
 }
 
 
-/*********
- * Menus *
- *********/
+// /*********
+//  * Menus *
+//  *********/
 
 .menubar {
   -GtkWidget-window-dragging: true;
@@ -2038,9 +2038,9 @@ column-header.button.dnd { // for treeview-like derive widgets
 .csd.popup { border-radius: 2px; }
 
 
-/***************
- * Popovers   *
- ***************/
+// /***************
+//  * Popovers   *
+//  ***************/
 
 .popover {
   padding: 2px;
@@ -2105,10 +2105,10 @@ column-header.button.dnd { // for treeview-like derive widgets
 }
 
 
-/*****************
- * Notebooks and *
- * Tabs          *
- *****************/
+// /*****************
+//  * Notebooks and *
+//  * Tabs          *
+//  *****************/
 
 .notebook {
   // Through me you go to the grief wracked city;
@@ -2283,9 +2283,9 @@ column-header.button.dnd { // for treeview-like derive widgets
 }
 
 
-/**************
- * Scrollbars *
- **************/
+// /**************
+//  * Scrollbars *
+//  **************/
 
 @keyframes slow_down_ltr {
   to { margin-right: 0; }
@@ -2403,9 +2403,9 @@ column-header.button.dnd { // for treeview-like derive widgets
 }
 
 
-/**********
- * Switch *
- **********/
+// /**********
+//  * Switch *
+//  **********/
 
 GtkSwitch {
   -GtkSwitch-slider-width: 20px;
@@ -2588,9 +2588,9 @@ GtkSwitch {
 }
 
 
-/*************************
- * Check and Radio items *
- *************************/
+// /*************************
+//  * Check and Radio items *
+//  *************************/
 
 // draw regular check and radio items using our PNG assets
 // all assets are rendered from assets.svg. never add pngs directly
@@ -2714,9 +2714,9 @@ GtkRadioButton.text-button {
 }
 
 
-/************
- * GtkScale *
- ************/
+// /************
+//  * GtkScale *
+//  ************/
 
 .scale,
 .scale.scale-has-marks-above.scale-has-marks-below,
@@ -2843,9 +2843,9 @@ GtkRadioButton.text-button {
 }
 
 
-/*****************
- * Progress bars *
- *****************/
+// /*****************
+//  * Progress bars *
+//  *****************/
 
 GtkProgressBar {
   -GtkProgressBar-min-horizontal-bar-height: 4;
@@ -2934,9 +2934,9 @@ GtkProgressBar {
 }
 
 
-/*************
- * Level Bar *
- *************/
+// /*************
+//  * Level Bar *
+//  *************/
 
 .level-bar {
   box-shadow: $z-depth-1; // needs to be set here to avoid clipping
@@ -2976,9 +2976,9 @@ GtkProgressBar {
 }
 
 
-/**********
- * Frames *
- **********/
+// /**********
+//  * Frames *
+//  **********/
 
 .frame {
   border: 1px solid $borders_color;
@@ -3014,9 +3014,9 @@ GtkScrolledWindow {
 }
 
 
-/*********
- * Lists *
- *********/
+// /*********
+//  * Lists *
+//  *********/
 
 .list {
   border-color: $borders_color;
@@ -3108,9 +3108,9 @@ GtkScrolledWindow {
 }
 
 
-/*********************
- * App Notifications *
- *********************/
+// /*********************
+//  * App Notifications *
+//  *********************/
 
 .app-notification,
 .app-notification.frame {
@@ -3135,9 +3135,9 @@ GtkScrolledWindow {
 }
 
 
-/*************
- * Expanders *
- *************/
+// /*************
+//  * Expanders *
+//  *************/
 
 .expander {
   -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
@@ -3150,9 +3150,9 @@ GtkScrolledWindow {
 }
 
 
-/************
- * Calendar *
- ***********/
+// /************
+//  * Calendar *
+//  ***********/
 
 GtkCalendar {
   margin: 0.6em 0;
@@ -3194,9 +3194,9 @@ GtkCalendar {
 }
 
 
-/***********
- * Dialogs *
- ***********/
+// /***********
+//  * Dialogs *
+//  ***********/
 
 .message-dialog { // Message Dialog styling
   color: $inverted_fg_color;
@@ -3326,9 +3326,9 @@ GtkFileChooserDialog {
 }
 
 
-/***********
- * Sidebar *
- ***********/
+// /***********
+//  * Sidebar *
+//  ***********/
 
 .sidebar {
   border: none;
@@ -3485,9 +3485,9 @@ GtkStackSidebar {
 }
 
 
-/*********
- * Paned *
- *********/
+// /*********
+//  * Paned *
+//  *********/
 
 GtkPaned { // this is for the standard paned separator
 
@@ -3517,9 +3517,9 @@ GtkPaned.wide { // this is for the paned with wide separator
 }
 
 
-/**************
- * GtkInfoBar *
- **************/
+// /**************
+//  * GtkInfoBar *
+//  **************/
 
 GtkInfoBar {
   padding: 0.4em;
@@ -3570,9 +3570,9 @@ GtkInfoBar {
 }
 
 
-/************
- * Tooltips *
- ************/
+// /************
+//  * Tooltips *
+//  ************/
 
 .tooltip {
   &.background {
@@ -3599,9 +3599,9 @@ GtkInfoBar {
 }
 
 
-/*****************
- * Color Chooser *
- *****************/
+// /*****************
+//  * Color Chooser *
+//  *****************/
 
 GtkColorSwatch {
   // This widget is made of two boxes one on top of the other,
@@ -3691,9 +3691,9 @@ GtkColorSwatch {
 }
 
 
-/********
- * Misc *
- ********/
+// /********
+//  * Misc *
+//  ********/
 
 // content view (grid/list)
 .content-view {
@@ -3823,9 +3823,9 @@ GtkVolumeButton.button {
 }
 
 
-/**********************
- * Window Decorations *
- *********************/
+// /**********************
+//  * Window Decorations *
+//  *********************/
 
 .window-frame {
   transition: none;
@@ -4081,9 +4081,9 @@ GtkVolumeButton.button {
 }
 
 
-/***********************
- * catch all extend :) *
- ***********************/
+// /***********************
+//  * catch all extend :) *
+//  ***********************/
 
 %selected_items {
   background-color: $selected_bg_color;
@@ -4099,9 +4099,9 @@ GtkVolumeButton.button {
 }
 
 
-/**********************
- * Touch Copy & Paste *
- *********************/
+// /**********************
+//  * Touch Copy & Paste *
+//  *********************/
 
 // touch selection handlebars for the Popover.osd above
 .entry.cursor-handle,

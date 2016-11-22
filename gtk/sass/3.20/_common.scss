@@ -36,9 +36,9 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 }
 
 
-/*****************
- * Common States *
- *****************/
+// /*****************
+//  * Common States *
+//  *****************/
 
 * {
   @extend %transition; // global transition setting
@@ -82,9 +82,9 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 }
 
 
-/***************
- * Base States *
- ***************/
+// /***************
+//  * Base States *
+//  ***************/
 
 .background {
   background-color: $bg_color;
@@ -296,9 +296,9 @@ buttonbox {
 %osd, .osd { opacity: 0.9; }
 
 
-/*********************
- * Spinner Animation *
- *********************/
+// /*********************
+//  * Spinner Animation *
+//  *********************/
 
 @keyframes colorful_bar {
   0% {
@@ -358,9 +358,9 @@ spinner {
 }
 
 
-/****************
- * Text Entries *
- ****************/
+// /****************
+//  * Text Entries *
+//  ****************/
 
 entry,
 .entry {
@@ -468,9 +468,9 @@ entry,
 }
 
 
-/***********
- * Buttons *
- ***********/
+// /***********
+//  * Buttons *
+//  ***********/
 
 // stuff for .needs-attention
 @keyframes needs_attention {
@@ -1104,9 +1104,9 @@ toolpalette {
 }
 
 
-/*********
- * Links *
- *********/
+// /*********
+//  * Links *
+//  *********/
 
 *:link {
   color: $link_color;
@@ -1131,9 +1131,9 @@ button:visited {
 }
 
 
-/*****************
- * GtkSpinButton *
- *****************/
+// /*****************
+//  * GtkSpinButton *
+//  *****************/
 
 @keyframes spin_hover {
   from {
@@ -1349,9 +1349,9 @@ spinbutton {
 }
 
 
-/**************
- * ComboBoxes *
- **************/
+// /**************
+//  * ComboBoxes *
+//  **************/
 
 combobox {
   arrow {
@@ -1485,9 +1485,9 @@ combobox {
 }
 
 
-/************
- * Toolbars *
- ************/
+// /************
+//  * Toolbars *
+//  ************/
 
 toolbar {
   -GtkWidget-window-dragging: true;
@@ -1788,9 +1788,9 @@ searchbar,
 }
 
 
-/***************
- * Header bars *
- ***************/
+// /***************
+//  * Header bars *
+//  ***************/
 
 .titlebar,
 headerbar {
@@ -2526,9 +2526,9 @@ headerbar.titlebar.default-decoration {
 }
 
 
-/************
- * Pathbars *
- ************/
+// /************
+//  * Pathbars *
+//  ************/
 
 .linked.path-bar,
 .path-bar {
@@ -2566,9 +2566,9 @@ headerbar.titlebar.default-decoration {
 }
 
 
-/**************
- * Tree Views *
- **************/
+// /**************
+//  * Tree Views *
+//  **************/
 
 treeview.view {
   @at-root * {
@@ -2728,9 +2728,9 @@ treeview.view {
 }
 
 
-/*********
- * Menus *
- *********/
+// /*********
+//  * Menus *
+//  *********/
 
 .menubar,
 menubar {
@@ -2885,9 +2885,9 @@ menuitem {
 .csd.popup { border-radius: 2px; }
 
 
-/************
- * Popovers *
- ************/
+// /************
+//  * Popovers *
+//  ************/
 
 popover.background {
   padding: 2px;
@@ -2973,9 +2973,9 @@ popover.background {
 }
 
 
-/*************
- * Notebooks *
- *************/
+// /*************
+//  * Notebooks *
+//  *************/
 
 notebook {
   padding: 0;
@@ -3249,9 +3249,9 @@ notebook {
 }
 
 
-/**************
- * Scrollbars *
- **************/
+// /**************
+//  * Scrollbars *
+//  **************/
 
 $_slider_min_width: rem(12px);
 $_slider_min_length: rem(32px);
@@ -3383,9 +3383,9 @@ scrollbar,
 }
 
 
-/**********
- * Switch *
- **********/
+// /**********
+//  * Switch *
+//  **********/
 
 switch {
   min-width: rem(30px, $sw: 1.0);
@@ -3603,9 +3603,9 @@ switch {
 }
 
 
-/*************************
- * Check and Radio items *
- *************************/
+// /*************************
+//  * Check and Radio items *
+//  *************************/
 
 @keyframes check_radio_hover {
   from {
@@ -3886,9 +3886,9 @@ check {
 }
 
 
-/************
- * GtkScale *
- ************/
+// /************
+//  * GtkScale *
+//  ************/
 
 @keyframes scale_enlarge {
   from { background-size: $scale; }
@@ -4206,9 +4206,9 @@ scale { // scales for colour
 }
 
 
-/*****************
- * Progress bars *
- *****************/
+// /*****************
+//  * Progress bars *
+//  *****************/
 
 progressbar {
   // sizing
@@ -4303,9 +4303,9 @@ progressbar {
 }
 
 
-/*************
- * Level Bar *
- *************/
+// /*************
+//  * Level Bar *
+//  *************/
 
 levelbar {
   box-shadow: $z-depth-1; // needs to be set here to avoid clipping
@@ -4349,9 +4349,9 @@ levelbar {
 }
 
 
-/****************
- * Print dialog *
-*****************/
+// /****************
+//  * Print dialog *
+//  *****************/
 
 printdialog {
   paper {
@@ -4365,9 +4365,9 @@ printdialog {
 }
 
 
-/**********
- * Frames *
- **********/
+// /**********
+//  * Frames *
+//  **********/
 
 frame > border,
 .frame {
@@ -4451,9 +4451,9 @@ separator {
 }
 
 
-/*********
- * Lists *
- *********/
+// /*********
+//  * Lists *
+//  *********/
 
 list {
   border-color: $borders_color;
@@ -4560,9 +4560,9 @@ row {
 }
 
 
-/*********************
- * App Notifications *
- *********************/
+// /*********************
+//  * App Notifications *
+//  *********************/
 
 .app-notification {
   &, &.frame {
@@ -4621,9 +4621,9 @@ row {
 }
 
 
-/*************
- * Expanders *
- *************/
+// /*************
+//  * Expanders *
+//  *************/
 
 expander {
   padding: rem(2.7px) rem(4px) rem(3.3px);
@@ -4647,9 +4647,9 @@ expander {
 }
 
 
-/************
- * Calendar *
- ***********/
+// /************
+//  * Calendar *
+//  ***********/
 
 calendar {
   margin: rem(8px) 0;
@@ -4699,9 +4699,9 @@ calendar {
 }
 
 
-/***********
- * Dialogs *
- ***********/
+// /***********
+//  * Dialogs *
+//  ***********/
 
 messagedialog { // Message Dialog styling
   .titlebar {
@@ -4854,9 +4854,9 @@ filechooserbutton:drop(active) {
 }
 
 
-/***********
- * Sidebar *
- ***********/
+// /***********
+//  * Sidebar *
+//  ***********/
 
 .sidebar {
   border: none;
@@ -4959,9 +4959,9 @@ stacksidebar {
 }
 
 
-/****************
- * File chooser *
- ****************/
+// /****************
+//  * File chooser *
+//  ****************/
 
 placessidebar {
   @extend scrolledwindow; // needs for overshoot / undershoot
@@ -5064,9 +5064,9 @@ placesview {
 }
 
 
-/*********
- * Paned *
- *********/
+// /*********
+//  * Paned *
+//  *********/
 
 paned {
   > separator {
@@ -5159,9 +5159,9 @@ paned {
 }
 
 
-/**************
- * GtkInfoBar *
- **************/
+// /**************
+//  * GtkInfoBar *
+//  **************/
 
 infobar {
   padding: rem(5.3px);
@@ -5240,9 +5240,9 @@ infobar {
 }
 
 
-/************
- * Tooltips *
- ************/
+// /************
+//  * Tooltips *
+//  ************/
 
 .tooltip, // metacity needs style-class
 tooltip {
@@ -5269,9 +5269,9 @@ tooltip {
 }
 
 
-/*****************
- * Color Chooser *
- *****************/
+// /*****************
+//  * Color Chooser *
+//  *****************/
 
 colorswatch {
   // This widget is made of two boxes one on top of the other,
@@ -5386,9 +5386,9 @@ colorchooser .popover.osd {
 }
 
 
-/********
- * Misc *
- ********/
+// /********
+//  * Misc *
+//  ********/
 
 // content view (grid/list)
 .content-view {
@@ -5552,9 +5552,9 @@ button.flat.scale { // standalone Speaker/Mic buttons
 }
 
 
-/**********************
- * Window Decorations *
- *********************/
+// /**********************
+//  * Window Decorations *
+//  *********************/
 
 decoration {
   border-radius: 2px 2px 0 0;
@@ -6032,9 +6032,9 @@ headerbar.titlebar.default-decoration {
 }
 
 
-/***********************
- * catch all extend :) *
- ***********************/
+// /***********************
+//  * catch all extend :) *
+//  ***********************/
 
 %selected_items {
   background-color: $selected_bg_color;
@@ -6052,9 +6052,9 @@ headerbar.titlebar.default-decoration {
 .monospace { font-family: Monospace; }
 
 
-/**********************
- * Touch Copy & Paste *
- *********************/
+// /**********************
+//  * Touch Copy & Paste *
+//  *********************/
 
 // touch selection handlebars for the Popover.osd above
 cursor-handle {
