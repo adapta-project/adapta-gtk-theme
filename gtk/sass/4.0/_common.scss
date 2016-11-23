@@ -944,8 +944,8 @@ toolbar.inline-toolbar toolbutton {
 %linked_middle { border-radius: 0; }
 
 %linked {
-  -gtk-outline-radius: 2px;
   @extend %linked_middle;
+  -gtk-outline-radius: 2px;
   &:first-child {
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
@@ -959,9 +959,9 @@ toolbar.inline-toolbar toolbutton {
 
 %linked_vertical_middle { border-radius: 0; }
 
-%linked_vertical{
-  -gtk-outline-radius: 2px;
+%linked_vertical {
   @extend %linked_vertical_middle;
+  -gtk-outline-radius: 2px;
   &:first-child {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -1681,6 +1681,7 @@ toolbar {
       -gtk-outline-radius: 100px;
     }
   }
+
   .linked > button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
   }
@@ -1690,9 +1691,11 @@ toolbar {
     color: transparent;
     background: none;
   }
+
   &.horizontal {
     separator { margin: 0 rem(6px); }
   }
+
   &.vertical {
     separator { margin: rem(6px) 0; }
   }
