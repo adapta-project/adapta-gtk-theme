@@ -1080,40 +1080,6 @@ box.end-region {
       border-left-width: 0;
     }
   }
-
-  @each $s,$as in ('','-unchecked'),
-                  (':hover', '-unchecked-active'),
-                  (':active', '-unchecked-active'),
-                  (':disabled','-unchecked-insensitive'),
-                  (':indeterminate', '-mixed'),
-                  (':indeterminate:hover', '-mixed-active'),
-                  (':indeterminate:active', '-mixed-active'),
-                  (':indeterminate:disabled', '-mixed-insensitive'),
-                  (':checked', '-checked'),
-                  (':checked:hover', '-checked-active'),
-                  (':checked:active', '-checked-active'),
-                  (':checked:disabled','-checked-insensitive') {
-    check#{$s} { // always use dark variant
-      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
-                                    url("assets/checkbox#{$as}-dark@2.png"));
-    }
-
-    radio#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
-                                    url("assets/radio#{$as}-dark@2.png"));
-    }
-  }
-
-  checkbutton.text-button,
-  radiobutton.text-button {
-    color: $inverted_secondary_fg_color;
-    &:hover,
-    &:active,
-    &:checked { color: $inverted_fg_color; }
-    &:disabled,
-    &:disabled:active,
-    &:disabled:indeterminate { color: $insensitive_inverted_fg_color; }
-  }
 }
 
 // polkit-dialog specific styling

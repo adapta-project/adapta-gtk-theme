@@ -1014,43 +1014,6 @@ $full_orientation: ((top, bottom),
       border-left-width: 0;
     }
   }
-
-  // always use dark variant for check/radio icons
-  @each $s,$as in ('','-unchecked'),
-                  (':hover', '-unchecked-active'),
-                  (':active', '-unchecked-active'),
-                  (':insensitive','-unchecked-insensitive'),
-                  (':inconsistent', '-mixed'),
-                  (':inconsistent:hover', '-mixed-active'),
-                  (':inconsistent:active', '-mixed-active'),
-                  (':inconsistent:insensitive', '-mixed-insensitive'),
-                  (':checked', '-checked'),
-                  (':checked:hover', '-checked-active'),
-                  (':checked:active', '-checked-active'),
-                  (':checked:insensitive','-checked-insensitive') {
-    .check#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
-                                    url("assets/checkbox#{$as}-dark@2.png"));
-    }
-    .radio#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
-                                    url("assets/radio#{$as}-dark@2.png"));
-    }
-  }
-
-  GtkCheckButton.text-button,
-  GtkRadioButton.text-button {
-    color: $inverted_secondary_fg_color;
-    &:hover,
-    &:active,
-    &:checked { color: $inverted_fg_color; }
-    &:insensitive,
-    &:insensitive:active,
-    &:insensitive:inconsistent {
-      // set insensitive color, which is overriden otherwise
-      color: $insensitive_inverted_fg_color;
-    }
-  }
 }
 
 // polkit-dialog specific styling
