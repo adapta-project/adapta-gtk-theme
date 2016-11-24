@@ -296,7 +296,13 @@ sn-button { padding: rem(4px); }
     &,
     &:first-child,
     &:last-child {
-      @extend button.flat;
+      @include button(flat-normal);
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
+
       border-radius: 0;
       border: none;
       background-color: transparent;
@@ -791,7 +797,13 @@ dialog.background > box.dialog-vbox.vertical > box.vertical {
 window {
   > grid.vertical > box.vertical > widget {
     button {
-      @extend button.flat;
+      @include button(flat-normal);
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
+
       min-width: rem(13.3px);
       min-height: rem(13.3px);
       // FIXME: broken in 12pt fonts?
@@ -1206,7 +1218,13 @@ layouttabbar {
   }
 
   button {
-    @extend button.flat;
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
+    &:checked { @include button(flat-checked); }
+    &:checked:disabled { @include button(flat-checked-insensitive); }
+
     padding: rem(4px) rem(5.3px) rem(5.3px);
     margin: rem(2.7px);
     border-radius: 2px;
@@ -1228,7 +1246,13 @@ layouttab {
   }
 
   button {
-    @extend button.flat;
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
+    &:checked { @include button(flat-checked); }
+    &:checked:disabled { @include button(flat-checked-insensitive); }
+
     margin: rem(2.7px);
     border-radius: 2px;
     padding-left: rem(5.3px);

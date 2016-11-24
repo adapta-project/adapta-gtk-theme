@@ -71,7 +71,7 @@ case "$1" in
         fi
         sassc -t compact 3.22/gtk.scss ../gtk-3.22/gtk-contained.css
         sassc -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css
-        sassc -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.cssn
+        sassc -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css
         sassc -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css
 
         if [ ! -d ../gtk-4.0 ]; then
@@ -82,6 +82,9 @@ case "$1" in
         sassc -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css
         sassc -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
 
+        if [ ! -d ../xfce-notify-4.0 ]; then
+            mkdir -p ../xfce-notify-4.0
+        fi
         sassc -t compact common/xfce-notify-4.0.scss ../xfce-notify-4.0/gtk-contained.css
         ;;
     *)

@@ -67,15 +67,13 @@ $budgie_transition: opacity 0.2s $slope_medium,
 
 // wnck tasklist styling
 .budgie-panel #tasklist-button {
-  &, &:backdrop {
-    button {
-      border: none;
-      background: none;
-      opacity: 0.5;
-      &:hover,
-      &:active,
-      &:checked { opacity: 1.0; }
-    }
+  button {
+    border: none;
+    background: none;
+    opacity: 0.5;
+    &:hover,
+    &:active,
+    &:checked { opacity: 1.0; }
   }
 }
 
@@ -91,40 +89,36 @@ box.horizontal.pinned { // drop-target
 
 .budgie-panel {
   button.flat.launcher {
-    &, &:backdrop {
-      min-width: $icon_size + 8px;
-      min-height: $icon_size + 8px;
-      padding: 0;
-      border: 2px solid transparent;
-      background-image: radial-gradient(circle farthest-corner at center,
-                                        gtkalpha($inverted_fg_color, 0) 100%,
-                                        transparent 0%),
-                        image(gtkalpha($inverted_fg_color, 0));
-      background-position: center center;
-      opacity: 0.5;
-      transition: $budgie_transition;
-      &:hover {
-        opacity: 0.75;
-        -gtk-icon-effect: highlight;
-      }
-      &:active {
-        opacity: 1.0;
-        transition: $budgie_transition,
-                    background-image 0;
-        animation: budgie_ripple_effect 0.3s $slope_slow forwards;
-      }
-      &:checked {
-        background-color: transparent;
-        opacity: 1.0;
-        &:hover { -gtk-icon-effect: highlight; }
-      }
+    min-width: $icon_size + 8px;
+    min-height: $icon_size + 8px;
+    padding: 0;
+    border: 2px solid transparent;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      gtkalpha($inverted_fg_color, 0) 100%,
+                                      transparent 0%),
+                      image(gtkalpha($inverted_fg_color, 0));
+    background-position: center center;
+    opacity: 0.5;
+    transition: $budgie_transition;
+    &:hover {
+      opacity: 0.75;
+      -gtk-icon-effect: highlight;
+    }
+    &:active {
+      opacity: 1.0;
+      transition: $budgie_transition,
+                  background-image 0;
+      animation: budgie_ripple_effect 0.3s $slope_slow forwards;
+    }
+    &:checked {
+      background-color: transparent;
+      opacity: 1.0;
+      &:hover { -gtk-icon-effect: highlight; }
     }
   }
 
   .unpinned button.flat.launcher,
-  .unpinned button.flat.launcher:backdrop,
-  .pinned button.flat.launcher.running,
-  .pinned button.flat.launcher.running:backdrop {
+  .pinned button.flat.launcher.running {
     opacity: 1.0;
     &:hover { -gtk-icon-effect: highlight; }
   }
@@ -133,8 +127,7 @@ box.horizontal.pinned { // drop-target
 // draw underscores
 @each $along_side, $opp_side in $orientation {
   .#{$along_side} .budgie-panel {
-    #tasklist-button button,
-    #tasklist-button button:backdrop {
+    #tasklist-button button {
       border: 2px solid transparent;
       &:hover {
         border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
@@ -145,8 +138,7 @@ box.horizontal.pinned { // drop-target
       }
     }
 
-    button.flat.launcher,
-    button.flat.launcher:backdrop {
+    button.flat.launcher {
       border: 2px solid transparent;
       &:hover {
         border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
@@ -164,9 +156,7 @@ box.horizontal.pinned { // drop-target
                             (bottom, bottom) {
   .#{$along_side} .budgie-panel {
     .unpinned button.flat.launcher,
-    .unpinned button.flat.launcher:backdrop,
-    .pinned button.flat.launcher.running,
-    .pinned button.flat.launcher.running:backdrop {
+    .pinned button.flat.launcher.running {
       border: 2px solid transparent;
       // FIXME: Upstream deformed aspect-ratio to 1:1.1
       border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
@@ -183,19 +173,6 @@ box.horizontal.pinned { // drop-target
 }
 
 .budgie-panel .end-region {
-  // limit minimum lateral spacing for symbolic icons
-  // FIXME: Paper icon-pack has thin 'battery' and 'bluetooth' symbolic icon
-  > widget > widget > box.horizontal {
-    // battery
-    widget > widget > box > image { min-width: 20px; }
-    // bluetooth
-    widget:nth-child(3) > widget > image {
-      min-width: 18px;
-      &:dir(ltr) { margin: 0 0 0 -2px; }
-      &:dir(rtl) { margin: 0 -2px 0 0; }
-    }
-  }
-
   // dim symbolic icons to get better uniformity same as NaTray icons
   * > image { opacity: 0.9; }
 }
@@ -240,20 +217,17 @@ box.horizontal.pinned { // drop-target
     box-shadow: none;
   }
 
-  row { // reset background
-    &, &.activatable {
-      background-image: none;
-      background-color: $secondary_base_color;
-      color: $secondary_fg_color;
-      transition: none;
+  row.activatable { // reset background
+    background-image: none;
+    background-color: $secondary_base_color;
+    color: $secondary_fg_color;
+    transition: none;
 
-      // FIXME: enlarge vertical spacing with padding of icons
-      image { padding: rem(5.3px) 0 rem(6.7px); }
-    }
+    // FIXME: enlarge vertical spacing with padding of icons
+    image { padding: rem(5.3px) 0 rem(6.7px); }
+
     &:hover,
-    &.activatable:hover,
-    &:selected,
-    &.activatable:selected {
+    &:selected {
       background-image: none;
       background-color: $secondary_base_color;
       // child button node has hover state already
@@ -304,7 +278,7 @@ box.horizontal.pinned { // drop-target
   row {
     // stop weird and unhandled ripple-effect
     &.activatable {
-      &, & .indicator-item {
+      &, .indicator-item {
         &:active,
         &:selected { animation: none; }
       }
@@ -316,7 +290,7 @@ box.horizontal.pinned { // drop-target
       color: $secondary_fg_color;
       transition: none;
 
-      &, & .indicator-item {
+      .indicator-item {
         label,
         image { color: $secondary_fg_color; }
       }
@@ -529,7 +503,6 @@ box.horizontal.pinned { // drop-target
   scrolledwindow,
   list { background: transparent; }
 
-  row,
   row.activatable {
     background-color: transparent;
     &:hover { color: $fg_color; }
@@ -678,14 +651,10 @@ box.horizontal.pinned { // drop-target
 
 // clock-applet styling
 .budgie-panel {
-  .start-region,
-  .center-region,
-  .end-region {
-    // shrink label
-    widget > widget > label {
-      font-size: 80%;
-      padding-bottom: rem(1.3px, $sw: 1.0);
-    }
+  // shrink label
+  > box widget > widget > label {
+    font-size: 80%;
+    padding-bottom: rem(1.3px, $sw: 1.0);
   }
 }
 
@@ -707,29 +676,17 @@ box.horizontal.pinned { // drop-target
 
     &:first-child { // '+' button
       &:hover {
-        @extend %button_flat_hover;
         background: none;
         color: $success_color;
         animation: volume_hover 0.2s linear forwards;
-      }
-      &:disabled {
-        @extend %button_flat_disabled;
-        background: none;
-        color: gtkalpha($success_color, 0.4);
       }
     }
 
     &:last-child { // '-' button
       &:hover {
-        @extend %button_flat_hover;
         background: none;
         color: $error_color;
         animation: volume_hover 0.2s linear forwards;
-      }
-      &:disabled {
-        @extend %button_flat_disabled;
-        background: none;
-        color: gtkalpha($error_color, 0.4);
       }
     }
   }
@@ -834,31 +791,21 @@ widget.keyboard-label > label {
 }
 
 // separator applet
-box.start-region,
-box.center-region,
-box.end-region {
-  > widget > separator {
-    // borders_color -> track_color
-    background-color: gtkopacity($inverted_fg_color, 0.2);
-  }
+.budgie-panel > box > widget > separator {
+  // borders_color -> track_color
+  background-color: gtkopacity($inverted_fg_color, 0.2);
 }
 
 // workspace-switcher applet
-box.start-region,
-box.center-region,
-box.end-region {
+wnck-pager {
   .top & {
-    wnck-pager{
-      &:hover { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
-      &:selected { box-shadow: inset 0 2px $selected_bg_color; }
-    }
+    &:hover { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
+    &:selected { box-shadow: inset 0 2px $selected_bg_color; }
   }
 
   .bottom & {
-    wnck-pager {
-      &:hover { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
-      &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
-    }
+    &:hover { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
+    &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
   }
 }
 
@@ -891,8 +838,7 @@ box.end-region {
   }
 
   button,
-  buttonbox button,
-  buttonbox .linked > button { // OSD-style buttons
+  .linked > button { // OSD-style buttons
     border-image: none; // hide underlines
     color: $inverted_secondary_accent_label_color;
     &:hover,
@@ -942,7 +888,6 @@ box.end-region {
     list {
       background-color: transparent;
 
-      row,
       row.activatable {
         background-color: transparent;
         color: $inverted_secondary_fg_color;
@@ -2116,16 +2061,36 @@ widget.caja-desktop.view { // desktop icon-grid styling
       }
 
       &, &.slider-button { // use linked-array button styling
-        @extend button.flat;
+        @include button(flat-normal);
         @extend %button_array;
+        &:hover {
+          @include button(flat-hover);
+          @extend %button_array:hover;
+        }
+        &:active {
+          @include button(flat-active);
+          @extend %button_array:active;
+        }
+        &:disabled {
+          @include button(flat-insensitive);
+          @extend %button_array:disabled;
+        }
+        &:checked {
+          @include button(flat-checked);
+          @extend %button_array:checked;
+        }
       }
     }
   }
 
   button.image-button.toggle { // most-left toggle button in path-bar pane
-    @extend button.flat;
+    @include button(flat-normal);
     @extend %image_button;
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
     &:checked { // use underline-indicator
+      @include button(flat-checked);
       border-radius: 0;
       -gtk-outline-radius: 0;
       background-image: none;
