@@ -471,6 +471,14 @@ NautilusTrashBar {
 
     label { margin: rem(-2px) 0; }
   }
+
+  button.image-button.popup.toggle { // 'gear' button
+    margin: if($ref_weight < 1.0, rem(5.3px + 2.7px) 0,
+                                  rem(5.3px) 0);
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
+  }
 }
 
 // left-pane styling
