@@ -36,15 +36,37 @@ fi
 
 xml="gtk.gresource.xml"
 
-cp "$xml".in ../gtk-"$1"/"$xml"
-sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"/"$xml"
-cd ../gtk-"$1" && ln -sf ../asset/assets-gtk3 assets && cd ../sass
-$(command -v glib-compile-resources) --sourcedir=../gtk-"$1" ../gtk-"$1"/"$xml"
+if [ "$1" = '3.18' ]; then
+    cp "$xml".in ../gtk-"$1"/"$xml"
+    sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"/"$xml"
+    cd ../gtk-"$1" && ln -sf ../asset/assets-gtk3 assets && cd ../sass
+    $(command -v glib-compile-resources) --sourcedir=../gtk-"$1" \
+                                         ../gtk-"$1"/"$xml"
+    echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained.css");' > ../gtk-"$1"/gtk.css
+    echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained-dark.css");' > ../gtk-"$1"/gtk-dark.css
 
-echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained.css");' >  ../gtk-"$1"/gtk.css
-echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained-dark.css");' >  ../gtk-"$1"/gtk-dark.css
+    rm -f ../gtk-"$1"/"$xml"
+    rm -rf ../gtk-"$1"/assets
+else
+    cp "$xml".in ../gtk-"$1"/"$xml"
+    cp "$xml".in ../gtk-"$1"-eta/"$xml"
+    sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"/"$xml"
+    sed -i "s|@VERSION[@]|$1-eta|g" ../gtk-"$1"-eta/"$xml"
+    cd ../gtk-"$1" && ln -sf ../asset/assets-gtk3 assets && cd ../sass
+    cd ../gtk-"$1"-eta && ln -sf ../asset/assets-gtk3 assets && cd ../sass
+    $(command -v glib-compile-resources) --sourcedir=../gtk-"$1" \
+                                         ../gtk-"$1"/"$xml"
+    $(command -v glib-compile-resources) --sourcedir=../gtk-"$1"-eta \
+                                         ../gtk-"$1"-eta/"$xml"
+    echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained.css");' > ../gtk-"$1"/gtk.css
+    echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained-dark.css");' > ../gtk-"$1"/gtk-dark.css
+    echo '@import url("resource:///org/adapta-project/gtk-'$1'-eta/gtk-contained.css");' > ../gtk-"$1"-eta/gtk.css
+    echo '@import url("resource:///org/adapta-project/gtk-'$1'-eta/gtk-contained-dark.css");' > ../gtk-"$1"-eta/gtk-dark.css
 
-rm -f ../gtk-"$1"/"$xml"
-rm -rf ../gtk-"$1"/assets
+    rm -f ../gtk-"$1"/"$xml"
+    rm -f ../gtk-"$1"-eta/"$xml"
+    rm -rf ../gtk-"$1"/assets
+    rm -rf ../gtk-"$1"-eta/assets
+fi
 
 exit 0

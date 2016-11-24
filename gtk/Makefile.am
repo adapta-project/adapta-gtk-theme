@@ -919,12 +919,9 @@ endif
 
 	cd $(srcdir)/sass && ./compile-gresource.sh 3.18
 	cd $(srcdir)/sass && ./compile-gresource.sh 3.20
-	cd $(srcdir)/sass && ./compile-gresource.sh 3.20-eta
 	cd $(srcdir)/sass && ./compile-gresource.sh 3.22
-	cd $(srcdir)/sass && ./compile-gresource.sh 3.22-eta
 if ENABLE_GTK_NEXT
 	cd $(srcdir)/sass && ./compile-gresource.sh 4.0
-	cd $(srcdir)/sass && ./compile-gresource.sh 4.0-eta
 endif
 
 # *****************
