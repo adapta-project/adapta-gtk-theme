@@ -14,3 +14,7 @@ glib-compile-resources --sourcedir="../gnome-shell" \
 	../gnome-shell/gnome-shell-theme.gresource.xml
 glib-compile-resources --sourcedir="../gnome-shell-nokto" \
 	../gnome-shell-nokto/gnome-shell-theme.gresource.xml
+glib-compile-resources --sourcedir="../gnome-shell-eta" \
+	../gnome-shell-eta/gnome-shell-theme.gresource.xml
+glib-compile-resources --sourcedir="../gnome-shell-nokto-eta" \
+	../gnome-shell-nokto-eta/gnome-shell-theme.gresource.xml
