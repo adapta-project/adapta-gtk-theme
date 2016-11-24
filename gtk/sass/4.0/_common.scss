@@ -4183,6 +4183,9 @@ progressbar {
     box-shadow: none;
     border-radius: 0;
     background-color: gtkopacity($accent_color, 0.2);
+
+    // makes the progress indicator disappear, when the fraction is 0
+    &.empty progress { all: unset; }
   }
 
   progress {
