@@ -142,7 +142,7 @@ Installation from Git Source
  * inkscape
  * libgdk-pixbuf2.0-dev (gdk-pixbuf2-devel)  >= 2.32.2
  * libglib2.0-dev (glib2-devel)              >= 2.48.0
- * librsvg2-dev (librsvg-2-devel)            >= 2.40.13
+ * librsvg2-dev (librsvg2-devel)             >= 2.40.13
  * libsass0 (libsass)                        >= 3.3.6
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
@@ -150,6 +150,14 @@ Installation from Git Source
  ```
 
  > **Note:**
+ >
+ >   * In OpenSUSE, add 2 extra dependencies:
+ >
+ >     ```
+ >     gdk-pixbuf-loader-rsvg  >= 2.40.13
+ >
+ >     gdk-pixbuf-devel        >= 2.32.2
+ >     ```
  >
  >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
  >   * Adapta uses `inkscape` to generate installable PNG files.
