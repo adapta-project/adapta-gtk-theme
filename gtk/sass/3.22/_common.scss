@@ -3254,8 +3254,7 @@ $_slider_min_length: rem(32px);
   to { min-height: $_slider_min_width; }
 }
 
-scrollbar,
-.scrollbar {
+scrollbar {
   // disable steppers
   @at-root * {
     -GtkScrollbar-has-backward-stepper: false;
@@ -3269,13 +3268,10 @@ scrollbar,
   &.top,
   &.bottom,
   &.left,
-  &.right {
-    &, .trough { border: none; }
-  }
+  &.right { border: none; }
 
   // slider
-  slider,
-  .slider {
+  slider {
     margin: 0;
     border-radius: 0;
     border: 0 none transparent;
@@ -3288,8 +3284,7 @@ scrollbar,
   &.fine-tune slider { margin: 0; }
 
   &.vertical {
-    slider,
-    .slider {
+    slider {
       min-width: $_slider_min_width;
       min-height: $_slider_min_length;
       margin: 0;
@@ -3297,8 +3292,7 @@ scrollbar,
     &.fine-tune slider { margin: 0; }
   }
   &.horizontal {
-    slider,
-    .slider {
+    slider {
       min-width: $_slider_min_length;
       min-height: $_slider_min_width;
       margin: 0;
