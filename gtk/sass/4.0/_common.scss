@@ -1803,26 +1803,27 @@ headerbar {
 
   // button styling
   button:not(.suggested-action):not(.destructive-action) {
-    @extend button.flat;
+    @include button(flat-normal);
     border-image: radial-gradient(circle farthest-corner at center,
                                   $track_color 0%,
                                   transparent)
                                   0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
-    &:hover { color: $inverted_fg_color; }
+    &:hover {
+      @include button(flat-hover);
+      color: $inverted_fg_color;
+    }
+    &:active { @include button(flat-active); }
     &:checked {
+      @include button(flat-checked);
       border-image: radial-gradient(circle farthest-corner at center,
                                     $selected_bg_color 100%,
                                     transparent)
                                     0 0 2 / 0 0 2px;
-      // box-shadow: inset 0 -2px $selected_bg_color;
       background-color: transparent;
       color: $inverted_fg_color;
-      // transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      //             box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
-      //             color 0;
-      // &:active { transition: none; }
       &:disabled {
+        @include button(flat-checked-insensitive);
         background-color: transparent;
         color: $insensitive_inverted_fg_color;
 
@@ -1830,7 +1831,7 @@ headerbar {
       }
     }
     &:disabled {
-      background-color: transparent;
+      @include button(flat-insensitive);
       color: $insensitive_inverted_fg_color;
 
       > label { color: inherit; }
