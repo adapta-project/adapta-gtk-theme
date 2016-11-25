@@ -118,9 +118,12 @@ Installation from Package(s)
 
  * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
 
+ * OBS (openSUSE Tumbleweed): https://build.opensuse.org/package/show/home:Ronis_BR/adapta-gtk-theme
+
  > **Note:**
  >
  >   * Solus OS has an eopkg (ypkg) in main repository.
+ >
 
 Installation from Git Source
 ----------------------------
