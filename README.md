@@ -123,7 +123,6 @@ Installation from Package(s)
  > **Note:**
  >
  >   * Solus OS has an eopkg (ypkg) in main repository.
- >
 
 Installation from Git Source
 ----------------------------
