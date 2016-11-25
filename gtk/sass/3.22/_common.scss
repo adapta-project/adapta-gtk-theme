@@ -951,7 +951,7 @@ toolbar.inline-toolbar toolbutton > button { // redefining the button look is
 
 // More inline toolbar buttons
 toolbar.inline-toolbar toolbutton {
-  // & > button.flat { @extend %linked_middle; }
+  // > button.flat { @extend %linked_middle; }
   // &:first-child > button.flat { @extend %linked:first-child; }
   // &:last-child > button.flat { @extend %linked:last-child; }
   // &:only-child > button.flat { @extend %linked:only-child; }
@@ -1109,7 +1109,7 @@ button:link,
 button:visited {
   // FIXME: aggregate with buttons
   @extend *:link;
-  & > label { text-decoration-line: underline; }
+  > label { text-decoration-line: underline; }
 }
 
 
@@ -1826,8 +1826,8 @@ headerbar {
 
   // separators
   & separator.vertical,
-  & > box > separator.vertical,
-  & > box > box > separator.vertical {
+  > box > separator.vertical,
+  > box > box > separator.vertical {
     border: 0 none transparent;
     color: transparent;
     background-color: transparent;
@@ -2006,7 +2006,7 @@ headerbar {
   // combobox styling
   combobox,
   .linked > combobox {
-    & > entry.combo {
+    > entry.combo {
       min-height: $icon_size;
       padding-top: rem(($widget_size - $icon_size - 5px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 2.3px) / 2);
@@ -2020,7 +2020,7 @@ headerbar {
       &:backdrop { opacity: 0.5; }
     }
 
-    & > button.combo {
+    > button.combo {
       min-height: $icon_size;
       padding-top: rem(($widget_size - $icon_size - 5px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 2.3px) / 2);
@@ -2784,21 +2784,21 @@ menu {
     transition: none;
 
     &,
-    & > label,
-    & > arrow { color: $secondary_fg_color; }
+    > label,
+    > arrow { color: $secondary_fg_color; }
 
     &:hover {
       background-color: gtkalpha(currentColor, 0.1);
       transition: none;
 
       &,
-      & > label,
-      & > arrow { color: $fg_color; }
+      > label,
+      > arrow { color: $fg_color; }
     }
     &:disabled {
       &,
-      & > label,
-      & > arrow { color: $insensitive_fg_color; }
+      > label,
+      > arrow { color: $insensitive_fg_color; }
     }
 
     // submenu indicators
@@ -3132,7 +3132,7 @@ notebook {
       //                     -gtk-icontheme('pan-up-symbolic');
       // }
     }
-    & > tabs > arrow {
+    > tabs > arrow {
       transition: none;
       min-height: rem($icon_size);
       min-width: rem($icon_size);
@@ -3153,7 +3153,7 @@ notebook {
         padding: 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
-        & > image { padding: rem(6.7px); }
+        > image { padding: rem(6.7px); }
       }
     }
   }
@@ -3203,7 +3203,7 @@ notebook {
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
-      & > image { // this is a hack which makes tabs grow
+      > image { // this is a hack which makes tabs grow
         padding: rem(5.3px + 2.7px, $sw: 1.0);
       }
     }
@@ -3223,7 +3223,7 @@ notebook {
       min-height: rem($icon_size);
       padding: 0;
       // weird wdiget gets in our way
-      & > widget > box > image { padding: rem(5.3px + 2.7px, $sw: 1.0); }
+      > widget > box > image { padding: rem(5.3px + 2.7px, $sw: 1.0); }
     }
 
     spinner {
@@ -4970,7 +4970,7 @@ placessidebar {
 
     // Using margins/padding directly in the row
     // will make the animation of the new bookmark row jump
-    & > revealer {
+    > revealer {
       padding: rem(4px) rem(14px) rem(4px) rem(12px);
     }
 
