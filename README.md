@@ -151,12 +151,12 @@ Installation from Git Source
 
  > **Note:**
  >
- >   * In OpenSUSE, add 2 extra dependencies:
+ >   * In OpenSUSE, add 3 extra dependencies:
  >
  >     ```
  >     gdk-pixbuf-loader-rsvg  >= 2.40.13
- >
  >     gdk-pixbuf-devel        >= 2.32.2
+ >     librsvg-devel           >= 2.40.13
  >     ```
  >
  >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
