@@ -154,8 +154,8 @@ Installation from Git Source
  >   * In OpenSUSE, add 3 extra dependencies:
  >
  >     ```
- >     gdk-pixbuf-loader-rsvg  >= 2.40.13
  >     gdk-pixbuf-devel        >= 2.32.2
+ >     gdk-pixbuf-loader-rsvg  >= 2.40.13
  >     librsvg-devel           >= 2.40.13
  >     ```
  >
