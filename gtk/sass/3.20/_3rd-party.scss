@@ -867,16 +867,9 @@ wnck-pager {
 
 // run-dialog styling
 .background.csd.budgie-run-dialog {
+  border-radius: 2px;
   border: none;
-  background-color: transparent;
-
-  decoration {
-    border-radius: 2px; // hard-coded 6px is ugly...
-    border: none;
-    background-color: gtkopacity($inverted_dark_color, 0.9);
-
-    headerbar { border-radius: 2px; }
-  }
+  background-color: gtkopacity($inverted_dark_color, 0.9);
 
   scrolledwindow {
     border-image: none; // remove underline indicator
@@ -915,13 +908,6 @@ wnck-pager {
     }
   }
 
-  // hide weird separator
-  box > box > separator {
-    border: 0 none transparent;
-    color: transparent;
-    background-color: transparent;
-  }
-
   box > box {
     entry {
       color: $inverted_fg_color;
@@ -952,15 +938,6 @@ wnck-pager {
       &:active { background-color: $inverted_fg_color; }
       &:disabled { opacity: 0.4; }
     }
-  }
-
-  // 'close' button
-  button.image-button {
-    color: $inverted_secondary_accent_label_color;
-    &:hover,
-    &:active,
-    &:checked { color: $inverted_accent_label_color; }
-    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
   }
 }
 
