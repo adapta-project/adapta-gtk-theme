@@ -116,9 +116,9 @@ Installation from Package(s)
 
  * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
 
- * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
-
  * OBS (openSUSE Tumbleweed): https://build.opensuse.org/package/show/home:Ronis_BR/adapta-gtk-theme
+
+ * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
 
  > **Note:**
  >
