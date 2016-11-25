@@ -1136,7 +1136,7 @@ UnityPanelWidget,
 }
 
 .lightdm.background { // protect panel area from unwanted hard-coded img
-  & > Background > GtkBox > GtkEventBox {
+  > Background > GtkBox > GtkEventBox {
     border-radius: 0;
     border-top: 24px solid $panel_bg_color;
   }
@@ -1148,11 +1148,11 @@ UnityPanelWidget,
   background-image: linear-gradient(to bottom, $panel_bg_color);
   opacity: 1.0;
 
-  & > * {
+  > * {
     padding: 0 6px;
     color: $inverted_fg_color;
 
-    & > .label { color: $inverted_fg_color; }
+    > .label { color: $inverted_fg_color; }
 
     &:hover {
       color: $selected_fg_color;

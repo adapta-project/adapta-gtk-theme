@@ -813,7 +813,7 @@ GtkTextView { // This will get overridden by .view,
 
 // More inline toolbar buttons
 .inline-toolbar.toolbar GtkToolButton {
-  // & > .button.flat { @extend %linked_middle; }
+  // > .button.flat { @extend %linked_middle; }
   // &:first-child > .button.flat { @extend %linked:first-child; }
   // &:last-child > .button.flat { @extend %linked:last-child; }
   // &:only-child > .button.flat { @extend %linked:only-child; }
@@ -929,7 +929,7 @@ GtkButtonBox > .button {
 .button:link,
 .button:visited {
   @extend *:link;
-  & > .label { text-decoration-line: underline; }
+  > .label { text-decoration-line: underline; }
 }
 
 
@@ -1345,8 +1345,8 @@ GtkComboBox {
 
   // separator
   .header-bar-separator,
-  & > GtkBox > .separator.vertical,
-  & > GtkBox > GtkBox > .separator.vertical {
+  > GtkBox > .separator.vertical,
+  > GtkBox > GtkBox > .separator.vertical {
     -GtkWidget-separator-width: 0;
     border: 0 none transparent;
     color: transparent;
@@ -1934,7 +1934,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     box-shadow: none;
   }
 
-  & > .menuitem {
+  > .menuitem {
     padding: 0.4em 0.6em;
 
     // FIXME: do not set foregrond at top-level
@@ -1974,21 +1974,21 @@ column-header.button.dnd { // for treeview-like derive widgets
     text-shadow: none;
 
     &,
-    & > .label,
-    & > GtkImage { color: $secondary_fg_color; }
+    > .label,
+    > GtkImage { color: $secondary_fg_color; }
 
     &:hover {
       transition: none;
       background-color: gtkalpha(currentColor, 0.1);
 
       &,
-      & > .label,
-      & > GtkImage { color: $fg_color; }
+      > .label,
+      > GtkImage { color: $fg_color; }
     }
     &:insensitive {
       &,
-      & > .label,
-      & > GtkImage { color: $insensitive_fg_color; }
+      > .label,
+      > GtkImage { color: $insensitive_fg_color; }
     }
 
     // submenu indicators
@@ -2258,7 +2258,7 @@ column-header.button.dnd { // for treeview-like derive widgets
       &:active { @include button(flat-active); }
       &:insensitive { @include button(flat-insensitive); }
 
-      & > GtkImage { // this is a hack which makes tabs grow
+      > GtkImage { // this is a hack which makes tabs grow
         padding: 0.6em;
       }
     }
