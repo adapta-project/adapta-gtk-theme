@@ -73,7 +73,7 @@ stage {
     background-color: $accent_active_fill_color;
     box-shadow: none;
   }
-  &:insensitive { @include button(flat-insensitive); }
+  &:insensitive { @include button(osd-insensitive); }
 
   &:first-child { border-radius: 0 0 0 2px; }
   &:last-child {
@@ -1622,7 +1622,25 @@ StScrollBar {
   &-header-hbox { spacing: if($eta == 'false', 10px, 7px); }
 
   &-airplane {
-    &-box { spacing: if($eta == 'false', 12px, 9px); }
+    &-box {
+      spacing: if($eta == 'false', 12px, 9px);
+
+      .button {
+        color: $inverted_secondary_accent_label_color;
+        background-color: transparent;
+        font-weight: 700;
+        &:hover {
+          color: $inverted_accent_label_color;
+          background-color: $accent_fill_color;
+        }
+        &:active {
+          color: $inverted_accent_label_color;
+          background-color: $accent_active_fill_color;
+          box-shadow: none;
+        }
+        &:insensitive { @include button(osd-insensitive); }
+      }
+    }
 
     &-headline {
       font-weight: 700;
