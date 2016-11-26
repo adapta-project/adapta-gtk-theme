@@ -512,6 +512,11 @@ button {
       }
     }
     &:disabled { opacity: 0; }
+
+    .linked > & { // 'rotate CW/CCW' linked-buttons
+      &:hover,
+      &:active { background-color: gtkopacity($inverted_dark_color, 0.9); }
+    }
   }
 
   // overlay / OSD style
