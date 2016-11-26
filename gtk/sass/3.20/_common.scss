@@ -526,22 +526,21 @@ button,
   // big standalone buttons like in Documents pager
   &.osd {
     &.image-button {
-      @extend button.flat;
+      @extend %button_flat_normal;
       @extend %image_button;
       padding: rem(17.3px);
-      background-color: $inverted_dark_color;
+      background-color: gtkopacity($inverted_dark_color, 0.9);
       &:not(:active):not(:disabled):not(hover) {
         color: $inverted_secondary_accent_label_color;
       }
       &:hover {
+        @extend %button_flat_hover;
         color: $inverted_accent_label_color;
-        background-color: gtkopacity($inverted_dark_color, 0.7);
-        background-image: linear-gradient(to bottom, $track_color);
+        background-image: image($track_color);
       }
       &:active {
+        @extend %button_flat_active;
         color: $inverted_accent_label_color;
-        background-color: gtkopacity($inverted_dark_color, 0.7);
-        background-image: linear-gradient(to bottom, $accent_fill_color);
       }
     }
     &:disabled { opacity: 0; }
