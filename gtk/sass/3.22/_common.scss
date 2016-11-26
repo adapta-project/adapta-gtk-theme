@@ -5275,7 +5275,8 @@ colorswatch {
   box-shadow: $z-depth-1;
 
   // we need to re-set the shadow here since it get axed by the previous bit
-  &:selected { }
+  &:selected {
+  }
 
   // base color corners rounding
   // to avoid the artifacts caused by rounded corner anti-aliasing
@@ -5331,12 +5332,9 @@ colorswatch {
   }
 
   // indicator and keynav outline colors
-  &.color-dark {
-    color: white;
-  }
-  &.color-light {
-    color: gtkopacity(black, 0.8);
-  }
+  &.color-dark { color: white; }
+
+  &.color-light { color: gtkopacity(black, 0.8); }
 
   // border color
   &.overlay,
@@ -5345,12 +5343,12 @@ colorswatch {
 
   // make the add color button looks like, well, a button
   &#add-color-button {
-  background-image: linear-gradient(to right,
-                                    $error_bg_color 25%,
-                                    $warning_bg_color 25%, $warning_bg_color 50%,
-                                    $info_bg_color 50%, $info_bg_color 75%,
-                                    $question_bg_color 75%);
-  color: white;
+    background-image: linear-gradient(to right,
+                                      $error_bg_color 25%,
+                                      $warning_bg_color 25%, $warning_bg_color 50%,
+                                      $info_bg_color 50%, $info_bg_color 75%,
+                                      $question_bg_color 75%);
+    color: white;
   }
 }
 
