@@ -2849,13 +2849,29 @@ menu {
   }
 
   > arrow { // overflow buttons
-    @extend button.flat;
+    @extend %button_flat_normal;
     min-height: rem($icon_size);
     min-width: rem($icon_size);
     padding: rem(4px);
     border-style: none;
     border-radius: 0;
+    color: $secondary_fg_color;
     background-color: $secondary_base_color;
+    &:hover {
+      @extend %button_flat_hover;
+      color: $fg_color;
+      background-color: $secondary_dark_color;
+    }
+    &:active { @include button(flat-active); }
+    &:checked { @include button(flat-checked); }
+    &:checked:disabled { @include button(flat-checked-insensitive); }
+    &:disabled {
+      @extend %button_flat_disabled;
+      border-color: transparent ;
+      color: transparent;
+      background-color: transparent;
+    }
+
     &.top {
       margin-top: rem(-5.3px);
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
@@ -2865,12 +2881,6 @@ menu {
       margin-bottom: rem(-5.3px);
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
       border-top: 1px solid $borders_color;
-    }
-    &:hover { background-color: $secondary_dark_color; }
-    &:disabled {
-      color: transparent;
-      background-color: transparent;
-      border-color: transparent ;
     }
   }
 
@@ -5007,8 +5017,13 @@ placessidebar {
 
     button {
       &.image-button { // Eject button for removable storages
+        @include button(flat-normal);
         padding: rem(4px); // Same as of placessidebar row
-        @extend button.flat;
+        &:hover { @include button(flat-hover); }
+        &:active { @include button(flat-active); }
+        &:disabled { @include button(flat-insensitive); }
+        &:checked { @include button(flat-checked); }
+        &:checked:disabled { @include button(flat-checked-insensitive); }
       }
     }
 
