@@ -2394,7 +2394,21 @@ StScrollBar {
 
   &-notification-item {
     padding: 2px 10px;
-    &:focus { padding: 1px 71px 1px 11px; }
+    color: $inverted_secondary_accent_label_color;
+    font-weight: 700;
+    &:hover {
+      color: $inverted_accent_label_color;
+      background-color: $accent_fill_color;
+    }
+    &:active {
+      color: $inverted_accent_label_color;
+      background-color: $accent_active_fill_color;
+    }
+    &:focus {
+      // padding: 1px 71px 1px 11px;
+      color: $inverted_accent_label_color;
+    }
+    &:insensitive { @include button(osd-insensitive); }
 
     &-icon {
       padding: 2px 5px;
