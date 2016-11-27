@@ -1732,11 +1732,12 @@ StScrollBar {
   padding: 0;
   border-radius: 100px;
   border-color: transparent;
-  border-top: 1px solid $borders_highlight;
+  border-top: 1px solid if($nokto == 'false', $borders_highlight,
+                                              $panel_bg_color);
   color: $secondary_fg_color;
-  background-color: $bg_color;
+  background-color: if($nokto == 'false', $bg_color, $panel_bg_color);
   font-weight: 500;
-  box-shadow: $z-depth-2;
+  box-shadow: if($nokto == 'false', $z-depth-2, none);
 
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
@@ -1747,9 +1748,10 @@ StScrollBar {
 
   &:hover,
   &:focus {
-    border-top: 1px solid $borders_highlight;
+    border-top: 1px solid if($nokto == 'false', $borders_highlight,
+                                                $panel_bg_color);
     color: $fg_color;
-    box-shadow: $z-depth-3;
+    box-shadow: if($nokto == 'false', $z-depth-3, none);
     transition-duration: 0.2s;
   }
 
@@ -1758,12 +1760,15 @@ StScrollBar {
     padding: 8px 16px 7px;
     icon-size: 16px;
     border-radius: 100px;
-    border-width: 1px;
+    border-width: if($nokto == 'false', 1px, 0);
     border-style: solid;
-    border-color: transparent $borders_color $borders_color;
+    border-color: if($nokto == 'false',
+                  transparent $borders_color $borders_color,
+                  transparent transparent transparent);
     color: $secondary_fg_color;
-    background-color: $base_color;
-    box-shadow: $z-depth-3;
+    background-color: if($nokto == 'false', $base_color,
+                                            transparent);
+    box-shadow: if($nokto == 'false', $z-depth-3, none);
   }
 
   &:hover,
