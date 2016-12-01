@@ -315,7 +315,6 @@ StScrollBar {
 
 .popup-menu,
 .menu {
-  min-width: 200px;
   padding: 0;
   border-width: 3px; // same value as padding embedded in the pixmaps
   border-image: url("assets/menu/menu.svg") 9 9 9 9;
@@ -324,7 +323,6 @@ StScrollBar {
   &-arrow { icon-size: 16px; }
 
   .popup-sub-menu {
-    min-width: 200px;
     border-image: url("assets/menu/submenu.svg") 9 9 0 0;
     background-gradient-direction: none;
     box-shadow: none;
@@ -345,6 +343,7 @@ StScrollBar {
   .popup-menu-content { padding: 1em 0 1em 0; }
 
   .popup-menu-item {
+    min-width: 180px;
     padding: 0.4em 1.75em;
     spacing: 1em;
     border-width: 0 1px;
