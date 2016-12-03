@@ -307,10 +307,10 @@ sn-button { padding: rem(4px); }
 //  * Nautilus *
 //  ************/
 
-.nautilus-desktop-window,
-.nautilus-desktop-window notebook,
-.nautilus-desktop-window notebook > stack {
-  background: transparent;
+.nautilus-desktop-window {
+  &
+  notebook,
+  notebook > stack { background: transparent; }
 }
 
 .nautilus-desktop.nautilus-canvas-item {
@@ -321,12 +321,17 @@ sn-button { padding: rem(4px); }
 
 .background.nautilus-window {
   // main content pane
-  notebook > stack overlay > scrolledwindow > widget.view {
-    // some extends pull background-image for ripple-effects,
-    // but notebook node does not need that.
-    // FIXME: that caused fading colours of background
-    // even if that was completely transparent.
-    background-image: none;
+  notebook {
+    // cover up top-edge solid border
+    box-shadow: inset 0 1px $base_color;
+
+    > stack overlay > scrolledwindow > widget.view {
+      // some extends pull background-image for ripple-effects,
+      // but notebook node does not need that.
+      // FIXME: that caused fading colours of background
+      // even if that was completely transparent.
+      background-image: none;
+    }
   }
 }
 
