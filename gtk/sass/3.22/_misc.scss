@@ -26,7 +26,7 @@ panel-applet > menubar,
 panel-applet menubar {
   box-shadow: none;
 
-  & menuitem {
+  menuitem {
     color: $inverted_secondary_fg_color;
     background-color: transparent;
     &:hover {
@@ -35,11 +35,11 @@ panel-applet menubar {
     }
   }
 
-  & menu {
+  menu {
     font-weight: 400;
     font-size: 100%;
 
-    & menuitem {
+    menuitem {
       color: $secondary_fg_color;
       background-color: $secondary_base_color;
       &:hover {
@@ -1397,7 +1397,7 @@ GdMainView,
   .view {
     background-color: $secondary_dark_color;
     box-shadow: none;
-    &, & row.activatable {
+    &, row.activatable {
       padding: 0;
       background-color: transparent;
       color: $secondary_fg_color;
@@ -1576,7 +1576,7 @@ window overlay > grid > frame > grid {
       &:hover { color: $fg_color; }
       &:selected,
       &:selected.activatable {
-        &, & label { color: $selected_bg_color; }
+        &, label { color: $selected_bg_color; }
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
       }

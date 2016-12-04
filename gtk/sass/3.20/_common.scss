@@ -429,7 +429,7 @@ entry,
     }
   }
 
-  & image { // entry icons colors
+  image { // entry icons colors
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
     &:active { color: $selected_bg_color; }
     &:disabled { color: gtkalpha(currentColor, 0.55); }
@@ -1344,7 +1344,7 @@ spinbutton {
 
   // Misc
   treeview & {
-    & entry:focus {
+    entry:focus {
       padding: 1px;
       border-radius: 0;
       border-width: 0;
@@ -1379,8 +1379,8 @@ combobox {
     button.combo { @extend button:drop(active); }
   }
 
-  & menu { padding: rem(3.3px) 0; }
-  & menu > menuitem { padding: rem(4.7px) rem(5.3px) rem(6px); }
+  menu { padding: rem(3.3px) 0; }
+  menu > menuitem { padding: rem(4.7px) rem(5.3px) rem(6px); }
 
   entry.combo {
   }
@@ -1851,7 +1851,7 @@ headerbar {
   }
 
   // separators
-  & separator.vertical,
+  separator.vertical,
   > box > separator.vertical,
   > box > box > separator.vertical {
     border: 0 none transparent;
@@ -1993,7 +1993,7 @@ headerbar {
   .linked > button,
   button.suggested-action,
   button.destructive-action {
-    &, & label.text-button {
+    &, label.text-button {
       color: $inverted_secondary_fg_color;
       &:hover { color: $inverted_fg_color; }
       &:checked {
@@ -2070,9 +2070,9 @@ headerbar {
       &:disabled { color: $insensitive_fg_color; }
     }
 
-    & accelerator { color: gtkalpha(currentColor, 0.55); }
+    accelerator { color: gtkalpha(currentColor, 0.55); }
 
-    & separator { color: $borders_color; }
+    separator { color: $borders_color; }
   }
 
   // pop-over styling
@@ -3150,18 +3150,18 @@ notebook {
 
     // Arrow buttons
     &.top, &.bottom {
-      // & tabs arrow.up { -gtk-icon-source:
+      // tabs arrow.up { -gtk-icon-source:
       //                   -gtk-icontheme('pan-end-symbolic');
       // }
-      // & tabs arrow.down { -gtk-icon-source:
+      // tabs arrow.down { -gtk-icon-source:
       //                     -gtk-icontheme('pan-start-symbolic');
       // }
     }
     &.left, &.right {
-      // & tabs arrow.up { -gtk-icon-source:
+      // tabs arrow.up { -gtk-icon-source:
       //                   -gtk-icontheme('pan-down-symbolic');
       // }
-      // & tabs arrow.down { -gtk-icon-source:
+      // tabs arrow.down { -gtk-icon-source:
       //                     -gtk-icontheme('pan-up-symbolic');
       // }
     }
@@ -3964,8 +3964,8 @@ scale {
   // outline-offset: rem(-4px);
   // -gtk-outline-radius: 100px;
   &,
-  & trough,
-  & trough highlight {
+  trough,
+  trough highlight {
     outline-style: none;
     outline-offset: 0;
     outline-width: 0;
@@ -4517,9 +4517,9 @@ row.activatable {
 
 // button spacing
 row {
-  & button.image-button { padding: rem(8px); }
+  button.image-button { padding: rem(8px); }
 
-  & button.circular {
+  button.circular {
     min-width: $icon_size;
     min-height: $icon_size;
     padding: rem(8px);
@@ -5003,13 +5003,13 @@ placessidebar {
       padding: rem(4px) rem(14px) rem(4px) rem(12px);
     }
 
-    & image.sidebar-icon {
+    image.sidebar-icon {
       opacity: 0.75; // dim the device icons
       &:dir(ltr) { padding-right: rem(5.3px); }
       &:dir(rtl) { padding-left: rem(5.3px); }
     }
 
-    & label.sidebar-label {
+    label.sidebar-label {
       &:dir(ltr) { padding-right: rem(2px); }
       &:dir(rtl) { padding-left: rem(2px); }
     }
@@ -5418,7 +5418,7 @@ colorchooser .popover.osd {
 .content-view {
   background-color: $bg_color;
   // &:hover { -gtk-icon-effect: highlight; }
-  & rubberband { @extend rubberband; }
+  rubberband { @extend rubberband; }
 }
 
 @keyframes volume_hover {
@@ -5445,7 +5445,7 @@ colorchooser .popover.osd {
   }
 
   .osd & .vertical button,
-  & .vertical button { // +/- buttons on GtkVolumeButton popup
+  .vertical button { // +/- buttons on GtkVolumeButton popup
     // padding: rem(10.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;

@@ -1122,7 +1122,7 @@ UnityPanelWidget,
   box-shadow: none;
 
   &.menuitem,
-  & .menuitem * {
+  .menuitem * {
     padding: 0 6px;
     border-radius: 0;
     border-bottom: none;
@@ -1185,7 +1185,7 @@ UnityPanelWidget,
           text-shadow: none;
 
           // override above hacks
-          &, & label { color: $secondary_fg_color; }
+          &, label { color: $secondary_fg_color; }
           &:hover,
           &:hover label { color: $fg_color; }
           &:disabled,
@@ -1369,7 +1369,7 @@ headerbar.titlebar box {
                                         $toolbar-shadow-dark);
 
     > button.flat.toggle { // 'back/forward'?
-      &, & image {
+      &, image {
         min-height: $icon_size * 2.2;
         min-width: $icon_size * 2.2;
         padding: 0;
@@ -1391,7 +1391,7 @@ headerbar.titlebar box {
       // general circle buttons
       &.image-button,
       &.image-button.toggle {
-        &, & image {
+        &, image {
           min-height: $icon_size * 2.2;
           min-width: $icon_size * 2.2;
           padding: 0;
@@ -1402,7 +1402,7 @@ headerbar.titlebar box {
     // optional buttons
     .raised:not(.linked) > button {
       &:not(.text-button):not(.toggle) {
-        &, & image {
+        &, image {
           min-height: $icon_size * 2.2;
           min-width: $icon_size * 2.2;
           padding: 0;
@@ -1925,13 +1925,13 @@ PanelSeparator {
 
       button {
         &,
-        & image { color: $inverted_tertiary_fg_color; }
+        image { color: $inverted_tertiary_fg_color; }
       }
 
       &:hover button,    // hover tab close button
       &:checked button { // active tab close button
         &,
-        & image { color: $inverted_fg_color; }
+        image { color: $inverted_fg_color; }
       }
     }
 
@@ -2083,7 +2083,7 @@ widget.caja-desktop.view { // desktop icon-grid styling
   }
 
   .caja-notebook { // remove lateral borders
-    &, & .frame {
+    &, .frame {
       border-width: 1px 0 1px;
     }
 
