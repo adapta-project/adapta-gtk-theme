@@ -1901,8 +1901,7 @@ headerbar {
   }
 
   // adjust spacing for finer aspect-ratio
-  button.text-button,
-  button:not(.image-button):not(.text-button):not(.title-button):not(.titlebutton) {
+  button.text-button {
     &,
     &.toggle {
       min-height: $icon_size;
@@ -1930,7 +1929,7 @@ headerbar {
     label { margin: rem(-2px) 0; }
   }
 
-  button:not(.text-button),
+  button:not(.image-button):not(.text-button):not(.title-button):not(.titlebutton),
   button.image-button:not(.text-button),
   button.title-button:not(.text-button) {
     min-width: $icon_size * 1.5;
