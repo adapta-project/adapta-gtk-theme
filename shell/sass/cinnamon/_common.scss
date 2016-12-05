@@ -440,8 +440,8 @@ $icon_size: 16px;
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(255, 0, 0, 0.05);
-      background-gradient-end: rgba(255, 0, 0, 0.2);
+      background-gradient-start: scale-color($error_color, $alpha: -60%);
+      background-gradient-end: scale-color($error_color, $alpha: -60%);
     }
     &:ltr { padding-right: 4px; }
     &:rtl { padding-left: 4px; }
@@ -453,11 +453,10 @@ $icon_size: 16px;
   }
 
   &Right {
-
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0, 0, 255, 0.05);
-      background-gradient-end: rgba(0, 0, 255, 0.2);
+      background-gradient-start: scale-color($link_color, $alpha: -60%);
+      background-gradient-end: scale-color($link_color, $alpha: -60%);
     }
     &:ltr {
       padding-left: 4px;
@@ -479,8 +478,8 @@ $icon_size: 16px;
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0, 255, 0, 0.05);
-      background-gradient-end: rgba(0, 255, 0, 0.2);
+      background-gradient-start: scale-color($success_color, $alpha: -60%);
+      background-gradient-end: scale-color($success_color, $alpha: -60%);
     }
 
     &.vertical {
