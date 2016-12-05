@@ -537,15 +537,21 @@ EphyWindow {
   .nautilus-window .floating-bar { color: $secondary_fg_color; }
 }
 
-// hide double-title remained in GtkHeaderBar running under SSD-mode
-.background:not(.csd) > box.vertical > headerbar > stack {
-  > box.vertical { // title-box
+.background:not(.csd) > box.vertical > headerbar {
+  // hide double-title remained in GtkHeaderBar running under SSD-mode
+  > stack > box.vertical { // title-box
     .title { color: transparent; }
 
     .subtitle { // centering vertically
       margin-top: rem(-17.3px, $sw: 1.0);
       font-size: 100%;
     }
+  }
+
+  // conflicts with .primary-toolbar styling?
+  .linked > button.image-button { // = 'back/forward' button
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
   }
 }
 
