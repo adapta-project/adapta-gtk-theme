@@ -26,30 +26,14 @@ panel-applet > menubar,
 panel-applet menubar {
   box-shadow: none;
 
-  menuitem {
+  > menuitem,
+  > .gnome-panel-menu-item {
     color: $inverted_secondary_fg_color;
     background-color: transparent;
     &:hover {
       color: $inverted_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
-  }
-
-  menu {
-    font-weight: 400;
-    font-size: 100%;
-
-    menuitem {
-      color: $secondary_fg_color;
-      background-color: $secondary_base_color;
-      &:hover {
-        color: $fg_color;
-        background-color: gtkalpha(currentColor, 0.1);
-	box-shadow: none;
-      }
-    }
-
-    separator { color: transparent; }
   }
 }
 
