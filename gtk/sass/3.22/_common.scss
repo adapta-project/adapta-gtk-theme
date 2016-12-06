@@ -1910,6 +1910,11 @@ headerbar {
 
       // prepare for tall and dense fonts
       label { margin: rem(-2px) 0; }
+
+      dialog.background & { // modal-dialogs
+        padding-top: rem(($widget_size - $icon_size) / 2);
+        padding-bottom: rem(($widget_size - $icon_size) / 2);
+      }
     }
 
     &.lock {
