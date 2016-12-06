@@ -1087,6 +1087,11 @@ UnityDecoration {
     box-shadow: inset 0 1px $highlight_color;
 
     &:backdrop { color: $insensitive_inverted_fg_color; }
+
+    &:hover { // for L.I.M's selected menuitem
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
   }
 
   .left,
