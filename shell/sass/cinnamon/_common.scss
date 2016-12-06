@@ -1600,20 +1600,48 @@ $icon_size: 16px;
 
 // Controls the styling when using the "Simple buttons" option
 .workspace-switcher {
-  padding-left: 3px;
-  padding-right: 3px;
+  .panel-top &,
+  .panel-bottom & {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .panel-left &,
+  .panel-right & {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
 }
 
-.workspace-button {
+.workspace-button { // numeric buttons
   width: 20px;
   height: 10px;
-  padding: 3px;
-  padding-top: 4px;
-  color: $selected_fg_color;
+  color: $osd_secondary_fg_color;
+  background-color: rgba(0, 0, 0, 0.01);
   transition-duration: 0.2s;
-  &:outlined,
-  &:outlined:hover { color: $selected_bg_color; }
-  &:hover { color: transparentize($selected_bg_color, 0.5) }
+  &:hover {
+    color: $osd_fg_color;
+
+    .panel-top & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+
+    .panel-bottom & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+
+    .panel-left & { box-shadow: inset 2px 0 0 $osd_indicator_color; }
+
+    .panel-right & { box-shadow: inset -2px 0 0 $osd_indicator_color; }
+  }
+  &:outlined {
+    color: $selected_bg_color;
+    &:hover {
+      .panel-top & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+
+      .panel-bottom & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+
+      .panel-left & { box-shadow: inset 2px 0 0 $osd_indicator_color; }
+
+      .panel-right & { box-shadow: inset -2px 0 0 $osd_indicator_color; }
+    }
+  }
 }
 
 // Controls the style when using the "Visual representation" option
