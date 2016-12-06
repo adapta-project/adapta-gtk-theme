@@ -1807,7 +1807,8 @@ $icon_size: 16px;
   &-box {
     color: $osd_secondary_fg_color;
     text-shadow: none;
-    &:hover {
+    &:hover,
+    &:checked {
       color: $osd_fg_color;
       background-color: rgba(0, 0, 0, 0.01);
     }
@@ -1815,22 +1816,26 @@ $icon_size: 16px;
 
     .panel-top & { // flip indicators vertically
       padding: 0 3px;
-      &:hover { box-shadow: inset 0 2px 0 $osd_indicator_color; }
+      &:hover,
+      &:checked { box-shadow: inset 0 2px 0 $osd_indicator_color; }
     }
 
     .panel-bottom & {
       padding: 0 3px;
-      &:hover { box-shadow: inset 0 -2px 0 $osd_indicator_color; }
+      &:hover,
+      &:checked { box-shadow: inset 0 -2px 0 $osd_indicator_color; }
     }
 
     .panel-left & { // vertical indicators
       padding: 2px 0;
-      &:hover { box-shadow: inset 2px 0 0 $osd_indicator_color; }
+      &:hover,
+      &:checked { box-shadow: inset 2px 0 0 $osd_indicator_color; }
     }
 
     .panel-right & {
       padding: 2px 0;
-      &:hover { box-shadow: inset -2px 0 0 $osd_indicator_color; }
+      &:hover,
+      &:checked { box-shadow: inset -2px 0 0 $osd_indicator_color; }
     }
   }
 
@@ -1839,7 +1844,8 @@ $icon_size: 16px;
     font-weight: 700;
 
     &:hover,
-    .applet-box:hover > & {
+    .applet-box:hover > &,
+    .applet-box:checked > & {
       color: $osd_fg_color;
       text-shadow: none;
     }
@@ -1850,7 +1856,8 @@ $icon_size: 16px;
     color: $osd_secondary_fg_color;
 
     &:hover,
-    .applet-box:hover > & {
+    .applet-box:hover > &,
+    .applet-box:checked > & {
       color: $osd_fg_color;
       text-shadow: none;
     }
