@@ -1593,6 +1593,167 @@ window.background > grid.vertical > stack > paned.horizontal {
 }
 
 
+// /************************
+//  * Cinnamon-Screensaver *
+//  ************************/
+
+.csstage {
+  .unlockbox {
+    color: $inverted_fg_color;
+    font-size: rem(17.3px, $sw: 1.0);
+    font-weight: 700;
+  }
+
+  .clock {
+    color: $inverted_fg_color;
+    font-size: rem(112px, $sw: 1.0);
+    font-weight: 300;
+  }
+
+  .toppanel {
+    border: none;
+    color: $inverted_fg_color;
+    background-color: transparent;
+  }
+
+  .audiopanel,
+  .infopanel { // OSDs placed at top-left/right corners
+    border: none;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+
+    &:not(.infopanel) { border-radius: 0 0 2px 0; }
+    &:not(.audiopanel) { border-radius: 0 0 0 2px; }
+  }
+
+  .notificationwidget,
+  .powerwidget {
+    padding: 6px;
+    color: $inverted_fg_color;
+    background-color: transparent;
+    font-size: 100%;
+    font-weight: 500;
+  }
+
+  .auth-message {
+    color: $error_color;
+    font-size: 90%;
+    font-weight: 700;
+  }
+
+  .caps-message {
+    color: $warning_color;
+    font-size: 90%;
+    font-weight: 700;
+  }
+
+  .framedimage { // avatar?
+    min-height: 150px;
+    border-radius: 2px;
+    border: none;
+    color: $inverted_fg_color;
+    background-color: $track_color;
+  }
+
+  .passwordentry {
+    @include entry(flat-normal);
+    border-radius: 0;
+    color: $inverted_secondary_fg_color;
+    &:focus {
+      @include entry(flat-focus);
+      color: $inverted_fg_color;
+    }
+    &:disabled {
+      @include entry(flat-insensitive);
+      color: $insensitive_inverted_fg_color;
+    }
+
+    &.image.left { padding: 0 10px 0 0; }
+
+    &.progressbar {
+      margin: 2px;
+      padding: 0;
+      border-radius: 0;
+      border-width: 0 0 2px;
+      border-color: $accent_color;
+      &:focus { background-color: transparent; }
+    }
+  }
+
+  .transparentbutton { // = 'unlock'/'switch-user' button
+    @extend %button_flat_normal;
+    background-color: transparent;
+    &:not(:active):not(:disabled):not(hover) {
+      background-color: transparent;
+      color: $secondary_accent_color;
+    }
+    &:hover {
+      @extend %button_flat_hover;
+      background-color: transparent;
+      color: $accent_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      border-image: none;
+      background-color: transparent;
+      color: $accent_color;
+      box-shadow: none;
+    }
+    &:checked {
+      @extend %button_flat_checked;
+      border-image: none;
+      background-color: transparent;
+      color: $accent_color;
+      box-shadow: none;
+    }
+    &:disabled {
+      @extend %button_flat_disabled;
+      background-color: $track_color;
+      color: gtkopacity($inverted_secondary_fg_color, 0.4);
+
+      label,
+      image { color: inherit; }
+    }
+  }
+
+  .volumeslider {
+    min-height: 24px;
+    min-width: 100px;
+    padding: 3px 0px;
+    background-color: gtkopacity($inverted_fg_color, 0.2);
+    color: $success_color;
+    &:disabled { background-color: gtkopacity($success_color, 0.2); }
+
+    slider { // FIXME: what's this?
+      min-height: 24px;
+      min-width: 4px;
+      margin: -9px;
+    }
+  }
+
+  .trackname {
+    font-size: 90%;
+    color: $inverted_secondary_fg_color;
+    background-image: none;
+    background-color: transparent;
+  }
+
+  .albumartist {
+    font-size: 80%;
+    color: $insensitive_inverted_fg_color;
+    background-image: none;
+    background-color: transparent;
+  }
+
+  viewport {
+    &,
+    &.frame {
+      border-style: none;
+      background-color: transparent;
+    }
+  }
+}
+
+
 // /*********
 //  * XFce4 *
 //  *********/
