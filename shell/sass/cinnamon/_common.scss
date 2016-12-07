@@ -1428,13 +1428,14 @@ $icon_size: 16px;
     &:hover {
       color: $osd_fg_color;
 
-      .panel-top & { box-shadow: inset 0 2px $osd_fill_color; }
-
-      .panel-bottom & { box-shadow: inset 0 -2px $osd_fill_color; }
-
-      .panel-left & { box-shadow: inset 2px 0 $osd_fill_color; }
-
-      .panel-right & { box-shadow: inset -2px 0 $osd_fill_color; }
+      @each $position, $_indicator in (top, 0 2px),
+                                      (bottom, 0 -2px),
+                                      (left, 2px 0),
+                                      (right, -2px 0) {
+        .panel-#{$position} & {
+          box-shadow: inset #{$_indicator} $osd_fill_color;
+        }
+      }
     }
     &:active,
     &:checked,
@@ -1442,13 +1443,14 @@ $icon_size: 16px;
       &, &:hover {
         color: $osd_fg_color;
 
-        .panel-top & { box-shadow: inset 0 2px $osd_indicator_color; }
-
-        .panel-bottom & { box-shadow: inset 0 -2px $osd_indicator_color; }
-
-        .panel-left & { box-shadow: inset 2px 0 $osd_indicator_color; }
-
-        .panel-right & { box-shadow: inset -2px 0 $osd_indicator_color; }
+        @each $position, $_indicator in (top, 0 2px),
+                                        (bottom, 0 -2px),
+                                        (left, 2px 0),
+                                        (right, -2px 0) {
+          .panel-#{$position} & {
+            box-shadow: inset #{$_indicator} $osd_indicator_color;
+          }
+        }
       }
     }
   }
@@ -1622,24 +1624,26 @@ $icon_size: 16px;
   &:hover {
     color: $osd_fg_color;
 
-    .panel-top & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
-
-    .panel-bottom & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
-
-    .panel-left & { box-shadow: inset 2px 0 0 $osd_indicator_color; }
-
-    .panel-right & { box-shadow: inset -2px 0 0 $osd_indicator_color; }
+    @each $position, $_indicator in (top, 0 2px),
+                                    (bottom, 0 -2px),
+                                    (left, 2px 0),
+                                    (right, -2px 0) {
+      .panel-#{$position} & {
+        box-shadow: inset #{$_indicator} 0 $osd_indicator_color;
+      }
+    }
   }
   &:outlined {
     color: $selected_bg_color;
     &:hover {
-      .panel-top & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
-
-      .panel-bottom & { box-shadow: inset 0 2px 0 $osd_indicator_color; }
-
-      .panel-left & { box-shadow: inset 2px 0 0 $osd_indicator_color; }
-
-      .panel-right & { box-shadow: inset -2px 0 0 $osd_indicator_color; }
+      @each $position, $_indicator in (top, 0 2px),
+                                      (bottom, 0 -2px),
+                                      (left, 2px 0),
+                                      (right, -2px 0) {
+        .panel-#{$position} & {
+          box-shadow: inset #{$_indicator} 0 $osd_indicator_color;
+        }
+      }
     }
   }
 }
@@ -1684,48 +1688,28 @@ $icon_size: 16px;
 .panel-launcher {
   border: 0 solid transparent;
 
-  .panel-top & {
-    padding: 0 4px 2px 4px;
-    border-top-width: 2px;
-  }
-
-  .panel-bottom & {
-    padding: 2px 4px 0 4px;
-    border-bottom-width: 2px;
-  }
-
-  .panel-left & {
-    padding: 2px 2px 2px 0;
-     border-left-width: 2px;
-  }
-
-  .panel-right & {
-    padding: 2px 0 2px 2px;
-    border-right-width: 2px;
+  @each $position, $_padding in (top, 0 4px 2px 4px),
+                                (bottom, 2px 4px 0 4px),
+                                (left, 2px 2px 2px 0),
+                                (right, 2px 0 2px 2px) {
+    .panel-#{$position} & {
+      padding: #{$_padding};
+      border-#{$position}-width: 2px;
+    }
   }
 
   &:hover {
     border: 0 solid $osd_indicator_color;
     background-gradient-direction: none;
 
-    .panel-top & {
-      padding: 0 4px 2px 4px;
-      border-top-width: 2px;
-    }
-
-    .panel-bottom & {
-      padding: 2px 4px 0 4px;
-      border-bottom-width: 2px;
-    }
-
-    .panel-left & {
-      padding: 2px 2px 2px 0;
-      border-left-width: 2px;
-    }
-
-    .panel-right & {
-      padding: 2px 0 2px 2px;
-      border-right-width: 2px;
+    @each $position, $_padding in (top, 0 4px 2px 4px),
+                                  (bottom, 2px 4px 0 4px),
+                                  (left, 2px 2px 2px 0),
+                                  (right, 2px 0 2px 2px) {
+      .panel-#{$position} & {
+        padding: #{$_padding};
+        border-#{$position}-width: 2px;
+      }
     }
   }
 }
@@ -1739,24 +1723,14 @@ $icon_size: 16px;
     border: 0 solid $osd_indicator_color;
     background-gradient-direction: none;
 
-    .panel-top & {
-      padding-top: 0;
-      border-top-width: 2px;
-    }
-
-    .panel-bottom & {
-      padding-bottom: 0;
-      border-bottom-width: 2px;
-    }
-
-    .panel-left & {
-      padding-left: 0;
-      border-left-width: 2px;
-    }
-
-    .panel-right & {
-      padding-right: 0;
-      border-right-width: 2px;
+    @each $position in (top),
+                       (bottom),
+                       (left),
+                       (right) {
+      .panel-#{$position} & {
+        padding-#{$position}: 0;
+        border-#{$position}-width: 2px;
+      }
     }
   }
 
@@ -1842,28 +1816,17 @@ $icon_size: 16px;
     }
     &:highlight { background-color: $accent_active_fill_color; }
 
-    .panel-top & { // flip indicators vertically
-      padding: 0 3px;
-      &:hover,
-      &:checked { box-shadow: inset 0 2px 0 $osd_indicator_color; }
-    }
-
-    .panel-bottom & {
-      padding: 0 3px;
-      &:hover,
-      &:checked { box-shadow: inset 0 -2px 0 $osd_indicator_color; }
-    }
-
-    .panel-left & { // vertical indicators
-      padding: 2px 0;
-      &:hover,
-      &:checked { box-shadow: inset 2px 0 0 $osd_indicator_color; }
-    }
-
-    .panel-right & {
-      padding: 2px 0;
-      &:hover,
-      &:checked { box-shadow: inset -2px 0 0 $osd_indicator_color; }
+    @each $position, $_padding, $_indicator in (top, 0 3px, 0 2px),
+                                               (bottom, 0 3px, 0 -2px),
+                                               (left, 2px 0, 2px 0),
+                                               (right, 2px 0, -2px 0) {
+      .panel-#{$position} & {
+        padding: #{$_padding};
+        &:hover,
+        &:checked {
+          box-shadow: inset #{$_indicator} 0 $osd_indicator_color;
+        }
+      }
     }
   }
 
