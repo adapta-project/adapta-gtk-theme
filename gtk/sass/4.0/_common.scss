@@ -1316,6 +1316,11 @@ spinbutton {
 //  **************/
 
 combobox {
+  // FIXME: workaround for LibreOffice 5.2.4
+  background-color: $base_color;
+  // actual transparent backgrounds
+  .background & { background-color: transparent; }
+
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     min-height: rem($icon_size);
