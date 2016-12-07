@@ -308,7 +308,7 @@ sn-button { padding: rem(4px); }
 //  ************/
 
 .nautilus-desktop-window {
-  &
+  &,
   notebook,
   notebook > stack { background: transparent; }
 }
@@ -319,11 +319,11 @@ sn-button { padding: rem(4px); }
   &:selected { text-shadow: none; }
 }
 
-.background.nautilus-window {
+.background.nautilus-window:not(.nautilus-desktop-window) {
   // main content pane
   notebook {
-    // hide top-edge solid border
-    margin-top: -1px;
+    // cover up top-edge 1px line
+    box-shadow: inset 0 1px $base_color;
 
     > stack overlay > scrolledwindow > widget.view {
       // some extends pull background-image for ripple-effects,
