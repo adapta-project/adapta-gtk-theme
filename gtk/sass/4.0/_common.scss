@@ -688,9 +688,7 @@ button {
   // mimic tab-switcher-like button array
   // horizontal array
   .linked > &:not(.flat):not(:only-child) { @extend %linked_middle; }
-  .linked > &,
-  .linked > & .image-button,
-  .linked > & .text-button {
+  .linked > & {
     @extend %linked_middle;
     @extend %button_array;
     min-width: rem(13.3px);
@@ -708,9 +706,7 @@ button {
   }
   // vertical array
   .linked.vertical > &:not(:only-child) { @extend %linked_vertical_middle; }
-  .linked.vertical > &,
-  .linked.vertical > & .image-button,
-  .linked.vertical > & .text-button {
+  .linked.vertical > & {
     @extend %linked_vertical_middle;
     @extend %button_vertical_array;
     min-height: rem(13.3px);
