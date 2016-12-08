@@ -1194,10 +1194,10 @@ spinbutton {
 
     button {
       @extend %button_flat_normal;
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(8.7px);
-      border: solid rem(2.7px) transparent;
+      min-width: rem($widget_size - 14px, $sw: 1.0);
+      min-height: rem($widget_size - 14px, $sw: 1.0);
+      padding: 0;
+      border: rem(5px, $sw: 1.0) solid transparent;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background: none;
@@ -1279,12 +1279,12 @@ spinbutton {
     }
 
     button {
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(8px);
-      border: rem(2.7px) solid transparent;
-      border-radius: 200px;
-      -gtk-outline-radius: 200px;
+      min-width: rem($widget_size - 14px, $sw: 1.0);
+      min-height: rem($widget_size - 14px, $sw: 1.0);
+      margin: rem(5px, $sw: 1.0);
+      padding: 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
       background: none;
       background-size: contain;
       color: $secondary_fg_color;
@@ -1298,16 +1298,13 @@ spinbutton {
       &.up { // '+' button
         &:hover {
           @extend %button_flat_hover;
-          background: none;
+          background-color: gtkopacity($success_color, 0.1);
           color: $success_color;
-          animation: spin_hover 0.2s $slope_medium forwards;
         }
         &:active {
           @extend %button_flat_active;
-          background: none;
+          background-color: gtkopacity($success_color, 0.1);
           color: $success_color;
-          animation: spin_active 0.2s $slope_quick forwards;
-          transition-duration: 0.2s;
         }
         &:disabled {
           @extend %button_flat_disabled;
@@ -1318,16 +1315,13 @@ spinbutton {
       &.down { // '-' button
         &:hover {
           @extend %button_flat_hover;
-          background: none;
+          background-color: gtkopacity($error_color, 0.1);
           color: $error_color;
-          animation: spin_hover 0.2s $slope_medium forwards;
         }
         &:active {
           @extend %button_flat_active;
-          background: none;
+          background-color: gtkopacity($error_color, 0.1);
           color: $error_color;
-          animation: spin_active 0.2s $slope_quick forwards;
-          transition-duration: 0.2s;
         }
         &:disabled {
           @extend %button_flat_disabled;
