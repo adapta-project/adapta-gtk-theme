@@ -3,9 +3,9 @@
 //
 
 
-/***********
- * Globals *
- ***********/
+// /***********
+//  * Globals *
+//  ***********/
 
 * {
   transition-timing-function : cubic-bezier(0.4, 0, 0.2, 1);
@@ -36,9 +36,9 @@ stage {
 }
 
 
-/***********
- * Buttons *
- ***********/
+// /***********
+//  * Buttons *
+//  ***********/
 
 %button {
   @include button(flat-normal);
@@ -67,9 +67,9 @@ stage {
 }
 
 
-/***********
- * Entries *
- ***********/
+// /***********
+//  * Entries *
+//  ***********/
 
 %entry {
   @include entry(normal);
@@ -109,9 +109,9 @@ stage {
 }
 
 
-/**************
- * Scrollbars *
- **************/
+// /**************
+//  * Scrollbars *
+//  **************/
 
 StScrollView {
   &.vfade { -st-vfade-offset: 0; }
@@ -142,9 +142,9 @@ StScrollBar {
 }
 
 
-/*************
- * Separator *
- *************/
+// /*************
+//  * Separator *
+//  *************/
 
 .separator {
   height: 1px; // not really the whole box
@@ -156,9 +156,9 @@ StScrollBar {
 }
 
 
-/**********
- * Slider *
- **********/
+// /**********
+//  * Slider *
+//  **********/
 
 .popup-slider-menu-item,
 .slider {
@@ -181,9 +181,9 @@ StScrollBar {
 }
 
 
-/***************
- * Check Boxes *
- ***************/
+// /***************
+//  * Check Boxes *
+//  ***************/
 
 .check-box {
   CinnamonGenericContainer {
@@ -212,9 +212,9 @@ StScrollBar {
 }
 
 
-/*****************
- * Radio Buttons *
- *****************/
+// /*****************
+//  * Radio Buttons *
+//  *****************/
 
 .radiobutton {
   CinnamonGenericContainer {
@@ -247,9 +247,9 @@ StScrollBar {
 }
 
 
-/************
- * Switches *
- ************/
+// /************
+//  * Switches *
+//  ************/
 
 .toggle-switch {
   width: 40px;
@@ -264,9 +264,9 @@ StScrollBar {
 }
 
 
-/*********
- * Links *
- *********/
+// /*********
+//  * Links *
+//  *********/
 
 .cinnamon-link {
   border-radius: 2px;
@@ -283,9 +283,9 @@ StScrollBar {
 }
 
 
-/***********
- * ToolTip *
- ***********/
+// /***********
+//  * ToolTip *
+//  ***********/
 
 #Tooltip {
   @include fontscaling($ref_size * 1.0);
@@ -299,9 +299,9 @@ StScrollBar {
 }
 
 
-/******************
- * Popovers/Menus *
- ******************/
+// /******************
+//  * Popovers/Menus *
+//  ******************/
 
 // .popup-menu-boxpointer and .popup-menu are kept for compatibility
 // with cinnamon version under 3.2. Use .menu in version 3.2 and above
@@ -416,9 +416,9 @@ StScrollBar {
 .nm-menu-item-icons { spacing: 0.5em; }
 
 
-/*********
- * Panel *
- *********/
+// /*********
+//  * Panel *
+//  *********/
 
 $icon_size: 16px;
 
@@ -592,9 +592,9 @@ $icon_size: 16px;
 }
 
 
-/************
- * Overview *
- ************/
+// /************
+//  * Overview *
+//  ************/
 
 #overview { spacing: 12px; }
 
@@ -689,9 +689,9 @@ $icon_size: 16px;
 }
 
 
-/*****************
- * Looking Glass *
- *****************/
+// /*****************
+//  * Looking Glass *
+//  *****************/
 
 #LookingGlassDialog {
   spacing: 4px;
@@ -704,9 +704,9 @@ $icon_size: 16px;
 }
 
 
-/************
- * Calendar *
- ************/
+// /************
+//  * Calendar *
+//  ************/
 
 .calendar {
   padding: 0.4em 1.75em;
@@ -830,9 +830,9 @@ $icon_size: 16px;
 }
 
 
-/*****************
- * Notifications *
- *****************/
+// /*****************
+//  * Notifications *
+//  *****************/
 
 #notification {
   width: 34em;
@@ -902,9 +902,9 @@ $icon_size: 16px;
 }
 
 
-/****************
- * App Switcher *
- ****************/
+// /****************
+//  * App Switcher *
+//  ****************/
 
 #altTabPopup {
   padding: 8px;
@@ -980,9 +980,9 @@ $icon_size: 16px;
 }
 
 
-/**********************
- * Activities Ripples *
- **********************/
+// /**********************
+//  * Activities Ripples *
+//  **********************/
 
 .ripple-box {
   width: 104px;
@@ -993,9 +993,9 @@ $icon_size: 16px;
 }
 
 
-/*****************
- * Modal Dialogs *
- *****************/
+// /*****************
+//  * Modal Dialogs *
+//  *****************/
 
 .modal-dialog {
   padding: 0 5px 6px 5px;
@@ -1037,9 +1037,9 @@ $icon_size: 16px;
 }
 
 
-/***************
- * Run Dialogs *
- ***************/
+// /***************
+//  * Run Dialogs *
+//  ***************/
 
 .run-dialog {
   padding: 0 15px 10px 15px;
@@ -1094,9 +1094,9 @@ $icon_size: 16px;
 }
 
 
-/**********************************
- * CinnamonMountOperation Dialogs *
- **********************************/
+// /**********************************
+//  * CinnamonMountOperation Dialogs *
+//  **********************************/
 
 .cinnamon-mount-operation-icon { icon-size: 48px; }
 
@@ -1151,9 +1151,9 @@ $icon_size: 16px;
 }
 
 
-/*************
- * Magnifier *
- *************/
+// /*************
+//  * Magnifier *
+//  *************/
 
 .magnifier-zoom-region {
   border: 2px solid $selected_bg_color;
@@ -1162,9 +1162,9 @@ $icon_size: 16px;
 }
 
 
-/************
- * Keyboard *
- ************/
+// /************
+//  * Keyboard *
+//  ************/
 
 #keyboard {
   border-width: 0;
@@ -1215,14 +1215,14 @@ $icon_size: 16px;
 }
 
 
-/*****************************
- * Cinnamon Specific Section *
- *****************************/
+// /*****************************
+//  * Cinnamon Specific Section *
+//  *****************************/
 
 
-/******************
- * Menu (menu.js) *
- ******************/
+// /******************
+//  * Menu (menu.js) *
+//  ******************/
 
 .menu {
   &-favorites-box {
@@ -1351,9 +1351,9 @@ $icon_size: 16px;
 }
 
 
-/*******
- * OSD *
- *******/
+// /*******
+//  * OSD *
+//  *******/
 
 .info-osd {
   spacing: 1em;
@@ -1390,9 +1390,9 @@ $icon_size: 16px;
 }
 
 
-/*******************************
- * Window list (windowList.js) *
- *******************************/
+// /*******************************
+//  * Window list (windowList.js) *
+//  *******************************/
 
 .window-list {
   &-box {
@@ -1462,9 +1462,9 @@ $icon_size: 16px;
 }
 
 
-/***********************************
- * Sound Applet (status/volume.js) *
- ***********************************/
+// /***********************************
+//  * Sound Applet (status/volume.js) *
+//  ***********************************/
 
 .sound-button {
   @extend %button;
@@ -1591,9 +1591,9 @@ $icon_size: 16px;
 }
 
 
-/****************************************************
- * Workspace Switcher applet (workspaceSwitcher.js) *
- ****************************************************/
+// /****************************************************
+//  * Workspace Switcher applet (workspaceSwitcher.js) *
+//  ****************************************************/
 
 #workspaceSwitcher {
   spacing: 0;
@@ -1679,9 +1679,9 @@ $icon_size: 16px;
 }
 
 
-/**********************************************
- * Panel Launchers Applet (panelLaunchers.js) *
- **********************************************/
+// /**********************************************
+//  * Panel Launchers Applet (panelLaunchers.js) *
+//  **********************************************/
 
 #panel-launchers-box { padding: 0 7px; }
 
@@ -1779,9 +1779,9 @@ $icon_size: 16px;
 }
 
 
-/*******************
- * Overview corner *
- *******************/
+// /*******************
+//  * Overview corner *
+//  *******************/
 
 #overview-corner {
   background-image: url("assets/misc/overview.svg");
@@ -1789,9 +1789,9 @@ $icon_size: 16px;
 }
 
 
-/***********************
- * Applets (applet.js) *
- ***********************/
+// /***********************
+//  * Applets (applet.js) *
+//  ***********************/
 
 .applet {
   &-separator { padding: 1px 4px; }
@@ -1856,9 +1856,9 @@ $icon_size: 16px;
 }
 
 
-/***************
- * User Applet *
- ***************/
+// /***************
+//  * User Applet *
+//  ***************/
 
 .user {
   &-icon {
@@ -1878,9 +1878,9 @@ $icon_size: 16px;
 }
 
 
-/*************************
- * Desklets (desklet.js) *
- *************************/
+// /*************************
+//  * Desklets (desklet.js) *
+//  *************************/
 
 .desklet {
   color: $osd_secondary_fg_color;
@@ -1931,9 +1931,9 @@ $icon_size: 16px;
 }
 
 
-/*******************************************
- * About Dialog (applet.js and desklet.js) *
- *******************************************/
+// /*******************************************
+//  * About Dialog (applet.js and desklet.js) *
+//  *******************************************/
 
 .about {
   &-content {
@@ -1984,9 +1984,9 @@ $icon_size: 16px;
 }
 
 
-/*****************
- * Workspace OSD *
- *****************/
+// /*****************
+//  * Workspace OSD *
+//  *****************/
 
 .workspace-osd { // workspace name
   @include fontscaling($ref_size * 3.0);
@@ -2029,9 +2029,9 @@ $icon_size: 16px;
 .expo-background { background-color: opacify($osd_bg_color, 1); }
 
 
-/***********************
- * Notification Applet *
- ***********************/
+// /***********************
+//  * Notification Applet *
+//  ***********************/
 
 .notification-applet {
   &-padding { padding: 0.5em 1em; }
@@ -2042,9 +2042,9 @@ $icon_size: 16px;
 .flashspot { background-color: $selected_fg_color; }
 
 
-/****************
- * Tile Preview *
- ****************/
+// /****************
+//  * Tile Preview *
+//  ****************/
 
 .tile-preview,
 .tile-hud {
@@ -2056,9 +2056,9 @@ $icon_size: 16px;
 }
 
 
-/****************
- * Xkcd Desklet *
- ****************/
+// /****************
+//  * Xkcd Desklet *
+//  ****************/
 
 .xkcd-box {
   padding: 6px;
