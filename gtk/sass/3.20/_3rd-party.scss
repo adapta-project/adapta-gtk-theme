@@ -236,22 +236,27 @@ box.horizontal.pinned { // drop-target
     }
   }
 
-  .categories .category-button { // left-paned elements of GtkPopover
-    &:checked {
-      background-image: none;
-      background-color: transparent;
-      color: $selected_bg_color;
-      &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
-      &:disabled {
-        color: gtkopacity($selected_bg_color, 0.4);
+  .categories { // left-paned elements of GtkPopover
+    &:dir(ltr) { border-right: 1px solid $borders_color; }
+    &:dir(rtl) { border-left: 1px solid $borders_color; }
 
-        label { color: inherit; }
+    .category-button {
+      &:checked {
+        background-image: none;
+        background-color: transparent;
+        color: $selected_bg_color;
+        &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
+        &:disabled {
+          color: gtkopacity($selected_bg_color, 0.4);
+
+          label { color: inherit; }
+        }
       }
-    }
 
-    label { // tweak vertical spacing and font weight
-      padding: rem(6.7px) 0 rem(8px);
-      font-weight: 500;
+      label { // tweak vertical spacing and font weight
+        padding: rem(6.7px, $sw: 1.0) 0 rem(8px, $sw: 1.0);
+        font-weight: 500;
+      }
     }
   }
 
