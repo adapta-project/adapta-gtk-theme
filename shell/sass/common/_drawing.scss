@@ -54,13 +54,13 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
 // $fc: focus color
 //
 // possible $t values:
-// normal, focus, insensitive
+// normal, focus, hover, insensitive,
+// osd-normal, osd-focus, osd-insensitive
 //
   @if $t==normal {
     border-color: transparent;
     background-color: rgba(0, 0, 0, 0.01);
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc, $fill_color);
-
   }
   @if $t==focus {
     border-color: transparent;
@@ -74,6 +74,24 @@ $z-depth-5: 0 16px 20px rgba(0, 0, 0, 0.72),
     border-color: transparent;
     color: $insensitive_fg_color;
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc, $insensitive_fill_color);
+  }
+  @if $t==osd-normal {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.01);
+    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc, $osd_fill_color);
+  }
+  @if $t==osd-focus {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.01);
+    color: $selected_fg_color;
+    caret-color: $selected_fg_color;
+    box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc, $selected_bg_color);
+  }
+  @if $t==osd-insensitive {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.01);
+    color: $insensitive_osd_fg_color;
+    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc, $insensitive_osd_fill_color);
   }
 }
 

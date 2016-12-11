@@ -1071,16 +1071,14 @@ $icon_size: 16px;
   }
 
   &-entry {
-    @include entry(osd);
+    @include entry(osd-normal);
     width: 28em;
     padding: 7px;
     border-radius: 0;
-    background-color: rgba(0, 0, 0, 0.01);
     color: $osd_fg_color;
     caret-color: $osd_fg_color;
     selected-color: $selected_fg_color;
     selection-background-color: $selected_bg_color;
-    box-shadow: inset 0 -2px $osd_indicator_color;
     &:focus { @include entry(osd-focus); }
   }
 
@@ -2001,19 +1999,24 @@ $icon_size: 16px;
   text-shadow: none;
 }
 
-.expo-workspaces-name-entry,
-.expo-workspaces-name-entry#selected {
+.expo-workspaces-name-entry {
   @include fontscaling($ref_size * 0.9);
-  @include entry(osd);
   -cinnamon-caption-spacing: 12px;
   height: 15px;
   padding: 4px 8px;
-  border-radius: 2px;
-  &:focus {
-    @include entry(osd-focus);
-    color: $selected_fg_color;
-    selection-background-color: $selected_fg_color;
-    selected-color: $selected_bg_color;
+  border-radius: 0;
+  color: $osd_dim_fg_color;
+  background-color: rgba(0, 0, 0, 0.01);
+  caret-color: $osd_dim_fg_color;
+  caret-size: 1px;
+  selection-background-color: $selected_bg_color;
+  selected-color: $selected_fg_color;
+  font-weight: 700;
+  &:focus { @include entry(osd-focus); }
+
+  &#selected {
+    color: $osd_fg_color;
+    background-color: rgba(0, 0, 0, 0.01);
   }
 }
 
@@ -2021,14 +2024,14 @@ $icon_size: 16px;
   border-radius: 2px;
   border: 4px solid $osd_semi_fill_color;
   background-color: transparent;
+
   &#active {
     border-radius: 2px;
     border: 4px solid $selected_bg_color;
-    background-color: black;
   }
 }
 
-.expo-background { background-color: opacify($osd_bg_color, 1); }
+.expo-background { background-color: $osd_bg_color; }
 
 
 // /***********************
