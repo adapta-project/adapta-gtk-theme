@@ -1849,7 +1849,9 @@ StScrollBar {
   border-radius: 0 2px 2px 0;
   color: $osd_fg_color;
   background-color: $osd_slight_fill_color;
-  box-shadow: none;
+  // FIXME: do not set until new design has come
+  // this causes unwanted background-areas behind the dash.
+  // box-shadow: none;
 
   &:rtl { border-radius: 2px 0 0 2px; }
 
@@ -1892,7 +1894,9 @@ StScrollBar {
   &.extended:overview #dash {
     padding: 0;
     border: none;
-    box-shadow: none;
+    // FIXME: do not set until new design has come
+    // this causes unwanted background-areas behind the dash.
+    // box-shadow: none;
   }
 
   @each $_dock, $_radius in (top, 0 0 2px 2px),
