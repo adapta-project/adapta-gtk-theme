@@ -2521,11 +2521,12 @@ box#SelectedStyle spinbutton { // spinbuttons inside the status-bar
 }
 
 
-// /***********
-//  * Emacs24 *
-//  ***********/
+// /**************
+//  * Emacs24/25 *
+//  **************/
 
-window#Emacs24 {
+window#Emacs24,
+window#Emacs25 {
   background-color: $bg_color;
   transition: none;
 
@@ -2538,7 +2539,8 @@ window#Emacs24 {
     }
 
     > box > widget#emacs,
-    > box > widget#emacs24 {
+    > box > widget#emacs24,
+    > box > widget#emacs25 {
      transition: none;
 
       > widget > scrollbar,
