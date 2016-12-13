@@ -674,7 +674,10 @@ box.horizontal.pinned { // drop-target
 .budgie-container.top,
 .budgie-container.bottom {
   > popover.background > box.vertical > button.flat.image-button {
-    margin: 0 2px;
+    min-width: rem($widget_size, $sw: 1.0);
+    min-height: rem($widget_size, $sw: 1.0);
+    margin: rem(2.7px, $sw: 1.0) 0;
+    padding: 0;
 
     &:first-child { // '+' button
       &:hover {
