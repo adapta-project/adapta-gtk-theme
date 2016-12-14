@@ -524,6 +524,20 @@ window box > paned > overlay > scrolledwindow {
   }
 }
 
+paned.vertical > overlay > scrolledwindow > overlay {
+  > widget > widget > box > widget > headerbar { // in-line headerbars
+    > .linked.raised > button.image-button { // 'trash/save' button
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+    }
+
+    > button.flat:not(.image-button) { // 'Reply to' text-button
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+}
+
 
 // /************
 //  * Epiphany *
