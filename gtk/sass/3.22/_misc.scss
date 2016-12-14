@@ -1659,7 +1659,7 @@ headerbar > button.flat.popup.title-menu-button.toggle {
   }
 }
 
-.background.csd > box.vertical > stack > box.horizontal {
+window.background > box.vertical > stack > box.horizontal {
   list.categories { // side-pane
     border: none;
     background-color: $secondary_dark_color;
@@ -1693,6 +1693,11 @@ headerbar > button.flat.popup.title-menu-button.toggle {
         padding-right: 0;
       }
     }
+  }
+
+  > box.vertical > scrolledwindow > viewport.frame > list { // right-pane
+    // hide single-line separators
+    > separator { background-color: transparent; }
   }
 }
 
