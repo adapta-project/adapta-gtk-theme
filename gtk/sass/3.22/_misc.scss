@@ -331,8 +331,13 @@ sn-button { padding: rem(4px); }
   }
 }
 
-.nautilus-canvas-item {
-  border-radius: 2px;
+.nautilus { // hide outlines
+  &-canvas-item {
+    border-radius: 2px;
+    outline-width: 0;
+  }
+
+  &-list-view treeview.view { outline-width: 0; }
 }
 
 .nautilus-circular-button {
