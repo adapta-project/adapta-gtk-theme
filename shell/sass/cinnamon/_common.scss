@@ -751,6 +751,7 @@ $icon_size: 16px;
 }
 
 .datemenu-date-label {
+  @include fontscaling($ref_size * 0.8);
   padding: 0.4em 1.75em;
   border-radius: 2px;
   color: $fg_color;
@@ -813,21 +814,15 @@ $icon_size: 16px;
   background-color: transparent;
 }
 
-.calendar-today {
-  &,
-  &:hover,
-  &:active,
-  &:focus {
+.calendar {
+  &-today {
     border-width: 0;
     color: $selected_fg_color;
     background-color: $selected_bg_color;
     font-weight: 700;
   }
-}
 
-.calendar-other-month-day {
-  color: $dim_fg_color;
-  opacity: 0.5;
+  &-other-month-day { color: $dim_fg_color; }
 }
 
 
