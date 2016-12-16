@@ -1123,154 +1123,152 @@ UnityPanelWidget,
   }
 }
 
-// greeter styling
-@keyframes entry-spinner {
-  to {
-    -gtk-icon-transform: rotate(1turn);
-  }
-}
 
-.lightdm { // main widget
-  border-radius: 2px;
-  background-image: none;
-  background-color: $inverted_dark_color;
+// /***********************
+//  * Lightdm-Gtk-Greeter *
+//  ***********************/
 
-  &:not(.menubar) { opacity: 0.9; }
-}
-
-.lightdm.background { // protect panel area from unwanted hard-coded img
-  > Background > GtkBox > GtkEventBox {
-    border-radius: 0;
-    border-top: 24px solid $panel_bg_color;
-  }
-}
-
-.lightdm.menubar { // top-bar
-  border-radius: 0;
-  // FIXME: it doesn't work, hard-coded?
-  background-image: linear-gradient(to bottom, $panel_bg_color);
-  opacity: 1.0;
-
-  > * {
-    padding: 0 6px;
+.lightdm-gtk-greeter {
+  // top-panel styling
+  #panel_window {
     color: $inverted_fg_color;
-
-    > .label { color: $inverted_fg_color; }
-
-    &:hover {
-      color: $selected_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
-    }
-  }
-}
-
-.lightdm { // misc
-  &.menu {
-    padding: 4px 0;
-    border: none;
-    border-radius: 2px;
-    background-image: none;
-    background-color: $inverted_dark_color;
-    color: $inverted_secondary_fg_color;
-    opacity: 0.9;
-
-    .menuitem *,
-    .menuitem.check:active,
-    .menuitem.radio:active {
-      color: $inverted_fg_color;
-    }
-  }
-
-  &-combo {
-    .menu {
-      border-radius: 0;
-      padding: 0;
-      background-color: $inverted_dark_color;
-      color: $inverted_fg_color;
-      opacity: 0.9;
-    }
-
-    .combobox-entry .button,
-    .cell,
-    .button,
-    .entry {
-      padding: 6px;
-      border-radius: 2px;
-      border: 1px solid transparent;
-      background-image: none;
-      background-color: gtkopacity($inverted_dark_color, 0.9);
-      color: $inverted_fg_color;
-      text-shadow: none;
-      box-shadow: none;
-    }
-  }
-
-  &.button {
-    border: none;
-    border-radius: 100px;
-    outline-radius: 100px;
-    background-image: none;
-    background-color: transparent;
-    color: $inverted_secondary_fg_color;
     box-shadow: none;
-    &:hover,
-    &:focused {
-      background-color: gtkopacity($inverted_fg_color, 0.1);
-      color: $selected_fg_color;
-    }
-    &:active {
-      background-color: gtkopacity($inverted_fg_color, 0.2);
-      color: $selected_fg_color;
-      transition-duration: 0.2s;
+    font-weight: 700;
+    text-shadow: none;
+    box-shadow: inset 0 2px $panel_bg_color;
+
+    &, &.background,
+    > * > * { background-color: transparent; } // FIXME: ugly wildcard
+
+    .menubar {
+      @extend .gnome-panel-menu-bar;
+      background-color: transparent;
+      color: $inverted_fg_color;
+
+      .label,
+      GtkImage {
+        padding: 0 0.5em;
+        color: $inverted_fg_color;
+      }
+
+      &:hover {
+        color: $selected_fg_color;
+        box-shadow: inset 0 2px $selected_bg_color;
+
+        .label,
+        GtkImage { color: $selected_fg_color; }
+      }
+
+      // flip underline-indicator vertically
+      > .menuitem {
+        padding: 0.4em 0;
+        background-color: transparent;
+        &:hover { box-shadow: inset 0 2px $selected_bg_color; }
+      }
+
+      .menu {
+        .menuitem {
+          padding: 0.4em 0.6em 0.5em;
+          font-weight: 400;
+          text-shadow: none;
+
+          // override above hacks
+          &, .label { color: $secondary_fg_color; }
+          &:hover,
+          &:hover .label { color: $fg_color; }
+          &:insensitive,
+          &:insensitive .label { color: $insensitive_fg_color; }
+        }
+      }
     }
   }
 
-  &.option-button {
-    padding: 6px;
+  // main container
+  #login_window,
+  #shutdown_dialog,
+  #restart_dialog {
+    @extend .message-dialog;
     border: none;
-    border-radius: 100px;
-    outline-radius: 100px;
-    background: none;
-  }
-
-  &.toggle-button {
-    border: none;
-    border-radius: 2px;
-    outline-radius: 2px;
-    background-color: transparent;
-    color: $inverted_fg_color;
-    &:hover {
-      background-color: gtkopacity($inverted_fg_color, 0.1);
-      color: $selected_fg_color;
-    }
-    &.selected {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-    }
-  }
-
-  &.entry {
-    border-image: none;
     border-radius: 0;
-    background-color: transparent;
     color: $inverted_fg_color;
-    box-shadow: inset 0 -1px gtkopacity($inverted_fg_color, 0.1);
-    &:active { // draw spinner
-      -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
+    box-shadow: none;
 
-      color: $selected_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
-      animation: entry-spinner 1s infinite linear;
+    &, &.background { background-color: transparent; }
+
+    .button {
+      padding: 0.7em 1em 0.8em;
+      color: $inverted_secondary_fg_color;
+      &:hover,
+      &:active { color: $inverted_fg_color; }
+      &:insensitive { color: $insensitive_inverted_fg_color; }
+
+      &#login_button { @extend .button.suggested-action; }
+
+      &#restart_button,
+      &#shutdown_button { @extend .button.destructive-action; }
     }
-    &:focused {
-      color: $selected_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+
+    GtkComboBox .button {
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($track_color),
+                                  to(transparent))
+                                  0 0 1 / 0 0 1px;
+      color: $inverted_fg_color;
+      font-weight: 700;
+      font-size: 110%;
+      &:hover,
+      &:active {
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+        color: $selected_fg_color;
+      }
+      &:insensitive,
+      &:checked:insensitive {
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($track_color),
+                                    to(transparent))
+                                    0 0 1 / 0 0 1px;
+        color: $insensitive_inverted_fg_color;
+      }
     }
-    &:selected {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-      transition: none;
+
+    .entry { // prevent junmping when showing CapsLock warning
+      padding: 0.9em 1em 1em;
     }
+
+    GtkInfoBar.error { // notification revealer
+      margin: 0 4px; // prevent unwanted overflow
+      border: none;
+      background-color: transparent;
+      // show notification icons at the left of label
+      background-image: -gtk-icontheme("dialog-error-symbolic");
+      background-position: left center;
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      color: $error_color;
+      font-weight: 700;
+      font-size: 110%;
+      transition: none; // transition causes visual glitches
+
+      &:dir(rtl) { background-position: right center; }
+    }
+  }
+
+  #login_window {
+  }
+
+  #content_frame { padding-bottom: 14px; }
+
+  #buttonbox_frame {
+    padding-top: 8px; // reserve gap between infobar and buttonbox
   }
 }
 
