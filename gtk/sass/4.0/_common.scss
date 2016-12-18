@@ -1105,32 +1105,6 @@ button:visited {
 //  * GtkSpinButton *
 //  *****************/
 
-@keyframes spin_hover {
-  from {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha(currentColor, 0.1) 0%,
-                                      transparent);
-  }
-  to {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha(currentColor, 0.1) 100%,
-                                      transparent);
-  }
-}
-
-@keyframes spin_active {
-  from {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha(currentColor, 0.2) 100%,
-                                      transparent);
-  }
-  to {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha(currentColor, 0.2) 0%,
-                                      transparent);
-  }
-}
-
 spinbutton {
   &:not(.vertical) {
     // in this horizontal configuration, the whole spinbutton
@@ -1158,8 +1132,6 @@ spinbutton {
       border: rem(2.7px, $sw: 1.0) solid transparent;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
-      background: none;
-      background-size: contain;
       background-color: transparent;
       color: $secondary_fg_color;
       transition-property: opacity,
@@ -1171,16 +1143,13 @@ spinbutton {
       &:not(:last-child) { // '-' button
         &:hover {
           @extend %button_flat_hover;
-          background: none;
+          background-color: gtkopacity($error_color, 0.1);
           color: $error_color;
-          animation: spin_hover 0.2s $slope_medium forwards;
         }
         &:active {
           @extend %button_flat_active;
-          background: none;
+          background-color: gtkopacity($error_color, 0.1);
           color: $error_color;
-          animation: spin_active 0.2s $slope_quick forwards;
-          transition-duration: 0.2s;
         }
         &:disabled {
           @extend %button_flat_disabled;
@@ -1191,16 +1160,13 @@ spinbutton {
       &:last-child { // '+' button
         &:hover {
           @extend %button_flat_hover;
-          background: none;
+          background-color: gtkopacity($success_color, 0.1);
           color: $success_color;
-          animation: spin_hover 0.2s $slope_medium forwards;
         }
         &:active {
           @extend %button_flat_active;
-          background: none;
+          background-color: gtkopacity($success_color, 0.1);
           color: $success_color;
-          animation: spin_active 0.2s $slope_quick forwards;
-          transition-duration: 0.2s;
         }
         &:disabled {
           @extend %button_flat_disabled;
@@ -1243,8 +1209,7 @@ spinbutton {
       padding: 0;
       border-radius: 2px;
       -gtk-outline-radius: 2px;
-      background: none;
-      background-size: contain;
+      background-color: transparent;
       color: $secondary_fg_color;
       box-shadow: none;
       transition-property: opacity,
@@ -5358,19 +5323,6 @@ colorchooser .popover.osd {
   rubberband { @extend rubberband; }
 }
 
-@keyframes volume_hover {
-  from {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha(currentColor, 0.1) 0%,
-                                      transparent);
-  }
-  to {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha(currentColor, 0.1) 100%,
-                                      transparent);
-  }
-}
-
 .scale-popup {
   .osd & { @extend %osd; }
 
@@ -5388,9 +5340,8 @@ colorchooser .popover.osd {
     &:first-child { // '+' button
       &:hover {
         @extend %button_flat_hover;
-        background: none;
+        background-color: gtkopacity($success_color, 0.1);
         color: $success_color;
-        animation: volume_hover 0.2s linear forwards;
       }
       &:disabled {
         @extend %button_flat_disabled;
@@ -5401,9 +5352,8 @@ colorchooser .popover.osd {
     &:last-child { // '-' button
       &:hover {
         @extend %button_flat_hover;
-        background: none;
+        background-color: gtkopacity($error_color, 0.1);
         color: $error_color;
-        animation: volume_hover 0.2s linear forwards;
       }
       &:disabled {
         @extend %button_flat_disabled;
@@ -5423,9 +5373,8 @@ colorchooser .popover.osd {
     &:first-child { // '-' button
       &:hover {
         @extend %button_flat_hover;
-        background: none;
+        background-color: gtkopacity($error_color, 0.1);
         color: $error_color;
-        animation: spin_hover 0.2s linear forwards;
       }
       &:disabled {
         @extend %button_flat_disabled;
@@ -5436,9 +5385,8 @@ colorchooser .popover.osd {
     &:last-child { // '+' button
       &:hover {
         @extend %button_flat_hover;
-        background: none;
+        background-color: gtkopacity($success_color, 0.1);
         color: $success_color;
-        animation: spin_hover 0.2s linear forwards;
       }
       &:disabled {
         @extend %button_flat_disabled;
