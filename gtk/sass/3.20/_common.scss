@@ -4652,12 +4652,17 @@ expander {
 
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-    min-width: rem($icon_size);
-    min-height: rem($icon_size);
+    min-width: $icon_size;
+    min-height: $icon_size;
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
     &:selected { color: $selected_fg_color; }
+
+    &.horizontal { // spacer between arrow and label
+      &:dir(ltr) { margin-right: rem(4px, $sw: 1.0); }
+      &:dir(rtl) { margin-left: rem(4px,$sw: 1.0); }
+    }
   }
 
   label {
