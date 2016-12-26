@@ -130,7 +130,9 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 .view,
 textview {
   text {
-    @extend %view;
+    background-color: $base_color;
+    color: $fg_color;
+    &:disabled { color: $insensitive_fg_color; }
 
     selection {
       &, &:focus { @extend %selected_items; }
@@ -1667,7 +1669,7 @@ toolbar {
     }
   }
 
-  .linked > button { // remove double-background and underlines
+  .linked > button:not(.combo) { // remove double-background and underlines
     &, &.image-button {
       border-image: none;
       box-shadow: none;

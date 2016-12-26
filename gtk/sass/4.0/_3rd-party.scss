@@ -2421,6 +2421,34 @@ widget.caja-desktop.view { // desktop icon-grid styling
 }
 
 
+// /*****************
+//  * Atril/Xreader *
+//  *****************/
+
+.atril-window,
+.xreader-window {
+  scrolledwindow.frame {
+    border-style: solid none none;
+
+    > .view { // = evview?
+      transition: none;
+      &:selected,
+      &:active {
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+    }
+
+    undershoot { // remove undershoot
+      &.top,
+      &.bottom,
+      &.left,
+      &.right { background-image: none; }
+    }
+  }
+}
+
+
 // /*************************
 //  * Mate-MediaControl-OSD *
 //  *************************/
