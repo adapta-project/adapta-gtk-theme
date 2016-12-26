@@ -131,12 +131,11 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
   @extend .list-row.activatable;
   background-color: $base_color;
   color: $fg_color;
+  transition: none;
   &:hover,
   &:active,
   &:selected { border-radius: 2px; }
-  &:insensitive {
-    color: $insensitive_fg_color;
-  }
+  &:insensitive { color: $insensitive_fg_color; }
   &:selected { @extend %selected_items; }
 }
 
