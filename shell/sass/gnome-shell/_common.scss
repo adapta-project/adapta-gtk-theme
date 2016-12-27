@@ -21,9 +21,9 @@ $panel-corner-radius: 0;
 $font-family: Noto Sans, Cantarell, Sans-Serif;
 
 stage {
+  @include fontscaling($ref_size);
   font-family: $font-family;
   font-weight: 400;
-  @include fontscaling($ref_size);
   color: $fg_color;
 }
 
@@ -180,6 +180,7 @@ StScrollBar {
 
 .check-box {
   StBoxLayout { spacing: 0.8em; }
+
   StBin {
     width: 20px;
     height: 20px;
@@ -187,6 +188,7 @@ StScrollBar {
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
   }
+
   &:focus StBin { background-image: url("assets/checkbox-off-hover.svg"); }
   &:checked StBin { background-image: url("assets/checkbox.svg"); }
   &:focus:checked StBin { background-image: url("assets/checkbox-hover.svg"); }
@@ -240,11 +242,10 @@ StScrollBar {
 //  * Modal Dialogs *
 //  *****************/
 
-.headline {
-  @include fontscaling($ref_size * 1.1);
-}
+.headline { @include fontscaling($ref_size * 1.1); }
 
 .lightbox { background-color: #000000; }
+
 .flashspot { background-color: #FFFFFF; }
 
 .modal-dialog {
@@ -319,7 +320,7 @@ StScrollBar {
   &-logout-icon {
     width: 48px;
     height: 48px;
-    border-radius: 5px;
+    border-radius: 2px;
     background-size: contain;
   }
 
@@ -383,8 +384,8 @@ StScrollBar {
   }
 
   &-dialog-description {
-    padding-left: if($eta == 'false', 17px, 12px);
     width: 28em;
+    padding-left: if($eta == 'false', 17px, 12px);
     &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
   }
 }
@@ -486,7 +487,7 @@ StScrollBar {
   &-user-icon {
     width: 48px;
     height: 48px;
-    border-radius: 5px;
+    border-radius: 2px;
     background-size: contain;
   }
 }
@@ -688,9 +689,9 @@ StScrollBar {
 }
 
 .popup-menu-ornament {
-  text-align: right;
   width: 1.2em;
   height: 1.2em;
+  text-align: right;
 }
 
 .popup-menu-boxpointer {
@@ -1060,8 +1061,10 @@ StScrollBar {
 //  * Calendar Popover *
 //  ********************/
 
-#calendarArea { padding: if($eta == 'false', 0.75em 1.0em,
-                                             0.5em 0.7em); }
+#calendarArea {
+  padding: if($eta == 'false', 0.75em 1.0em,
+                               0.5em 0.7em);
+}
 
 .calendar { margin-bottom: if($eta == 'false', 1em, 0.7em); }
 
@@ -1122,7 +1125,8 @@ StScrollBar {
   padding: 4px 0;
   color: $fg_color;
   font-weight: 700;
-  &:focus {}
+  &:focus {
+  }
 }
 
 .pager-button {
@@ -1193,6 +1197,7 @@ StScrollBar {
 }
 
 .calendar-week-number { // day of week heading
+  @include fontscaling($ref_size * 0.9);
   width: 32px;
   height: 25.3px;
   margin: 2px;
@@ -1200,7 +1205,6 @@ StScrollBar {
   background-color: transparent;
   color: $dim_fg_color;
   font-weight: 700;
-  font-size: inherit;
   text-align: center;
 }
 
@@ -1226,13 +1230,10 @@ StScrollBar {
 
 .calendar-today {
   border: none;
-  font-weight: 700 !important;
+  font-weight: 700;
 }
 
-.calendar-other-month-day {
-  color: $dim_fg_color;
-  opacity: 0.5;
-}
+.calendar-other-month-day { color: $dim_fg_color; }
 
 
 // /****************
@@ -1384,12 +1385,12 @@ StScrollBar {
 .system-switch-user-submenu-icon {
   &.user-icon {
     icon-size: 20px;
-    padding: 0 2px - 1px;
+    padding: 0 1px;
   }
 
   &.default-icon {
     icon-size: 16px;
-    padding: 0 4px - 1px;
+    padding: 0 3px;
   }
 }
 
@@ -1743,9 +1744,7 @@ StScrollBar {
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
 
-  StLabel {
-    margin: 0 8px 7px;
-  }
+  StLabel { margin: 0 8px 7px; }
 
   &:hover,
   &:focus {
@@ -2607,7 +2606,7 @@ $legacy_icon_size: 24px;
     padding: 0.3em 0.5em 0.3em 0.5em;
     border-radius: 2px;
     color: $osd_secondary_fg_color;
-    transition-duration: 0;
+    transition-duration: 0s;
     &:hover,
     &:active,
     &:selected {
