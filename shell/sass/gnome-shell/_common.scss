@@ -990,12 +990,12 @@ StScrollBar {
       -panel-corner-border-color: transparent;
     }
 
-    StLabel { padding: 0 2px 1px; }
+    StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
   }
 
   .panel-button {
-    -natural-hpadding: 6px;
-    -minimum-hpadding: 6px;
+    -natural-hpadding: if($eta == 'false', 10px, 6px);
+    -minimum-hpadding: if($eta == 'false', 10px, 6px);
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
     font-weight: 700;
@@ -1003,7 +1003,7 @@ StScrollBar {
 
     .app-menu-icon { // dimensions of the icon are hardcoded
       -st-icon-style: symbolic;
-      padding: 0 2px;
+      padding: if($eta == 'false', 0 5px, 0 2px);
     }
 
     &:hover {
@@ -1026,10 +1026,10 @@ StScrollBar {
 
     .system-status-icon {
       icon-size: 16px;
-      padding: 0 3px;
+      padding: if($eta == 'false', 0 5px, 0 3px);
     }
 
-    StLabel { padding: 0 2px 1px; }
+    StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
 
     .popup-menu-arrow { // hide down-arrows
       width: 0;
@@ -1400,9 +1400,9 @@ StScrollBar {
 
 #appMenu {
   spinner-image: url("process-working.svg");
-  padding: 0 6px;
+  padding: if($eta == 'false', 0 10px, 0 6px);
 
-  StLabel { padding: 0 2px 1px; }
+  StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
 
   .label-shadow { color: transparent; }
 }
@@ -1410,7 +1410,7 @@ StScrollBar {
 .aggregate-menu {
   min-width: 24em;
 
-  .popup-menu-icon { padding: 0 4px; }
+  .popup-menu-icon { padding: if($eta == 'false', 0 6px, 0 4px); }
 }
 
 .system-menu-action {
