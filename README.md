@@ -293,10 +293,10 @@ Extra Compositor Support
 Work in Progress
 ----------------
 * Conversion to Gtk+ 4.0
-* Add Mate 1.14 integration
 
 TODO
 ----
+* Move Gtk+ 3.18.x theming to legacy (priority: Mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
