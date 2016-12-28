@@ -132,9 +132,9 @@ StScrollBar {
   StButton#vhandle, StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: scale-color($fg_color, $alpha: -72%);
-    &:hover { background-color: scale-color($fg_color, $alpha: -59%); }
-    &:active { background-color: scale-color($fg_color, $alpha: -0%); }
+    background-color: shellopacity($fg_color, 0.28);
+    &:hover { background-color: shellopacity($fg_color, 0.41); }
+    &:active { background-color: shellopacity($fg_color, 1); }
   }
 }
 
@@ -168,7 +168,7 @@ StScrollBar {
   -slider-height: 2px;
    // background of the trough
   -slider-background-color: if($nokto == 'false',
-                               scale-color($fg_color, $alpha: -90%),
+                               shellopacity($fg_color, 0.1),
                                $fill_color);
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $accent_color; // active trough fill
@@ -271,11 +271,11 @@ StScrollBar {
   text-decoration: underline;
   &:hover {
     color: $link_color;
-    background-color: transparentize($link_color, 0.9);
+    background-color: shellopacity($link_color, 0.1);
   }
   &:active {
     color: $link_color;
-    background-color: transparentize($link_color, 0.8);
+    background-color: shellopacity($link_color, 0.2);
   }
 }
 
@@ -288,7 +288,7 @@ StScrollBar {
   @include fontscaling($ref_size * 1.0);
   padding: 4px 12px;
   border-radius: 2px;
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-2;
   font-weight: 400;
@@ -352,7 +352,7 @@ StScrollBar {
       background-color: transparent;
     }
     &:insensitive {
-      color: scale-color($fg_color, $alpha: -50%);
+      color: shellopacity($fg_color, 0.5);
       background: none;
     }
   }
@@ -387,7 +387,7 @@ StScrollBar {
     border: 1px solid $borders_color;
     border-radius: 2px;
     color: $osd_fg_color;
-    background-color: scale-color($osd_bg_color, $alpha: -10%);
+    background-color: shellopacity($osd_bg_color, 0.9);
   }
 
   &-image-menu-item {
@@ -438,8 +438,8 @@ $icon_size: 16px;
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: scale-color($error_color, $alpha: -60%);
-      background-gradient-end: scale-color($error_color, $alpha: -60%);
+      background-gradient-start: shellopacity($error_color, 0.4);
+      background-gradient-end: shellopacity($error_color, 0.4);
     }
     &:ltr { padding-right: 4px; }
     &:rtl { padding-left: 4px; }
@@ -453,8 +453,8 @@ $icon_size: 16px;
   &Right {
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: scale-color($link_color, $alpha: -60%);
-      background-gradient-end: scale-color($link_color, $alpha: -60%);
+      background-gradient-start: shellopacity($link_color, 0.4);
+      background-gradient-end: shellopacity($link_color, 0.4);
     }
     &:ltr {
       padding-left: 4px;
@@ -476,8 +476,8 @@ $icon_size: 16px;
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: scale-color($success_color, $alpha: -60%);
-      background-gradient-end: scale-color($success_color, $alpha: -60%);
+      background-gradient-start: shellopacity($success_color, 0.4);
+      background-gradient-end: shellopacity($success_color, 0.4);
     }
 
     &.vertical {
@@ -492,7 +492,7 @@ $icon_size: 16px;
 
   &-dummy {
     // placeholder fill-area for 'Move Panels'
-    background-color: scale-color($panel_bg_color, $alpha: -60%);
+    background-color: shellopacity($panel_bg_color, 0.4);
 
     &:entered { background-color: $accent_active_fill_color; }
   }
@@ -602,7 +602,7 @@ $icon_size: 16px;
   padding: 4px 8px;
   border-radius: 2px;
   color: $osd_fg_color;
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-1;
   &#selected {
     spacing: 25px;
@@ -696,7 +696,7 @@ $icon_size: 16px;
   padding: 6px;
   border: none;
   border-radius: 2px;
-  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-4;
 }
@@ -995,7 +995,7 @@ $icon_size: 16px;
   border: none;
   border-radius: 2px;
   color: $osd_fg_color;
-  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-4;
 
   > StBoxLayout:first-child { padding: 20px 10px 10px 10px; }
@@ -1159,7 +1159,7 @@ $icon_size: 16px;
 
 #keyboard {
   border-width: 0;
-  background-color: transparentize($osd_bg_color, 0.3);
+  background-color: shellopacity($osd_bg_color, 0.7);
 
   &-layout {
     spacing: 10px;
@@ -1544,14 +1544,14 @@ $icon_size: 16px;
     border: 0 solid darken($osd_bg_color, 10%);
     border-bottom: 1px ;
     color: $osd_fg_color;
-    background: transparentize($osd_bg_color, 0.1);
+    background: shellopacity($osd_bg_color, 0.9);
 
     StButton {
       width: 22px;
       height: 13px;
       padding: 5px;
       border-radius: 2px;
-      border: 1px solid transparentize($osd_bg_color, 1);
+      border: 1px solid transparent;
       color: $osd_fg_color;
       &:hover{ @include button(osd-hover); }
       &:active { @include button(osd-active); }
@@ -1571,7 +1571,7 @@ $icon_size: 16px;
     -slider-height: 2px;
      // background of the trough
     -slider-background-color: if($nokto == 'false',
-                                 scale-color($fg_color, $alpha: -90%),
+                                 shellopacity($fg_color, 0.1),
 				 $fill_color);
     -slider-border-color: transparent; // trough border color
     -slider-active-background-color: $accent_color; // active trough fill
@@ -1645,9 +1645,9 @@ $icon_size: 16px;
   spacing: 3px;
 
   .workspace {
-    border: 1px solid transparentize(black, 0.6);
+    border: 1px solid shellopacity(black, 0.4);
     background-gradient-direction: none;
-    background-color: transparentize(black, 0.8);
+    background-color: shellopacity(black, 0.2);
     &:active {
       border: 1px solid $selected_bg_color;
       background-gradient-direction: none;
@@ -1903,7 +1903,7 @@ $icon_size: 16px;
 
   &-drag-placeholder { 
     border: 2px solid $accent_color;
-    background-color: transparentize($accent_color, 0.2);
+    background-color: shellopacity($accent_color, 0.8);
   }
 
   // 3.2.x?
@@ -1983,7 +1983,7 @@ $icon_size: 16px;
   @include fontscaling($ref_size * 3.0);
   padding: 0.2em 0.8em;
   border-radius: 2px;
-  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-4;
   font-weight: 400;
@@ -2047,7 +2047,7 @@ $icon_size: 16px;
   &,
   &.snap {
     border: 1px solid $selected_bg_color;
-    background-color: transparentize($selected_bg_color, 0.8);
+    background-color: shellopacity($selected_bg_color, 0.2);
   }
 }
 

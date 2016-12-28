@@ -4,23 +4,26 @@
 //
 
 
+@function shellopacity($c, $a) {
+  @return scale-color($c, $alpha: percentage(-1 + $a));
+}
+
 // Import key colour-scheme defined at build-time.
 @import 'key_colors';
-
 
 //
 // Foreground colors
 //
 
 $fg_color: if($nokto == 'false', #263238, #ECEFF1);
-$secondary_fg_color: scale-color($fg_color, $alpha: -25%);
+$secondary_fg_color: shellopacity($fg_color, 0.75);
 
-$dim_fg_color: scale-color($fg_color, $alpha: -60%);
+$dim_fg_color: shellopacity($fg_color, 0.4);
 
 $selected_fg_color: #FFFFFF;
 
-$insensitive_fg_color: scale-color($fg_color, $alpha: -60%);
-$insensitive_secondary_fg_color: scale-color($secondary_fg_color, $alpha: -60%);
+$insensitive_fg_color: shellopacity($fg_color, 0.4);
+$insensitive_secondary_fg_color: shellopacity($secondary_fg_color, 0.4);
 
 
 //
@@ -28,8 +31,8 @@ $insensitive_secondary_fg_color: scale-color($secondary_fg_color, $alpha: -60%);
 //
 
 $inverted_fg_color: if($nokto == 'false', #ECEFF1, #263238);
-$inverted_secondary_fg_color: scale-color($inverted_fg_color, $alpha: -25%);
-$inverted_dim_fg_color: scale-color($inverted_fg_color, $alpha: -60%);
+$inverted_secondary_fg_color: shellopacity($inverted_fg_color, 0.75);
+$inverted_dim_fg_color: shellopacity($inverted_fg_color, 0.4);
 
 
 //
@@ -40,15 +43,15 @@ $bg_color: if($nokto == 'false', #FAFBFC, #3E515A);
 $base_color: if($nokto == 'false', #FFFFFF, #445A64);
 $secondary_dark_color: if($nokto == 'false', #ECEFF1, #37474F);
 
-$fill_color: scale-color($fg_color, $alpha: -85%);
-$semi_fill_color: scale-color($fg_color, $alpha: -93%);
+$fill_color: shellopacity($fg_color, 0.15);
+$semi_fill_color: shellopacity($fg_color, 0.07);
 
 $panel_bg_color: mix(#263238, #000000, 50%);
 
 $selected_bg_color: $key_selection_color;
 
 $insensitive_bg_color: mix($bg_color, $base_color, 60%);
-$insensitive_fill_color: scale-color($fill_color, $alpha: -60%);
+$insensitive_fill_color: shellopacity($fill_color, 0.4);
 
 
 //
@@ -57,7 +60,7 @@ $insensitive_fill_color: scale-color($fill_color, $alpha: -60%);
 
 $inverted_bg_color: if($nokto == 'false', #3E515A, #FAFBFC);
 $inverted_base_color: #455A64;
-$inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
+$inverted_dim_bg_color: shellopacity($inverted_bg_color, 0.2);
 
 
 //
@@ -66,15 +69,15 @@ $inverted_dim_bg_color: scale-color($inverted_bg_color, $alpha: -80%);
 
 $accent_color: $key_accent_color;
 $accent_label_color: mix($key_accent_color, $fg_color, 80%);
-$secondary_accent_color: scale-color($accent_color, $alpha: -20%);
-$secondary_accent_label_color: scale-color($accent_label_color, $alpha: -20%);
-$accent_fill_color: scale-color($accent_color, $alpha: -90%);
-$accent_active_fill_color: scale-color($accent_color, $alpha: -75%);
+$secondary_accent_color: shellopacity($accent_color, 0.8);
+$secondary_accent_label_color: shellopacity($accent_label_color, 0.8);
+$accent_fill_color: shellopacity($accent_color, 0.1);
+$accent_active_fill_color: shellopacity($accent_color, 0.25);
 
 $inverted_accent_label_color:
   mix($key_accent_color, $inverted_fg_color, 80%);
 $inverted_secondary_accent_label_color:
-  scale-color($inverted_accent_label_color, $alpha: -20%);
+  shellopacity($inverted_accent_label_color, 0.8);
 
 
 //
@@ -83,9 +86,9 @@ $inverted_secondary_accent_label_color:
 
 $borders_color: if($nokto == 'false', scale-color(#000000, $alpha: -91%),
                                       scale-color(#000000, $alpha: -89%));
-$borders_edge: scale-color(#000000, $alpha: -95%);
+$borders_edge: shellopacity(#000000, 0.05);
 $top_hilight: $borders_edge;
-$borders_highlight: scale-color(#FFFFFF, $alpha: -93%);
+$borders_highlight: shellopacity(#FFFFFF, 0.07);
 $insensitive_borders_color: $borders_color;
 
 $link_color: #03A9F4;
@@ -103,12 +106,12 @@ $suggested_color: $key_suggestion_color;
 //
 
 $osd_fg_color: if($nokto == 'false', $inverted_fg_color, $fg_color);
-$osd_secondary_fg_color: scale-color($osd_fg_color, $alpha: -25%);
+$osd_secondary_fg_color: shellopacity($osd_fg_color, 0.75);
 
-$osd_dim_fg_color: scale-color($osd_fg_color, $alpha: -50%);
+$osd_dim_fg_color: shellopacity($osd_fg_color, 0.5);
 
-$insensitive_osd_fg_color: scale-color($osd_fg_color, $alpha: -60%);
-$insensitive_osd_secondary_fg_color: scale-color($osd_secondary_fg_color, $alpha: -60%);
+$insensitive_osd_fg_color: shellopacity($osd_fg_color, 0.4);
+$insensitive_osd_secondary_fg_color: shellopacity($osd_secondary_fg_color, 0.4);
 
 
 //
@@ -118,9 +121,9 @@ $insensitive_osd_secondary_fg_color: scale-color($osd_secondary_fg_color, $alpha
 $osd_bg_color: mix(#263238, #37474F, 75%);
 $osd_base_color: if($nokto == 'false', $inverted_base_color, $bg_color);
 
-$osd_fill_color: scale-color($osd_fg_color, $alpha: -60%);
-$osd_semi_fill_color: scale-color($osd_fg_color, $alpha: -80%);
-$osd_slight_fill_color: scale-color($osd_fg_color, $alpha: -88%);
+$osd_fill_color: shellopacity($osd_fg_color, 0.4);
+$osd_semi_fill_color: shellopacity($osd_fg_color, 0.2);
+$osd_slight_fill_color: shellopacity($osd_fg_color, 0.12);
 
 $osd_indicator_color: $selected_bg_color;
 
@@ -128,5 +131,5 @@ $osd_borders_color: $borders_color;
 $osd_outer_borders_color: transparent;
 $tooltip_borders_color: $osd_borders_color;
 
-$insensitive_osd_fill_color: scale-color($osd_fill_color, $alpha: -60%);
+$insensitive_osd_fill_color: shellopacity($osd_fill_color, 0.4);
 

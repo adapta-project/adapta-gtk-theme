@@ -2,11 +2,6 @@
 // This is the RIGHT PLACE to edit the stylesheet
 //
 
-// let's start by telling people not to edit the generated CSS:
-$cakeisalie: "This stylesheet is generated, DO NOT EDIT";
-/* #{$cakeisalie} */
-
-
 // /***********
 //  * Globals *
 //  ***********/
@@ -38,11 +33,11 @@ stage {
 //  ***********/
 
 .button {
+  @include button(flat-normal);
   padding: if($eta == 'false', 7px 16px 8px, 5px 12px 6px);
   border-radius: 2px;
   border-width: 0;
   font-weight: 500;
-  @include button(flat-normal);
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:insensitive { @include button(flat-insensitive); }
@@ -139,17 +134,17 @@ StScrollBar {
     margin: 0;
     border-radius: 0;
     background-color: if($nokto == 'false',
-                      scale-color($inverted_fg_color, $alpha: -40%),
-                      scale-color($fg_color, $alpha: -40%));
+                      shellopacity($inverted_fg_color, 0.6),
+                      shellopacity($fg_color, 0.6));
     &:hover {
       background-color: if($nokto == 'false',
-                        scale-color($inverted_fg_color, $alpha: -20%),
-                        scale-color($fg_color, $alpha: -20%));
+                        shellopacity($inverted_fg_color, 0.8),
+                        shellopacity($fg_color, 0.8));
     }
     &:active {
       background-color: if($nokto == 'false',
-                        scale-color($inverted_fg_color, $alpha: -0%),
-                        scale-color($fg_color, $alpha: -0%));
+                        shellopacity($inverted_fg_color, 1),
+                        shellopacity($fg_color, 1));
     }
   }
 }
@@ -164,7 +159,7 @@ StScrollBar {
   color: $accent_color;
   -slider-height: 2px;
   -slider-background-color: if($nokto == 'false',
-                            scale-color($fg_color, $alpha: -90%),
+                            shellopacity($fg_color, 0.1),
                             $fill_color); // background of the trough
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $accent_color; // active trough fill
@@ -229,11 +224,11 @@ StScrollBar {
   color: $link_color;
   &:hover {
     color: $link_color;
-    background-color: transparentize($link_color, 0.9);
+    background-color: shellopacity($link_color, 0.1);
   }
   &:active {
     color: $link_color;
-    background-color: transparentize($link_color, 0.8);
+    background-color: shellopacity($link_color, 0.2);
   }
 }
 
@@ -252,7 +247,7 @@ StScrollBar {
   border: none;
   border-radius: 2px;
   color: if($nokto == 'false', $inverted_fg_color, $fg_color);
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-4;
 
   &-content-box { padding: if($eta == 'false', 24px, 20px); }
@@ -640,29 +635,29 @@ StScrollBar {
         background-color: mix($selected_bg_color, $selected_fg_color, 80%);
         color: $selected_fg_color;
       }
-      &:insensitive { color: scale-color($selected_fg_color, $alpha: -50%); }
+      &:insensitive { color: shellopacity($selected_fg_color, 0.5); }
     }
     &.selected {
       background-color: if($nokto == 'false',
-                        scale-color($fg_color, $alpha: -90%),
+                        shellopacity($fg_color, 0.1),
                         $semi_fill_color);
       color: $fg_color;
       transition-duration: 0;
     }
     &:active {
       background-color: if($nokto == 'false',
-                        scale-color($fg_color, $alpha: -80%),
+                        shellopacity($fg_color, 0.2),
                         $fill_color);
       color: $fg_color;
       transition-duration: 0.2s;
     }
     &.selected:active { color: $fg_color; }
-    &:insensitive { color: scale-color($fg_color, $alpha: -50%); }
+    &:insensitive { color: shellopacity($fg_color, 0.5); }
   }
 
   .popup-inactive-menu-item { // all icons and other graphical elements
     color: $secondary_fg_color;
-    &:insensitive { color: scale-color($secondary_fg_color, $alpha: -50%); }
+    &:insensitive { color: shellopacity($secondary_fg_color, 0.5); }
   }
 
   .popup-status-menu-item {
@@ -711,7 +706,7 @@ StScrollBar {
 
 .candidate-popup-boxpointer {
   -arrow-border-radius: 2px;
-  -arrow-background-color: scale-color($osd_bg_color, $alpha: -10%);
+  -arrow-background-color: shellopacity($osd_bg_color, 0.9);
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 48px;
@@ -721,7 +716,7 @@ StScrollBar {
   border-radius: 2px;
   border-top: 1px solid transparent;
   background: transparent; // needs to reset?
-  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_secondary_fg_color;
   box-shadow: $z-depth-3;
 }
@@ -790,7 +785,7 @@ StScrollBar {
 
 .pad-osd-window {
   padding: if($eta == 'false', 32px, 26px);
-  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  background-color: shellopacity($osd_bg_color, 0.9);
 }
 
 .combo-box-label { width: 15em; }
@@ -864,7 +859,7 @@ StScrollBar {
 .cycler-highlight {
   border-radius: 2px 2px 0 0;
   border: 1px solid $selected_bg_color;
-  background-color: scale-color($selected_bg_color, $alpha: -80%);
+  background-color: shellopacity($selected_bg_color, 0.2);
 }
 
 
@@ -914,7 +909,7 @@ StScrollBar {
   border-radius: 2px;
   border: none;
   color: $osd_fg_color;
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-4;
 }
 
@@ -925,7 +920,7 @@ StScrollBar {
 
 .tile-preview {
   border: 1px solid $selected_bg_color;
-  background-color: transparentize($selected_bg_color, 0.8);
+  background-color: shellopacity($selected_bg_color, 0.2);
 
   &-left.on-primary {
     border-radius: $panel-corner-radius $panel-corner-radius 0 0;
@@ -1717,7 +1712,7 @@ StScrollBar {
   padding: if($eta == 'false', 4px 8px, 3px 6px);
   border-radius: 2px;
   color: $osd_fg_color;
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   -shell-caption-spacing: if($eta == 'false', 12px, 8px);
   box-shadow: $z-depth-1;
   &:hover {
@@ -1877,7 +1872,7 @@ StScrollBar {
   padding: if($eta == 'false', 4px 12px, 3px 8px);
   border-radius: 2px;
   color: if($nokto == 'false', $osd_fg_color, $fg_color);
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-2;
   text-align: center;
   -x-offset: 8px;
@@ -2172,7 +2167,7 @@ StScrollBar {
     margin: 2px;
     padding: 0;
     background-image: none;
-    background-color: transparentize($osd_indicator_color, 0.25);
+    background-color: shellopacity($osd_indicator_color, 0.75);
   }
   &:checked .page-indicator-icon {
     margin: 0;
@@ -2274,12 +2269,12 @@ StScrollBar {
   margin: 5px;
   border: none;
   border-radius: 2px;
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-2;
   &:hover,
   &:focus {
-    background-color: transparentize($osd_bg_color, 0.1);
+    background-color: shellopacity($osd_bg_color, 0.9);
     color: $osd_fg_color;
     box-shadow: $z-depth-2;
   }
@@ -2469,7 +2464,7 @@ $legacy_icon_size: 24px;
 .legacy-tray {
   border: none;
   border-bottom-width: 0;
-  background-color: scale-color($osd_bg_color, $alpha: -10%);
+  background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_fg_color;
   box-shadow: none;
 
@@ -2520,7 +2515,7 @@ $legacy_icon_size: 24px;
 //  ************/
 
 // On-screen Keyboard
-#keyboard { background-color: transparentize($panel_bg_color, 0.25); }
+#keyboard { background-color: shellopacity($panel_bg_color, 0.75); }
 
 .keyboard-layout {
   spacing: 10px;
@@ -2579,7 +2574,7 @@ $legacy_icon_size: 24px;
   -arrow-base: 0;
   -arrow-rise: 0;
   -boxpointer-gap: 5px;
-  background-color: transparentize($osd_bg_color, 0.1);
+  background-color: shellopacity($osd_bg_color, 0.9);
   color: if($nokto == 'false', $inverted_secondary_fg_color,
                                $secondary_fg_color);
   box-shadow: $z-depth-2;
@@ -2876,11 +2871,11 @@ $legacy_icon_size: 24px;
     padding-bottom: 3em;
 
     Gjs_Arrow {
-       width: 80px;
-       height: 48px;
-       -arrow-thickness: 12px;
-       -arrow-shadow: none;
-       color: $selected_fg_color;
+      width: 80px;
+      height: 48px;
+      -arrow-thickness: 12px;
+      -arrow-shadow: none;
+      color: $selected_fg_color;
     }
   }
 
@@ -2918,7 +2913,7 @@ $legacy_icon_size: 24px;
       padding: 12px 6px;
       border: none;
       border-radius: 2px;
-      background-color: transparentize($osd_bg_color, 0.1);
+      background-color: shellopacity($osd_bg_color, 0.9);
       color: $osd_fg_color;
     }
 
@@ -2947,9 +2942,9 @@ $legacy_icon_size: 24px;
 #screenShieldNotifications {
   StButton#vhandle,
   StButton#hhandle {
-    background-color: transparentize($osd_fg_color,0.4);
+    background-color: shellopacity($osd_fg_color, 0.6);
     &:hover,
-    &:focus { background-color: transparentize($osd_fg_color, 0.2); }
+    &:focus { background-color: shellopacity($osd_fg_color, 0.8); }
     &:active { background-color: $osd_fg_color; }
   }
 }
@@ -2964,7 +2959,7 @@ $legacy_icon_size: 24px;
   padding: 0;
   border: none;
   border-radius: 2px;
-  background-color: scale-color($osd_base_color, $alpha: -10%);
+  background-color: shellopacity($osd_base_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-4;
 
