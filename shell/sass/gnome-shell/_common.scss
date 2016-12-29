@@ -1229,7 +1229,14 @@ StScrollBar {
   font-weight: 700;
 }
 
-.calendar-other-month-day { color: $dim_fg_color; }
+.calendar-other-month-day {
+  color: $dim_fg_color;
+
+  &.calendar-day-with-events {
+    color: shellopacity($link_color, 0.5);
+    &:hover { background-color: shellopacity($link_color, 0.1); }
+  }
+}
 
 
 // /****************
