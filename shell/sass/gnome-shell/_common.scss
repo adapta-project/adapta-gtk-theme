@@ -59,7 +59,7 @@ stage {
   }
   &:focus {
     color: $inverted_accent_label_color;
-    background-color: rgba(0, 0, 0, 0.01);
+    background-color: $hidden_fill_color;
     box-shadow: inset 0 0 0 2px $accent_fill_color;
     &:hover { background-color: $accent_fill_color; }
   }
@@ -951,7 +951,7 @@ StScrollBar {
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
-    background-color: rgba(19, 25, 28, 0.01);
+    background-color: $panel_hidden_fill_color;
     box-shadow: inset 0 2px $panel_bg_color;
   }
 
@@ -967,14 +967,14 @@ StScrollBar {
     -panel-corner-border-color: transparent;
 
     &:hover {
-      background-color: rgba(19, 25, 28, 0.01);
+      background-color: $panel_hidden_fill_color;
       box-shadow: inset 0 2px $osd_fill_color;
     }
     &:active,
     &:overview,
     &:focus {
       -panel-corner-border-color: transparent;
-      background-color: rgba(19, 25, 28, 0.01);
+      background-color: $panel_hidden_fill_color;
       box-shadow: inset 0 2px $osd_indicator_color;
     }
 
@@ -1004,7 +1004,7 @@ StScrollBar {
 
     &:hover {
       color: $selected_fg_color;
-      background-color: rgba(19, 25, 28, 0.01);
+      background-color: $panel_hidden_fill_color;
       box-shadow: inset 0 2px $osd_fill_color;
     }
     &:active,
@@ -1013,7 +1013,7 @@ StScrollBar {
     &:overview {
       // Trick due to St limitations. It needs a background to draw
       // a box-shadow
-      background-color: rgba(19, 25, 28, 0.01);
+      background-color: $panel_hidden_fill_color;
       color: $selected_fg_color;
       box-shadow: inset 0 2px $osd_indicator_color;
 
@@ -1919,7 +1919,7 @@ StScrollBar {
                             (right, 2px 0 0 2px) {
     &.#{$_dock} #dash {
       border-radius: #{$_radius};
-      background-color: rgba(19, 25, 28, 1.0);
+      background-color: $panel_fill_color;
     }
     &.#{$_dock}:overview #dash {
       border-radius: #{$_radius};
@@ -1927,7 +1927,7 @@ StScrollBar {
     }
     &.#{$_dock}.extended #dash {
       border-radius: 0;
-      background-color: rgba(19, 25, 28, 1.0);
+      background-color: $panel_fill_color;
     }
     &.#{$_dock}.extended:overview #dash {
       border-radius: 0;
@@ -2005,7 +2005,7 @@ StScrollBar {
 .app-view-controls { // favorties | all toggle container
   width: 320 + 24px; // search entry width + search icon width(24) ?
   padding-bottom: if($eta == 'false', 24px, 18px);
-  background-color: rgba(0, 0, 0, 0.01) !important;
+  background-color: $hidden_fill_color !important;
   box-shadow: inset 0 1px $osd_semi_fill_color;
 }
 
@@ -2015,7 +2015,7 @@ StScrollBar {
   font-weight: 700;
   color: if($nokto == 'false', $osd_secondary_fg_color,
                                $secondary_fg_color);
-  background-color: rgba(0, 0, 0, 0.01) !important;
+  background-color: $hidden_fill_color !important;
   &:hover {
     color: $osd_fg_color;
     background-color: if($nokto == 'false', $osd_slight_fill_color !important,
@@ -2029,7 +2029,7 @@ StScrollBar {
   }
   &:checked {
     color: $osd_fg_color;
-    background-color: rgba(0, 0, 0, 0.01) !important;
+    background-color: $hidden_fill_color !important;
     box-shadow: inset 0 2px $osd_indicator_color;
   }
   &:hover:checked {
@@ -2218,7 +2218,7 @@ StScrollBar {
   padding: 12px;
   border: none;
   border-radius: 0;
-  background-color: rgba(19, 25, 28, 0.01);
+  background-color: $panel_hidden_fill_color;
   color: $osd_fg_color;
 }
 
@@ -2268,7 +2268,7 @@ StScrollBar {
   &,
   &:overview,
   &.fullheight:overview {
-    background-color: rgba(19, 25, 28, 0.01);
+    background-color: $panel_hidden_fill_color;
 
     .workspace-thumbnails { background-color: transparent; }
   }
@@ -3005,7 +3005,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     &:hover {
       border-bottom-width: 0;
       border-color: transparent;
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: $hidden_fill_color;
       color: if($nokto == 'false', $osd_fg_color, $fg_color);
       box-shadow: inset 0 -2px $osd_fill_color;
       text-shadow: none;
@@ -3013,7 +3013,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     &:selected {
       border-bottom-width: 0;
       border-color: transparent;
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: $hidden_fill_color;
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $osd_indicator_color;
       text-shadow: none;
