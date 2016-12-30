@@ -1600,23 +1600,19 @@ StScrollBar {
   height: 32px;
   width: 32px;
   -shell-close-overlap: 24px;
-  -st-background-image-shadow: 0 1px 3px rgba(0, 0, 0, 0.24),
-                               0 1px 2px rgba(0, 0, 0, 0.48);
+  -st-background-image-shadow: $z-depth-1;
   background-image: url("assets/window-close.svg");
   background-size: 32px;
   &:hover {
     background-image: url("assets/window-close-hover.svg");
-    -st-background-image-shadow: 0 3px 6px rgba(0, 0, 0, 0.32),
-                                 0 3px 6px rgba(0, 0, 0, 0.46);
+    -st-background-image-shadow: $z-depth-2;
   }
   &:active { background-image: url("assets/window-close-active.svg"); }
 
   &:rtl {
-    -st-background-image-shadow: 0 1px 3px rgba(0, 0, 0, 0.24),
-                                 0 1px 2px rgba(0, 0, 0, 0.48);
+    -st-background-image-shadow: $z-depth-1;
     &:hover {
-      -st-background-image-shadow: 0 3px 6px rgba(0, 0, 0, 0.32),
-                                   0 3px 6px rgba(0, 0, 0, 0.46);
+      -st-background-image-shadow: $z-depth-2;
     }
   }
 }
@@ -1846,8 +1842,7 @@ StScrollBar {
     width: 16px;
     height: 16px;
     background-image: url("assets/more-results.svg");
-    -st-background-image-shadow: 0 1px 3px rgba(0, 0, 0, 0.24),
-                                 0 1px 2px rgba(0, 0, 0, 0.48);
+    -st-background-image-shadow: $z-depth-1;
   }
 }
 
@@ -2125,8 +2120,7 @@ StScrollBar {
     background-image: url("assets/show-apps.svg");
     background-size: contain;
     color: transparent;
-    -st-background-image-shadow: 0 1px 1px rgba(0, 0, 0, 0.06),
-                                 0 1px 2px rgba(0, 0, 0, 0.14);
+    -st-background-image-shadow: $z-depth-1;
   }
 
   &:hover .show-apps-icon,
@@ -2135,8 +2129,7 @@ StScrollBar {
   &:focus .show-apps-icon {
     color: transparent;
     background-image: url("assets/show-apps-active.svg");
-    -st-background-image-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
-                                 0 1px 2px rgba(0, 0, 0, 0.22);
+    -st-background-image-shadow: $z-depth-2;
     transition-duration: 0.2s;
   }
 }
@@ -2360,7 +2353,7 @@ StScrollBar {
   -shell-counter-overlap-y: 3px;
   background-color: $selected_bg_color;
   color: $selected_fg_color;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: $z-depth-2;
 }
 
 .secondary-icon { icon-size: 14px; }
@@ -2555,29 +2548,25 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   background-color: mix($panel_bg_color, $selected_fg_color, 95%);
   color: if($nokto == 'false', $inverted_secondary_fg_color,
                                $secondary_fg_color);
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.22),
-              0 0 3px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
   text-shadow: none;
   icon-shadow: none;
   font-weight: 700;
   &:focus {
     color: $selected_fg_color;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.22),
-                0 0 3px rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
   }
   &:hover,
   &:checked {
     color: $selected_fg_color;
     background-color: mix($panel_bg_color, $selected_fg_color, 95%);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.32),
-                0 0 4px rgba(255, 255, 255, 0.24);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.36);
   }
   &:active {
     @include fontscaling($ref_size * 1.8);
     color: $osd_dim_fg_color;
     background-color: $panel_bg_color;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.22),
-                0 0 1px rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.24);
   }
   &:grayed { // FIXME
     border-top-color: $osd_borders_color;
