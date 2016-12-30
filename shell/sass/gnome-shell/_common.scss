@@ -1173,9 +1173,11 @@ StScrollBar {
   &:focus { background-color: $semi_fill_color; }
   &:active,
   &:selected {
-    color: $selected_fg_color;
-    background-color: $selected_bg_color;
-    border-color: transparent; // avoid jumparound due to today
+    &, &:hover {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+      border-color: transparent; // avoid jumparound due to today
+    }
   }
 
   &.calendar-day-heading { // day of week heading
@@ -1203,7 +1205,8 @@ StScrollBar {
   text-align: center;
 }
 
-.calendar-day { // border collapse hack - see calendar.js
+.calendar-day,
+.calendar-nonwork-day { // border collapse hack - see calendar.js
   border-width: 0;
 
   &-top { border-top-width: 0; }
@@ -1216,13 +1219,19 @@ StScrollBar {
     font-weight: 700;
     text-decoration: underline;
     &:hover { background-color: shellopacity($link_color, 0.2); }
+    &:active,
+    &:selected {
+      &, &:hover {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+        border-color: transparent;
+      }
+    }
   }
 }
 
 .calendar-work-day {
 }
-
-.calendar-nonwork-day { color: $fg_color; }
 
 .calendar-today {
   border: none;
@@ -1231,10 +1240,13 @@ StScrollBar {
 
 .calendar-other-month-day {
   color: $dim_fg_color;
+  &:hover,
+  &:focus { background-color: shellopacity($semi_fill_color, 0.5); }
 
   &.calendar-day-with-events {
     color: shellopacity($link_color, 0.5);
-    &:hover { background-color: shellopacity($link_color, 0.1); }
+    &:hover,
+    &:focus { background-color: shellopacity($link_color, 0.1); }
   }
 }
 
