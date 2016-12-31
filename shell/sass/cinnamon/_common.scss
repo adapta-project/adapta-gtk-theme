@@ -1099,19 +1099,16 @@ $icon_size: 16px;
 
   &-subject {
     padding-top: 10px;
-    padding-left: 17px;
     padding-bottom: 6px;
-
-    &:rtl {
-      padding-left: 0;
-      padding-right: 17px;
-    }
+    
+    &:ltr { padding-left: 17px; }
+    &:rtl { padding-right: 17px; }
   }
 
   &-description {
     width: 28em;
-    padding-left: 17px;
 
+    &:ltr { padding-left: 17px; }
     &:rtl { padding-right: 17px; }
   }
 }
@@ -1119,9 +1116,11 @@ $icon_size: 16px;
 .show-processes-dialog-app-list {
   max-height: 200px;
   padding-top: 24px;
-  padding-left: 49px;
-  padding-right: 32px;
 
+  &:ltr {
+    padding-left: 49px;
+    padding-right: 32px;
+  }
   &:rtl {
     padding-right: 49px;
     padding-left: 32px;
@@ -1309,11 +1308,6 @@ $icon_size: 16px;
     padding: 0 30px;
     color: $insensitive_fg_color;
     text-align: right;
-
-    &:rtl {
-      height: 30px;
-      padding-top: 10px;
-    }
   }
 
   &-selected-app-title { font-weight: 700; }
