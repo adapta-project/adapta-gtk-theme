@@ -35,6 +35,9 @@ $z-depth-3: 0 5px 6px rgba(0, 0, 0, 0.30);
 $z-depth-4: 0 8px 10px rgba(0, 0, 0, 0.34);
 $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
 
+// replacement of the 'none'
+$empty_shadow: 0 0 transparent;
+
 
 //
 // entries
@@ -132,7 +135,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
   //
     color: $fg_color;
     background-color: $c;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -169,7 +172,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $insensitive_secondary_fg_color);
     background-color: if($c!=$bg_color, $c, $insensitive_fill_color);
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -180,7 +183,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $secondary_fg_color);
     background-color: transparent;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -189,7 +192,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
   // focused flat button
   //
     color: $fg_color;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
     // box-shadow: inset 0px 0px 0px 2px $fill_color;
@@ -202,7 +205,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $fg_color);
     background-color: if($c!=$bg_color, $c, $semi_fill_color);
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
 
@@ -214,7 +217,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $selected_fg_color);
     background-color: if($c!=$bg_color, $c, $fill_color);
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -225,7 +228,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $insensitive_secondary_fg_color);
     background-color: transparent;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -236,7 +239,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $osd_secondary_fg_color);
     background-color: transparent;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -245,7 +248,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
   // focused osd flat button
   //
     color: $osd_fg_color;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
     // box-shadow: inset 0px 0px 0px 2px $fill_color;
@@ -258,7 +261,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $osd_fg_color);
     background-color: if($c!=$bg_color, $osd_fill_color, $osd_semi_fill_color);
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
 
@@ -270,7 +273,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $selected_fg_color);
     background-color: if($c!=$bg_color, $tc, $osd_fill_color);
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -281,7 +284,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $insensitive_osd_secondary_fg_color);
     background-color: transparent;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
@@ -292,7 +295,7 @@ $z-depth-5: 0 11px 12px rgba(0, 0, 0, 0.41);
     color: inherit;
     background-color: transparent;
     border-color: transparent;
-    box-shadow: 0 0 transparent;
+    box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
   }
