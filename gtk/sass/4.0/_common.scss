@@ -78,7 +78,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 // or better, just don't.
 // Everytime a wildcard is used a kitten dies, painfully.
 
-*:disabled { -gtk-icon-effect: dim; }
+*:disabled { -gtk-icon-filter: opacity(0.5); }
 
 // for backdrop, tone down element surfaces with transparentize
 %fade_effect {
@@ -5326,7 +5326,7 @@ colorchooser .popover.osd {
 // content view (grid/list)
 .content-view {
   background-color: $bg_color;
-  // &:hover { -gtk-icon-effect: highlight; }
+  // &:hover { -gtk-icon-filter: brightness(1.2); }
   rubberband { @extend rubberband; }
 }
 
