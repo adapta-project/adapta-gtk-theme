@@ -295,13 +295,14 @@ StScrollBar {
   &-list { padding-top: if($eta == 'false', 20px, 14px); }
 
   &-layout {
-    padding-left: if($eta == 'false', 17px, 12px);
+    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
     &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
   }
 
   &-description {
     width: 28em;
     padding-bottom: if($eta == 'false', 10px, 7px);
+    &:ltr { text-align: left; }
     &:rtl { text-align: right; }
   }
 
@@ -309,6 +310,7 @@ StScrollBar {
     width: 28em;
     padding-top: if($eta == 'false', 6px, 4px);
     color: $warning_color;
+    &:ltr { text-align: left; }
     &:rtl { text-align: right; }
   }
 
@@ -337,6 +339,7 @@ StScrollBar {
 
   &-list-header {
     font-weight: 700;
+    &:ltr { text-align: left; }
     &:rtl { text-align: right; }
   }
 
@@ -370,17 +373,14 @@ StScrollBar {
 
   &-dialog-subject {
     padding-top: if($eta == 'false', 10px, 8px);
-    padding-left: if($eta == 'false', 17px, 12px);
     padding-bottom: if($eta == 'false', 6px, 5px);
-    &:rtl {
-      padding-left: 0;
-      padding-right: if($eta == 'false', 17px, 12px);
-    }
+    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
+    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
   }
 
   &-dialog-description {
     width: 28em;
-    padding-left: if($eta == 'false', 17px, 12px);
+    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
     &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
   }
 }
@@ -389,8 +389,10 @@ StScrollBar {
   &-app-list {
     max-height: if($eta == 'false', 200px, 180px);
     padding-top: if($eta == 'false', 24px, 18px);
-    padding-left: if($eta == 'false', 49px, 37px);
-    padding-right: if($eta == 'false', 32px, 26px);
+    &:ltr {
+      padding-left: if($eta == 'false', 49px, 37px);
+      padding-right: if($eta == 'false', 32px, 26px);
+    }
     &:rtl {
       padding-right: if($eta == 'false', 49px, 37px);
       padding-left: if($eta == 'false', 32px, 26px);
@@ -440,7 +442,10 @@ StScrollBar {
     font-weight: 500;
   }
 
-  &-description:rtl { text-align: right; }
+  &-description {
+    &:ltr { text-align: left; }
+    &:rtl { text-align: right; }
+  }
 
   &-password-box {
     spacing: 1em;
@@ -469,12 +474,9 @@ StScrollBar {
 
 .polkit-dialog {
   &-user-layout {
-    padding-left: if($eta == 'false', 10px, 7px);
     spacing: if($eta == 'false', 10px, 7px);
-    &:rtl {
-      padding-left: 0;
-      padding-right: if($eta == 'false', 10px, 7px);
-    }
+    &:ltr { padding-left: if($eta == 'false', 10px, 7px); }
+    &:rtl { padding-right: if($eta == 'false', 10px, 7px); }
   }
 
   &-user-root-label { color: $warning_color; }
@@ -1293,28 +1295,25 @@ StScrollBar {
   border-radius: 0;
   background-color: $semi_fill_color;
   color: $secondary_fg_color;
-  box-shadow: inset 4px 0 $semi_fill_color;
-
+  &:ltr { box-shadow: inset 4px 0 $semi_fill_color; }
   &:rtl { box-shadow: inset -4px 0 $semi_fill_color; }
 
   &:hover,
   &:focus {
     background-color: $accent_fill_color;
     color: $fg_color;
-    box-shadow: inset 4px 0 $secondary_accent_color;
-
+    &:ltr { box-shadow: inset 4px 0 $secondary_accent_color; }
     &:rtl { box-shadow: inset -4px 0 $secondary_accent_color; }
   }
   &:active {
     background-color: $accent_active_fill_color;
     color: $fg_color;
-    box-shadow: inset 4px 0 $accent_color;
-
+    &:ltr { box-shadow: inset 4px 0 $accent_color; }
     &:rtl { box-shadow: inset -4px 0 $accent_color; }
   }
 
   &-icon-bin {
-    padding: 3px 0 3px 6px;
+    &:ltr { padding: 3px 0 3px 6px; }
     &:rtl { padding: 3px 6px 3px 0; }
 
     > StIcon { icon-size: 32px; }
@@ -1812,8 +1811,7 @@ StScrollBar {
 
 .search-section-separator {
   height: 1px;
-  margin-left: 96px;
-
+  &:ltr { margin-left: 96px; }
   &:rtl { margin-right: 96px; }
 
   -gradient-height: 1px;
@@ -1855,13 +1853,13 @@ StScrollBar {
   @include fontscaling($ref_size * 0.9);
   padding: 1px 0;
   border: none;
-  border-radius: 0 2px 2px 0;
   color: $osd_fg_color;
   background-color: $osd_slight_fill_color;
   // FIXME: do not set until new design has come
   // this causes unwanted background-areas behind the dash.
   // box-shadow: none;
 
+  &:ltr { border-radius: 0 2px 2px 0; }
   &:rtl { border-radius: 2px 0 0 2px; }
 
   .placeholder {
@@ -2216,11 +2214,13 @@ StScrollBar {
 }
 
 .workspace-thumbnail-indicator {
-  padding: 6px 6px 6px 10px;
   border: 0 solid $osd_indicator_color;
-  border-left-width: 2px;
   border-radius: 0;
 
+  &:ltr {
+    padding: 6px 6px 6px 10px;
+    border-left-width: 2px;
+  }
   &:rtl {
     padding: 6px 10px 6px 6px;
     border-right-width: 2px;
@@ -2372,33 +2372,24 @@ StScrollBar {
   &-new-group { padding-top: 1em; }
 
   &-received {
-    padding-left: 4px;
-    &:rtl {
-      padding-left: 0;
-      padding-right: 4px;
-    }
+    &:ltr { padding-left: 4px; }
+    &:rtl { padding-right: 4px; }
   }
 
   &-sent {
-    padding-left: 18pt;
     color: if($nokto == 'false', $osd_secondary_fg_color,
                                  $secondary_fg_color);
-    &:rtl {
-      padding-left: 0;
-      padding-right: 18pt;
-    }
+    &:ltr { padding-left: 18pt; }
+    &:rtl { padding-right: 18pt; }
   }
 
   &-meta-message {
     @include fontscaling($ref_size * 0.9);
-    padding-left: 4px;
     font-weight: 700;
     color: if($nokto == 'false', $insensitive_osd_fg_color,
                                  $insensitive_fg_color);
-    &:rtl {
-      padding-left: 0;
-      padding-right: 4px;
-    }
+    &:ltr { padding-left: 4px; }
+    &:rtl { padding-right: 4px; }
   }
 }
 
