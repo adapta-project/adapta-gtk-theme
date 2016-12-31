@@ -66,7 +66,7 @@ stage {
   &:active {
     color: $inverted_accent_label_color;
     background-color: $accent_active_fill_color;
-    box-shadow: none;
+    box-shadow: 0 0 transparent;
   }
   &:insensitive { @include button(osd-insensitive); }
 
@@ -627,7 +627,7 @@ StScrollBar {
     &:checked {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
-      box-shadow: none;
+      box-shadow: 0 0 transparent;
       font-weight: 500;
       &.selected {
         background-color: mix($selected_bg_color, $selected_fg_color, 90%);
@@ -698,7 +698,7 @@ StScrollBar {
   -arrow-border-color: transparent;
   -arrow-base: 48px; // 'popup-menu-arrow' base * 3
   -arrow-rise: 0;
-  -arrow-box-shadow: none; // dreaming. bug #689995
+  -arrow-box-shadow: 0 0 transparent; // dreaming. bug #689995
   margin: 0.1em 0.3em 0.5em;
   border-radius: 2px;
   border-top: 1px solid $base_color;
@@ -713,7 +713,7 @@ StScrollBar {
   -arrow-border-color: transparent;
   -arrow-base: 48px;
   -arrow-rise: 0;
-  -arrow-box-shadow: none;
+  -arrow-box-shadow: 0 0 transparent;
   margin: 0.1em 0.3em 0.5em;
   border-radius: 2px;
   border-top: 1px solid transparent;
@@ -1648,7 +1648,7 @@ StScrollBar {
         &:active {
           color: $inverted_accent_label_color;
           background-color: $accent_active_fill_color;
-          box-shadow: none;
+          box-shadow: 0 0 transparent;
         }
         &:insensitive { @include button(osd-insensitive); }
       }
@@ -1855,9 +1855,7 @@ StScrollBar {
   border: none;
   color: $osd_fg_color;
   background-color: $osd_slight_fill_color;
-  // FIXME: do not set until new design has come
-  // this causes unwanted background-areas behind the dash.
-  // box-shadow: none;
+  box-shadow: 0 0 transparent;
 
   &:ltr { border-radius: 0 2px 2px 0; }
   &:rtl { border-radius: 2px 0 0 2px; }
@@ -1901,9 +1899,7 @@ StScrollBar {
   &.extended:overview #dash {
     padding: 0;
     border: none;
-    // FIXME: do not set until new design has come
-    // this causes unwanted background-areas behind the dash.
-    // box-shadow: none;
+    box-shadow: 0 0 transparent;
   }
 
   @each $_dock, $_radius in (top, 0 0 2px 2px),
@@ -2073,7 +2069,7 @@ StScrollBar {
   &:checked .overview-icon {
     background-color: $osd_indicator_color;
     color: $osd_fg_color;
-    box-shadow: none;
+    box-shadow: 0 0 transparent;
     transition-duration: 0.2s;
   }
 }
@@ -2469,7 +2465,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   padding: if($eta == 'false', 3px, 2px);
   border: 0 none transparent;
   background-color: $panel_bg_color;
-  box-shadow: none;
+  box-shadow: 0 0 transparent;
   &:ltr { border-radius: 0 2px 0 0; }
   &:rtl { border-radius: 2px 0 0 0; }
 
