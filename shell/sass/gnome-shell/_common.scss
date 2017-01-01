@@ -1160,11 +1160,11 @@ StScrollBar {
 
 .calendar-day-base {
   @include fontscaling($ref_size * 0.9);
-  width: 32px;
-  height: 32px;
+  width: 2.4em;
+  height: 2.4em;
   padding: 0;
-  margin: 2px;
-  border-radius: 32px;
+  margin: 0.2em;
+  border-radius: 100px;
   text-align: center;
   &:hover,
   &:focus { background-color: $semi_fill_color; }
@@ -1173,16 +1173,15 @@ StScrollBar {
     &, &:hover {
       color: $selected_fg_color;
       background-color: $selected_bg_color;
-      border-color: transparent; // avoid jumparound due to today
     }
   }
 
   &.calendar-day-heading { // day of week heading
     @include fontscaling($ref_size * 0.9);
-    width: 32px;
-    height: 25.3px;
-    margin-top: 2px;
-    padding: 6.7px 0 0;
+    width: 2.4em;
+    height: 1.9em;
+    margin-top: 0.2em;
+    padding: 0.5em 0 0;
     background-color: transparent;
     color: $dim_fg_color;
     font-weight: 700;
@@ -1191,11 +1190,10 @@ StScrollBar {
 }
 
 .calendar-week-number { // day of week heading
-  @include fontscaling($ref_size * 0.9);
-  width: 32px;
-  height: 25.3px;
-  margin: 2px;
-  padding: 6.7px 0 0;
+  width: 2.4em;
+  height: 1.9em;
+  margin: 0.2em;
+  padding: 0.5em 0 0;
   background-color: transparent;
   color: $dim_fg_color;
   font-weight: 700;
