@@ -1290,21 +1290,24 @@ StScrollBar {
   border-radius: 0;
   background-color: $semi_fill_color;
   color: $secondary_fg_color;
-  &:ltr { box-shadow: inset 4px 0 $semi_fill_color; }
-  &:rtl { box-shadow: inset -4px 0 $semi_fill_color; }
 
-  &:hover,
-  &:focus {
-    background-color: $accent_fill_color;
-    color: $fg_color;
-    &:ltr { box-shadow: inset 4px 0 $secondary_accent_color; }
-    &:rtl { box-shadow: inset -4px 0 $secondary_accent_color; }
-  }
-  &:active {
-    background-color: $accent_active_fill_color;
-    color: $fg_color;
-    &:ltr { box-shadow: inset 4px 0 $accent_color; }
-    &:rtl { box-shadow: inset -4px 0 $accent_color; }
+  .popup-menu & {
+    &:ltr { box-shadow: inset 4px 0 $semi_fill_color; }
+    &:rtl { box-shadow: inset -4px 0 $semi_fill_color; }
+
+    &:hover,
+    &:focus {
+      background-color: $accent_fill_color;
+      color: $fg_color;
+      &:ltr { box-shadow: inset 4px 0 $secondary_accent_color; }
+      &:rtl { box-shadow: inset -4px 0 $secondary_accent_color; }
+    }
+    &:active {
+      background-color: $accent_active_fill_color;
+      color: $fg_color;
+      &:ltr { box-shadow: inset 4px 0 $accent_color; }
+      &:rtl { box-shadow: inset -4px 0 $accent_color; }
+    }
   }
 
   &-icon-bin {
