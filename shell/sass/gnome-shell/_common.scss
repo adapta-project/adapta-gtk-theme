@@ -184,9 +184,21 @@ StScrollBar {
                                  $secondary_fg_color);
   }
 
-  &:focus StBin { background-image: url("assets/checkbox-off-hover.svg"); }
-  &:checked StBin { background-image: url("assets/checkbox.svg"); }
-  &:focus:checked StBin { background-image: url("assets/checkbox-hover.svg"); }
+  &:focus StBin {
+    background-image: url("assets/checkbox-off-hover.svg");
+    color: if($nokto == 'false', $inverted_fg_color,
+                                 $fg_color);
+  }
+  &:checked StBin {
+    background-image: url("assets/checkbox.svg");
+    color: if($nokto == 'false', $inverted_fg_color,
+                                 $fg_color);
+  }
+  &:focus:checked StBin {
+    background-image: url("assets/checkbox-hover.svg");
+    color: if($nokto == 'false', $inverted_fg_color,
+                                 $fg_color);
+  }
 }
 
 
