@@ -4777,12 +4777,14 @@ messagedialog { // Message Dialog styling
                   (':checked:hover', '-checked-active'),
                   (':checked:active', '-checked-active'),
                   (':checked:disabled','-checked-insensitive') {
-    check#{$s} { // always use dark variant
+    check#{$s},
+    &.csd check#{$s} { // always use dark variant
       -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
                                     url("assets/checkbox#{$as}-dark@2.png"));
     }
 
-    radio#{$s} {
+    radio#{$s},
+    &.csd radio#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
                                     url("assets/radio#{$as}-dark@2.png"));
     }
