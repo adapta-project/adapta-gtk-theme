@@ -1347,21 +1347,21 @@ StScrollBar {
     padding: 0 8px 4px;
 
     * > StIcon {
-      padding: 3px;
-      border-radius: 14px; // = 1.09em
-      icon-size: 14px;
-      color: $secondary_fg_color;
+      padding: 2px;
+      border-radius: 100px;
+      icon-size: 1.09em;
+      color: $secondary_accent_label_color;
     }
 
     // FIXME: how do you do this in sass?
     *:hover > StIcon,
     *:focus > StIcon {
-      color: $fg_color;
-      background-color: $semi_fill_color;
+      color: $accent_label_color;
+      background-color: $accent_fill_color;
     }
     *:active > StIcon {
-      color: $fg_color;
-      background-color: $fill_color;
+      color: $accent_label_color;
+      background-color: $accent_active_fill_color;
     }
   }
 }
