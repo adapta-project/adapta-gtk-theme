@@ -325,9 +325,12 @@ sn-button { padding: rem(4px); }
     // cover up top-edge 1px line
     box-shadow: inset 0 1px $base_color;
 
-    > stack overlay > scrolledwindow {
-      // fill with base-colour
-      background-color: $base_color;
+    > stack overlay > scrolledwindow > widget.view {
+      // some extends pull background-image for ripple-effects,
+      // but notebook node does not need that.
+      // FIXME: that caused fading colours of background
+      // even if that was completely transparent.
+      background-image: none;
     }
   }
 }
