@@ -1381,6 +1381,14 @@ scrolledwindow > viewport.frame > list.stream > stack {
   }
 }
 
+// top-right 'close' button on attached images
+window.background > grid.horizontal > widget {
+  > button.close-button.image-button {
+    // disabled box-shadow by hard-coded style.css
+    @extend button.destructive-action;
+  }
+}
+
 
 // /********
 //  * Nemo *
