@@ -169,10 +169,7 @@ flowbox {
 label {
   caret-color: currentColor; // this shouldn't be needed.
 
-  &.separator {
-    @extend .dim-label;
-    color: transparent;
-  }
+  &.separator { color: $tertiary_fg_color; }
 
   &:selected,
   row:selected & { @extend %nobg_selected_items; }
