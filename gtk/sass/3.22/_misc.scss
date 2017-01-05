@@ -2227,10 +2227,33 @@ window.background > grid.vertical > box.horizontal > grid.vertical {
 }
 
 // right-pane styling
-// scrolledwindow > viewport.frame > widget.charactrt-list {
-//   background-color: $base_color;
-//   color: $fg_color;
-// }
+scrolledwindow.character-list-scroll {
+  > scrollbar { // always use light-variant
+    background-color: transparent;
+
+    slider {
+      background-color: gtkopacity($tertiary_fixed_fg_color, 0.55);
+      &:hover {
+        background-color: gtkopacity($secondary_fixed_fg_color, 0.55);
+      }
+      &:active { background-color: $fixed_fg_color; }
+      &:disabled { opacity: 0.4; }
+    }
+
+    &.overlay-indicator {
+      &:not(.dragging):not(.hovering) slider {
+        background-color: gtkopacity($tertiary_fixed_fg_color, 0.55);
+      }
+    }
+  }
+
+  undershoot { // remove undershoot
+    &.top,
+    &.bottom,
+    &.left,
+    &.right { background-image: none; }
+  }
+}
 
 
 // /***********************
