@@ -14,7 +14,7 @@ SUBDIRS = \
 
 EXTRA_DIST = \
 	COPYING \
-	LICENSE_CC_BY_SA3 \
+	LICENSE_CC_BY_SA4 \
 	README.md
 
 install-data-hook:
