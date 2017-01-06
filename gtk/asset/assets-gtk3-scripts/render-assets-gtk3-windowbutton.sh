@@ -17,18 +17,28 @@ ASSETS_DIR="../assets-gtk3"
 INDEX="assets-gtk3-windowbutton.txt"
 KEY_FILE="../../sass/common/_key_colors.scss"
 
+inkver="`$INKSCAPE --version | awk '{print $2}'`"
+if [ "$inkver" = 0.91 ]; then
+    non_scale_dpi=90
+    scale_dpi=180
+else
+    non_scale_dpi=96
+    scale_dpi=192
+fi
+
 #Renderer
 render-non-scale() {
     $INKSCAPE --export-id=$i \
+              --export-dpi="$non_scale_dpi" \
               --export-id-only \
-              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null #\
+              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null 2>&1
 }
 
 render-scale() {
     $INKSCAPE --export-id=$i \
-              --export-dpi=180 \
+              --export-dpi="$scale_dpi" \
               --export-id-only \
-              --export-png=$ASSETS_DIR/$i@2.png $SRC_FILE >/dev/null #\
+              --export-png=$ASSETS_DIR/$i@2.png $SRC_FILE >/dev/null 2>&1
 }
 
 # Generate PNG files
