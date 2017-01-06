@@ -19,10 +19,19 @@ ASSETS_DARK_DIR="../cinnamon-nokto/assets"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 THUMB="thumbnail"
 
+inkver="`$INKSCAPE --version | awk '{print $2}'`"
+if [ "$inkver" = 0.91 ]; then
+    non_scale_dpi=90
+else
+    non_scale_dpi=96
+fi
+
 # Renderer
 render-non-scale() {
-    $INKSCAPE --export-png=$ASSETS_DIR/$THUMB.png $SRC_DIR/$THUMB.svg >/dev/null #\
-    $INKSCAPE --export-png=$ASSETS_DARK_DIR/$THUMB.png $SRC_DARK_DIR/$THUMB.svg >/dev/null #\
+    $INKSCAPE --export-dpi="$non_scale_dpi" \
+              --export-png=$ASSETS_DIR/$THUMB.png $SRC_DIR/$THUMB.svg >/dev/null 2>&1
+    $INKSCAPE --export-dpi="$non_scale_dpi" \
+              --export-png=$ASSETS_DARK_DIR/$THUMB.png $SRC_DARK_DIR/$THUMB.svg >/dev/null 2>&1
 }
 
 # Generate PNG file
