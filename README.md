@@ -302,11 +302,11 @@ TODO
 
 Public License
 --------------
- GPLv2
+ GPLv2.0
 
  > **Note:**
  >
- > SVG files are licensed under CC BY-SA 3.0
+ > SVG files are licensed under CC BY-SA 4.0
 
 Special Thanks to
 --------------
