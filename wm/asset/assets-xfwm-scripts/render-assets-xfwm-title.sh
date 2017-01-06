@@ -17,9 +17,17 @@ ASSETS_DIR="../../xfwm4"
 INDEX="assets-xfwm-title.txt"
 KEY_FILE="../../../sass/common/_key_colors.scss"
 
+inkver="`$INKSCAPE --version | awk '{print $2}'`"
+if [ "$inkver" = 0.91 ]; then
+    non_scale_dpi=90
+else
+    non_scale_dpi=96
+fi
+
 # Renderer
 render-non-scale() {
-    $INKSCAPE --export-png=$ASSETS_DIR/$i.png $SRC_DIR/$i.svg >/dev/null #\
+    $INKSCAPE --export-dpi="$non_scale_dpi" \
+              --export-png=$ASSETS_DIR/$i.png $SRC_DIR/$i.svg >/dev/null 2>&1
 }
 
 # Generate PNG files
