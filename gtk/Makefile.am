@@ -1186,6 +1186,7 @@ CLEANFILES = \
 	$(srcdir)/asset/assets-gtk3/*.png \
 	$(srcdir)/asset/assets-gtk2.svg \
 	$(srcdir)/asset/assets-gtk3.svg \
+	$(srcdir)/asset/inkscape.log \
 	$(srcdir)/gtk-2.0/colors.rc \
 	$(srcdir)/gtk-2.0/colors-dark.rc \
 	$(srcdir)/xfce-notify-4.0/gtk.css

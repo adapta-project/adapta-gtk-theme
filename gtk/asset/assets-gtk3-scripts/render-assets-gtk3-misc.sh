@@ -31,14 +31,16 @@ render-non-scale() {
     $INKSCAPE --export-id=$i \
               --export-dpi="$non_scale_dpi" \
               --export-id-only \
-              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null 2>&1
+              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
+                                                        2>>../inkscape.log
 }
 
 render-scale() {
     $INKSCAPE --export-id=$i \
               --export-dpi="$scale_dpi" \
               --export-id-only \
-              --export-png=$ASSETS_DIR/$i@2.png $SRC_FILE >/dev/null 2>&1
+              --export-png=$ASSETS_DIR/$i@2.png $SRC_FILE >/dev/null \
+                                                          2>>../inkscape.log
 }
 
 # Generate PNG files
@@ -48,10 +50,12 @@ do
         echo $ASSETS_DIR/$i.png exists.
     elif [ -f $ASSETS_DIR/$i.png ] && [ $KEY_FILE -nt $ASSETS_DIR/$i.png ]; then
         echo Re-rendering $ASSETS_DIR/$i.png
+        echo $i.png >>../inkscape.log
         rm -f $ASSETS_DIR/$i.png
         render-non-scale
     else
         echo Rendering $ASSETS_DIR/$i.png
+        echo $i.png >>../inkscape.log
         render-non-scale
     fi
 
@@ -59,10 +63,12 @@ do
         echo $ASSETS_DIR/$i@2.png exists.
     elif [ -f $ASSETS_DIR/$i@2.png ] && [ $KEY_FILE -nt $ASSETS_DIR/$i@2.png ]; then
         echo Re-rendering $ASSETS_DIR/$i@2.png
+        echo $i@2.png >>../inkscape.log
         rm -f $ASSETS_DIR/$i@2.png
         render-scale
     else
         echo Rendering $ASSETS_DIR/$i@2.png
+        echo $i@2.png >>../inkscape.log
         render-scale
     fi
 done
