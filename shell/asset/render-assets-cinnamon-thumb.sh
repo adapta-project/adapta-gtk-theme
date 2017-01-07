@@ -44,11 +44,13 @@ elif [ -f $ASSETS_DIR/$THUMB.png ] && \
     [ $KEY_FILE -nt $ASSETS_DIR/$THUMB.png ]; then
     echo Re-rendering $ASSETS_DIR/$THUMB.png
     echo Re-rendering $ASSETS_DARK_DIR/$THUMB.png
+    echo $THUMB.png >>inkscape.log
     rm -f $ASSETS_DIR/$THUMB.png
     rm -f $ASSETS_DARK_DIR/$THUMB.png
     render-non-scale
 else
     echo Rendering $ASSETS_DIR/$THUMB.png
     echo Rendering $ASSETS_DARK_DIR/$THUMB.png
+    echo $THUMB.png >>inkscape.log
     render-non-scale
 fi
