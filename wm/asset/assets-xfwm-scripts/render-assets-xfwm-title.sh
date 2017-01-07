@@ -27,7 +27,8 @@ fi
 # Renderer
 render-non-scale() {
     $INKSCAPE --export-dpi="$non_scale_dpi" \
-              --export-png=$ASSETS_DIR/$i.png $SRC_DIR/$i.svg >/dev/null 2>&1
+              --export-png=$ASSETS_DIR/$i.png $SRC_DIR/$i.svg >/dev/null \
+                                                              2>>../inkscape.log
 }
 
 # Generate PNG files
@@ -39,10 +40,12 @@ do
     elif [ -f $ASSETS_DIR/$i.png ] && \
         [ $KEY_FILE -nt $ASSETS_DIR/$i.png ]; then
         echo Re-rendering $ASSETS_DIR/$i.png
+        echo $i.png >>../inkscape.log
         rm -f $ASSETS_DIR/$i.png
         render-non-scale
     else
         echo Rendering $ASSETS_DIR/$i.png
+        echo $i.png >>../inkscape.log
         render-non-scale
     fi
 done

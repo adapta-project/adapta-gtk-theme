@@ -319,7 +319,8 @@ CLEANFILES += \
 	$(metacitydir)/*.svg \
 	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(srcdir)/asset/inkscape.log
 endif
 
 if ENABLE_MATE
@@ -327,7 +328,8 @@ CLEANFILES += \
 	$(metacitydir)/*.svg \
 	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(srcdir)/asset/inkscape.log
 endif
 
 if ENABLE_CINNAMON
@@ -336,7 +338,8 @@ CLEANFILES += \
 	$(metacitydir)/*.svg \
 	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(srcdir)/asset/inkscape.log
 endif
 endif
 
@@ -346,7 +349,8 @@ CLEANFILES += \
 	$(metacitydir)/*.svg \
 	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(srcdir)/asset/inkscape.log
 endif
 endif
 
@@ -356,7 +360,8 @@ CLEANFILES += \
 	$(metacitydir)/*.svg \
 	$(metacitydir)/*.png \
 	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg
+	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(srcdir)/asset/inkscape.log
 endif
 endif
 
@@ -365,7 +370,8 @@ CLEANFILES += \
 	$(xfwmdir)/*.png \
 	$(srcdir)/asset/assets-xfwm/close-pressed.svg \
 	$(srcdir)/asset/assets-xfwm/close-prelight.svg \
-	$(srcdir)/asset/assets-xfwm/menu-pressed.svg
+	$(srcdir)/asset/assets-xfwm/menu-pressed.svg \
+	$(srcdir)/asset/inkscape.log
 endif
 
 if ENABLE_OPENBOX
