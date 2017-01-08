@@ -2629,6 +2629,9 @@ window#Emacs {
       &:disabled { // popup frame pulls this fg colours?
         background-color: $secondary_base_color;
         color: mix($fixed_fg_color, $secondary_base_color, 30%);
+
+        label, // reset for generic non-composited Gtk+ apps
+        arrow { color: mix($fg_color, $secondary_base_color, 30%); }
       }
     }
   }
