@@ -2608,3 +2608,29 @@ window#Emacs {
   }
 }
 
+
+// /************
+//  * Electron *
+//  ************/
+
+// workaround for the context-menus in Electron apps
+// do not use the alpha-blended colours
+.popup:not(.csd) {
+  menu {
+    background-color: $secondary_base_color;
+
+    menuitem {
+      background-color: $secondary_base_color;
+      color: mix($fg_color, $secondary_base_color, 75%);
+      &:hover {
+        background-color: mix($fg_color, $secondary_base_color, 10%);
+        color: $fg_color;
+      }
+      &:disabled { // popup frame pulls this fg colours?
+        background-color: $secondary_base_color;
+        color: mix($fixed_fg_color, $secondary_base_color, 30%);
+      }
+    }
+  }
+}
+
