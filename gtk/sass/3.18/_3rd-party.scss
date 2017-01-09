@@ -1131,11 +1131,11 @@ UnityPanelWidget,
 .lightdm-gtk-greeter {
   // top-panel styling
   #panel_window {
+    background-image: image($panel_bg_color);
     color: $inverted_fg_color;
     box-shadow: none;
     font-weight: 700;
     text-shadow: none;
-    box-shadow: inset 0 2px $panel_bg_color;
 
     &, &.background,
     > * > * { background-color: transparent; } // FIXME: ugly wildcard
@@ -1188,12 +1188,9 @@ UnityPanelWidget,
   #shutdown_dialog,
   #restart_dialog {
     @extend .message-dialog;
-    border: none;
-    border-radius: 0;
-    color: $inverted_fg_color;
+    border: 1px solid $borders_color;
+    border-radius: 2px;
     box-shadow: none;
-
-    &, &.background { background-color: transparent; }
 
     .button {
       padding: 0.7em 1em 0.8em;
