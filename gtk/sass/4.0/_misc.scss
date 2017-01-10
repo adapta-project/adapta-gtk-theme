@@ -545,12 +545,34 @@ headerbar.geary-titlebar-left.titlebar > box.vertical {
   > .title { font-size: 90%; }
 }
 
-window box > paned > overlay > scrolledwindow {
-  undershoot { // remove undershoot
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
+window.background > box.vertical > paned.horizontal > frame {
+  // right-paned scrolledwindow
+  > box.vertical > paned.vertical > overlay > scrolledwindow {
+    > scrollbar { // always use light-variant
+      background-color: transparent;
+
+      slider {
+        background-color: gtkopacity($tertiary_fixed_fg_color, 0.55);
+        &:hover {
+          background-color: gtkopacity($secondary_fixed_fg_color, 0.55);
+        }
+        &:active { background-color: $fixed_fg_color; }
+        &:disabled { opacity: 0.4; }
+      }
+
+      &.overlay-indicator {
+        &:not(.dragging):not(.hovering) slider {
+          background-color: gtkopacity($tertiary_fixed_fg_color, 0.55);
+        }
+      }
+    }
+
+    undershoot { // remove undershoot
+      &.top,
+      &.bottom,
+      &.left,
+      &.right { background-image: none; }
+    }
   }
 }
 
