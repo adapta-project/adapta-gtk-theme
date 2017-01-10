@@ -1654,6 +1654,17 @@ window overlay > grid > frame > grid {
   }
 }
 
+// bottom-paned actionbar
+notebook > stack > grid.vertical > actionbar {
+  revealer > box.horizontal {
+    // 'New Detail' button
+    button.popup.toggle:not(.image-button):not(.text-button) {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+}
+
 
 // /**********
 //  * Baobab *
