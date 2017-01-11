@@ -2634,3 +2634,23 @@ window#Emacs {
   }
 }
 
+
+// /********************
+//  * Transmission-Gtk *
+//  ********************/
+
+window.background:not(.csd):not(.solid-csd) > box.vertical > grid.horizontal {
+  > button.flat:not(.image-button),
+  > button.flat.image-button.toggle {
+    // set min-limits for rectangular images
+    > image,
+    > widget > box.horizontal > image {
+      min-width: 20px;
+      min-height: 20px;
+    }
+  }
+
+  // add spacing for 'Ratio' label
+  > label { padding: 0 rem(5.3px, $sw: 1.0) rem(1.3px, $sw: 1.0); }
+}
+
