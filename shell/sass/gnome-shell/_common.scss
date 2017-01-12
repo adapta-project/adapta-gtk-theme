@@ -1213,8 +1213,7 @@ StScrollBar {
   text-align: center;
 }
 
-.calendar-day,
-.calendar-nonwork-day { // border collapse hack - see calendar.js
+.calendar-day { // border collapse hack - see calendar.js
   border-width: 0;
 
   &-top { border-top-width: 0; }
@@ -1238,8 +1237,8 @@ StScrollBar {
   }
 }
 
-.calendar-work-day {
-}
+.calendar-work-day,
+.calendar-nonwork-day { color: $fg_color; }
 
 .calendar-today {
   border: none;
