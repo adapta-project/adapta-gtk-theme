@@ -11,6 +11,10 @@ chrome_nokto_file = $(chromedir)/adapta-nokto-theme.crx
 plankdir   = $(srcdir)/plank
 plank_file = $(plankdir)/dock.theme
 
+telegramdir   = $(srcdir)/telegram
+telegram_file = $(telegramdir)/adapta.tdesktop-theme
+telegram_nokto_file = $(telegramdir)/adapta-nokto.tdesktop-theme
+
 # ******************
 # * Generate files *
 # ******************
@@ -42,6 +46,17 @@ if ENABLE_PLANK
 	ln -sf ../Adapta/plank $(noktoetadir)/plank
 endif
 
+if ENABLE_TELEGRAM
+	$(MKDIR_P) $(adaptadir)/telegram
+	$(MKDIR_P) $(noktodir)/telegram
+	cp -Rv $(telegram_file) $(adaptadir)/telegram
+	cp -Rv $(telegram_nokto_file) $(noktodir)/telegram
+
+	cd $(adaptadir)
+	ln -sf ../Adapta/telegram $(adaptaetadir)/telegram
+	ln -sf ../Adapta-Nokto/telegram $(noktoetadir)/telegram
+endif
+
 # *******************
 # * Uninstall files *
 # *******************
@@ -59,6 +74,13 @@ if ENABLE_PLANK
 	test -e $(adaptadir)/plank && rm -rfv $(adaptadir)/plank
 	test -e $(noktoetadir)/plank && rm -rfv $(noktoetadir)/plank
 	test -e $(adaptaetadir)/plank && rm -rfv $(adaptaetadir)/plank
+endif
+
+if ENABLE_TELEGRAM
+	test -e $(noktodir)/telegram && rm -rfv $(noktodir)/telegram
+	test -e $(adaptadir)/telegram && rm -rfv $(adaptadir)/telegram
+	test -e $(noktoetadir)/telegram && rm -rfv $(noktoetadir)/telegram
+	test -e $(adaptaetadir)/telegram && rm -rfv $(adaptaetadir)/telegram
 endif
 
 # ****************************
