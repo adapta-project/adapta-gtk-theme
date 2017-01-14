@@ -20,6 +20,7 @@ ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
 ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
+ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
 
 if test x"$ENABLE_PARALLEL" = xyes; then
 	AC_PATH_PROG([PARALLEL], [parallel])
@@ -111,6 +112,7 @@ AC_MSG_RESULT([
 
          Chrome(ium):          $ENABLE_CHROME
          Plank:                $ENABLE_PLANK
+         Telegram:             $ENABLE_TELEGRAM
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'

@@ -290,9 +290,27 @@ Extra Compositor Support
 
  Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Adapta, however.
 
+Extra Telegram Support
+----------------------
+ To try "Telegram 1.0" theming, pass this option:
+
+ ```
+ --enable-telegram      enable Telegram 1.0 support (type: bool)
+ ```
+
+ The installer installs compressed `tdesktop-theme` files into `Adapta/telegram` and `Adapta-Nokto/telegram` directories if Telegram support is enabled.
+ Then open the file via Telegram > Main Menu > Settings > Chat background > Choose from file.
+
+ > **Note:**
+ >
+ >   * The `adapta.tdesktop-theme` is for light-variant, and `adapta-nokto.tdesktop-theme` is for dark-variant.
+ >   * Bundled noise-texture images are for *tiled* mode.
+ >   * Telegram support is a W.I.P currently.
+
 Work in Progress
 ----------------
 * Conversion to Gtk+ 4.0
+* Telegram 1.0 theming support
 
 TODO
 ----
