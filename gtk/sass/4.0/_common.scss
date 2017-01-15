@@ -4572,11 +4572,6 @@ expander {
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
     &:selected { color: $selected_fg_color; }
-
-    &.horizontal { // spacer between arrow and label
-      &:dir(ltr) { margin-right: rem(4px, $sw: 1.0); }
-      &:dir(rtl) { margin-left: rem(4px,$sw: 1.0); }
-    }
   }
 
   label {
@@ -4584,6 +4579,12 @@ expander {
     &:hover,
     &:active { color: $fg_color; }
     &:selected { color: $selected_fg_color; }
+  }
+
+  > title > label {
+    // spacer between arrow and label
+    &:dir(ltr) { padding-left: rem(4px, $sw: 1.0); }
+    &:dir(rtl) { padding-right: rem(4px, $sw: 1.0); }
   }
 }
 
