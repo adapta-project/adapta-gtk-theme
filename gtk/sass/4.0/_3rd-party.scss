@@ -1280,23 +1280,17 @@ UnityPanelWidget,
     entry { // prevent junmping when showing CapsLock warning
       min-height: rem($widget_size);
       padding: 0 rem(8px);
+      font-family: monospace;
     }
 
     infobar.error { // notification revealer
       margin: 0 4px; // prevent unwanted overflow
       border: none;
       background-color: transparent;
-      // show notification icons at the left of label
-      background-image: -gtk-icontheme("dialog-error-symbolic");
-      background-position: left center;
-      background-size: 16px 16px;
-      background-repeat: no-repeat;
       color: $error_color;
       font-weight: 700;
       font-size: 110%;
       transition: none; // transition causes visual glitches
-
-      &:dir(rtl) { background-position: right center; }
     }
   }
 
