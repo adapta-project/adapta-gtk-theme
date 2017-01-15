@@ -14,6 +14,7 @@
 $panel-corner-radius: 0;
 
 $font-family: Noto Sans, Cantarell, Sans-Serif;
+$mono-font-family: Noto Mono, Monospace;
 
 stage {
   @include fontscaling($ref_size);
@@ -2685,6 +2686,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     color: $osd_fg_color;
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
+    font-family: $mono-font-family;
     @include entry(normal, $fc:$osd_semi_fill_color);
     &:hover { @include entry(hover, $fc:$osd_fill_color); }
     &:focus { @include entry(focus, $fc:$osd_indicator_color); }
