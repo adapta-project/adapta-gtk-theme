@@ -1703,8 +1703,12 @@ window.background > grid.vertical > stack > paned.horizontal {
       @include entry(flat-insensitive);
       color: $insensitive_inverted_fg_color;
     }
+    &:backdrop { // for alt-text keyboard layout?
+      color: $selected_bg_color;
+      font-family: monospace;
+    }
 
-    &.image.left {
+    image.left {
       margin-right: 8px;
       color: inherit;
     }
