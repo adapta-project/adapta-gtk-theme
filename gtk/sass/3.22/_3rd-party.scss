@@ -1366,15 +1366,15 @@ headerbar.titlebar box {
   }
 }
 
-scrolledwindow > viewport.frame > box.vertical > list,
-scrolledwindow > viewport.frame > list.stream {
+scrolledwindow > viewport.frame > list {
   > stack > box.vertical > button.text-button { // 'Retry' button
     margin-bottom: rem(13.3px, $sw: 1.0);
   }
 }
 
 // top-right 'close' button on attached images
-window.background > grid.horizontal > widget {
+window.background > grid.horizontal > widget,
+window.background > stack > grid.horizontal > widget {
   > button.close-button.image-button {
     // disabled box-shadow by hard-coded style.css
     @extend button.destructive-action;
