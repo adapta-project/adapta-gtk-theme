@@ -230,7 +230,7 @@ Installation from Git Source
 
  > **Note:**
  >
- >   * Color-codes are defined as `#` + 6`HEX`s (Standard RGB definitions in HTML codes).
+ >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
  >     Uppercases are strongly recommended in Adapta code-base.
  >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
