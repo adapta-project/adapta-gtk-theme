@@ -2428,6 +2428,20 @@ headerbar.titlebar.default-decoration {
   }
 }
 
+// Special case of GtkFileChooserDialog
+dialog.background.csd > headerbar.titlebar {
+  // 'Cancel' button at left-most
+  > button:not(.image-button):not(.text-button):not(.toggle):not(.popup) {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
+
+  // 'Open' button at right-most
+  > button.default:not(.image-button):not(.text-button) {
+    @extend button.suggested-action;
+  }
+}
+
 // squared corners when the window is max'd or tiled
 %tiled_integration {
   border-radius: 0;
