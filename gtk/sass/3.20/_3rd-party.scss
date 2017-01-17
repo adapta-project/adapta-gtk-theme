@@ -2165,8 +2165,8 @@ PanelSeparator {
 //  * Caja *
 //  ********/
 
-widget.caja-desktop.view { // desktop icon-grid styling
-  @extend .nautilus-desktop.nautilus-canvas-item;
+.caja-desktop { // desktop icon-grid styling
+  &.caja-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
 
   > widget.entry { // = EelEditableLabel.entry
     &, &:focus {
