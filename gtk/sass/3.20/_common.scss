@@ -2527,8 +2527,10 @@ dialog.background.csd > headerbar.titlebar {
   }
 
   // 'Open' button at right-most
-  > button.default:not(.image-button):not(.text-button) {
+  > button.default:not(.image-button) {
     @extend button.suggested-action;
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
   }
 }
 
