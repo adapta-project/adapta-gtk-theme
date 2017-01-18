@@ -790,6 +790,31 @@ popover.places-menu {
       font-weight: 700;
     }
   }
+
+  box.unlock-area {
+    border-width: 1px 0 1px;
+    border-style: solid none solid;
+    border-color: $borders_color;
+    background-color: $secondary_dark_color;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
+
+    entry { // where is the combo node?
+      min-height: $icon_size;
+      min-width: $icon_size;
+      margin: rem(1.3px) rem(5.3px);
+      padding: rem(4px);
+    }
+
+    button {
+      min-height: $icon_size;
+      min-width: $icon_size;
+      margin: rem(1.3px) rem(5.3px);
+      padding: rem(4px);
+      border-radius: 2px; // revert to square button
+      -gtk-outline-radius: 2px;
+    }
+  }
 }
 
 // keyboard indicator applet
