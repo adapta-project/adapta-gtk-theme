@@ -796,6 +796,26 @@ $full_orientation: ((top, bottom),
       font-weight: 700;
     }
   }
+
+  GtkBox.unlock-area {
+    .list {
+      box-shadow: if($variant == 'light', $inline-shadow-light,
+                                          $inline-shadow-dark);
+
+      .list-row:first-child { border-top: 1px solid $borders_color; }
+    }
+
+    .entry { // where is the combo node?
+      padding: 0.6em;
+    }
+
+    .button {
+      padding: 0.6em;
+      border: 2px solid transparent;
+      border-radius: 2px; // revert to square button
+      outline-radius: 2px;
+    }
+  }
 }
 
 // keyboard indicator applet
