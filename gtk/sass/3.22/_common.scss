@@ -4743,8 +4743,7 @@ calendar {
 //  * Dialogs *
 //  ***********/
 
-messagedialog { // Message Dialog styling
-
+messagedialog {
   .dialog-action-box {
     margin: 0;
     padding: 0;
@@ -4763,7 +4762,8 @@ messagedialog { // Message Dialog styling
   }
 
   entry {
-    &, &:focus {
+    &,
+    &:focus {
       color: $inverted_fg_color;
       caret-color: $inverted_fg_color;
     }
@@ -4777,6 +4777,7 @@ messagedialog { // Message Dialog styling
     &:checked { color: $inverted_accent_label_color; }
     &:disabled { color: $insensitive_inverted_fg_color; }
   }
+
   .linked > button {
     border: 2px solid transparent;
     border-radius: 2px;
@@ -4831,7 +4832,6 @@ messagedialog { // Message Dialog styling
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
-      // bigger radius for better antialiasing
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
     }
@@ -4841,7 +4841,8 @@ messagedialog { // Message Dialog styling
   &.csd.background {
     color: $inverted_secondary_fg_color;
 
-    &, .titlebar { background-color: gtkopacity($inverted_dark_color, 0.9); }
+    &,
+    .titlebar { background-color: gtkopacity($inverted_dark_color, 0.9); }
 
     .dialog-action-area {
       button,
@@ -4853,9 +4854,6 @@ messagedialog { // Message Dialog styling
         color: $inverted_secondary_accent_label_color;
         font-size: initial;
         font-weight: 700;
-
-        // &:first-child { border-bottom-left-radius: 2px; }
-        // &:last-child { border-bottom-right-radius: 2px; }
         &:hover {
           @extend %button_flat_hover;
           background-color: transparent;
