@@ -4530,22 +4530,30 @@ row.activatable {
 
 // button spacing
 row {
-  & button.image-button { padding: rem(8px); }
+  button.image-button { padding: rem(8px); }
 
-  & button.circular {
+  button.circular {
     min-width: $icon_size;
     min-height: $icon_size;
     padding: rem(8px);
   }
 }
 
-row:selected {
+row:selected { // buttons inside the selected-row
   @extend %selected_items;
+
   button {
+    color: $secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $fg_color; }
     &:disabled { color: $insensitive_secondary_selected_fg_color; }
+
     &.flat {
       color: $secondary_selected_fg_color;
-      &:hover, &:active { color: $selected_fg_color; }
+      &:hover,
+      &:active,
+      &:checked { color: $selected_fg_color; }
       &:disabled { color: $insensitive_secondary_selected_fg_color; }
     }
   }
