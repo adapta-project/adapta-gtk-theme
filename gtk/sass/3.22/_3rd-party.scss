@@ -2052,10 +2052,22 @@ window.background > box.vertical {
 //  ***********/
 
 // FIXME: Gtk+3 firefox needs this!
-window.background {
-  > window.background > menu > separator { color: $borders_color; }
+window.background:not(.csd):not(.solid-csd) {
+  > window.background > menu {
+    // revert to standard separators
+    separator { color: $borders_color; }
 
-  > widget > frame { color: $borders_color; }
+    > menuitem > radio:checked {
+      -gtk-icon-source: -gtk-scaled(
+                        url("assets/radio-checked-symbolic#{$asset_suffix}.png"),
+                        url("assets/radio-checked-symbolic#{$asset_suffix}@2.png"));
+    }
+  }
+
+  > widget {
+    > frame,
+    > separator { color: $borders_color; }
+  }
 }
 
 
