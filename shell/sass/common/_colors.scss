@@ -71,14 +71,17 @@ $inverted_dim_bg_color: shellopacity($inverted_bg_color, 0.2);
 //
 
 $accent_color: $key_accent_color;
-$accent_label_color: mix($key_accent_color, $fg_color, 80%);
+$accent_label_color: if($nokto == 'false',
+                        mix($key_accent_color, $fg_color, 80%),
+                        mix($key_accent_color, $fg_color, 60%));
 $secondary_accent_color: shellopacity($accent_color, 0.8);
 $secondary_accent_label_color: shellopacity($accent_label_color, 0.8);
 $accent_fill_color: shellopacity($accent_color, 0.1);
 $accent_active_fill_color: shellopacity($accent_color, 0.25);
 
-$inverted_accent_label_color:
-  mix($key_accent_color, $inverted_fg_color, 80%);
+$inverted_accent_label_color: if($nokto == 'false',
+                              mix($key_accent_color, $inverted_fg_color, 60%),
+                              mix($key_accent_color, $fg_color, 60%));
 $inverted_secondary_accent_label_color:
   shellopacity($inverted_accent_label_color, 0.8);
 
