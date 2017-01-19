@@ -3047,13 +3047,21 @@ GtkScrolledWindow {
   &:insensitive { color: $insensitive_fg_color; }
 }
 
-.list-row:selected {
+.list-row:selected { // buttons inside the selected-row
   @extend %selected_items;
+
   .button {
+    color: $secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $fg_color; }
     &:insensitive { color: $insensitive_secondary_selected_fg_color; }
+
     &.flat {
       color: $secondary_selected_fg_color;
-      &:hover, &:active { color: $selected_fg_color; }
+      &:hover,
+      &:active,
+      &:checked { color: $selected_fg_color; }
       &:insensitive { color: $insensitive_secondary_selected_fg_color; }
     }
   }
