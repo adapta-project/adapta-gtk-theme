@@ -111,7 +111,9 @@ $secondary_selected_bg_color: $key_secondary_selection_color;
 
 // Default: #4DB6AC                                             // = Teal300
 $accent_color: $key_accent_color;
-$accent_label_color: mix($key_accent_color, $fg_color, 80%);
+$accent_label_color: if($variant == 'light',
+                        mix($key_accent_color, $fg_color, 80%),
+                        mix($key_accent_color, $fg_color, 60%));
 $secondary_accent_color: gtkopacity($accent_color, 0.9);
 $secondary_accent_label_color: gtkopacity($accent_label_color, 0.9);
 $accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
@@ -119,7 +121,7 @@ $drop_target_color: $accent_color;
 $drop_target_fill_color: gtkopacity($drop_target_color, 0.2);
 
 $inverted_accent_label_color:
-  mix($key_accent_color, $inverted_fg_color, 80%);
+  mix($key_accent_color, $inverted_fg_color, 60%);
 $inverted_secondary_accent_label_color:
   gtkopacity($inverted_accent_label_color, 0.9);
 
