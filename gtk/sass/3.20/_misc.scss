@@ -212,6 +212,15 @@ sn-button { padding: rem(4px); }
 .tweak-startup {
 }
 
+.main-container { // change undershoot colours to bg_color
+  scrolledwindow undershoot {
+    &.top { @include undershoot(top, $bg_color); }
+    &.bottom { @include undershoot(bottom, $bg_color); }
+    &.left { @include undershoot(left, $bg_color); }
+    &.right { @include undershoot(right, $bg_color); }
+  }
+}
+
 
 // /*******************
 //  * Gnome-Flashback *
