@@ -243,7 +243,7 @@ Installation from Git Source
  >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
 
-GtkSouceView/Gedit Color Scheme Support
+GtkSourceView/Gedit Color Scheme Support
 ---------------------------------------
  A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
  See details in [`README.md`](/extra/gedit/README.md).
