@@ -25,6 +25,9 @@ PLACEHOLDER_COLOR: #CFD8DC;                     // Placeholder foreground color
 INV_FG_COLOR: #ECEFF1;                          // Inverted foreground color
 INV_SECONDARY_FG_COLOR: #ECEFF1BF;              // Inverted secondary foreground color (75%)
 
+ACCENT_LABEL_COLOR: #459C95;                    // Action-area foreground color
+2ND_ACCENT_LABEL_COLOR: #459C95E5;              // Secondary action-area foreground color (90%)
+
 BG_COLOR: #FAFBFC;                              // Main background color
 BASE_COLOR: #FFFFFF;                            // Entry/Notebook background color
 SECONDARY_BASE_COLOR: #FDFDFE;                  // Popover/Menu background color
@@ -35,7 +38,8 @@ SEMI_FILL_COLOR: #2632381A;                     // Hovered button background col
 FILL_COLOR: #26323833;                          // Active button/ripple background color (20%)
 SOLID_SEMI_FILL_COLOR: #E4E7E8;                 // Hovered menuitem background color
 SOLID_FILL_COLOR: #CFD3D5;                      // Active menuitem/ripple background color
-ACCENT_FILL_COLOR: #4DB6AC33;                   // Active button/ripple accent color (20%)
+ACCENT_FILL_COLOR: #4DB6AC1A;                   // Hovered button accent color (10%)
+ACCENT_ACTIVE_FILL_COLOR: #4DB6AC33;            // Active button/ripple accent color (20%)
 OSD_BG_COLOR: #2A373EE5;                        // Tooltip background color (90%)
 SUGGESTED_HOVER_COLOR: #19A094;                 // Hovered suggested action color
 SUGGESTED_ACTIVE_COLOR: #33ABA0;                // Active/ripple suggested action color
@@ -103,10 +107,10 @@ activeLineFg: SELECTED_BG_COLOR;                // Active input field line color
 activeLineFgError: ERROR_COLOR;                 // Active input field line color (error)
 
 lightButtonBg: TRANSPARENT;                     // Secondary button background color (default)
-lightButtonBgOver: SEMI_FILL_COLOR;             // Secondary button background color (hover)
-lightButtonBgRipple: FILL_COLOR;                // Secondary button background color (press & hold)
-lightButtonFg: SECONDARY_FG_COLOR;              // Secondary button text color
-lightButtonFgOver: FG_COLOR;
+lightButtonBgOver: ACCENT_FILL_COLOR;           // Secondary button background color (hover)
+lightButtonBgRipple: ACCENT_ACTIVE_FILL_COLOR;  // Secondary button background color (press & hold)
+lightButtonFg: 2ND_ACCENT_LABEL_COLOR;          // Secondary button text color
+lightButtonFgOver: 2ND_ACCENT_LABEL_COLOR;
 
 attentionButtonFg: DESTRUCTIVE_COLOR;
 attentionButtonFgOver: lightButtonFgOver;
@@ -291,8 +295,8 @@ historyFileNameOutFg: historyTextOutFg;
 historyOutIconFg: dialogsSentIconFg;            // "Eye" and "Ticks" color for outgoing messages (selected)
 historyOutIconFgSelected: SELECTED_BG_COLOR;    // "Eye" and "Ticks" color for outgoing messages (selected)
 historyIconFgInverted: SELECTED_FG_COLOR;
-historySendingOutIconFg: ACCENT_COLOR;          // "Clock" icon while sending file (outgoing)
-historySendingInIconFg: ACCENT_FILL_COLOR;      // "Clock" icon while sending file (incoming)
+historySendingOutIconFg: ACCENT_LABEL_COLOR;    // "Clock" icon while sending file (outgoing)
+historySendingInIconFg: ACCENT_LABEL_COLOR;     // "Clock" icon while sending file (incoming)
 historySendingInvertedIconFg: SELECTED_FG_COLOR;
 
 historySystemBg: BASE_COLOR;
