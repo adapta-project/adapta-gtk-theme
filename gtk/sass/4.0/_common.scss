@@ -903,6 +903,7 @@ button {
       background-color: $track_color;
       &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
       &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
+
       > label { color: inherit; }
     }
   }
@@ -2509,12 +2510,12 @@ dialog.background.csd > headerbar.titlebar {
 
 treeview.view {
   @at-root * {
-    -GtkTreeView-horizontal-separator: 4;
-    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-horizontal-separator: 4px;
+    -GtkTreeView-grid-line-width: 1px;
     -GtkTreeView-grid-line-pattern: '';
-    -GtkTreeView-tree-line-width: 1;
+    -GtkTreeView-tree-line-width: 1px;
     -GtkTreeView-tree-line-pattern: '';
-    -GtkTreeView-expander-size: 16;
+    -GtkTreeView-expander-size: 16px;
     -GtkTextView-error-underline-color: $error_color;
   }
 
