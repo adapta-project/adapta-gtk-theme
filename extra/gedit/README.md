@@ -1,11 +1,11 @@
 ## Material theme for Gedit editor
 This theme use Google Material color palette and perfectly matched with dark variant of gorgeous [Adapta GTK theme](https://github.com/adapta-project/adapta-gtk-theme)  
 <p align="center">
-    <img src=/screenshot.png alt="Gedit Material">
+    <img src=/extra/gedit/screenshot.png alt="Gedit Material">
 </p>
 This theme provides styles for HTML, CSS, DIFF, INI, JAVA, JS, JSON, MD, PERL, PHP, PYTHON, RUBY, SH, XML, C.  
 ### Installation  
-Copy the [`adapta.xml`](/adapta.xml) file to the color schemes directory:  
+Copy the [`adapta.xml`](/extra/gedit/adapta.xml) file to the color schemes directory:  
 `~/.local/share/gedit/styles` or `~/.local/share/gtksourceview-3.0/styles`
 
 ### Activation
