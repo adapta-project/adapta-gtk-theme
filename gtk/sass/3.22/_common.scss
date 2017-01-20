@@ -867,6 +867,7 @@ button {
                                   to(gtkopacity($selected_bg_color, 0.2)),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
+
       > label { color: inherit; }
     }
   }
@@ -915,6 +916,7 @@ button {
       background-color: $track_color;
       &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
       &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
+
       > label { color: inherit; }
     }
   }
@@ -1108,6 +1110,7 @@ button:link,
 button:visited {
   // FIXME: aggregate with buttons
   @extend *:link;
+
   > label { text-decoration-line: underline; }
 }
 
@@ -2149,6 +2152,7 @@ headerbar {
         background-color: transparent;
         &:disabled {
           color: $insensitive_selected_fg_color;
+
           > label { color: inherit; }
         }
       }
@@ -2214,6 +2218,7 @@ headerbar {
           background-color: transparent;
           &:disabled {
             color: $insensitive_selected_fg_color;
+
             > label { color: inherit; }
           }
         }
@@ -3182,6 +3187,7 @@ notebook {
         padding: 0;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
+
         > image { padding: rem(6.7px); }
       }
     }
@@ -3232,6 +3238,7 @@ notebook {
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
+
       > image { // this is a hack which makes tabs grow
         padding: rem(5.3px + 2.7px, $sw: 1.0);
       }
@@ -3251,6 +3258,7 @@ notebook {
       min-width: rem($icon_size);
       min-height: rem($icon_size);
       padding: 0;
+
       // weird wdiget gets in our way
       > widget > box > image { padding: rem(5.3px + 2.7px, $sw: 1.0); }
     }
