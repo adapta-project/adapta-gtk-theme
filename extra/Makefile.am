@@ -16,7 +16,9 @@ telegram_file       = $(telegramdir)/adapta.tdesktop-theme
 telegram_nokto_file = $(telegramdir)/adapta-nokto.tdesktop-theme
 
 geditdir   = $(srcdir)/gedit
-gedit_file = $(geditdir)/adapta.xml
+gedit_file = \
+	$(geditdir)/adapta.xml \
+	$(geditdir)/README.md
 
 # ******************
 # * Generate files *
