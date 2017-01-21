@@ -169,7 +169,7 @@ shelleta_asset_file = \
 	$(shelletadir)/assets/window-close-hover.svg \
 	$(shelletadir)/assets/window-close.svg
 
-shellnoktoetadir    = $(srcdir)/gnome-shell-nokto-eta
+shellnoktoetadir     = $(srcdir)/gnome-shell-nokto-eta
 shell_nokto_eta_file = \
 	$(shellnoktoetadir)/gnome-shell.css \
 	$(shellnoktoetadir)/gnome-shell-theme.gresource \
@@ -245,7 +245,7 @@ cinnamon_asset_switch_file = \
 cinnamon_asset_thumb_file = \
 	$(cinnamondir)/assets/thumbnail.png
 
-cinnamonnoktodir = $(srcdir)/cinnamon-nokto
+cinnamonnoktodir    = $(srcdir)/cinnamon-nokto
 cinnamon_nokto_file = \
 	$(cinnamonnoktodir)/cinnamon.css
 cinnamon_nokto_asset_checkbox_file = \
@@ -367,7 +367,7 @@ unity_file = \
 	$(unitydir)/unmaximize_unfocused_pressed.svg \
 	$(unitydir)/unmaximize_unfocused.svg
 
-xfcedir   = $(srcdir)/xfce-notify-4.0
+xfcedir         = $(srcdir)/xfce-notify-4.0
 xfce_image_file = \
 	$(xfcedir)/flat-button-active.svg \
 	$(xfcedir)/flat-button-hover.svg \
