@@ -242,6 +242,7 @@ Installation from Git Source
  >     and `second_selection_color` and `accent_color` should use `300` colors.
  >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
+ >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
 GtkSourceView/Gedit Color Scheme Support
 ---------------------------------------
