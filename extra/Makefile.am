@@ -1,6 +1,6 @@
-themedir  = $(datadir)/themes
-adaptadir = $(DESTDIR)$(themedir)/Adapta
-noktodir  = $(DESTDIR)$(themedir)/Adapta-Nokto
+themedir     = $(datadir)/themes
+adaptadir    = $(DESTDIR)$(themedir)/Adapta
+noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
 adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
@@ -11,8 +11,8 @@ chrome_nokto_file = $(chromedir)/adapta-nokto-theme.crx
 plankdir   = $(srcdir)/plank
 plank_file = $(plankdir)/dock.theme
 
-telegramdir   = $(srcdir)/telegram
-telegram_file = $(telegramdir)/adapta.tdesktop-theme
+telegramdir         = $(srcdir)/telegram
+telegram_file       = $(telegramdir)/adapta.tdesktop-theme
 telegram_nokto_file = $(telegramdir)/adapta-nokto.tdesktop-theme
 
 geditdir   = $(srcdir)/gedit
