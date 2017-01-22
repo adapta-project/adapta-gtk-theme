@@ -1212,7 +1212,7 @@ filechooser actionbar button.combo {
 
 // styling for editor search
 frame.gb-search-frame {
-  background-image: linear-gradient(to bottom, $bg_color, $bg_color);
+  background-image: image($bg_color);
   padding: rem(6px);
   border-style: solid;
   border-color: $borders_color;
@@ -1965,9 +1965,7 @@ window stack > frame > frame > grid.horizontal > grid.horizontal {
 window stack > frame > frame > grid.horizontal {
   #weekly-forecast-frame {
     background: transparent;
-    background-image: linear-gradient(to bottom,
-                                      gtkopacity($dark_color, 0.9),
-                                      gtkopacity($dark_color, 0.9));
+    background-image: image(gtkopacity($dark_color, 0.9));
   }
 }
 

@@ -2011,9 +2011,7 @@ headerbar {
       background-color: $inverted_bg_color;
     }
     &:hover slider {
-      background-image: linear-gradient(to bottom,
-                                        gtkalpha($selected_fg_color, 0.2),
-                                        gtkalpha($selected_fg_color, 0.2));
+      background-image: image(gtkalpha($selected_fg_color, 0.2));
     }
     &:checked slider {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
@@ -3377,16 +3375,12 @@ switch {
 
   &:hover slider {
     @include button(hover);
-    background-image: linear-gradient(to bottom,
-                                      gtkalpha($selected_fg_color, 0.2),
-                                      gtkalpha($selected_fg_color, 0.2));
+    background-image: image(gtkalpha($selected_fg_color, 0.2));
   }
   &:checked slider { @include button(checked); }
   &:checked:hover slider {
     @include button(checked);
-    background-image: linear-gradient(to bottom,
-                                      gtkalpha($selected_fg_color, 0.2),
-                                      gtkalpha($selected_fg_color, 0.2));
+    background-image: image(gtkalpha($selected_fg_color, 0.2));
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
@@ -3415,9 +3409,7 @@ switch {
 
     slider { background-color: $bg_color; }
     &:hover slider {
-      background-image: linear-gradient(to bottom,
-                                        gtkalpha($selected_fg_color, 0.2),
-                                        gtkalpha($selected_fg_color, 0.2));
+      background-image: image(gtkalpha($selected_fg_color, 0.2));
     }
     &:checked slider { background-color: $base_color; }
     &:checked:disabled slider { background-color: $secondary_dark_color; }
