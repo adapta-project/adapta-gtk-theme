@@ -1110,23 +1110,18 @@ UnityDecoration {
   -UnityDecoration-title-alignment: 0.0;
 
   .top {
+    padding: 1px 6px 0 6px;
     border: 0 none transparent;
     border-radius: 2px 2px 0 0;
-    padding: 1px 6px 0 6px;
-
-    background-image: linear-gradient(to bottom,
-                                      $inverted_dark_color,
-                                      $inverted_dark_color);
+    background-image: image($inverted_dark_color);
     // The foreground color will be used to paint the text
     color: $inverted_fg_color;
     box-shadow: inset 0 1px $highlight_color;
-
-    &:backdrop { color: $insensitive_inverted_fg_color; }
-
     &:hover { // for L.I.M's selected menuitem
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
+    &:backdrop { color: $insensitive_inverted_fg_color; }
   }
 
   .left,
@@ -1147,31 +1142,32 @@ UnityPanelWidget,
   &, &:backdrop {
     border-bottom: 1px solid $panel_bg_color;
     color: $inverted_fg_color;
-    background-image: linear-gradient(to bottom, $panel_bg_color,
-                                                 $panel_bg_color);
+    background-image: image($panel_bg_color);
     box-shadow: none;
   }
 }
 
-.unity-panel.menuitem,
-.unity-panel .menuitem { padding: 1px 1px 0; }
-
-.unity-panel.menubar,
-.unity-panel .menubar {
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-
+.unity-panel {
   &.menuitem,
-  .menuitem * {
-    padding: 0 6px;
-    border-radius: 0;
-    border-bottom: none;
-    color: $inverted_fg_color;
+  .menuitem { padding: 1px 1px 0; }
+
+  &.menubar,
+  .menubar {
     background-color: transparent;
-    &:hover {
-      color: $selected_fg_color;
-      box-shadow: inset 0 2px $selected_bg_color;
+    background-image: none;
+    box-shadow: none;
+
+    &.menuitem,
+    .menuitem * {
+      padding: 0 6px;
+      border-radius: 0;
+      border-bottom: none;
+      color: $inverted_fg_color;
+      background-color: transparent;
+      &:hover {
+        color: $selected_fg_color;
+        box-shadow: inset 0 2px $selected_bg_color;
+      }
     }
   }
 }
