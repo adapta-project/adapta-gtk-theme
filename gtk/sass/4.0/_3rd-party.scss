@@ -348,16 +348,14 @@ box.horizontal.pinned { // drop-target
 
         &:dir(ltr) { // mask avatar's background
           padding-left: 7px; // non-scaling unit
-          background-image: linear-gradient(to right, $borders_color,
-                                                      $borders_color);
+          background-image: image($borders_color);
           background-position: left center;
           background-repeat: no-repeat;
           background-size: 38px auto; // non-scaling unit
         }
         &:dir(rtl) {
           padding-right: 7px;
-          background-image: linear-gradient(to left, $borders_color,
-                                                     $borders_color);
+          background-image: image($borders_color);
           background-position: right center;
           background-repeat: no-repeat;
           background-size: 38px auto;
@@ -525,9 +523,7 @@ box.horizontal.pinned { // drop-target
       border: none;
       color: transparent;
       background-color: transparent;
-      background-image: linear-gradient(to bottom,
-                                        gtkopacity($fg_color, 0.1),
-                                        gtkopacity($fg_color, 0.1));
+      background-image: image(gtkopacity($fg_color, 0.1));
       background-position: center;
       background-repeat: no-repeat;
       background-size: auto 1px;
