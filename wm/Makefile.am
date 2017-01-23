@@ -4,7 +4,7 @@ noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
 adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
-metacitydir = $(srcdir)/metacity-1
+metacitydir   = $(srcdir)/metacity-1
 metacity_file = \
 	$(metacitydir)/button_close_prelight.svg \
 	$(metacitydir)/button_close_pressed.svg \
@@ -48,7 +48,7 @@ metacity_file = \
 	$(metacitydir)/metacity-theme-2.xml \
 	$(metacitydir)/metacity-theme-3.xml
 
-xfwmdir = $(srcdir)/xfwm4
+xfwmdir   = $(srcdir)/xfwm4
 xfwm_file = \
 	$(xfwmdir)/bottom-active.png \
 	$(xfwmdir)/bottom-inactive.png \
@@ -115,7 +115,7 @@ xfwm_file = \
 	$(xfwmdir)/top-right-active.png \
 	$(xfwmdir)/top-right-inactive.png
 
-openboxdir = $(srcdir)/openbox-3
+openboxdir   = $(srcdir)/openbox-3
 openbox_file = \
 	$(openboxdir)/close.xbm \
 	$(openboxdir)/desk_toggled.xbm \
@@ -176,7 +176,7 @@ endif
 
 if ENABLE_OPENBOX
 	cd $(srcdir)/asset/assets-openbox-scripts && \
-	./clone-assets-openbox.sh
+		./clone-assets-openbox.sh
 endif
 
 # *****************
