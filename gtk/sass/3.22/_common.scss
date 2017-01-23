@@ -2766,12 +2766,18 @@ menubar {
     transition: none;
   }
 
+  // special mode in .unity-csd class
+  .background.unity-csd > grid.vertical & { // unset default styling
+    -GtkWidget-window-dragging: false;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
   > menuitem {
     min-height: rem(20px, $sw: 1.0);
     padding: rem(5.3px, $sw: 1.0) rem(8px, $sw: 1.0) rem(6.7px, $sw: 1.0);
     background-color: transparent;
     color: $inverted_secondary_fg_color;
-
     &:hover { // Seems like it :hover even with keyboard focus
       color: $inverted_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
@@ -2779,6 +2785,16 @@ menubar {
     &:disabled {
       color: $insensitive_inverted_fg_color;
       box-shadow: none;
+    }
+
+    // special mode in .unity-csd class
+    .background.unity-csd > grid.vertical & {
+      color: $secondary_fg_color;
+      box-shadow: inset 0 -1px $track_color;
+      &:hover {
+        color: $fg_color;
+        box-shadow: inset 0 -2px $selected_bg_color;
+      }
     }
   }
 }

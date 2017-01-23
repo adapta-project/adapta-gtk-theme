@@ -2781,6 +2781,13 @@ menubar {
     transition: none;
   }
 
+  // special mode in .unity-csd class
+  .background.unity-csd > grid.vertical & { // unset default styling
+    -GtkWidget-window-dragging: false;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
   > .menuitem,
   > menuitem {
     min-height: rem(20px, $sw: 1.0);
@@ -2799,6 +2806,19 @@ menubar {
       box-shadow: none;
 
       > label { color: $insensitive_inverted_fg_color; }
+    }
+
+    // special mode in .unity-csd class
+    .background.unity-csd > grid.vertical & {
+      box-shadow: inset 0 -1px $track_color;
+
+      > label { color: $secondary_fg_color; }
+
+      &:hover {
+        box-shadow: inset 0 -2px $selected_bg_color;
+
+        > label { color: $fg_color; }
+      }
     }
   }
 }
