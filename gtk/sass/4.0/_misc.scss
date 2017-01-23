@@ -877,8 +877,23 @@ dialog.background > box.dialog-vbox.vertical > box.vertical {
 //  * Gnome-Calculator *
 //  ********************/
 
-window {
-  > grid.vertical > box.vertical > widget {
+window.background {
+  > headerbar.titlebar { // mode-selector button
+    > button.flat.popup.toggle.text-button.title {
+      // .title class existed
+      margin: rem(5.3px) 0; // set standard margins
+
+      > grid > widget { // down arrow
+        padding-top: rem(2.7px, $sw: 1.0);
+        // add spacing between arrow and label
+        &:dir(ltr) { padding-left: rem(4px, $sw: 1.0); }
+        &:dir(rtl) { padding-right: rem(4px, $sw: 1.0); }
+      }
+    }
+  }
+
+  > grid.vertical > box.vertical > widget,
+  > grid.vertical > box.vertical > box.vertical > widget {
     button {
       @include button(flat-normal);
       &:hover { @include button(flat-hover); }
