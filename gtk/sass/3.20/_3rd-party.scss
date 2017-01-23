@@ -1398,6 +1398,28 @@ window.background > stack > grid.horizontal > widget {
   }
 }
 
+// popup window for media
+window.background:not(.csd):not(.solid-csd):not(.unity-csd) > frame {
+  > scrolledwindow {
+    > scrollbar { // always draw troughs
+      background-color: gtkopacity($base_color, 0.55);
+
+      &.overlay-indicator {
+        &:not(.dragging):not(.hovering) {
+          background-color: gtkopacity($base_color, 0.55);
+        }
+      }
+    }
+
+    undershoot { // remove undershoot
+      &.top,
+      &.bottom,
+      &.left,
+      &.right { background-image: none; }
+    }
+  }
+}
+
 
 // /********
 //  * Nemo *
