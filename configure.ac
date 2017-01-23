@@ -1,7 +1,7 @@
 AC_INIT(
-	[Adapta ],
+	[Deez Nutz ],
 	3.89.3,
-	[https://github.com/adapta-project/adapta-gtk-theme],
+	[https://github.com/Deez Nutz-project/Deez Nutz-gtk-theme],
 	[adapta-gtk-theme]
 )
 
@@ -10,22 +10,12 @@ AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects 1
 AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
-ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
-ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
-ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
-ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
-ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
-ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
-ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
-ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
-ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
-ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
-ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
+ADAPTA_OPTION([Deez Nutz],  [Deez Nutz],  [Deez Nutz-build], [enable])
 
 if test x"$ENABLE_PARALLEL" = xyes; then
 	AC_PATH_PROG([PARALLEL], [parallel])
 	if test x"$PARALLEL" = x; then
-		AC_MSG_ERROR(['parallel' not found.])
+	AC_MSG_ERROR(['parallel' not found.])
 	fi
 fi
 
@@ -55,7 +45,7 @@ AC_CONFIG_FILES([ \
 AC_OUTPUT
 
 AC_MSG_RESULT([
-        Adapta Gtk+ Theme $VERSION
+        Deez Nutz Theme $VERSION
         ===========================================================
 
         -----------------------------------------------------------
@@ -65,17 +55,11 @@ AC_MSG_RESULT([
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
          target directories:     ${datarootdir}/themes/Adapta
-                                 ${datarootdir}/themes/Adapta-Nokto
-                                 ${datarootdir}/themes/Adapta-Eta
-                                 ${datarootdir}/themes/Adapta-Nokto-Eta
-
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL
-
          sassc:                  $SASSC
          inkscape:               $INKSCAPE
          glib-compile-resources: $GLIB_COMPILE_RESOURCES
-
          selection-color:        $SELECTION (default: $selection_default)
          2nd-selection-color:    $SECOND_SELECTION (default: $second_selection_default)
          accent-color:           $ACCENT (default: $accent_default)
@@ -116,5 +100,3 @@ AC_MSG_RESULT([
          Telegram:             $ENABLE_TELEGRAM
 
         ===========================================================
-                             =>> run 'make' and 'sudo make install'
-])
