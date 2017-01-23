@@ -1449,11 +1449,11 @@ window.background:not(.csd):not(.solid-csd):not(.unity-csd) > frame {
                                         $toolbar-shadow-dark);
 
     > button.flat.toggle { // 'back/forward'?
-      &, image {
-        min-height: $icon_size * 2.2;
-        min-width: $icon_size * 2.2;
-        padding: 0;
-      }
+      min-height: $icon_size * 2.0;
+      min-width: $icon_size * 2.0;
+      padding: 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
     }
 
     .linked.raised > button,
@@ -1464,29 +1464,30 @@ window.background:not(.csd):not(.solid-csd):not(.unity-csd) > frame {
         min-width: rem(26.7px);
         padding-top: 0;
         padding-bottom: 0;
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
 
         > widget { padding: rem(4px) 0; } // GtkArrow?
       }
 
-      // general circle buttons
       &.image-button,
       &.image-button.toggle {
-        &, image {
-          min-height: $icon_size * 2.2;
-          min-width: $icon_size * 2.2;
-          padding: 0;
-        }
+        min-height: $icon_size * 2.0;
+        min-width: $icon_size * 2.0;
+        padding: 0;
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
       }
     }
 
     // optional buttons
     .raised:not(.linked) > button {
       &:not(.text-button):not(.toggle) {
-        &, image {
-          min-height: $icon_size * 2.2;
-          min-width: $icon_size * 2.2;
-          padding: 0;
-        }
+        min-height: $icon_size * 2.0;
+        min-width: $icon_size * 2.0;
+        padding: 0;
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
       }
     }
 
