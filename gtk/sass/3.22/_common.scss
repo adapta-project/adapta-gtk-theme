@@ -1669,7 +1669,8 @@ toolbar {
     }
   }
 
-  .linked > button:not(.combo) { // remove double-background and underlines
+  .linked > button:not(.combo):not(.text-button) {
+    // remove double-background and underlines
     &, &.image-button {
       border-image: none;
       box-shadow: none;
@@ -1714,6 +1715,8 @@ toolbar {
 
   .linked > button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
   }
 
   // toolbar separators
