@@ -431,6 +431,11 @@ box.horizontal.pinned { // drop-target
         &:checked { color: $inverted_fg_color; }
         &:disabled { color: $insensitive_inverted_fg_color; }
       }
+
+      > image { // gear icon in settings-view
+        &:dir(ltr) { margin-left: 4px; }
+        &:dir(rtl) { margin-right: 4px; }
+      }
     }
 
     // reduce the gap between child elements

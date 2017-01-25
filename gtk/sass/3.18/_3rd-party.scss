@@ -514,6 +514,11 @@ $full_orientation: ((top, bottom),
         &:checked { color: $inverted_fg_color; }
         &:insensitive { color: $insensitive_inverted_fg_color; }
       }
+
+      > GtkImage { // gear icon in settings-view
+        &:dir(ltr) { padding-left: 4px; }
+        &:dir(rtl) { padding-right: 4px; }
+      }
     }
 
     // last-child is constructed without header-label
