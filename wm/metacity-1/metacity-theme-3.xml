@@ -81,26 +81,26 @@
 
 <draw_ops name="title_focused">
 	<title version="< 3.1"
-               x="(0 `max` ((width - title_width) / 2))"
-               y="(0 `max` ((height - title_height) / 2))"
-               color="C_title_focused" />
+	       x="(0 `max` ((width - title_width) / 2))"
+	       y="(0 `max` ((height - title_height) / 2))"
+	       color="C_title_focused" />
 	<title version=">= 3.1"
-               x="(0 `max` ((frame_x_center - title_width / 2) `min` (width - title_width)))"
-               y="(0 `max` ((height - title_height) / 2))"
-               ellipsize_width="width"
-               color="C_title_focused" />
+	       x="(0 `max` ((frame_x_center - title_width / 2) `min` (width - title_width)))"
+	       y="(0 `max` ((height - title_height) / 2))"
+	       ellipsize_width="width"
+	       color="C_title_focused" />
 </draw_ops>
 
 <draw_ops name="title_unfocused">
 	<title version="< 3.1"
-               x="(0 `max` ((width - title_width) / 2))"
-               y="(0 `max` ((height - title_height) / 2))"
-               color="C_title_unfocused"/>
+	       x="(0 `max` ((width - title_width) / 2))"
+	       y="(0 `max` ((height - title_height) / 2))"
+	       color="C_title_unfocused"/>
 	<title version=">= 3.1"
-               x="(0 `max` ((frame_x_center - title_width/2) `min` (width - title_width)))"
-               y="(0 `max` ((height - title_height) / 2))"
-               ellipsize_width="width"
-               color="C_title_unfocused"/>
+	       x="(0 `max` ((frame_x_center - title_width/2) `min` (width - title_width)))"
+	       y="(0 `max` ((height - title_height) / 2))"
+	       ellipsize_width="width"
+	       color="C_title_unfocused"/>
 </draw_ops>
 
 	<!-- window decorations -->
@@ -402,39 +402,39 @@
 <constant name="D_appmenu_icon_size" value="16" />
 
 <draw_ops name="appmenu_icon_focused">
-        <icon
+	<icon
 		x="(width-D_appmenu_icon_size)/2" y="(height-D_appmenu_icon_size)/2" 
 		width="D_appmenu_icon_size" height="D_appmenu_icon_size" />
 </draw_ops>
 
 <draw_ops name="appmenu_focused">
-        <include name="appmenu_icon_focused" />
+	<include name="appmenu_icon_focused" />
 </draw_ops>
 
 <draw_ops name="appmenu_icon_unfocused">
-        <icon
+	<icon
 		x="(width-D_appmenu_icon_size)/2" y="(height-D_appmenu_icon_size)/2" 
 		width="D_appmenu_icon_size" height="D_appmenu_icon_size"
 		alpha="0.4"/>
 </draw_ops>
 
 <draw_ops name="appmenu_unfocused">
-        <include name="appmenu_icon_unfocused" />
+	<include name="appmenu_icon_unfocused" />
 </draw_ops>
 
 <draw_ops name="appmenu_icon_focused_pressed">
-        <icon
+	<icon
 		x="(width-D_appmenu_icon_size)/2" y="(height-D_appmenu_icon_size)/2" 
 		width="D_appmenu_icon_size" height="D_appmenu_icon_size"
 		alpha="0.6"/>
 </draw_ops>
 
 <draw_ops name="appmenu_focused_pressed">
-        <include name="appmenu_icon_focused_pressed" y="D_icons_unfocused_offset" />
+	<include name="appmenu_icon_focused_pressed" y="D_icons_unfocused_offset" />
 </draw_ops>
 
 <draw_ops name="appmenu_unfocused_pressed">
-        <include name="appmenu_icon_focused_pressed" y="D_icons_unfocused_offset" />
+	<include name="appmenu_icon_focused_pressed" y="D_icons_unfocused_offset" />
 </draw_ops>
 
 <draw_ops name="shade_focused">
