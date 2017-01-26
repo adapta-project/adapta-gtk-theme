@@ -1364,14 +1364,6 @@ layouttab > box {
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
   }
-
-  > button:last-child {
-    image { opacity: 0.55; }
-
-    &:hover image { opacity: 0.75; }
-
-    &:active image { opacity: 1.0; }
-  }
 }
 
 layout {
@@ -1396,6 +1388,9 @@ tabstrip {
   background-color: $secondary_dark_color;
   background-image: if($variant == 'light', $fake-shadow-light,
                                             $fake-shadow-dark);
+
+  // remove fake-shadow from bottom tabstrip
+  layoutpane.bottom & { background-image: none; }
 
   docktab,
   tab {
@@ -1422,6 +1417,11 @@ layoutstack { // remove undershoot from main editor pane
       &.right {background-image: none; }
     }
   }
+}
+
+dockstack > stack { // treeviews inside the left/right layoutpane
+  > dockwidget treeview.project-tree.view,
+  > devhelppanel treeview.view { background-color: $bg_color; }
 }
 
 headerbar > box > box.linked {
