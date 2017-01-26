@@ -597,6 +597,11 @@ box.horizontal.pinned { // drop-target
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(8px);
+      color: gtkopacity($destructive_color, 0.75);
+      &:hover,
+      &:active,
+      &:checked { color: $destructive_color; }
+      &:disabled { color: gtkopacity($destructive_color, 0.4); }
     }
 
     // reduce height of scale node

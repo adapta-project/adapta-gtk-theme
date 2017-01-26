@@ -640,6 +640,11 @@ $full_orientation: ((top, bottom),
       padding: 0.5em;
       border-radius: 100px;
       outline-radius: 100px;
+      color: gtkopacity($destructive_color, 0.75);
+      &:hover,
+      &:active,
+      &:checked { color: $destructive_color; }
+      &:insensitive { color: gtkopacity($destructive_color, 0.4); }
     }
   }
 
