@@ -1717,9 +1717,10 @@ window.background {
   }
 }
 
-window.background > box.vertical > paned.horizontal > box.vertical {
-  > overlay > scrolledwindow {
-    // remove undershoots from main view
+window.background > box.vertical {
+  > paned.horizontal > box.vertical > overlay > scrolledwindow, // main view
+  > scrolledwindow { // print-preview
+    // remove undershoots
     undershoot {
       &.top,
       &.bottom,
