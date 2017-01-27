@@ -533,7 +533,12 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
   // remove unwanted frame
   .folder-frame > border { border-width: 0 0 1px; }
 
-  .conversation-frame > border { border: none; }
+  .conversation-frame {
+    > border { border: none; }
+
+    // reset weight
+    treeview.view { font-weight: 400; }
+  }
 
   .folder-frame > scrolledwindow {
     background-color: $secondary_dark_color;
