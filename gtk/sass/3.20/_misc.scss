@@ -1645,6 +1645,35 @@ window.background {
   }
 }
 
+// plugin mode in Ephy
+window.background > widget > window.background > box.vertical {
+  > toolbar.horizontal {
+    border-top: 1px solid $borders_color;
+    background-color: $secondary_dark_color;
+
+    .linked.raised > button.image-button { // reset image spacing
+      min-width: $icon_size;
+
+      image { padding: 0; }
+    }
+  }
+
+  > scrolledwindow {
+    scrollbar {
+      &,
+      &.overlay-indicator,
+      trough {
+        background-color: $bg_color;
+        transition: none;
+      }
+
+      slider { transition: none; }
+    }
+
+    evview.content-view.view { transition: none; }
+  }
+}
+
 
 // /**************
 //  * Gnome-Logs *
