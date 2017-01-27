@@ -259,13 +259,6 @@ box.horizontal.pinned { // drop-target
       }
     }
   }
-
-  scrolledwindow undershoot {
-    &.top { @include undershoot(top, $secondary_base_color); }
-    &.bottom { @include undershoot(bottom, $secondary_base_color); }
-    &.left { @include undershoot(left, $secondary_base_color); }
-    &.right { @include undershoot(right, $secondary_base_color); }
-  }
 }
 
 // user-indicator styling
@@ -643,13 +636,6 @@ box.horizontal.pinned { // drop-target
       }
     }
   }
-
-  undershoot { // remove undershoot
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
-  }
 }
 
 // MPRIS Applet
@@ -931,13 +917,6 @@ wnck-pager {
           }
         }
       }
-    }
-
-    undershoot { // remove undershoot
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
     }
   }
 
@@ -1409,13 +1388,6 @@ window.background:not(.csd):not(.solid-csd):not(.unity-csd) > frame {
           background-color: gtkopacity($base_color, 0.55);
         }
       }
-    }
-
-    undershoot { // remove undershoot
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
     }
   }
 }
@@ -2451,15 +2423,6 @@ PanelSeparator {
       box-shadow: if($variant == 'light', $inline-shadow-light,
                                           $inline-shadow-dark);
     }
-
-    scrolledwindow {
-      undershoot { // remove undershoot
-        &.top,
-        &.bottom,
-        &.left,
-        &.right { background-image: none; }
-      }
-    }
   }
 
   statusbar {
@@ -2506,13 +2469,6 @@ PanelSeparator {
         background-color: $selected_bg_color;
         color: $selected_fg_color;
       }
-    }
-
-    undershoot { // remove undershoot
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
     }
   }
 }

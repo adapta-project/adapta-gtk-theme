@@ -204,15 +204,6 @@ NaTrayApplet {
 .tweak-startup {
 }
 
-.main-container { // change undershoot colours to bg_color
-  GtkSrolledWindow .undershoot {
-    &.top { @include undershoot(top, $bg_color); }
-    &.bottom { @include undershoot(bottom, $bg_color); }
-    &.left { @include undershoot(left, $bg_color); }
-    &.right { @include undershoot(right, $bg_color); }
-  }
-}
-
 
 // /*******************
 //  * Gnome-Flashback *
@@ -389,15 +380,6 @@ NautilusTrashBar {
 .geary-titlebar-right {
   // stop double-shadows on right paned header-bar
   box-shadow: none;
-}
-
-ConversationViewer > GtkPaned > GtkOverlay > GtkScrolledWindow {
-  .undershoot { // remove undershoot
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
-  }
 }
 
 
@@ -671,16 +653,6 @@ GeditStatusbar { // inline-toolbar style
                                       $inline-shadow-dark);
 }
 
-GeditViewHolder,
-GeditDocumentsPanel {
-  GtkScrolledWindow .undershoot { // remove undershoot
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
-  }
-}
-
 
 // /***********
 //  * Builder *
@@ -727,16 +699,6 @@ GbTerminalView { // always use dark variant
 // Disable various animations that are enabled by default and really annoying
 // to the overall flow of Builder.
 GbSearchDisplayGroup GtkListBox .list-row { transition: none; }
-
-// remove undershoot from main editor pane
-GbEditorFrame GtkScrolledWindow {
-  .undershoot {
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
-  }
-}
 
 
 // /***************
@@ -852,15 +814,6 @@ ContactsWindow {
 
     // hide horizontal separator
     .separator { -GtkWidget-wide-separators: true; }
-  }
-
-  ContactsListPane GtkScrolledWindow {
-    .undershoot {
-      &.top { @include undershoot(top, $secondary_dark_color); }
-      &.bottom { @include undershoot(bottom, $secondary_dark_color); }
-      &.left { @include undershoot(left, $secondary_dark_color); }
-      &.right { @include undershoot(right, $secondary_dark_color); }
-    }
   }
 }
 
@@ -1015,15 +968,6 @@ Gjs_WeatherWidget {
       outline-radius: 100px;
       background-color: gtkopacity($dark_color, 0.9);
     }
-
-    GtkStack > GtkScrolledWindow {
-      .undershoot { // remove undershoot
-        &.top,
-        &.bottom,
-        &.left,
-        &.right { background-image: none; }
-      }
-    }
   }
 
   Gjs_WeeklyForecastFrame {
@@ -1120,13 +1064,6 @@ DConfWindow {
       background-color: transparent;
       &:selected,
       .list-row:selected { @extend %selected_items; }
-    }
-
-    .undershoot {
-      &.top { @include undershoot(top, $secondary_dark_color); }
-      &.bottom { @include undershoot(bottom, $secondary_dark_color); }
-      &.left { @include undershoot(left, $secondary_dark_color); }
-      &.right { @include undershoot(right, $secondary_dark_color); }
     }
   }
 }

@@ -4466,23 +4466,6 @@ scrolledwindow {
     }
   }
 
-  // Overflow indication, works similarly to the overshoot,
-  // the size if fixed tho.
-  undershoot {
-    &.top {
-      @include undershoot(top, $base_color);
-    }
-    &.bottom {
-    @include undershoot(bottom, $base_color);
-    }
-    &.left {
-      @include undershoot(left, $base_color);
-    }
-    &.right {
-      @include undershoot(right, $base_color);
-    }
-  }
-
   junction { // the small square between two scrollbars
     border-color: transparent;
     // the border image is used to add the missing dot 
@@ -6211,24 +6194,6 @@ popover.touch-selection {
     border-color: $drop_target_color;
     box-shadow: inset 0 0 0 1px $drop_target_color;
     caret-color: $drop_target_color;
-  }
-}
-
-// undershoot for speciic-cases
-undershoot {
-  box > scrolledwindow & {
-    &.top { @include undershoot(top, $bg_color); }
-    &.bottom { @include undershoot(bottom, $bg_color); }
-    &.left { @include undershoot(left, $bg_color); }
-    &.right { @include undershoot(right, $bg_color); }
-  }
-
-  placessidebar &,
-  .sidebar & {
-    &.top { @include undershoot(top, $secondary_dark_color); }
-    &.bottom { @include undershoot(bottom, $secondary_dark_color); }
-    &.left { @include undershoot(left, $secondary_dark_color); }
-    &.right { @include undershoot(right, $secondary_dark_color); }
   }
 }
 

@@ -348,13 +348,6 @@ $full_orientation: ((top, bottom),
       font-weight: 500;
     }
   }
-
-  GtkScrolledWindow .undershoot {
-    &.top { @include undershoot(top, $secondary_base_color); }
-    &.bottom { @include undershoot(bottom, $secondary_base_color); }
-    &.left { @include undershoot(left, $secondary_base_color); }
-    &.right { @include undershoot(right, $secondary_base_color); }
-  }
 }
 
 // user-indicator styling
@@ -674,13 +667,6 @@ $full_orientation: ((top, bottom),
     border: none;
     background-color: transparent;
   }
-
-  .undershoot { // remove undershoot
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
-  }
 }
 
 // MPRIS applet
@@ -973,13 +959,6 @@ $full_orientation: ((top, bottom),
         color: $inverted_fg_color;
         transition: none;
       }
-    }
-
-    .undershoot { // remove undershoot
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
     }
   }
 

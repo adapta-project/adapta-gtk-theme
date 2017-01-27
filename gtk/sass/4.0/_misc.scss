@@ -196,15 +196,6 @@ sn-button { padding: rem(4px); }
 .tweak-startup {
 }
 
-.main-container { // change undershoot colours to bg_color
-  scrolledwindow undershoot {
-    &.top { @include undershoot(top, $bg_color); }
-    &.bottom { @include undershoot(bottom, $bg_color); }
-    &.left { @include undershoot(left, $bg_color); }
-    &.right { @include undershoot(right, $bg_color); }
-  }
-}
-
 
 // /*******************
 //  * Gnome-Flashback *
@@ -578,13 +569,6 @@ window.background > box.vertical > paned.horizontal > frame {
           background-color: gtkopacity($tertiary_fixed_fg_color, 0.55);
         }
       }
-    }
-
-    undershoot { // remove undershoot
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
     }
   }
 }
@@ -1064,16 +1048,6 @@ overlay > box.vertical > paned.horizontal > box.vertical {
   }
 }
 
-notebook grid.horizontal > widget > box.horizontal > scrolledwindow,
-paned.gedit-bottom-panel-paned grid.horizontal > scrolledwindow.frame {
-  undershoot { // remove undershoot
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
-  }
-}
-
 .gedit-side-panel-paned.horizontal {
   // gradient separator
   separator {
@@ -1408,17 +1382,6 @@ tabstrip {
   }
 }
 
-layoutstack { // remove undershoot from main editor pane
-  widget scrolledwindow {
-    undershoot {
-      &.top,
-      &.bottom,
-      &.left,
-      &.right {background-image: none; }
-    }
-  }
-}
-
 dockstack > stack { // treeviews inside the left/right layoutpane
   > dockwidget treeview.project-tree.view,
   > devhelppanel treeview.view { background-color: $bg_color; }
@@ -1670,13 +1633,6 @@ window overlay > grid > frame > grid {
       color: transparent;
     }
   }
-
-  scrolledwindow undershoot {
-    &.top { @include undershoot(top, $secondary_dark_color); }
-    &.bottom { @include undershoot(bottom, $secondary_dark_color); }
-    &.left { @include undershoot(left, $secondary_dark_color); }
-    &.right { @include undershoot(right, $secondary_dark_color); }
-  }
 }
 
 // bottom-paned actionbar
@@ -1717,19 +1673,6 @@ window.background {
   }
 }
 
-window.background > box.vertical {
-  > paned.horizontal > box.vertical > overlay > scrolledwindow, // main view
-  > scrolledwindow { // print-preview
-    // remove undershoots
-    undershoot {
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
-    }
-  }
-}
-
 // plugin mode in Ephy
 window.background > widget > window.background > box.vertical {
   > toolbar.horizontal {
@@ -1756,13 +1699,6 @@ window.background > widget > window.background > box.vertical {
     }
 
     evview.content-view.view { transition: none; }
-
-    undershoot {
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
-    }
   }
 }
 
@@ -1858,13 +1794,6 @@ window.background > widget > window.background > box.vertical {
     }
 
     evview.content-view.view { transition: none; }
-
-    undershoot {
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
-    }
   }
 }
 
@@ -1877,15 +1806,6 @@ window > box.vertical > box.vertical > widget > grid.vertical {
   > expander > scrolledwindow {
     min-height: rem(160.0px); // enlarge widget height
     border: 1px solid $borders_color; // draw borders
-
-    // remove undershoots from expanded-scrolling widget
-    // in progress window
-    undershoot {
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
-    }
   }
 }
 
@@ -1992,15 +1912,6 @@ window stack > frame > frame > grid.horizontal > grid.horizontal {
     -gtk-outline-radius: 100px;
     background-color: gtkopacity($dark_color, 0.9);
   }
-
-  stack > scrolledwindow {
-    undershoot { // remove undershoot
-      &.top,
-      &.bottom,
-      &.left,
-      &.right { background-image: none; }
-    }
-  }
 }
 
 window stack > frame > frame > grid.horizontal {
@@ -2085,13 +1996,6 @@ window > popover > stack > grid > button {
       color: $selected_fg_color;
     }
   }
-
-  undershoot {
-    &.top { @include undershoot(top, $secondary_dark_color); }
-    &.bottom { @include undershoot(bottom, $secondary_dark_color); }
-    &.left { @include undershoot(left, $secondary_dark_color); }
-    &.right { @include undershoot(right, $secondary_dark_color); }
-  }
 }
 
 
@@ -2121,13 +2025,6 @@ window > popover > stack > grid > button {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
     }
-  }
-
-  undershoot {
-    &.top { @include undershoot(top, $secondary_dark_color); }
-    &.bottom { @include undershoot(bottom, $secondary_dark_color); }
-    &.left { @include undershoot(left, $secondary_dark_color); }
-    &.right { @include undershoot(right, $secondary_dark_color); }
   }
 }
 
@@ -2204,13 +2101,6 @@ window.background > box.vertical {
           background-color: $selected_bg_color;
           color: $selected_fg_color;
         }
-      }
-
-      undershoot {
-        &.top { @include undershoot(top, $secondary_dark_color); }
-        &.bottom { @include undershoot(bottom, $secondary_dark_color); }
-        &.left { @include undershoot(left, $secondary_dark_color); }
-        &.right { @include undershoot(right, $secondary_dark_color); }
       }
     }
   }
@@ -2328,13 +2218,6 @@ scrolledwindow.character-list-scroll {
         background-color: gtkopacity($tertiary_fixed_fg_color, 0.55);
       }
     }
-  }
-
-  undershoot { // remove undershoot
-    &.top,
-    &.bottom,
-    &.left,
-    &.right { background-image: none; }
   }
 }
 
