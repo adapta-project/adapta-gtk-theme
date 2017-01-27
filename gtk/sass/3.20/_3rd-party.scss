@@ -2039,7 +2039,7 @@ window.background > box.vertical {
 //  ***********/
 
 // FIXME: Gtk+3 firefox needs this!
-window.background {
+window.background:not(.csd):not(.solid-csd) {
   > widget > menubar {
     color: $inverted_secondary_fg_color;
     &:hover {
@@ -2053,9 +2053,13 @@ window.background {
     > menuitem > label:disabled { color: $insensitive_fg_color; }
   }
 
-  > window.background > menu > separator { color: $borders_color; }
+  // revert to standard separators
+  > window.background > menu separator { color: $borders_color; }
 
-  > widget > frame { color: $borders_color; }
+  > widget {
+    > frame,
+    > separator { color: $borders_color; }
+  }
 }
 
 
