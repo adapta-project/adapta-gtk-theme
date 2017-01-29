@@ -2334,3 +2334,22 @@ window.background.solid-csd > box.vertical > overlay > revealer {
   }
 }
 
+
+// /**************
+//  * Gnome-Maps *
+//  **************/
+
+window.background {
+  > grid.horizontal > stack > spinner {
+    // allocation: 768 x 600!?
+    min-height: $icon_size;
+    padding: (600px - $icon_size * 2) / 2 (768px - $icon_size * 20) / 2;
+  }
+
+  > popover > grid.vertical > grid.horizontal > stack > spinner {
+    // allocation: 96 x 48
+    min-height: $icon_size;
+    padding: (48px - $icon_size) / 2 (96px - $icon_size * 4) / 2;
+  }
+}
+
