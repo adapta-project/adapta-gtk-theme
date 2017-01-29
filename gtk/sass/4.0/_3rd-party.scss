@@ -1384,6 +1384,21 @@ window.background:not(.csd):not(.solid-csd):not(.unity-csd) > frame {
   }
 }
 
+window.background > popover.background > frame > list > row.activatable {
+  > grid.horizontal > button.flat.image-button {
+    // revive transitions
+    transition-property: opacity,
+                         border-color,
+                         border-image,
+                         background-color,
+                         background-image,
+                         box-shadow,
+                         icon-shadow;
+    transition-timing-function: $slope_slow;
+    transition-duration: 0.2s;
+  }
+}
+
 
 // /********
 //  * Nemo *
