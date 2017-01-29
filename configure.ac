@@ -110,7 +110,7 @@ AC_MSG_RESULT([
         | Extra support
         -----------------------------------------------------------
 
-         GtkSourceView/Gedit:  yes
+         GtkSourceView/Gedit:  always
          Chrome(ium):          $ENABLE_CHROME
          Plank:                $ENABLE_PLANK
          Telegram:             $ENABLE_TELEGRAM
