@@ -2,209 +2,67 @@
 # Gimp
 #
 style "gimp_spin_scale" {
-  xthickness = 4
-  ythickness = 3
-
   bg[NORMAL] = @base_color
 
   engine "pixmap" {
-    image {
-      function = FLAT_BOX
-      detail   = "entry_bg"
-      state    = NORMAL
-      file     = "Others/null.svg"
-      stretch  = TRUE
-    }
-    image {
-      function = FLAT_BOX
-      detail   = "entry_bg"
-      state    = ACTIVE
-      file     = "Others/null.svg"
-      stretch  = TRUE
-    }
-
-    # Spin-Up LTR
+    # Spin-Up
     image {
       function        = BOX
       state           = NORMAL
       detail          = "spinbutton_up"
-      file            = "Spin/ltr-up.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
       overlay_file    = "Arrows/up-alt.png"
       overlay_stretch = FALSE
-      direction       = LTR
     }
     image {
       function        = BOX
       state           = PRELIGHT
       detail          = "spinbutton_up"
-      file            = "Spin/ltr-up-hover.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
       overlay_file    = "Arrows/up-alt-hover.png"
       overlay_stretch = FALSE
-      direction       = LTR
     }
     image {
       function        = BOX
       state           = ACTIVE
       detail          = "spinbutton_up"
-      file            = "Spin/ltr-up-active.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
       overlay_file    = "Arrows/up.png"
       overlay_stretch = FALSE
-      direction       = LTR
     }
     image {
       function        = BOX
       state           = INSENSITIVE
       detail          = "spinbutton_up"
-      file            = "Spin/ltr-up-insensitive.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
       overlay_file    = "Arrows/up-alt-insensitive.png"
       overlay_stretch = FALSE
-      direction       = LTR
     }
 
-    # Spin-Up RTL
-    image {
-      function        = BOX
-      state           = NORMAL
-      detail          = "spinbutton_up"
-      file            = "Spin/rtl-up.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/up-alt.png"
-      overlay_stretch = FALSE
-      direction       = RTL
-    }
-    image {
-      function        = BOX
-      state           = PRELIGHT
-      detail          = "spinbutton_up"
-      file            = "Spin/rtl-up-hover.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/up-alt-hover.png"
-      overlay_stretch = FALSE
-      direction       = RTL
-    }
-    image {
-      function        = BOX
-      state           = ACTIVE
-      detail          = "spinbutton_up"
-      file            = "Spin/rtl-up-active.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/up.png"
-      overlay_stretch = FALSE
-      direction       = RTL
-    }
-    image {
-      function        = BOX
-      state           = INSENSITIVE
-      detail          = "spinbutton_up"
-      file            = "Spin/rtl-up-insensitive.png"
-      border          = { 1, 3, 3, 0 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/up-alt-insensitive.png"
-      overlay_stretch = FALSE
-      direction       = RTL
-    }
-
-    # Spin-Down LTR
+    # Spin-Down
     image {
       function        = BOX
       state           = NORMAL
       detail          = "spinbutton_down"
-      file            = "Spin/ltr-down.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
       overlay_file    = "Arrows/down-alt.png"
       overlay_stretch = FALSE
-      direction       = LTR
     }
     image {
       function        = BOX
       state           = PRELIGHT
       detail          = "spinbutton_down"
-      file            = "Spin/ltr-down-hover.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
       overlay_file    = "Arrows/down-alt-hover.png"
       overlay_stretch = FALSE
-      direction       = LTR
     }
     image {
       function        = BOX
       state           = ACTIVE
       detail          = "spinbutton_down"
-      file            = "Spin/ltr-down-active.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
       overlay_file    = "Arrows/down.png"
       overlay_stretch = FALSE
-      direction       = LTR
     }
     image {
       function        = BOX
       state           = INSENSITIVE
       detail          = "spinbutton_down"
-      file            = "Spin/ltr-down-insensitive.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
       overlay_file    = "Arrows/down-alt-insensitive.png"
       overlay_stretch = FALSE
-      direction       = LTR
-    }
-
-    # Spin-Down RTL
-    image {
-      function        = BOX
-      state           = NORMAL
-      detail          = "spinbutton_down"
-      file            = "Spin/rtl-down.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/down-alt.png"
-      overlay_stretch = FALSE
-      direction       = RTL
-    }
-    image {
-      function        = BOX
-      state           = PRELIGHT
-      detail          = "spinbutton_down"
-      file            = "Spin/rtl-down-hover.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/down-alt-hover.png"
-      overlay_stretch = FALSE
-      direction       = RTL
-    }
-    image {
-      function        = BOX
-      state           = ACTIVE
-      detail          = "spinbutton_down"
-      file            = "Spin/rtl-down-active.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/down.png"
-      overlay_stretch = FALSE
-      direction       = RTL
-    }
-    image {
-      function        = BOX
-      state           = INSENSITIVE
-      detail          = "spinbutton_down"
-      file            = "Spin/rtl-down-insensitive.png"
-      border          = { 1, 3, 1, 3 }
-      stretch         = TRUE
-      overlay_file    = "Arrows/down-alt-insensitive.png"
-      overlay_stretch = FALSE
-      direction       = RTL
     }
   }
 }
