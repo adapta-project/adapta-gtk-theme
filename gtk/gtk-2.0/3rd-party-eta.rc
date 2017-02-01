@@ -171,14 +171,14 @@ style "xfwm-tabwin" {
 
   font_name = "bold"
 
-  bg[NORMAL]   = @tooltip_bg_color
-  bg[PRELIGHT] = "#20BC98"
-  bg[ACTIVE]   = "#20BC98"
-  bg[SELECTED] = "#20BC98"
-  fg[NORMAL]   = "#20BC98"
-  fg[PRELIGHT] = "#4DB6AC"
-  fg[ACTIVE]   = "#4DB6AC"
-  fg[SELECTED] = "#4DB6AC"
+  bg[NORMAL]   = @inverted_dark_color
+  bg[PRELIGHT] = mix(0.8, @inverted_dark_color, @accent_color)
+  bg[ACTIVE]   = mix(0.8, @inverted_dark_color, @accent_color)
+  bg[SELECTED] = mix(0.8, @inverted_dark_color, @accent_color)
+  fg[NORMAL]   = mix(0.8, @inverted_dark_color, @accent_color)
+  fg[PRELIGHT] = mix(0.6, @accent_color, @inverted_fg_color)
+  fg[ACTIVE]   = mix(0.6, @accent_color, @inverted_fg_color)
+  fg[SELECTED] = mix(0.6, @accent_color, @inverted_fg_color)
 }
 
 style "xfwm-tabwin-button" {
@@ -186,10 +186,10 @@ style "xfwm-tabwin-button" {
   ythickness = 0
   font_name = "normal"
 
-  fg[NORMAL]   = @tooltip_fg_color
-  fg[PRELIGHT] = "#4DB6AC"
-  fg[ACTIVE]   = "#4DB6AC"
-  fg[SELECTED] = "#4DB6AC"
+  fg[NORMAL]   = @inverted_fg_color
+  fg[PRELIGHT] = mix(0.6, @accent_color, @inverted_fg_color)
+  fg[ACTIVE]   = mix(0.6, @accent_color, @inverted_fg_color)
+  fg[SELECTED] = mix(0.6, @accent_color, @inverted_fg_color)
 
   engine "pixmap" {
     image {
