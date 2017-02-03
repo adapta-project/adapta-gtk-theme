@@ -1355,7 +1355,28 @@ layouttab > box {
 }
 
 layout {
-  border: 1px solid $solid_light_borders_color;
+  // hide top/bottom pane-separator
+  border-width: 0 1px 0;
+  border-style: none solid none;
+  border-color: $solid_light_borders_color;
+  // draw vertically gradient pane-separators
+  @if $variant=='light' {
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32),
+                                             rgba(0, 0, 0, 0.21) 2px,
+                                             rgba(0, 0, 0, 0.09) 4px,
+                                             rgba(0, 0, 0, 0.09))
+                  0 1 0 / 0 1px 0 stretch;
+  }
+  @if $variant=='dark' {
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
+                                             rgba(0, 0, 0, 0.16) 2px,
+                                             rgba(0, 0, 0, 0.11) 4px,
+                                             rgba(0, 0, 0, 0.11))
+                  0 1 0 / 0 1px 0 stretch;
+  }
+  // revive top-edge border with box-shadow
+  box-shadow: inset 0 -1px $solid_light_borders_color;
+
   -PnlDockBin-handle-size: 1;
 }
 
@@ -1376,6 +1397,9 @@ tabstrip {
   background-color: $secondary_dark_color;
   background-image: if($variant == 'light', $fake-shadow-light,
                                             $fake-shadow-dark);
+
+  // remove fake-shadow from bottom tabstrip
+  layoutpane.bottom & { background-image: none; }
 
   docktab,
   tab {
