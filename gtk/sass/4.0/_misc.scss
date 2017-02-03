@@ -1389,7 +1389,11 @@ tabstrip {
 
 dockstack > stack { // treeviews inside the left/right layoutpane
   > dockwidget treeview.project-tree.view,
-  > devhelppanel treeview.view { background-color: $bg_color; }
+  > devhelppanel treeview.view {
+    background-color: $bg_color;
+    &:selected, // use standard selection styling
+    &:selected:focus { @extend %selected_items; }
+  }
 }
 
 headerbar > box > box.linked {
