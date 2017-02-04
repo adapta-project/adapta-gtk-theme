@@ -1603,7 +1603,9 @@ toolbar {
     &:active {
       @extend %button_flat_active;
       border-image: none;
-      background-color: transparent;
+      // filled background for LibreOffice 5.3.x
+      // LO uses ":active" pseudo-class as ":checked"
+      background-color: gtkopacity($fg_color, 0.1);
       color: $fg_color;
     }
     &:checked {
