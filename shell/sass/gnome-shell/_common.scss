@@ -2476,32 +2476,26 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   padding: 0;
   border: 0 none transparent;
   background-color: $panel_bg_color;
-  box-shadow: $empty_shadow;
   &:ltr { border-radius: 0 2px 0 0; }
   &:rtl { border-radius: 2px 0 0 0; }
 
-  StButton {
+  &-handle,
+  &-icon {
     width: $legacy_icon_size;
     height: $legacy_icon_size;
     padding: 4px 4px 2px;
     border-radius: 2px;
     border: 2px solid $panel_bg_color;
-
-    &, * {
-      color: if($nokto == 'false', $inverted_secondary_fg_color,
-                                   $secondary_fg_color);
-    }
-
+    color: if($nokto == 'false', $inverted_secondary_fg_color,
+                                 $secondary_fg_color);
     &:hover,
     &:focus {
       background-color: $osd_slight_fill_color;
-
-      &, * { color: $selected_fg_color; }
+      color: $selected_fg_color;
     }
     &:active {
       background-color: $osd_semi_fill_color;
-
-      &, * { color: $selected_fg_color; }
+      color: $selected_fg_color;
     }
 
     StIcon { icon-size: $legacy_icon_size; }
@@ -2511,6 +2505,11 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     spacing: 3px;
     &:ltr { padding-left: 3px; }
     &:rtl { padding-right: 3px; }
+
+    StButton {
+      width: $legacy_icon_size;
+      height: $legacy_icon_size;
+    }
   }
 }
 
