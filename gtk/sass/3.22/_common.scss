@@ -3739,29 +3739,6 @@ switch {
       -gtk-icon-shadow: none;
     }
   }
-
-  // menu
-  @each $s,$as in ('',''),
-                  // (':active', '-checked'),
-                  (':disabled','-insensitive'),
-                  (':indeterminate', '-mixed'),
-                  // (':indeterminate:active', '-mixed'),
-                  (':indeterminate:disabled', '-mixed-insensitive'),
-                  (':checked', '-checked'),
-                  // (':checked:active', '-checked'),
-                  (':checked:disabled','-checked-insensitive') {
-    menu menuitem #{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
-                                    url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
-      -gtk-icon-shadow: none;
-      &:hover {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
-                                      url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
-        -gtk-icon-shadow: none;
-        transition: none;
-      }
-    }
-  }
 }
 
 // check/radio inside treeview

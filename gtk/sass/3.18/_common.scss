@@ -2613,27 +2613,6 @@ GtkSwitch {
       icon-shadow: none;
     }
   }
-
-  // menu
-  @each $s,$as in ('',''),
-                  // (':active', '-checked'),
-                  (':insensitive','-insensitive'),
-                  (':inconsistent', '-mixed'),
-                  // (':inconsistent:active', '-mixed'),
-                  (':inconsistent:insensitive', '-mixed-insensitive'),
-                  (':checked', '-checked'),
-                  // (':checked:active', '-checked'),
-                  (':checked:insensitive','-checked-insensitive') {
-    .menu .menuitem.#{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
-                                    url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
-      icon-shadow: none;
-      &:hover {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}.png"),
-                                      url("assets/#{$a}#{$as}-symbolic#{$asset_suffix}@2.png"));
-      }
-    }
-  }
 }
 
 // check/radio inside selected-rows
