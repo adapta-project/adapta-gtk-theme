@@ -17,5 +17,6 @@ if test -z "${NOCONFIGURE}"; then
                       --disable-parallel \
                       --disable-chrome \
                       --disable-plank \
+                      --disable-telegram \
                       "$@"
 fi
