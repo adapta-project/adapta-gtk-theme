@@ -2384,3 +2384,34 @@ window.background {
   }
 }
 
+
+// /******************
+//  * Gnome-Calendar *
+//  ******************/
+
+dialog.background {
+  > headerbar.titlebar > button.flat.sources-button.popup.toggle {
+    box.vertical { // optimize label spacing like gnome-logs
+      > .title {
+        margin: rem(-2.7px) 0;
+        padding: rem(1.3px) rem(13.3px) 0;
+        font-size: if($ref_weight < 1.0, 90%, 100%);
+      }
+
+      > .subtitle {
+        margin: rem(-2.7px) 0;
+        padding: 0 rem(13.3px) rem(1.3px);
+        font-size: if($ref_weight < 1.0, 80%, 90%);
+      }
+    }
+  }
+
+  > box.dialog-vbox.vertical > grid.horizontal > revealer > box > box {
+    // GcalTimeSelector buttons
+    > button.popup.toggle {
+      // prevent truncated drop-shadows
+      margin: rem(4px) rem(5.3px) rem(10.7px);
+    }
+  }
+}
+
