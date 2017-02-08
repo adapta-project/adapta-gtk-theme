@@ -264,12 +264,17 @@ GfCandidatePopup {
     &,
     &:first-child,
     &:last-child {
-      @extend .button.flat;
+      @include button(flat-normal);
       border-radius: 0;
       border: none;
       background-color: transparent;
       color: $inverted_secondary_accent_label_color;
       box-shadow: none;
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
     }
   }
 }
@@ -572,11 +577,16 @@ MathWindow {
   & :not(.titlebar),
   & :not(.header-bar) {
     .button:not(.flat):not(.titlebutton) {
-      @extend .button.flat;
+      @include button(flat-normal);
       padding: 0.75em 1em 0.75em;  // FIXME: broken in 12pt fonts?
       border: 0.75em solid transparent;
       border-radius: 2px;
       font-weight: 700;
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
 
       &.suggested-action {  // '=' button
         color: transparent;
@@ -738,10 +748,9 @@ GdMainView,
 
   .button,
   .linked > .button.image-button {
-    @extend .button.flat;
+    @extend %button_flat_normal;
     border-radius: 100px;
     outline-radius: 100px;
-    box-shadow: none;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -750,12 +759,12 @@ GdMainView,
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
     &:hover {
-      box-shadow: none;
+      @extend %button_flat_hover;
       border-image: none;
       color: $fg_color;
     }
     &:checked {
-      box-shadow: none;
+      @extend %button_flat_checked;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -765,18 +774,14 @@ GdMainView,
       background-color: transparent;
       color: $fg_color;
       &:insensitive {
-        box-shadow: none;
-        background-color: transparent;
-        color: $insensitive_fg_color;
+        @extend %button_flat_checked_insensitive;
         border-image: none;
-        > .label { color: inherit; }
+        color: $insensitive_fg_color;
       }
     }
     &:insensitive {
-      box-shadow: none;
-      background-color: transparent;
+      @extend %button_flat_insensitive;
       color: $insensitive_secondary_fg_color;
-      border-image: none;
     }
   }
 }

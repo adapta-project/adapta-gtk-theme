@@ -1398,25 +1398,26 @@ NemoWindow {
     }
 
     > .toolbar .button.image-button {
-      @extend .button.flat;
+      @extend %button_flat_normal;
       border-radius: 2px;
       outline-radius: 2px;
       padding: 0.7em 1em 0.8em;
-      box-shadow: none;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.001,
                                   to($track_color),
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
+      background-color: transparent;
       color: $secondary_fg_color;
       &:hover {
-        box-shadow: none;
+        @extend %button_flat_hover;
         border-image: none;
+        background-color: transparent;
         color: $fg_color;
       }
       &:checked {
-        box-shadow: none;
+        @extend %button_flat_checked;
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
@@ -1426,18 +1427,17 @@ NemoWindow {
         background-color: transparent;
         color: $fg_color;
         &:insensitive {
-          box-shadow: none;
+          @extend %button_flat_checked_insensitive;
+          border-image: none;
           background-color: transparent;
           color: $insensitive_fg_color;
-          border-image: none;
-          > label { color: inherit; }
         }
       }
       &:insensitive {
-        box-shadow: none;
+        @extend %button_flat_insensitive;
+        border-image: none;
         background-color: transparent;
         color: $insensitive_secondary_fg_color;
-        border-image: none;
       }
     }
 

@@ -501,7 +501,7 @@ GtkTextView { // This will get overridden by .view,
   // big standalone buttons like in Documents pager
   &.osd {
     &.image-button {
-      @extend .button.flat;
+      @extend %button_flat_normal;
       @extend %image_button;
       padding: 1.3em;
       background-color: $inverted_dark_color;
@@ -509,13 +509,13 @@ GtkTextView { // This will get overridden by .view,
         color: $inverted_secondary_accent_label_color;
       }
       &:hover {
+        @extend %button_flat_hover;
         color: $inverted_accent_label_color;
-        background-color: gtkopacity($inverted_dark_color, 0.7);
         background-image: linear-gradient(to bottom, $track_color);
       }
       &:active {
+        @extend %button_flat_active;
         color: $inverted_accent_label_color;
-        background-color: gtkopacity($inverted_dark_color, 0.7);
         background-image: linear-gradient(to bottom, $accent_fill_color);
       }
     }
@@ -635,10 +635,15 @@ GtkTextView { // This will get overridden by .view,
   .inline-toolbar .linked > &,
   .action-bar .linked > & {
     &, &:not(.text-button).image-button {
-      @extend .button.flat;
+      @include button(flat-normal);
       padding: 0.75em;
       border-radius: 100px;
       outline-radius: 100px;
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:insensitive { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:insensitive { @include button(flat-checked-insensitive); }
     }
 
     &.text-button {
@@ -650,10 +655,15 @@ GtkTextView { // This will get overridden by .view,
   .inline-toolbar .stack-switcher > &,
   .action-bar .stack-switcher > & {
     &, &:not(.text-button).image-button {
-      @extend .button.flat;
+      @include button(flat-normal);
       padding: 0.5em 0.25em;
       border-radius: 100px;
       outline-radius: 100px;
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:insensitive { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:insensitive { @include button(flat-checked-insensitive); }
     }
   }
 
@@ -662,17 +672,13 @@ GtkTextView { // This will get overridden by .view,
   // mimic tab-switcher-ish button array
   // horizontal array
   .linked > &:not(.flat):not(:only-child) { @extend %linked_middle; }
-  .linked > &,
-  .linked > & .image-button,
-  .linked > & .text-button {
+  .linked > & {
     @extend %linked_middle;
     @extend %button_array;
   }
   // vertical array
   .linked.vertical > &:not(:only-child) { @extend %linked_vertical_middle; }
-  .linked.vertical > &,
-  .linked.vertical > & .image-button,
-  .linked.vertical > & .text-button {
+  .linked.vertical > & {
     @extend %linked_vertical_middle;
     @extend %button_vertical_array;
   }
@@ -1180,25 +1186,44 @@ GtkComboBox {
     }
 
     .button {
-      @extend .button.flat;
+      @extend %button_flat_normal;
+      background-color: transparent;
       &:not(:active):not(:insensitive):not(hover) {
+        background-color: transparent;
         color: $inverted_secondary_accent_label_color;
       }
-      &:hover,
-      &:active { color: $inverted_accent_label_color; }
-      &:active,
-      &:checked {
+      &:hover {
+        @extend %button_flat_hover;
+        background-color: transparent;
+        color: $inverted_accent_label_color;
+      }
+      &:active {
+        @extend %button_flat_active;
         border-image: none;
+        background-color: transparent;
+        color: $inverted_accent_label_color;
         box-shadow: none;
       }
-      &:insensitive { color: gtkalpha($inverted_fg_color, 0.4); }
+      &:checked {
+        @extend %button_flat_checked;
+        border-image: none;
+        background-color: transparent;
+        color: $inverted_accent_label_color;
+        box-shadow: none;
+      }
+      &:insensitive {
+        @extend %button_flat_insensitive;
+        background-color: transparent;
+        color: gtkalpha($inverted_fg_color, 0.4);
+      }
     }
 
     .label { padding: 0 1em; }
   }
 
   .button { // use flat-buttons
-    @extend .button.flat;
+    @extend %button_flat_normal;
+    background-color: transparent;
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -1206,13 +1231,20 @@ GtkComboBox {
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
-    box-shadow: none;
     &:hover {
+      @extend %button_flat_hover;
       border-image: none;
+      background-color: transparent;
       color: $fg_color;
-      box-shadow: none;
+    }
+    &:active {
+      @extend %button_flat_active;
+      border-image: none;
+      background-color: transparent;
+      color: $fg_color;
     }
     &:checked {
+      @extend %button_flat_checked;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -1223,14 +1255,16 @@ GtkComboBox {
       color: $fg_color;
       box-shadow: none;
       &:insensitive {
+        @extend %button_flat_checked_insensitive;
         border-image: none;
         background: transparent;
         color: $insensitive_fg_color;
-        box-shadow: none;
+
         > .label { color: inherit; }
       }
     }
     &:insensitive {
+      @extend %button_flat_insensitive;
       border-image: none;
       background-color: transparent;
       color: $insensitive_secondary_fg_color;
@@ -1350,7 +1384,7 @@ GtkComboBox {
 
   // button styling
   .button:not(.suggested-action):not(.destructive-action) {
-    @extend .button.flat;
+    @include button(flat-normal);
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
@@ -1358,8 +1392,13 @@ GtkComboBox {
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
-    &:hover { color: $inverted_fg_color; }
+    &:hover {
+      @include button(flat-hover);
+      color: $inverted_fg_color;
+    }
+    &:active { @include button(flat-active); }
     &:checked {
+      @include button(flat-checked);
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
@@ -1368,14 +1407,18 @@ GtkComboBox {
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $inverted_fg_color;
-      // &:active { transition: none; }
       &:insensitive {
+        @include button(flat-checked-insensitive);
         background-color: transparent;
         color: $insensitive_inverted_fg_color;
+
         > .label { color: inherit; }
       }
     }
-    &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
+    &:insensitive {
+      @include button(flat-insensitive);
+      color: $insensitive_inverted_secondary_fg_color;
+    }
   }
 
   .button,
@@ -2244,10 +2287,10 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
 
     .button { // tab close button
+      @extend %button_flat_normal;
       @extend %image_button;
       padding: 0;
       background-size: 3em * 1 / 0.8 3em * 1 / 0.8, auto;
-      @extend %button_flat_normal;
       background-color: transparent;
       color: $tertiary_fg_color;
       &:hover { @include button(flat-hover); }
@@ -3410,6 +3453,15 @@ GtkPlacesSidebar.sidebar {
   // "GtkPlacesSidebar.sidebar .sidebar-button.button" [specificity 0,0,3,1]
   // the extended selector ".sidebar-button.button" [specificity 0,0,2,0]
   @at-root .sidebar-button.button { 
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:insensitive { @include button(flat-insensitive); }
+    &:checked { @include button(flat-checked); }
+    &:checked:insensitive { @include button(flat-checked-insensitive); }
+    // border-radius: 100%;
+    // outline-radius: 100%;
+
     &.image-button {
       padding: 4px;
       color: $secondary_fg_color;
@@ -3417,10 +3469,6 @@ GtkPlacesSidebar.sidebar {
       &:active,
       &:checked { color: $fg_color; }
     }
-
-    @extend .button.flat;
-    // border-radius: 100%;
-    // outline-radius: 100%;
   }
 
   // this is for indicating which sidebar row generated a popover
@@ -3528,9 +3576,26 @@ GtkInfoBar {
   color: $secondary_fixed_fg_color;
 
   .button {
-    @extend .button.flat;
+    @extend %button_flat_normal;
+    background-color: transparent;
     color: $secondary_fixed_fg_color;
+    &:hover {
+      @extend %button_flat_hover;
+      background-color: transparent;
+      color: $fixed_fg_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      background-color: transparent;
+      color: $fixed_fg_color;
+    }
+    &:checked {
+      @extend %button_flat_checked;
+      background-color: transparent;
+      color: $fixed_fg_color;
+    }
     &:insensitive { color: $insensitive_fixed_fg_color; }
+
     &.flat {
       color: $secondary_fixed_fg_color;
       &:hover, &:active { color: $fixed_fg_color; }
@@ -3771,9 +3836,12 @@ GtkVolumeButton.button {
   // with the image-button/text-button classes automagically applied
   // depending on the button child these selectors can be deleted.
   @extend %image_button;
-  @extend .button.flat;
-  border-radius: 100px;
-  outline-radius: 100px;
+  @include button(flat-normal);
+  &:hover { @include button(flat-hover); }
+  &:active { @include button(flat-active); }
+  &:insensitive { @include button(flat-insensitive); }
+  &:checked { @include button(flat-checked); }
+  &:checked:insensitive { @include button(flat-checked-insensitive); }
 
   &.text-button {
     border-radius: 2px;
