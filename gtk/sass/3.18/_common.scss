@@ -642,7 +642,11 @@ GtkTextView { // This will get overridden by .view,
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:insensitive { @include button(flat-insensitive); }
-      &:checked { @include button(flat-checked); }
+      &:checked {
+        @extend %button_flat_checked;
+        background-color: transparent;
+        color: $fg_color;
+      }
       &:checked:insensitive { @include button(flat-checked-insensitive); }
     }
 
@@ -662,7 +666,11 @@ GtkTextView { // This will get overridden by .view,
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:insensitive { @include button(flat-insensitive); }
-      &:checked { @include button(flat-checked); }
+      &:checked {
+        @extend %button_flat_checked;
+        background-color: transparent;
+        color: $fg_color;
+      }
       &:checked:insensitive { @include button(flat-checked-insensitive); }
     }
   }
