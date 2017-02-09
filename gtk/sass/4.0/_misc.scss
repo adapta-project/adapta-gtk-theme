@@ -578,14 +578,21 @@ window.background > box.vertical > paned.horizontal > frame {
 
     > label.bottom { // mimic floating-bar styling
       padding: rem(5.3px);
-      color: $inverted_secondary_fg_color;
-      background-color: $inverted_dark_color;
+      border-style: solid;
+      border-color: $borders_color;
+      color: $fg_color;
       font-size: 90%;
       transition: none;
       opacity: 0.9;
 
-      &.left { border-radius: 0 2px 0 0; }
-      &.right { border-radius: 2px 0 0 0; }
+      &.left {
+        border-radius: 0 2px 0 0;
+        border-width: 1px 1px 0 0;
+      }
+      &.right {
+        border-radius: 2px 0 0 0;
+        border-width: 1px 0 0 1px;
+      }
     }
   }
 }
