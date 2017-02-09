@@ -645,6 +645,21 @@ popover.background > box.vertical > scrolledwindow > viewport.frame {
   > list.background { background-color: $secondary_base_color; }
 }
 
+// For Ephy 3.23.x
+window.background > box.vertical > notebook > header.top > box.horizontal {
+  > button.flat { // 'Open a new tab' and arrow button at most-right
+    &.image-button,
+    &.popup.toggle {
+      margin: rem(4px);
+      padding: rem(6.7px);
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+
+      image { padding: 0; }
+    }
+  }
+}
+
 
 // /************
 //  * Seahorse *

@@ -3138,6 +3138,18 @@ notebook {
         -gtk-outline-radius: 100px;
 
         > image { padding: rem(6.7px); }
+
+        &.toggle {
+          &:checked { // draw underlines
+            background-color: transparent;
+            border-image: -gtk-gradient(radial,
+                                        center bottom, 0,
+                                        center bottom, 0.5,
+                                        to($selected_bg_color),
+                                        to(transparent))
+                                        0 0 2 / 0 0 2px;
+          }
+        }
       }
     }
   }
