@@ -81,14 +81,22 @@ $full_orientation: ((top, bottom),
 
 // wnck tasklist styling
 .budgie-panel WnckTasklist {
-  .button,
-  .button:backdrop {
+  .button {
     border: none;
     background: none;
-    opacity: 0.5;
+    box-shadow: none;
+
+    .label,
+    GtkImage { opacity: 0.75; }
+
     &:hover,
     &:active,
-    &:checked { opacity: 1.0; }
+    &:checked {
+      box-shadow: none;
+
+      .label,
+      GtkImage { opacity: 1.0; }
+    }
   }
 }
 
@@ -139,17 +147,7 @@ $full_orientation: ((top, bottom),
 // draw underscores
 @each $along_side, $opp_side in $orientation {
   .#{$along_side} .budgie-panel {
-    WnckTasklist .button {
-      border: 2px solid transparent;
-      &:hover {
-        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
-      }
-      &:active,
-      &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
-      }
-    }
-
+    WnckTasklist .button,
     .launcher {
       border: 2px solid transparent;
       &:hover {
