@@ -66,14 +66,21 @@ $budgie_transition: opacity 0.2s $slope_medium,
 }
 
 // wnck tasklist styling
-.budgie-panel #tasklist-button {
-  button {
-    border: none;
-    background: none;
-    opacity: 0.5;
-    &:hover,
-    &:active,
-    &:checked { opacity: 1.0; }
+.budgie-panel button#tasklist-button {
+  border: none;
+  background: none;
+  box-shadow: none; // unset standard wnck styling
+
+  label,
+  image { opacity: 0.75; }
+
+  &:hover,
+  &:active,
+  &:checked {
+    box-shadow: none;
+
+    label,
+    image { opacity: 1.0; }
   }
 }
 
@@ -127,17 +134,7 @@ box.horizontal.pinned { // drop-target
 // draw underscores
 @each $along_side, $opp_side in $orientation {
   .#{$along_side} .budgie-panel {
-    #tasklist-button button {
-      border: 2px solid transparent;
-      &:hover {
-        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
-      }
-      &:active,
-      &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
-      }
-    }
-
+    button#tasklist-button,
     button.flat.launcher {
       border: 2px solid transparent;
       &:hover {
