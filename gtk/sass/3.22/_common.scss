@@ -4431,14 +4431,17 @@ frame > border,
   border-radius: 0;
   border: 1px solid $borders_color;
   box-shadow: none;
+
   &.flat { border-style: none; }
 }
 
-actionbar > frame > border { border-width: 1px 0 0; }
+actionbar {
+  > frame > border { border-width: 1px 0 0; }
 
-actionbar > revealer > box {
-  padding: rem(5.3px);
-  border-top: 1px solid $borders_color;
+  > revealer > box {
+    padding: rem(5.3px);
+    border-top: 1px solid $borders_color;
+  }
 }
 
 placessidebar,
@@ -4452,18 +4455,10 @@ scrolledwindow {
   // when content is touch-dragged past boundaries.
   // This draws a box on top of the content, the size changes programmatically.
   overshoot {
-    &.top {
-      @include overshoot(top);
-    }
-    &.bottom {
-    @include overshoot(bottom);
-    }
-    &.left {
-      @include overshoot(left);
-    }
-    &.right {
-      @include overshoot(right);
-    }
+    &.top { @include overshoot(top); }
+    &.bottom { @include overshoot(bottom); }
+    &.left { @include overshoot(left); }
+    &.right { @include overshoot(right); }
   }
 
   junction { // the small square between two scrollbars
@@ -4481,11 +4476,10 @@ scrolledwindow {
 
 // vbox and hbox separators
 separator {
-  // always disable separators
+  min-height: 1px;
+  min-width: 1px;
   color: transparent;
   background-color: $borders_color;
-  min-width: 1px;
-  min-height: 1px;
 }
 
 
