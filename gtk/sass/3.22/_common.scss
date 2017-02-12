@@ -2922,6 +2922,17 @@ menuitem {
     &:dir(ltr) { margin-left: rem($icon_size + 10px * 2, $sw: 1.0); }
     &:dir(rtl) { margin-right: rem($icon_size + 10px * 2, $sw: 1.0); }
   }
+
+  box.horizontal separator { // special case for nm-applet
+    min-height: 1px;
+    border: none;
+    background-color: $borders_color;
+
+    &:dir(ltr),
+    &:dir(rtl) {
+      margin: rem(13.3px - 0.5px, $sw: 1.0) 0;
+    }
+  }
 }
 
 // round corners for CSD menus
