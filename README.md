@@ -8,7 +8,7 @@ Before using Adapta
 
 Adapta strongly depends on Material Design resources, especially its **fonts**.
 
-####Typography
+#### Typography
  1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
    - Developed by Google and Adobe.
@@ -67,9 +67,11 @@ Variant Matrix
 >
 >   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool.
 >     Or add this porperty to `[settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
+>
 >     ```
 >     gtk-application-prefer-dark-theme=1
 >     ```
+>
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
