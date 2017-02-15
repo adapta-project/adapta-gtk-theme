@@ -1981,58 +1981,6 @@ window.background > box.vertical {
     margin-left: rem(2.7px);
     margin-right: rem(2.7px);
   }
-
-  scale > value.bottom { color: $fg_color; } // use standard foreground-colour
-
-  // stop using 'with-marks' sliders
-  scale contents > trough > slider {
-    min-height: rem(20px, $sw: 1.0);
-    min-width: rem(20px, $sw: 1.0);
-    margin: rem(-9px - 0.5px, $sw: 1.0);
-    background-repeat: no-repeat;
-    background-position: center;
-    &:not(:hover):not(:active) { background-size: $scale; }
-
-    @if $variant==light {
-      background-image: -gtk-scaled(url('assets/slider.png'),
-                                    url('assets/slider@2.png'));
-      &:hover {
-        margin: rem(-9px - 0.5px, $sw: 1.0);
-        background-image: -gtk-scaled(url('assets/slider.png'),
-                                      url('assets/slider@2.png'));
-        background-size: 100%;
-      }
-      &:active {
-        margin: rem(-9px - 0.5px, $sw: 1.0);
-        background-image: -gtk-scaled(url('assets/slider-active.png'),
-                                      url('assets/slider-active@2.png'));
-      }
-      &:disabled {
-        background-image: -gtk-scaled(url('assets/slider-insensitive.png'),
-                                      url('assets/slider-insensitive@2.png'));
-      }
-    }
-
-    @else {
-      background-image: -gtk-scaled(url('assets/slider-dark.png'),
-                                    url('assets/slider-dark@2.png'));
-      &:hover {
-        margin: rem(-9px - 0.5px, $sw: 1.0);
-        background-image: -gtk-scaled(url('assets/slider-dark.png'),
-                                      url('assets/slider-dark@2.png'));
-        background-size: 100%;
-      }
-      &:active {
-        margin: rem(-9px - 0.5px, $sw: 1.0);
-        background-image: -gtk-scaled(url('assets/slider-active-dark.png'),
-                                      url('assets/slider-active-dark@2.png'));
-      }
-      &:disabled {
-        background-image: -gtk-scaled(url('assets/slider-insensitive-dark.png'),
-                                      url('assets/slider-insensitive-dark@2.png'));
-      }
-    }
-  }
 }
 
 
