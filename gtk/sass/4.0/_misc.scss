@@ -2128,7 +2128,7 @@ window > popover > stack > grid > button {
 }
 
 // keyboard section
-viewport.frame > list > row.activatable {
+viewport.frame > box.vertical > frame > list > row.activatable {
   // employ flat-destructive style
   .reset-shortcut-button { // remove fill-area and ripple-effect at all
     color: gtkopacity($destructive_color, 0.75);
@@ -2161,6 +2161,27 @@ viewport.frame > list > row.activatable {
     &:disabled {
       color: gtkopacity($destructive_color, 0.4);
       background-color: transparent;
+    }
+  }
+}
+
+// users section
+stack > box.vertical > widget > overlay grid.horizontal > stack {
+  > button.toggle {
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
+    &:checked { // draw underline
+      @extend %button_flat_checked;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($selected_bg_color),
+                                  to(transparent))
+                                  0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
     }
   }
 }
