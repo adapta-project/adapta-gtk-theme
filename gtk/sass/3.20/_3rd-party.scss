@@ -1340,10 +1340,26 @@ headerbar.titlebar box {
   }
 }
 
-// use asymmetrical separators
 .background.csd box.vertical > stack > scrolledwindow,
 .background.solid-csd box.vertical > stack > scrolledwindow {
   list > row.activatable.tweet {
+    // speed-up scrolling
+    background-image: none;
+    &:hover {
+      background-image: none;
+      background-color: gtkalpha(currentColor, 0.05);
+    }
+
+    &,
+    widget.inline-media,
+    button.text-only-button {
+      transition: none;
+      &:active { animation: none; }
+
+      label { transition: none; }
+    }
+
+    // use asymmetrical separators
     &:dir(ltr) {
       border-image: linear-gradient(to right,
                                     transparent 72px,
