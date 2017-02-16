@@ -4528,9 +4528,7 @@ list {
   background-color: $base_color;
 }
 
-row {
-  padding: 2px;
-}
+row { padding: 2px; }
 
 row.activatable {
   // let's take care of background colors
@@ -4540,25 +4538,23 @@ row.activatable {
                     image(gtkalpha(currentColor, 0));
   background-repeat: no-repeat;
   background-position: center, center;
+  transition-timing-function: $slope_slow;
   &.has-open-popup, // this is for indicating which sidebar row
                     // generated a popover
   &:hover {         // see https://bugzilla.gnome.org/show_bug.cgi?id=754411
-    transition: none;
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha(currentColor, 0) 100%,
                                       transparent 0%),
                       image(gtkalpha(currentColor, 0.05));
+    transition-timing-function: $slope_slow;
+    transition-duration: 0.1s;
   }
 
   &:active {
     transition: all 0.2s $slope_slow,
                 background-image 0,
                 background-color 0;
-    animation: list_ripple_effect 0.3s $slope_slow forwards;
-    &:hover { transition: all 0.2s $slope_slow,
-                          background-image 0,
-                          background-color 0;
-    }
+    animation: list_ripple_effect 0.2s $slope_slow forwards;
   }
 }
 
@@ -4628,11 +4624,6 @@ row:selected { // special case to use raised GtkEntry
       &, &:focus { @extend %selected_items; }
     }
   }
-}
-
-// transition
-row {
-  &:hover { transition: none; }
 }
 
 
