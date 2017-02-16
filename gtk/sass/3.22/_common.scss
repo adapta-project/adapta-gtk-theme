@@ -3823,7 +3823,8 @@ treeview.view radio {
                   (':checked:hover', '-checked-active-selectionmode'),
                   (':checked:active', '-checked-active-selectionmode'),
                   (':disabled:checked', '-checked-insensitive-selectionmode') {
-  .view.content-view.check#{$s}:not(list) {
+  .view.content-view.check#{$s}:not(list),
+  flowbox > flowboxchild overlay checkbutton.bottom.right > check#{$s} {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
@@ -3891,23 +3892,19 @@ check {
   }
 }
 
-// special 'customed' selection-mode in Gnome-Music
-flowbox > flowboxchild {
-  check {
+// special 'customed' selection-mode in 3.23.x
+flowbox > flowboxchild overlay checkbutton.bottom.right {
+  > check {
     &,
     &:hover,
     &:active,
     &:checked,
     &:disabled {
+      min-height: $icon_size * 2.5;
+      min-width: $icon_size * 2.5;
       margin: 0; // remove unneeded spacing for animations
       padding: 0;
       outline-width: 0; // hide unneeded outlines
-      // transparency causes invisible 'unchecked' icons
-      // if cover-arts are replaced with blank images
-      background-image: image($base_color);
-      background-size: rem($icon_size - 2px, $sw: 1.0);
-      background-position: center;
-      background-repeat: no-repeat;
       animation: none; // stop hover/active animations
     }
   }
