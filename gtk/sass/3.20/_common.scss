@@ -2333,12 +2333,9 @@ headerbar {
     .title { margin-bottom: rem(5.3px - 1.3px); }
 
     > box.vertical {
-      > .title {
-        margin: if($ref_weight < 1.0, rem(-4px) 0, rem(-2.7px) 0);
-      }
-      > .subtitle {
-        margin: if($ref_weight < 1.0, rem(-4px) 0, rem(-2.7px) 0);
-      }
+      > .title { margin: 0; }
+
+      > .subtitle { margin: rem(-2.7px) 0; }
     }
 
     .tiled &  { @extend %tiled_integration; }
