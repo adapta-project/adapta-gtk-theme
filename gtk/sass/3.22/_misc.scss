@@ -2017,6 +2017,12 @@ window headerbar > box.horizontal:not(.linked) {
       padding: rem(($widget_size - $icon_size - 2.7px) / 2);
       border-radius: 2px;
       -gtk-outline-radius: 2px;
+
+      // draw rectangular without roundness
+      > colorswatch.activatable {
+        border-radius: 0;
+        -gtk-outline-radius: 0;
+      }
     }
   }
 }
