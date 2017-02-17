@@ -3815,7 +3815,7 @@ treeview.view radio {
                   (':checked:active', '-checked-active-selectionmode'),
                   (':disabled:checked', '-checked-insensitive-selectionmode') {
   .view.content-view.check#{$s}:not(list),
-  flowbox > flowboxchild overlay checkbutton.bottom.right > check#{$s} {
+  flowbox > flowboxchild overlay checkbutton.bottom > check#{$s} {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
@@ -3884,7 +3884,7 @@ check {
 }
 
 // special 'customed' selection-mode in 3.23.x
-flowbox > flowboxchild overlay checkbutton.bottom.right {
+flowbox > flowboxchild overlay checkbutton.bottom {
   > check {
     &,
     &:hover,
