@@ -1212,7 +1212,7 @@ spinbutton {
                            background-image,
                            box-shadow;
 
-      &:not(:last-child) { // '-' button
+      &.down { // '-' button
         &:hover {
           @extend %button_flat_hover;
           background: none;
@@ -1232,7 +1232,8 @@ spinbutton {
           color: $insensitive_fg_color;
         }
       }
-      &:last-child { // '+' button
+
+      &.up { // '+' button
         &:hover {
           @extend %button_flat_hover;
           background: none;
@@ -1314,6 +1315,7 @@ spinbutton {
           color: $insensitive_fg_color;
         }
       }
+
       &.down { // '-' button
         &:hover {
           @extend %button_flat_hover;
