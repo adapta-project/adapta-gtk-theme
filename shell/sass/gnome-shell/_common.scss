@@ -7,8 +7,13 @@
 //  ***********/
 
 * {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.2s;
+  transition-property: border-color,
+                       border-image,
+                       background-color,
+                       background-image,
+                       box-shadow;
+  transition-timing-function: $slope_medium;
+  transition-duration: $duration_medium;
 }
 
 $panel-corner-radius: 0;
@@ -627,6 +632,7 @@ StScrollBar {
   .popup-menu-item {
     spacing: if($eta == 'false', 8px, 6px);
     color: $secondary_fg_color;
+    transition-duration: 0s;
 
     &:ltr {
       padding: if($eta == 'false', 0.45em 1.75em 0.45em 0,
@@ -657,14 +663,14 @@ StScrollBar {
                         shellopacity($fg_color, 0.1),
                         $semi_fill_color);
       color: $fg_color;
-      transition-duration: 0;
+      transition-duration: 0s;
     }
     &:active {
       background-color: if($nokto == 'false',
                         shellopacity($fg_color, 0.2),
                         $fill_color);
       color: $fg_color;
-      transition-duration: 0.2s;
+      transition-duration: $duration_medium;
     }
     &.selected:active { color: $fg_color; }
     &:insensitive { color: shellopacity($fg_color, 0.5); }
@@ -1005,7 +1011,7 @@ StScrollBar {
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
     font-weight: 700;
-    transition-duration: 0.2s;
+    transition-duration: $duration_medium;
 
     .app-menu-icon { // dimensions of the icon are hardcoded
       -st-icon-style: symbolic;
@@ -1180,6 +1186,7 @@ StScrollBar {
   margin: 0.2em;
   border-radius: 100px;
   text-align: center;
+  transition-duration: 0s;
   &:hover,
   &:focus { background-color: $semi_fill_color; }
   &:active,
@@ -1773,7 +1780,7 @@ StScrollBar {
                                                 $panel_bg_color);
     color: $fg_color;
     box-shadow: if($nokto == 'false', $z-depth-3, none);
-    transition-duration: 0.2s;
+    transition-duration: $duration_medium;
   }
 
   .search-entry-icon {
@@ -2044,6 +2051,7 @@ StScrollBar {
 .search-provider-icon,
 .list-search-result {
   @extend %icon_tile;
+  transition-duration: 0s;
   &:focus,
   &:selected,
   &:hover {
@@ -2053,7 +2061,7 @@ StScrollBar {
   &:active,
   &:checked {
     background-color: $osd_fill_color;
-    transition-duration: 0.2s;
+    transition-duration: $duration_medium;
   }
 }
 
@@ -2065,6 +2073,7 @@ StScrollBar {
     @extend %icon_tile;
     color: if($nokto == 'false', $osd_secondary_fg_color,
                                  $secondary_fg_color);
+    transition-duration: 0s;
   }
 
   &:hover .overview-icon,
@@ -2081,7 +2090,7 @@ StScrollBar {
     background-color: $osd_indicator_color;
     color: $osd_fg_color;
     box-shadow: $empty_shadow;
-    transition-duration: 0.2s;
+    transition-duration: $duration_medium;
   }
 }
 
@@ -2089,13 +2098,20 @@ StScrollBar {
 #dash {
   .app-well-app,
   .show-apps {
-    .overview-icon { border-radius: 100px; }
+    .overview-icon {
+      border-radius: 100px;
+      transition-duration: 0s;
+    }
     &:hover .overview-icon { // more lighter fill than osd_semi_fill!
       background-color: $osd_slight_fill_color;
+      transition-duration: 0s;
     }
     &:active .overview-icon,
     &:focus .overview-icon,
-    &:checked .overview-icon { background-color: $osd_indicator_color; }
+    &:checked .overview-icon {
+      background-color: $osd_indicator_color;
+      transition-duration: $duration_medium;
+    }
   }
 }
 
@@ -2111,7 +2127,7 @@ StScrollBar {
   border: none;
   border-radius: 2px;
   color: $osd_fg_color;
-  transition-duration: 0.2s;
+  transition-duration: $duration_medium;
   text-align: center;
 
   StLabel { padding-top: 6px; }
@@ -2125,6 +2141,7 @@ StScrollBar {
     background-image: url("assets/show-apps.svg");
     background-size: contain;
     color: transparent;
+    transition-duration: 0s;
     -st-background-image-shadow: $z-depth-1;
   }
 
@@ -2135,7 +2152,7 @@ StScrollBar {
     color: transparent;
     background-image: url("assets/show-apps-active.svg");
     -st-background-image-shadow: $z-depth-2;
-    transition-duration: 0.2s;
+    transition-duration: $duration_medium;
   }
 }
 
@@ -2991,7 +3008,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     padding: 7px 32px 8px;
     color: $osd_secondary_fg_color;
     font-weight: 700;
-    transition-duration: 0.2s;
+    transition-duration: $duration_medium;
     &:hover {
       border-bottom-width: 0;
       border-color: transparent;
