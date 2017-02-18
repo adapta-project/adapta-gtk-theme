@@ -704,6 +704,17 @@ StScrollBar {
     }
     &:insensitive { @include entry(insensitive); }
   }
+
+  StScrollBar {
+    StBin#trough { background-color: $fill_color; }
+
+    StButton#vhandle,
+    StButton#hhandle { // use variant-sensitive slider-bit
+      background-color: shellopacity($fg_color, 0.6);
+      &:hover { background-color: shellopacity($fg_color, 0.8); }
+      &:active { background-color: shellopacity($fg_color, 1); }
+    }
+  }
 }
 
 .popup-menu-ornament {
