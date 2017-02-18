@@ -1651,7 +1651,22 @@ StScrollBar {
     padding: if($eta == 'false', 24px, 18px);
   }
 
-  &-header-hbox { spacing: if($eta == 'false', 10px, 7px); }
+  &-header-hbox {
+    spacing: if($eta == 'false', 10px, 7px);
+    // diming for subtitle
+    color: $osd_dim_fg_color;
+  }
+
+  &-header { // title
+    @include fontscaling($ref_size * 1.1);
+    color: $osd_fg_color;
+    font-weight: 700;
+  }
+
+  &-header-icon {
+    icon-size: 32px;
+    color: $osd_fg_color;
+  }
 
   &-airplane {
     &-box {
@@ -1682,17 +1697,13 @@ StScrollBar {
     &-text { color: if($nokto == 'false', $osd_fg_color, $fg_color); }
   }
 
-  &-header-icon { icon-size: 32px; }
-
-  &-scroll-view { border: 2px solid $borders_color; }
-
-  &-header { font-weight: 700; }
+  &-scroll-view { border: 1px solid $borders_color; }
 
   &-item {
-    @include fontscaling($ref_size * 1.1);
+    @include fontscaling($ref_size * 1.0);
     spacing: if($eta == 'false', 20px, 16px);
     padding: if($eta == 'false', 12px, 8px);
-    border-bottom: 1px solid $borders_color;
+    color: $osd_fg_color;
     &:selected {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
