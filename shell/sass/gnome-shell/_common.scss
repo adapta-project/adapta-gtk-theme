@@ -1188,7 +1188,7 @@ StScrollBar {
   margin: 0.2em;
   border-radius: 100px;
   text-align: center;
-  transition-duration: 0s;
+  transition-duration: $duration_short;
   &:hover,
   &:focus { background-color: $semi_fill_color; }
   &:active,
@@ -1196,6 +1196,7 @@ StScrollBar {
     &, &:hover {
       color: $selected_fg_color;
       background-color: $selected_bg_color;
+      transition-duration: $duration_medium;
     }
   }
 
