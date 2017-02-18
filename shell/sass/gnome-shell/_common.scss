@@ -100,6 +100,7 @@ StEntry {
   color: if($nokto == 'false', $inverted_fg_color, $fg_color);
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
+  transition-duration: 0s;
   &:hover { @include entry(hover); }
   &:focus { @include entry(focus); }
   &:insensitive { @include entry(insensitive); }
@@ -692,6 +693,7 @@ StScrollBar {
   StEntry { // use variant-sensitive foreground colours
     @include entry(normal);
     color: $secondary_fg_color;
+    transition-duration: 0s;
     &:hover {
       @include entry(hover);
       color: $fg_color;
@@ -2704,6 +2706,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
     font-family: $mono-font-family;
+    transition-duration: 0s;
     @include entry(normal, $fc:$osd_semi_fill_color);
     &:hover { @include entry(hover, $fc:$osd_fill_color); }
     &:focus { @include entry(focus, $fc:$osd_indicator_color); }
@@ -2825,6 +2828,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     padding: 4px 4px 0;
     border-radius: 2px;
     color: $osd_secondary_fg_color;
+    transition-duration: 0s;
 
     &:ltr { padding-right: 1em; }
     &:rtl { padding-left: 1em; }
