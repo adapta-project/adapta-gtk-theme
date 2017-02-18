@@ -5667,9 +5667,11 @@ decoration {
   // appmenu buttons
   box > button.titlebutton.popup.toggle,
   &.selection-mode box > button.titlebutton.popup.toggle {
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(($widget_size - $icon_size) / 2);
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     &:checked { // reset fill-area
@@ -5691,9 +5693,11 @@ decoration {
       &:backdrop,
       &:backdrop:hover,
       &:backdrop:active {
-        min-width: $icon_size;
-        min-height: $icon_size;
-        padding: rem(($widget_size - $icon_size) / 2);
+        min-width: $icon_size * 1.5;
+        min-height: $icon_size * 1.5;
+        padding: if($ref_weight < 1.0,
+                 rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                 rem(($widget_size - $icon_size * 1.5) / 2));
         border-radius: 100px;
         -gtk-outline-radius: 100px;
         background-image: none;
