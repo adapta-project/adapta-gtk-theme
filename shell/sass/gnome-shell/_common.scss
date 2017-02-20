@@ -696,13 +696,13 @@ StScrollBar {
   }
 
   StScrollBar {
-    StBin#trough { background-color: $fill_color; }
+    StBin#trough { background-color: shellopacity($fg_color, 0.15); }
 
     StButton#vhandle,
     StButton#hhandle { // use variant-sensitive slider-bit
       background-color: shellopacity($fg_color, 0.6);
       &:hover { background-color: shellopacity($fg_color, 0.8); }
-      &:active { background-color: shellopacity($fg_color, 1); }
+      &:active { background-color: $fg_color; }
     }
   }
 }
