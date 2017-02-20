@@ -133,28 +133,16 @@ StScrollBar {
   StBin#trough {
     margin: 0;
     border-radius: 0;
-    background-color: if($nokto == 'false',
-                      shellopacity($inverted_fg_color, 0.15),
-                      shellopacity($fg_color, 0.15));
+    background-color: shellopacity($osd_fg_color, 0.15);
   }
 
   StButton#vhandle,
   StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: if($nokto == 'false',
-                      shellopacity($inverted_fg_color, 0.6),
-                      shellopacity($fg_color, 0.6));
-    &:hover {
-      background-color: if($nokto == 'false',
-                        shellopacity($inverted_fg_color, 0.8),
-                        shellopacity($fg_color, 0.8));
-    }
-    &:active {
-      background-color: if($nokto == 'false',
-                        shellopacity($inverted_fg_color, 1),
-                        shellopacity($fg_color, 1));
-    }
+    background-color: shellopacity($osd_fg_color, 0.6);
+    &:hover { background-color: shellopacity($osd_fg_color, 0.8); }
+    &:active { background-color: $osd_fg_color; }
   }
 }
 
