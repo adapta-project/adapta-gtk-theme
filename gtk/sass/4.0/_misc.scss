@@ -1691,7 +1691,7 @@ window overlay > grid > frame > grid {
       color: $secondary_fg_color;
       background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                 rgba(18, 22, 0, 0.04));
-
+      font-weight: 500;
       &:hover { color: $fg_color; }
       &:selected,
       &:selected.activatable {
@@ -1699,7 +1699,6 @@ window overlay > grid > frame > grid {
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
       }
-      &:backdrop { opacity: 1.0; }
     }
 
     // hide horizontal separator
