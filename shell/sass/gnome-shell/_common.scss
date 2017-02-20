@@ -133,7 +133,9 @@ StScrollBar {
   StBin#trough {
     margin: 0;
     border-radius: 0;
-    background-color: $fill_color;
+    background-color: if($nokto == 'false',
+                      shellopacity($inverted_fg_color, 0.15),
+                      shellopacity($fg_color, 0.15));
   }
 
   StButton#vhandle,
