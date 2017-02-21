@@ -151,6 +151,8 @@ textview {
     background-color: $base_color;
     color: $fg_color;
     &:disabled { color: $insensitive_fg_color; }
+    &:selected, // FIXME: for ugly Fedora specific firefox patch
+    &:selected:focus { @extend %selected_items; }
 
     selection {
       &, &:focus { @extend %selected_items; }
