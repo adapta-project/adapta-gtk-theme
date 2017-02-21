@@ -1356,8 +1356,13 @@ combobox {
     button.combo { @extend button:drop(active); }
   }
 
-  menu { padding: rem(3.3px) 0; }
-  menu > menuitem { padding: rem(4.7px) rem(5.3px) rem(6px); }
+  > window.popup { // context-menu popup
+    > menu {
+      padding: rem(3.3px) 0;
+
+      menuitem { padding: rem(4.7px) rem(5.3px) rem(6px); }
+    }
+  }
 
   entry.combo {
   }
@@ -1423,6 +1428,8 @@ combobox {
                                   to(transparent))
                                   0 0 1 / 0 0 1px;
     }
+    // FIXME: prevent unwanted closing popups
+    &:checked { transition: none; }
   }
 
   button.combo:not(:only-child) {
