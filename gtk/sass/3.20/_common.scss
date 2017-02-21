@@ -158,13 +158,8 @@ textview {
   }
 }
 
-textview {
-  border { background-color: $bg_color; }
-
-  view { // unknown node name for fedora patch for firefox 51.x
-    &:selected,
-    &:selected:focus { @extend %selected_items; }
-  }
+textview border {
+  background-color: $bg_color;
 }
 
 iconview { @extend .view; }
