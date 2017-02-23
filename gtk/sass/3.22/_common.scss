@@ -1197,11 +1197,16 @@ spinbutton {
     // color
     &:disabled { color: $insensitive_fg_color; }
 
-    entry {
-      margin: 0;
-      background: none;
-      border: none;
-      box-shadow: none;
+    entry { // unset all of fallback mode
+      &,
+      &:focus,
+      &:disabled {
+        margin: 0;
+        background: none;
+        border: none;
+        border-image: none;
+        box-shadow: none;
+      }
     }
 
     button {
