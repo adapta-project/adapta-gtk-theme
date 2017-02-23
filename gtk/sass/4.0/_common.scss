@@ -349,32 +349,46 @@ entry {
   min-height: rem(13.3px);
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(8px) rem(10.7px);
-  @include entry(normal);
-  background-color: $base_color; // FIXME: workaround for LibreOffice
-  &:focus {
-    @include entry(focus);
-    background-color: $base_color;
-  }
-  &:disabled {
-    @include entry(insensitive);
-    background-color: $base_color;
+
+  // fallback buttons for non-native apps
+  &, &.flat {
+    @extend %entry_fallback_normal;
+    border-radius: 2px;
+    &:focus { @extend %entry_fallback_focus; }
+    &:disabled { @extend %entry_fallback_insensitive; }
   }
 
-  .background & { // actual background for GtkEntry
-    &,
-    &:focus,
-    &:disabled { background-color: transparent; }
+  // standard entries for native Gtk+ apps
+  .background & {
+    @include entry(normal);
+    border-radius: 0;
+    background-color: transparent;
+    &:focus {
+      @include entry(focus);
+      background-color: transparent;
+    }
+    &:disabled {
+      @include entry(insensitive);
+      background-color: transparent;
+    }
 
     selection {
       &, &:focus { @extend %selected_items; }
     }
   }
 
-  &.flat {
-    border-radius: 0;
+  .background &.flat {
     @include entry(flat-normal);
-    &:focus { @include entry(flat-focus); }
-    &:disabled { @include entry(flat-insensitive); }
+    border-radius: 0;
+    background-color: transparent;
+    &:focus {
+      @include entry(flat-focus);
+      background-color: transparent;
+    }
+    &:disabled {
+      @include entry(flat-insensitive);
+      background-color: transparent;
+    }
   }
 
   selection {
@@ -469,12 +483,28 @@ button {
   background-repeat: no-repeat;
   background-position: center, center;
   font-weight: 500;
-  @include button(normal);
-  &:hover { @include button(hover); }
-  &:active { @include button(active); }
-  &:disabled { @include button(insensitive); }
-  &:checked { @include button(checked); }
-  &:checked:disabled { @include button(checked-insensitive); }
+
+  // fallback buttons for non-native apps
+  @extend %button_fallback_normal;
+  &:hover { @extend %button_fallback_hover; }
+  &:active,
+  &:checked { @extend %button_fallback_active; }
+  &:disabled { @extend %button_fallback_insensitive; }
+  &:checked:disabled {
+    @extend %button_fallback_checked_insensitive;
+  }
+
+  // raised buttons for native Gtk+ apps
+  .background & {
+    @include button(normal);
+    border: none; // unset all borders
+    &:hover { @include button(hover); }
+    &:active { @include button(active); }
+    &:disabled { @include button(insensitive); }
+    &:checked { @include button(checked); }
+    &:checked:disabled { @include button(checked-insensitive); }
+  }
+
   &.flat {
     @include button(flat-normal);
     &:hover { @include button(flat-hover); }
@@ -1281,11 +1311,6 @@ spinbutton {
 //  **************/
 
 combobox {
-  // FIXME: workaround for LibreOffice 5.2.4
-  background-color: $bg_color;
-  // actual transparent backgrounds
-  .background & { background-color: transparent; }
-
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     min-height: rem($icon_size);
@@ -1311,7 +1336,43 @@ combobox {
     }
   }
 
+  // fallback combo node for non-native apps
+  @extend %entry_fallback_normal;
+
+  .background & { // unset all properties in combobox node
+    border: unset;
+    border-image: unset;
+    border-radius: unset;
+    background-color: unset;
+    color: unset;
+    box-shadow: unset;
+  }
+
+  // fallback combo-entries for non-native apps
   entry.combo {
+    @extend %entry_fallback_normal;
+    border-radius: 2px;
+    &:focus { @extend %entry_fallback_focus; }
+    &:disabled { @extend %entry_fallback_insensitive; }
+  }
+
+  // standard combo-entries for native Gtk+ apps
+  .background & entry.combo {
+    @include entry(normal);
+    border-radius: 0;
+    background-color: transparent;
+    &:focus {
+      @include entry(focus);
+      background-color: transparent;
+    }
+    &:disabled {
+      @include entry(insensitive);
+      background-color: transparent;
+    }
+
+    selection {
+      &, &:focus { @extend %selected_items; }
+    }
   }
 
   button.combo { // button spacing
@@ -1339,9 +1400,23 @@ combobox {
     }
   }
 
-  button.combo { // button styling
+  // fallback combo-buttons for non-native apps
+  button.combo {
+    @extend %button_fallback_normal;
+    border-radius: 2px;
+    &:hover { @extend %button_fallback_hover; }
+    &:active,
+    &:checked { @extend %button_fallback_active; }
+    &:disabled { @extend %button_fallback_insensitive; }
+    &:checked:disabled {
+      @extend %button_fallback_checked_insensitive;
+    }
+  }
+
+  // standard combo-buttons for native Gtk+ apps
+  .background & button.combo {
     @extend %button_flat_normal;
-    // FIXME: Ephy needs fixed colours
+    border-radius: 0;
     color: $secondary_fg_color;
     background: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
@@ -1534,7 +1609,7 @@ toolbar {
     label { padding: 0 1em; }
   }
 
-  button { // use flat-buttons
+  .background & button { // use flat-buttons
     @extend %button_flat_normal;
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
@@ -1551,9 +1626,7 @@ toolbar {
     &:active {
       @extend %button_flat_active;
       border-image: none;
-      // filled background for LibreOffice 5.3.x
-      // LO uses ":active" pseudo-class as ":checked"
-      background-color: gtkopacity($fg_color, 0.1);
+      background-color: transparent;
       color: $fg_color;
     }
     &:checked {
