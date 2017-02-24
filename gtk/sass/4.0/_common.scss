@@ -3279,17 +3279,14 @@ notebook {
         padding: rem(5.3px + 2.7px, $sw: 1.0);
       }
     }
+
     &:hover button.flat,
-    &:checked button.flat { // close button colours
-      color: $fg_color;
-
-      image { color: $fg_color; }
+    &:checked button.flat {
+      color: $secondary_fg_color;
+      &:hover,
+      &:active { color: $fg_color; }
     }
-    &:disabled button.flat {
-      color: $insensitive_fg_color;
-
-      image { color: $insensitive_fg_color; }
-    }
+    &:disabled button.flat { color: $insensitive_fg_color; }
 
     // special case for Gedit's tab 'close' button
     button.flat.image-button.small-button {
