@@ -3377,7 +3377,20 @@ notebook {
     }
   }
 
-  &:not(.reorderable-page) > entry { @extend entry.flat; }
+  &:not(.reorderable-page) > entry {
+    // do not pull 'fallback mode' entries
+    @include entry(normal);
+    border-radius: 0;
+    background-color: transparent;
+    &:focus {
+      @include entry(focus);
+      background-color: transparent;
+    }
+    &:disabled {
+      @include entry(insensitive);
+      background-color: transparent;
+    }
+  }
 }
 
 
