@@ -758,18 +758,23 @@ button {
   // inline-toolbar and action-bar buttons
   .inline-toolbar &,
   actionbar & {
-    &, &:not(.text-button).image-button {
+    &,
+    &.image-button,
+    &.text-button {
       @include button(flat-normal);
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(6.7px);
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       &:checked { @include button(flat-checked); }
       &:checked:disabled { @include button(flat-checked-insensitive); }
+    }
+
+    &, &:not(.text-button).image-button {
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem(6.7px);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
     }
 
     &.text-button {
