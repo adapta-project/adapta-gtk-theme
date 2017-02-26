@@ -981,20 +981,6 @@ button {
   &:dir(rtl) { background-position: left top; }
 }
 
-// all the following is for the +|- buttons on inline toolbars, that way
-// should really be deprecated...
-toolbar.inline-toolbar toolbutton > button { // redefining the button look is
-                                             // needed since those are flat...
-}
-
-// More inline toolbar buttons
-toolbar.inline-toolbar toolbutton {
-  // > button.flat { @extend %linked_middle; }
-  // &:first-child > button.flat { @extend %linked:first-child; }
-  // &:last-child > button.flat { @extend %linked:last-child; }
-  // &:only-child > button.flat { @extend %linked:only-child; }
-}
-
 %linked_middle { border-radius: 0; }
 
 %linked {
@@ -1888,11 +1874,7 @@ headerbar {
 
   label,
   image {
-    // &:hover { color: $inverted_fg_color; }
-    // &:focus,
-    // &:active,
     &:checked {
-    // color: $inverted_fg_color;
       &:disabled { color: $insensitive_inverted_fg_color; }
     }
 
@@ -3252,22 +3234,6 @@ notebook {
     }
 
     // Arrow buttons
-    &.top, &.bottom {
-      // tabs arrow.up { -gtk-icon-source:
-      //                   -gtk-icontheme('pan-end-symbolic');
-      // }
-      // tabs arrow.down { -gtk-icon-source:
-      //                     -gtk-icontheme('pan-start-symbolic');
-      // }
-    }
-    &.left, &.right {
-      // tabs arrow.up { -gtk-icon-source:
-      //                   -gtk-icontheme('pan-down-symbolic');
-      // }
-      // tabs arrow.down { -gtk-icon-source:
-      //                     -gtk-icontheme('pan-up-symbolic');
-      // }
-    }
     > tabs > arrow {
       transition: none;
       min-height: rem($icon_size);
@@ -3846,8 +3812,6 @@ switch {
 treeview.view check,
 treeview.view radio {
   &, &:only-child {
-    // margin: rem(-6.7px);
-    // padding: rem(6.7px);
     padding: 0; // FIXME: negative margin doesn't work.
   }
 }
@@ -3930,7 +3894,6 @@ radio,
 check {
   min-width: rem($icon_size, $sw: 1.0);
   min-height: rem($icon_size, $sw: 1.0);
-  // margin: 0 rem(6.7px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
   margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
   padding: rem(10px, $sw: 1.0);
 
@@ -4070,8 +4033,6 @@ $_marks_distance: rem(6px, $sw: 1.0);
 
 scale {
   // remove ugly outlines
-  // outline-offset: rem(-4px);
-  // -gtk-outline-radius: 100px;
   &,
   & trough,
   & trough highlight {
@@ -4086,7 +4047,6 @@ scale {
 
   &.fine-tune {
     // remove ugly outlines
-    // outline-offset: rem(-4px);
     outline-offset: 0;
     outline-width: 0;
     &.horizontal {
@@ -4117,9 +4077,7 @@ scale {
       background-size: $scale;
       transition: 0.2s;
     }
-    // @include entry(normal);
-    // border-radius: 50%;
-    // background-color: $success_color;
+
     @each $s,$as in ('',''),
                     // (':hover','-hover'),
                     (':active','-active'),
@@ -4359,12 +4317,6 @@ progressbar {
       border-style: none;
     }
   }
-
-  // the progress node is positioned after the trough border
-  // this moves it over it.
-  // &.horizontal progress { margin: 0 -1px; }
-  // &.vertical progress { margin: -1px 0; }
-
 
   // FIXME: insensitive state missing and some other state
   // should be set probably
@@ -5146,14 +5098,8 @@ placessidebar {
       }
     }
 
-    // in the sidebar case it makes no sense to click the selected row
-    // &:selected:active { box-shadow: none; }
-
     // looks like the label doesn't get all the states so work around
     &:selected:disabled label { @extend %selected_items:disabled; }
-    // &:selected:backdrop:disabled label {
-    //   @extend %selected_items:backdrop:disabled;
-    // }
 
     &.sidebar-placeholder-row {
       border: solid 1px $selected_bg_color;
@@ -5254,7 +5200,6 @@ paned {
 
       &:backdrop,
       &:selected { // FIXME: is this needed?
-        // background-image: none;
         background-image: image($solid_light_borders_color),
                           image($solid_light_borders_color);
       }
@@ -5524,7 +5469,7 @@ colorchooser .popover.osd {
 // content view (grid/list)
 .content-view {
   background-color: $bg_color;
-  // &:hover { -gtk-icon-effect: highlight; }
+
   rubberband { @extend rubberband; }
 }
 
@@ -5553,7 +5498,6 @@ colorchooser .popover.osd {
 
   .osd & .vertical button,
   .vertical button { // +/- buttons on GtkVolumeButton popup
-    // padding: rem(10.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     background-color: transparent;
@@ -5637,7 +5581,6 @@ button.flat.scale { // standalone Speaker/Mic buttons
 
 .floating-bar {
   @extend %osd;
-  // @extend toolbar.osd;
   padding: rem(1.3px) 0 rem(2.7px);
   border: 1px solid transparent;
   border-radius: 0;
@@ -5669,16 +5612,12 @@ button.flat.scale { // standalone Speaker/Mic buttons
   &.bottom.left {
     border-width: 1px 1px 0 0;
     border-radius: 0 2px + 1px 0 0;
-    // border-width: 8px 8px 0 0;
-    // border-image-width: 10px 10px 0 0;
   }
 
   // axes right border and border radius
   &.bottom.right {
     border-width: 1px 0 0 1px;
     border-radius: 2px + 1px 0 0 0;
-    // border-width: 8px 0 0 8px;
-    // border-image-width: 10px 0 0 10px;
   }
 }
 
@@ -6166,7 +6105,6 @@ headerbar.titlebar.default-decoration {
     color: $selected_fg_color;
     &:disabled { color: $insensitive_selected_fg_color; }
     &:backdrop {
-      // color: $backdrop_selected_fg_color;
       &:disabled { color: $insensitive_selected_fg_color; }
     }
   }
