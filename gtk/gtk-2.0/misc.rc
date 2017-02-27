@@ -67,15 +67,5 @@ style "gimp_spin_scale" {
   }
 }
 
-style "gimp_toolbox_frame" {
-  engine "pixmap" {
-    image {
-      function = SHADOW
-    }
-  }
-}
-
 # Disable gradients completely for GimpSpinScale
 class "GimpSpinScale"                    style "gimp_spin_scale"
-# Remove borders from "Wilbert frame" in Gimp
-widget_class "*<GimpToolbox>*<GtkFrame>" style "gimp_toolbox_frame"
