@@ -212,32 +212,6 @@ assistant {
     font-weight: 500;
     &.highlight { color: $selected_bg_color; }
   }
-
-  // header-bar styling
-  headerbar {
-    // apply suggested-action button for "Next" and "Back"
-    // last -> "cancel", nth -> "Next" and "Back", that's weird.
-    button.flat:not(:last-child) {
-      @extend %button_normal;
-      background-color: $suggested_color;
-      color: $secondary_selected_fg_color;
-      &:hover {
-        @extend %button_hover;
-        color: $selected_fg_color;
-      }
-      &:active {
-        @extend %button_active;
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
-      }
-      &:checked {
-        @extend %button_checked;
-        background-color: $suggested_color;
-        color: $inverted_fg_color;
-      }
-      &:disabled { @include button(insensitive); }
-    }
-  }
 }
 
 // button box is always shown with flat-buttons
