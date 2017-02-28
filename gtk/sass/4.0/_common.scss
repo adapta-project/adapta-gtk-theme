@@ -158,12 +158,13 @@ flowbox {
   rubberband { @extend rubberband; }
 
   flowboxchild {
-    padding: rem(2px);
+    margin: rem(4px, $sw: 1.0);
+    padding: rem(4px, $sw: 1.0);
     border-radius: 2px;
     -gtk-outline-radius: 2px;
     &:selected {
       @extend %selected_items;
-      outline-offset: rem(-2px);
+      outline-offset: -2px;
     }
   }
 }
