@@ -1338,42 +1338,51 @@ layouttabbar {
 }
 
 layouttab {
-  margin: rem(2.7px);
+  margin: 4px;
   padding: rem(5.3px);
   background-color: transparent;
 
   label { padding: rem(4px); }
 
   separator.vertical {
-    margin: rem(2.7px);
+    margin: 2px;
     color: transparent;
     background-color: $borders_color;
   }
 
   button {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { @include button(flat-checked); }
-    &:checked:disabled { @include button(flat-checked-insensitive); }
-
-    margin: rem(2.7px);
-    border-radius: 2px;
-    padding-left: rem(5.3px);
-    padding-right: rem(5.3px);
+    &, &.popup.toggle {
+      @include button(flat-normal);
+      margin: 4px;
+      border-radius: 2px;
+      padding-left: rem(5.3px);
+      padding-right: rem(5.3px);
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { // draw underline
+        background-color: transparent;
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+      }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
+    }
   }
 }
 
 // Close button styling for layouttab.
 layouttab > box {
-  > button:last-child {
+  > button.close {
+    @include button(flat-normal);
     min-height: rem(13.3px);
     min-width: rem(13.3px);
     padding: rem(6.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    @include button(flat-normal);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
