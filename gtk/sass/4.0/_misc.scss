@@ -340,13 +340,47 @@ sn-button { padding: rem(4px); }
   -gtk-outline-radius: 9999px;
 }
 
-.nautilus-window > grid.horizontal {
-  paned > separator {
+.nautilus-window {
+  > grid.horizontal paned > separator {
     // do not use transparentize
     background-image: image($solid_light_borders_color);
     background-size: $separator_narrow;
     background-repeat: repeat-y;
     transition: none;
+  }
+
+  flowboxchild { // for 3.23/24
+    margin: unset; // unset spacing first
+    padding: unset;
+
+    > widget > box > .icon {
+      &-background { // use solid black backgrounds
+        padding: 0;
+        border: 0 none transparent;
+        background-color: black;
+      }
+
+      &-item-background {
+        padding: 4px;
+        border-radius: 2px;
+        border: 0 none transparent;
+        background-color: black;
+      }
+    }
+
+    &:selected {
+      // unset selection colour
+      background-color: transparent;
+
+      > widget > box > .icon {
+        &-background,
+        &-item-background {
+          // re-add selection colour for specific childs
+          border: 0 none transparent;
+          background-color: $selected_bg_color;
+        }
+      }
+    }
   }
 }
 
