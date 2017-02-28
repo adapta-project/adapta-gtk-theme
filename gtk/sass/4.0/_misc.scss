@@ -681,6 +681,13 @@ popover.background stack stack > scrolledwindow > viewport.frame {
   border: 1px solid $borders_color;
 }
 
+dialog.background.csd > box.dialog-vbox.vertical > box.horizontal {
+  > box.vertical > box.horizontal:not(.linked) > button:not(.flat) {
+    // enforce flat-button-array
+    @extend %button_array;
+  }
+}
+
 
 // /************
 //  * Seahorse *
