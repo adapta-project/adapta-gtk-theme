@@ -1418,7 +1418,6 @@ StScrollBar {
   color: $secondary_accent_label_color;
   background: transparent;
   background-size: 32px 32px;
-
   &:hover {
     color: $accent_label_color;
     background-image: url("assets/media-control-hover.svg");
@@ -1428,6 +1427,11 @@ StScrollBar {
     color: $accent_label_color;
     background-image: url("assets/media-control-active.svg");
     background-size: 32px 32px;
+  }
+  &:insensitive {
+    color: $insensitive_fg_color;
+    background-image: none;
+    background: transparent;
   }
 }
 
