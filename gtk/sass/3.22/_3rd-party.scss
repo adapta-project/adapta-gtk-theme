@@ -105,29 +105,35 @@ box.horizontal.pinned { // drop-target
                                       transparent 0%),
                       image(gtkalpha($inverted_fg_color, 0));
     background-position: center center;
-    opacity: 0.5;
     transition: $budgie_transition;
+
+    > image { opacity: 0.5; }
+
     &:hover {
-      opacity: 0.75;
       -gtk-icon-effect: highlight;
+
+      > image { opacity: 0.75; }
     }
     &:active {
-      opacity: 1.0;
       transition: $budgie_transition,
                   background-image 0;
       animation: budgie_ripple_effect 0.3s $slope_slow forwards;
+
+      > image { opacity: 1.0; }
     }
     &:checked {
       background-color: transparent;
-      opacity: 1.0;
       &:hover { -gtk-icon-effect: highlight; }
+
+      > image { opacity: 1.0; }
     }
   }
 
   .unpinned button.flat.launcher,
   .pinned button.flat.launcher.running {
-    opacity: 1.0;
     &:hover { -gtk-icon-effect: highlight; }
+
+    > image { opacity: 1.0; }
   }
 }
 
