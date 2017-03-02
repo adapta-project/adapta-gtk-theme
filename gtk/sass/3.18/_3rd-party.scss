@@ -113,7 +113,6 @@ $full_orientation: ((top, bottom),
                                       gtkalpha($inverted_fg_color, 0));
     background-size: 3em * 2 / 0.8 3em * 2 / 0.8, auto;
     background-position: center center;
-    opacity: 0.5;
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition-property: opacity,
                          border-color,
@@ -121,26 +120,33 @@ $full_orientation: ((top, bottom),
                          background-image,
                          box-shadow;
     transition-duration: 0.2s;
+
+    > GtkImage { opacity: 0.5; }
+
     &:hover {
-      opacity: 0.75;
       -gtk-image-effect: highlight;
+
+      > GtkImage { opacity: 0.75; }
     }
     &:active {
-      opacity: 1.0;
       transition-duration: 0;
       animation: budgie_ripple_effect 0.2s
                  cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+
+      > GtkImage { opacity: 1.0; }
     }
     &:checked {
-      opacity: 1.0;
       &:hover { -gtk-image-effect: highlight; }
+
+      > GtkImage { opacity: 1.0; }
     }
   }
 
   .unpinned .launcher,
   .pinned .launcher.running {
-    opacity: 1.0;
     &:hover { -gtk-image-effect: highlight; }
+
+    > GtkImage { opacity: 1.0; }
   }
 }
 
