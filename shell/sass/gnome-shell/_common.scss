@@ -1332,7 +1332,10 @@ StScrollBar {
 }
 
 .message {
-  min-height: 22px;
+  // No need to set any height/min-height with fixed values,
+  // 'no-values' can keep its height automatically even
+  // if switched to scrolled-view mode.
+  // So only padding property seems enough to control the spacing.
   padding: 6px;
   border-radius: 0;
   background-color: $semi_fill_color;
@@ -1363,7 +1366,7 @@ StScrollBar {
 
     > StIcon {
       color: $secondary_fg_color;
-      icon-size: 32px;
+      icon-size: 16px;
       -st-icon-style: symbolic;
     }
   }
