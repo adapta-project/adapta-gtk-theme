@@ -1361,13 +1361,22 @@ StScrollBar {
     &:ltr { padding: 3px 0 3px 6px; }
     &:rtl { padding: 3px 6px 3px 0; }
 
-    > StIcon { icon-size: 32px; }
+    > StIcon {
+      color: $secondary_fg_color;
+      icon-size: 32px;
+      -st-icon-style: symbolic;
+    }
   }
 
   &-secondary-bin {
     color: $dim_fg_color;
     &:ltr { padding-left: 6px; }
     &:rtl { padding-right: 6px; }
+
+    > .event-time {
+      @include fontscaling($ref_size * 0.9);
+      color: $dim_fg_color;
+    }
 
     > StIcon { icon-size: 16px; }
   }
