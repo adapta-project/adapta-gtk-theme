@@ -3852,7 +3852,7 @@ treeview.view radio {
                   (':checked:active', '-checked-active-selectionmode'),
                   (':disabled:checked', '-checked-insensitive-selectionmode') {
   .view.content-view.check#{$s}:not(list),
-  .content-view .tile check#{$s}:not(list) {
+  flowbox > flowboxchild overlay checkbutton.bottom > check#{$s} {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
@@ -3919,19 +3919,21 @@ check {
   }
 }
 
-// new selection-mode in 3.23 or higher
-.content-view .tile check:not(list) {
-  &,
-  &:hover,
-  &:active,
-  &:checked,
-  &:disabled {
-    min-height: $icon_size * 2.5;
-    min-width: $icon_size * 2.5;
-    margin: 0; // remove unneeded spacing for animations
-    padding: 0;
-    outline-width: 0; // hide unneeded outlines
-    animation: none; // stop hover/active animations
+// special 'customed' selection-mode in 3.23.x
+flowbox > flowboxchild overlay checkbutton.bottom {
+  > check {
+    &,
+    &:hover,
+    &:active,
+    &:checked,
+    &:disabled {
+      min-height: $icon_size * 2.5;
+      min-width: $icon_size * 2.5;
+      margin: 0; // remove unneeded spacing for animations
+      padding: 0;
+      outline-width: 0; // hide unneeded outlines
+      animation: none; // stop hover/active animations
+    }
   }
 }
 
