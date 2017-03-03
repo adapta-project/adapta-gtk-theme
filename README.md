@@ -323,7 +323,6 @@ Extra Telegram Support
 Work in Progress
 ----------------
 * Conversion to Gtk+ 4.0
-* Telegram 1.0 theming support
 
 TODO
 ----
