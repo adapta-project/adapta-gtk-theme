@@ -5261,56 +5261,21 @@ colorswatch {
   &:selected {
   }
 
-  // base color corners rounding
-  // to avoid the artifacts caused by rounded corner anti-aliasing
-  // the base color sports a bigger radius.
-  // nth-child is needed by the custom color strip.
-  // The :not() madness is needed since actually the overlay is
-  // selectable by colorswatch > .overlay and colorswatch.overlay,
-  // I know it's weird, but this is gtk+, not a browser.
-  &.top {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+  // do not use roundness
+  &.top,
+  &.bottom,
+  &.left,
+  &.right,
+  &:only-child {
+    &, .overlay { border-radius: 0; }
   }
-  &.bottom {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-  &.left, &:first-child:not(.overlay):not(.top) {
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-  }
-  &.right, &:last-child:not(.overlay):not(.bottom) {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-  &:only-child:not(.overlay) { border-radius: 2px; }
-
-  // overlay corner rounding
-  &.top > .overlay {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-  }
-  &.bottom > .overlay {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-  &:first-child:not(.top) > .overlay {
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-  }
-  &:last-child:not(.bottom) > .overlay {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-  &:only-child > .overlay { border-radius: 2px; }
 
   // hover effect
   &:hover { box-shadow: $z-depth-2; }
 
   // no hover effect for the colorswatch in the color editor
   GtkColorEditor & {
-    border-radius: 2px; // same radius as the entry
+    border-radius: 0; // same radius as the entry
     &:hover { box-shadow: $z-depth-1; }
   }
 
