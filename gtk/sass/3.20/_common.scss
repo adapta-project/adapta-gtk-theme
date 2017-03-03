@@ -3363,31 +3363,26 @@ notebook {
     }
 
     button { // tab close button
-      @extend %button_flat_normal;
       min-width: rem($icon_size);
       min-height: rem($icon_size);
       padding: 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
-      background-color: transparent;
-      color: $tertiary_fg_color;
-      &:hover { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
-      &:disabled { @include button(flat-insensitive); }
+
+      &.flat { color: $tertiary_fg_color; }
 
       > image { // this is a hack which makes tabs grow
         padding: rem(5.3px + 2.7px, $sw: 1.0);
       }
     }
-    &:hover button,
-    &:checked button { // close button colours
-      color: $fg_color;
-      image { color: $fg_color; }
+
+    &:hover button.flat,
+    &:checked button.flat {
+      color: $secondary_fg_color;
+      &:hover,
+      &:active { color: $fg_color; }
     }
-    &:disabled button {
-      color: $insensitive_fg_color;
-      image { color: $insensitive_fg_color; }
-    }
+    &:disabled button.flat { color: $insensitive_fg_color; }
 
     // special case for Gedit's tab 'close' button
     button.flat.image-button.small-button {
