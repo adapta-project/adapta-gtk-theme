@@ -69,6 +69,9 @@ style "default" {
   GtkTreeView::vertical-separator = 4
   GtkTreeView::horizontal-separator = 4
   GtkTreeView::allow-rules = 1
+  # Some file-managers apply these 'stripes'
+  GtkTreeView::odd-row-color = mix(0.5, @bg_color, @base_color)
+  GtkTreeView::even-row-color = @base_color
 
   GtkExpander::expander-size = 16
 
