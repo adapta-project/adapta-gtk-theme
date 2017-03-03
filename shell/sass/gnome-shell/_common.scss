@@ -770,6 +770,24 @@ StScrollBar {
 }
 
 
+// /*******************************
+//  * Applications Menu Extension *
+//  *******************************/
+
+.popup-menu {
+  // '.apps-menu' is the child boxLayout (right-pane)
+  StScrollView.apps-menu {
+    margin: 0 4px;
+    padding: 0;
+    border: 1px solid $borders_color;
+    background-color: $secondary_dark_color;
+
+    // hide vertical faders
+    &.vfade { -st-vfade-offset: 0; }
+  }
+}
+
+
 // /*******
 //  * OSD *
 //  *******/
