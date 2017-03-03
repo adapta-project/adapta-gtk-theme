@@ -422,9 +422,19 @@ entry {
 
   .linked > &:not(.flat),
   .linked.vertical > &:not(.flat) {
-    @extend entry.flat;
+    // do not pull fallback-mode entries
+    @include entry(flat-normal);
     border-radius: 0;
     -gtk-outline-radius: 0;
+    background-color: transparent;
+    &:focus {
+      @include entry(flat-focus);
+      background-color: transparent;
+    }
+    &:disabled {
+      @include entry(flat-insensitive);
+      background-color: transparent;
+    }
   }
 
   // entry error, warning and missing style
