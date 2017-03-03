@@ -1706,7 +1706,7 @@ toolbar {
     label { padding: 0 1em; }
   }
 
-  button { // use flat-buttons
+  .background & button { // use flat-buttons
     @extend %button_flat_normal;
     background-color: transparent;
     border-image: -gtk-gradient(radial,
@@ -1725,9 +1725,7 @@ toolbar {
     &:active {
       @extend %button_flat_active;
       border-image: none;
-      // filled background for LibreOffice 5.3.x
-      // LO uses ":active" pseudo-class as ":checked"
-      background-color: gtkopacity($fg_color, 0.1);
+      background-color: transparent;
       color: $fg_color;
     }
     &:checked {
