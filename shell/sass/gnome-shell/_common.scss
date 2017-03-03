@@ -140,8 +140,8 @@ StScrollBar {
   StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: shellopacity($osd_fg_color, 0.6);
-    &:hover { background-color: shellopacity($osd_fg_color, 0.8); }
+    background-color: shellopacity($osd_fg_color, 0.5 * 0.55);
+    &:hover { background-color: shellopacity($osd_fg_color, 0.75 * 0.55); }
     &:active { background-color: $osd_fg_color; }
   }
 }
@@ -696,12 +696,12 @@ StScrollBar {
   }
 
   StScrollBar {
-    StBin#trough { background-color: shellopacity($fg_color, 0.15); }
+    StBin#trough { background-color: shellopacity($base_color, 0.55); }
 
     StButton#vhandle,
     StButton#hhandle { // use variant-sensitive slider-bit
-      background-color: shellopacity($fg_color, 0.6);
-      &:hover { background-color: shellopacity($fg_color, 0.8); }
+      background-color: shellopacity($fg_color, 0.5 * 0.55);
+      &:hover { background-color: shellopacity($fg_color, 0.75 * 0.55); }
       &:active { background-color: $fg_color; }
     }
   }
