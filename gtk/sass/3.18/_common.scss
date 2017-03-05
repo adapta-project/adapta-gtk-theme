@@ -349,18 +349,19 @@ GtkTextView { // This will get overridden by .view,
   }
 
   GtkTreeView & { // reset styling inside tree-view
-    &.flat:focus {
-      padding: 1px;
-      border-radius: 0;
-      border-image: none;
-      background-color: $base_color;
-      color: $fg_color;
-      box-shadow: none;
-      transition: none;
-      &:selected { @extend %selected_items; }
+    &, &.flat {
+      &, &:focus {
+        padding: 1px;
+        border-radius: 0;
+        border-image: none;
+        background-color: $base_color;
+        color: $fg_color;
+        box-shadow: none;
+        transition: none;
+        &:selected { @extend %selected_items; }
+      }
+      &:insensitive { color: $insensitive_fg_color; }
     }
-    &:insensitive,
-    &.flat:insensitive { color: $insensitive_fg_color; }
   }
 
   .osd & {
