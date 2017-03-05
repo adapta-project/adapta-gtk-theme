@@ -414,15 +414,18 @@ entry {
   }
 
   treeview & { // reset styling inside tree-view
-    &, &.flat:focus {
-      padding: 1px;
-      border-radius: 0;
-      border-image: none;
-      background-color: $base_color;
-      color: $fg_color;
-      box-shadow: none;
-      transition: none;
-      &:selected { @extend %selected_items; }
+    &, &.flat {
+      &, &:focus {
+        margin-bottom: -1px;
+        padding: 1px 1px 2px; // add extra 1px padding at bottom
+        border-radius: 0;
+        border-image: none;
+        border: 1px solid $base_color;
+        background-image: image($base_color);
+        color: $fg_color;
+        box-shadow: none;
+        transition: none;
+      }
     }
   }
 
