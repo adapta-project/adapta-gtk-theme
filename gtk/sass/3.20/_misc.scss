@@ -855,6 +855,23 @@ window.background.solid-csd > headerbar.titlebar > box.horizontal > box.horizont
   }
 }
 
+notebook > stack > grid.horizontal > grid.horizontal > grid.horizontal {
+  button.flat.toggle { // 'edit' and 'browse' button
+    &:checked { // draw underline indicator
+      border-radius: 0;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($selected_bg_color),
+                                  to(transparent))
+                                  0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+      &:hover { border-radius: 2px; } // return to rounded edges
+    }
+  }
+}
+
 // 'plugins' dialog
 dialog.background > box.dialog-vbox.vertical > box.vertical {
   > toolbar.inline-toolbar.horizontal {
