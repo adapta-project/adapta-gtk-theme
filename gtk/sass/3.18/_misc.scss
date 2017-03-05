@@ -647,7 +647,26 @@ GeditViewFrame {
 }
 
 .gedit-titlebar-left {
-  .button.flat { // left-pane header button
+  > GeditMenuStackSwitcher.button.flat { // left-pane header button
+    &:not(.suggested-action):not(.destructive-action) {
+      // specificity bump
+      border-radius: 2px;
+      outline-radius: 2px;
+    }
+
+    .label.title { color: $inverted_secondary_fg_color; }
+
+    &:hover,
+    &:active,
+    &:checked {
+      .label.title { color: $inverted_fg_color; }
+    }
+  }
+}
+
+.gedit-side-panel-paned {
+  GeditFileBrowserWidget .button.image-button.small-button {
+    // back to square 'up' button
     border-radius: 2px;
     outline-radius: 2px;
   }
