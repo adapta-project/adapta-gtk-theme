@@ -846,7 +846,8 @@ $album_art: 54px;
 $min_circle: 24px;
 $toolitem_margin: ($album_art - $min_circle) * 0.5;
 
-window > box.vertical > toolbar.primary-toolbar {
+window.background > box.vertical > toolbar.primary-toolbar,
+window.background > box.vertical > box.vertical > toolbar.primary-toolbar {
   toolitem {
     &:first-child { // 'prev/play/next'
       .linked > button.image-button.raised {
@@ -873,8 +874,19 @@ window > box.vertical > toolbar.primary-toolbar {
       padding: 0;
     }
 
+    > box.horizontal:not(.linked) > button.toggle,
+    > .linked > button:not(.toggle):not(.raised):not(.flat) {
+      min-width: $min_circle * 1.5;
+      min-height: $min_circle * 1.5;
+      padding: 0;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+
+      > widget > box > image { padding: 0; }
+    }
+
     &:last-child { // 'gear'
-      button.popup.raised.toggle {
+      button.popup.toggle {
         min-width: $min_circle * 1.5;
         min-height: $min_circle * 1.5;
         padding: 0;
