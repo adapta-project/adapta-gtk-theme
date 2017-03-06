@@ -613,6 +613,55 @@ paned.vertical > overlay > scrolledwindow > overlay {
 //  * Epiphany *
 //  ************/
 
+// incognito-mode styling
+//
+// most of widget styling are hard-coded by ephy's stylesheet,
+// but we should force using dark foregrounds at least...
+headerbar.titlebar.incognito-mode {
+  entry {
+    color: $secondary_fixed_fg_color;
+    caret-color: $fixed_fg_color;
+
+    image {color: $secondary_fixed_fg_color; }
+
+    &:focus {
+      &, image { color: $fixed_fg_color; }
+    }
+    &:disabled {
+      &, image { color: $insensitive_fixed_fg_color; }
+    }
+  }
+
+  button,
+  box.linked.raised > button {
+    &:not(.destructive-action):not(.suggested-action) {
+      &.image-button,
+      &.toggle.popup,
+      &.minimize,
+      &.maximize,
+      &.close {
+        &,
+        label,
+        image { color: $secondary_fixed_fg_color; }
+
+        &:hover,
+        &:active,
+        &:checked {
+          &,
+          label,
+          image { color: $fixed_fg_color; }
+        }
+        &:disabled,
+        &:checked:disabled {
+          &,
+          label,
+          image { color: $insensitive_fixed_fg_color; }
+        }
+      }
+    }
+  }
+}
+
 // reset inverted foreground colour
 notebook > stack > box.vertical > paned.vertical > overlay {
   > .floating-bar { color: $secondary_fg_color; }
