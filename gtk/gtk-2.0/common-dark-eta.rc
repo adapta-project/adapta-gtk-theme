@@ -652,7 +652,11 @@ style "progressbar" {
   }
 }
 
-style "range" { 
+style "range" {
+  # FIXME: thickness needed by Qt4/5 backend?
+  xthickness = 3
+  ythickness = 3
+
   engine "pixmap" {
     image {
       function    = BOX
