@@ -3312,7 +3312,8 @@ notebook {
       padding: 0;
 
       // weird wdiget gets in our way
-      > widget > box > image { padding: rem(5.3px + 2.7px, $sw: 1.0); }
+      // no need to add extra 50% padding
+      > widget > box > image { padding: rem(5.3px, $sw: 1.0); }
     }
 
     spinner {
