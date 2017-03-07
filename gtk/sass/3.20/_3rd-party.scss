@@ -856,16 +856,6 @@ wnck-pager {
     font-weight: 400;
   }
 
-  button,
-  .linked > button { // OSD-style buttons
-    border-image: none; // hide underlines
-    color: $inverted_secondary_accent_label_color;
-    &:hover,
-    &:active,
-    &:checked { color: $inverted_accent_label_color; }
-    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
-  }
-
   .budgie-osd-text {
     color: $inverted_fg_color;
     font-size: 110%;
@@ -884,6 +874,20 @@ wnck-pager {
     }
 
     progress { background-color: $success_color; }
+  }
+}
+
+.budgie-notification,
+.budgie-osd,
+.drop-shadow {
+  button,
+  .linked > button { // OSD-style buttons
+    border-image: none; // hide underlines
+    color: $inverted_secondary_accent_label_color;
+    &:hover,
+    &:active,
+    &:checked { color: $inverted_accent_label_color; }
+    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
   }
 }
 
