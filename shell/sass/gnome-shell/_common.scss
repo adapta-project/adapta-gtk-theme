@@ -1307,19 +1307,22 @@ StScrollBar {
 .message-list {
   width: if($eta == 'false', 420px, 380px);
 
-  &-clear-button.button {
+  &-clear-button.button { // 'Clear all' button
     margin:  if($eta == 'false', 1.5em 1.5em 0, 1.2em 1.2em 0);
-    color: $secondary_fg_color;
+    color: $secondary_accent_label_color;
     background-color: transparent;
+    font-weight: 700;
     &:hover,
     &:focus {
-      color: $fg_color;
-      background-color: $semi_fill_color;
+      color: $accent_label_color;
+      background-color: $accent_fill_color;
     }
     &:active {
-      color: $fg_color;
-      background-color: $fill_color;
+      color: $accent_label_color;
+      background-color: $accent_active_fill_color;
+      box-shadow: $empty_shadow;
     }
+    &:insensitive { @include button(flat-insensitive); }
   }
 
   &-sections { spacing: if($eta == 'false', 1.5em, 1.2em); }
