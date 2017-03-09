@@ -1374,12 +1374,22 @@ StScrollBar {
       color: $fg_color;
       &:ltr { box-shadow: inset 4px 0 $secondary_accent_color; }
       &:rtl { box-shadow: inset -4px 0 $secondary_accent_color; }
+
+      .message-secondary-bin {
+        &,
+        > .event-time { color: $secondary_fg_color; }
+      }
     }
     &:active {
       background-color: $accent_active_fill_color;
       color: $fg_color;
       &:ltr { box-shadow: inset 4px 0 $accent_color; }
       &:rtl { box-shadow: inset -4px 0 $accent_color; }
+
+      .message-secondary-bin {
+        &,
+        > .event-time { color: $secondary_fg_color; }
+      }
     }
   }
 
@@ -1402,8 +1412,9 @@ StScrollBar {
     &:rtl { padding-right: 6px; }
 
     > .event-time {
-      @include fontscaling($ref_size * 0.9);
-      padding: 0 0 4px; // same padding with '.title'
+      @include fontscaling($ref_size * 0.8);
+      // '.message-title' padding + extra 0.1em for finer base-line
+      padding-bottom: 0.5em + 0.1em;
       color: $dim_fg_color;
     }
 
