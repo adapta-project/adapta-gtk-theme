@@ -792,11 +792,16 @@ window.background box.vertical > paned.horizontal > box.vertical {
   }
 }
 
-// Why GtkLabel was needed, crazy...
-box > headerbar > label.polari-titlebar-separator {
-  min-width: 0;
-  border: none;
-  opacity: 0;
+// bottom-paned entry area
+window.background > box.horizontal > overlay > stack > overlay > box.vertical {
+  > stack.view { // mimic inline-toolbar styling
+    border-style: solid;
+    border-width: 1px 0 0;
+    border-color: $borders_color;
+    background-color: $secondary_dark_color;
+    box-shadow: if($variant == 'light', $inline-shadow-light,
+                                        $inline-shadow-dark);
+  }
 }
 
 
