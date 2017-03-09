@@ -2485,8 +2485,10 @@ headerbar.selection-mode { // selection-mode specific
   .titlebar { // set rounded corners
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+  }
 
-    box &:not(:last-child):not(.titlebar) {
+  box headerbar {
+    &:not(:last-child) {
       &:dir(ltr) {
         border-top-left-radius: 2px;
         border-top-right-radius: 0;
@@ -2497,7 +2499,7 @@ headerbar.selection-mode { // selection-mode specific
       }
     }
 
-    box &:last-child:not(.titlebar) {
+    &:last-child {
       &:dir(ltr) { border-top-left-radius: 0; }
       &:dir(rtl) { border-top-right-radius: 0; }
     }
