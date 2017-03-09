@@ -820,18 +820,22 @@ box > headerbar > label.polari-titlebar-separator {
   }
 }
 
-// tweak drop-shadow and frame in alt-toolbar
+// tweak border and frame in alt-toolbar
 window.csd > box.vertical > box.vertical,
 window.solid-csd > box.vertical > box.vertical {
   > toolbar.horizontal {
-    margin-top: -1px;
+    margin: -1px 0;
     border-top: 1px solid $borders_color;
     background-color: $secondary_dark_color;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    box-shadow: none;
   }
 
-  > frame > border { border: none; }
+  > frame {
+    margin: -1px 0;
+    padding: 0;
+
+    > border { border: none; }
+  }
 }
 
 // force using circle buttons for 'play/pause' etc
