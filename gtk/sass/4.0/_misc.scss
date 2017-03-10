@@ -2582,6 +2582,67 @@ window.background {
 //  * Gnome-Calendar *
 //  ******************/
 
+// 'year-view' sidebar
+stack.view > calendar-view.year-view > box.vertical {
+  background-color: $secondary_dark_color;
+  &:dir(ltr) {
+    border-left: 1px solid $borders_color;
+    // flip ltr/rtl shadow
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
+  }
+  &:dir(rtl) {
+    border-right: 1px solid $borders_color;
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
+  }
+
+  > stack { // unset presets
+    > box.sidebar,
+    > scrolledwindow > viewport.frame > list.sidebar {
+      border: none;
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  // enforce action-button styling for 'Add event...' button
+  > button.text-button {
+    @extend %button_flat_normal;
+    background-color: transparent;
+    color: $secondary_accent_label_color;
+    font-weight: 700;
+    &:hover {
+      @extend %button_flat_hover;
+      background-color: transparent;
+      color: $accent_label_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      background-color: transparent;
+      color: $accent_label_color;
+    }
+    &:disabled {
+      @extend %button_flat_disabled;
+      color: $insensitive_fg_color;
+    }
+    &:checked {
+      @extend %button_flat_checked;
+      background-color: transparent;
+      color: $accent_label_color;
+      &:disabled {
+        @extend %button_flat_checked_disabled;
+        background-color: transparent;
+        color: gtkopacity($accent_label_color, 0.4);
+      }
+    }
+
+    // add missing borders
+    &:dir(ltr) { border-left: 1px solid $borders_color; }
+    &:dir(rtl) { border-right: 1px solid $borders_color; }
+  }
+}
+
 dialog.background {
   > headerbar.titlebar > button.flat.sources-button.popup.toggle {
     box.vertical { // optimize label spacing like gnome-logs
