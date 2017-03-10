@@ -2563,14 +2563,11 @@ window.background {
 // 'year-view' sidebar
 stack.view > calendar-view.year-view > box.vertical {
   background-color: $secondary_dark_color;
-  &:dir(ltr) {
-    border-left: 1px solid $borders_color;
-    // flip ltr/rtl shadow
+  &:dir(ltr) { // flip ltr/rtl shadow
     box-shadow: if($variant == 'light', $sidebar-light-rtl,
                                         $sidebar-dark-rtl);
   }
   &:dir(rtl) {
-    border-right: 1px solid $borders_color;
     box-shadow: if($variant == 'light', $sidebar-light-ltr,
                                         $sidebar-dark-ltr);
   }
