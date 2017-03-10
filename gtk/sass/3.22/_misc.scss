@@ -255,6 +255,7 @@ sn-button { padding: rem(4px); }
 
   gf-candidate-box {
     transition: none;
+
     // a half of .menuitem
     label {
       padding: rem(2.7px) rem(2.7px) rem(4px);
@@ -275,18 +276,25 @@ sn-button { padding: rem(4px); }
     &,
     &:first-child,
     &:last-child {
-      @include button(flat-normal);
-      &:hover { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
-      &:disabled { @include button(flat-insensitive); }
-      &:checked { @include button(flat-checked); }
-      &:checked:disabled { @include button(flat-checked-insensitive); }
-
+      @extend %button_flat_normal;
       border-radius: 0;
       border: none;
       background-color: transparent;
       color: $inverted_secondary_accent_label_color;
-      box-shadow: none;
+      &:hover {
+        @extend %button_flat_hover;
+        background-color: transparent;
+        color: $inverted_accent_label_color;
+      }
+      &:active {
+        @extend %button_flat_active;
+        background-color: transparent;
+        color: $inverted_accent_label_color;
+      }
+      &:disabled {
+        @extend %button_flat_disabled;
+        color: $insensitive_inverted_fg_color;
+      }
     }
   }
 }
