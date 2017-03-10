@@ -2699,12 +2699,9 @@ window.background:not(.csd):not(.solid-csd) > box.vertical > grid.horizontal {
 window.background:not(.csd):not(.ssd):not(.solid-csd) {
   // inline headerbar
   > box.vertical > headerbar:not(.titlebar) {
-    // specificity bump
-    &, &:not(:last-child) { border-radius: 0; }
-
     > box.horizontal {
       > entry,
-      > entry.default { // .default added when focused only? crazy...
+      > entry.default { // .default is added when focused only? crazy...
         // always use inverted colours
         color: $inverted_secondary_fg_color;
         caret-color: $inverted_secondary_fg_color;

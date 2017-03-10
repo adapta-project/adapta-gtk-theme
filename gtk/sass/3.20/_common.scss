@@ -2618,12 +2618,15 @@ headerbar.titlebar.default-decoration {
 }
 
 // workaround for ugly Ubuntu-related CSD patches
-.background:not(.csd):not(.ssd):not(.solid-csd) headerbar {
-  &, &:not(:last-child) {
-    padding: rem(5.3px);
-    border-radius: 0;
-    border-top: 0 none transparent;
-    box-shadow: $menubar-shadow;
+.background:not(.csd):not(.ssd):not(.solid-csd):not(.maximized):not(.tiled) {
+  box headerbar,
+  headerbar {
+    &, &:not(:last-child) {
+      padding: rem(5.3px);
+      border-radius: 0;
+      border-top: 0 none transparent;
+      box-shadow: $menubar-shadow;
+    }
   }
 }
 
