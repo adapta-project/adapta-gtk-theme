@@ -1626,77 +1626,10 @@ greeter > box.vertical > stack > box.vertical > stack {
 //  ***************/
 
 // side-bar styling
-// FIXME: it doesn't work properly
-GdMainView,
 .side-panel {
-  &:dir(ltr) { border-right: 1px solid $borders_color; }
-  &:dir(rtl) { border-left: 1px solid $borders_color; }
-
   .view {
-    background-color: $secondary_dark_color;
-    box-shadow: none;
-    &, row.activatable {
-      padding: 0;
-      background-color: transparent;
-      color: $secondary_fg_color;
-      font-weight: 500;
-      box-shadow: none;
-      &:hover { color: $fg_color; }
-      &:hover:selected,
-      &:selected { @extend %selected_items; }
-    }
-  }
-}
-
-// player-bar
-// FIXME: it doesn't work properly
-actionbar {
-  &, &.frame { background-color: $secondary_dark_color; }
-  box-shadow: if($variant == 'light', $inline-shadow-light,
-                                      $inline-shadow-dark);
-
-  button,
-  .linked > button.image-button {
-    @extend %button_flat_normal;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.001,
-                                to($track_color),
-                                to(transparent))
-                                0 0 0 / 0 0 0px;
-    background-color: transparent;
-    color: $secondary_fg_color;
-    &:hover {
-      @extend %button_flat_hover;
-      border-image: none;
-      background-color: transparent;
-      color: $fg_color;
-    }
-    &:checked {
-      @extend %button_flat_checked;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
-      background-color: transparent;
-      color: $fg_color;
-      &:disabled {
-        @extend %button_flat_checked_disabled;
-        border-image: none;
-        background-color: transparent;
-        color: $insensitive_fg_color;
-      }
-    }
-    &:disabled {
-      @extend %button_flat_disabled;
-      border-image: none;
-      background-color: transparent;
-      color: $insensitive_secondary_fg_color;
-    }
+    &,
+    row.activatable { font-weight: 500; }
   }
 }
 

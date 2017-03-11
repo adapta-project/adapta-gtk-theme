@@ -1729,7 +1729,7 @@ toolbar {
   }
 }
 
-// searchbar, location-bar & inline-toolbar
+// searchbar, location-bar, inline-toolbar & actionbar
 .inline-toolbar {
   padding: rem(5.3px);
   border-style: solid;
@@ -1761,6 +1761,59 @@ searchbar,
     padding: rem(10.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
+  }
+}
+
+actionbar {
+  background-color: $secondary_dark_color;
+  box-shadow: if($variant == 'light', $inline-shadow-light,
+                                      $inline-shadow-dark);
+
+  // actual padding
+  > revealer > box { padding: rem(5.3px); }
+
+  box:not(.linked) > button.toggle,
+  .linked > button.image-button {
+    @extend %button_flat_normal;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.001,
+                                to($track_color),
+                                to(transparent))
+                                0 0 0 / 0 0 0px;
+    background-color: transparent;
+    color: $secondary_fg_color;
+    &:hover {
+      @extend %button_flat_hover;
+      border-image: none;
+      background-color: transparent;
+      color: $fg_color;
+    }
+    &:checked {
+      @extend %button_flat_checked;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($selected_bg_color),
+                                  to(transparent))
+                                  0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+      &:disabled {
+        @extend %button_flat_checked_disabled;
+        border-image: none;
+        background-color: transparent;
+        color: $insensitive_fg_color;
+      }
+    }
+    &:disabled {
+      @extend %button_flat_disabled;
+      border-image: none;
+      background-color: transparent;
+      color: $insensitive_secondary_fg_color;
+    }
   }
 }
 
@@ -4366,10 +4419,7 @@ frame > border,
 actionbar {
   > frame > border { border-width: 1px 0 0; }
 
-  > revealer > box {
-    padding: rem(5.3px);
-    border-top: 1px solid $borders_color;
-  }
+  > revealer > box { border-top: 1px solid $borders_color; }
 }
 
 placessidebar,
