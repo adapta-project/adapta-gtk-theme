@@ -1132,13 +1132,19 @@ UnityPanelWidget,
   }
 }
 
-// workaround for stupid compiz
-.background:not(.csd):not(.ssd):not(.solid-csd) .header-bar {
-  &, &:not(:last-child) {
-    padding: 0.4em;
-    border-radius: 0;
-    border-top: 0 none transparent;
-    box-shadow: $menubar-shadow;
+// workaround for ugly Ubuntu-related CSD patches
+.background:not(.csd):not(.ssd):not(.solid-csd):not(.maximized):not(.tiled) {
+  GtkBox .header-bar,
+  .header-bar {
+    &, &:not(:last-child) {
+      padding: 0.4em;
+      border-radius: 0;
+      border-top: 0 none transparent;
+      box-shadow: $menubar-shadow;
+
+      // unset fade-effect
+      *:backdrop { opacity: 1.0; }
+    }
   }
 }
 
