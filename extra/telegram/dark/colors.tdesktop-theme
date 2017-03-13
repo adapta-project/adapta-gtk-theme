@@ -35,8 +35,8 @@ SEMI_FILL_COLOR: #ECEFF11A;                     // Hovered button background col
 FILL_COLOR: #ECEFF133;                          // Active button/ripple background color (20%)
 SOLID_SEMI_FILL_COLOR: #4F6069;                 // Hovered menuitem background color
 SOLID_FILL_COLOR: #617078;                      // Active menuitem/ripple background color
-ACCENT_FILL_COLOR: #4DB6AC1A;                   // Hovered button accent color (10%)
-ACCENT_ACTIVE_FILL_COLOR: #4DB6AC33;            // Active button/ripple accent color (20%)
+ACCENT_FILL_COLOR: #3F5A62;                     // Hovered button accent color (Bg + 10%)
+ACCENT_ACTIVE_FILL_COLOR: #41656A;              // Active button/ripple accent color (Bg + 20%)
 OSD_BG_COLOR: #2A373EE5;                        // Tooltip background color (90%)
 SUGGESTED_HOVER_COLOR: #19A094;                 // Hovered suggested action color
 SUGGESTED_ACTIVE_COLOR: #33ABA0;                // Active/ripple suggested action color
@@ -104,11 +104,12 @@ activeButtonSecondaryFgOver: FG_COLOR;          // Counter color on primary butt
 activeLineFg: SELECTED_BG_COLOR;                // Active input field line color (normal)
 activeLineFgError: ERROR_COLOR;                 // Active input field line color (error)
 
-lightButtonBg: TRANSPARENT;                     // Secondary button background color (default)
+lightButtonBg: BG_COLOR;                        // Secondary button background color (default)
+                                                // FIXME: do not use alpha-blended Bg colours
 lightButtonBgOver: ACCENT_FILL_COLOR;           // Secondary button background color (hover)
 lightButtonBgRipple: ACCENT_ACTIVE_FILL_COLOR;  // Secondary button background color (press & hold)
 lightButtonFg: 2ND_ACCENT_LABEL_COLOR;          // Secondary button text color
-lightButtonFgOver: 2ND_ACCENT_LABEL_COLOR;
+lightButtonFgOver: ACCENT_LABEL_COLOR;
 
 attentionButtonFg: DESTRUCTIVE_COLOR;
 attentionButtonFgOver: DESTRUCTIVE_COLOR;
@@ -189,8 +190,8 @@ cancelIconFg: menuIconFg;
 cancelIconFgOver: menuIconFgOver;
 
 // boxes
-boxBg: DARK_COLOR;                              // Popup windows background color
-boxTextFg: SECONDARY_FG_COLOR;                  // Popup windows text color
+boxBg: windowBg;                                // Popup windows background color
+boxTextFg: windowFg;                            // Popup windows text color
 boxTextFgGood: SUCCESS_COLOR;                   // Popup windows "good" text (e.g. "Username available")
 boxTextFgError: ERROR_COLOR;                    // Popup windows "bad" text (e.g. "Username already taken")
 boxTitleFg: TERTIARY_FG_COLOR;                  // Popup windows titles color (sessions, contacts...)
