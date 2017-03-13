@@ -1665,3 +1665,18 @@ GtkWindow > GtkBox.vertical > GtkBox.horizontal {
   }
 }
 
+
+// /***********
+//  * Synapse *
+//  ***********/
+
+.background:not(.csd):not(.ssd):not(.solid-csd) > GtkBox.vertical {
+  > SynapseGuiSelectionContainer SynapseGuiMatchListView,
+  > SynapseGuiSpecificMatchList GtkWidget {
+    &:selected { // selected-row?
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+    }
+  }
+}
+
