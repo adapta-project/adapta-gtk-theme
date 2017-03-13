@@ -163,8 +163,18 @@ titleShadow: 10_BLACK;
 titleButtonFg: SECONDARY_FG_COLOR;              // Title bar buttons(min/max/close)
 titleButtonBgOver: SEMI_FILL_COLOR;             // Title bar min/max background (hover)
 titleButtonFgOver: FG_COLOR;                    // Title bar min/max icons 
+titleButtonBgActive: titleButtonBg;
+titleButtonFgActive: titleButtonFg;
+titleButtonBgActiveOver: titleButtonBgOver;
+titleButtonFgActiveOver: titleButtonFgOver;
+titleButtonCloseBg: titleButtonBg;
+titleButtonCloseFg: titleButtonFg;
 titleButtonCloseBgOver: DESTRUCTIVE_COLOR;
 titleButtonCloseFgOver: SELECTED_FG_COLOR;
+titleButtonCloseBgActive: titleButtonCloseBg;
+titleButtonCloseFgActive: titleButtonCloseFg;
+titleButtonCloseBgActiveOver: titleButtonCloseBgOver;
+titleButtonCloseFgActiveOver: titleButtonCloseFgOver;
 titleFgActive: FG_COLOR;                        // Active title bar text (Mac)
 titleFg: INSENSITIVE_FG_COLOR;                  // Inactive title bar text (Mac)
 
@@ -198,7 +208,7 @@ boxTitleCloseFgOver: boxTitleCloseFg;
 membersAboutLimitFg: windowSubTextFgOver;
 
 contactsBg: windowBg;                           // Contacts list background color
-contactsBgOver: SOLID_SEMI_FILL_COLOR;          // Contacts list mouse over background
+contactsBgOver: windowBgOver;                   // Contacts list mouse over background
 contactsNameFg: FG_COLOR;
 contactsStatusFg: TERTIARY_FG_COLOR;            // Contacts list last seen
 contactsStatusFgOver: windowSubTextFgOver;
@@ -274,7 +284,6 @@ dialogsForwardBg: dialogsBgActive;
 dialogsForwardFg: dialogsNameFgActive;
 
 searchedBarBg: DARK_COLOR;                      // Search results window background color
-searchedBarBorder: SELECTED_BG_COLOR;
 searchedBarFg: FG_COLOR;                        // Search results text color
 
 // history
@@ -299,10 +308,6 @@ historyIconFgInverted: SELECTED_FG_COLOR;
 historySendingOutIconFg: ACCENT_LABEL_COLOR;    // "Clock" icon while sending file (outgoing)
 historySendingInIconFg: ACCENT_LABEL_COLOR;     // "Clock" icon while sending file (incoming)
 historySendingInvertedIconFg: SELECTED_FG_COLOR;
-
-historySystemBg: BASE_COLOR;
-historySystemBgSelected: SELECTED_BG_COLOR;
-historySystemFg: SELECTED_FG_COLOR;
 
 historyUnreadBarBg: DARK_COLOR;                 // Unread messages bar color
 historyUnreadBarBorder: 10_DARK;
@@ -436,7 +441,13 @@ toastFg: SELECTED_FG_COLOR;
 reportSpamBg: emojiPanHeaderBg;
 reportSpamFg: TERTIARY_FG_COLOR;
 
+historyToDownBg: windowBg;
+historyToDownBgOver: windowBgOver;
+historyToDownBgRipple: windowBgRipple;
+historyToDownFg: menuIconFg;
+historyToDownFgOver: menuIconFgOver;
 historyToDownShadow: 30_BLACK;
+
 historyComposeAreaBg: SECONDARY_DARK_COLOR;
 historyComposeAreaFg: FG_COLOR;                   // Text color in "Type your message" field
 historyComposeAreaFgService: FG_COLOR;
