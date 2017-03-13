@@ -2615,3 +2615,18 @@ window.background:not(.csd):not(.ssd):not(.solid-csd) {
   }
 }
 
+
+// /***********
+//  * Synapse *
+//  ***********/
+
+window.background:not(.csd):not(.ssd):not(.solid-csd) > box.vertical {
+  > widget widget,
+  > box.vertical widget {
+    &:selected { // selected-row?
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+    }
+  }
+}
+
