@@ -1715,9 +1715,9 @@ style "menu" {
 
   GtkMenuItem::arrow-scaling = 0.4
 
-  bg[NORMAL] = @base_color
-  bg[PRELIGHT] = @base_color
-  bg[INSENSITIVE] = @base_color
+  bg[NORMAL] = mix(0.5, @base_color, @bg_color)
+  bg[PRELIGHT] = mix(0.5, @base_color, @bg_color)
+  bg[INSENSITIVE] = mix(0.5, @base_color, @bg_color)
 }
 
 style "menu_framed_box" {
