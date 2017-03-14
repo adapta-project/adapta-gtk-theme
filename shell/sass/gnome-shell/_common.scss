@@ -1117,9 +1117,13 @@ StScrollBar {
   margin: if($eta == 'false', 0 1.5em, 0 1em);
 }
 
-.datemenu-calendar-column { spacing: 0.5em; }
+.datemenu { // optimize spacing
+  &-calendar-column { spacing: 0.5em; }
 
-.datemenu-displays-section { padding-bottom: 0; }
+  &-displays-section { padding-bottom: 0; }
+
+  &-displays-box { spacing: if($eta == 'false', 1em, 0.7em); }
+}
 
 .datemenu-today-button,
 .world-clocks-button,
