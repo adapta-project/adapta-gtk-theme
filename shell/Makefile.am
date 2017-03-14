@@ -16,6 +16,8 @@ shell_file = \
 	$(shelldir)/toggle-off.svg \
 	$(shelldir)/toggle-on-hover.svg \
 	$(shelldir)/toggle-on.svg
+shell_pad_osd_file = \
+	$(shelldir)/pad-osd.css
 shell_asset_file = \
 	$(shelldir)/assets/calendar-arrow-left-hover.svg \
 	$(shelldir)/assets/calendar-arrow-left.svg \
@@ -401,6 +403,8 @@ all:
 	cd $(srcdir)/sass && $(SASSC) -t compact \
 		gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
 	cd $(srcdir)/sass && $(SASSC) -t compact \
+		gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
+	cd $(srcdir)/sass && $(SASSC) -t compact \
 		gnome-shell/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
 	cd $(srcdir)/sass && $(SASSC) -t compact \
 		gnome-shell/classic.scss ../gnome-shell/extensions/window-list/classic.css
@@ -465,6 +469,7 @@ install-data-local:
 	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_file) $(adaptadir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(adaptadir)/gnome-shell
 	cp -Rv $(shell_asset_file) $(adaptadir)/gnome-shell/assets
 	cp -Rv $(shell_asset_dot_file) $(adaptadir)/gnome-shell/assets/dot
 	cp -Rv $(shell_extension_windowlist_file) \
@@ -482,6 +487,7 @@ install-data-local:
 	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_nokto_file) $(noktodir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(noktodir)/gnome-shell
 	cp -Rv $(shell_nokto_asset_file) $(noktodir)/gnome-shell/assets
 	cp -Rv $(shell_asset_dot_file) $(noktodir)/gnome-shell/assets/dot
 	cp -Rv $(shell_extension_windowlist_file) \
@@ -499,6 +505,7 @@ install-data-local:
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shelleta_file) $(adaptaetadir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(adaptaetadir)/gnome-shell
 	cp -Rv $(shelleta_asset_file) $(adaptaetadir)/gnome-shell/assets
 	cp -Rv $(shell_asset_dot_file) $(adaptaetadir)/gnome-shell/assets/dot
 	cp -Rv $(shell_extension_windowlist_file) \
@@ -516,6 +523,7 @@ install-data-local:
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_nokto_eta_file) $(noktoetadir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(noktoetadir)/gnome-shell
 	cp -Rv $(shell_nokto_eta_asset_file) $(noktoetadir)/gnome-shell/assets
 	cp -Rv $(shell_asset_dot_file) $(noktoetadir)/gnome-shell/assets/dot
 	cp -Rv $(shell_extension_windowlist_file) \
@@ -640,6 +648,7 @@ CLEANFILES = \
 	$(srcdir)/gnome-shell-nokto/gnome-shell.css \
 	$(srcdir)/gnome-shell-eta/gnome-shell.css \
 	$(srcdir)/gnome-shell-nokto-eta/gnome-shell.css \
+	$(srcdir)/gnome-shell/pad-osd.css \
 	$(srcdir)/gnome-shell/extensions/window-list/stylesheet.css \
 	$(srcdir)/gnome-shell/extensions/window-list/classic.css \
 	$(srcdir)/gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css \
@@ -696,12 +705,11 @@ CLEANFILES += \
 	$(srcdir)/asset/assets-cinnamon/common/misc/close-active.svg \
 	$(srcdir)/asset/assets-cinnamon/common/misc/close-hover.svg \
 	$(srcdir)/asset/assets-cinnamon/common/misc/corner-ripple.svg \
+	$(srcdir)/asset/assets-cinnamon/common/misc/message.svg \
 	$(srcdir)/asset/assets-cinnamon/common/panel/activities-active.svg \
 	$(srcdir)/asset/assets-cinnamon/common/panel/window-list-active-bottom.svg \
 	$(srcdir)/asset/assets-cinnamon/common/panel/window-list-active-top.svg \
 	$(srcdir)/asset/assets-cinnamon/common/switch/switch-on.svg \
-	$(srcdir)/asset/assets-cinnamon/light/misc/message.svg \
-	$(srcdir)/asset/assets-cinnamon/nokto/misc/message.svg \
 	$(srcdir)/asset/inkscape.log
 endif
 if ENABLE_UNITY

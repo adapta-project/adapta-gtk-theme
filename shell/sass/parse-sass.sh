@@ -24,6 +24,8 @@ sassc -t compact \
 sassc -t compact \
     gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
 sassc -t compact \
+    gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
+sassc -t compact \
     gnome-shell/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
 sassc -t compact \
     gnome-shell/classic.scss ../gnome-shell/extensions/window-list/classic.css
