@@ -826,11 +826,13 @@ StScrollBar {
   &-window {
     padding: if($eta == 'false', 32px, 26px);
     background-color: shellopacity($osd_bg_color, 0.9);
+
+    .pad-osd-title {
+      &-box { spacing: if($eta == 'false', 12px, 10px); }
+
+      &-menu-box { spacing: if($eta == 'false', 6px, 5px); }
+    }
   }
-
-  &-title-box { spacing: if($eta == 'false', 12px, 10px); }
-
-  &-title-menu-box { spacing: if($eta == 'false', 6px, 5px); }
 }
 
 .combo-box-label { width: 15em; }
