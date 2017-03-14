@@ -1393,7 +1393,10 @@ eggsearchbar > revealer > box { min-height: rem(39px); }
 eggsearchbar entry { min-height: rem(24px); }
 
 // Pillbox is used to render "languages" in the greeter.
-pillbox { border-radius: 2px; }
+pillbox {
+  border-radius: 2px;
+  background-color: $bg_color;
+}
 
 // Styling in the genesis (create project) perspective.
 genesisperspective stack > box:first-child list row {
@@ -1549,9 +1552,31 @@ eggsearchbar box.search-bar {
   background-color: $secondary_dark_color;
 }
 
-pillbox {
-  background-color: $bg_color;
-  border-radius: 2px;
+headerbar > omnibar.linked.horizontal {
+  // enforce inverted label colour
+  > entry.horizontal {
+    color: $inverted_secondary_fg_color;
+    caret-color: $inverted_secondary_fg_color;
+  }
+
+  &:hover {
+    > entry.horizontal {
+      color: $inverted_fg_color;
+      caret-color: $inverted_fg_color;
+    }
+  }
+  &:active {
+    > entry.horizontal {
+      &, &:focus {
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      $selected_bg_color 100%,
+                                      transparent)
+                                      0 0 2 / 0 0 2px;
+        color: $inverted_fg_color;
+        caret-color: $inverted_fg_color;
+      }
+    }
+  }
 }
 
 docktabstrip,
