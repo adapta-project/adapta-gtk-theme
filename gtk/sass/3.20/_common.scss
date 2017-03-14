@@ -369,7 +369,7 @@ entry {
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(8px) rem(10.7px);
 
-  // fallback buttons for non-native apps
+  // fallback entries for non-native apps
   &, &.flat {
     @extend %entry_fallback_normal;
     border-radius: 2px;
@@ -421,9 +421,18 @@ entry {
 
   progress { @extend %entry_progressbar; }
 
-  .linked > &:not(.flat),
-  .linked.vertical > &:not(.flat) {
-    // do not pull fallback-mode entries
+  // fallback linked-entries for non-native apps
+  .linked > &, &.flat,
+  .linked.vertical > &, &.flat {
+    @extend %entry_fallback_normal;
+    border-radius: 2px;
+    &:focus { @extend %entry_fallback_focus; }
+    &:disabled { @extend %entry_fallback_insensitive; }
+  }
+
+  // standard linked-entries for native Gtk+ apps
+  .background .linked > &, &.flat,
+  .background .linked.vertical > &, &.flat {
     @include entry(flat-normal);
     border-radius: 0;
     -gtk-outline-radius: 0;
