@@ -1859,11 +1859,18 @@ window.background > grid.vertical > stack > paned.horizontal {
 
 .xfce4-panel,
 .xfce4-panel.background {
+  &, // unset borders
+  frame > border { border: 0 none transparent; }
+
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
   font-weight: 700;
   text-shadow: none;
   -gtk-icon-shadow: none;
+
+  // dashed outline indicator?
+  // default -> 1px dashed #ff0000;
+  &.marching-ants { border: 1px dashed $destructive_color; }
 
   button {
     padding: 0px 4px;
