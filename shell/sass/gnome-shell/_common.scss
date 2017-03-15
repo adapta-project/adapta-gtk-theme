@@ -715,7 +715,7 @@ StScrollBar {
 
 .popup-menu-boxpointer {
   -arrow-border-radius: 2px; // FIXME: need more than 2px
-  -arrow-background-color: $bg_color; // fake arrows
+  -arrow-background-color: $secondary_base_color; // fake arrows
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 48px; // 'popup-menu-arrow' base * 3
@@ -724,7 +724,7 @@ StScrollBar {
   margin: 0.1em 0.3em 0.5em;
   border-radius: 2px;
   border-top: 1px solid $base_color;
-  background-color: $bg_color;
+  background-color: $secondary_base_color;
   box-shadow: $z-depth-3;
 }
 
@@ -1123,6 +1123,15 @@ StScrollBar {
   &-displays-section { padding-bottom: 0; }
 
   &-displays-box { spacing: if($eta == 'false', 1em, 0.7em); }
+}
+
+// pane-separator between messages and calendar
+.datemenu-calendar-column {
+  border-style: solid;
+  border-color: $borders_color;
+
+  &:ltr { border-left-width: 1px; }
+  &:rtl { border-right-width: 1px; }
 }
 
 .datemenu-today-button,
