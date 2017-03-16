@@ -1256,6 +1256,8 @@ UnityPanelWidget,
       &#shutdown_button { @extend button.destructive-action; }
 
       &.combo {
+        min-height: rem($widget_size);
+        padding: 0 rem(8px, $sw: 1.0);
         border-image: radial-gradient(circle farthest-corner at center,
                                       $track_color 100%,
                                       transparent)
@@ -1284,7 +1286,7 @@ UnityPanelWidget,
 
     entry { // prevent junmping when showing CapsLock warning
       min-height: rem($widget_size);
-      padding: 0 rem(8px);
+      padding: 0 rem(8px, $sw: 1.0);
       font-family: monospace;
     }
 
