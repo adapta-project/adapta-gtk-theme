@@ -2154,6 +2154,10 @@ headerbar {
     padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
 
     label { margin: rem(-2px) 0; }
+
+    > radio { // FIXME: for gnome-clocks
+      margin: unset;
+      padding: unset;
   }
 
   button,
@@ -2374,9 +2378,15 @@ headerbar {
       -gtk-outline-radius: 100px;
 
       &.text-button,
-      &.flat.selection-menu {
+      &.flat.selection-menu,
+      &.selection-menu.toggle.popup {
+        min-height: $icon_size;
+        padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
+        padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
         border-radius: 2px;
         -gtk-outline-radius: 2px;
+
+        label { margin: rem(-2px) 0; }
 
         &.image-button {
           border-radius: 100px;
