@@ -5223,9 +5223,7 @@ placessidebar {
 
     // Using margins/padding directly in the row
     // will make the animation of the new bookmark row jump
-    > revealer {
-      padding: rem(4px) rem(14px) rem(4px) rem(12px);
-    }
+    > revealer { padding: rem(4px) rem(14px) rem(4px) rem(12px); }
 
     image.sidebar-icon {
       opacity: 0.75; // dim the device icons
@@ -5238,16 +5236,14 @@ placessidebar {
       &:dir(rtl) { padding-left: rem(2px); }
     }
 
-    button {
-      &.image-button { // Eject button for removable storages
-        @include button(flat-normal);
-        padding: rem(4px); // Same as of placessidebar row
-        &:hover { @include button(flat-hover); }
-        &:active { @include button(flat-active); }
-        &:disabled { @include button(flat-insensitive); }
-        &:checked { @include button(flat-checked); }
-        &:checked:disabled { @include button(flat-checked-insensitive); }
-      }
+    button.image-button { // Eject button for removable storages
+      @include button(flat-normal);
+      padding: rem(4px); // Same as of placessidebar row
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { @include button(flat-checked); }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
     }
 
     &:selected {
@@ -5271,13 +5267,9 @@ placessidebar {
     //   @extend %selected_items:backdrop:disabled;
     // }
 
-    &.sidebar-placeholder-row {
-      border: solid 1px $selected_bg_color;
-    }
+    &.sidebar-placeholder-row { border: solid 1px $selected_bg_color; }
 
-    &.sidebar-new-bookmark-row {
-      color: $selected_bg_color;
-    }
+    &.sidebar-new-bookmark-row { color: $selected_bg_color; }
 
     &:drop(active):not(:disabled) {
       color: $drop_target_color;
