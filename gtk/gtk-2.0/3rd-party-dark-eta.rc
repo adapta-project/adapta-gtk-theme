@@ -86,6 +86,10 @@ style "theme-panel-text" {
   font_name = "Bold"
 }
 
+style "regular-label" {
+  font_name = "Regular"
+}
+
 style "panel-entry" {
   fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
   fg[PRELIGHT] = @inverted_fg_color
@@ -223,6 +227,7 @@ widget_class "*XfcePanelPlugin.GtkButton"             style "panelbuttons"
 widget "*dict*Applet*"                                style "panelbuttons"
 widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
 widget_class "*Tasklist*"                             style:highest "panelbuttons"
+widget_class "*Tasklist*.GtkLabel"                    style:highest "regular-label"
 widget_class "*Mixer*lugin*"                          style:highest "panelbuttons"
 
 class "*Panel*MenuBar*"                               style "panelbar"
