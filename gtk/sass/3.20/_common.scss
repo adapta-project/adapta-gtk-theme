@@ -3140,9 +3140,16 @@ popover.background {
 
   .csd &,
   & {
-    border: 1px solid;
-    border-color: $base_color $secondary_base_color $secondary_base_color;
-    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    border-color: if($variant == 'light', gtkopacity($borders_color, 0.75),
+                                          gtkopacity($borders_color, 0.5))
+                  $secondary_base_color $secondary_base_color;
+    border-image: linear-gradient(to bottom,
+                                  $base_color 1px,
+                                  $secondary_base_color,
+                                  $secondary_base_color 1px) 1 / 1px stretch;
   }
 
   &:backdrop { box-shadow: $z-depth-1; }
