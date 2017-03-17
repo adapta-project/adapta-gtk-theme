@@ -1796,12 +1796,10 @@ actionbar {
     @extend %button_flat_normal;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    border-image: -gtk-gradient(radial,
-                                center bottom, 0,
-                                center bottom, 0.001,
-                                to($track_color),
-                                to(transparent))
-                                0 0 0 / 0 0 0px;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $track_color 0%,
+                                  transparent)
+                                  0 0 0 / 0 0 0px;
     background-color: transparent;
     color: $secondary_fg_color;
     &:hover {
@@ -1812,12 +1810,10 @@ actionbar {
     }
     &:checked {
       @extend %button_flat_checked;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent)
+                                    0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
       &:disabled {
@@ -3264,12 +3260,10 @@ notebook {
         &.toggle {
           &:checked { // draw underlines
             background-color: transparent;
-            border-image: -gtk-gradient(radial,
-                                        center bottom, 0,
-                                        center bottom, 0.5,
-                                        to($selected_bg_color),
-                                        to(transparent))
-                                        0 0 2 / 0 0 2px;
+            border-image: radial-gradient(circle farthest-corner at center,
+                                          $selected_bg_color 100%,
+                                          transparent)
+                                          0 0 2 / 0 0 2px;
           }
         }
       }

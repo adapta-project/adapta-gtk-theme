@@ -979,12 +979,10 @@ notebook > stack > box > grid.horizontal > grid.horizontal > grid.horizontal {
   button.flat.toggle { // 'edit' and 'browse' button
     &:checked { // draw underline indicator
       border-radius: 0;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent)
+                                    0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
       &:hover { border-radius: 2px; } // return to rounded edges
@@ -1494,13 +1492,11 @@ layouttab {
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       &:checked { // draw underline
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      $selected_bg_color 100%,
+                                      transparent)
+                                      0 0 2 / 0 0 2px;
         background-color: transparent;
-        border-image: -gtk-gradient(radial,
-                                    center bottom, 0,
-                                    center bottom, 0.5,
-                                    to($selected_bg_color),
-                                    to(transparent))
-                                    0 0 2 / 0 0 2px;
       }
       &:checked:disabled { @include button(flat-checked-insensitive); }
     }
@@ -2245,12 +2241,10 @@ stack > box.vertical > widget > overlay grid.horizontal > stack {
     &:disabled { @include button(flat-insensitive); }
     &:checked { // draw underline
       @extend %button_flat_checked;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent)
+                                    0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
     }
