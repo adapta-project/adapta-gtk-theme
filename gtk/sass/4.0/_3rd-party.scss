@@ -2639,3 +2639,114 @@ window.background:not(.csd):not(.ssd):not(.solid-csd) > box.vertical {
   }
 }
 
+
+// /*******************
+//  * MySQL-Workbench *
+//  *******************/
+
+window#wb_main_window {
+  notebook#model_tabs {
+    > header.top {
+      background-color: $inverted_dark_color;
+
+      tabs {
+        arrow {
+          color: $inverted_tertiary_fg_color;
+          &:hover,
+          &:active { color: $inverted_fg_color; }
+          &:disabled { color: transparent; }
+        }
+
+        tab {
+          &,
+          label,
+          button.flat { color: $inverted_tertiary_fg_color; }
+
+          &:hover,
+          &:checked {
+            &,
+            label,
+            button.flat { color: $inverted_fg_color; }
+
+            > image { background-color: $inverted_fg_color; }
+          }
+          &:disabled {
+            &,
+            label,
+            button.flat { color: $insensitive_inverted_fg_color; }
+          }
+
+          > image { // 'Home' icon
+            min-height: $icon_size * 1.5;
+            min-width: $icon_size * 1.5;
+            border-radius: 2px;
+            background-color: $inverted_tertiary_fg_color;
+          }
+        }
+      }
+    }
+
+    > stack > box.vertical > menubar { margin: 0 -1px; } // hide weird gap
+  }
+
+  &.maximized,
+  &.tiled {
+    notebook#model_tabs {
+      > header.top {
+        background-color: $panel_bg_color;
+
+        button.flat#wbtab-close-button { // for pitch black icon
+          > image {
+            border-radius: 100px;
+            background-color: $track_color;
+            color: $inverted_secondary_fg_color;
+          }
+
+          &:hover > image,
+          &:checked > image {
+            background-color: $track_color;
+            color: $inverted_fg_color;
+          }
+        }
+      }
+
+      > stack > box.vertical > menubar { box-shadow: none; }
+    }
+  }
+
+  box#dbquery,
+  box#db.query.QueryBuffer,
+  paned.vertical > box.horizontal > box.vertical > box.horizontal,
+  notebook#model_tabs > stack > box.vertical > box.horizontal {
+    border-bottom: 1px solid $borders_color;
+  }
+
+  button.flat.image-button { // revert to square
+    margin: rem(5.3px) 0; // add vertical spacing
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    &.toggle:checked {
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($selected_bg_color),
+                                  to(transparent))
+                                  0 0 2 / 0 0 2px;
+      background-color: transparent;
+    }
+  }
+
+  box.horizontal > combobox { margin: rem(5.3px) 0; } // add vertical spacing
+
+  entry#find { margin: rem(5.3px) 0; } // add vertical spacing
+
+  scrolledwindow#SchemaTree {
+    > treeview.view {
+      transition: none;
+      &:selected { // enforce standard selection styling
+        &, &:focus { @extend %selected_items; }
+      }
+    }
+  }
+}
+
