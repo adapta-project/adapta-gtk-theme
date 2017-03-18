@@ -118,8 +118,9 @@ StEntry {
 //  **************/
 
 StScrollView {
-  &.vfade { -st-vfade-offset: 32px; }
-  &.hfade { -st-hfade-offset: 32px; }
+  // disable undershoots
+  &.vfade { -st-vfade-offset: 0; }
+  &.hfade { -st-hfade-offset: 0; }
 }
 
 StScrollBar {
@@ -789,9 +790,6 @@ StScrollBar {
       padding: if($eta == 'false', 0 12px 0 0, 0 8px 0 0);
       border-right-width: 1px;
     }
-
-    // hide vertical faders
-    &.vfade { -st-vfade-offset: 0; }
   }
 }
 
@@ -2848,7 +2846,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     &:focus { background-color: $osd_semi_fill_color; }
   }
 
-  &-user-list-view { -st-vfade-offset: 1em; }
+  &-user-list-view { -st-vfade-offset: 0; }
 
   &-user-list {
     width: 23em;
