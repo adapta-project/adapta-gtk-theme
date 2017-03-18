@@ -1354,10 +1354,6 @@ overlay > box.vertical > paned.horizontal > box.vertical {
 //  * Gnome-Builder *
 //  *****************/
 
-//
-// do not use box-shadows. it's too problematic!
-//
-
 // work around some gtk padding issue
 filechooser actionbar button.combo {
   padding: 0;
@@ -1450,24 +1446,27 @@ layouttabbar {
   background-image: if($variant == 'light', $fake-shadow-light,
                                             $fake-shadow-dark);
 
-  > box > button {
-    opacity: 0.55;
-    &:hover { opacity: 0.75; }
-    &:active { opacity: 1.0; }
-  }
-
-  button {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { @include button(flat-checked); }
-    &:checked:disabled { @include button(flat-checked-insensitive); }
-
-    padding: rem(4px) rem(5.3px) rem(5.3px);
-    margin: rem(2.7px);
-    border-radius: 2px;
-    background-color: transparent;
+  box.horizontal > button {
+    &, &.popup.toggle {
+      @extend %button_flat_normal;
+      padding: rem(4px) rem(5.3px) rem(5.3px);
+      border-radius: 2px;
+      background-color: transparent;
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { // draw underline
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+        background-color: transparent;
+        color: $fg_color;
+      }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
+    }
   }
 }
 
@@ -1495,13 +1494,14 @@ layouttab {
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
       &:checked { // draw underline
-        background-color: transparent;
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
                                     to($selected_bg_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
+        background-color: transparent;
+        color: $fg_color;
       }
       &:checked:disabled { @include button(flat-checked-insensitive); }
     }
