@@ -1297,10 +1297,6 @@ overlay > box.vertical > paned.horizontal > box.vertical {
 //  * Gnome-Builder *
 //  *****************/
 
-//
-// do not use box-shadows. it's too problematic!
-//
-
 // work around some gtk padding issue
 filechooser actionbar button.combo {
   padding: 0;
@@ -1432,10 +1428,11 @@ layouttab {
 
   button {
     &, &.popup.toggle {
-      @include button(flat-normal);
+      @extend %button_flat_normal;
       border-radius: 2px;
       padding-left: rem(5.3px);
       padding-right: rem(5.3px);
+      background-color: transparent;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
