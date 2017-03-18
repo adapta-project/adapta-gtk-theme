@@ -1427,9 +1427,7 @@ StScrollBar {
 
     > StIcon {
       color: $secondary_fg_color;
-      // this size is related to 'cover-image' of media-control,
-      // so keep larger than 24px or more...
-      icon-size: 32px;
+      icon-size: 16px;
       -st-icon-style: symbolic;
     }
   }
@@ -1504,11 +1502,13 @@ StScrollBar {
 }
 
 .media-message-cover-icon {
-  icon-size: 32px;
+  // use 'important' flag to overrride .message-icon-bin > StIcon size
+  icon-size: if($eta == 'false', 48px, 32px) !important;
+  margin-bottom: if($eta == 'false', 4px, 2px); // tweak the bottom spacing
 
   &.fallback {
-    icon-size: 16px;
-    padding: 8px;
+    icon-size: if($eta == 'false', 24px, 16px);
+    padding: if($eta == 'false', 12px, 8px);
     border: none;
     border-radius: 2px;
     color: $dim_fg_color;
