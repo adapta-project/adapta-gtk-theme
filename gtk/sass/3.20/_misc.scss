@@ -1337,7 +1337,10 @@ eggsearchbar > revealer > box { min-height: rem(39px); }
 eggsearchbar entry { min-height: rem(24px); }
 
 // Pillbox is used to render "languages" in the greeter.
-pillbox { border-radius: 2px; }
+pillbox {
+  border-radius: 2px;
+  background-color: $bg_color;
+}
 
 // Styling in the genesis (create project) perspective.
 genesisperspective stack > box:first-child list row {
@@ -1390,24 +1393,27 @@ layouttabbar {
   background-image: if($variant == 'light', $fake-shadow-light,
                                             $fake-shadow-dark);
 
-  > box > button {
-    opacity: 0.55;
-    &:hover { opacity: 0.75; }
-    &:active { opacity: 1.0; }
-  }
-
-  button {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { @include button(flat-checked); }
-    &:checked:disabled { @include button(flat-checked-insensitive); }
-
-    padding: rem(4px) rem(5.3px) rem(5.3px);
-    margin: rem(2.7px);
-    border-radius: 2px;
-    background-color: transparent;
+  box.horizontal > button {
+    &, &.popup.toggle {
+      @extend %button_flat_normal;
+      padding: rem(4px) rem(5.3px) rem(5.3px);
+      border-radius: 2px;
+      background-color: transparent;
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { // draw underline
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+        background-color: transparent;
+        color: $fg_color;
+      }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
+    }
   }
 }
 
@@ -1425,40 +1431,41 @@ layouttab {
   }
 
   button {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { @include button(flat-checked); }
-    &:checked:disabled { @include button(flat-checked-insensitive); }
-
-    margin: rem(2.7px);
-    border-radius: 2px;
-    padding-left: rem(5.3px);
-    padding-right: rem(5.3px);
+    &, &.popup.toggle {
+      @include button(flat-normal);
+      border-radius: 2px;
+      padding-left: rem(5.3px);
+      padding-right: rem(5.3px);
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-insensitive); }
+      &:checked { // draw underline
+        border-image: -gtk-gradient(radial,
+                                    center bottom, 0,
+                                    center bottom, 0.5,
+                                    to($selected_bg_color),
+                                    to(transparent))
+                                    0 0 2 / 0 0 2px;
+        background-color: transparent;
+        color: $fg_color;
+      }
+      &:checked:disabled { @include button(flat-checked-insensitive); }
+    }
   }
 }
 
 // Close button styling for layouttab.
 layouttab > box {
-  > button:last-child {
+  > button.close {
+    @extend %button_flat_normal;
     min-height: rem(13.3px);
     min-width: rem(13.3px);
     padding: rem(6.7px);
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    @include button(flat-normal);
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
-  }
-
-  > button:last-child {
-    image { opacity: 0.55; }
-
-    &:hover image { opacity: 0.75; }
-
-    &:active image { opacity: 1.0; }
   }
 }
 
@@ -1492,11 +1499,6 @@ eggsearchbar box.search-bar {
   background-color: $secondary_dark_color;
 }
 
-pillbox {
-  background-color: $bg_color;
-  border-radius: 2px;
-}
-
 docktabstrip,
 tabstrip {
   min-height: rem(34.7px);
@@ -1522,6 +1524,15 @@ tabstrip {
       color: $fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
+  }
+}
+
+dockstack > stack { // treeviews inside the left/right layoutpane
+  > dockwidget treeview.project-tree.view,
+  > devhelppanel treeview.view {
+    background-color: $bg_color;
+    &:selected, // use standard selection styling
+    &:selected:focus { @extend %selected_items; }
   }
 }
 
