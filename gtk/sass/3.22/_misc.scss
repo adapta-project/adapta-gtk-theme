@@ -1485,11 +1485,12 @@ layouttab {
 
   button {
     &, &.popup.toggle {
-      @include button(flat-normal);
+      @extend %button_flat_normal;
       margin: 4px;
       border-radius: 2px;
       padding-left: rem(5.3px);
       padding-right: rem(5.3px);
+      background-color: transparent;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
       &:disabled { @include button(flat-insensitive); }
@@ -1511,7 +1512,7 @@ layouttab {
 // Close button styling for layouttab.
 layouttab > box {
   > button.close {
-    @include button(flat-normal);
+    @extend %button_flat_normal;
     min-height: rem(13.3px);
     min-width: rem(13.3px);
     padding: rem(6.7px);
