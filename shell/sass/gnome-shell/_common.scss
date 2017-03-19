@@ -1515,9 +1515,21 @@ StScrollBar {
     padding: if($eta == 'false', 12px, 10px);
     border: none;
     border-radius: 2px;
-    color: $dim_fg_color;
-    background-color: $base_color;
-    box-shadow: $z-depth-1;
+    color: $osd_dim_fg_color;
+    background-color: $osd_semi_fill_color;
+    box-shadow: $empty_shadow;
+
+    .popup-menu .message & {
+      color: $dim_fg_color;
+      background-color: $semi_fill_color;
+    }
+
+    .popup-menu .message:hover &,
+    .popup-menu .message:focus &,
+    .popup-menu .message:active & {
+      color: $secondary_fg_color;
+      background-color: $accent_fill_color;
+    }
   }
 }
 
