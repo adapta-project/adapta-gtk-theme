@@ -1426,18 +1426,23 @@ StScrollBar {
   }
 
   &-icon-bin {
+    padding: 0; // FIXME: needs to override the stock gresource
+                // (Since upstream still uses padding properties)
+
     &:ltr { margin: 4px 0 0 6px; }
     &:rtl { margin: 4px 6px 0 0; }
 
     > StIcon {
-      color: $secondary_fg_color;
+      color: $osd_fg_color;
       icon-size: 16px;
       -st-icon-style: symbolic;
+
+      .popup-menu & { color: $secondary_fg_color; }
     }
   }
 
   &-secondary-bin {
-    color: $dim_fg_color;
+    color: $osd_dim_fg_color;
     &:ltr { padding-left: 6px; }
     &:rtl { padding-right: 6px; }
 
@@ -1445,10 +1450,15 @@ StScrollBar {
       @include fontscaling($ref_size * 0.8);
       // '.message-title' padding + extra 0.1em for finer base-line
       padding-bottom: 0.5em + 0.1em;
-      color: $dim_fg_color;
+      color: $osd_dim_fg_color;
     }
 
     > StIcon { icon-size: 16px; }
+
+    .popup-menu & {
+      &,
+      > .event-time { color: $dim_fg_color; }
+    }
   }
 
   &-title {
