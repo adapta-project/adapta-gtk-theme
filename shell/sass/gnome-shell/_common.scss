@@ -1387,10 +1387,12 @@ StScrollBar {
   // So only padding property seems enough to control the spacing.
   padding: 6px;
   border-radius: 0;
-  background-color: $semi_fill_color;
-  color: $secondary_fg_color;
+  background-color: transparent;
+  color: $osd_fg_color;
 
   .popup-menu & {
+    background-color: $semi_fill_color;
+    color: $secondary_fg_color;
     &:ltr { box-shadow: inset 4px 0 $semi_fill_color; }
     &:rtl { box-shadow: inset -4px 0 $semi_fill_color; }
 
