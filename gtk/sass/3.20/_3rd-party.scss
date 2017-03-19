@@ -178,6 +178,25 @@ box.horizontal.pinned { // drop-target
 .budgie-panel .end-region {
   // dim symbolic icons to get better uniformity same as NaTray icons
   * > image { opacity: 0.9; }
+
+  // tweak lateral spacing when 16px icons are used
+  > widget > widget {
+    > box.horizontal { // 'Stats Indicator'
+      padding: 0 2px;
+
+      > widget > widget > image { // 'bluetooth' and 'sound'
+        min-width: $icon_size + 2px;
+      }
+
+      > widget > widget > box.horizontal > image { // 'battery'
+        min-width: $icon_size + 8px;
+      }
+    }
+
+    > image { // 'Notification' and 'User Indicator'
+      min-width: $icon_size + 4px;
+    }
+  }
 }
 
 // main menu styling
