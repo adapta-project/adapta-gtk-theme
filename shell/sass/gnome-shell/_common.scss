@@ -1464,12 +1464,26 @@ StScrollBar {
   &-title {
     @include fontscaling($ref_size * 1.1);
     padding: 0 0 4px;
+    color: $osd_fg_color;
     font-weight: 700;
+
+    .popup-menu .message & { color: $secondary_fg_color; }
+
+    .popup-menu .message:hover &,
+    .popup-menu .message:focus &,
+    .popup-menu .message:active & { color: $fg_color; }
   }
 
   &-content {
     @include fontscaling($ref_size * 0.9);
     padding: 0 8px 4px;
+    color: $osd_fg_color;
+
+    .popup-menu .message & { color: $secondary_fg_color; }
+
+    .popup-menu .message:hover &,
+    .popup-menu .message:focus &,
+    .popup-menu .message:active & { color: $fg_color; }
 
     * > StIcon {
       padding: 2px;
