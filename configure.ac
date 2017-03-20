@@ -1,10 +1,15 @@
+m4_define([adapta_major_version], [3])
+m4_define([adapta_minor_version], [89])
+m4_define([adapta_micro_version], [5])
+m4_define([adapta_version], [adapta_major_version.adapta_minor_version.adapta_micro_version])
+m4_define([adapta_git_url], [https://github.com/adapta-project/adapta-gtk-theme])
+
 AC_INIT(
 	[Adapta ],
-	3.89.5,
-	[https://github.com/adapta-project/adapta-gtk-theme],
+	[adapta_version],
+	[adapta_git_url],
 	[adapta-gtk-theme]
 )
-
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([
 	-Wno-portability \
