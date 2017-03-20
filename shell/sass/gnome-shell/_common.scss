@@ -1437,8 +1437,9 @@ StScrollBar {
     padding: 0; // FIXME: needs to override the stock gresource
                 // (Since upstream still uses padding properties)
 
-    &:ltr { margin: 4px 0 0 6px; }
-    &:rtl { margin: 4px 6px 0 0; }
+    // subtruct .message-content's 'close' button padding
+    &:ltr { margin: 4px - 2px 0 0 6px; }
+    &:rtl { margin: 4px - 2px 6px 0 0; }
 
     > StIcon {
       color: $osd_fg_color;
@@ -1526,7 +1527,8 @@ StScrollBar {
 .media-message-cover-icon {
   // use 'important' flag to overrride .message-icon-bin > StIcon size
   icon-size: if($eta == 'false', 48px, 36px) !important;
-  margin-bottom: 4px; // tweak the bottom spacing
+  // subtruct .message-content's 'close' button padding
+  margin-bottom: 4px - 2px;
 
   &.fallback {
     icon-size: if($eta == 'false', 24px, 16px) !important;
