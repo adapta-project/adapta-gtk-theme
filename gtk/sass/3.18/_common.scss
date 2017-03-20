@@ -1831,28 +1831,33 @@ GtkComboBox {
 GtkTreeView.view {
   @at-root * {
     -GtkTreeView-horizontal-separator: 4;
-    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-grid-line-width: 0;
     -GtkTreeView-grid-line-pattern: '';
     -GtkTreeView-tree-line-width: 1;
     -GtkTreeView-tree-line-pattern: '';
     -GtkTreeView-expander-size: 16;
   }
 
-  border-left-color: $track_color;  // this is actually the tree lines color,
-  border-top-color: $borders_color; // while this is the grid lines color,
-                                    // better then nothing
-
-  &.rubberband { @extend .rubberband; } // to avoid borders being overridden
-                                        // by the previously set props
+  // this is actually the tree lines color,
+  // while this is the grid lines color, better then nothing to avoid borders
+  // being overridden by the previously set props
+  border-left-color: $track_color;
+  border-top-color: $borders_color;
 
   border-radius: 0; // rest border radius in lists
 
+  &.rubberband { @extend .rubberband; }
+
   &:hover,
-  &:selected { border-radius: 0; }
+  &:active { border-radius: 0; }
+  &:selected {
+    border-radius: 0;
+    @extend %selected_items;
+  }
 
   // override foreground colours
-  &, & .entry,
-  & .entry > .label {
+  &, .entry,
+  .entry > .label {
     color: $secondary_fg_color;
     &:hover,
     &:active,
@@ -1919,7 +1924,7 @@ column-header {
     border-width: 1px;
     border-color: $borders_color;
     border-radius: 0;
-    background-color: $base_color;
+    background-color: $bg_color;
     color: $tertiary_fg_color;
     box-shadow: none;
     &:hover,
@@ -1927,7 +1932,7 @@ column-header {
       color: $fg_color;
       box-shadow: none;
     }
-    &:insensitive { background-color: $base_color; }
+    &:insensitive { background-color: $bg_color; }
     &.dnd { @extend column-header.button.dnd; }
   }
 
@@ -1958,7 +1963,6 @@ column-header {
 }
 
 column-header.button.dnd { // for treeview-like derive widgets
-  // transition: none;
   border-left-style: solid;
   color: $selected_bg_color;
 }

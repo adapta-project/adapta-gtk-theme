@@ -2783,21 +2783,22 @@ dialog.background.csd > headerbar.titlebar {
 treeview.view {
   @at-root * {
     -GtkTreeView-horizontal-separator: 4;
-    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-grid-line-width: 0;
     -GtkTreeView-grid-line-pattern: '';
     -GtkTreeView-tree-line-width: 1;
     -GtkTreeView-tree-line-pattern: '';
     -GtkTreeView-expander-size: 16;
   }
 
-  border-left-color: $track_color;   // this is actually the tree lines color,
-  border-top-color: $borders_color;  // while this is the grid lines color,
-                                     // better then nothing
-
-  rubberband { @extend rubberband; } // to avoid borders being overridden
-                                     // by the previously set props
+  // this is actually the tree lines color,
+  // while this is the grid lines color, better then nothing to avoid borders
+  // being overridden by the previously set props
+  border-left-color: $track_color;
+  border-top-color: $borders_color;
 
   border-radius: 0; // rest border radius in lists
+
+  rubberband { @extend rubberband; }
 
   &:hover,
   &:active { border-radius: 0; }
@@ -2821,10 +2822,7 @@ treeview.view {
   }
 
   .separator {
-    &, &:hover {
-      color: transparent;
-      background-color: $borders_color;
-    }
+    &, &:hover { background-color: $borders_color; }
   }
 
   // clear backgrounds
@@ -2872,7 +2870,7 @@ treeview.view {
   header {
     button {
       @extend %column_header_button;
-      background-color: $base_color;
+      background-color: $bg_color;
       color: $tertiary_fg_color;
 
       &:hover {
@@ -2886,7 +2884,7 @@ treeview.view {
       }
       &:disabled {
         @extend %column_header_button;
-        background-color: $base_color;
+        background-color: $bg_color;
         color: $insensitive_fg_color;
       }
     }
@@ -2899,8 +2897,8 @@ treeview.view {
   }
 
   &.separator {
-    min-height: rem(2px);
-    color: transparent;
+    min-width: 1px;
+    min-height: 1px;
     background-color: $borders_color;
   }
 
