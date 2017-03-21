@@ -133,6 +133,29 @@ sn-button { padding: rem(4px); }
   }
 }
 
+row.tweak { // basic row node container in right-pane
+  &:dir(ltr) { padding-left: rem(13.3px, $sw: 1.0); }
+  &:dir(rtl) { padding-right: rem(13.3px, $sw: 1.0); }
+
+  &, &.title {
+    min-height: rem($widget_size);
+    &:hover,
+    &:active { // unset hover/active effects
+      background-image: none;
+      background-color: transparent;
+      animation: none;
+    }
+  }
+
+  &.title {
+    color: $tertiary_fg_color;
+    font-weight: 700;
+    // unset indentation
+    &:dir(ltr) { padding-left: 0; }
+    &:dir(rtl) { padding-right: 0; }
+  }
+}
+
 // container and tweaks in a group
 .tweak-group-startup {
   background-color: $bg_color;
