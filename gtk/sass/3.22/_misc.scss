@@ -210,7 +210,7 @@ row.tweak { // basic row node container in right-pane
     min-width: rem(50px);
     min-height: rem(28px);
 
-    &,
+    &:not(:hover):not(:checked):not(:disabled),
     &:hover,
     &:checked,
     &:checked:hover,
@@ -231,7 +231,7 @@ row.tweak { // basic row node container in right-pane
     }
 
     // reset all of default sliders
-    slider,
+    &:not(:hover):not(:checked):not(:disabled) slider,
     &:hover slider,
     &:checked slider,
     &:checked:hover slider,

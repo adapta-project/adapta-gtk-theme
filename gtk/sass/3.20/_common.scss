@@ -3756,7 +3756,7 @@ switch {
     outline-color: transparent;
 
     // reset all of default troughs
-    &,
+    &:not(:hover):not(:checked):not(:disabled),
     &:hover,
     &:checked,
     &:checked:hover,
@@ -3777,7 +3777,7 @@ switch {
     }
 
     // reset all of default sliders
-    slider,
+    &:not(:hover):not(:checked):not(:disabled) slider,
     &:hover slider,
     &:checked slider,
     &:checked:hover slider,
