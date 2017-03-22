@@ -1358,20 +1358,35 @@ genesisperspective stack > box:first-child list row {
 //
 // The following tweaks the left-most sidebar containing
 // the list of perspectives.
-perspectiveswitcher {
+perspectiveswitcher.linked.stack-switcher.vertical {
   padding: 0 rem(4px);
-  border-right: 1px solid $solid_light_borders_color;
-  background-color: $secondary_dark_color;
+  border-right: 0 none transparent;
+  background-color: transparent;
+  // draw gradient separator
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
+                                               rgba(0, 0, 0, 0.11) 2px,
+                                               rgba(0, 0, 0, 0.05) 4px,
+                                               rgba(0, 0, 0, 0.05));
+  background-repeat: no-repeat;
+  background-size: 1px auto;
+  &:dir(ltr) {
+    margin-right: -1px;
+    background-position: right top;
+  }
+  &:dir(rtl) {
+    margin-left: -1px;
+    background-position: left top;
+  }
 
   button {
     padding: rem(6px);
     border-radius: 100px;
     border: none;
     background: none;
-    color: $tertiary_fg_color;
+    color: $fg_color;
     box-shadow: none;
 
-    image { opacity: 0.55; }
+    image { opacity: 0.5; }
 
     &:hover {
       background: none;
