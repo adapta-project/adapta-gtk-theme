@@ -205,6 +205,89 @@ row.tweak { // basic row node container in right-pane
   }
 }
 
+.tweak-titlebar-right { // FIXME: weird allocations with standard switches,
+  switch {              // use pixmap based switches instead
+    min-width: rem(50px);
+    min-height: rem(28px);
+
+    &,
+    &:hover,
+    &:checked,
+    &:checked:hover,
+    &:checked:disabled,
+    &:disabled {
+      margin: 0 0 rem(-7px);
+      padding: 0;
+      border: none;
+      color: transparent;
+      background: none;
+      background-image: none;
+      background-size: rem(50px) rem(35px);
+      background-repeat: no-repeat;
+      background-position: right center;
+      box-shadow: none;
+
+      &:dir(rtl) { background-position: left center; }
+    }
+
+    // reset all of default sliders
+    slider,
+    &:hover slider,
+    &:checked slider,
+    &:checked:hover slider,
+    &:checked:disabled slider,
+    &:disabled slider {
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      color: transparent;
+      background: none;
+      background-image: none;
+      background-size: rem(50px) rem(35px);
+      background-repeat: no-repeat;
+      background-position: right center;
+      box-shadow: none;
+
+      &:dir(rtl) { background-position: left center; }
+    }
+
+    // use ugly pixmaps
+    &:not(:hover):not(:checked):not(:disabled) {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off-dark.png"),
+                        url("assets/toggle-off-dark@2.png"));
+    }
+    &:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off-hover-dark.png"),
+                        url("assets/toggle-off-hover-dark@2.png"));
+    }
+    &:checked {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-on-dark.png"),
+                        url("assets/toggle-on-dark@2.png"));
+      &:hover {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on-hover-dark.png"),
+                          url("assets/toggle-on-hover-dark@2.png"));
+      }
+      &:disabled,
+      &:disabled:hover {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on-insensitive-dark.png"),
+                          url("assets/toggle-on-insensitive-dark@2.png"));
+      }
+    }
+    &:disabled,
+    &:disabled:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-off-insensitive-dark.png"),
+                        url("assets/toggle-off-insensitive-dark@2.png"));
+    }
+  }
+}
+
 
 // /*******************
 //  * Gnome-Flashback *
