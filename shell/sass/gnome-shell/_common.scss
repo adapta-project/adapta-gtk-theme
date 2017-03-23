@@ -1319,6 +1319,24 @@ StScrollBar {
 .calendar-today {
   border: none;
   font-weight: 700;
+
+  &,
+  &.calendar-day-with-events {
+    background-color: shellopacity($panel_bg_color, 0.75);
+    color: shellopacity($selected_fg_color, 0.75);
+    &:hover,
+    &:focus {
+      background-color: $panel_bg_color;
+      color: $selected_fg_color;
+    }
+    &:selected {
+      &, &:hover {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+        border-color: transparent;
+      }
+    }
+  }
 }
 
 .calendar-other-month-day {
