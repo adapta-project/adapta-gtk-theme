@@ -828,6 +828,14 @@ notebook > stack > box.vertical > paned.vertical > overlay {
     }
     &:disabled { color: $insensitive_inverted_secondary_fg_color; }
   }
+
+  // render yellow 'star' icon if bookmarked
+  &.starred > image.right {
+    color: gtkalpha($question_bg_color, 0.75);
+    &:hover,
+    &:active,
+    &:checked { color: $question_bg_color; }
+  }
 }
 
 // popover for downloaded lists
