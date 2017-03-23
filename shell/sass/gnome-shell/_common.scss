@@ -1169,12 +1169,20 @@ StScrollBar {
   }
 }
 
-.datemenu-today-button {
-  .day-label { color: $secondary_fg_color; }
+.datemenu-today-button { // re-define foregrounds
+  .day-label { color: $dim_fg_color; }
 
   .date-label {
     @include fontscaling($ref_size * 1.5);
-    color: $fg_color;
+    color: $secondary_fg_color;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    .day-label { color: $secondary_fg_color; }
+
+    .date-label { color: $fg_color; }
   }
 }
 
