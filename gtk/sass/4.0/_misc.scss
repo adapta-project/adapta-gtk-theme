@@ -1478,24 +1478,17 @@ overlay > box.vertical > paned.horizontal > box.vertical {
 //  * Gnome-Builder *
 //  *****************/
 
-// work around some gtk padding issue
-filechooser actionbar button.combo {
-  padding: 0;
-}
-
 // styling for editor search
 frame.gb-search-frame {
   background-image: image($bg_color);
   padding: rem(6px);
   border-style: solid;
   border-color: $borders_color;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
+  border-width: 0 1px 1px;
   border-radius: 0;
-}
 
-frame.gb-search-frame border { border: none; }
+  border { border: none; }
+}
 
 .gb-search-entry-occurrences-tag {
   color: $insensitive_fg_color;
@@ -1505,12 +1498,17 @@ frame.gb-search-frame border { border: none; }
 }
 
 // Tweaks for the editortweak popover in the editor.
-editortweak button { padding: 0 rem(6px) 0 rem(6px); }
-editortweak list row { padding: 0; }
+editortweak {
+  button { padding: 0 rem(6px) 0 rem(6px); }
+
+  list row { padding: 0; }
+}
 
 // Keep search bar and layouttab height in sync.
 layouttabbar > box { min-height: rem(39px); }
+
 eggsearchbar > revealer > box { min-height: rem(39px); }
+
 eggsearchbar entry { min-height: rem(24px); }
 
 // Pillbox is used to render "languages" in the greeter.
@@ -1524,39 +1522,6 @@ genesisperspective stack > box:first-child list row {
   padding: rem(10px);
   border-bottom: 1px solid $solid_light_borders_color;
   &:last-child { border-bottom: none; }
-}
-
-// Perspectives switcher
-//
-// The following tweaks the left-most sidebar containing
-// the list of perspectives.
-perspectiveswitcher {
-  padding: 0 rem(4px);
-  border-right: 1px solid $solid_light_borders_color;
-  background-color: $secondary_dark_color;
-
-  button {
-    padding: rem(6px);
-    border-radius: 100px;
-    border: none;
-    background: none;
-    color: $tertiary_fg_color;
-    box-shadow: none;
-
-    image { opacity: 0.55; }
-
-    &:hover {
-      background: none;
-
-      image { opacity: 0.75; }
-    }
-    &:active,
-    &:checked {
-      background: none;
-
-      image { opacity: 1.0; }
-    }
-  }
 }
 
 // Layout tab and tab bar tweaks
