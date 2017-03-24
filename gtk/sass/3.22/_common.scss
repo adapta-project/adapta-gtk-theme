@@ -168,15 +168,42 @@ flowbox {
   }
 }
 
-.content-view .tile { // tiled flowbox-child in 3.23 or higher
-  margin: rem(4px, $sw: 1.0);
-  padding: 0;
-  border-radius: 0;
-  background-color: transparent;
-  &:hover { background-color: $track_color; }
-  &:active,
-  &:selected { background-color: $selected_bg_color; }
-  &:disabled { background-color: transparent; }
+// tiled flowbox-child in 3.23 or higher
+frame.content-view flowbox > flowboxchild.tile {
+  margin: if($ref_weight < 1.0, 6px, 8px);
+  padding: if($ref_weight < 1.0, 6px, 8px);
+  border-radius: 2px;
+  background-color: $base_color;
+  color: $secondary_fg_color;
+  box-shadow: $z-depth-1,
+              inset 0 1px $highlight_color;
+  transition-timing-function: $slope_slow;
+  &:hover { // not implemented yet
+    // background-color: $track_color;
+    // color: $fg_color;
+    // box-shadow: $z-depth-2,
+    //             inset 0 1px $highlight_color;
+  }
+  &:active { // not implemented yet
+    // background-color: $track_color;
+    // color: $fg_color;
+    // transition: all 0.2s $slope_slow, background-image 0;
+    // animation: flat_ripple_effect 0.3s $slope_slow forwards;
+    // box-shadow: $z-depth-2,
+    //             inset 0 1px $highlight_color;
+  }
+  &:selected {
+    background-color: gtkopacity($secondary_selected_bg_color, 0.4);
+    color: $fg_color;
+    box-shadow: $z-depth-2,
+                inset 0 1px $highlight_color;
+    transition-timing-function: $slope_slow;
+  }
+  &:disabled {
+    background-color: gtkalpha(currentColor, 0.1);
+    color: $insensitive_secondary_fg_color;
+    box-shadow: none;
+  }
 }
 
 label {
