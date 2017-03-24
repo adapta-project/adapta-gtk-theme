@@ -3888,11 +3888,27 @@ treeview.view radio {
                   (':checked:hover', '-checked-active-selectionmode'),
                   (':checked:active', '-checked-active-selectionmode'),
                   (':disabled:checked', '-checked-insensitive-selectionmode') {
-  .view.content-view.check#{$s}:not(list),
-  flowbox > flowboxchild overlay checkbutton.bottom > check#{$s} {
+  .view.content-view.check#{$s}:not(list) {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
+  }
+
+  flowbox > flowboxchild overlay checkbutton.bottom {
+    > check#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
+                                    url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+      background-color: transparent;
+    }
+
+    // add some gap between the contents and check images
+    &.right > check#{$s} {
+      margin: if($ref_weight < 1.0, 0 6px 6px 0, 0 8px 8px 0);
+    }
+
+    &.left > check#{$s} {
+      margin: if($ref_weight < 1.0, 0 0 6px 6px, 0 0 8px 8px);
+    }
   }
 }
 
