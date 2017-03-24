@@ -158,15 +158,25 @@ flowbox {
   rubberband { @extend rubberband; }
 
   flowboxchild {
-    margin: rem(4px, $sw: 1.0);
     padding: rem(4px, $sw: 1.0);
-    border-radius: 2px;
+    border-radius: 0;
     -gtk-outline-radius: 2px;
     &:selected {
       @extend %selected_items;
       outline-offset: -2px;
     }
   }
+}
+
+.content-view .tile { // tiled flowbox-child in 3.23 or higher
+  margin: rem(4px, $sw: 1.0);
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  &:hover { background-color: $track_color; }
+  &:active,
+  &:selected { background-color: $selected_bg_color; }
+  &:disabled { background-color: transparent; }
 }
 
 label {
