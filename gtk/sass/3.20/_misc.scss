@@ -26,30 +26,15 @@ panel-applet > menubar,
 panel-applet menubar {
   box-shadow: none;
 
-  menuitem {
+  > menuitem,
+  > .gnome-panel-menu-item {
+    padding: 0px rem(4px, $sw: 1.0);
     color: $inverted_secondary_fg_color;
     background-color: transparent;
     &:hover {
       color: $inverted_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
-  }
-
-  menu {
-    font-weight: 400;
-    font-size: 100%;
-
-    menuitem {
-      color: $secondary_fg_color;
-      background-color: $secondary_base_color;
-      &:hover {
-        color: $fg_color;
-        background-color: gtkalpha(currentColor, 0.1);
-        box-shadow: none;
-      }
-    }
-
-    separator { color: transparent; }
   }
 }
 
@@ -58,7 +43,7 @@ wnck-tasklist > button.toggle,
 #clock-applet-button,
 #showdesktop-button {
   @extend %button_flat_normal;
-  padding: 0px rem(4px);
+  padding: 0px rem(4px, $sw: 1.0);
   border: none;
   border-radius: 0;
   color: $inverted_secondary_fg_color;
@@ -91,14 +76,14 @@ wnck-pager {
 }
 
 na-tray-applet {
-  -NaTrayApplet-icon-padding: 2;
+  -NaTrayApplet-icon-padding: 0 2;
   -NaTrayApplet-icon-size: 16;
 }
 
 gp-arrow-button {
   min-width: rem(20px);
   min-height: 0;
-  margin: rem(2px);
+  margin: 0 rem(2px);
   border: 1px solid transparent;
   background-image: none;
   color: $inverted_secondary_fg_color;
@@ -106,7 +91,7 @@ gp-arrow-button {
   &:active { color: $inverted_fg_color; }
 }
 
-sn-button { padding: rem(4px); }
+sn-button { padding: 0 rem(4px, $sw: 1.0); }
 
 
 // /********************
