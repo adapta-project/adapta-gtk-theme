@@ -2750,3 +2750,21 @@ dialog.background {
   }
 }
 
+
+// /*****************
+//  * Gnome-Recipes *
+//  *****************/
+
+window.background > box.vertical > overlay > stack > box.vertical {
+  > scrolledwindow > viewport.frame {
+    button.tile.view {
+      // prevent unwated truncation of drop-shadows
+      margin-bottom: rem(13.3px, $sw: 1.0);
+      // revive ripple-effect
+      &:active { @extend %button_active; }
+    }
+
+    box.vertical > label.heading { color: $selected_bg_color; }
+  }
+}
+
