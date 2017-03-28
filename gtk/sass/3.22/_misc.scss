@@ -665,8 +665,17 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
   .conversation-frame {
     > border { border: none; }
 
-    // reset weight
-    treeview.view { font-weight: 400; }
+    treeview.view {
+      font-weight: 400; // reset weight
+      &:selected {
+        &, &:focus {
+          background-color: gtkopacity($selected_bg_color, 0.2);
+          color: $fg_color;
+          &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
+          &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+        }
+      }
+    }
   }
 
   .folder-frame > scrolledwindow {
@@ -679,6 +688,15 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
     &:dir(rtl) {
       box-shadow: if($variant == 'light', $sidebar-light-rtl,
                                           $sidebar-dark-rtl);
+    }
+
+    treeview.view.sidebar {
+      &:selected {
+        &, &:focus {
+          background-color: transparent;
+          color: $selected_bg_color;
+        }
+      }
     }
   }
 }
