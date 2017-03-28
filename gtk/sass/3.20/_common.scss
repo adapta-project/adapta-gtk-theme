@@ -2799,6 +2799,11 @@ treeview.view {
 
   rubberband { @extend rubberband; }
 
+  // clear backgrounds
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+
   &:hover,
   &:active { border-radius: 0; }
   &:selected {
@@ -2823,11 +2828,6 @@ treeview.view {
   .separator {
     &, &:hover { background-color: $borders_color; }
   }
-
-  // clear backgrounds
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
 
   &.dnd {
     border-style: solid none;
