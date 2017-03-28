@@ -2761,12 +2761,11 @@ window#wb_main_window {
 
   entry#find { margin: rem(5.3px) 0; } // add vertical spacing
 
-  scrolledwindow#SchemaTree {
-    > treeview.view {
-      transition: none;
-      &:selected { // enforce standard selection styling
-        &, &:focus { @extend %selected_items; }
-      }
+  treeview.view {
+    background-color: $base_color;
+    transition: none;
+    &:selected { // enforce standard selection styling
+      &, &:focus { @extend %selected_items; }
     }
   }
 }

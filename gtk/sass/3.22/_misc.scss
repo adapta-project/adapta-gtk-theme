@@ -997,9 +997,16 @@ window.background > box.horizontal > overlay > stack > overlay > box.vertical {
     }
   }
 
-  .sidebar {
+  treeview.view.sidebar {
     background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                               rgba(18, 22, 0, 0.04));
+    &:selected {
+      &, &:focus {
+        background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
+                                                  rgba(18, 22, 0, 0.04));
+        color: $selected_bg_color;
+      }
+    }
   }
 }
 
@@ -1706,6 +1713,7 @@ dockstack > stack { // treeviews inside the left/right layoutpane
   > dockwidget treeview.project-tree.view,
   > devhelppanel treeview.view {
     background-color: $bg_color;
+    font-weight: 500;
     &:selected, // use standard selection styling
     &:selected:focus { @extend %selected_items; }
   }
@@ -2217,9 +2225,10 @@ window > popover > stack > grid > button {
 
   treeview.view {
     background-color: transparent;
+    font-weight: 500;
     &:selected {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
+      background-color: transparent;
+      color: $selected_bg_color;
     }
   }
 }
@@ -2248,8 +2257,8 @@ window > popover > stack > grid > button {
     background-color: transparent;
     font-weight: 500;
     &:selected {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
+      background-color: transparent;
+      color: $selected_bg_color;
     }
   }
 }
