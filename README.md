@@ -1,7 +1,15 @@
-<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="left" /> Adapta-gtk-theme
-======
-
-An adaptive Gtk+ theme based on Material Design Guidelines.
+<p align="center">
+   <img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="center"/>
+</p>
+<h1 align="center">
+    Adapta-gtk-theme
+</h1>
+<p align="center">
+    An adaptive Gtk+ theme based on Material Design Guidelines.
+</p>
+<p align="center">
+   <img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/Materials.png" alt="Materials" align="center"/>
+</p>
 
 Before using Adapta
 -------------------
@@ -75,9 +83,6 @@ Variant Matrix
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
-Elements
---------
-![Materials](https://github.com/adapta-project/adapta-github-resources/blob/master/images/Materials.png)
 
 Required Components
 -------------------
