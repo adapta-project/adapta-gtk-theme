@@ -1593,8 +1593,7 @@ layouttab {
   label { padding: rem(4px); }
 
   separator.vertical {
-    margin: 2px;
-    color: transparent;
+    margin: 0 rem(2.7px); // expand vertically
     background-color: $borders_color;
   }
 
@@ -1620,11 +1619,9 @@ layouttab {
       &:checked:disabled { @include button(flat-checked-insensitive); }
     }
   }
-}
 
-// Close button styling for layouttab.
-layouttab > box {
-  > button.close {
+  // close button styling for layouttab.
+  > box > button.close {
     @extend %button_flat_normal;
     min-height: rem(13.3px);
     min-width: rem(13.3px);
@@ -1661,6 +1658,26 @@ layout {
   box-shadow: inset 0 -1px $solid_light_borders_color;
 
   -PnlDockBin-handle-size: 1;
+}
+
+// multi-columned editor-views
+layoutgrid > paned.horizontal separator:not(.vertical),
+layoutgrid > paned.horizontal > paned.horizontal separator:not(.vertical) {
+  // draw vertically gradient pane-separators
+  @if $variant=='light' {
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32),
+                                             rgba(0, 0, 0, 0.21) 2px,
+                                             rgba(0, 0, 0, 0.09) 4px,
+                                             rgba(0, 0, 0, 0.09))
+                  0 1 0 / 0 1px 0 stretch;
+  }
+  @if $variant=='dark' {
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
+                                             rgba(0, 0, 0, 0.16) 2px,
+                                             rgba(0, 0, 0, 0.11) 4px,
+                                             rgba(0, 0, 0, 0.11))
+                  0 1 0 / 0 1px 0 stretch;
+  }
 }
 
 eggsearchbar box.search-bar {
