@@ -1585,10 +1585,16 @@ dockstack > stack { // treeviews inside the left/right layoutpane
   }
 }
 
-greeter > box.vertical > stack > box.vertical > stack {
-  > box.vertical > scrolledwindow {
-    background-image: if($variant == 'light', $fake-shadow-light,
-                                              $fake-shadow-dark);
+greeter > box.vertical > stack > box.vertical > scrolledwindow {
+  background-image: if($variant == 'light', $fake-shadow-light,
+                                            $fake-shadow-dark);
+}
+
+// 'Select a Project' label
+workbench.background > stack.titlebar > headerbar > stack {
+  > label {
+    color: $inverted_fg_color;
+    font-weight: 700;
   }
 }
 
