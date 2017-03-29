@@ -1279,7 +1279,7 @@ UnityPanelWidget,
 
       &.combo {
         min-height: rem($widget_size);
-        padding: 0 rem(8px, $sw: 1.0);
+        padding: 0 if($ref_weight < 1.0, 4px, 8px);
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
@@ -1287,8 +1287,7 @@ UnityPanelWidget,
                                     to(transparent))
                                     0 0 1 / 0 0 1px;
         color: $inverted_fg_color;
-        font-weight: 700;
-        font-size: 110%;
+        font-weight: 500;
         &:hover,
         &:active {
           border-image: -gtk-gradient(radial,
@@ -1314,7 +1313,7 @@ UnityPanelWidget,
 
     entry { // prevent junmping when showing CapsLock warning
       min-height: rem($widget_size);
-      padding: 0 rem(8px, $sw: 1.0);
+      padding: 0 if($ref_weight < 1.0, 4px / 2, 8px / 2);
       font-family: monospace;
     }
 
