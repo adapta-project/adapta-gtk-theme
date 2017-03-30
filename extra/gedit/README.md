@@ -4,6 +4,7 @@ This theme use Google Material color palette and perfectly matched with dark var
     <img src=https://github.com/adapta-project/adapta-github-resources/blob/master/images/screenshot.png alt="Gedit Material">
 </p>
 This theme provides styles for HTML, CSS, DIFF, INI, JAVA, JS, JSON, MD, PERL, PHP, PYTHON, RUBY, SH, XML, C.  
+
 ### Installation  
 Copy the [`adapta.xml`](/extra/gedit/adapta.xml) file to the color schemes directory:  
 `~/.local/share/gedit/styles` or `~/.local/share/gtksourceview-3.0/styles`
