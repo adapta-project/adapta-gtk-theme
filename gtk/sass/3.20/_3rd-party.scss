@@ -2145,7 +2145,8 @@ window.background:not(.csd):not(.solid-csd) {
       }
     }
 
-    > entry {
+    > entry, // 53.x
+    > * > entry { // 50.x
       // enforce fallback entries inside the HTML pages
       @extend %entry_fallback_normal;
       border-radius: 2px;
