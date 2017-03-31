@@ -2650,11 +2650,13 @@ viewport.frame > box.vertical > revealer > box.horizontal {
 //  * Gnome-Photos *
 //  ****************/
 
-window.background.csd > box.vertical > overlay > revealer,
-window.background.solid-csd > box.vertical > overlay > revealer {
-  > spinner { // allocation: 128 x 128
-    min-height: $icon_size;
-    padding: 56px 0;
+window.background {
+  &.csd,
+  &.solid-csd {
+    > box.vertical > overlay > revealer > spinner { // allocation: 128 x 128
+      min-height: $icon_size;
+      padding: 56px 0;
+    }
   }
 }
 
