@@ -5464,7 +5464,6 @@ tooltip {
 
   color: $inverted_fg_color;
   padding: rem(4px);
-  border-radius: 2px;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
 
   // FIXME: we need a border or tooltips vanish on black background.
@@ -5474,6 +5473,9 @@ tooltip {
     background-color: transparent;
     color: $inverted_fg_color;
   }
+
+  // use roundness only for CSDs
+  &.csd { border-radius: 2px; }
 }
 
 

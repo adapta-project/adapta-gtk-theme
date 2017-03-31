@@ -3660,13 +3660,15 @@ GtkInfoBar {
 
   color: $inverted_fg_color;
   padding: 0.2em; // not working
-  border-radius: 2px;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
 
   // FIXME: we need a border or tooltips vanish on black background.
   &.window-frame.csd {
     background-color: transparent;
   }
+
+  // use roundness only for CSDs
+  &.csd { border-radius: 2px; }
 }
 
 .tooltip * { // Yeah this is ugly
