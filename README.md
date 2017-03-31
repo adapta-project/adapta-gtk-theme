@@ -66,7 +66,7 @@ Variant Matrix
 >   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >
 >   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool.
->     Or add this porperty to `[settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
+>     Or add this porperty to `[Settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
 >
 >     ```
 >     gtk-application-prefer-dark-theme=1
