@@ -2888,29 +2888,39 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   &-message-hint {
     padding-top: 0;
     padding-bottom: 20px;
+    color: $osd_dim_fg_color;
   }
 
-  &-user-selection-box {
-    padding: 100px 0;
+  &-user-selection-box { padding: 100px 0; }
 
-    .login-dialog-not-listed-label {
-      padding-left: 2px;
-
-      .login-dialog-not-listed-button:focus &,
-      .login-dialog-not-listed-button:hover & { color: $osd_fg_color; }
-    }
+  &-not-listed-button {
+    // this class seems almost meaningless
+    margin: 12px 0 0;
   }
 
   &-not-listed-label {
     @include fontscaling($ref_size * 0.9);
-    padding-top: 1em;
-    color: $osd_secondary_fg_color;
+    padding: 4px 4px 5px;
+    border-radius: 2px;
+    color: $inverted_secondary_accent_label_color;
     font-weight: 700;
-    &:hover { color: $osd_fg_color; }
-    &:focus { background-color: $osd_semi_fill_color; }
-  }
+    text-align: center;
 
-  &-user-list-view { -st-vfade-offset: 0; }
+    .login-dialog-not-listed-button:focus & {
+      color: $inverted_accent_label_color;
+      background-color: $hidden_fill_color;
+      box-shadow: inset 0 0 0 2px $accent_fill_color;
+    }
+    .login-dialog-not-listed-button:hover & {
+      color: $inverted_accent_label_color;
+      background-color: $accent_fill_color;
+    }
+    .login-dialog-not-listed-button:active & {
+      color: $inverted_accent_label_color;
+      background-color: $accent_active_fill_color;
+      box-shadow: $empty_shadow;
+    }
+  }
 
   &-user-list {
     width: 23em;
@@ -2919,37 +2929,63 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
     &:expanded .login-dialog-user-list-item {
       &:focus {
-        background-color: $osd_semi_fill_color;
         color: $osd_fg_color;
+        background-color: $hidden_fill_color;
+        box-shadow: inset 0 0 0 2px $osd_semi_fill_color;
       }
       &:hover {
-        background-color: $osd_semi_fill_color;
         color: $osd_fg_color;
+        background-color: $osd_semi_fill_color;
       }
       &:active {
-        background-color: $osd_fill_color;
         color: $osd_fg_color;
+        background-color: $osd_fill_color;
       }
-      &:logged-in { border-right: 2px solid $osd_indicator_color; }
+
+      &:logged-in {
+        border-radius: 0;
+        background-color: shellopacity($selected_bg_color, 0.2);
+        &:focus,
+        &:hover {
+          background-color: mix(shellopacity($selected_bg_color, 0.2),
+                                shellopacity($osd_semi_fill_color, 0.5),
+                                50%);
+        }
+        &:active {
+          background-color: mix(shellopacity($selected_bg_color, 0.2),
+                                shellopacity($osd_fill_color, 0.5),
+                                50%);
+        }
+
+        &:ltr { box-shadow: inset 4px 0 $selected_bg_color; }
+        &:rtl { box-shadow: inset -4px 0 $selected_bg_color; }
+      }
     }
+
+    &-view { -st-vfade-offset: 0; }
   }
 
   &-user-list-item {
     padding: 4px 4px 0;
     border-radius: 2px;
     color: $osd_secondary_fg_color;
-    transition-duration: 0s;
+    transition-duration: $duration_short;
 
     &:ltr { padding-right: 1em; }
     &:rtl { padding-left: 1em; }
 
-    &:hover {
-      background-color: $osd_semi_fill_color;
+    &:focus {
       color: $osd_fg_color;
+      background-color: $hidden_fill_color;
+      box-shadow: inset 0 0 0 2px $osd_semi_fill_color;
+    }
+    &:hover {
+      color: $osd_fg_color;
+      background-color: $osd_semi_fill_color;
     }
     &:active {
-      background-color: $osd_fill_color;
       color: $osd_fg_color;
+      background-color: $osd_fill_color;
     }
 
     .login-dialog-timed-login-indicator {
@@ -2994,13 +3030,25 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 }
 
 .login-dialog-session {
-  &-list-button StIcon { icon-size: 16px; }
-
   &-list-button {
+    padding: 4px;
+    border-radius: 100px;
     color: $osd_secondary_fg_color;
-    &:hover,
-    &:focus { color: $selected_fg_color; }
-    &:active { color: $selected_fg_color; }
+    &:focus {
+      color: $osd_fg_color;
+      background-color: $hidden_fill_color;
+      box-shadow: inset 0 0 0 2px $osd_semi_fill_color;
+    }
+    &:hover {
+      color: $osd_fg_color;
+      background-color: $osd_semi_fill_color;
+    }
+    &:active {
+      color: $selected_fg_color;
+      background-color: $osd_indicator_color;
+    }
+
+    StIcon { icon-size: 16px; }
   }
 }
 
