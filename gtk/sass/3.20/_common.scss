@@ -1420,13 +1420,6 @@ combobox {
     min-width: rem($icon_size);
   }
 
-  &.linked {
-    button:nth-child(2) {
-      &:dir(ltr) { @extend %linked:last-child; }
-      &:dir(rtl) { @extend %linked:first-child; }
-    }
-  }
-
   &:drop(active) {
     button.combo { @extend button:drop(active); }
   }
