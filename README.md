@@ -109,9 +109,13 @@ Supported Desktop Environments
  >
  >   * Mate-Desktop support is a W.I.P.
 
-Unsupported Gtk+ Based Desktops
+Unsupported Gtk+ Based Desktop(s)
 -------------------------------
  * Pantheon
+
+ > **Note:**
+ >
+ >   * Adapta does NOT support elementaryOS.
 
 Installation from Package(s)
 ----------------------------
