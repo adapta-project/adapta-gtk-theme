@@ -1392,8 +1392,12 @@ headerbar.titlebar box {
       label { transition: none; }
     }
 
-    // dim 'quotes' inside the tweets (label only)
-    grid.horizontal.quote label { opacity: 0.75; }
+    // dim 'quotes' inside the tweets (labels only)
+    grid.horizontal.quote label {
+      opacity: 0.75;
+
+      &.dim-label { opacity: 0.4; }
+    }
 
     // use asymmetrical separators
     &:dir(ltr) {
