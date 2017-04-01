@@ -752,12 +752,12 @@ button {
 
   // mimic tab-switcher-like button array
   // horizontal array
-  .linked > &:not(.flat):not(:only-child) { @extend %linked_middle; }
+  .linked > &:not(.flat):not(:only-child) { border-radius: 0; }
   .linked > & {
-    @extend %linked_middle;
     @extend %button_array;
     min-width: rem(13.3px);
     padding: rem(9.3px) rem(5.3px) rem(10.7px);
+    border-radius: 0;
 
     label {
       padding-left: rem(4px);
@@ -770,13 +770,13 @@ button {
     }
   }
   // vertical array
-  .linked.vertical > &:not(:only-child) { @extend %linked_vertical_middle; }
+  .linked.vertical > &:not(:only-child) { border-radius: 0; }
   .linked.vertical > & {
-    @extend %linked_vertical_middle;
     @extend %button_vertical_array;
     min-height: rem(13.3px);
     min-width: rem(22.6px);
     padding: rem(10px) rem(6.7px) rem(10px);
+    border-radius: 0;
   }
 
   // generic switcher image buttons
@@ -1001,38 +1001,6 @@ button {
                                 url("assets/needs-attention@2.png"));
   animation: needs_attention 0.3s $slope_slow forwards;
   &:dir(rtl) { background-position: left top; }
-}
-
-%linked_middle { border-radius: 0; }
-
-%linked {
-  @extend %linked_middle;
-  -gtk-outline-radius: 2px;
-  &:first-child {
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-  }
-  &:last-child {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-  &:only-child { border-radius: 2px; }
-}
-
-%linked_vertical_middle { border-radius: 0; }
-
-%linked_vertical {
-  @extend %linked_vertical_middle;
-  -gtk-outline-radius: 2px;
-  &:first-child {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-  }
-  &:last-child {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-  &:only-child { border-radius: 2px; }
 }
 
 // menu buttons on GtkPopover
@@ -1363,6 +1331,7 @@ combobox {
 
   // fallback combo node for non-native apps
   @extend %entry_fallback_normal;
+  border-radius: 2px;
 
   .background & { // unset all properties in combobox node
     border: unset;
@@ -1442,6 +1411,7 @@ combobox {
   .background & button.combo {
     @extend %button_flat_normal;
     border-radius: 0;
+    border: none; // unset borders
     color: $secondary_fg_color;
     background: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
@@ -1449,7 +1419,8 @@ combobox {
                                   transparent)
                                   0 0 1 / 0 0 1px;
     &:hover,
-    &:active {
+    &:active,
+    &:checked {
       @extend %button_flat_hover;
       border-radius: 0;
       color: $fg_color;
@@ -1472,42 +1443,20 @@ combobox {
     // FIXME: prevent unwanted closing popups
     &:checked { transition: none; }
   }
+}
 
-  button.combo:not(:only-child) {
+// workaround for LibreOffice with fallback-mode liked-buttons
+@each $order, $radius, $edge in (first-child, 2px 0 0 2px, right),
+                                (last-child, 0 2px 2px 0, left) {
+  .linked:not(combobox) > button.combo:#{$order} {
+    border-radius: #{$radius};
+    border-#{$edge}-width: 0;
+
+    &:only-child {
+      border-radius: 2px;
+      border-width: 1px;
+    }
   }
-  button.combo:only-child {
-  }
-}
-
-.linked > combobox > box > button.combo {
-  // the combo is a composite widget so the way we do button linking doesn't
-  // work, special case needed. See
-  // https://bugzilla.gnome.org/show_bug.cgi?id=733979
-  &:dir(ltr),
-  &:dir(rtl) { @extend %linked_middle; } // specificity bump
-}
-
-.linked > combobox:first-child > button.combo {
-  @extend %linked:first-child;
-}
-.linked > combobox:last-child > button.combo {
-  @extend %linked:last-child;
-}
-.linked > combobox:only-child > button.combo {
-  @extend %linked:only-child;
-}
-
-.linked.vertical > combobox > button.combo {
-  @extend %linked_vertical_middle;
-}
-.linked.vertical > combobox:first-child > button.combo {
-  @extend %linked_vertical:first-child;
-}
-.linked.vertical > combobox:last-child > button.combo {
-  @extend %linked_vertical:last-child;
-}
-.linked.vertical > combobox:only-child > button.combo {
-  @extend %linked_vertical:only-child;
 }
 
 
