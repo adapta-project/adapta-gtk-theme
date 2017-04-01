@@ -69,6 +69,7 @@ Variant Matrix
 >     Or add this porperty to `[Settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
 >
 >     ```
+>     [Settings]
 >     gtk-application-prefer-dark-theme=1
 >     ```
 >
