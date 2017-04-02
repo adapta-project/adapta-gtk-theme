@@ -2785,3 +2785,53 @@ window.background > box.vertical > overlay > stack > box.vertical {
   }
 }
 
+window.background > box.vertical > overlay > stack > box.horizontal {
+  > stack > box.horizontal > scrolledwindow > viewport.frame {
+    // right-pane scrolled-window
+    > box.vertical > label.heading { color: $selected_bg_color; }
+
+    // left-pane sidebar
+    > list {
+      background-color: $secondary_dark_color;
+
+      &:dir(ltr) {
+        box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                            $sidebar-dark-ltr);
+      }
+      &:dir(rtl) {
+        box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                            $sidebar-dark-rtl);
+      }
+
+      > row.activatable {
+        background-color: transparent;
+        color: $secondary_fg_color;
+        box-shadow: none;
+
+        > label.sidebar {
+          box-shadow: unset; // unset .sidebar class shadows
+          color: $secondary_fg_color;
+          font-weight: 500;
+        }
+
+        &:hover,
+        &:active {
+
+          &, > label.sidebar { color: $fg_color; }
+        }
+        &:selected {
+          background-color: transparent;
+
+          &, > label.sidebar { color: $selected_bg_color; }
+        }
+      }
+    }
+  }
+}
+
+flowbox > flowboxchild > button.recipe.tile.view {
+  // add outer spacing around those tiles
+  // to prevent unwated truncation of drop-shadows
+  margin: if($ref_weight < 1.0, 6px, 8px);
+}
+
