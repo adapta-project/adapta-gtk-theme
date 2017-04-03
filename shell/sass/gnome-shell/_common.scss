@@ -1964,7 +1964,27 @@ StScrollBar {
 }
 
 .search-provider {
-  &-icon { padding: 15px; }
+  &-icon {
+    padding: 15px;
+    border: none;
+    border-radius: 100px;
+    color: $osd_secondary_fg_color;
+    transition-duration: 0s;
+    &:focus,
+    &:selected,
+    &:hover {
+      background-color: $osd_slight_fill_color;
+      transition-duration: 0s;
+    }
+    &:active {
+      background-color: $osd_semi_fill_color;
+      transition-duration: $duration_medium;
+    }
+    &:checked {
+      background-color: $osd_indicator_color;
+      transition-duration: $duration_medium;
+    }
+  }
 
   &-icon-more {
     width: 16px;
@@ -2160,19 +2180,21 @@ StScrollBar {
 }
 
 // Icon tile
-.search-provider-icon,
 .list-search-result {
   @extend %icon_tile;
   transition-duration: 0s;
   &:focus,
   &:selected,
   &:hover {
-    background-color: $osd_semi_fill_color;
+    background-color: $osd_slight_fill_color;
     transition-duration: 0s;
   }
-  &:active,
+  &:active {
+    background-color: $osd_semi_fill_color;
+    transition-duration: $duration_medium;
+  }
   &:checked {
-    background-color: $osd_fill_color;
+    background-color: $osd_indicator_color;
     transition-duration: $duration_medium;
   }
 }
@@ -2183,26 +2205,31 @@ StScrollBar {
 .grid-search-result {
   .overview-icon {
     @extend %icon_tile;
-    color: if($nokto == 'false', $osd_secondary_fg_color,
-                                 $secondary_fg_color);
+    color: $osd_secondary_fg_color;
     transition-duration: 0s;
   }
 
-  &:hover .overview-icon,
   &:focus .overview-icon,
+  &:hover .overview-icon,
   &:selected .overview-icon {
     border-image: none;
-    background-color: $osd_semi_fill_color;
+    background-color: $osd_slight_fill_color;
     background-image: none;
     color: $osd_fg_color;
     transition-duration: 0s;
   }
-  &:active .overview-icon,
+  &:active .overview-icon {
+    border-image: none;
+    background-color: $osd_semi_fill_color;
+    background-image: none;
+    color: $osd_fg_color;
+    transition-duration: $duration_medium;
+  }
   &:checked .overview-icon {
     background-color: $osd_indicator_color;
     color: $osd_fg_color;
     box-shadow: $empty_shadow;
-    transition-duration: $duration_medium;
+    transition-duration: 0s;
   }
 }
 
@@ -2214,15 +2241,18 @@ StScrollBar {
       border-radius: 100px;
       transition-duration: 0s;
     }
-    &:hover .overview-icon { // more lighter fill than osd_semi_fill!
+    &:hover .overview-icon,
+    &:focus .overview-icon { // more lighter fill than osd_semi_fill!
       background-color: $osd_slight_fill_color;
       transition-duration: 0s;
     }
-    &:active .overview-icon,
-    &:focus .overview-icon,
+    &:active .overview-icon {
+      background-color: $osd_semi_fill_color;
+      transition-duration: $duration_medium;
+    }
     &:checked .overview-icon {
       background-color: $osd_indicator_color;
-      transition-duration: $duration_medium;
+      transition-duration: 0s;
     }
   }
 }
@@ -2264,8 +2294,12 @@ StScrollBar {
     color: transparent;
     background-image: url("assets/show-apps-active.svg");
     -st-background-image-shadow: $z-depth-2;
-    transition-duration: $duration_medium;
   }
+
+  &:hover,
+  &:focus,
+  &:checked { transition-duration: 0s; }
+  &:active { transition-duration: $duration_medium; }
 }
 
 // Collections
