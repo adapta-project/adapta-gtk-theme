@@ -2022,9 +2022,25 @@ headerbar {
       label { margin: rem(-2px) 0; }
 
       dialog.background & { // modal-dialogs
-        padding-top: rem(($widget_size - $icon_size) / 2);
-        padding-bottom: rem(($widget_size - $icon_size) / 2);
+        min-height: $icon_size * 1.5;
+        padding-top: if($ref_weight < 1.0,
+                     rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                     rem(($widget_size - $icon_size * 1.5) / 2));
+        padding-bottom: if($ref_weight < 1.0,
+                        rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                        rem(($widget_size - $icon_size * 1.5) / 2));
       }
+    }
+
+    &.suggested-action:not(.image-button),
+    &.destructive-action:not(.image-button) {
+      min-height: $icon_size * 1.5;
+      padding-top: if($ref_weight < 1.0,
+                   rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                   rem(($widget_size - $icon_size * 1.5) / 2));
+      padding-bottom: if($ref_weight < 1.0,
+                      rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                      rem(($widget_size - $icon_size * 1.5) / 2));
     }
 
     &.lock {
