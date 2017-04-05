@@ -1668,12 +1668,6 @@ workbench.background > stack.titlebar > headerbar > stack {
       box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                           $tiled-header-shadow-dark-rtl);
     }
-
-    .maximized & {
-      @extend %maxd_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                          $tiled-header-shadow-dark-rtl);
-    }
   }
   &:dir(rtl) {
     border-left-width: 0;
@@ -1683,11 +1677,6 @@ workbench.background > stack.titlebar > headerbar > stack {
 
     .tiled &  {
       @extend %tiled_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                          $tiled-header-shadow-dark-ltr);
-    }
-    .maximized & {
-      @extend %maxd_integration;
       box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                           $tiled-header-shadow-dark-ltr);
     }
@@ -1705,12 +1694,6 @@ workbench.background > stack.titlebar > headerbar > stack {
         box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                             $tiled-header-shadow-dark-rtl);
       }
-
-      .maximized & {
-        @extend %maxd_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                            $tiled-header-shadow-dark-rtl);
-      }
     }
     &:dir(rtl) {
       border-left-width: 0;
@@ -1720,12 +1703,6 @@ workbench.background > stack.titlebar > headerbar > stack {
 
       .tiled &  {
         @extend %tiled_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                            $tiled-header-shadow-dark-ltr);
-      }
-
-      .maximized & {
-        @extend %maxd_integration;
         box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                             $tiled-header-shadow-dark-ltr);
       }

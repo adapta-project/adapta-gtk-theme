@@ -2273,6 +2273,8 @@ headerbar {
     color: $selected_fg_color;
     &:backdrop { opacity: 1.0; }
 
+    .maximized & { border-top-color: $selected_bg_color; }
+
     .subtitle:link { @extend *:link:selected;  }
 
     button,
@@ -2390,9 +2392,10 @@ headerbar {
     @extend %tiled_integration;
     transition: none;
   }
+
   .maximized & {
-    @extend %maxd_integration;
-    transition: none;
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
   }
 
   &.default-decoration {
@@ -2460,7 +2463,6 @@ headerbar {
     }
 
     .tiled &  { @extend %tiled_integration; }
-    .maximized & { @extend %maxd_integration; }
   }
 
   // override unwanted side-borders
@@ -2469,8 +2471,7 @@ headerbar {
     border-left-color: $inverted_dark_color;
     border-right-color: $inverted_dark_color;
 
-    .tiled &,
-    .maximized & {
+    .tiled & {
       border-left-color: $panel_bg_color;
       border-right-color: $panel_bg_color;
     }
@@ -2487,12 +2488,6 @@ headerbar {
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                               $tiled-header-shadow-dark-ltr);
         }
-
-        .maximized & {
-          @extend %maxd_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                              $tiled-header-shadow-dark-ltr);
-        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
@@ -2500,12 +2495,6 @@ headerbar {
 
         .tiled &  {
           @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                              $tiled-header-shadow-dark-rtl);
-        }
-
-        .maximized & {
-          @extend %maxd_integration;
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                               $tiled-header-shadow-dark-rtl);
         }
@@ -2519,13 +2508,11 @@ headerbar {
       // border-left: 1px solid $solid_dark_borders_color;
 
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
       // border-right: 1px solid $solid_dark_borders_color;
 
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
   }
 }
@@ -2542,12 +2529,6 @@ headerbar.selection-mode { // selection-mode specific
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                               $tiled-header-shadow-dark-ltr);
         }
-
-        .maximized & {
-          @extend %maxd_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                              $tiled-header-shadow-dark-ltr);
-        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
@@ -2555,12 +2536,6 @@ headerbar.selection-mode { // selection-mode specific
 
         .tiled &  {
           @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                              $tiled-header-shadow-dark-rtl);
-        }
-
-        .maximized & {
-          @extend %maxd_integration;
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                               $tiled-header-shadow-dark-rtl);
         }
@@ -2640,6 +2615,11 @@ window:not(.maximized):not(.tiled) {
 headerbar.titlebar.default-decoration {
   border-top: 1px solid $highlight_color;
   box-shadow: none; // reset outset shadows
+
+  .maximized & {
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
+  }
 }
 
 // workaround for ugly Ubuntu-related CSD patches
@@ -2895,8 +2875,7 @@ menubar {
   padding: 0;
   background-color: $inverted_dark_color;
 
-  .tiled &,
-  .maximized & {
+  .tiled & {
     background-color: $panel_bg_color;
     transition: none;
   }
@@ -5765,7 +5744,10 @@ decoration {
 
     .tiled & .titlebar { @extend %tiled_integration; }
 
-    .maximized & .titlebar { @extend %maxd_integration; }
+    .maximized & .titlebar {
+      border-top-color: $inverted_dark_color;
+      border-radius: 0;
+    }
   }
 
   .csd.popup & {

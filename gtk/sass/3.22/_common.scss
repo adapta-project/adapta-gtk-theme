@@ -2385,7 +2385,10 @@ headerbar {
     transition: none;
   }
 
-  .maximized & { border-top-color: $inverted_dark_color; }
+  .maximized & {
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
+  }
 
   &.default-decoration {
     min-height: $titlebutton_small;
@@ -2610,6 +2613,11 @@ window:not(.maximized):not(.tiled):not(.solid-csd) {
 headerbar.titlebar.default-decoration {
   border-top: 1px solid $highlight_color;
   box-shadow: none; // reset outset shadows
+
+  .maximized & {
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
+  }
 }
 
 // workaround for ugly Ubuntu-related CSD patches
@@ -5678,6 +5686,11 @@ decoration {
     box-shadow: $z-depth-1-backdrop;
 
     .tiled & .titlebar { @extend %tiled_integration; }
+
+    .maximized & .titlebar {
+      border-top-color: $inverted_dark_color;
+      border-radius: 0;
+    }
   }
 
   .csd.popup & {
