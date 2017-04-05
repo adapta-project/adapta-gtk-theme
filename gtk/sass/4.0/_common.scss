@@ -2190,6 +2190,8 @@ headerbar {
     color: $selected_fg_color;
     &:backdrop { opacity: 1.0; }
 
+    .maximized & { border-top-color: $selected_bg_color; }
+
     .subtitle:link { @extend *:link:selected;  }
 
     button,
@@ -2301,10 +2303,8 @@ headerbar {
     @extend %tiled_integration;
     transition: none;
   }
-  .maximized & {
-    @extend %maxd_integration;
-    transition: none;
-  }
+
+  .maximized & { border-top-color: $inverted_dark_color; }
 
   &.default-decoration {
     min-height: $titlebutton_small;
@@ -2377,7 +2377,6 @@ headerbar {
     }
 
     .tiled &  { @extend %tiled_integration; }
-    .maximized & { @extend %maxd_integration; }
   }
 
   // override unwanted side-borders
@@ -2386,8 +2385,7 @@ headerbar {
     border-left-color: $inverted_dark_color;
     border-right-color: $inverted_dark_color;
 
-    .tiled &,
-    .maximized & {
+    .tiled & {
       border-left-color: $panel_bg_color;
       border-right-color: $panel_bg_color;
     }
@@ -2404,12 +2402,6 @@ headerbar {
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                               $tiled-header-shadow-dark-ltr);
         }
-
-        .maximized & {
-          @extend %maxd_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                              $tiled-header-shadow-dark-ltr);
-        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
@@ -2417,12 +2409,6 @@ headerbar {
 
         .tiled &  {
           @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                              $tiled-header-shadow-dark-rtl);
-        }
-
-        .maximized & {
-          @extend %maxd_integration;
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                               $tiled-header-shadow-dark-rtl);
         }
@@ -2434,11 +2420,9 @@ headerbar {
   paned &:not(:only-child):last-child {
     &:dir(ltr) {
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
   }
 }
@@ -2455,12 +2439,6 @@ headerbar.selection-mode { // selection-mode specific
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                               $tiled-header-shadow-dark-ltr);
         }
-
-        .maximized & {
-          @extend %maxd_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                              $tiled-header-shadow-dark-ltr);
-        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
@@ -2468,12 +2446,6 @@ headerbar.selection-mode { // selection-mode specific
 
         .tiled &  {
           @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                              $tiled-header-shadow-dark-rtl);
-        }
-
-        .maximized & {
-          @extend %maxd_integration;
           box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                               $tiled-header-shadow-dark-rtl);
         }
@@ -2587,13 +2559,6 @@ dialog.background.csd > headerbar.titlebar {
   border-top-color: $secondary_selected_bg_color;
   background-color: $panel_bg_color;
   &:backdrop { border-top-color: $track_color; }
-}
-
-%maxd_integration {
-  border-radius: 0;
-  border-color: $panel_bg_color;
-  border-width: 1px 0 0 0;
-  background-color: $panel_bg_color;
 }
 
 
@@ -2809,8 +2774,7 @@ menubar {
   padding: 0;
   background-color: $inverted_dark_color;
 
-  .tiled &,
-  .maximized & {
+  .tiled & {
     background-color: $panel_bg_color;
     transition: none;
   }
@@ -5602,8 +5566,6 @@ decoration {
     box-shadow: $z-depth-1-backdrop;
 
     .tiled & .titlebar { @extend %tiled_integration; }
-
-    .maximized & .titlebar { @extend %maxd_integration; }
   }
 
   .csd.popup & {

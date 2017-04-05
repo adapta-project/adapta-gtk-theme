@@ -1836,12 +1836,6 @@ greeter > box.vertical > stack > box.vertical > stack {
       box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                           $tiled-header-shadow-dark-rtl);
     }
-
-    .maximized & {
-      @extend %maxd_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                          $tiled-header-shadow-dark-rtl);
-    }
   }
   &:dir(rtl) {
     border-left-width: 0;
@@ -1851,11 +1845,6 @@ greeter > box.vertical > stack > box.vertical > stack {
 
     .tiled &  {
       @extend %tiled_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                          $tiled-header-shadow-dark-ltr);
-    }
-    .maximized & {
-      @extend %maxd_integration;
       box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                           $tiled-header-shadow-dark-ltr);
     }
@@ -1873,12 +1862,6 @@ greeter > box.vertical > stack > box.vertical > stack {
         box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
                                             $tiled-header-shadow-dark-rtl);
       }
-
-      .maximized & {
-        @extend %maxd_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                            $tiled-header-shadow-dark-rtl);
-      }
     }
     &:dir(rtl) {
       border-left-width: 0;
@@ -1888,12 +1871,6 @@ greeter > box.vertical > stack > box.vertical > stack {
 
       .tiled &  {
         @extend %tiled_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                            $tiled-header-shadow-dark-ltr);
-      }
-
-      .maximized & {
-        @extend %maxd_integration;
         box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
                                             $tiled-header-shadow-dark-ltr);
       }
