@@ -2621,7 +2621,7 @@ headerbar.titlebar.default-decoration {
 }
 
 // workaround for ugly Ubuntu-related CSD patches
-.background:not(.csd):not(.ssd):not(.solid-csd):not(.maximized):not(.tiled) {
+.background:not(.csd):not(.ssd):not(.solid-csd) {
   box headerbar,
   headerbar {
     &, &:not(:last-child) {
@@ -2634,7 +2634,20 @@ headerbar.titlebar.default-decoration {
       *:backdrop { opacity: 1.0; }
     }
   }
+
+  &.tiled,
+  &.maximized {
+    box headerbar,
+    headerbar {
+      &, &:not(:last-child) {
+        border-top: 0 none transparent;
+        background-color: $inverted_dark_color;
+        box-shadow: none;
+      }
+    }
+  }
 }
+
 
 dialog.background.csd > headerbar.titlebar {
   // enforce square shape in 'Cancel' and 'Open' button

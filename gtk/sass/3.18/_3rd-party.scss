@@ -1133,7 +1133,7 @@ UnityPanelWidget,
 }
 
 // workaround for ugly Ubuntu-related CSD patches
-.background:not(.csd):not(.ssd):not(.solid-csd):not(.maximized):not(.tiled) {
+.background:not(.csd):not(.ssd):not(.solid-csd) {
   GtkBox .header-bar,
   .header-bar {
     &, &:not(:last-child) {
@@ -1144,6 +1144,18 @@ UnityPanelWidget,
 
       // unset fade-effect
       *:backdrop { opacity: 1.0; }
+    }
+  }
+
+  &.tiled,
+  &.maximized {
+    GtkBox .header-bar,
+    .header-bar {
+      &, &:not(:last-child) {
+        border-top: 0 none transparent;
+        background-color: $inverted_dark_color;
+        box-shadow: none;
+      }
     }
   }
 }
