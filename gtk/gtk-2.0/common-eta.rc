@@ -1675,16 +1675,6 @@ style "menubar" {
   fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
   fg[PRELIGHT] = @selected_fg_color
   fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @fg_color)
-
-  engine "pixmap" {
-    image {
-      function    = BOX
-      file        = "Shadows/z-depth-1.svg"
-      border      = { 1, 1, 1, 1 }
-      stretch     = TRUE
-      recolorable = TRUE
-    }
-  }
 }
 
 style "menubar_item" {
