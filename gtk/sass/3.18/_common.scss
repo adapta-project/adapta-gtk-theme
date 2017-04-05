@@ -1568,6 +1568,8 @@ GtkComboBox {
     color: $selected_fg_color;
     &:backdrop { opacity: 1.0; }
 
+    .maximized & { border-top-color: $selected_bg_color; }
+
     .subtitle:link { @extend *:link:selected;  }
 
     .button,
@@ -1646,8 +1648,10 @@ GtkComboBox {
     @extend %tiled_integration;
     transition: none;
   }
+
   .maximized & {
-    @extend %maxd_integration;
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
     transition: none;
   }
 
@@ -1685,7 +1689,6 @@ GtkComboBox {
                                         $header-shadow-dark);
 
     .tiled &  { @extend %tiled_integration; }
-    .maximized & { @extend %maxd_integration; }
   }
 
   // override unwanted side-borders
@@ -1694,8 +1697,7 @@ GtkComboBox {
     border-left-color: $inverted_dark_color;
     border-right-color: $inverted_dark_color;
 
-    .tiled &,
-    .maximized & {
+    .tiled & {
       border-left-color: $panel_bg_color;
       border-right-color: $panel_bg_color;
     }
@@ -1708,14 +1710,12 @@ GtkComboBox {
                                           $sub-header-shadow-dark-ltr);
 
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
       box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
                                           $sub-header-shadow-dark-rtl);
 
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
   }
 
@@ -1725,13 +1725,11 @@ GtkComboBox {
       border-left: 1px solid $solid_dark_borders_color;
 
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
     &:dir(rtl) {
       border-right: 1px solid $solid_dark_borders_color;
 
       .tiled &  { @extend %tiled_integration; }
-      .maximized & { @extend %maxd_integration; }
     }
   }
 }
@@ -1744,14 +1742,12 @@ GtkComboBox {
                                             $selected-header-shadow-dark-ltr);
 
         .tiled &  { @extend %tiled_integration; }
-        .maximized & { @extend %maxd_integration; }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
                                             $selected-header-shadow-dark-rtl);
 
         .tiled &  { @extend %tiled_integration; }
-        .maximized & { @extend %maxd_integration; }
       }
     }
   }
@@ -1788,14 +1784,6 @@ GtkComboBox {
   background-color: $panel_bg_color;
   box-shadow: none;
   &:backdrop { border-top-color: $track_color; }
-}
-
-%maxd_integration {
-  border-radius: 0;
-  border-color: $panel_bg_color;
-  border-width: 1px 0 0 0;
-  background-color: $panel_bg_color;
-  box-shadow: none;
 }
 
 
@@ -1981,9 +1969,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     color: $inverted_secondary_fg_color;
   }
 
-
-  .tiled &,
-  .maximized & { background-color: $panel_bg_color; }
+  .tiled & { background-color: $panel_bg_color; }
 
   > .menuitem {
     padding: 0.4em 0.6em;
@@ -3942,8 +3928,10 @@ GtkVolumeButton.button {
       @extend %tiled_integration;
       transition: none;
     }
+
     .maximized .titlebar {
-      @extend %maxd_integration;
+      border-top-color: $inverted_dark_color;
+      border-radius: 0;
       transition: none;
     }
   }
