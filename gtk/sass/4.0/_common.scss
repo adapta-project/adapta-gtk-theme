@@ -5614,8 +5614,8 @@ decoration {
 .csd headerbar:not(.default-decoration),
 .solid-csd headerbar:not(.default-decoration) {
   // appmenu buttons
-  box > button.titlebutton.popup.toggle,
-  &.selection-mode box > button.titlebutton.popup.toggle {
+  box > button.titlebutton.appmenu,
+  &.selection-mode box > button.titlebutton.appmenu {
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
     padding: if($ref_weight < 1.0,
@@ -5629,8 +5629,8 @@ decoration {
     }
   }
 
-  box > button.titlebutton,
-  &.selection-mode box > button.titlebutton {
+  box > button.titlebutton.icon,
+  &.selection-mode box > button.titlebutton.icon {
     @extend %fade_effect;
 
     &.close,
@@ -5741,8 +5741,8 @@ decoration {
 
 .csd.maximized headerbar:not(.default-decoration),
 .solid-csd.maximized headerbar:not(.default-decoration) {
-  box > button.titlebutton,
-  &.selection-mode box > button.titlebutton {
+  box > button.titlebutton.icon,
+  &.selection-mode box > button.titlebutton.icon {
     &.maximize {
       > image {
         background-image:
@@ -5764,7 +5764,7 @@ decoration {
 
 // specific button styling for Mutter's SSDs
 .ssd .titlebar {
-  .titlebutton {
+  .titlebutton.icon {
     min-width: $titlebutton_small;
     min-height: $titlebutton_small;
     padding: 0;
@@ -5860,7 +5860,7 @@ decoration {
 }
 
 .maximized.ssd .titlebar {
-  button.titlebutton {
+  button.titlebutton.icon {
     @each $_class, $_state in ('', ''),
                               (':hover', '-hover'),
                               (':active', '-active'),
@@ -5885,7 +5885,7 @@ decoration {
 // specific button styling for Metacity's CSDs and XWayland
 headerbar.titlebar.default-decoration {
   &, maximized & {
-    button.titlebutton {
+    button.titlebutton.icon {
       @extend %fade_effect;
       min-width: $titlebutton_small;
       min-height: $titlebutton_small;
@@ -5923,7 +5923,7 @@ headerbar.titlebar.default-decoration {
 
 headerbar.titlebar.default-decoration {
   %metacity_csd_button,
-  button.titlebutton {
+  button.titlebutton.icon {
     @each $_class,
           $_state,
           $_shadow in ('', '', none),
