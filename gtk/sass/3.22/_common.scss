@@ -5737,8 +5737,13 @@ decoration {
 .csd headerbar:not(.default-decoration),
 .solid-csd headerbar:not(.default-decoration) {
   // appmenu buttons
+  // FIXME: Purge .popup.toggle after 3.22.12 landed
   box > button.titlebutton.popup.toggle,
-  &.selection-mode box > button.titlebutton.popup.toggle {
+  box > button.titlebutton.icon,
+  box > button.titlebutton.appmenu,
+  &.selection-mode box > button.titlebutton.popup.toggle,
+  &.selection-mode box > button.titlebutton.icon,
+  &.selection-mode box > button.titlebutton.appmenu {
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
     padding: if($ref_weight < 1.0,
