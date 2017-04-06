@@ -661,6 +661,22 @@ GeditViewFrame {
     border-radius: 2px;
     outline-radius: 2px;
   }
+
+  // gradient separator
+  .pane-separator {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
+                                                 rgba(0, 0, 0, 0.11) 2px,
+                                                 rgba(0, 0, 0, 0.05) 4px,
+                                                 rgba(0, 0, 0, 0.05));
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 1px auto;
+  }
+}
+
+// hide weird 1px gaps at the left/right side of pane-separator
+GtkPaned.gedit-headerbar-paned.horizontal {
+  .pane-separator { background-color: $inverted_dark_color; }
 }
 
 GeditStatusbar { // inline-toolbar style
