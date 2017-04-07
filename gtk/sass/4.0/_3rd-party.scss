@@ -2586,11 +2586,27 @@ MsdOsdWindow {
 //  * Libre-Office *
 //  ****************/
 
-// FIXME: ignored box-shadow and wrong pseudo-class for toggled-state
-.libreoffice-toolbar {
-  button {
-    // active <- checked
-    &:active { background-color: $selected_bg_color; }
+// for 'Notebookbar' toolbar
+window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
+  > notebook {
+    border-top: 1px solid $borders_color;
+    background-color: $bg_color;
+
+    &.frame,
+    > stack {
+      border: none;
+      background-color: $bg_color;
+      box-shadow: none;
+    }
+
+    > header.top {
+      background-color: $bg_color;
+      box-shadow: none;
+
+      tabs {
+        &, > tab { background-color: $bg_color; }
+      }
+    }
   }
 }
 
