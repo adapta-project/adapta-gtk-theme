@@ -2044,8 +2044,7 @@ window.background:not(.csd):not(.solid-csd) {
     > frame,
     > separator { color: $borders_color; }
 
-    // FIXME: ugly wildcard
-    > * > button:not(.flat) {
+    > button > button:not(.flat) {
       // enforce fallback buttons inside the HTML pages
       @extend %button_fallback_normal;
       &:hover { @extend %button_fallback_hover; }
