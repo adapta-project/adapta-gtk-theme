@@ -1076,8 +1076,12 @@ GtkComboBox {
   -GtkComboBox-arrow-scaling: 0.5;
   -GtkComboBox-shadow-type: none;
 
-  .menu { padding: 2px 0; }
-  .menu .menuitem { padding: 0.35em 0.5em 0.45em; }
+  .menu {
+    padding: 2px 0;
+    transition: none; // do not set transitions
+
+    .menuitem { padding: 0.35em 0.5em 0.45em; }
+  }
 
   .separator.vertical {
     // always disable separators
