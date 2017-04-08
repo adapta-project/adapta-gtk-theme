@@ -4931,6 +4931,14 @@ messagedialog {
       &:hover,
       &:active { color: $inverted_fg_color; }
     }
+
+    textview.view { // scrolled text-views
+      &, > text {
+        background-color: $base_color;
+        color: $fg_color;
+        caret-color: $fg_color;
+      }
+    }
   }
 
   &.csd { // rounded bottom border styling for csd version
