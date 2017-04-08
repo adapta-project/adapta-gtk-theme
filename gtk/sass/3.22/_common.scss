@@ -2199,6 +2199,58 @@ headerbar {
     }
   }
 
+  // check and radio styling
+  @each $w,$a in ('check', 'checkbox'),
+                 ('radio','radio') {
+    @each $s,$as in ('','-unchecked'),
+                    (':hover', '-unchecked-active'),
+                    (':active', '-unchecked-active'),
+                    (':disabled','-unchecked-insensitive'),
+                    (':indeterminate', '-mixed'),
+                    (':indeterminate:hover', '-mixed-active'),
+                    (':indeterminate:active', '-mixed-active'),
+                    (':indeterminate:disabled', '-mixed-insensitive'),
+                    (':checked', '-checked'),
+                    (':checked:hover', '-checked-active'),
+                    (':checked:active', '-checked-active'),
+                    (':checked:disabled','-checked-insensitive') {
+      #{$w}#{$s},
+      #{$w}button.text-button #{$w}#{$s} {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"),
+                                      url("assets/#{$a}#{$as}-dark@2.png"));
+        -gtk-icon-shadow: none;
+      }
+    }
+  }
+
+  radio,
+  check {
+    min-width: rem($icon_size, $sw: 1.0);
+    min-height: rem($icon_size, $sw: 1.0);
+    margin: rem(-6.7px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
+    padding: rem(6.7px, $sw: 1.0);
+  }
+
+  checkbutton.text-button,
+  radiobutton.text-button {
+    min-height: $icon_size * 1.5;
+    padding-top: if($ref_weight < 1.0,
+                 rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                 rem(($widget_size - $icon_size * 1.5) / 2));
+    padding-bottom: if($ref_weight < 1.0,
+                    rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                    rem(($widget_size - $icon_size * 1.5) / 2));
+    color: $inverted_secondary_fg_color;
+    &:hover,
+    &:active,
+    &:checked { color: $inverted_fg_color; }
+    &:disabled,
+    &:disabled:active,
+    &:disabled:indeterminate {
+      color: $insensitive_inverted_fg_color;
+    }
+  }
+
   // switch styling
   switch {
     min-width: rem(30px);
@@ -3776,14 +3828,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($secondary_fg_color, 0.1)),
+                                    to(gtkalpha(currentColor, 0.1)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($secondary_fg_color, 0.1)),
+                                    to(gtkalpha(currentColor, 0.1)),
                                     to(transparent));
   }
 }
