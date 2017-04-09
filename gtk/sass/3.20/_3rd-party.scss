@@ -225,8 +225,12 @@ box.horizontal.pinned { // drop-target
 }
 
 .budgie-menu {
-  border-radius: 2px;
   background-color: $secondary_base_color;
+
+  &.background {
+    padding: 2px 0 0; // remove side/bottom padding
+    border-style: solid none none; // remove side/bottom borders
+  }
 
   scrolledwindow,
   list,
@@ -259,10 +263,12 @@ box.horizontal.pinned { // drop-target
   }
 
   .categories { // left-paned elements of GtkPopover
+    background-color: $secondary_dark_color;
     &:dir(ltr) { border-right: 1px solid $borders_color; }
     &:dir(rtl) { border-left: 1px solid $borders_color; }
 
     .category-button {
+      border-radius: 0; // remove roundness
       &:checked {
         background-image: none;
         background-color: transparent;
