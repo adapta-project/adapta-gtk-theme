@@ -880,6 +880,26 @@ popover.background > box.vertical > scrolledwindow > viewport.frame {
   > list.background { background-color: $secondary_base_color; }
 }
 
+// popover for bookmarks
+popover.background > box.vertical > stack > box.vertical > stack {
+  > scrolledwindow > viewport.frame > list.background {
+    row.activatable.bookmarks-row {
+      color: $secondary_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $fg_color; }
+
+      button.flat {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(4px); // Same as of image.sidebar-icon
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+      }
+    }
+  }
+}
+
 // For Ephy 3.23.x
 window.background > box.vertical > notebook > header.top > box.horizontal {
   > button.flat { // 'Open a new tab' and arrow button at most-right
