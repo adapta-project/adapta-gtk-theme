@@ -881,9 +881,11 @@ popover.background > box.vertical > scrolledwindow > viewport.frame {
 }
 
 // popover for bookmarks
-popover.background > box.vertical > stack > box.vertical > stack {
-  > scrolledwindow > viewport.frame > list.background {
-    row.activatable.bookmarks-row {
+popover.background > box.vertical > stack > box.vertical {
+  scrolledwindow > viewport.frame {
+    border: 1px solid $borders_color;
+
+    > list.background > row.activatable.bookmarks-row {
       color: $secondary_fg_color;
       &:hover,
       &:active,
