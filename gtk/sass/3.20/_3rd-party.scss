@@ -182,14 +182,12 @@ box.horizontal.pinned { // drop-target
   // tweak lateral spacing when 16px icons are used
   > widget > widget {
     > box.horizontal { // 'Stats Indicator'
-      padding: 0 2px;
-
       > widget > widget > image { // 'bluetooth' and 'sound'
         min-width: $icon_size + 2px;
       }
 
       > widget > widget > box.horizontal > image { // 'battery'
-        min-width: $icon_size + 8px;
+        min-width: $icon_size + 6px;
       }
     }
 
@@ -832,9 +830,18 @@ popover.places-menu {
 }
 
 // keyboard indicator applet
-widget.keyboard-label > label {
-  // tweak base-line
-  padding-bottom: rem(1.3px, $sw: 1.0);
+widget.keyboard-indicator >  widget > box.horizontal {
+  > widget > image {
+    margin-top: rem(-0.7px, $sw: 1.0);
+    &:dir(ltr) { padding: 2.7px 0 0 3px; }
+    &:dir(rtl) { padding: 2.7px 3px 0 0; }
+  }
+
+  > stack > widget.keyboard-label > label {
+    margin-top: rem(-0.7px, $sw: 1.0);
+    &:dir(ltr) { padding: 1.3px 3px rem(1.3px, $sw: 1.0) 0; }
+    &:dir(rtl) { padding: 1.3px 0 rem(1.3px, $sw: 1.0) 3px; }
+  }
 }
 
 // separator applet
