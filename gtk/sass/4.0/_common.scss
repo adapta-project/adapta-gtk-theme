@@ -3390,16 +3390,18 @@ notebook {
 //  * Scrollbars *
 //  **************/
 
-$_slider_min_width: rem(12px);
-$_slider_min_length: rem(32px);
+$_slider_min_width: if($ref_weight < 1.0, rem(8px, $sw: 1.0),
+                                          rem(12px, $sw: 1.0));
+$_slider_min_length: if($ref_weight < 1.0, rem(24px, $sw: 1.0),
+                                           rem(32px, $sw: 1.0));
 
 @keyframes slow_down_vert {
-  from {min-width: $_slider_min_width - rem(6px); }
+  from {min-width: $_slider_min_width / 2; }
   to { min-width: $_slider_min_width; }
 }
 
 @keyframes slow_down_horz {
-  from {min-height: $_slider_min_width - rem(6px); }
+  from {min-height: $_slider_min_width / 2; }
   to { min-height: $_slider_min_width; }
 }
 
@@ -3440,6 +3442,7 @@ scrollbar {
     }
     &.fine-tune slider { margin: 0; }
   }
+
   &.horizontal {
     slider {
       min-width: $_slider_min_length;
@@ -3468,9 +3471,9 @@ scrollbar {
       button {
         min-width: $_slider_min_width;
         min-height: $_slider_min_width;
-        background-color: gtkopacity($tertiary_fg_color, 0.55);
         border-radius: 0;
         border: none;
+        background-color: gtkopacity($tertiary_fg_color, 0.55);
         -gtk-icon-source: none;
       }
 
@@ -3478,13 +3481,13 @@ scrollbar {
       // when hovering/dragging
       &.vertical {
         slider {
-          min-width: $_slider_min_width - rem(6px);
+          min-width: $_slider_min_width / 2;
           min-height: $_slider_min_length;
           margin: 0;
         }
 
         button {
-          min-width: rem(6px);
+          min-width: $_slider_min_width / 2;
           margin: 0;
         }
       }
@@ -3492,12 +3495,12 @@ scrollbar {
       &.horizontal {
         slider {
           min-width: $_slider_min_length;
-          min-height: $_slider_min_width - rem(6px);
+          min-height: $_slider_min_width / 2;
           margin: 0;
         }
 
         button {
-          min-height: rem(6px);
+          min-height: $_slider_min_width / 2;
           margin: 0;
         }
       }
@@ -3508,6 +3511,7 @@ scrollbar {
 
     &.hovering { // slow-down when deforming
       &.vertical slider { animation: slow_down_vert 0.2s linear forwards; }
+
       &.horizontal slider { animation: slow_down_horz 0.2s linear forwards; }
     }
   }
