@@ -28,12 +28,12 @@
 // Foreground colors
 //
 
-$fg_color: if($variant == 'light', #263238,                     // = BluGry900
-                                   #ECEFF1);                    // = BluGry50
+$fg_color: if($variant == 'light', #574F4A,                     // = BluGry900
+                                   #F6F6F6);                    // = BluGry50
 $secondary_fg_color: gtkopacity($fg_color, 0.75);
 $tertiary_fg_color: gtkopacity($fg_color, 0.5);
 
-$selected_fg_color: #FFFFFF;                                    // = White
+$selected_fg_color: #F6F6F6;                                    // = White
 $secondary_selected_fg_color: gtkopacity($selected_fg_color, 0.85);
 $tertiary_selected_fg_color: gtkopacity($selected_fg_color, 0.7);
 
@@ -46,22 +46,22 @@ $insensitive_secondary_selected_fg_color: gtkopacity($secondary_selected_fg_colo
 $insensitive_tertiary_selected_fg_color: gtkopacity($tertiary_selected_fg_color, 0.4);
 
 // preview text on empty GtkEntry
-$placeholder_text_color: if($variant == 'light', #CFD8DC,       // = BluGry100
-                                                 #607D8B);      // = BluGry500
+$placeholder_text_color: if($variant == 'light', #F6F6F6,       // = BluGry100
+                                                 #8b6d60);      // = BluGry500
 
 
 //
 // Inverted foreground colors
 //
 
-$inverted_fg_color: #ECEFF1;                                    // = BluGry50
+$inverted_fg_color: #F6F6F6;                                    // = BluGry50
 $inverted_secondary_fg_color: gtkopacity($inverted_fg_color, 0.75);
 $inverted_tertiary_fg_color: gtkopacity($inverted_fg_color, 0.5);
 
 $insensitive_inverted_fg_color: gtkopacity($inverted_fg_color, 0.3);
 $insensitive_inverted_secondary_fg_color: gtkopacity($inverted_secondary_fg_color, 0.3);
 
-$fixed_fg_color: #263238;                                       // = BluGry900
+$fixed_fg_color: #574F4A;                                       // = BluGry900
 $secondary_fixed_fg_color: gtkopacity($fixed_fg_color, 0.75);
 $tertiary_fixed_fg_color: gtkopacity($fixed_fg_color, 0.5);
 $insensitive_fixed_fg_color: gtkopacity($fixed_fg_color, 0.3);
@@ -71,35 +71,35 @@ $insensitive_fixed_fg_color: gtkopacity($fixed_fg_color, 0.3);
 // Background colors
 //
 
-$bg_color: if($variant == 'light', mix(#FFFFFF, #ECEFF1, 75%),  // = W _ 50
-                                   mix(#455A64, #37474F, 50%)); // = 700 _ 800
-$base_color: if($variant == 'light', #FFFFFF,                   // = White
-                                     #455A64);                  // = BluGry700
+$bg_color: if($variant == 'light', mix(#F6F6F6, #F6F6F6, 75%),  // = W _ 50
+                                   mix(#574f4a, #888888, 50%)); // = 700 _ 800
+$base_color: if($variant == 'light', #f6f6f6,                   // = White
+                                     #574f4a);                  // = BluGry700
 $secondary_base_color: mix($base_color, $bg_color, 50%);        // = W _ 50
 $light_color: if($variant == 'light', $base_color,              // = White
-                                      #546E7A);                 // = BluGry600
+                                      #888888);                 // = BluGry600
 $dark_color: if($variant == 'light',
-                mix(#ECEFF1, #CFD8DC, 75%),                     // =  50 _ 100
-                mix(#263238, #37474F, 75%));                    // = 900 _ 800
+                mix(#F6F6F6, #F6F6F6, 75%),                     // =  50 _ 100
+                mix(#574F4A, #333333, 75%));                    // = 900 _ 800
 $secondary_dark_color: if($variant == 'light',
-                          mix(#FFFFFF, #ECEFF1, 60%),           // = W _ 50
-                          mix(#455A64, #37474F, 25%));          // = 700 _ 800
+                          mix(#F6F6F6, #F6F6F6, 60%),           // = W _ 50
+                          mix(#574f4a, #888888, 25%));          // = 700 _ 800
 
 
 //
 // Dark background colors on light variant
 //
 
-$inverted_bg_color: mix(#455A64, #37474F, 50%);                 // = 700 _ 800
-$inverted_base_color: #455A64;                                  // = BluGry700
-$inverted_dark_color: mix(#263238, #37474F, 75%);               // = 900 _ 800
+$inverted_bg_color: mix(#574f4a, #333333, 50%);                 // = 700 _ 800
+$inverted_base_color: #574f4a;                                  // = BluGry700
+$inverted_dark_color: mix(#574F4A, #333333, 75%);               // = 900 _ 800
 
 
 //
 // Selection (primary) colors
 //
 
-// Default: #00BCD4                                             // = Cyan500
+// Default: #574F4A                                             // = Cyan500
 $selected_bg_color: $key_selection_color;
 // Default: #4DD0E1                                             // = Cyan300
 $secondary_selected_bg_color: $key_secondary_selection_color;
@@ -109,7 +109,7 @@ $secondary_selected_bg_color: $key_secondary_selection_color;
 // Accent (secondary) colors
 //
 
-// Default: #4DB6AC                                             // = Teal300
+// Default: #48B9C7                                             // = Teal300
 $accent_color: $key_accent_color;
 $accent_label_color: if($variant == 'light',
                         mix($key_accent_color, $fg_color, 80%),
@@ -139,13 +139,13 @@ $track_color: gtkalpha(currentColor, 0.2);
 
 $borders_color: if($variant == 'light', gtkopacity(#000000, 0.09),
                                         gtkopacity(#000000, 0.11));
-$solid_light_borders_color: if($variant == 'light', #E5E9EC, #37474F);
+$solid_light_borders_color: if($variant == 'light', #E5E9EC, #888888);
 $solid_dark_borders_color: #242F35;
-$top_edge_border_color: #37474F;
+$top_edge_border_color: #888888;
 $paned_borders_color: if($variant == 'light', gtkopacity(#000000, 0.05),
                                               gtkopacity(#000000, 0.06));
 
-$highlight_color: gtkopacity(#FFFFFF, 0.07);
+$highlight_color: gtkopacity(#F6F6F6, 0.07);
 
 
 //
@@ -174,5 +174,5 @@ $error_bg_color: #FF1744;                                       // = RedA400
 // Solid panel color
 //
 
-$panel_bg_color: mix(#263238, #000000, 50%);                    // = 900 _ B
+$panel_bg_color: mix(#574F4A, #000000, 50%);                    // = 900 _ B
 

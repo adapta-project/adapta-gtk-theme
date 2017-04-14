@@ -1,8 +1,8 @@
 themedir     = $(datadir)/themes
-adaptadir    = $(DESTDIR)$(themedir)/Adapta
-noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
-noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
+adaptadir    = $(DESTDIR)$(themedir)/Robotic
+noktodir     = $(DESTDIR)$(themedir)/Robotic-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Robotic-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Robotic-Nokto-Eta
 
 chromedir         = $(srcdir)/chrome
 chrome_file       = $(chromedir)/adapta-theme.crx
@@ -38,17 +38,17 @@ if ENABLE_CHROME
 	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
 
 	cd $(adaptadir)
-	ln -sf ../Adapta/chrome $(adaptaetadir)/chrome
-	ln -sf ../Adapta-Nokto/chrome $(noktoetadir)/chrome
+	ln -sf ../Robotic/chrome $(adaptaetadir)/chrome
+	ln -sf ../Robotic-Nokto/chrome $(noktoetadir)/chrome
 endif
 
 if ENABLE_PLANK
 	$(MKDIR_P) $(adaptadir)/plank
 	cp -Rv $(plank_file) $(adaptadir)/plank
 	cd $(adaptadir)
-	ln -sf ../Adapta/plank $(noktodir)/plank
-	ln -sf ../Adapta/plank $(adaptaetadir)/plank
-	ln -sf ../Adapta/plank $(noktoetadir)/plank
+	ln -sf ../Robotic/plank $(noktodir)/plank
+	ln -sf ../Robotic/plank $(adaptaetadir)/plank
+	ln -sf ../Robotic/plank $(noktoetadir)/plank
 endif
 
 if ENABLE_TELEGRAM
@@ -58,14 +58,14 @@ if ENABLE_TELEGRAM
 	cp -Rv $(telegram_nokto_file) $(noktodir)/telegram
 
 	cd $(adaptadir)
-	ln -sf ../Adapta/telegram $(adaptaetadir)/telegram
-	ln -sf ../Adapta-Nokto/telegram $(noktoetadir)/telegram
+	ln -sf ../Robotic/telegram $(adaptaetadir)/telegram
+	ln -sf ../Robotic-Nokto/telegram $(noktoetadir)/telegram
 endif
 
 	$(MKDIR_P) $(adaptadir)/gedit
 	cp -Rv $(gedit_file) $(adaptadir)/gedit
 	cd $(adaptadir)
-	ln -sf ../Adapta/gedit $(noktodir)/gedit
+	ln -sf ../Robotic/gedit $(noktodir)/gedit
 
 # *******************
 # * Uninstall files *

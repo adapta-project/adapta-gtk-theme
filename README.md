@@ -228,9 +228,9 @@ Installation from Git Source
 7. To change the default 5 **Key-Colors**, pass these options:
 
  ```
- --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: int)
+ --with-selection_color        Primary color for 'selected-items' (Default: #574F4A = Cyan500, type: int)
  --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: int)
- --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: int)
+ --with-accent_color           Secondary color for notifications and OSDs (Default: #48B9C7 = Teal300, type: int)
  --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: int)
  --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: int)
  ```
@@ -242,7 +242,7 @@ Installation from Git Source
  >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
- >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#4DB6AC```
+ >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#48B9C7```
  >
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
@@ -277,10 +277,10 @@ Extra Browser Support
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```
- >     Background: #FAFBFC (#3E515A)
- >     Foreground: #263238 (#ECEFF1)
- >     Highlight:  #00BCD4
- >     Accent:     #2A373E
+ >     Background: #FAFBFC (#333333)
+ >     Foreground: #574F4A (#F6F6F6)
+ >     Highlight:  #574F4A
+ >     Accent:     #4E4844
  >     Accent Color from Active Page: [ ]
  >     Apply Accent Color to Window:  [*]
  >     Transparent Tabs:              [*]

@@ -1,10 +1,10 @@
 ACLOCAL_AMFLAGS = -I m4
 
 themedir  = $(datadir)/themes
-adaptadir = $(DESTDIR)$(themedir)/Adapta
-noktodir  = $(DESTDIR)$(themedir)/Adapta-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
-noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
+adaptadir = $(DESTDIR)$(themedir)/Robotic
+noktodir  = $(DESTDIR)$(themedir)/Robotic-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Robotic-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Robotic-Nokto-Eta
 
 SUBDIRS = \
 	gtk \

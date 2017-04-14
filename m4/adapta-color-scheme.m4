@@ -18,7 +18,7 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-selection_color],
             [Primary color for selected-items \
-             (Default: #00BCD4 (Cyan500))]
+             (Default: #574F4A (Cyan500))]
         )],
         [SELECTION="$withval"],
         [SELECTION=$selection_default]
@@ -42,7 +42,7 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-accent_color],
             [Secondary color for notifications and OSDs \
-             (Default: #4DB6AC (Teal300))]
+             (Default: #48B9C7 (Teal300))]
         )],
         [ACCENT="$withval"],
         [ACCENT=$accent_default]

@@ -1,8 +1,8 @@
 themedir     = $(datadir)/themes
-adaptadir    = $(DESTDIR)$(themedir)/Adapta
-noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
-noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
+adaptadir    = $(DESTDIR)$(themedir)/Robotic
+noktodir     = $(DESTDIR)$(themedir)/Robotic-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Robotic-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Robotic-Nokto-Eta
 
 gtk3_assetdir = $(srcdir)/asset/assets-gtk3
 
@@ -532,9 +532,9 @@ install-data-local:
 	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
 
 	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
-	ln -sf ../Adapta/gtk-3.20 $(noktodir)/gtk-3.20
-	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
+	ln -sf ../Robotic/gtk-3.0 $(noktodir)/gtk-3.0
+	ln -sf ../Robotic/gtk-3.20 $(noktodir)/gtk-3.20
+	ln -sf ../Robotic/gtk-3.22 $(noktodir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
 	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.20
@@ -543,8 +543,8 @@ install-data-local:
 	cp -Rv $(gtk322eta_file) $(adaptaetadir)/gtk-3.22
 
 	cd $(adaptadir)
-	ln -sf ../Adapta-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
-	ln -sf ../Adapta-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
+	ln -sf ../Robotic-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
+	ln -sf ../Robotic-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptadir)/gtk-2.0
 	$(MKDIR_P) $(adaptadir)/gtk-2.0/Arrows
@@ -679,11 +679,11 @@ if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
 	cp -Rv $(gtknext_file) $(adaptadir)/gtk-4.0
 	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-4.0 $(noktodir)/gtk-4.0
+	ln -sf ../Robotic/gtk-4.0 $(noktodir)/gtk-4.0
 
 	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-4.0
 	cd $(adaptadir)
-	ln -sf ../Adapta-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
+	ln -sf ../Robotic-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
 endif
 
 if ENABLE_XFCE
