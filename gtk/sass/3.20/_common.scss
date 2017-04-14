@@ -4722,18 +4722,22 @@ row.activatable {
   }
 }
 
-// button spacing
+// button and entry spacing
 row {
-  button.image-button {
-    margin: 2px 0;
-    padding: rem(8px);
-  }
-
+  button.image-button:not(.text-button),
   button.circular {
     min-width: $icon_size;
     min-height: $icon_size;
-    margin: 2px 0;
+    // prevent drop-shadow truncation
+    margin: rem(2.7px, $sw: 1.0) rem(4px, $sw: 1.0);
     padding: rem(8px);
+  }
+
+  entry {
+    &, &.flat {
+      min-height: rem(13.3px);
+      padding: rem(6.7px) rem(8px) rem(8px);
+    }
   }
 }
 
