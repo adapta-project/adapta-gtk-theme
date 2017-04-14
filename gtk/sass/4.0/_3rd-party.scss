@@ -1693,24 +1693,47 @@ window.background > grid.vertical > stack > paned.horizontal {
 //  * Cinnamon-Control-Center *
 //  ***************************/
 
-.background:not(.csd) > box.vertical > stack > scrolledwindow {
-  // stop using $base_color
-  iconview {
-    &, &.view {
-      background-color: transparent;
-      &:selected {
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
+window.background:not(.csd) > box.vertical > stack {
+  > scrolledwindow {
+    iconview {
+      &, &.view {
+        background-color: transparent;
+        &:selected {
+          color: $selected_fg_color;
+          background-color: $selected_bg_color;
 
-        label { color: $selected_fg_color; }
+          label { color: $selected_fg_color; }
+        }
       }
     }
-  }
 
-  toolbar {
-    background-color: $secondary_dark_color;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    box.vertical > toolbar {
+      border: none;
+      background-color: $bg_color;
+      box-shadow: none;
+
+      *:not(button) > label {
+        padding: rem(5.3px, $sw: 1.0);
+        color: $tertiary_fg_color;
+      }
+    }
+
+    box.vertical > list {
+      &, > row {
+        background-image: none;
+        background-color: $base_color;
+        &:hover,
+        &:active { // unset hover/active effects
+          background-image: none;
+          background-color: transparent;
+          animation: none;
+        }
+        &:selected {
+          background-color: $selected_bg_color;
+          color: $selected_fg_color;
+        }
+      }
+    }
   }
 }
 
