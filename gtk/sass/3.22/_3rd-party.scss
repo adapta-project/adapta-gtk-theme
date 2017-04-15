@@ -2639,10 +2639,27 @@ MsdOsdWindow {
 //  * Libre-Office *
 //  ****************/
 
-// for 'Notebookbar' toolbar
 window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
+  // reserved area at the most-right side of GtkMenuBar
+  > grid.horizontal > grid.horizontal {
+    background-color: $inverted_dark_color;
+
+    > button.flat.small-button { // 'close' button
+      color: $inverted_secondary_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $inverted_fg_color; }
+      &:disabled { color: $insensitive_inverted_fg_color; }
+    }
+  }
+
+  &.tiled > grid.horizontal > grid.horizontal {
+    background-color: $panel_bg_color;
+  }
+
+  // for 'Notebookbar' toolbar
   > notebook {
-    border-top: 1px solid $borders_color;
+    border: 0 none transparent; // unset borders
     background-color: $bg_color;
 
     &.frame,
@@ -2653,11 +2670,30 @@ window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
     }
 
     > header.top {
+      // draw bottom border
+      border: 0 0 1px none none solid transparent transparent $borders_color;
       background-color: $bg_color;
       box-shadow: none;
 
       tabs {
-        &, > tab { background-color: $bg_color; }
+        &, > tab {
+          background-color: transparent;
+
+          &, // FIXME: this does not work
+          label,
+          image { color: $tertiary_fg_color; }
+
+          &:checked {
+            &,
+            label,
+            image { color: $fg_color; }
+          }
+          &:not(:checked) {
+            &,
+            label,
+            image { color: $tertiary_fg_color; }
+          }
+        }
       }
     }
   }
