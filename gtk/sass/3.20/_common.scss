@@ -3514,9 +3514,9 @@ notebook {
 //  **************/
 
 $slider_min_width: if($ref_weight < 1.0, rem(8px, $sw: 1.0),
-                                          rem(12px, $sw: 1.0));
+                                         rem(12px, $sw: 1.0));
 $slider_min_length: if($ref_weight < 1.0, rem(24px, $sw: 1.0),
-                                           rem(32px, $sw: 1.0));
+                                          rem(32px, $sw: 1.0));
 
 @keyframes slow_down_vert {
   from {min-width: $slider_min_width / 2; }
@@ -3528,7 +3528,8 @@ $slider_min_length: if($ref_weight < 1.0, rem(24px, $sw: 1.0),
   to { min-height: $slider_min_width; }
 }
 
-scrollbar {
+scrollbar,
+.scrollbar {
   // disable steppers
   @at-root * {
     -GtkScrollbar-has-backward-stepper: false;
@@ -3544,7 +3545,7 @@ scrollbar {
                            ('left', '0 -2px 0 0'),
                            ('right', '0 0 0 -2px') {
     &.#{$_side} {
-      border: none;
+      &, .trough { border: none; }
 
       .background scrolledwindow > &:not(.overlay-indicator) {
         // Negative margins can reduce the unwanted gap
@@ -3557,7 +3558,8 @@ scrollbar {
   }
 
   // slider colouring
-  slider {
+  slider,
+  .slider {
     background-color: gtkopacity($tertiary_fg_color, 0.55);
     &:hover { background-color: gtkopacity($secondary_fg_color, 0.55); }
     &:active { background-color: $fg_color; }
@@ -3570,7 +3572,8 @@ scrollbar {
   ('horizontal', $slider_min_length, $slider_min_width) {
     &.#{$_position} {
       &, &.fine-tune {
-        slider {
+        slider,
+        .slider {
           min-width: #{$_min_w};
           min-height: #{$_min_l};
           margin: 0;
