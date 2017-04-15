@@ -3390,19 +3390,19 @@ notebook {
 //  * Scrollbars *
 //  **************/
 
-$_slider_min_width: if($ref_weight < 1.0, rem(8px, $sw: 1.0),
+$slider_min_width: if($ref_weight < 1.0, rem(8px, $sw: 1.0),
                                           rem(12px, $sw: 1.0));
-$_slider_min_length: if($ref_weight < 1.0, rem(24px, $sw: 1.0),
+$slider_min_length: if($ref_weight < 1.0, rem(24px, $sw: 1.0),
                                            rem(32px, $sw: 1.0));
 
 @keyframes slow_down_vert {
-  from {min-width: $_slider_min_width / 2; }
-  to { min-width: $_slider_min_width; }
+  from {min-width: $slider_min_width / 2; }
+  to { min-width: $slider_min_width; }
 }
 
 @keyframes slow_down_horz {
-  from {min-height: $_slider_min_width / 2; }
-  to { min-height: $_slider_min_width; }
+  from {min-height: $slider_min_width / 2; }
+  to { min-height: $slider_min_width; }
 }
 
 scrollbar {
@@ -3416,40 +3416,46 @@ scrollbar {
   transition-duration: 0.2s;
 
   // scrollbar border
-  &.top,
-  &.bottom,
-  &.left,
-  &.right { border: none; }
+  @each $_side,$_margin in ('top', '0 0 -2px 0'),
+                           ('bottom', '-2px 0 0 0'),
+                           ('left', '0 -2px 0 0'),
+                           ('right', '0 0 0 -2px') {
+    &.#{$_side} {
+      border: none;
 
-  // slider
+      .background scrolledwindow > &:not(.overlay-indicator) {
+        // Negative margins can reduce the unwanted gap
+        // since we don't have any outer borders and
+        // Gtk+ seems to allocate 1px borders always when
+        // overlay-indicator was disabled.
+        margin: #{$_margin};
+      }
+    }
+  }
+
+  // slider colouring
   slider {
-    margin: 0;
-    border-radius: 0;
-    border: 0 none transparent;
     background-color: gtkopacity($tertiary_fg_color, 0.55);
     &:hover { background-color: gtkopacity($secondary_fg_color, 0.55); }
     &:active { background-color: $fg_color; }
     &:disabled { opacity: 0.4; }
   }
 
-  &.fine-tune slider { margin: 0; }
-
-  &.vertical {
-    slider {
-      min-width: $_slider_min_width;
-      min-height: $_slider_min_length;
-      margin: 0;
+  // slider sizing
+  @each $_position,$_min_w,$_min_l in
+  ('vertical', $slider_min_width, $slider_min_length),
+  ('horizontal', $slider_min_length, $slider_min_width) {
+    &.#{$_position} {
+      &, &.fine-tune {
+        slider {
+          min-width: #{$_min_w};
+          min-height: #{$_min_l};
+          margin: 0;
+          border-radius: 0;
+          border: 0 none transparent;
+        }
+      }
     }
-    &.fine-tune slider { margin: 0; }
-  }
-
-  &.horizontal {
-    slider {
-      min-width: $_slider_min_length;
-      min-height: $_slider_min_width;
-      margin: 0;
-    }
-    &.fine-tune slider { margin: 0; }
   }
 
   &.overlay-indicator {
@@ -3469,39 +3475,29 @@ scrollbar {
       }
 
       button {
-        min-width: $_slider_min_width;
-        min-height: $_slider_min_width;
+        min-width: $slider_min_width;
+        min-height: $slider_min_width;
         border-radius: 0;
         border: none;
         background-color: gtkopacity($tertiary_fg_color, 0.55);
         -gtk-icon-source: none;
       }
 
-      // w/o the following margin tweaks the slider shrinks
-      // when hovering/dragging
-      &.vertical {
-        slider {
-          min-width: $_slider_min_width / 2;
-          min-height: $_slider_min_length;
-          margin: 0;
-        }
+      // slider and button sizing
+      @each $_position,$_min_w,$_min_l,$_button_s in
+      ('vertical', $slider_min_width / 2, $slider_min_length, 'min-width'),
+      ('horizontal', $slider_min_length, $slider_min_width / 2, 'min-height') {
+        &.#{$_position} {
+          slider {
+            min-width: #{$_min_w};
+            min-height: #{$_min_l};
+            margin: 0;
+          }
 
-        button {
-          min-width: $_slider_min_width / 2;
-          margin: 0;
-        }
-      }
-
-      &.horizontal {
-        slider {
-          min-width: $_slider_min_length;
-          min-height: $_slider_min_width / 2;
-          margin: 0;
-        }
-
-        button {
-          min-height: $_slider_min_width / 2;
-          margin: 0;
+          button {
+            #{$_button_s}: #{$_min_w};
+            margin: 0;
+          }
         }
       }
     }
