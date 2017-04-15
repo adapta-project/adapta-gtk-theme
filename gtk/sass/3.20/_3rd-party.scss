@@ -2742,10 +2742,14 @@ window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
     }
 
     > header.top {
-      // draw bottom border
-      border: 0 0 1px none none solid transparent transparent $borders_color;
+      border: 0 none transparent; // unset borders
       background-color: $bg_color;
-      box-shadow: none;
+      box-shadow: $toolbar-shadow-light,
+                  inset 0 -1px $borders_color;
+      @if $variant = 'dark' {
+        box-shadow: $toolbar-shadow-dark,
+                    inset 0 -1px $borders_color;
+      }
 
       tabs {
         &, > tab {
