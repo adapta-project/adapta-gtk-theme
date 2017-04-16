@@ -925,6 +925,53 @@ wnck-pager {
   }
 }
 
+// alt-tab apps switcher styling
+window.budgie-switcher-window {
+  border-radius: 2px;
+  background-color: transparent;
+
+  // draw actual backgrounds and shadows
+  .drop-shadow {
+    margin: 8px 8px 12px; // reserve area for shadows
+    border-radius: 2px;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    box-shadow: $z-depth-4; // raise to level-4
+
+    label { // bottom label for apps names
+      color: $inverted_accent_label_color;
+      font-weight: 700;
+    }
+  }
+
+  flowbox > flowboxchild { // icon-tiles
+    margin: rem(8px);
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    color: $inverted_secondary_accent_label_color;
+    background-color: transparent;
+    &:hover,
+    &:active {
+      background-color: gtkopacity($accent_color, 0.1);
+      color: $inverted_accent_label_color;
+    }
+    &:selected { // use the same values with Gnome-Shell
+      background-color: gtkopacity($accent_color, 0.25);
+      color: $inverted_accent_label_color;
+      -gtk-icon-effect: highlight;
+      &:disabled {
+        background-color: gtkopacity($inverted_fg_color, 0.1);
+        -gtk-icon-effect: dim;
+
+        &, label { color: $insensitive_inverted_fg_color; }
+      }
+    }
+  }
+}
+
+// an internal of the parent switcher-window
+.budgie-switcher {
+}
+
 // run-dialog styling
 .background.csd.budgie-run-dialog {
   border-radius: 2px;
