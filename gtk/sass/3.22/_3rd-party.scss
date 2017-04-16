@@ -938,8 +938,13 @@ window.budgie-switcher-window {
     box-shadow: $z-depth-4; // raise to level-4
 
     label { // bottom label for apps names
+      // max_children_per_line = 8
+      // max_chars = 45
+      // keep the minimum width defined by tabswitcher.ui
+      min-width: 13.33px * 45; // do not scale
+      padding: rem(8px) 0;
       color: $inverted_accent_label_color;
-      font-weight: 700;
+      font-weight: 500;
     }
   }
 
