@@ -946,9 +946,10 @@ window.budgie-switcher-window {
       // keep the minimum width defined by tabswitcher.ui
       min-width: ($min_child_width + $min_spacing) * $max_childs
                  + $min_spacing * ($max_childs - 1);
-      padding: rem(8px) 0;
       color: $inverted_accent_label_color;
       font-weight: 500;
+      &:dir(ltr) { padding: 0 0 3px 6px; }
+      &:dir(rtl) { padding: 0 6px 3px 0; }
     }
   }
 
