@@ -350,18 +350,20 @@ row.tweak { // basic row node container in right-pane
 }
 
 .background.nautilus-window:not(.nautilus-desktop-window):not(.unity-csd) {
-  // enforce base-color backgrounds
-  background-color: $base_color;
+  &:not(nautilus-desktop-window) {
+    // enforce base-color backgrounds
+    background-color: $base_color;
 
-  // main content pane
-  > grid > paned > overlay > notebook {
-    // cover up top-edge 1px line
-    box-shadow: inset 0 1px $base_color;
+    // main content pane
+    > grid > paned > overlay > notebook {
+      // cover up top-edge 1px line
+      box-shadow: inset 0 1px $base_color;
 
-    > stack > box.vertical > grid > overlay > scrolledwindow {
-      > .view:not(.nautilus-desktop) {
-        // drop unneeded images
-        background-image: none;
+      > stack > box.vertical > grid > overlay > scrolledwindow {
+        > .view:not(.nautilus-desktop) {
+          // drop unneeded images
+          background-image: none;
+        }
       }
     }
   }
