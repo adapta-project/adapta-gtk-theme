@@ -37,6 +37,7 @@ style "default" {
   GtkRange::trough-border = 0
   GtkRange::slider-width = 13
   GtkRange::stepper-size = 0
+  GtkRange::activate-slider = 1
 
   GtkScrollbar::activate-slider = 1
   GtkScrollbar::has-backward-stepper = 0  
@@ -46,10 +47,8 @@ style "default" {
   GtkScrolledWindow::scrollbar-spacing = 0
   GtkScrolledWindow::scrollbars-within-bevel = 1
 
-  GtkVScale::slider_length = 16
-  GtkVScale::slider_width = 16
-  GtkHScale::slider_length = 16
-  GtkHScale::slider_width = 16
+  GtkScale::slider_length = 20
+  GtkScale::slider_width = 20
   GtkScale::trough-side-details = 1
 
   GtkStatusbar::shadow_type = GTK_SHADOW_NONE
@@ -653,14 +652,9 @@ style "progressbar" {
 }
 
 style "range" { 
-  # FIXME: thickness needed by Qt4/5 backend?
-  xthickness = 3
-  ythickness = 3
-
   engine "pixmap" {
     image {
       function    = BOX
-      state       = ACTIVE
       detail      = "trough-upper"
       file        = "Range/h-scale-trough-dark.png"
       border      = { 8, 8, 0, 0 }
@@ -669,7 +663,6 @@ style "range" {
     }
     image {
       function    = BOX
-      state       = ACTIVE
       detail      = "trough-lower"
       file        = "Range/h-scale-trough-active.png"
       border      = { 8, 8, 0, 0 }
@@ -696,7 +689,6 @@ style "range" {
     }
     image {
       function    = BOX
-      state       = ACTIVE
       detail      = "trough-upper"
       file        = "Range/v-scale-trough-dark.png"
       border      = { 0, 0, 8, 8 }
@@ -705,7 +697,6 @@ style "range" {
     }
     image {
       function    = BOX
-      state       = ACTIVE
       detail      = "trough-lower"
       file        = "Range/v-scale-trough-active.png"
       border      = { 0, 0, 8, 8 }
@@ -737,32 +728,26 @@ style "range" {
     image {
       function        = SLIDER
       state           = NORMAL
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider.png"
-      overlay_stretch = FALSE
-      orientation     = HORIZONTAL
+      detail          = "hscale"
+      file            = "Range/scale-slider.png"
     }
     image {
       function        = SLIDER
       state           = PRELIGHT
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-hover.png"
-      overlay_stretch = FALSE
-      orientation     = HORIZONTAL
+      detail          = "hscale"
+      file            = "Range/scale-slider-hover.png"
+    }
+    image {
+      function        = SLIDER
+      state           = ACTIVE
+      detail          = "hscale"
+      file            = "Range/scale-slider-active.png"
     }
     image {
       function        = SLIDER
       state           = INSENSITIVE
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-insensitive-dark.png"
-      overlay_stretch = FALSE
-      orientation     = HORIZONTAL
+      detail          = "hscale"
+      file            = "Range/scale-slider-insensitive-dark.png"
     }
 
     #
@@ -771,40 +756,26 @@ style "range" {
     image {
       function        = SLIDER
       state           = NORMAL
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider.png"
-      overlay_stretch = FALSE
-      orientation     = VERTICAL
+      detail          = "vscale"
+      file            = "Range/scale-slider.png"
     }
     image {
       function        = SLIDER
       state           = PRELIGHT
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-hover.png"
-      overlay_stretch = FALSE
-      orientation     = VERTICAL
+      detail          = "vscale"
+      file            = "Range/scale-slider-hover.png"
+    }
+    image {
+      function        = SLIDER
+      state           = ACTIVE
+      detail          = "vscale"
+      file            = "Range/scale-slider-active.png"
     }
     image {
       function        = SLIDER
       state           = INSENSITIVE
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-insensitive-dark.png"
-      overlay_stretch = FALSE
-      orientation     = VERTICAL
-    }
-
-    # Function below removes ugly boxes
-    image {
-      function        = BOX
-      file            = "Others/null.svg"
-      border          = { 3, 3, 3, 3 }
-      stretch         = TRUE
+      detail          = "vscale"
+      file            = "Range/scale-slider-insensitive-dark.png"
     }
   }
 }

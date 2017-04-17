@@ -175,6 +175,7 @@ gtk2_range_file = \
 	$(gtk2_assetdir)/Range/h-scale-trough-active.png \
 	$(gtk2_assetdir)/Range/h-scale-trough-insensitive.png \
 	$(gtk2_assetdir)/Range/h-scale-trough.png \
+	$(gtk2_assetdir)/Range/scale-slider-active.png \
 	$(gtk2_assetdir)/Range/scale-slider-hover.png \
 	$(gtk2_assetdir)/Range/scale-slider-insensitive.png \
 	$(gtk2_assetdir)/Range/scale-slider.png \
@@ -348,6 +349,7 @@ gtk2_nokto_range_file = \
 	$(gtk2_assetdir)/Range/h-scale-trough-active.png \
 	$(gtk2_assetdir)/Range/h-scale-trough-dark.png \
 	$(gtk2_assetdir)/Range/h-scale-trough-insensitive-dark.png \
+	$(gtk2_assetdir)/Range/scale-slider-active.png \
 	$(gtk2_assetdir)/Range/scale-slider-hover.png \
 	$(gtk2_assetdir)/Range/scale-slider-insensitive-dark.png \
 	$(gtk2_assetdir)/Range/scale-slider.png \
