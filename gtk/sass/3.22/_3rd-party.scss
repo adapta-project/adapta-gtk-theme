@@ -713,7 +713,10 @@ box.horizontal.pinned { // drop-target
 
 // places-indicator styling
 popover.places-menu {
-  padding: 0;
+  &.background {
+    padding: 2px 0 0; // remove side/bottom padding
+    border-style: solid none none; // remove side/bottom borders
+  }
 
   .places-section-header {
     padding: rem(4px);
@@ -766,7 +769,7 @@ popover.places-menu {
       &:active {
         color: $fg_color;
 
-        .name-button { // = 'toolbutton > button'
+        button.text-button.name-button { // = 'toolbutton > button'
           &,
           &:hover,
           &:active {
@@ -780,11 +783,6 @@ popover.places-menu {
         }
       }
 
-      .unmount-button {
-        margin: rem(1.3px) rem(5.3px);
-        padding: rem(4px);
-      }
-
       button.image-button { // revive button transitions
         &:not(:active) {
           transition: opacity 0.2s $slope_medium,
@@ -793,6 +791,20 @@ popover.places-menu {
                       background-image 0.2s $slope_slow,
                       box-shadow 0.2s $slope_slow;
         }
+      }
+
+      button.text-button.name-button {
+        > box.horizontal { // adjust spacing
+          > image,
+          > spinner { margin: rem(5.3px) 0; }
+
+          > label { padding-bottom: rem(1.3px, $sw: 1.0); }
+        }
+      }
+
+      button.unmount-button {
+        margin: rem(1.3px) rem(5.3px);
+        padding: rem(4px);
       }
     }
 
