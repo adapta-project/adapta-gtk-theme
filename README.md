@@ -1,63 +1,10 @@
-<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="left" /> Adapta-gtk-theme
+Robotic-gtk-theme
 ======
 
-An adaptive Gtk+ theme based on Material Design Guidelines.
+An adaptive Gtk+ theme based on the Robotic GTK+ theme.
 
-Before using Adapta
+Before using Robotic
 -------------------
-
-Adapta strongly depends on Material Design resources, especially its **fonts**.
-
-#### Typography
- 1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
-   - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
-   - Developed by Google and Adobe.
-   - Weight used in Adapta: 400, (500), 700
-
- 2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
-   - Very famous as the default truetype font in Android (English ver.).
-   - Multilingual support is not good.
-   - Weight used in Adapta: 400, 500, 700
-
-> **Note:**
->
-> * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
-> * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
-> * NotoSans CJK supports 500 weight.
-
-Adapta uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
-In some distributions, users may need to install `fonts-noto-hinted`.
-
-Adapta is designed with nominal **13px (or 14px)** Roboto font.
-In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
-  ```
-  13 [px] x 72 [pt/inch] / 96 [px/inch] = 9.75 [pt]
-  14 [px] x 72 [pt/inch] / 96 [px/inch] = 10.5 [pt]
-  ```
-That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x theming (In Gtk+ 3.18.x theming, em unit is directly used).
-
-> **Note:**
->
-> NotoSans CJK (ChineseJapaneseKorean) opentype fonts are actually **0.1em taller than Roboto fonts**, so if 10pt Roboto was suitable on your LCDs, set 9pt for NotoSans CJK families.
-
-**Verify the fonts are rendered correctly via font-viewer tools like Gnome-Font-Viewer.**
-
-Variant Matrix
---------------
-
-| |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight.png" align="left"/> Adapta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon.png" align="left"/> Adapta-Nokto|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight-eta.png" align="left"/> Adapta-Eta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Gtk+ 3.18.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|Gtk+ 3.20.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Gtk+ 3.22.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Gtk+ 2.24.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Mutter      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Metacity    |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Muffin      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|Compiz      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|XFwm4       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|Marco       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|Openbox-3   |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
 
 > **Note:**
 >
@@ -82,7 +29,7 @@ Elements
 
 Required Components
 -------------------
-Adapta supports Gtk+ 3.22.x, 3.20.x and 3.18.x
+Robotic supports Gtk+ 3.22.x, 3.20.x and 3.18.x
 
  ```
  * Gtk+-3.0             >= 3.18.9
@@ -98,7 +45,6 @@ Supported Desktop Environments
  * GNOME-Shell     >= 3.18.3
  * GNOME-Flashback >= 3.18.2
  * Budgie-Desktop  >= 10.2.7
- * Cinnamon        >= 2.8.6
  * Unity7          >= 7.4.0
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0 (Gtk+ 3.2x only)
@@ -115,34 +61,42 @@ Unsupported Gtk+ Based Desktop(s)
 
  > **Note:**
  >
- >   * Adapta does NOT support elementaryOS.
+ >   * Robotic does NOT support elementaryOS.
 
-Installation from Package(s)
+Installation from Git Source (Quick version)
 ----------------------------
- * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/
+Just do this:
 
- * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
+./autogen.sh \
+    --enable-parallel \
+    --disable-cinnamon \
+    --disable-openbox \
+    --enable-gtk_next \
+    --with-selection_color=#FAA41A \
+    --with-second_selection_color=#FFB13D \
+    --with-accent_color=#48B9C7 \
+    --with-suggestion_color=#73C48F \
+    --with-destruction_color=#F15D22 \
+    --enable-chrome \
+    --enable-plank \
+    --enable-telegram 
 
- * OBS (openSUSE Tumbleweed): https://build.opensuse.org/package/show/home:Ronis_BR/adapta-gtk-theme
+make
+sudo make install
 
- * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
-
- > **Note:**
- >
- >   * Solus OS has an eopkg (ypkg) in main repository.
-
-Installation from Git Source
+Installation from Git Source (Full version)
 ----------------------------
+
 1. If previous versions were installed/existed, remove them first.
 
  ```
- sudo rm -rf /usr/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
- rm -rf ~/.local/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
- rm -rf ~/.themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ sudo rm -rf /usr/share/themes/{Robotic,Robotic-Eta,Robotic-Nokto,Robotic-Nokto-Eta}
+ rm -rf ~/.local/share/themes/{Robotic,Robotic-Eta,Robotic-Nokto,Robotic-Nokto-Eta}
+ rm -rf ~/.themes/{Robotic,Robotic-Eta,Robotic-Nokto,Robotic-Nokto-Eta}
  ```
 
 2. Check build-requirements:
- Currently Adapta bundles neither pre-generated stylesheets nor PNG images.
+ Currently Robotic bundles neither pre-generated stylesheets nor PNG images.
  So users and/or contributors should generate proper CSSs, PNGs and gresources at build-time.
 
  ```
@@ -168,9 +122,9 @@ Installation from Git Source
  >     librsvg-devel           >= 2.40.13
  >     ```
  >
- >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
- >   * Adapta uses `inkscape` to generate installable PNG files.
- >   * Adapta uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
+ >   * Robotic employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
+ >   * Robotic uses `inkscape` to generate installable PNG files.
+ >   * Robotic uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
 
 3. Build and install system-wide:
 
@@ -200,18 +154,16 @@ Installation from Git Source
  >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
  >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
  >     It could especially shorten the rendering-time via `inkscape`.
- >   * `-jN` option to be passed to GNU `make` is surely usable, but Adapta currently employs `parallel`.
+ >   * `-jN` option to be passed to GNU `make` is surely usable, but Robotic currently employs `parallel`.
  >   * This feature should not be applied when packaging on remote/shared build-servers.
 
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
 
  ```
- --disable-cinnamon      disable cinnamon support (type: bool)
  --disable-flashback     disable flashback support (type: bool)
  --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
  --disable-mate          disable mate support (type: bool)
- --disable-openbox       disable openbox support (type: bool)
  ```
 
  > **Note:**
@@ -238,7 +190,7 @@ Installation from Git Source
  > **Note:**
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
- >     Uppercases are strongly recommended in Adapta code-base.
+ >     Uppercases are strongly recommended in Robotic code-base.
  >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
@@ -247,13 +199,13 @@ Installation from Git Source
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
  >     and `second_selection_color` and `accent_color` should use `300` colors.
- >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
+ >   * While doing `make`, Robotic changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
 GtkSourceView/Gedit Color Scheme Support
 ---------------------------------------
- A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
+ A theme file `adapta.xml` is installed by default into `Robotic(-Nokto)/gedit` directory.
  See details in [`README.md`](/extra/gedit/README.md).
 
  > **Note:**
@@ -269,7 +221,7 @@ Extra Browser Support
  --enable-chrome         enable Chrome(ium) support (type: bool)
  ```
 
- The compressed `crx` files will be installed into `Adapta/chrome` and `Adapta-Nokto/chrome`.
+ The compressed `crx` files will be installed into `Robotic/chrome` and `Robotic-Nokto/chrome`.
 
  > **Note:**
  >
@@ -299,14 +251,14 @@ Extra Dock Support
 
  > **Note:**
  >
- >   * Both Adapta and Adapta-Nokto shares the same theming.
+ >   * Both Robotic and Robotic-Nokto shares the same theming.
  >   * Don't expect too much. Plank is NOT a themeable widget for me!
 
 Extra Compositor Support
 ------------------------
- Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Adapta/openbox-3` directory if Openbox support is enabled.
+ Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Robotic/openbox-3` directory if Openbox support is enabled.
 
- Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Adapta, however.
+ Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Robotic, however.
 
 Extra Telegram Support
 ----------------------
@@ -316,7 +268,7 @@ Extra Telegram Support
  --enable-telegram      enable Telegram 1.0 support (type: bool)
  ```
 
- The installer installs compressed `tdesktop-theme` files into `Adapta/telegram` and `Adapta-Nokto/telegram` directories if Telegram support is enabled.
+ The installer installs compressed `tdesktop-theme` files into `Robotic/telegram` and `Robotic-Nokto/telegram` directories if Telegram support is enabled.
  Then open the file via Telegram > Main Menu > Settings > Chat background > Choose from file.
 
  > **Note:**
@@ -346,3 +298,4 @@ Public License
 Special Thanks to
 --------------
  Nana-4, the developer of Flat-Plat.
+ tista500 and the Adapta Theme Project: https://github.com/adapta-project
