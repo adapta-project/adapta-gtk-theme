@@ -23,10 +23,6 @@ Before using Robotic
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
-Elements
---------
-![Materials](https://github.com/adapta-project/adapta-github-resources/blob/master/images/Materials.png)
-
 Required Components
 -------------------
 Robotic supports Gtk+ 3.22.x, 3.20.x and 3.18.x
@@ -67,22 +63,9 @@ Installation from Git Source (Quick version)
 ----------------------------
 Just do this:
 
-./autogen.sh \
-    --enable-parallel \
-    --disable-cinnamon \
-    --disable-openbox \
-    --enable-gtk_next \
-    --with-selection_color=#FAA41A \
-    --with-second_selection_color=#FFB13D \
-    --with-accent_color=#48B9C7 \
-    --with-suggestion_color=#73C48F \
-    --with-destruction_color=#F15D22 \
-    --enable-chrome \
-    --enable-plank \
-    --enable-telegram 
+`./install-prebuilt.sh`
 
-make
-sudo make install
+This will install a pre-built copy of the theme with the correct colors set up, and will include the Robotic Variant of the Papirus icon theme. It will also attempt to use gsettings to set up the icons, theme, and shell theme (if the user-themes extension is enabled)
 
 Installation from Git Source (Full version)
 ----------------------------
