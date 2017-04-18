@@ -1,0 +1,71 @@
+#
+# Gimp
+#
+style "gimp_spin_scale" {
+  bg[NORMAL] = @base_color
+
+  engine "pixmap" {
+    # Spin-Up
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up-alt.png"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up-alt-hover.png"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up.png"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_up"
+      overlay_file    = "Arrows/up-alt-insensitive.png"
+      overlay_stretch = FALSE
+    }
+
+    # Spin-Down
+    image {
+      function        = BOX
+      state           = NORMAL
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down-alt.png"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = PRELIGHT
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down-alt-hover.png"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = ACTIVE
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down.png"
+      overlay_stretch = FALSE
+    }
+    image {
+      function        = BOX
+      state           = INSENSITIVE
+      detail          = "spinbutton_down"
+      overlay_file    = "Arrows/down-alt-insensitive.png"
+      overlay_stretch = FALSE
+    }
+  }
+}
+
+# Disable gradients completely for GimpSpinScale
+class "GimpSpinScale"                    style "gimp_spin_scale"
