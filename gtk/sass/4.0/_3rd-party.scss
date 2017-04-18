@@ -2711,11 +2711,10 @@ window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
   }
 
   // for 'Notebookbar' toolbar
-  > notebook {
+  > notebook:not(.frame) {
     border: 0 none transparent; // unset borders
     background-color: $bg_color;
 
-    &.frame,
     > stack {
       border: none;
       background-color: $bg_color;
