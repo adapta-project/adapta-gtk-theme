@@ -195,6 +195,15 @@ box.horizontal.pinned { // drop-target
       min-width: $icon_size + 4px;
     }
   }
+
+  // for 10.3's NaTray box container
+  > widget > widget > widget > box.horizontal {
+      // 28px 'dummy' clip-area can draw the 24 x 24px allocated
+      // symbolic icons as NaTrayChilds if panel height was 37px
+      // or taller...
+      min-height: $icon_size * 1.75;
+      margin-top: 2px; // correct base-line
+  }
 }
 
 // main menu styling
