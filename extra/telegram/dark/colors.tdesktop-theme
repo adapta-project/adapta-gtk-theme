@@ -296,10 +296,18 @@ stickerPreviewBg: OSD_BG_COLOR;                 // Sticker preview background
 
 historyTextInFg: SECONDARY_FG_COLOR;            // Incoming messages TEXT color
 historyTextOutFg: FG_COLOR;                     // Outgoing messages TEXT color
-historyCaptionInFg: historyTextInFg;
-historyCaptionOutFg: historyTextOutFg;
+historyTextInFgSelected: SELECTED_FG_COLOR;
+historyTextOutFgSelected: SELECTED_FG_COLOR;    // outbox message selected text or text in a selected message
+historyLinkInFg: LINK_COLOR;                    // inbox message link
+historyLinkInFgSelected: DARK_COLOR;            // inbox message link in a selected text or message
+historyLinkOutFg: LINK_COLOR;                   // outbox message link
+historyLinkOutFgSelected: DARK_COLOR;           // outbox message link in a selected text or message
+
 historyFileNameInFg: historyTextInFg;
+historyFileNameInFgSelected: BASE_COLOR;        // inbox media filename text in a selected message
 historyFileNameOutFg: historyTextOutFg;
+historyFileNameOutFgSelected: BASE_COLOR;       // outbox media filename text in a selected message
+
 historyOutIconFg: dialogsSentIconFg;            // "Eye" and "Ticks" color for outgoing messages (selected)
 historyOutIconFgSelected: SELECTED_BG_COLOR;    // "Eye" and "Ticks" color for outgoing messages (selected)
 historyIconFgInverted: SELECTED_FG_COLOR;
@@ -364,7 +372,10 @@ msgInReplyBarSelColor: SUGGESTED_COLOR;         // Incoming msg: vertical bar ne
 msgOutReplyBarColor: SUGGESTED_COLOR;           // Outgoing msg: vertical bar next to reply
 msgOutReplyBarSelColor: SUGGESTED_COLOR;        // Outgoing msg: vertical bar next to reply (selected)
 msgInMonoFg: ACCENT_COLOR;                      // Fixedwidth font / incoming msg
+msgInMonoFgSelected: BG_COLOR;                  // inbox message monospace text in a selected text or message
 msgOutMonoFg: ACCENT_COLOR;                     // Fixedwidth font / outgoing msg
+msgOutMonoFgSelected: BG_COLOR;                 // outbox message monospace text in a selected text or message
+
 msgDateImgFg: msgServiceFg;						
 msgDateImgBg: OSD_BG_COLOR;                     // Download / play / etc overlay backgrounds
 msgDateImgBgOver: OSD_BG_COLOR;                 // Mouse over download / play / etc overlay backgrounds
@@ -478,6 +489,8 @@ notificationSampleNameFg: #939393;
 mainMenuBg: windowBg;                           // Left menu background (lower part, not buttons)
 mainMenuCoverBg: dialogsBgActive;               // Left menu background (upper part)
 mainMenuCoverFg: SELECTED_FG_COLOR;
+mainMenuCloudFg: activeButtonFg;
+mainMenuCloudBg: activeButtonBgRipple;
 
 mediaPlayerBg: DARK_COLOR;                      // Music player background
 mediaPlayerActiveFg: ACCENT_COLOR;              // Clickable Next song/Prev song button in music player
