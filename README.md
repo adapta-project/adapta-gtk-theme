@@ -118,7 +118,19 @@ Installation from Git Source (Full version)
 3. Build and install system-wide:
 
  ```
- ./autogen.sh
+ ./autogen.sh \
+    --enable-parallel \
+    --disable-cinnamon \
+    --disable-openbox \
+    --enable-gtk_next \
+    --with-selection_color=#FAA41A \
+    --with-second_selection_color=#FFB13D \
+    --with-accent_color=#48B9C7 \
+    --with-suggestion_color=#73C48F \
+    --with-destruction_color=#F15D22 \
+    --enable-chrome \
+    --enable-plank \
+    --enable-telegram 
  make
  sudo make install
  ```
