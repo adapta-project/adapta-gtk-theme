@@ -17,7 +17,7 @@ ASSETS_DIR="../../xfwm4"
 INDEX="assets-xfwm-edge.txt"
 KEY_FILE="../../../sass/common/_key_colors.scss"
 
-inkver="`$INKSCAPE --version | awk '{print $2}'`"
+inkver="`$INKSCAPE --version | awk '{print $2}' | cut -c 1-4`"
 if [ "$inkver" = 0.91 ]; then
     non_scale_dpi=90
 else
