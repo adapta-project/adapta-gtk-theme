@@ -148,7 +148,7 @@ Installation from Git Source
  ```
  * autoconf
  * automake
- * inkscape
+ * inkscape                                  >= 0.91
  * libgdk-pixbuf2.0-dev (gdk-pixbuf2-devel)  >= 2.32.2
  * libglib2.0-dev (glib2-devel)              >= 2.48.0
  * librsvg2-dev (librsvg2-devel)             >= 2.40.13
