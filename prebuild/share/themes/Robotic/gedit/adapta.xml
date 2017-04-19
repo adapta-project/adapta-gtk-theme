@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<style-scheme id="adapta" name="Adapta Gedit" filename="adapta.xml" version="1.0">
+  <author>Stanislav "systematicat" Kotivetc</author>
+  <description>Gedit material theme matched for Adapta GTK theme.</description>
+
+  <!-- Color Palette -->
+  <color name="adapta0"                     value="#4E4844" />
+  <color name="adapta1"                     value="#3B4C54" />
+  <color name="adapta2"                     value="#0B9BAF" />
+  <color name="adapta3"                     value="#6A797F" />
+  <color name="adapta4"                     value="#F6F6F6" />
+  <color name="adapta5"                     value="#1DE9B6" />
+  <color name="adapta6"                     value="#F77669" />
+  <color name="adapta7"                     value="#574F4A" />
+  <color name="adapta8"                     value="#009587" />
+  <color name="adapta9"                     value="#AB7967" />
+  <color name="adapta10"                    value="#FFCB6B" />
+  <color name="adapta11"                    value="#C3E88D" />
+  <color name="adapta12"                    value="#C792EA" />
+
+  <!-- GUI Styling -->
+  <style name="background-pattern"          background="adapta1" />
+  <style name="bookmark"                    background="adapta4" />
+  <style name="bracket-match"               foreground="adapta4" background="adapta2" />
+  <style name="bracket-mismatch"            foreground="adapta6" underline="true" />
+  <style name="current-line"                foreground="adapta4" background="adapta1" />
+  <style name="cursor"                      foreground="adapta4" />
+  <style name="draw-spaces"                 foreground="adapta3" />
+  <style name="line-numbers"                foreground="adapta3" background="adapta1" />
+  <style name="search-match"                foreground="adapta4" background="adapta8" />
+  <style name="secondary-cursor"            use-style="cursor" />
+  <style name="selection"                   foreground="adapta4" background="adapta2" />
+  <style name="selection-unfocused"         foreground="adapta4" background="adapta7" />
+  <style name="right-margin"                foreground="adapta4" />
+  <style name="text"                        foreground="adapta4" background="adapta0" />
+
+  <!-- Custom definitions -->
+  <style name="def:annotation"              foreground="adapta9" />
+  <style name="def:escape"                  foreground="adapta9" />
+  <style name="def:regexp"                  foreground="adapta10" />
+  <style name="def:symbol"                  foreground="adapta4" />
+  <style name="def:other"                   foreground="adapta4" />
+  <style name="def:verbatim"                foreground="adapta10" />
+
+  <!-- Variables -->
+  <style name="def:number"                  foreground="adapta12" />
+  <style name="def:string"                  foreground="adapta11" />
+  <style name="def:base-n-integer"          use-style="def:number" />
+  <style name="def:character"               use-style="def:string" />
+  <style name="def:complex"                 use-style="def:number" />
+  <style name="def:decimal"                 use-style="def:number" />
+  <style name="def:floating-point"          use-style="def:number" />
+  <style name="def:special-char"            foreground="adapta9" />
+  <style name="def:variable"                foreground="adapta4" />
+  <style name="def:global-variable"         foreground="adapta4" />
+  <style name="def:class-variable"          foreground="adapta4" />
+  <style name="def:instance-variable"       foreground="adapta4" />
+
+  <!-- Constants -->
+  <style name="def:boolean"                 foreground="adapta7" />
+  <style name="def:constant"                foreground="adapta4" />
+  <style name="def:namespace"               foreground="adapta5" />
+  <style name="def:special-constant"        foreground="adapta7" />
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="adapta3" italic="true" />
+  <style name="def:doc-comment"             use-style="def:comment" />
+  <style name="def:doc-comment-element"     foreground="adapta7" />
+  <style name="def:net-address-in-comment"  foreground="adapta3" underline="true" />
+  <style name="def:note"                    use-style="def:comment" />
+
+  <!-- Keywords -->
+  <style name="def:class"                   foreground="adapta5" />
+  <style name="def:keyword"                 foreground="adapta7" />
+  <style name="def:attribute"               use-style="def:class" />
+  <style name="def:builtin"                 use-style="def:keyword" />
+  <style name="def:identifier"              use-style="def:keyword" />
+  <style name="def:preprocessor"            foreground="adapta8" />
+  <style name="def:reserved"                use-style="def:keyword" />
+  <style name="def:shebang"                 foreground="adapta8" />
+  <style name="def:statement"               use-style="def:keyword" />
+  <style name="def:tag"                     use-style="def:keyword" />
+  <style name="def:type"                    use-style="def:class" />
+
+  <!-- Logicals -->
+  <style name="def:error"                   foreground="adapta6" />
+  <style name="def:function"                foreground="adapta6" />
+  <style name="def:operator"                foreground="adapta7" />
+
+  <!-- Headings -->
+  <style name="def:heading0"                foreground="adapta6" />
+  <style name="def:heading1"                use-style="def:heading0" />
+  <style name="def:heading2"                use-style="def:heading0" />
+  <style name="def:heading3"                use-style="def:heading0" />
+  <style name="def:heading4"                use-style="def:heading0" />
+  <style name="def:heading5"                use-style="def:heading0" />
+  <style name="def:heading6"                use-style="def:heading0" />
+
+  <!-- Formats -->
+  <style name="def:underlined"              underline="true" />
+  <style name="def:warning"                 foreground="adapta10" />
+
+  <!-- CSS Styling -->
+  <style name="css:at-rules"                use-style="def:annotation" />
+  <style name="css:block"                   use-style="def:symbol" />
+  <style name="css:color"                   use-style="def:number" />
+  <style name="css:comment"                 use-style="def:comment" />
+  <style name="css:decimal"                 use-style="def:decimal" />
+  <style name="css:dimension"               use-style="def:number" />
+  <style name="css:error"                   use-style="def:error" />
+  <style name="css:function"                use-style="def:function" />
+  <style name="css:keyword"                 use-style="def:attribute" />
+  <style name="css:others-2"                use-style="def:symbol" />
+  <style name="css:others-3"                use-style="def:symbol" />
+  <style name="css:property-values"         use-style="def:keyword" />
+  <style name="css:selector-class"          use-style="def:class" />
+  <style name="css:selector-id"             foreground="adapta5" underline="true" />
+  <style name="css:selector-tagname"        use-style="def:tag" />
+  <style name="css:string"                  use-style="def:string" />
+
+  <!-- Desktop Styling -->
+  <style name="desktop:boolean"             use-style="def:boolean" />
+  <style name="desktop:category-additional" use-style="def:string" />
+  <style name="desktop:category-main"       foreground="adapta11" bold="true" />
+  <style name="desktop:category-reserved"   foreground="adapta7" underline="true" />
+  <style name="desktop:encoding"            use-style="def:keyword" />
+  <style name="desktop:exec-parameter"      use-style="def:escape" />
+  <style name="desktop:group"               use-style="def:keyword" />
+  <style name="desktop:key"                 use-style="def:attribute" />
+  <style name="desktop:language"            use-style="def:string" />
+  <style name="desktop:number"              use-style="def:number" />
+
+  <!-- DIFF Styling -->
+  <style name="diff:added-line"             foreground="adapta11" />
+  <style name="diff:changed-line"           foreground="adapta10" />
+  <style name="diff:diff-file"              foreground="adapta6" />
+  <style name="diff:location"               foreground="adapta7" />
+  <style name="diff:removed-line"           foreground="adapta6" />
+  <style name="diff:special-case"           use-style="def:string" />
+
+  <!-- HTML Styling -->
+  <style name="html:attrib-name"            use-style="def:class" />
+  <style name="html:attrib-value"           use-style="def:string" />
+  <style name="html:comment"                use-style="def:comment" />
+  <style name="html:dtd"                    use-style="def:shebang" />
+  <style name="html:error"                  foreground="def:error" />
+  <style name="html:h1"                     use-style="text" />
+  <style name="html:h2"                     use-style="text" />
+  <style name="html:h3"                     use-style="text" />
+  <style name="html:h4"                     use-style="text" />
+  <style name="html:h5"                     use-style="text" />
+  <style name="html:tag"                    use-style="def:keyword" />
+  <style name="html:title"                  use-style="text" />
+
+  <!-- INI Styling -->
+  <style name="ini:boolean-value"           use-style="def:boolean" />
+  <style name="ini:comment"                 use-style="def:comment" />
+  <style name="ini:decimal"                 use-style="def:number" />
+  <style name="ini:floating-point"          use-style="def:number" />
+  <style name="ini:keyword"                 use-style="def:keyword" />
+  <style name="ini:non-standard-key"        italic="true" />
+  <style name="ini:string"                  use-style="def:string" />
+  <style name="ini:variable"                use-style="def:variable" />
+
+  <!-- JAVA Styling -->
+  <style name="java:boolean"                use-style="def:boolean" />
+  <style name="java:char"                   use-style="def:character" />
+  <style name="java:comment"                use-style="def:comment" />
+  <style name="java:declaration"            use-style="def:variable" />
+  <style name="java:escaped-character"      use-style="def:escape" />
+  <style name="java:external"               use-style="def:preprocessor" />
+  <style name="java:keyword"                use-style="def:keyword" />
+  <style name="java:null-value"             use-style="def:keyword" />
+  <style name="java:number"                 use-style="def:number" />
+  <style name="java:reserved"               use-style="def:constant" />
+  <style name="java:scope-declaration"      use-style="def:keyword" />
+  <style name="java:storage-class"          use-style="def:keyword" />
+  <style name="java:string"                 use-style="def:string" />
+  <style name="java:type"                   use-style="def:keyword" />
+
+  <!-- JS Styling -->
+  <style name="js:boolean"                  use-style="def:boolean" />
+  <style name="js:constructors"             use-style="def:function" />
+  <style name="js:escape"                   use-style="def:escape" />
+  <style name="js:function"                 use-style="def:function" />
+  <style name="js:future-words"             use-style="def:keyword" />
+  <style name="js:keyword"                  use-style="def:keyword" />
+  <style name="js:null-value"               use-style="def:keyword" />
+  <style name="js:properties"               foreground="adapta6" italic="true" />
+  <style name="js:regex"                    use-style="def:regexp" />
+  <style name="js:string"                   use-style="def:string" />
+  <style name="js:type"                     use-style="def:keyword" />
+  <style name="js:undefined-value"          use-style="def:keyword" />
+
+  <!-- JSON Styling -->
+  <style name="json:boolean"                use-style="def:boolean" />
+  <style name="json:decimal"                use-style="def:decimal" />
+  <style name="json:error"                  use-style="def:error" />
+  <style name="json:float"                  use-style="def:floating-point" />
+  <style name="json:keyname"                use-style="def:keyword" />
+  <style name="json:null-value"             use-style="def:keyword" />
+  <style name="json:special-char"           use-style="def:special-char" />
+  <style name="json:string"                 use-style="def:string" />
+
+  <!-- MD Styling -->
+  <style name="markdown:abbreviation"       foreground="adapta9" />
+  <style name="markdown:attribute-value"    use-style="def:attribute" />
+  <style name="markdown:backslash-escape"   use-style="def:escape" />
+  <style name="markdown:blockquote-marker"  foreground="adapta6" />
+  <style name="markdown:code"               foreground="adapta5" />
+  <style name="markdown:emphasis"           foreground="adapta4" italic="true" />
+  <style name="markdown:header"             foreground="adapta6" />
+  <style name="markdown:horizontal-rule"    foreground="adapta7" />
+  <style name="markdown:image-marker"       use-style="def:keyword" />
+  <style name="markdown:label"              use-style="def:attribute" />
+  <style name="markdown:line-break"         use-style="def:comment" />
+  <style name="markdown:link-text"          use-style="def:attribute" />
+  <style name="markdown:list-marker"        foreground="adapta7" />
+  <style name="markdown:strong-emphasis"    foreground="adapta4" bold="true" />
+  <style name="markdown:table-separator"    bold="true" />
+  <style name="markdown:url"                foreground="adapta4" underline="true" />
+
+  <!-- PERL Styling -->
+  <style name="perl:builtin"                use-style="def:builtin" />
+  <style name="perl:comment"                use-style="def:comment" />
+  <style name="perl:control"                foreground="adapta7" underline="true" />
+  <style name="perl:error"                  use-style="def:error" />
+  <style name="perl:file-descriptor"        use-style="def:keyword" />
+  <style name="perl:here-doc-bound"         use-style="def:keyword" />
+  <style name="perl:include-statement"      use-style="def:annotation" />
+  <style name="perl:keyword"                use-style="def:keyword" />
+  <style name="perl:line-directive"         foreground="adapta3" italic="true" />
+  <style name="perl:operator"               use-style="def:operator" />
+  <style name="perl:pod"                    use-style="text" />
+  <style name="perl:pod-escape"             use-style="def:escape" />
+  <style name="perl:pod-heading"            foreground="adapta6" />
+  <style name="perl:pod-keyword"            use-style="def:keyword" />
+  <style name="perl:regex"                  use-style="def:regexp" />
+  <style name="perl:string"                 use-style="def:string" />
+  <style name="perl:system-command"         foreground="adapta6" />
+  <style name="perl:variable"               use-style="def:variable" />
+
+  <!-- PHP Styling -->
+  <style name="php:boolean"                 use-style="def:boolean" />
+  <style name="php:comment"                 use-style="def:comment" />
+  <style name="php:common-function"         use-style="def:function" />
+  <style name="php:decimal"                 use-style="def:number" />
+  <style name="php:error"                   use-style="def:error" />
+  <style name="php:escape"                  use-style="def:escape" />
+  <style name="php:floating-point"          use-style="def:number" />
+  <style name="php:here-doc"                use-style="def:string" />
+  <style name="php:here-doc-bound"          use-style="def:keyword" />
+  <style name="php:hexadecimal"             use-style="def:number" />
+  <style name="php:identifier"              use-style="def:function" />
+  <style name="php:keyword"                 use-style="def:keyword" />
+  <style name="php:null-value"              use-style="def:keyword" />
+  <style name="php:octal"                   foreground="adapta12" italic="true" />
+  <style name="php:operator"                use-style="def:operator" />
+  <style name="php:preprocessor"            use-style="def:preprocessor" />
+  <style name="php:string"                  use-style="def:string" />
+  <style name="php:type"                    use-style="def:class" />
+  <style name="php:variable"                use-style="def:variable" />
+
+  <!-- PYTHON Styling -->
+  <style name="python:base-n-integer"       foreground="adapta12" italic="true" />
+  <style name="python:boolean"              use-style="def:boolean" />
+  <style name="python:builtin-constant"     use-style="def:keyword" />
+  <style name="python:builtin-function"     use-style="def:function" />
+  <style name="python:builtin-object"       use-style="def:class" />
+  <style name="python:class-name"           use-style="def:class" />
+  <style name="python:complex"              foreground="adapta12" italic="true" />
+  <style name="python:decimal"              use-style="def:number" />
+  <style name="python:decorator"            use-style="def:annotation" />
+  <style name="python:escaped-char"         use-style="def:escape" />
+  <style name="python:floating-point"       use-style="def:number" />
+  <style name="python:format"               use-style="def:escape" />
+  <style name="python:function-name"        use-style="def:function" />
+  <style name="python:keyword"              use-style="def:keyword" />
+  <style name="python:module-handler"       use-style="def:keyword" />
+  <style name="python:multiline-string"     use-style="def:string" />
+  <style name="python:special-variable"     use-style="def:keyword" />
+  <style name="python:string"               use-style="def:string" />
+  <style name="python:string-conversion"    use-style="def:keyword" />
+  <style name="python3:base-n-integer"      foreground="adapta12" italic="true" />
+  <style name="python3:boolean"             use-style="def:boolean" />
+  <style name="python3:builtin-constant"    use-style="def:keyword" />
+  <style name="python3:builtin-function"    use-style="def:function" />
+  <style name="python3:builtin-object"      use-style="def:class" />
+  <style name="python3:complex"             foreground="adapta12" italic="true" />
+  <style name="python3:decimal"             use-style="def:number" />
+  <style name="python3:escaped-char"        use-style="def:escape" />
+  <style name="python3:floating-point"      use-style="def:number" />
+  <style name="python3:format"              use-style="def:escape" />
+  <style name="python3:keyword"             use-style="def:keyword" />
+  <style name="python3:module-handler"      use-style="def:keyword" />
+  <style name="python3:multiline-string"    use-style="def:string" />
+  <style name="python3:special-variable"    use-style="def:keyword" />
+  <style name="python3:string"              use-style="def:string" />
+
+  <!-- RUBY Styling -->
+  <style name="ruby:base-n-integer"         use-style="def:number" />
+  <style name="ruby:boolean"                use-style="def:boolean" />
+  <style name="ruby:builtin"                use-style="def:class" />
+  <style name="ruby:comment"                use-style="def:comment" />
+  <style name="ruby:constant"               use-style="def:class" />
+  <style name="ruby:decimal"                use-style="def:number" />
+  <style name="ruby:escape"                 use-style="def:escape" />
+  <style name="ruby:floating-point"         use-style="def:number" />
+  <style name="ruby:here-doc"               use-style="def:string" />
+  <style name="ruby:here-doc-bound"         use-style="def:keyword" />
+  <style name="ruby:keyword"                use-style="def:keyword" />
+  <style name="ruby:literal"                use-style="def:escape" />
+  <style name="ruby:module-handler"         use-style="def:keyword" />
+  <style name="ruby:nil-value"              use-style="def:keyword" />
+  <style name="ruby:numeric-literal"        use-style="def:number" />
+  <style name="ruby:predefined-variable"    use-style="def:keyword" />
+  <style name="ruby:regex"                  use-style="def:regexp" />
+  <style name="ruby:special-variable"       use-style="def:keyword" />
+  <style name="ruby:string"                 use-style="def:string" />
+  <style name="ruby:symbol"                 use-style="def:variable" />
+  <style name="ruby:variable"               use-style="def:variable" />
+
+  <!-- SH Styling -->
+  <style name="sh:comment"                  use-style="def:comment" />
+  <style name="sh:common-command"           foreground="adapta7" italic="true" />
+  <style name="sh:function"                 use-style="def:function" />
+  <style name="sh:here-doc-bound"           use-style="def:keyword" />
+  <style name="sh:keyword"                  use-style="def:keyword" />
+  <style name="sh:others"                   use-style="def:keyword" />
+  <style name="sh:string"                   use-style="def:string" />
+  <style name="sh:variable"                 use-style="def:variable" />
+  <style name="sh:variable-definition"      use-style="def:variable" />
+
+  <!-- XML Styling -->
+  <style name="xml:attribute-name"          use-style="def:attribute" />
+  <style name="xml:attribute-value"         use-style="def:string" />
+  <style name="xml:cdata-delim"             foreground="adapta3" bold="true" />
+  <style name="xml:comment"                 use-style="def:comment" />
+  <style name="xml:doctype"                 foreground="adapta8" />
+  <style name="xml:element-name"            use-style="def:keyword" />
+  <style name="xml:entity"                  use-style="def:escape" />
+  <style name="xml:error"                   use-style="def:error" />
+  <style name="xml:namespace"               use-style="def:namespace" />
+  <style name="xml:processing-instruction"  use-style="def:preprocessor" />
+  <style name="xml:tag"                     use-style="def:tag" />
+
+</style-scheme>
