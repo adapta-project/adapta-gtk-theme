@@ -59,13 +59,27 @@ Unsupported Gtk+ Based Desktop(s)
  >
  >   * Robotic does NOT support elementaryOS.
 
-Installation from Git Source (Quick version)
+Installation from Git (Prebuilt version)
 ----------------------------
 Just do this:
 
-`./install-prebuilt.sh`
+```
+./install-prebuilt.sh
+```
 
 This will install a pre-built copy of the theme with the correct colors set up, and will include the Robotic Variant of the Papirus icon theme. It will also attempt to use gsettings to set up the icons, theme, and shell theme (if the user-themes extension is enabled)
+
+Installation from Git Source (Quick version)
+----------------------------
+
+Run these:
+
+```
+./deps.sh
+./conf.sh
+make
+sudo make install
+```
 
 Installation from Git Source (Full version)
 ----------------------------
