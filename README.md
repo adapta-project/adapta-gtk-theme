@@ -1,9 +1,9 @@
-Robotic-gtk-theme
+Pop-gtk-theme
 ======
 
-An adaptive Gtk+ theme based on the Robotic GTK+ theme.
+An adaptive Gtk+ theme based on the Pop GTK+ theme.
 
-Before using Robotic
+Before using Pop
 -------------------
 
 > **Note:**
@@ -25,7 +25,7 @@ Before using Robotic
 
 Required Components
 -------------------
-Robotic supports Gtk+ 3.22.x, 3.20.x and 3.18.x
+Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
 
  ```
  * Gtk+-3.0             >= 3.18.9
@@ -57,7 +57,7 @@ Unsupported Gtk+ Based Desktop(s)
 
  > **Note:**
  >
- >   * Robotic does NOT support elementaryOS.
+ >   * Pop does NOT support elementaryOS.
 
 Installation from Git (Prebuilt version)
 ----------------------------
@@ -67,7 +67,7 @@ Just do this:
 ./install-prebuilt.sh
 ```
 
-This will install a pre-built copy of the theme with the correct colors set up, and will include the Robotic Variant of the Papirus icon theme. It will also attempt to use gsettings to set up the icons, theme, and shell theme (if the user-themes extension is enabled)
+This will install a pre-built copy of the theme with the correct colors set up, and will include the Pop Variant of the Papirus icon theme. It will also attempt to use gsettings to set up the icons, theme, and shell theme (if the user-themes extension is enabled)
 
 Installation from Git Source (Quick version)
 ----------------------------
@@ -87,13 +87,13 @@ Installation from Git Source (Full version)
 1. If previous versions were installed/existed, remove them first.
 
  ```
- sudo rm -rf /usr/share/themes/{Robotic,Robotic-Eta,Robotic-Nokto,Robotic-Nokto-Eta}
- rm -rf ~/.local/share/themes/{Robotic,Robotic-Eta,Robotic-Nokto,Robotic-Nokto-Eta}
- rm -rf ~/.themes/{Robotic,Robotic-Eta,Robotic-Nokto,Robotic-Nokto-Eta}
+ sudo rm -rf /usr/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
+ rm -rf ~/.local/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
+ rm -rf ~/.themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
  ```
 
 2. Check build-requirements:
- Currently Robotic bundles neither pre-generated stylesheets nor PNG images.
+ Currently Pop bundles neither pre-generated stylesheets nor PNG images.
  So users and/or contributors should generate proper CSSs, PNGs and gresources at build-time.
 
  ```
@@ -125,9 +125,9 @@ Installation from Git Source (Full version)
  >     librsvg-devel           >= 2.40.13
  >     ```
  >
- >   * Robotic employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
- >   * Robotic uses `inkscape` to generate installable PNG files.
- >   * Robotic uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
+ >   * Pop employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
+ >   * Pop uses `inkscape` to generate installable PNG files.
+ >   * Pop uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
 
 3. Build and install system-wide:
 
@@ -169,7 +169,7 @@ Installation from Git Source (Full version)
  >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
  >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
  >     It could especially shorten the rendering-time via `inkscape`.
- >   * `-jN` option to be passed to GNU `make` is surely usable, but Robotic currently employs `parallel`.
+ >   * `-jN` option to be passed to GNU `make` is surely usable, but Pop currently employs `parallel`.
  >   * This feature should not be applied when packaging on remote/shared build-servers.
 
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
@@ -205,7 +205,7 @@ Installation from Git Source (Full version)
  > **Note:**
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
- >     Uppercases are strongly recommended in Robotic code-base.
+ >     Uppercases are strongly recommended in Pop code-base.
  >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
@@ -214,13 +214,13 @@ Installation from Git Source (Full version)
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
  >     and `second_selection_color` and `accent_color` should use `300` colors.
- >   * While doing `make`, Robotic changes those 5 colors in all stylesheets and images,
+ >   * While doing `make`, Pop changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
 GtkSourceView/Gedit Color Scheme Support
 ---------------------------------------
- A theme file `adapta.xml` is installed by default into `Robotic(-Nokto)/gedit` directory.
+ A theme file `adapta.xml` is installed by default into `Pop(-Nokto)/gedit` directory.
  See details in [`README.md`](/extra/gedit/README.md).
 
  > **Note:**
@@ -236,7 +236,7 @@ Extra Browser Support
  --enable-chrome         enable Chrome(ium) support (type: bool)
  ```
 
- The compressed `crx` files will be installed into `Robotic/chrome` and `Robotic-Nokto/chrome`.
+ The compressed `crx` files will be installed into `Pop/chrome` and `Pop-Nokto/chrome`.
 
  > **Note:**
  >
@@ -266,14 +266,14 @@ Extra Dock Support
 
  > **Note:**
  >
- >   * Both Robotic and Robotic-Nokto shares the same theming.
+ >   * Both Pop and Pop-Nokto shares the same theming.
  >   * Don't expect too much. Plank is NOT a themeable widget for me!
 
 Extra Compositor Support
 ------------------------
- Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Robotic/openbox-3` directory if Openbox support is enabled.
+ Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Pop/openbox-3` directory if Openbox support is enabled.
 
- Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Robotic, however.
+ Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Pop, however.
 
 Extra Telegram Support
 ----------------------
@@ -283,7 +283,7 @@ Extra Telegram Support
  --enable-telegram      enable Telegram 1.0 support (type: bool)
  ```
 
- The installer installs compressed `tdesktop-theme` files into `Robotic/telegram` and `Robotic-Nokto/telegram` directories if Telegram support is enabled.
+ The installer installs compressed `tdesktop-theme` files into `Pop/telegram` and `Pop-Nokto/telegram` directories if Telegram support is enabled.
  Then open the file via Telegram > Main Menu > Settings > Chat background > Choose from file.
 
  > **Note:**
