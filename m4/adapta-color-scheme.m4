@@ -2,16 +2,11 @@
 # -----------------------------------------------------------
 AC_DEFUN([ADAPTA_COLOR_SCHEME], [
 
-    selection_default="`grep 'Cyan500' ./gtk/sass/common/_colors.scss | \
-                        cut -d' ' -f3`"
-    second_selection_default="`grep 'Cyan300' ./gtk/sass/common/_colors.scss | \
-                               cut -d' ' -f3`"
-    accent_default="`grep 'Teal300' ./gtk/sass/common/_colors.scss | \
-                     cut -d' ' -f3`"
-    suggestion_default="`grep 'Teal500' ./gtk/sass/common/_colors.scss | \
-                         cut -d' ' -f3`"
-    destruction_default="`grep 'RedA200' ./gtk/sass/common/_colors.scss | \
-                          cut -d' ' -f3`"
+    selection_default="#FAA41A"
+    second_selection_default="#FFB13D"
+    accent_default="#48B9C7"
+    suggestion_default="#73C48F"
+    destruction_default="#F15D22"
 
     AC_ARG_WITH(
         [selection_color],
