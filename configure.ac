@@ -5,7 +5,7 @@ m4_define([adapta_version], [adapta_major_version.adapta_minor_version.adapta_mi
 m4_define([adapta_git_url], [https://github.com/adapta-project/adapta-gtk-theme])
 
 AC_INIT(
-	[Adapta ],
+	[Pop ],
 	[adapta_version],
 	[adapta_git_url],
 	[adapta-gtk-theme]
@@ -72,7 +72,7 @@ AC_CONFIG_FILES([
 ])
 AC_OUTPUT
 AC_MSG_RESULT([
-        Adapta Gtk+ Theme $VERSION
+        Pop Gtk+ Theme $VERSION
         ===========================================================
 
         -----------------------------------------------------------
@@ -81,10 +81,10 @@ AC_MSG_RESULT([
 
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
-         target directories:     ${datarootdir}/themes/Adapta
-                                 ${datarootdir}/themes/Adapta-Nokto
-                                 ${datarootdir}/themes/Adapta-Eta
-                                 ${datarootdir}/themes/Adapta-Nokto-Eta
+         target directories:     ${datarootdir}/themes/Pop
+                                 ${datarootdir}/themes/Pop-Nokto
+                                 ${datarootdir}/themes/Pop-Eta
+                                 ${datarootdir}/themes/Pop-Nokto-Eta
 
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL
