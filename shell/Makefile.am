@@ -1,8 +1,8 @@
 themedir     = $(datadir)/themes
-adaptadir    = $(DESTDIR)$(themedir)/Robotic
-noktodir     = $(DESTDIR)$(themedir)/Robotic-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Robotic-Eta
-noktoetadir  = $(DESTDIR)$(themedir)/Robotic-Nokto-Eta
+adaptadir    = $(DESTDIR)$(themedir)/Pop
+noktodir     = $(DESTDIR)$(themedir)/Pop-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Pop-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
 
 shelldir   = $(srcdir)/gnome-shell
 shell_file = \
@@ -585,9 +585,9 @@ if ENABLE_UNITY
 	$(MKDIR_P) $(adaptadir)/unity
 	cp -Rv $(unity_file) $(adaptadir)/unity
 	cd $(adaptadir)
-	ln -sf ../Robotic/unity $(noktodir)/unity
-	ln -sf ../Robotic/unity $(adaptaetadir)/unity
-	ln -sf ../Robotic/unity $(noktoetadir)/unity
+	ln -sf ../Pop/unity $(noktodir)/unity
+	ln -sf ../Pop/unity $(adaptaetadir)/unity
+	ln -sf ../Pop/unity $(noktoetadir)/unity
 endif
 
 if ENABLE_XFCE
