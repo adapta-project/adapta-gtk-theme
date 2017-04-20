@@ -51,15 +51,34 @@ if test x"$SASSC" = x; then
 	AC_MSG_ERROR(['sassc' not found.])
 fi
 
+SASSC_VERSION=`$SASSC --version | grep 'sassc' | cut -c8-10`
+LIBSASS_VERSION=`$SASSC --version | grep 'libsass' | cut -c10-12`
+AS_IF(
+	[test "$SASSC_VERSION" != "3.3" -a "$SASSC_VERSION" != "3.4"],
+	[AC_MSG_ERROR(['sassc >= 3.3' not met.])]
+)
+AS_IF(
+	[test "$LIBSASS_VERSION" != "3.3" -a "$LIBSASS_VERSION" != "3.4"],
+	[AC_MSG_ERROR(['libsass >= 3.3' not met.])]
+)
+
 AC_PATH_PROG([INKSCAPE], [inkscape])
 if test x"$INKSCAPE" = x; then
 	AC_MSG_ERROR(['inkscape' not found.])
 fi
 
+INK_VERSION=`$INKSCAPE --version | cut -c10-13`
+AS_IF(
+	[test "$INK_VERSION" != "0.91" -a "$INK_VERSION" != "0.92"],
+	[AC_MSG_ERROR(['inkscape >= 0.91' not met.])]
+)
+
 AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
 if test x"$GLIB_COMPILE_RESOURCES" = x; then
 	AC_MSG_ERROR(['glib-compile-resources' not found.])
 fi
+
+GLIB_COMPILE_RESOURCES_VERSION=`$GLIB_COMPILE_RESOURCES --version | cut -c1-4`
 
 ADAPTA_COLOR_SCHEME
 
@@ -89,9 +108,10 @@ AC_MSG_RESULT([
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL
 
-         sassc:                  $SASSC
-         inkscape:               $INKSCAPE
-         glib-compile-resources: $GLIB_COMPILE_RESOURCES
+         sassc:                  $SASSC_VERSION  (>= 3.3)
+         libsass:                $LIBSASS_VERSION  (>= 3.3)
+         inkscape:               $INK_VERSION (>= 0.91)
+         glib-compile-resources: $GLIB_COMPILE_RESOURCES_VERSION (>= 2.48)
 
          selection-color:        $SELECTION (default: $selection_default)
          2nd-selection-color:    $SECOND_SELECTION (default: $second_selection_default)
@@ -103,34 +123,34 @@ AC_MSG_RESULT([
         | Default DE support
         -----------------------------------------------------------
 
-         GNOME:                >= 3.22 (or 3.20 or 3.18)
-         Budgie-Desktop:       >= 10.2.7
+         GNOME:                  >= 3.18.3
+         Budgie-Desktop:         >= 10.2.7
 
         -----------------------------------------------------------
         | Extra DE and WM support
         -----------------------------------------------------------
 
-         Cinnamon:             $ENABLE_CINNAMON
-         GNOME-Flashback:      $ENABLE_FLASHBACK
-         Unity:                $ENABLE_UNITY
-         XFce:                 $ENABLE_XFCE
-         Mate:                 $ENABLE_MATE
-         Openbox:              $ENABLE_OPENBOX
+         Cinnamon:               $ENABLE_CINNAMON
+         GNOME-Flashback:        $ENABLE_FLASHBACK
+         Unity:                  $ENABLE_UNITY
+         XFce:                   $ENABLE_XFCE
+         Mate:                   $ENABLE_MATE
+         Openbox:                $ENABLE_OPENBOX
 
         -----------------------------------------------------------
         | Next Gtk+ support
         -----------------------------------------------------------
 
-         Gtk+ 4.0:             $ENABLE_GTK_NEXT
+         Gtk+ 4.0:               $ENABLE_GTK_NEXT
 
         -----------------------------------------------------------
         | Extra support
         -----------------------------------------------------------
 
-         GtkSourceView/Gedit:  always
-         Chrome(ium):          $ENABLE_CHROME
-         Plank:                $ENABLE_PLANK
-         Telegram:             $ENABLE_TELEGRAM
+         GtkSourceView/Gedit:    always
+         Chrome(ium):            $ENABLE_CHROME
+         Plank:                  $ENABLE_PLANK
+         Telegram:               $ENABLE_TELEGRAM
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'
