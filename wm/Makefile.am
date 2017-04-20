@@ -1,8 +1,8 @@
 themedir     = $(datadir)/themes
-adaptadir    = $(DESTDIR)$(themedir)/Robotic
-noktodir     = $(DESTDIR)$(themedir)/Robotic-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Robotic-Eta
-noktoetadir  = $(DESTDIR)$(themedir)/Robotic-Nokto-Eta
+adaptadir    = $(DESTDIR)$(themedir)/Pop
+noktodir     = $(DESTDIR)$(themedir)/Pop-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Pop-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
 
 metacitydir   = $(srcdir)/metacity-1
 metacity_file = \
@@ -196,9 +196,9 @@ if ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Robotic/metacity-1 $(noktodir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
@@ -206,9 +206,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Robotic/metacity-1 $(noktodir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -217,9 +217,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Robotic/metacity-1 $(noktodir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -228,9 +228,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Robotic/metacity-1 $(noktodir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Robotic/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -238,7 +238,7 @@ if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfwm4
 	cp -Rv $(xfwm_file) $(adaptadir)/xfwm4
 	cd $(adaptadir)
-	ln -sf ../Robotic/xfwm4 $(noktodir)/xfwm4
+	ln -sf ../Pop/xfwm4 $(noktodir)/xfwm4
 endif
 
 if ENABLE_OPENBOX
