@@ -1662,24 +1662,12 @@ workbench.background > stack.titlebar > headerbar > stack {
     // FIXME: swapped left/right?
     box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
                                         $sub-header-shadow-dark-rtl);
-
-    .tiled &  {
-      @extend %tiled_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                          $tiled-header-shadow-dark-rtl);
-    }
   }
   &:dir(rtl) {
     border-left-width: 0;
     border-left-style: none;
     box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
                                         $sub-header-shadow-dark-ltr);
-
-    .tiled &  {
-      @extend %tiled_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                          $tiled-header-shadow-dark-ltr);
-    }
   }
 
   &.selection-mode {
@@ -1688,24 +1676,12 @@ workbench.background > stack.titlebar > headerbar > stack {
       border-right-style: none;
       box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
                                           $selected-header-shadow-dark-rtl);
-
-      .tiled &  {
-        @extend %tiled_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                            $tiled-header-shadow-dark-rtl);
-      }
     }
     &:dir(rtl) {
       border-left-width: 0;
       border-left-style: none;
       box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
                                           $selected-header-shadow-dark-ltr);
-
-      .tiled &  {
-        @extend %tiled_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                            $tiled-header-shadow-dark-ltr);
-      }
     }
   }
 }

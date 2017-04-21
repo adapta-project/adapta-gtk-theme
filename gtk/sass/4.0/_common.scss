@@ -2241,6 +2241,7 @@ headerbar {
     color: $selected_fg_color;
     &:backdrop { opacity: 1.0; }
 
+    .tiled &,
     .maximized & { border-top-color: $selected_bg_color; }
 
     .subtitle:link { @extend *:link:selected;  }
@@ -2350,11 +2351,7 @@ headerbar {
   }
 
   // misc
-  .tiled & {
-    @extend %tiled_integration;
-    transition: none;
-  }
-
+  .tiled &,
   .maximized & {
     border-top-color: $inverted_dark_color;
     border-radius: 0;
@@ -2429,8 +2426,6 @@ headerbar {
 
       > .subtitle { margin: rem(-2.7px) 0; }
     }
-
-    .tiled &  { @extend %tiled_integration; }
   }
 
   // override unwanted side-borders
@@ -2438,11 +2433,6 @@ headerbar {
   box &:not(:only-child):last-child {
     border-left-color: $inverted_dark_color;
     border-right-color: $inverted_dark_color;
-
-    .tiled & {
-      border-left-color: $panel_bg_color;
-      border-right-color: $panel_bg_color;
-    }
   }
 
   box & { // Remove unneeded side shadows with dirty hacks
@@ -2450,22 +2440,10 @@ headerbar {
       &:dir(ltr) {
         box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
                                             $sub-header-shadow-dark-ltr);
-
-        .tiled &  {
-          @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                              $tiled-header-shadow-dark-ltr);
-        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
                                             $sub-header-shadow-dark-rtl);
-
-        .tiled &  {
-          @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                              $tiled-header-shadow-dark-rtl);
-        }
       }
     }
   }
@@ -2473,10 +2451,8 @@ headerbar {
   // paned-separator is actually drawn by paned itself
   paned &:not(:only-child):last-child {
     &:dir(ltr) {
-      .tiled &  { @extend %tiled_integration; }
     }
     &:dir(rtl) {
-      .tiled &  { @extend %tiled_integration; }
     }
   }
 }
@@ -2487,22 +2463,10 @@ headerbar.selection-mode { // selection-mode specific
       &:dir(ltr) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
                                             $selected-header-shadow-dark-ltr);
-
-        .tiled &  {
-          @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                              $tiled-header-shadow-dark-ltr);
-        }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
                                             $selected-header-shadow-dark-rtl);
-
-        .tiled &  {
-          @extend %tiled_integration;
-          box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                              $tiled-header-shadow-dark-rtl);
-        }
       }
     }
   }
@@ -2579,6 +2543,12 @@ window:not(.maximized):not(.tiled):not(.solid-csd) {
 headerbar.titlebar.default-decoration {
   border-top: 1px solid $highlight_color;
   box-shadow: none; // reset outset shadows
+
+  .tiled &,
+  .maximized & {
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
+  }
 }
 
 // workaround for ugly Ubuntu-related CSD patches
@@ -2615,16 +2585,6 @@ dialog.background.csd > headerbar.titlebar {
     border-radius: 2px;
     -gtk-outline-radius: 2px;
  }
-}
-
-// squared corners when the window is max'd or tiled
-%tiled_integration {
-  border-radius: 0;
-  border-color: $panel_bg_color;
-  border-width: 2px 0 0 0;
-  border-top-color: $secondary_selected_bg_color;
-  background-color: $panel_bg_color;
-  &:backdrop { border-top-color: $track_color; }
 }
 
 
@@ -2839,11 +2799,6 @@ menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
   background-color: $inverted_dark_color;
-
-  .tiled & {
-    background-color: $panel_bg_color;
-    transition: none;
-  }
 
   > menuitem {
     min-height: rem(20px, $sw: 1.0);
@@ -5649,7 +5604,11 @@ decoration {
     // otherwise incorrect shadows are appeared
     box-shadow: $z-depth-1-backdrop;
 
-    .tiled & .titlebar { @extend %tiled_integration; }
+    .tiled & .titlebar,
+    .maximized & .titlebar {
+      border-top-color: $inverted_dark_color;
+      border-radius: 0;
+    }
   }
 
   .csd.popup & {
@@ -5955,7 +5914,9 @@ decoration {
 
 // specific button styling for Metacity's CSDs and XWayland
 headerbar.titlebar.default-decoration {
-  &, maximized & {
+  &,
+  .tiled &,
+  .maximized & {
     button.titlebutton {
       @extend %fade_effect;
       min-width: $titlebutton_small;
@@ -5993,64 +5954,66 @@ headerbar.titlebar.default-decoration {
 }
 
 headerbar.titlebar.default-decoration {
-  %metacity_csd_button,
-  button.titlebutton {
-    @each $_class,
-          $_state,
-          $_shadow in ('', '', none),
-                      (':hover', '-hover', $z-depth-1),
-                      (':active', '-active', $z-depth-1),
-                      (':backdrop', '-backdrop', none),
-                      (':backdrop:hover', '-backdrop-hover', $z-depth-1),
-                      (':backdrop:active', '-backdrop-active', $z-depth-1) {
-      &.close#{$_class} {
-        background-image:
-          -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
-                      url("assets/window-close-ssd#{$_state}@2.png"));
-        box-shadow: #{$_shadow};
-
-        @if $ref_weight < 1.0 {
+  &, .tiled & {
+    %metacity_csd_button,
+    button.titlebutton {
+      @each $_class,
+            $_state,
+            $_shadow in ('', '', none),
+                        (':hover', '-hover', $z-depth-1),
+                        (':active', '-active', $z-depth-1),
+                        (':backdrop', '-backdrop', none),
+                        (':backdrop:hover', '-backdrop-hover', $z-depth-1),
+                        (':backdrop:active', '-backdrop-active', $z-depth-1) {
+        &.close#{$_class} {
           background-image:
-            -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
-                        url("assets/window-close-ssd-eta#{$_state}@2.png"));
+            -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
+                        url("assets/window-close-ssd#{$_state}@2.png"));
+          box-shadow: #{$_shadow};
+
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
+                          url("assets/window-close-ssd-eta#{$_state}@2.png"));
+          }
         }
       }
-    }
 
-    @each $_class, $_state in ('', ''),
-                              (':hover', '-hover'),
-                              (':active', '-active'),
-                              (':backdrop', '-backdrop'),
-                              (':backdrop:hover', '-backdrop-hover'),
-                              (':backdrop:active', '-backdrop-active') {
-      &.minimize#{$_class} {
-        background-image:
-          -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
-                      url("assets/window-minimize-ssd#{$_state}@2.png"));
-
-        @if $ref_weight < 1.0 {
+      @each $_class, $_state in ('', ''),
+                                (':hover', '-hover'),
+                                (':active', '-active'),
+                                (':backdrop', '-backdrop'),
+                                (':backdrop:hover', '-backdrop-hover'),
+                                (':backdrop:active', '-backdrop-active') {
+        &.minimize#{$_class} {
           background-image:
-            -gtk-scaled(url("assets/window-minimize-ssd-eta#{$_state}.png"),
-                        url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+            -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
+                        url("assets/window-minimize-ssd#{$_state}@2.png"));
+
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-minimize-ssd-eta#{$_state}.png"),
+                          url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+          }
         }
       }
-    }
 
-    @each $_class, $_state in ('', ''),
-                              (':hover', '-hover'),
-                              (':active', '-active'),
-                              (':backdrop', '-backdrop'),
-                              (':backdrop:hover', '-backdrop-hover'),
-                              (':backdrop:active', '-backdrop-active') {
-      &.maximize#{$_class} {
-        background-image:
-          -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
-                      url("assets/window-maximize-ssd#{$_state}@2.png"));
-
-        @if $ref_weight < 1.0 {
+      @each $_class, $_state in ('', ''),
+                                (':hover', '-hover'),
+                                (':active', '-active'),
+                                (':backdrop', '-backdrop'),
+                                (':backdrop:hover', '-backdrop-hover'),
+                                (':backdrop:active', '-backdrop-active') {
+        &.maximize#{$_class} {
           background-image:
-            -gtk-scaled(url("assets/window-maximize-ssd-eta#{$_state}.png"),
-                        url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+            -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
+                        url("assets/window-maximize-ssd#{$_state}@2.png"));
+
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(url("assets/window-maximize-ssd-eta#{$_state}.png"),
+                          url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+          }
         }
       }
     }

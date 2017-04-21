@@ -1648,11 +1648,7 @@ GtkComboBox {
   }
 
   // misc
-  .tiled &  {
-    @extend %tiled_integration;
-    transition: none;
-  }
-
+  .tiled &,
   .maximized & {
     border-top-color: $inverted_dark_color;
     border-radius: 0;
@@ -1691,8 +1687,6 @@ GtkComboBox {
   GtkBox &:only-child {
     box-shadow: if($variant == 'light', $header-shadow-light,
                                         $header-shadow-dark);
-
-    .tiled &  { @extend %tiled_integration; }
   }
 
   // override unwanted side-borders
@@ -1700,11 +1694,6 @@ GtkComboBox {
   GtkBox &:not(:only-child):last-child {
     border-left-color: $inverted_dark_color;
     border-right-color: $inverted_dark_color;
-
-    .tiled & {
-      border-left-color: $panel_bg_color;
-      border-right-color: $panel_bg_color;
-    }
   }
 
   // Remove unneeded side shadows with dirty hacks
@@ -1712,14 +1701,10 @@ GtkComboBox {
     &:dir(ltr) {
       box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
                                           $sub-header-shadow-dark-ltr);
-
-      .tiled &  { @extend %tiled_integration; }
     }
     &:dir(rtl) {
       box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
                                           $sub-header-shadow-dark-rtl);
-
-      .tiled &  { @extend %tiled_integration; }
     }
   }
 
@@ -1727,13 +1712,9 @@ GtkComboBox {
   GtkPaned &:not(:only-child):last-child {
     &:dir(ltr) {
       border-left: 1px solid $solid_dark_borders_color;
-
-      .tiled &  { @extend %tiled_integration; }
     }
     &:dir(rtl) {
       border-right: 1px solid $solid_dark_borders_color;
-
-      .tiled &  { @extend %tiled_integration; }
     }
   }
 }
@@ -1744,14 +1725,10 @@ GtkComboBox {
       &:dir(ltr) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
                                             $selected-header-shadow-dark-ltr);
-
-        .tiled &  { @extend %tiled_integration; }
       }
       &:dir(rtl) {
         box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
                                             $selected-header-shadow-dark-rtl);
-
-        .tiled &  { @extend %tiled_integration; }
       }
     }
   }
@@ -1777,17 +1754,6 @@ GtkComboBox {
     &:dir(ltr) { border-top-left-radius: 0; }
     &:dir(rtl) { border-top-right-radius: 0; }
   }
-}
-
-// squared corners when the window is max'd or tiled
-%tiled_integration {
-  border-radius: 0;
-  border-color: $panel_bg_color;
-  border-width: 2px 0 0 0;
-  border-top-color: $secondary_selected_bg_color;
-  background-color: $panel_bg_color;
-  box-shadow: none;
-  &:backdrop { border-top-color: $track_color; }
 }
 
 
@@ -1972,8 +1938,6 @@ column-header.button.dnd { // for treeview-like derive widgets
   GtkWindow GtkWidget & { // FIXME: Gtk+3 firefox needs this!
     color: $inverted_secondary_fg_color;
   }
-
-  .tiled & { background-color: $panel_bg_color; }
 
   > .menuitem {
     padding: 0.4em 0.6em;
@@ -3928,12 +3892,8 @@ GtkVolumeButton.button {
       box-shadow: inset 0 1px $highlight_color;
     }
 
-    .tiled .titlebar {
-      @extend %tiled_integration;
-      transition: none;
-    }
-
-    .maximized .titlebar {
+    &.tiled .titlebar,
+    &.maximized .titlebar {
       border-top-color: $inverted_dark_color;
       border-radius: 0;
       transition: none;
