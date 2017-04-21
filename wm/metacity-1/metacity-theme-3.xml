@@ -157,7 +157,7 @@
 </draw_ops>
 
 <draw_ops name="max_titlebar_fill_unfocused">
-	<include name="max_entire_background_focused" />
+	<include name="max_entire_background_unfocused" />
 </draw_ops>
 
 <draw_ops name="max_titlebar_focused">
@@ -170,13 +170,11 @@
 
 <!-- tiled state -->
 <draw_ops name="tiled_entire_background_focused">
-	<rectangle color="#13191C" x="0" y="0" width="width" height="height" filled="true" />
-	<rectangle color="#00BCD4" x="0" y="0" width="width" height="2" filled="true" />
+	<rectangle color="gtk:custom(wm_bg_a,gtk:bg[NORMAL])" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="tiled_entire_background_unfocused">
-	<rectangle color="#13191C" x="0" y="0" width="width" height="height" filled="true" />
-	<rectangle color="#37474F" x="0" y="0" width="width" height="2" filled="true" />
+	<include name="tiled_entire_background_focused" />
 </draw_ops>
 
 <draw_ops name="tiled_titlebar_fill_focused">
