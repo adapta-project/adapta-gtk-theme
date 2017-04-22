@@ -3078,15 +3078,22 @@ window#wb_main_window {
 //  * Chrome(ium) *
 //  ***************/
 
-// ver.59.x or higher
 window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
-  > toolbar:not(.primary-toolbar) {
-    > entry {
-      &, &:focus { // overrides standard borders
-        border-image: none;
-        border: 1px solid $borders_color;
-      }
+  > toolbar:not(.primary-toolbar) > entry, // ver.59.0.3053 or lower
+  > entry { // ver.59.0.3067 or higher
+    &, &:focus { // overrides standard borders
+      border-image: none;
+      border: 1px solid $borders_color;
     }
+  }
+
+  // ver.59.0.3067 or higher
+  // override default @theme_bg_color in their own tooltip widgets
+  > tooltip:not(.background):not(.csd) {
+    border-radius: 0; // roundness does not work
+    // RGBA does not work, use solid colours instead
+    background-color: $inverted_dark_color;
+    color: $inverted_fg_color;
   }
 }
 
