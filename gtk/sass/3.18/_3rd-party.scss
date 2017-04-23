@@ -901,6 +901,60 @@ $full_orientation: ((top, bottom),
   }
 }
 
+// alt-tab apps switcher styling
+.background.budgie-switcher-window {
+  border-radius: 2px;
+  background-color: transparent;
+
+  // draw actual backgrounds and shadows
+  .drop-shadow {
+    border-radius: 2px;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    // keeps level-2 since we can not enlarge the outer margin
+    box-shadow: $z-depth-2;
+
+    .label.budgie-switcher-title { // bottom label for app titles
+      color: $inverted_accent_label_color;
+      font-weight: 500;
+      &:dir(ltr) { padding: 0 0 3px 6px; }
+      &:dir(rtl) { padding: 0 6px 3px 0; }
+    }
+  }
+
+  GtkFlowBox { // unset spacing
+    margin: 0;
+    padding: 0;
+  }
+
+  GtkFlowBoxChild { // icon-tiles
+    margin: 3px;
+    border-radius: 2px;
+    outline-radius: 2px;
+    color: $inverted_secondary_accent_label_color;
+    background-color: transparent;
+    &:hover,
+    &:active {
+      background-color: gtkopacity($accent_color, 0.1);
+      color: $inverted_accent_label_color;
+    }
+    &:selected { // use the same values with Gnome-Shell
+      background-color: gtkopacity($accent_color, 0.25);
+      color: $inverted_accent_label_color;
+      -gtk-image-effect: highlight;
+      &:insensitive {
+        background-color: gtkopacity($inverted_fg_color, 0.1);
+        -gtk-image-effect: dim;
+
+        &, .label { color: $insensitive_inverted_fg_color; }
+      }
+    }
+  }
+}
+
+// an internal of the parent switcher-window
+.budgie-switcher {
+}
+
 // dialog styling
 .background.csd.budgie-run-dialog {
   border: none;
