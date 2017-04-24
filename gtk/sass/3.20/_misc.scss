@@ -425,6 +425,13 @@ NautilusTrashBar {
   }
 }
 
+// hide unwanted frame in batch-rename dialog
+dialog.background.csd > box.dialog-vbox > grid.horizontal {
+  > scrolledwindow.frame {
+    > viewport.frame { margin: -1px; }
+  }
+}
+
 .nautilus {
   &-canvas-item {
     border-radius: 2px;
