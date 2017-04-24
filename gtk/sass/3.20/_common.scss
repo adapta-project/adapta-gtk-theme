@@ -160,8 +160,13 @@ textview {
   }
 }
 
-textview border {
-  background-color: $bg_color;
+textview {
+  &, &.view { // remove images and transitions
+    background-image: none;
+    transition: none;
+  }
+
+  border { background-color: $bg_color; }
 }
 
 iconview { @extend .view; }

@@ -206,8 +206,14 @@ GtkAssistant {
   }
 }
 
-GtkTextView { // This will get overridden by .view,
-              // needed by gedit line numbers
+GtkTextView {
+  &, &.view { // remove images and transitions
+    background-image: none;
+    transition: none;
+  }
+
+  // This will get overridden by .view,
+  // needed by gedit line numbers
   background-color: $secondary_dark_color;
 }
 
