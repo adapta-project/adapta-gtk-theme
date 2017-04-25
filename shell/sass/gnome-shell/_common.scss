@@ -724,7 +724,7 @@ StScrollBar {
   -arrow-box-shadow: $empty_shadow; // dreaming. bug #689995
   margin: 0.1em 0.3em 0.5em;
   border-radius: 2px;
-  border-top: 1px solid $base_color;
+  border-top: 1px solid $menu_highlight;
   background-color: $secondary_base_color;
   box-shadow: $z-depth-3;
 }
@@ -2313,8 +2313,7 @@ StScrollBar {
   &-bin {
     padding: 5px;
     border-radius: 2px;
-    border-top: 1px solid if($nokto == 'false', $borders_highlight,
-                                                $base_color);
+    border-top: 1px solid $menu_highlight;
     background-color: if($nokto == 'false', $inverted_bg_color,
                                             $bg_color);
     box-shadow: $z-depth-1;
