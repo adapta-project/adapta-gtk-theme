@@ -2091,8 +2091,9 @@ terminal-window {
   // FIXME: In XWayland mode, downstream 'transparency' patch causes
   // solid outer margin artifact when users keep enabling transparent
   // background.
-  &.background { background-color: transparent; }
+  &.csd.background { background-color: transparent; }
 
+  &.background:not(.csd),
   vte-terminal { // set the same background with decorations
     background-color: $inverted_dark_color;
     color: $inverted_fg_color;
