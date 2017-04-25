@@ -489,8 +489,8 @@ box.horizontal.pinned { // drop-target
                         $dark_color,
                         mix($dark_color, $secondary_dark_color, 50%)) 50%,
                       if($variant == 'light',
-                        gtkalpha($top_edge_border_color, 0.01),
-                        gtkalpha($solid_dark_borders_color, 0.4)) calc(50% + 1px),
+                        gtkalpha($top_edge_borders_color, 0.005),
+                        gtkalpha($solid_dark_borders_color, 0.02)) calc(50% + 1px),
                       transparent 1px,
                       transparent);
     box-shadow: none;
@@ -1204,7 +1204,7 @@ UnityDecoration {
     background-image: image($inverted_dark_color);
     // The foreground color will be used to paint the text
     color: $inverted_fg_color;
-    box-shadow: inset 0 1px $highlight_color;
+    box-shadow: inset 0 1px $top_edge_borders_color;
     &:hover { // for L.I.M's selected menuitem
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;

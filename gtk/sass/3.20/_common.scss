@@ -2293,13 +2293,13 @@ headerbar {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
       background-color: $selected_bg_color;
       &:disabled {
-        background-color: mix($top_edge_border_color,
+        background-color: mix($top_edge_borders_color,
                               $inverted_fg_color,
                               95.5%);
       }
     }
     &:disabled slider {
-      background-color: mix($top_edge_border_color,
+      background-color: mix($top_edge_borders_color,
                             $inverted_fg_color,
                             95.5%);
     }
@@ -2480,8 +2480,8 @@ headerbar {
   border-width: 1px 0 1px;
   border-style: solid;
   // do not use transparentize
-  border-top-color: $top_edge_border_color;
-  border-bottom-color: $solid_dark_borders_color;
+  border-top-color: $top_edge_borders_color;
+  border-bottom-color: $inverted_dark_color;
 
   // reduce hidden gap reserved for separators
   > box.horizontal {
@@ -2624,14 +2624,14 @@ window:not(.maximized):not(.tiled) {
   .titlebar {
     border-width: 1px 0 0 0;
     border-style: solid;
-    border-color: $highlight_color;
+    border-color: $top_edge_borders_color;
     box-shadow: none;
   }
 }
 
 // revive top-edge highlight border for XWayland
 headerbar.titlebar.default-decoration {
-  border-top: 1px solid $highlight_color;
+  border-top: 1px solid $top_edge_borders_color;
   box-shadow: none; // reset outset shadows
 
   .tiled &,
@@ -2931,14 +2931,14 @@ menu {
   padding: rem(4px) 0;
   border-width: 1px; // adds borders in a non composited env
   border-style: solid;
-  border-color: $base_color transparent transparent;
+  border-color: $menu_highlight_color transparent transparent;
   background-color: $secondary_base_color;
 
   .csd & { // axes borders in a composited env
     border-radius: 2px;
     border-width: 1px 0 0;
     border-style: solid none none;
-    border-color: $base_color transparent transparent;
+    border-color: $menu_highlight_color transparent transparent;
   }
 
   .menuitem,
@@ -3080,7 +3080,7 @@ popover.background {
                                           gtkopacity($borders_color, 0.5))
                   $secondary_base_color $secondary_base_color;
     border-image: linear-gradient(to bottom,
-                                  $base_color 1px,
+                                  $menu_highlight_color 1px,
                                   $secondary_base_color,
                                   $secondary_base_color 1px) 1 / 1px stretch;
   }
@@ -3635,7 +3635,7 @@ switch {
   &:hover slider {
     @include button(hover);
     background-image: linear-gradient(to bottom,
-                                      gtkalpha($selected_fg_color, 0.2));
+                                      gtkalpha($selected_fg_color, 0.1));
   }
   &:checked slider { @include button(checked); }
   &:checked:hover slider {

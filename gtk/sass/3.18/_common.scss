@@ -1355,8 +1355,8 @@ GtkComboBox {
   border-width: 1px 0 1px;
   border-style: solid;
   // do not use transparentize
-  border-top-color: $top_edge_border_color;
-  border-bottom-color: $solid_dark_borders_color;
+  border-top-color: $top_edge_borders_color;
+  border-bottom-color: $inverted_dark_color;
   background-color: $inverted_dark_color;
   background-clip: border-box;
 
@@ -1555,13 +1555,13 @@ GtkComboBox {
       &:active {
         background-color: $selected_bg_color;
         &:insensitive {
-          background-color: mix($top_edge_border_color,
+          background-color: mix($top_edge_borders_color,
                                 $inverted_fg_color,
                                 95.5%);
         }
       }
       &:insensitive {
-        background-color: mix($top_edge_border_color,
+        background-color: mix($top_edge_borders_color,
                               $inverted_fg_color,
                               95.5%);
       }
@@ -1683,7 +1683,7 @@ GtkComboBox {
     &:dir(rtl),
     &:dir(ltr) { // specificity bump
       margin: -1px -1px -1px 0;
-      box-shadow: inset 0 1px $highlight_color;
+      box-shadow: inset 0 1px $top_edge_borders_color;
     }
   }
 }
@@ -1969,13 +1969,13 @@ column-header.button.dnd { // for treeview-like derive widgets
   padding: 4px 0;
   border-width: 1px; // adds borders in a non composited env
   border-style: solid;
-  border-color: $base_color transparent transparent;
+  border-color: $menu_highlight_color transparent transparent;
   background-color: $secondary_base_color;
 
   .csd & { // axes borders in a composited env
     border-width: 1px;
     border-radius: 2px;
-    border-color: $base_color transparent transparent;
+    border-color: $menu_highlight_color transparent transparent;
   }
 
   .menuitem {
@@ -2056,7 +2056,8 @@ column-header.button.dnd { // for treeview-like derive widgets
 .popover {
   padding: 2px;
   border: 1px solid;
-  border-color: $base_color $secondary_base_color $secondary_base_color;
+  border-color: $menu_highlight_color
+                $secondary_base_color $secondary_base_color;
   border-radius: 2px;
   background-color: $secondary_base_color;
   box-shadow:  $z-depth-3;
@@ -2448,7 +2449,7 @@ GtkSwitch {
     &:hover {
       @include button(hover);
       background-image: linear-gradient(to bottom,
-                                        gtkalpha($selected_fg_color, 0.2));
+                                        gtkalpha($selected_fg_color, 0.1));
     }
     &:active {
       @include button(checked);
@@ -2484,7 +2485,7 @@ GtkSwitch {
       background-color: $bg_color;
       &:hover {
         background-image: linear-gradient(to bottom,
-                                          gtkalpha($selected_fg_color, 0.2));
+                                          gtkalpha($selected_fg_color, 0.1));
       }
       &:active {
         background-color: $base_color;
@@ -3895,7 +3896,7 @@ GtkVolumeButton.button {
 
     .titlebar {
       // revive top-edge highlight border
-      box-shadow: inset 0 1px $highlight_color;
+      box-shadow: inset 0 1px $top_edge_borders_color;
     }
 
     &.tiled .titlebar,

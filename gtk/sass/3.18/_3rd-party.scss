@@ -544,8 +544,8 @@ $full_orientation: ((top, bottom),
                         $dark_color,
                         mix($dark_color, $secondary_dark_color, 50%))),
                       color-stop(0.50, if($variant == 'light',
-                        gtkopacity($top_edge_border_color, 0.01),
-                        gtkopacity($solid_dark_borders_color, 0.4))),
+                        gtkopacity($top_edge_borders_color, 0.005),
+                        gtkopacity($solid_dark_borders_color, 0.02))),
                       color-stop(0.50, transparent),
                       to(transparent));
     box-shadow: none;
@@ -1138,7 +1138,7 @@ UnityDecoration { // FIXME: do not use scalable units
     background-image: linear-gradient(to bottom, $inverted_dark_color);
     // The foreground color will be used to paint the text
     color: $inverted_fg_color;
-    box-shadow: inset 0 1px $highlight_color;
+    box-shadow: inset 0 1px $top_edge_borders_color;
 
     &:backdrop { color: $insensitive_inverted_fg_color; }
 
