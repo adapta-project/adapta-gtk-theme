@@ -431,14 +431,14 @@ $full_orientation: ((top, bottom),
         }
 
         .label {
-          color: $inverted_secondary_fg_color;
+          color: $secondary_selected_fg_color;
 
           &:dir(ltr) { padding-left: 0.6em; }
           &:dir(rtl) { padding-right: 0.6em; }
         }
 
         GtkImage {
-          color: $inverted_secondary_fg_color;
+          color: $secondary_selected_fg_color;
 
           &:first-child { // avatar image
             padding-top: 0.4em;
@@ -453,10 +453,10 @@ $full_orientation: ((top, bottom),
           transition-property: box-shadow;
           transition-duration: 0.2s;
 
-          .label { color: $inverted_fg_color; }
+          .label { color: $selected_fg_color; }
 
           GtkImage {
-            color: $inverted_fg_color;
+            color: $selected_fg_color;
 
             &:first-child { opacity: 1.0; }
           }
@@ -552,11 +552,11 @@ $full_orientation: ((top, bottom),
       @extend %button_normal;
       margin: 2px 8px;
       padding: 5.3px;
-      color: $inverted_secondary_fg_color;
+      color: $secondary_selected_fg_color;
       background-color: $suggested_color;
       &:hover {
         @extend %button_hover;
-        color: $inverted_fg_color;
+        color: $selected_fg_color;
       }
       &:active {
         @extend %button_active;
