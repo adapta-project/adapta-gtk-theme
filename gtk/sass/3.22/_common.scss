@@ -3857,11 +3857,7 @@ switch {
     #{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}.png"),
                                     url("assets/#{$a}#{$as}@2.png"));
-      -gtk-icon-shadow: none;
-      border-radius: 2px;
-      // fill inner region
-      background-color: if($variant == 'light', transparent,
-                                                $track_color);
+      -gtk-icon-shadow: 0 0 $panel_bg_color;
     }
   }
 
@@ -3882,7 +3878,6 @@ switch {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
-      background-color: transparent;
     }
   }
 }
