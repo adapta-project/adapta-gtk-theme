@@ -547,5 +547,37 @@ widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>*<GtkLabel>"    style "locatio
 # (He)XChat
 #
 
-widget "*xchat-inputbox"    style "entry"
-class  "SexySpellEntry"     style:highest "entry"
+#
+# (He)XChat
+#
+
+style "chat-entry" {
+  xthickness = 5
+  ythickness = 5
+
+  # enforce white backgrounds
+  bg[NORMAL] = @solid_white
+  bg[PRELIGHT] = @solid_white
+  bg[ACTIVE] = @solid_white
+  bg[SELECTED] = @selected_bg_color
+
+  engine "pixmap" {
+    image {
+      function = SHADOW
+      detail   = "entry"
+      file     = "Shadows/frame.png"
+      border   = { 1, 1, 1, 1 }
+      stretch  = TRUE
+    }
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      file     = "Others/null.svg"
+      border   = { 0, 0, 0, 0 }
+      stretch  = TRUE
+    }
+  }
+}
+
+widget "*xchat-inputbox" style "chat-entry"
+class "SexySpellEntry"   style:highest "chat-entry"
