@@ -3874,24 +3874,23 @@ switch {
 @each $w,$a in ('check', 'checkbox'),
                ('radio','radio') {
 
-  // workaround for WebKitGtk
-  // FIXME: always use light variant check/radio in WebKit
-  @each $s,$as in ('','-unchecked'),
-                  (':hover', '-unchecked-active'),
-                  (':active', '-unchecked-active'),
-                  (':disabled','-unchecked-insensitive'),
-                  (':indeterminate', '-mixed'),
-                  (':indeterminate:hover', '-mixed-active'),
-                  (':indeterminate:active', '-mixed-active'),
-                  (':indeterminate:disabled', '-mixed-insensitive'),
-                  (':checked', '-checked'),
-                  (':checked:hover', '-checked-active'),
-                  (':checked:active', '-checked-active'),
-                  (':checked:disabled','-checked-insensitive') {
+  // workaround for WebKitGtk and LibreOffice
+  @each $s,$as in ('','-unchecked-solid'),
+                  (':hover', '-unchecked-solid'),
+                  (':active', '-unchecked-solid'),
+                  (':disabled','-unchecked-solid-insensitive'),
+                  (':indeterminate', '-mixed-solid'),
+                  (':indeterminate:hover', '-mixed-solid'),
+                  (':indeterminate:active', '-mixed-solid'),
+                  (':indeterminate:disabled', '-mixed-solid-insensitive'),
+                  (':checked', '-checked-solid'),
+                  (':checked:hover', '-checked-solid'),
+                  (':checked:active', '-checked-solid'),
+                  (':checked:disabled','-checked-solid-insensitive') {
     .#{$w}#{$s}, #{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}.png"),
-                                    url("assets/#{$a}#{$as}@2.png"));
-      -gtk-icon-shadow: 0 0 $panel_bg_color;
+      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
+                                    url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
+      -gtk-icon-shadow: none;
     }
   }
 
