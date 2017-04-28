@@ -2716,10 +2716,6 @@ window.background:not(.csd):not(.solid-csd) {
     }
   }
 
-  &.tiled > grid.horizontal > grid.horizontal {
-    background-color: $panel_bg_color;
-  }
-
   // for 'Notebookbar' toolbar
   > notebook:not(.frame) {
     border: 0 none transparent; // unset borders
@@ -2997,30 +2993,6 @@ window#wb_main_window {
     }
 
     > stack > box.vertical > menubar { margin: 0 -1px; } // hide weird gap
-  }
-
-  &.tiled {
-    notebook#model_tabs {
-      > header.top {
-        background-color: $panel_bg_color;
-
-        button.flat#wbtab-close-button { // for pitch black icon
-          > image {
-            border-radius: 100px;
-            background-color: $track_color;
-            color: $inverted_secondary_fg_color;
-          }
-
-          &:hover > image,
-          &:checked > image {
-            background-color: $track_color;
-            color: $inverted_fg_color;
-          }
-        }
-      }
-
-      > stack > box.vertical > menubar { box-shadow: none; }
-    }
   }
 
   box#dbquery,
