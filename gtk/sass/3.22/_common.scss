@@ -2128,14 +2128,15 @@ headerbar {
       &:dir(rtl) { padding-left: rem(4px); }
     }
 
-    &.default,
     &.suggested-action,
     &.destructive-action { // high-contrast foregrounds
-      color: $secondary_selected_fg_color;
-      &:hover,
-      &:active,
-      &:checked { color: $selected_fg_color; }
-      &:disabled { color: $insensitive_selected_fg_color; }
+      &, &.default {
+        color: $secondary_selected_fg_color;
+        &:hover,
+        &:active,
+        &:checked { color: $selected_fg_color; }
+        &:disabled { color: $insensitive_selected_fg_color; }
+      }
     }
   }
 

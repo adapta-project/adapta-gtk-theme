@@ -1462,11 +1462,13 @@ GtkComboBox {
 
     &.suggested-action,
     &.destructive-action { // high-contrast foregrounds
-      color: $secondary_selected_fg_color;
-      &:hover,
-      &:active,
-      &:checked { color: $selected_fg_color; }
-      &:insensitive { color: $insensitive_selected_fg_color; }
+      &, &.default {
+        color: $secondary_selected_fg_color;
+        &:hover,
+        &:active,
+        &:checked { color: $selected_fg_color; }
+        &:insensitive { color: $insensitive_selected_fg_color; }
+      }
     }
   }
 
