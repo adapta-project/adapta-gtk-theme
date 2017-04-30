@@ -967,15 +967,19 @@ window.background box.vertical > paned.horizontal > box.vertical {
 
 // FIXME: can not override Polari 3.20.2
 // style in 10 years ago...
-.sidebar {
-  row.activatable.inactive {
-    color: $secondary_fg_color;
-    background-color: transparent;
-    font-weight: 500;
-    &:hover { color: $fg_color; }
-    &:selected {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
+list.sidebar {
+  > row.activatable {
+    &, &.inactive {
+      &, &:backdrop {
+        color: $secondary_fg_color;
+        background-color: transparent;
+        font-weight: 500;
+        &:hover { color: $fg_color; }
+        &:selected {
+          color: $selected_fg_color;
+          background-color: $selected_bg_color;
+        }
+      }
     }
   }
 }
