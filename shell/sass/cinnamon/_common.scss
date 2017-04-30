@@ -1223,7 +1223,6 @@ $icon_size: 16px;
 
 .menu {
   &-favorites-box {
-    margin: auto;
     padding: 7px;
     border-radius: 2px;
     border: 1px solid transparent;
@@ -1242,7 +1241,6 @@ $icon_size: 16px;
 
   &-places {
     &-box {
-      margin: auto;
       padding: 7px;
       border: 0 solid transparent;
     }
@@ -1372,12 +1370,17 @@ $icon_size: 16px;
 
   .osd-monitor-label { @include fontscaling($ref_size * 3.0); }
 
-  .level {
+  .level { // for legacy
     height: 3px;
     padding: 0;
     border-radius: 0;
     background-color: $osd_semi_fill_color;
     color: $success_color;
+  }
+
+  .level-bar {
+    border-radius: 0;
+    background-color: $success_color;
   }
 }
 
