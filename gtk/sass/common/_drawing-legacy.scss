@@ -462,9 +462,11 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
 //
 
   $_position: center $p;
+  $_size: 100% auto;
 
   @if ($p == left) or ($p == right) {
     $_position: $p center;
+    $_size: auto 100%;
   }
 
   background-image: -gtk-gradient(radial,
@@ -474,6 +476,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                   to(transparent));
   background-repeat: no-repeat;
   background-position: $_position;
+  background-size: $_size;
   // reset some properties to be sure to not inherit them somehow
   background-color: transparent;
   border: none;
