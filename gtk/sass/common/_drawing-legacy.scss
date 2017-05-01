@@ -462,11 +462,11 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
 //
 
   $_position: center $p;
-  $_size: 100% auto;
+  $_size: 100% 50%;
 
   @if ($p == left) or ($p == right) {
     $_position: $p center;
-    $_size: auto 100%;
+    $_size: 50% 100%;
   }
 
   background-image: -gtk-gradient(radial,
