@@ -258,7 +258,7 @@ GtkSourceView/Gedit Color Scheme Support
 
  > **Note:**
  >
- >   * The color-scheme can be used in Gnome-Builder and Gedit if installed to `gtksourceview-3.0/styles` directory.
+ >   * The color-scheme can be used in Gnome-Builder and Gedit if installed to `~/.local/share/gtksourceview-3.0/styles` directory.
  >   * Currently only dark-variant is supported.
 
 Extra Browser Support
