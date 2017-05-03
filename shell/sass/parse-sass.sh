@@ -14,28 +14,30 @@
 # Generate CSSs #
 #################
 
+SASSC="`command -v sassc` -M -t compact"
+
 # Gnome-Shell
-sassc -t compact \
+$SASSC \
     gnome-shell/gnome-shell.scss ../gnome-shell/gnome-shell.css
-sassc -t compact \
+$SASSC \
     gnome-shell/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
-sassc -t compact \
+$SASSC \
     gnome-shell/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
-sassc -t compact \
+$SASSC \
     gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
-sassc -t compact \
+$SASSC \
     gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
-sassc -t compact \
+$SASSC \
     gnome-shell/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
-sassc -t compact \
+$SASSC \
     gnome-shell/classic.scss ../gnome-shell/extensions/window-list/classic.css
-sassc -t compact \
+$SASSC \
     gnome-shell/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 
 # Cinnamon
-sassc -t compact \
+$SASSC \
     cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
-sassc -t compact \
+$SASSC \
     cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
 
 exit 0
