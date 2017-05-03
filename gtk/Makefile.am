@@ -127,22 +127,15 @@ gtk2_column_file = \
 	$(gtk2_assetdir)/Column/column-insensitive.png \
 	$(gtk2_assetdir)/Column/column.png
 gtk2_entry_file = \
-	$(gtk2_assetdir)/Entry/base_entry-active.png \
-	$(gtk2_assetdir)/Entry/base_entry-insensitive.png \
-	$(gtk2_assetdir)/Entry/base_entry.png \
 	$(gtk2_assetdir)/Entry/bg.png \
+	$(gtk2_assetdir)/Entry/bg-active.png \
+	$(gtk2_assetdir)/Entry/bg-insensitive.png \
 	$(gtk2_assetdir)/Entry/entry-active.png \
 	$(gtk2_assetdir)/Entry/entry-insensitive.png \
 	$(gtk2_assetdir)/Entry/entry.png \
-	$(gtk2_assetdir)/Entry/ltr-base_entry-active.png \
-	$(gtk2_assetdir)/Entry/ltr-base_entry-insensitive.png \
-	$(gtk2_assetdir)/Entry/ltr-base_entry.png \
 	$(gtk2_assetdir)/Entry/ltr-entry-active.png \
 	$(gtk2_assetdir)/Entry/ltr-entry-insensitive.png \
 	$(gtk2_assetdir)/Entry/ltr-entry.png \
-	$(gtk2_assetdir)/Entry/rtl-base_entry-active.png \
-	$(gtk2_assetdir)/Entry/rtl-base_entry-insensitive.png \
-	$(gtk2_assetdir)/Entry/rtl-base_entry.png \
 	$(gtk2_assetdir)/Entry/rtl-entry-active.png \
 	$(gtk2_assetdir)/Entry/rtl-entry-insensitive.png \
 	$(gtk2_assetdir)/Entry/rtl-entry.png
@@ -301,22 +294,15 @@ gtk2_nokto_column_file = \
 	$(gtk2_assetdir)/Column/column-hover-dark.png \
 	$(gtk2_assetdir)/Column/column-insensitive-dark.png
 gtk2_nokto_entry_file = \
-	$(gtk2_assetdir)/Entry/base_entry-active-dark.png \
-	$(gtk2_assetdir)/Entry/base_entry-dark.png \
-	$(gtk2_assetdir)/Entry/base_entry-insensitive-dark.png \
 	$(gtk2_assetdir)/Entry/bg-dark.png \
+	$(gtk2_assetdir)/Entry/bg-active-dark.png \
+	$(gtk2_assetdir)/Entry/bg-insensitive-dark.png \
 	$(gtk2_assetdir)/Entry/entry-active-dark.png \
 	$(gtk2_assetdir)/Entry/entry-dark.png \
 	$(gtk2_assetdir)/Entry/entry-insensitive-dark.png \
-	$(gtk2_assetdir)/Entry/ltr-base_entry-active-dark.png \
-	$(gtk2_assetdir)/Entry/ltr-base_entry-dark.png \
-	$(gtk2_assetdir)/Entry/ltr-base_entry-insensitive-dark.png \
 	$(gtk2_assetdir)/Entry/ltr-entry-active-dark.png \
 	$(gtk2_assetdir)/Entry/ltr-entry-dark.png \
 	$(gtk2_assetdir)/Entry/ltr-entry-insensitive-dark.png \
-	$(gtk2_assetdir)/Entry/rtl-base_entry-active-dark.png \
-	$(gtk2_assetdir)/Entry/rtl-base_entry-dark.png \
-	$(gtk2_assetdir)/Entry/rtl-base_entry-insensitive-dark.png \
 	$(gtk2_assetdir)/Entry/rtl-entry-active-dark.png \
 	$(gtk2_assetdir)/Entry/rtl-entry-dark.png \
 	$(gtk2_assetdir)/Entry/rtl-entry-insensitive-dark.png

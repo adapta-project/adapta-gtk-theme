@@ -29,6 +29,7 @@ render-non-scale() {
     ID=`echo $i | tr '/' '_'`
     $INKSCAPE --export-id=$ID \
               --export-dpi="$non_scale_dpi" \
+              --export-id-only \
               --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
                                                         2>>../inkscape.log
 }
