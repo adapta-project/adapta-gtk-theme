@@ -1327,6 +1327,8 @@ combobox {
   }
 
   > window.popup { // context-menu popup
+    decoration { transition: none; } // do not set transitions
+
     > menu {
       padding: rem(3.3px) 0;
       transition: none; // do not set transitions
@@ -1446,6 +1448,7 @@ combobox {
                                     transparent)
                                     0 0 1 / 0 0 1px;
     }
+    &:checked { transition: none; } // do not set transitions
   }
 }
 
