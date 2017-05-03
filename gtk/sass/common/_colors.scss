@@ -77,8 +77,9 @@ $base_color: if($variant == 'light',
                 #FFFFFF,                                        // = White
                 mix(#263238, #37474F, 85%));                    // = 900 _ 800
 $secondary_base_color: mix($base_color, $bg_color, 50%);        // = W _ 50
-$light_color: if($variant == 'light', $base_color,              // = White
-                                      #37474F);                 // = BluGry800
+$light_color: if($variant == 'light',
+                 $base_color,                                   // = White
+                 mix(#263238, #37474F, 50%));                   // = 900 _ 800
 $dark_color: if($variant == 'light',
                 mix(#ECEFF1, #CFD8DC, 75%),                     // =  50 _ 100
                 mix(#263238, #000000, 90%));                    // = 900 _ Blk

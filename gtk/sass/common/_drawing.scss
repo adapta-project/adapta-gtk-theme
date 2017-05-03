@@ -263,7 +263,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                     mix($base_color, $fixed_fg_color, 90%),
                     $solid_light_borders_color);
   border-image: none;
-  background-color: $base_color;
+  background-color: $light_color;
   color: $secondary_fg_color;
   box-shadow: none;
 }
@@ -273,7 +273,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                     mix($base_color, $fixed_fg_color, 80%),
                     $solid_light_borders_color);
   border-image: none;
-  background-color: mix($base_color, $fg_color, 90%);
+  background-color: mix($light_color, $fg_color, 90%);
   color: $fg_color;
   box-shadow: none;
 }
@@ -283,7 +283,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                     mix($base_color, $fixed_fg_color, 90%),
                     $solid_light_borders_color);
   border-image: none;
-  background-color: $base_color;
+  background-color: mix($bg_color, $fg_color, 96%);
   color: $insensitive_fg_color;
   box-shadow: none;
 }
@@ -446,7 +446,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   border: 1px solid if($variant == 'light',
                     mix($base_color, $fixed_fg_color, 90%),
                     $solid_light_borders_color);
-  background-color: $base_color;
+  background-color: $light_color;
   color: $secondary_fg_color;
   box-shadow: none;
 }
@@ -455,7 +455,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   border: 1px solid if($variant == 'light',
                     mix($base_color, $fixed_fg_color, 80%),
                     $solid_light_borders_color);
-  background-color: mix($base_color, $fg_color, 90%);
+  background-color: mix($light_color, $fg_color, 90%);
   color: $fg_color;
   box-shadow: none;
 }
@@ -470,7 +470,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 
 %button_fallback_insensitive {
   border: none;
-  background-color: $base_color;
+  background-color: mix($bg_color, $fg_color, 96%);
   color: $insensitive_fg_color;
   box-shadow: none;
 }
