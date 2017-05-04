@@ -3392,7 +3392,7 @@ notebook {
     border-color: transparent;
     background-color: transparent;
     background-image: radial-gradient(circle farthest-side at center,
-                                      gtkalpha(currentColor, 0.4) 50%,
+                                      gtkalpha(currentColor, 0.3) 12.5%,
                                       transparent 0%);
     background-repeat: no-repeat;
     background-position: center center;
@@ -3409,13 +3409,13 @@ notebook {
     &:checked { // draw ripples via transitions
       border-color: $selected_bg_color;
       background-image: radial-gradient(circle farthest-side at center,
-                                        transparent 100%,
+                                        transparent 12.5%,
                                         transparent 0%);
       background-size: 100% 100%;
       transition: border-color 0.2s $slope_medium,
                   border-image 0.2s $slope_medium,
-                  background-size 0.2s * 2 $slope_slow,
-                  background-image  0.2s * 2 $slope_slow,
+                  background-size 0.3s $slope_slow,
+                  background-image  0.3s $slope_slow,
                   box-shadow 0.2s $slope_medium;
     }
 
