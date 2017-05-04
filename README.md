@@ -274,6 +274,7 @@ Extra Browser Support
  > **Note:**
  >
  >   * Currently only Chrome(ium) theming is supported.
+ >   * Chrome(ium) 59.0.30xx or newer, theming is pulled from Gtk+ 3.x directly.
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```
