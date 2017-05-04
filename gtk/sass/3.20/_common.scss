@@ -3083,6 +3083,8 @@ popover.background {
   background-color: $secondary_base_color;
   box-shadow:  $z-depth-3;
 
+  &:backdrop { box-shadow: $z-depth-1; }
+
   .csd &,
   & {
     border-width: 1px;
@@ -3097,8 +3099,6 @@ popover.background {
                                   $secondary_base_color 1px) 1 / 1px stretch;
   }
 
-  &:backdrop { box-shadow: $z-depth-1; }
-
   > list,
   > .view,
   > toolbar,
@@ -3108,27 +3108,42 @@ popover.background {
     background-color: transparent;
   }
 
-  button menuitem.flat,
-  button.flat {
-    transition: none;
-    padding: 0 rem(10px) 0;
-    background-color: transparent;
-    color: $secondary_fg_color;
-    font-weight: 400;
-    font-size: 100%;
-    &:hover {
-      background-color: transparent; // remove double-bg
-      color: $fg_color;
+  separator { margin: rem(3px) 0; }
+
+  list {
+    > row,
+    > .activatable { // limited transitions by default
+      transition-property: opacity,
+                           background-color,
+                           background-image,
     }
 
-    // FIXME: label padding is ugly
-    // vertical padding of GtkMenuItem * 0.5
-    label { padding: rem(2.7px) 0 rem(3.3px); }
+    separator { margin: 0; } // unset outer margins
   }
 
-  button.image-button { padding: rem(6.7px); }
+  button {
+    menuitem.flat,
+    &.flat {
+      padding: 0 rem(10px) 0;
+      background-color: transparent;
+      color: $secondary_fg_color;
+      font-weight: 400;
+      font-size: 100%;
+      transition: none;
+      &:hover {
+        background-color: transparent; // remove double-bg
+        color: $fg_color;
+      }
 
-  button.model.image-button { min-height: rem(26.7px); }
+      // FIXME: label padding is ugly
+      // vertical padding of GtkMenuItem * 0.5
+      label { padding: rem(2.7px) 0 rem(3.3px); }
+    }
+
+    &.image-button { padding: rem(6.7px); }
+
+    &.model.image-button { min-height: rem(26.7px); }
+  }
 
   .linked > button {
     @extend %button_flat_normal;
@@ -3154,18 +3169,13 @@ popover.background {
     &:disabled { @include button(flat-insensitive); }
   }
 
-  .csd &,
-  & {
-    &.touch-selection,
-    &.magnifier {
-      @extend %osd;
-      button { @include button(flat-normal); }
-    }
+  &.touch-selection,
+  &.magnifier,
+  &.osd {
+    @extend %osd;
+
+    button { @include button(flat-normal); }
   }
-
-  &.osd { @extend %osd; }
-
-  separator { margin: rem(3px) 0; }
 }
 
 
