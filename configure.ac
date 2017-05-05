@@ -34,6 +34,7 @@ ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
 ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
+ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -75,10 +76,6 @@ AC_MSG_RESULT([
         Adapta Gtk+ Theme $VERSION
         ===========================================================
 
-        -----------------------------------------------------------
-        | Supported Gtk+ version: 3.22 & 3.20 & 3.18
-        -----------------------------------------------------------
-
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
          target directories:     ${datarootdir}/themes/Adapta
@@ -100,15 +97,20 @@ AC_MSG_RESULT([
          destruction-color:      $DESTRUCTION (default: $destruction_default)
 
         -----------------------------------------------------------
-        | Default DE support
+        | Supported Gtk+ Version
         -----------------------------------------------------------
 
-         GNOME:                  >= 3.18.3
-         Budgie-Desktop:         >= 10.2.7
+         Gtk+ 3.18:              $ENABLE_GTK_LEGACY
+         Gtk+ 3.20:              always
+         Gtk+ 3.22:              always
+         Gtk+ 4.0:               $ENABLE_GTK_NEXT
 
         -----------------------------------------------------------
-        | Extra DE and WM support
+        | DE and WM Support
         -----------------------------------------------------------
+
+         GNOME:                  always (>= 3.18.3)
+         Budgie-Desktop:         always (>= 10.2.7)
 
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
@@ -118,13 +120,7 @@ AC_MSG_RESULT([
          Openbox:                $ENABLE_OPENBOX
 
         -----------------------------------------------------------
-        | Next Gtk+ support
-        -----------------------------------------------------------
-
-         Gtk+ 4.0:               $ENABLE_GTK_NEXT
-
-        -----------------------------------------------------------
-        | Extra support
+        | Extra Support
         -----------------------------------------------------------
 
          GtkSourceView/Gedit:    always
