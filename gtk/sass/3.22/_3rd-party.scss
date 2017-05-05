@@ -1784,8 +1784,9 @@ window.background > grid.vertical > stack > paned.horizontal {
 //  * Cinnamon-Control-Center *
 //  ***************************/
 
-window.background:not(.csd) > box.vertical > stack {
-  > scrolledwindow {
+window.background:not(.csd) > box.vertical {
+  > stack > scrolledwindow > viewport,
+  > scrolledwindow > viewport {
     iconview {
       &, &.view {
         background-color: transparent;
@@ -1813,10 +1814,12 @@ window.background:not(.csd) > box.vertical > stack {
       &, > row {
         background-image: none;
         background-color: $base_color;
+        transition-duration: 0s;
         &:hover,
         &:active { // unset hover/active effects
           background-image: none;
           background-color: transparent;
+          transition-duration: 0s;
           animation: none;
         }
         &:selected {
