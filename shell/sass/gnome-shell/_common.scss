@@ -374,7 +374,7 @@ StScrollBar {
 .shell-mount-operation-icon { icon-size: 48px; }
 
 .mount-question-dialog-subject {
-  max-width: if($eta == 'false', 500px, 400px);
+  max-width: if($eta == 'false', 34em, 28em);
 }
 
 .show-processes,
@@ -435,7 +435,7 @@ StScrollBar {
 
 .prompt-dialog {
   // this is the width of the entire modal popup
-  width: 500px;
+  width: if($eta == 'false', 34em, 28em);
   border: none;
 
   &-main-layout {
@@ -1744,9 +1744,9 @@ StScrollBar {
 //  *******************/
 
 .nm-dialog {
-  max-height: if($eta == 'false', 500px, 450px);
-  min-height: 450px;
-  min-width: 470px;
+  max-height: if($eta == 'false', 34em, 28em);
+  min-height: 28em;
+  min-width: if($eta == 'false', 34em, 28em);
 
   &-content {
     spacing: if($eta == 'false', 20px, 16px);
