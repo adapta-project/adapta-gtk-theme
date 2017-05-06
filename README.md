@@ -98,7 +98,7 @@ Supported Desktop Environments
  * GNOME-Flashback >= 3.18.2
  * Budgie-Desktop  >= 10.2.7
  * Cinnamon        >= 2.8.6
- * Unity7          >= 7.4.0
+ * Unity7          >= 7.4.0 (Gtk+ 3.x only)
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0 (Gtk+ 3.2x only)
  * LXDE            >= 0.99.1 (Gtk+ 2.x only)
