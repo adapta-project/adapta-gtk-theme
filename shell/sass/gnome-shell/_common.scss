@@ -2889,17 +2889,15 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     }
     &:default { // raised button
       @include button(normal, $c: $suggested_color,
-                              $tc: if($nokto == 'false',
-                              $inverted_fg_color,
-                              $fg_color));
+                              $tc: $secondary_selected_fg_color);
       &:hover,
       &:focus {
-        @include button(hover, $c:$suggested_color,
-                               $tc:$selected_fg_color);
+        @include button(hover, $c: $suggested_color,
+                               $tc: $selected_fg_color);
       }
       &:active {
-        @include button(active, $c:$selected_bg_color,
-                                $tc:$selected_fg_color);
+        @include button(active, $c: $selected_bg_color,
+                                $tc: $selected_fg_color);
       }
       &:insensitive {
         @include button(flat-insensitive, $tc: if($nokto == 'false',
