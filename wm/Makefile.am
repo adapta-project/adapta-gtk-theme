@@ -25,25 +25,9 @@ metacity_file = \
 	$(metacitydir)/button_unshade_prelight.svg \
 	$(metacitydir)/button_unshade_pressed.svg \
 	$(metacitydir)/button_unshade.svg \
-	$(metacitydir)/max_button_close.svg \
-	$(metacitydir)/max_button_maximize_prelight.svg \
-	$(metacitydir)/max_button_maximize_pressed.svg \
-	$(metacitydir)/max_button_maximize.svg \
-	$(metacitydir)/max_button_menu_prelight.svg \
-	$(metacitydir)/max_button_menu_pressed.svg \
-	$(metacitydir)/max_button_menu.svg \
-	$(metacitydir)/max_button_minimize_prelight.svg \
-	$(metacitydir)/max_button_minimize_pressed.svg \
-	$(metacitydir)/max_button_minimize.svg \
-	$(metacitydir)/max_button_shade_prelight.svg \
-	$(metacitydir)/max_button_shade_pressed.svg \
-	$(metacitydir)/max_button_shade.svg \
 	$(metacitydir)/max_button_unmaximize_prelight.svg \
 	$(metacitydir)/max_button_unmaximize_pressed.svg \
 	$(metacitydir)/max_button_unmaximize.svg \
-	$(metacitydir)/max_button_unshade_prelight.svg \
-	$(metacitydir)/max_button_unshade_pressed.svg \
-	$(metacitydir)/max_button_unshade.svg \
 	$(metacitydir)/thumbnail.png \
 	$(metacitydir)/metacity-theme-2.xml \
 	$(metacitydir)/metacity-theme-3.xml
