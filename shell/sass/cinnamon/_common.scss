@@ -1451,8 +1451,18 @@ $icon_size: 16px;
   }
 
   &-item-demands-attention {
-    background-gradient-start: $accent_color;
-    background-gradient-end: $accent_color;
+    background-gradient-start: $accent_fill_color;
+    background-gradient-end: $accent_fill_color;
+    color: $selected_fg_color;
+
+    @each $position, $_indicator in (top, 0 2px),
+                                    (bottom, 0 -2px),
+                                    (left, 2px 0),
+                                    (right, -2px 0) {
+      .panel-#{$position} & {
+        box-shadow: inset #{$_indicator} $accent_color;
+      }
+    }
   }
 }
 
