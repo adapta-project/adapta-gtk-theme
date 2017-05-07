@@ -1,6 +1,11 @@
 #
 # XFce4
 #
+
+style "xfce-heading" {
+  base[NORMAL] = @bg_color
+}
+
 style "theme-panel" {
   xthickness = 2
   ythickness = 0
@@ -243,6 +248,7 @@ style "xfsm-label" {
   fg[NORMAL]   = mix(0.4, @fg_color, @bg_color)
 }
 
+widget_class "*XfceHeading*"                          style "xfce-heading"
 widget "*tasklist*"                                   style "panelbuttons"
 widget_class "*Xfce*Panel*.GtkToggleButton"           style "panelbuttons"
 widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
