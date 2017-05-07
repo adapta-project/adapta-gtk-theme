@@ -2045,6 +2045,9 @@ window.background:not(.csd) > box.vertical {
       transition: none;
       animation: none;
     }
+    &:active {
+      &, &:hover { background-color: gtkopacity($inverted_fg_color, 0.1); }
+    }
   }
 
   menu {
