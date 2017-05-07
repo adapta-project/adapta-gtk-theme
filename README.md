@@ -6,9 +6,14 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 Before using Adapta
 -------------------
 
-Adapta strongly depends on Material Design resources, especially its **fonts**.
+#### Global Dark Variants
+
+Adapta does NOT have global dark variants. If you want it, use other themes.
 
 #### Typography
+
+Adapta strongly depends on Material Design resources, especially its **fonts**.
+
  1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
    - Developed by Google and Adobe.
@@ -60,7 +65,7 @@ Variant Matrix
 
 > **Note:**
 >
->   **Nokto** is a dark variant.
+>   **Nokto** is a Gtk+ 2.x dark variant.
 >
 >   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >
