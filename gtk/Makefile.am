@@ -10,11 +10,20 @@ gtk3_thumb_file = \
 	$(gtk3_assetdir)/thumbnail@2.png \
 	$(gtk3_assetdir)/thumbnail.png
 
+gtk3_darkthumb_file = \
+	$(gtk3_assetdir)/thumbnail-dark@2.png \
+	$(gtk3_assetdir)/thumbnail-dark.png
+
 gtk318dir   = $(srcdir)/gtk-3.18
 gtk318_file = \
 	$(gtk318dir)/gtk.css \
 	$(gtk318dir)/gtk-dark.css \
 	$(gtk318dir)/gtk.gresource
+
+gtk318noktodir   = $(srcdir)/gtk-3.18-nokto
+gtk318nokto_file = \
+	$(gtk318noktodir)/gtk.css \
+	$(gtk318noktodir)/gtk.gresource
 
 gtk320dir   = $(srcdir)/gtk-3.20
 gtk320_file = \
@@ -28,6 +37,16 @@ gtk320eta_file = \
 	$(gtk320etadir)/gtk-dark.css \
 	$(gtk320etadir)/gtk.gresource
 
+gtk320noktodir   = $(srcdir)/gtk-3.20-nokto
+gtk320nokto_file = \
+	$(gtk320noktodir)/gtk.css \
+	$(gtk320noktodir)/gtk.gresource
+
+gtk320noktoetadir   = $(srcdir)/gtk-3.20-nokto-eta
+gtk320noktoeta_file = \
+	$(gtk320noktoetadir)/gtk.css \
+	$(gtk320noktoetadir)/gtk.gresource
+
 gtk322dir   = $(srcdir)/gtk-3.22
 gtk322_file = \
 	$(gtk322dir)/gtk.css \
@@ -39,6 +58,16 @@ gtk322eta_file = \
 	$(gtk322etadir)/gtk.css \
 	$(gtk322etadir)/gtk-dark.css \
 	$(gtk322etadir)/gtk.gresource
+
+gtk322noktodir   = $(srcdir)/gtk-3.22-nokto
+gtk322nokto_file = \
+	$(gtk322noktodir)/gtk.css \
+	$(gtk322noktodir)/gtk.gresource
+
+gtk322noktoetadir   = $(srcdir)/gtk-3.22-nokto-eta
+gtk322noktoeta_file = \
+	$(gtk322noktoetadir)/gtk.css \
+	$(gtk322noktoetadir)/gtk.gresource
 
 gtk2dir   = $(srcdir)/gtk-2.0
 gtk2_file = \
@@ -392,6 +421,16 @@ gtknexteta_file = \
 	$(gtknextetadir)/gtk-dark.css \
 	$(gtknextetadir)/gtk.gresource
 
+gtknextnoktodir   = $(srcdir)/gtk-4.0-nokto
+gtknextnokto_file = \
+	$(gtknextnoktodir)/gtk.css \
+	$(gtknextnoktodir)/gtk.gresource
+
+gtknextnoktoetadir   = $(srcdir)/gtk-4.0-nokto-eta
+gtknextnoktoeta_file = \
+	$(gtknextnoktoetadir)/gtk.css \
+	$(gtknextnoktoetadir)/gtk.gresource
+
 xfcenotifydir   = $(srcdir)/xfce-notify-4.0
 xfcenotify_file = \
 	$(xfcenotifydir)/gtk.css
@@ -520,23 +559,18 @@ if ENABLE_GTK_LEGACY
 	$(MKDIR_P) $(adaptadir)/gtk-3.0
 	cp -Rv $(gtk318_file) $(adaptadir)/gtk-3.0
 	cp -Rv $(gtk3_thumb_file) $(adaptadir)/gtk-3.0
+	$(MKDIR_P) $(noktodir)/gtk-3.0
+	cp -Rv $(gtk318nokto_file) $(noktodir)/gtk-3.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-3.0
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.20
 	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.20
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
 	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.20
-
-	$(MKDIR_P) $(adaptadir)/gtk-3.22
-	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.22
-	cp -Rv $(gtk322eta_file) $(adaptaetadir)/gtk-3.22
-
-	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
-	ln -sf ../Adapta/gtk-3.20 $(noktodir)/gtk-3.20
-	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
-	ln -sf ../Adapta-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
-	ln -sf ../Adapta-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
+	$(MKDIR_P) $(noktodir)/gtk-3.20
+	cp -Rv $(gtk320nokto_file) $(noktodir)/gtk-3.20
+	$(MKDIR_P) $(noktoetadir)/gtk-3.20
+	cp -Rv $(gtk320noktoeta_file) $(noktoetadir)/gtk-3.20
 else
 	$(MKDIR_P) $(adaptadir)/gtk-3.0
 	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.0
@@ -544,18 +578,21 @@ else
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.0
 	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.0
 	cp -Rv $(gtk3_thumb_file) $(adaptaetadir)/gtk-3.0
-
+	$(MKDIR_P) $(noktodir)/gtk-3.0
+	cp -Rv $(gtk320nokto_file) $(noktodir)/gtk-3.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-3.0
+	$(MKDIR_P) $(noktoetadir)/gtk-3.0
+	cp -Rv $(gtk320noktoeta_file) $(noktoetadir)/gtk-3.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktoetadir)/gtk-3.0
+endif
 	$(MKDIR_P) $(adaptadir)/gtk-3.22
 	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.22
 	cp -Rv $(gtk322eta_file) $(adaptaetadir)/gtk-3.22
-
-	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-3.0 $(noktodir)/gtk-3.0
-	ln -sf ../Adapta/gtk-3.22 $(noktodir)/gtk-3.22
-	ln -sf ../Adapta-Eta/gtk-3.0 $(noktoetadir)/gtk-3.0
-	ln -sf ../Adapta-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
-endif
+	$(MKDIR_P) $(noktodir)/gtk-3.22
+	cp -Rv $(gtk322nokto_file) $(noktodir)/gtk-3.22
+	$(MKDIR_P) $(noktoetadir)/gtk-3.22
+	cp -Rv $(gtk320noktoeta_file) $(noktoetadir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptadir)/gtk-2.0
 	$(MKDIR_P) $(adaptadir)/gtk-2.0/Arrows
@@ -687,14 +724,17 @@ endif
 
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(adaptadir)/gtk-4.0
-	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
 	cp -Rv $(gtknext_file) $(adaptadir)/gtk-4.0
-	cd $(adaptadir)
-	ln -sf ../Adapta/gtk-4.0 $(noktodir)/gtk-4.0
-
+	cp -Rv $(gtk3_thumb_file) $(adaptadir)/gtk-4.0
+	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
 	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-4.0
-	cd $(adaptadir)
-	ln -sf ../Adapta-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
+	cp -Rv $(gtk3_thumb_file) $(adaptaetadir)/gtk-4.0
+	$(MKDIR_P) $(noktodir)/gtk-4.0
+	cp -Rv $(gtknextnokto_file) $(noktodir)/gtk-4.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-4.0
+	$(MKDIR_P) $(noktoetadir)/gtk-4.0
+	cp -Rv $(gtknextnoktoeta_file) $(noktoetadir)/gtk-4.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktoetadir)/gtk-4.0
 endif
 
 if ENABLE_XFCE
