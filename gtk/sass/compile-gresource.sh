@@ -48,11 +48,11 @@ case "$1" in
         rm -rf ../gtk-"$1"/assets
 
         cp "$xml_dark".in ../gtk-"$1"-nokto/"$xml"
-        sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"-nokto/"$xml"
+        sed -i "s|@VERSION[@]|$1-nokto|g" ../gtk-"$1"-nokto/"$xml"
         cd ../gtk-"$1"-nokto && ln -sf ../asset/assets-gtk3 assets && cd ../sass
         $(command -v glib-compile-resources) --sourcedir=../gtk-"$1"-nokto \
                                              ../gtk-"$1"-nokto/"$xml"
-        echo '@import url("resource:///org/adapta-project/gtk-'$1'-nokto/gtk-contained.css");' \
+        echo '@import url("resource:///org/adapta-project/gtk-'$1'-nokto/gtk-contained-dark.css");' \
             > ../gtk-"$1"-nokto/gtk.css
 
         rm -f ../gtk-"$1"-nokto/"$xml"
@@ -85,17 +85,17 @@ case "$1" in
 
         cp "$xml_dark".in ../gtk-"$1"-nokto/"$xml"
         cp "$xml_dark".in ../gtk-"$1"-nokto-eta/"$xml"
-        sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"-nokto/"$xml"
-        sed -i "s|@VERSION[@]|$1-eta|g" ../gtk-"$1"-nokto-eta/"$xml"
+        sed -i "s|@VERSION[@]|$1-nokto|g" ../gtk-"$1"-nokto/"$xml"
+        sed -i "s|@VERSION[@]|$1-nokto-eta|g" ../gtk-"$1"-nokto-eta/"$xml"
         cd ../gtk-"$1"-nokto && ln -sf ../asset/assets-gtk3 assets && cd ../sass
         cd ../gtk-"$1"-nokto-eta && ln -sf ../asset/assets-gtk3 assets && cd ../sass
         $(command -v glib-compile-resources) --sourcedir=../gtk-"$1"-nokto \
                                              ../gtk-"$1"-nokto/"$xml"
         $(command -v glib-compile-resources) --sourcedir=../gtk-"$1"-nokto-eta \
                                              ../gtk-"$1"-nokto-eta/"$xml"
-        echo '@import url("resource:///org/adapta-project/gtk-'$1'-nokto/gtk-contained.css");' \
+        echo '@import url("resource:///org/adapta-project/gtk-'$1'-nokto/gtk-contained-dark.css");' \
             > ../gtk-"$1"-nokto/gtk.css
-        echo '@import url("resource:///org/adapta-project/gtk-'$1'-nokto-eta/gtk-contained.css");' \
+        echo '@import url("resource:///org/adapta-project/gtk-'$1'-nokto-eta/gtk-contained-dark.css");' \
             > ../gtk-"$1"-nokto-eta/gtk.css
 
         rm -f ../gtk-"$1"-nokto/"$xml"

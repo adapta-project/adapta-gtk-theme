@@ -62,7 +62,7 @@ case "$1" in
         if [ ! -d ../gtk-3.18-nokto ]; then
             mkdir -p ../gtk-3.18-nokto
         fi
-        cp -f ../gtk-3.18/gtk-contained-dark.css ../gtk-3.18-nokto/gtk-contained.css
+        cp -f ../gtk-3.18/gtk-contained-dark.css ../gtk-3.18-nokto/gtk-contained-dark.css
 
         if [ ! -d ../gtk-3.20 ]; then
             mkdir -p ../gtk-3.20 ../gtk-3.20-eta
@@ -74,8 +74,8 @@ case "$1" in
         if [ ! -d ../gtk-3.20-nokto ]; then
             mkdir -p ../gtk-3.20-nokto ../gtk-3.20-nokto-eta
         fi
-        cp -f ../gtk-3.20/gtk-contained-dark.css ../gtk-3.20-nokto/gtk-contained.css
-        cp -f ../gtk-3.20-eta/gtk-contained-dark.css ../gtk-3.20-nokto-eta/gtk-contained.css
+        cp -f ../gtk-3.20/gtk-contained-dark.css ../gtk-3.20-nokto/gtk-contained-dark.css
+        cp -f ../gtk-3.20-eta/gtk-contained-dark.css ../gtk-3.20-nokto-eta/gtk-contained-dark.css
 
         if [ ! -d ../gtk-3.22 ]; then
             mkdir -p ../gtk-3.22 ../gtk-3.22-eta
@@ -87,8 +87,8 @@ case "$1" in
         if [ ! -d ../gtk-3.22-nokto ]; then
             mkdir -p ../gtk-3.22-nokto ../gtk-3.22-nokto-eta
         fi
-        cp -f ../gtk-3.22/gtk-contained-dark.css ../gtk-3.22-nokto/gtk-contained.css
-        cp -f ../gtk-3.22-eta/gtk-contained-dark.css ../gtk-3.22-nokto-eta/gtk-contained.css
+        cp -f ../gtk-3.22/gtk-contained-dark.css ../gtk-3.22-nokto/gtk-contained-dark.css
+        cp -f ../gtk-3.22-eta/gtk-contained-dark.css ../gtk-3.22-nokto-eta/gtk-contained-dark.css
 
         if [ ! -d ../gtk-4.0 ]; then
             mkdir -p ../gtk-4.0 ../gtk-4.0-eta
@@ -100,8 +100,8 @@ case "$1" in
         if [ ! -d ../gtk-4.0-nokto ]; then
             mkdir -p ../gtk-4.0-nokto ../gtk-4.0-nokto-eta
         fi
-        cp -f ../gtk-4.0/gtk-contained-dark.css ../gtk-4.0-nokto/gtk-contained.css
-        cp -f ../gtk-4.0-eta/gtk-contained-dark.css ../gtk-4.0-nokto-eta/gtk-contained.css
+        cp -f ../gtk-4.0/gtk-contained-dark.css ../gtk-4.0-nokto/gtk-contained-dark.css
+        cp -f ../gtk-4.0-eta/gtk-contained-dark.css ../gtk-4.0-nokto-eta/gtk-contained-dark.css
 
         if [ ! -d ../xfce-notify-4.0 ]; then
             mkdir -p ../xfce-notify-4.0
@@ -125,8 +125,8 @@ case "$1" in
                 mkdir -p ../gtk-"$major"."$css_minor"-nokto
             fi
             cp -f ../gtk-"$major"."$css_minor"/gtk-contained-dark.css \
-                ../gtk-"$major"."$css_minor"-nokto/gtk-contained.css
-            echo Copied ../gtk-"$major"."$css_minor"-nokto/gtk-contained.css
+                ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
+            echo Copied ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
         else
             if [ ! -d ../gtk-"$major"."$css_minor" ]; then
                 mkdir -p ../gtk-"$major"."$css_minor" \
@@ -151,11 +151,11 @@ case "$1" in
                          ../gtk-"$major"."$css_minor"-nokto-eta
             fi
             cp -f ../gtk-"$major"."$css_minor"/gtk-contained-dark.css \
-                ../gtk-"$major"."$css_minor"-nokto/gtk-contained.css
-            echo Copied ../gtk-"$major"."$css_minor"-nokto/gtk-contained.css
+                ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
+            echo Copied ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
             cp -f ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css \
-                ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained.css
-            echo Copied ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained.css
+                ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained-dark.css
+            echo Copied ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained-dark.css
         fi
         ;;
 esac
