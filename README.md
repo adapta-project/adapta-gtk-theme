@@ -6,10 +6,6 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 Before using Adapta
 -------------------
 
-#### Global Dark Variants
-
-Adapta does NOT have global dark variants. If you want it, use other themes.
-
 #### Typography
 
 Adapta strongly depends on Material Design resources, especially its **fonts**.
@@ -337,6 +333,7 @@ Work in Progress
 
 TODO
 ----
+* Provide the separated dark-variants in Gtk+ 3.x (priority: high)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
