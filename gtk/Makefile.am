@@ -464,7 +464,7 @@ if ENABLE_PARALLEL
 	cd $(srcdir)/asset/assets-gtk3-scripts && \
 		./recolor-assets-gtk3.sh
 	cd $(srcdir)/asset/assets-gtk2-scripts && \
-	$(PARALLEL) --no-notice --line-buffer -j0 bash ::: \
+	$(PARALLEL) --no-notice --line-buffer --jobs 100% --noswap bash ::: \
 		render-assets-gtk2-arrow.sh \
 		render-assets-gtk2-button.sh \
 		render-assets-gtk2-checkradio.sh \
@@ -477,7 +477,7 @@ if ENABLE_PARALLEL
 		render-assets-gtk2-spin.sh \
 		clone-assets-gtk2.sh
 	cd $(srcdir)/asset/assets-gtk3-scripts && \
-	$(PARALLEL) --no-notice --line-buffer -j0 bash ::: \
+	$(PARALLEL) --no-notice --line-buffer --jobs 100% --noswap bash ::: \
 		render-assets-gtk3-checkbox.sh \
 		render-assets-gtk3-misc.sh \
 		render-assets-gtk3-radio.sh \
