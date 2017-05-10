@@ -61,18 +61,8 @@ Variant Matrix
 
 > **Note:**
 >
->   **Nokto** is a Gtk+ 2.x dark variant.
->
->   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
->
->   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool.
->     Or add this porperty to `[Settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
->
->     ```
->     [Settings]
->     gtk-application-prefer-dark-theme=1
->     ```
->
+>   * **Nokto** is a dark variant.
+>   * **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
@@ -333,7 +323,6 @@ Work in Progress
 
 TODO
 ----
-* Provide the separated dark-variants in Gtk+ 3.x (priority: high)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
