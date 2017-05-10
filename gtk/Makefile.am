@@ -439,6 +439,7 @@ indexeta_file       = $(srcdir)/index.theme-eta
 index_noktoeta_file = $(srcdir)/index.theme-nokto-eta
 
 sassc_option = -a -M -t compact
+parallel_option = -0 --no-notice --line-buffer --jobs 100% --noswap
 
 # *******************************************
 # * Generate CSS stylesheets and PNG images *
@@ -517,7 +518,7 @@ if ENABLE_PARALLEL
 	cd $(srcdir)/asset/assets-gtk3-scripts && \
 		./recolor-assets-gtk3.sh
 	cd $(srcdir)/asset/assets-gtk2-scripts && \
-	$(PARALLEL) -0 --no-notice --line-buffer --jobs 100% --noswap bash ::: \
+	$(PARALLEL) $(parallel_option) bash ::: \
 		render-assets-gtk2-arrow.sh \
 		render-assets-gtk2-button.sh \
 		render-assets-gtk2-checkradio.sh \
@@ -530,13 +531,14 @@ if ENABLE_PARALLEL
 		render-assets-gtk2-spin.sh \
 		clone-assets-gtk2.sh
 	cd $(srcdir)/asset/assets-gtk3-scripts && \
-	$(PARALLEL) -0 --no-notice --line-buffer --jobs 100% --noswap bash ::: \
+	$(PARALLEL) $(parallel_option) bash ::: \
 		render-assets-gtk3-checkbox.sh \
 		render-assets-gtk3-misc.sh \
 		render-assets-gtk3-radio.sh \
 		render-assets-gtk3-slider.sh \
 		render-assets-gtk3-toggle.sh \
 		render-assets-gtk3-windowbutton.sh \
+		render-assets-gtk3-windowbutton-eta.sh \
 		clone-assets-gtk3.sh
 else
 	cd $(srcdir)/asset/assets-gtk2-scripts && \
