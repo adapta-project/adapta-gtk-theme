@@ -447,8 +447,12 @@ index_noktoeta_file = $(srcdir)/index.theme-nokto-eta
 all:
 	$(MKDIR_P) $(srcdir)/gtk-3.20 && \
 	$(MKDIR_P) $(srcdir)/gtk-3.20-eta && \
+	$(MKDIR_P) $(srcdir)/gtk-3.20-nokto && \
+	$(MKDIR_P) $(srcdir)/gtk-3.20-nokto-eta && \
 	$(MKDIR_P) $(srcdir)/gtk-3.22 && \
 	$(MKDIR_P) $(srcdir)/gtk-3.22-eta && \
+	$(MKDIR_P) $(srcdir)/gtk-3.22-nokto && \
+	$(MKDIR_P) $(srcdir)/gtk-3.22-nokto-eta && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2 && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Arrows && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Buttons && \
@@ -471,8 +475,10 @@ all:
 
 if ENABLE_GTK_LEGACY
 	$(MKDIR_P) $(srcdir)/gtk-3.18
+	$(MKDIR_P) $(srcdir)/gtk-3.18-nokto
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.18/gtk.scss ../gtk-3.18/gtk-contained.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.18/gtk-dark.scss ../gtk-3.18/gtk-contained-dark.css
+	cp -Rv $(srcdir)/gtk-3.18/gtk-contained-dark.css $(srcdir)/gtk-3.18-nokto/gtk-contained-dark.css
 endif
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.20/gtk.scss ../gtk-3.20/gtk-contained.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css
@@ -482,14 +488,22 @@ endif
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css
+	cp -Rv $(srcdir)/gtk-3.20/gtk-contained-dark.css $(srcdir)/gtk-3.20-nokto/gtk-contained-dark.css
+	cp -Rv $(srcdir)/gtk-3.20-eta/gtk-contained-dark.css $(srcdir)/gtk-3.20-nokto-eta/gtk-contained-dark.css
+	cp -Rv $(srcdir)/gtk-3.22/gtk-contained-dark.css $(srcdir)/gtk-3.22-nokto/gtk-contained-dark.css
+	cp -Rv $(srcdir)/gtk-3.22-eta/gtk-contained-dark.css $(srcdir)/gtk-3.22-nokto-eta/gtk-contained-dark.css
 
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(srcdir)/gtk-4.0
 	$(MKDIR_P) $(srcdir)/gtk-4.0-eta
+	$(MKDIR_P) $(srcdir)/gtk-4.0-nokto
+	$(MKDIR_P) $(srcdir)/gtk-4.0-nokto-eta
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk.scss ../gtk-4.0/gtk-contained.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
+	cp -Rv $(srcdir)/gtk-4.0/gtk-contained-dark.css $(srcdir)/gtk-4.0-nokto/gtk-contained-dark.css
+	cp -Rv $(srcdir)/gtk-4.0-eta/gtk-contained-dark.css $(srcdir)/gtk-4.0-nokto-eta/gtk-contained-dark.css
 endif
 
 if ENABLE_XFCE
@@ -827,6 +841,12 @@ CLEANFILES = \
 	$(srcdir)/gtk-3.20-eta/gtk-contained.css \
 	$(srcdir)/gtk-3.20-eta/gtk-contained-dark.css \
 	$(srcdir)/gtk-3.20-eta/gtk.gresource \
+	$(srcdir)/gtk-3.20-nokto/gtk.css \
+	$(srcdir)/gtk-3.20-nokto/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.20-nokto/gtk.gresource \
+	$(srcdir)/gtk-3.20-nokto-eta/gtk.css \
+	$(srcdir)/gtk-3.20-nokto-eta/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.20-nokto-eta/gtk.gresource \
 	$(srcdir)/gtk-3.22/gtk.css \
 	$(srcdir)/gtk-3.22/gtk-dark.css \
 	$(srcdir)/gtk-3.22/gtk-contained.css \
@@ -837,6 +857,12 @@ CLEANFILES = \
 	$(srcdir)/gtk-3.22-eta/gtk-contained.css \
 	$(srcdir)/gtk-3.22-eta/gtk-contained-dark.css \
 	$(srcdir)/gtk-3.22-eta/gtk.gresource \
+	$(srcdir)/gtk-3.22-nokto/gtk.css \
+	$(srcdir)/gtk-3.22-nokto/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.22-nokto/gtk.gresource \
+	$(srcdir)/gtk-3.22-nokto-eta/gtk.css \
+	$(srcdir)/gtk-3.22-nokto-eta/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.22-nokto-eta/gtk.gresource \
 	$(srcdir)/asset/assets-gtk2/*/*.svg \
 	$(srcdir)/asset/assets-gtk2/*/*.png \
 	$(srcdir)/asset/assets-gtk3/*.svg \
@@ -853,7 +879,10 @@ CLEANFILES += \
 	$(srcdir)/gtk-3.18/gtk-dark.css \
 	$(srcdir)/gtk-3.18/gtk-contained.css \
 	$(srcdir)/gtk-3.18/gtk-contained-dark.css \
-	$(srcdir)/gtk-3.18/gtk.gresource
+	$(srcdir)/gtk-3.18/gtk.gresource \
+	$(srcdir)/gtk-3.18-nokto/gtk.css \
+	$(srcdir)/gtk-3.18-nokto/gtk-contained-dark.css \
+	$(srcdir)/gtk-3.18-nokto/gtk.gresource
 endif
 if ENABLE_GTK_NEXT
 CLEANFILES += \
@@ -866,7 +895,13 @@ CLEANFILES += \
 	$(srcdir)/gtk-4.0-eta/gtk-dark.css \
 	$(srcdir)/gtk-4.0-eta/gtk-contained.css \
 	$(srcdir)/gtk-4.0-eta/gtk-contained-dark.css \
-	$(srcdir)/gtk-4.0-eta/gtk.gresource
+	$(srcdir)/gtk-4.0-eta/gtk.gresource \
+	$(srcdir)/gtk-4.0-nokto/gtk.css \
+	$(srcdir)/gtk-4.0-nokto/gtk-contained-dark.css \
+	$(srcdir)/gtk-4.0-nokto/gtk.gresource \
+	$(srcdir)/gtk-4.0-nokto-eta/gtk.css \
+	$(srcdir)/gtk-4.0-nokto-eta/gtk-contained-dark.css \
+	$(srcdir)/gtk-4.0-nokto-eta/gtk.gresource
 endif
 
 DISTCLEANFILES = \
