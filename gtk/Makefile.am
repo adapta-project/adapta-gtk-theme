@@ -438,7 +438,7 @@ index_nokto_file    = $(srcdir)/index.theme-nokto
 indexeta_file       = $(srcdir)/index.theme-eta
 index_noktoeta_file = $(srcdir)/index.theme-nokto-eta
 
-sassc_option = -a -M -t compact
+sassc_option = -M -t compact
 parallel_option = -0 --no-notice --line-buffer --jobs 100% --noswap
 
 # *******************************************

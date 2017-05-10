@@ -14,7 +14,7 @@
 # Generate CSSs #
 #################
 
-SASSC="`command -v sassc` -a -M -t compact"
+SASSC="`command -v sassc` -M -t compact"
 
 # Gnome-Shell
 $SASSC \
