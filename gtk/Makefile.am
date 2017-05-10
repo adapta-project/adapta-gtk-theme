@@ -433,10 +433,12 @@ xfcenotifydir   = $(srcdir)/xfce-notify-4.0
 xfcenotify_file = \
 	$(xfcenotifydir)/gtk.css
 
-index_file       = $(srcdir)/index.theme
-index_nokto_file = $(srcdir)/index.theme-nokto
+index_file          = $(srcdir)/index.theme
+index_nokto_file    = $(srcdir)/index.theme-nokto
 indexeta_file       = $(srcdir)/index.theme-eta
 index_noktoeta_file = $(srcdir)/index.theme-nokto-eta
+
+sassc_option = -a -M -t compact
 
 # *******************************************
 # * Generate CSS stylesheets and PNG images *
@@ -474,18 +476,18 @@ all:
 if ENABLE_GTK_LEGACY
 	$(MKDIR_P) $(srcdir)/gtk-3.18
 	$(MKDIR_P) $(srcdir)/gtk-3.18-nokto
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.18/gtk.scss ../gtk-3.18/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.18/gtk-dark.scss ../gtk-3.18/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.18/gtk.scss ../gtk-3.18/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.18/gtk-dark.scss ../gtk-3.18/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-3.18/gtk-contained-dark.css $(srcdir)/gtk-3.18-nokto/gtk-contained-dark.css
 endif
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.20/gtk.scss ../gtk-3.20/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.22/gtk.scss ../gtk-3.22/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk.scss ../gtk-3.20/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk.scss ../gtk-3.22/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-3.20/gtk-contained-dark.css $(srcdir)/gtk-3.20-nokto/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-3.20-eta/gtk-contained-dark.css $(srcdir)/gtk-3.20-nokto-eta/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-3.22/gtk-contained-dark.css $(srcdir)/gtk-3.22-nokto/gtk-contained-dark.css
@@ -496,17 +498,17 @@ if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(srcdir)/gtk-4.0-eta
 	$(MKDIR_P) $(srcdir)/gtk-4.0-nokto
 	$(MKDIR_P) $(srcdir)/gtk-4.0-nokto-eta
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk.scss ../gtk-4.0/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk.scss ../gtk-4.0/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-4.0/gtk-contained-dark.css $(srcdir)/gtk-4.0-nokto/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-4.0-eta/gtk-contained-dark.css $(srcdir)/gtk-4.0-nokto-eta/gtk-contained-dark.css
 endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(srcdir)/xfce-notify-4.0
-	cd $(srcdir)/sass && $(SASSC) -M -t compact common/xfce-notify-4.0.scss ../xfce-notify-4.0/gtk.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) common/xfce-notify-4.0.scss ../xfce-notify-4.0/gtk.css
 endif
 
 if ENABLE_PARALLEL

@@ -378,6 +378,8 @@ xfce_image_file = \
 xfce_rc_file = \
 	$(xfcedir)/gtkrc
 
+sassc_option = -a -M -t compact
+
 # ****************************
 # * Generate CSS stylesheets *
 # ****************************
@@ -394,21 +396,21 @@ all:
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
 
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/gnome-shell.scss ../gnome-shell/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/classic.scss ../gnome-shell/extensions/window-list/classic.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 
 	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
@@ -426,9 +428,9 @@ if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto
 
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
 
 	$(MKDIR_P) $(srcdir)/cinnamon/assets
