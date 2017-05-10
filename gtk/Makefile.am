@@ -606,7 +606,7 @@ endif
 	$(MKDIR_P) $(noktodir)/gtk-3.22
 	cp -Rv $(gtk322nokto_file) $(noktodir)/gtk-3.22
 	$(MKDIR_P) $(noktoetadir)/gtk-3.22
-	cp -Rv $(gtk320noktoeta_file) $(noktoetadir)/gtk-3.22
+	cp -Rv $(gtk322noktoeta_file) $(noktoetadir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptadir)/gtk-2.0
 	$(MKDIR_P) $(adaptadir)/gtk-2.0/Arrows
