@@ -1,6 +1,6 @@
 m4_define([adapta_major_version], [3])
 m4_define([adapta_minor_version], [90])
-m4_define([adapta_micro_version], [0])
+m4_define([adapta_micro_version], [1])
 m4_define([adapta_version], [adapta_major_version.adapta_minor_version.adapta_micro_version])
 m4_define([adapta_git_url], [https://github.com/adapta-project/adapta-gtk-theme])
 
