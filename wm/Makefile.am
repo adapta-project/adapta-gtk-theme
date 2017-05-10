@@ -116,6 +116,8 @@ openbox_rc_nokto_file = \
 openbox_compton_file = \
 	$(openboxdir)/compton.conf
 
+parallel_option = -0 --no-notice --line-buffer --jobs 100% --noswap
+
 # ***************************************************
 # * Generate PNG images and clone SVG and XBM files *
 # ***************************************************
@@ -156,7 +158,7 @@ if ENABLE_PARALLEL
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
 		./recolor-assets-xfwm.sh
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
-	$(PARALLEL) -0 --no-notice --line-buffer --jobs 100% --noswap bash ::: \
+	$(PARALLEL) $(parallel_option) bash ::: \
 		render-assets-xfwm-button.sh \
 		render-assets-xfwm-edge.sh \
 		render-assets-xfwm-title.sh
