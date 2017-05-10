@@ -7,11 +7,9 @@ noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 gtk3_assetdir = $(srcdir)/asset/assets-gtk3
 
 gtk3_thumb_file = \
-	$(gtk3_assetdir)/thumbnail@2.png \
 	$(gtk3_assetdir)/thumbnail.png
 
 gtk3_darkthumb_file = \
-	$(gtk3_assetdir)/thumbnail-dark@2.png \
 	$(gtk3_assetdir)/thumbnail-dark.png
 
 gtk318dir   = $(srcdir)/gtk-3.18
@@ -575,7 +573,7 @@ if ENABLE_GTK_LEGACY
 	cp -Rv $(gtk3_thumb_file) $(adaptadir)/gtk-3.0
 	$(MKDIR_P) $(noktodir)/gtk-3.0
 	cp -Rv $(gtk318nokto_file) $(noktodir)/gtk-3.0
-	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-3.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-3.0/thumbnail.png
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.20
 	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.20
@@ -594,10 +592,10 @@ else
 	cp -Rv $(gtk3_thumb_file) $(adaptaetadir)/gtk-3.0
 	$(MKDIR_P) $(noktodir)/gtk-3.0
 	cp -Rv $(gtk320nokto_file) $(noktodir)/gtk-3.0
-	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-3.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-3.0/thumbnail.png
 	$(MKDIR_P) $(noktoetadir)/gtk-3.0
 	cp -Rv $(gtk320noktoeta_file) $(noktoetadir)/gtk-3.0
-	cp -Rv $(gtk3_darkthumb_file) $(noktoetadir)/gtk-3.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktoetadir)/gtk-3.0/thumbnail.png
 endif
 	$(MKDIR_P) $(adaptadir)/gtk-3.22
 	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
@@ -745,10 +743,10 @@ if ENABLE_GTK_NEXT
 	cp -Rv $(gtk3_thumb_file) $(adaptaetadir)/gtk-4.0
 	$(MKDIR_P) $(noktodir)/gtk-4.0
 	cp -Rv $(gtknextnokto_file) $(noktodir)/gtk-4.0
-	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-4.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-4.0/thumbnail.png
 	$(MKDIR_P) $(noktoetadir)/gtk-4.0
 	cp -Rv $(gtknextnoktoeta_file) $(noktoetadir)/gtk-4.0
-	cp -Rv $(gtk3_darkthumb_file) $(noktoetadir)/gtk-4.0
+	cp -Rv $(gtk3_darkthumb_file) $(noktoetadir)/gtk-4.0/thumbnail.png
 endif
 
 if ENABLE_XFCE
