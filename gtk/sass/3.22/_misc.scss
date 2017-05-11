@@ -573,29 +573,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
 }
 
 // entry-tags for libgd apps
-.documents-entry-tag {
-  margin: 2px;
-  padding: 4px;
-  border-radius: 2px;
-  border: none;
-  background-image: image($suggested_color);
-  color: $secondary_selected_fg_color;
-  &:hover { color: $selected_fg_color; }
-
-  &.button {
-    &,
-    &:hover,
-    &:active { // unset styling
-      background-color: transparent;
-      background-image: none;
-      border-image: none;
-      border: none;
-      box-shadow: none;
-      animation: none;
-    }
-    &:hover { color: $selected_fg_color; }
-  }
-}
+.documents-entry-tag { @extend %entry-tag; }
 
 
 // /*********
