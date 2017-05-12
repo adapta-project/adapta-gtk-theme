@@ -5394,6 +5394,12 @@ paned {
     &.wide {
       background-repeat: repeat-y, repeat-y;
       background-position: left, right;
+
+      &:dir(ltr),
+      &:dir(rtl) { // reset spacing
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 
@@ -5404,6 +5410,8 @@ paned {
     background-position: top;
 
     &.wide {
+      margin: 0; // reset spacing
+      padding: 0;
       background-repeat: repeat-x, repeat-x;
       background-position: bottom, top;
     }
