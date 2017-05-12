@@ -3187,10 +3187,25 @@ window.background:not(.csd):not(.solid-csd) {
 
 window.background > headerbar.titlebar > box.horizontal.linked {
   > button.image-button.session-new-button { // 'plus' button
-    border-radius: 2px; // revert to square button since hard-coded ugly
+    border-radius: 2px; // revert to square button since hard-coded
                         // ugly padding existed
 
     > widget > box > image { padding: unset; } // unset image padding
+  }
+}
+
+// left-side revealer
+list.tilix-session-sidebar {
+  background-image: image($secondary_dark_color); // use -image property instead
+
+  > row.activatable > overlay > grid > button.tilix-sidebar-close-button {
+    min-height: 20px;
+    min-width: 20px;
+    padding: 0;
+    color: gtkalpha($destructive_color, 0.75);
+    &:hover,
+    &:active,
+    &:checked { color: $destructive_color; }
   }
 }
 
