@@ -2956,3 +2956,17 @@ window.background:not(.csd):not(.solid-csd) {
   }
 }
 
+
+// /*********
+//  * Tilix *
+//  *********/
+
+window.background > headerbar.titlebar > box.horizontal.linked {
+  > button.image-button.session-new-button { // 'plus' button
+    border-radius: 2px; // revert to square button since hard-coded ugly
+                        // ugly padding existed
+
+    > widget > box > image { padding: unset; } // unset image padding
+  }
+}
+
