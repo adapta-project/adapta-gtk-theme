@@ -3021,5 +3021,16 @@ widget > box.terminal-titlebar {
       }
     }
   }
+
+  &.compact { // 'Small' option
+    > button.flat.popup.toggle {
+      &:dir(ltr),
+      &:dir(rtl) { padding: 0; }
+
+      label.tilix-terminal-title {
+        padding: rem(1.3px, $sw: 1.0) rem(2.7px) rem(2.7px, $sw: 1.0);
+      }
+    }
+  }
 }
 
