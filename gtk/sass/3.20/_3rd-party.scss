@@ -629,6 +629,12 @@ box.horizontal.pinned { // drop-target
 
     // reduce height of scale node
     scale { padding: rem(10px - 2px, $sw: 1.0); }
+
+    > box.horizontal > combobox > box.linked > button.combo {
+      // 'Top Panel'/'Bottom Panel' combo node
+      // FIXME: set min-width for prevent unwanted shrinking horizontally
+      min-width: rem(120px, $sw: 1.0);
+    }
   }
 
   stackswitcher.linked > button.text-button.radio { // switcher buttons
