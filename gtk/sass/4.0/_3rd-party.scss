@@ -2985,3 +2985,41 @@ list.tilix-session-sidebar {
   }
 }
 
+// in-line titlebars
+widget > box.terminal-titlebar {
+  > button.flat.popup.toggle {
+    &:dir(ltr) { padding: 0 rem(13.3px) 0 0; }
+    &:dir(rtl) { padding: 0 0 0 rem(13.3px); }
+
+    &:checked {
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent)
+                                    0 0 2 / 0 0 2px;
+      background-color: transparent;
+    }
+
+    label.tilix-terminal-title {
+      // move button padding into label node
+      padding: rem(9.3px) rem(13.3px) rem(10.7px);
+      color: $secondary_fg_color;
+      font-weight: 700;
+      &:disabled { color: $insensitive_fg_color; }
+      &:not(:disabled) {
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      $selected_bg_color 100%,
+                                      transparent)
+                                      0 0 2 / 0 0 2px;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:checked {
+      &, label.tilix-terminal-title {
+        &, &:disabled { color: $fg_color; }
+      }
+    }
+  }
+}
+
