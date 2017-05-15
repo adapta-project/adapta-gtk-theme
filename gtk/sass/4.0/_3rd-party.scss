@@ -225,6 +225,8 @@ box.horizontal.pinned { // drop-target
   &.background {
     padding: 2px 0 0; // remove side/bottom padding
     border-style: solid none none; // remove side/bottom borders
+
+    .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
   }
 
   scrolledwindow,
@@ -261,6 +263,8 @@ box.horizontal.pinned { // drop-target
     background-color: $secondary_dark_color;
     &:dir(ltr) { border-right: 1px solid $borders_color; }
     &:dir(rtl) { border-left: 1px solid $borders_color; }
+
+    .bottom.budgie-container & { border-bottom: 1px solid $borders_color; }
 
     .category-button {
       border-radius: 0; // remove roundness
