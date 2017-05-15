@@ -209,7 +209,7 @@ Installation from Git Source
  >   * The installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-6. To enable extra Gtk+ release support, pass this option:
+6. To enable extra Gtk+ release support, pass these options:
 
  ```
  --enable-gtk_legacy    enable Gtk+ 3.18 support (type: bool)
