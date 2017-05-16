@@ -2087,6 +2087,15 @@ window.background > paned.titlebar > headerbar.titlebar {
   spinner.feedlist-spinner { padding: rem(12px) 0; }
 }
 
+// left-paned haederbar
+paned.headerbar_pane.titlebar > headerbar.header_right.titlebar {
+  > box.linked.raised > button.toggle { // should be .text-button
+    // back to square buttons
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
+}
+
 // hide unneeded spinner
 overlay.article-list > stack > box.horizontal {
   spinner {
@@ -2095,6 +2104,31 @@ overlay.article-list > stack > box.horizontal {
     &:checked:disabled,
     &:checked:backdrop {
       opacity: 0; // makes no sense here
+    }
+  }
+}
+
+// article-list
+overlay.article-list > stack {
+  > scrolledwindow > viewport.frame > list {
+    background-color: $bg_color;
+
+    > row.activatable {
+      &:hover { background-color: gtkalpha(currentColor, 0.1); }
+      &:selected {
+        &,
+        &:focus {
+          background-color: gtkopacity($selected_bg_color, 0.2);
+          &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
+          &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+
+          label {
+            &,
+            &.headline-read,
+            &.preview { color: $fg_color; }
+          }
+        }
+      }
     }
   }
 }
