@@ -12,7 +12,7 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
 
  1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
-   - Developed by Google and Adobe.
+   - Developed by Monotype and Adobe.
    - Weight used in Adapta: 400, (500), 700
 
  2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
