@@ -3500,10 +3500,12 @@ scrollbar {
       slider {
         margin: 0;
         border: 0 none transparent;
-        // FIXME: Ephy at dark-variant needs fixed colour
-        background-color: gtkopacity($fixed_fg_color, 0.55 * 0.5);
+        // FIXME: for WebKitGtk2
+        background-color: gtkopacity(
+                          mix($fixed_fg_color, $fixed_base_color, 50%),
+                          0.55);
 
-        .background & { // actual colour
+        .background & { // standard colour
           background-color: gtkopacity($tertiary_fg_color, 0.55);
         }
       }
