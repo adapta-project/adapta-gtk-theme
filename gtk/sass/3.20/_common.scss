@@ -4699,12 +4699,22 @@ row.activatable {
     transition-timing-function: $slope_slow;
     transition-duration: 0.1s;
   }
-
   &:active {
-    transition: all 0.2s $slope_slow,
-                background-image 0,
-                background-color 0;
-    animation: list_ripple_effect 0.2s $slope_slow forwards;
+    transition: opacity 0.2s $slope_slow,
+                border-color 0.2s $slope_slow,
+                border-image 0.2s $slope_slow,
+                background-color 0s $slope_slow,
+                background-image 0s $slope_slow,
+                box-shadow 0.2s $slope_slow;
+    animation: list_ripple_effect 0.3s $slope_slow forwards;
+  }
+  &:selected {
+    transition: opacity 0.2s $slope_slow,
+                border-color 0.2s $slope_slow,
+                border-image 0.2s $slope_slow,
+                background-color 0.2s $slope_slow,
+                background-image 0.2s $slope_slow,
+                box-shadow 0.2s $slope_slow;
   }
 }
 
