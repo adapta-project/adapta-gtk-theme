@@ -2793,12 +2793,6 @@ treeview.view {
     }
   }
 
-  button:last-child,
-  &:last-child button { // treeview-like derived widgets in Banshee
-                        // and Evolution
-    border-right-style: none;
-  }
-
   &.separator {
     min-width: 1px;
     min-height: 1px;
@@ -2821,6 +2815,12 @@ treeview.view {
       font-weight: 400;
       transition: none;
     }
+  }
+
+  header button:last-child,
+  &:last-child button { // treeview-like derived widgets in Banshee
+                        // and Evolution
+    border-right-style: none;
   }
 
   // see tests/testaccel to test
