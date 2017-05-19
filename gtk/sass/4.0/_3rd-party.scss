@@ -2720,13 +2720,24 @@ window.background:not(.csd):not(.solid-csd) {
 }
 
 // 2nd-row toolbars
-box#AuxToolbox toolbar {
+box#AuxToolbox {
   border-top: 1px solid $borders_color;
-  box-shadow: none;
 
-  button.flat.image-button {
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
+  toolbar {
+    min-height: rem(37.3px, $sw: 1.0);
+    border: none;
+    box-shadow: none;
+
+    button.flat.image-button {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+
+  box#StyleSwatch { // keep the similar height vs GtkToolBar
+    margin: rem(-2.7px) 0;
+
+    label { font-size: if($ref_weight < 1.0, 90%, 100%); }
   }
 }
 
@@ -2736,8 +2747,8 @@ box#AuxToolbox toolbar {
   > button,
   > toolitem > button,
   > toolbutton > button { // revert to rectangular buttons
-    min-width: rem($icon_size * 2, $sw: 1.0);
-    min-height: rem($icon_size * 2, $sw: 1.0);
+    min-width: rem($icon_size * 2.5);
+    min-height: rem($icon_size * 2.5);
     margin: 0;
     padding: 0;
     border-radius: 2px;
@@ -2798,11 +2809,11 @@ widget > box#DesktopMainTable {
   }
 }
 
-#InkscapePanel box#PanelContents button.flat {
+#InkscapePanel box#PanelContents button {
   &.toggle,
   &.radio {
-    min-width: rem($icon_size * 2, $sw: 1.0);
-    min-height: rem($icon_size * 2, $sw: 1.0);
+    min-width: rem($icon_size * 2.5);
+    min-height: rem($icon_size * 2.5);
     margin: 0;
     padding: 0;
     border-radius: 2px;
