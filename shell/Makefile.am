@@ -35,7 +35,8 @@ shell_asset_file = \
 	$(shelldir)/assets/media-control-active.svg \
 	$(shelldir)/assets/media-control-hover.svg \
 	$(shelldir)/assets/more-results.svg \
-	$(shelldir)/assets/show-apps-active.svg \
+	$(shelldir)/assets/show-apps-checked.svg \
+	$(shelldir)/assets/show-apps-hover.svg \
 	$(shelldir)/assets/show-apps.svg \
 	$(shelldir)/assets/window-close-active.svg \
 	$(shelldir)/assets/window-close-hover.svg \
@@ -130,7 +131,8 @@ shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/media-control-active.svg \
 	$(shellnoktodir)/assets/media-control-hover.svg \
 	$(shellnoktodir)/assets/more-results.svg \
-	$(shellnoktodir)/assets/show-apps-active.svg \
+	$(shellnoktodir)/assets/show-apps-checked.svg \
+	$(shellnoktodir)/assets/show-apps-hover.svg \
 	$(shellnoktodir)/assets/show-apps.svg \
 	$(shellnoktodir)/assets/window-close-active.svg \
 	$(shellnoktodir)/assets/window-close-hover.svg \
@@ -165,7 +167,8 @@ shelleta_asset_file = \
 	$(shelletadir)/assets/media-control-active.svg \
 	$(shelletadir)/assets/media-control-hover.svg \
 	$(shelletadir)/assets/more-results.svg \
-	$(shelletadir)/assets/show-apps-active.svg \
+	$(shelletadir)/assets/show-apps-checked.svg \
+	$(shelletadir)/assets/show-apps-hover.svg \
 	$(shelletadir)/assets/show-apps.svg \
 	$(shelletadir)/assets/window-close-active.svg \
 	$(shelletadir)/assets/window-close-hover.svg \
@@ -200,7 +203,8 @@ shell_nokto_eta_asset_file = \
 	$(shellnoktoetadir)/assets/media-control-active.svg \
 	$(shellnoktoetadir)/assets/media-control-hover.svg \
 	$(shellnoktoetadir)/assets/more-results.svg \
-	$(shellnoktoetadir)/assets/show-apps-active.svg \
+	$(shellnoktoetadir)/assets/show-apps-checked.svg \
+	$(shellnoktoetadir)/assets/show-apps-hover.svg \
 	$(shellnoktoetadir)/assets/show-apps.svg \
 	$(shellnoktoetadir)/assets/window-close-active.svg \
 	$(shellnoktoetadir)/assets/window-close-hover.svg \

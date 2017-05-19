@@ -2290,17 +2290,23 @@ StScrollBar {
 
   &:hover .show-apps-icon,
   &:active .show-apps-icon,
-  &:checked .show-apps-icon,
   &:focus .show-apps-icon {
     color: transparent;
-    background-image: url("assets/show-apps-active.svg");
+    background-image: url("assets/show-apps-hover.svg");
+    -st-background-image-shadow: $z-depth-1;
+  }
+  &:checked .show-apps-icon {
+    color: transparent;
+    background-image: url("assets/show-apps-checked.svg");
     -st-background-image-shadow: $z-depth-2;
   }
 
   &:hover,
-  &:focus,
-  &:checked { transition-duration: 0s; }
-  &:active { transition-duration: $duration_medium; }
+  &:focus { transition-duration: 0s; }
+  &:active,
+  &:checked {
+    &, &:hover { transition-duration: $duration_medium; }
+  }
 }
 
 // Collections
