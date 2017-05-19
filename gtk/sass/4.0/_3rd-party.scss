@@ -1171,22 +1171,12 @@ window.budgie-switcher-window {
     padding: 4px 0;
     border-radius: 0;
     color: $inverted_fg_color;
-    &:hover {
-      color: $selected_fg_color;
-      background: none;
-      background-image: none;
-
-      .top & { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
-      .bottom & { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
-    }
+    &:hover,
     &:active,
     &:checked {
       color: $selected_fg_color;
       background: none;
       background-image: none;
-
-      .top & { box-shadow: inset 0 2px $selected_bg_color; }
-      .bottom & { box-shadow: inset 0 -2px $selected_bg_color; }
     }
   }
 }
