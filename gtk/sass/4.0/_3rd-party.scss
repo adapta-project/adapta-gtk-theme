@@ -196,6 +196,20 @@ box.horizontal.pinned { // drop-target
 
 // main menu styling
 .budgie-panel button.flat.budgie-menu-launcher {
+  min-width: $icon_size + 8px;
+  min-height: $icon_size + 8px;
+  padding: 0 ($icon_size + 8px) * 0.05;
+  border: 0 none transparent;
+  border-radius: 0;
+  -gtk-outline-radius: 0;
+  transition: $budgie_transition;
+  &:hover,
+  &:active,
+  &:checked {
+    background-image: none;
+    background-color: transparent;
+  }
+
   image {
     // override stock icon with specific one
     min-width: $icon_size + 4px;
@@ -205,17 +219,15 @@ box.horizontal.pinned { // drop-target
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
-    opacity: 0.9;
   }
 
   &:hover,
-  &:active,
+  &:active {
+    image { background-image: url("assets/show-apps-hover.svg"); }
+  }
   &:checked,
   &:checked:hover {
-    image {
-      background-image: url("assets/show-apps-active.svg");
-      opacity: 1.0;
-    }
+    image { background-image: url("assets/show-apps-checked.svg"); }
   }
 }
 
@@ -1152,7 +1164,7 @@ window.budgie-switcher-window {
 
 // raven-controller applet
 .budgie-panel > box.horizontal {
-  widget > button.flat {
+  widget > button.flat.raven-trigger {
     // use non-scaling units
     min-width: $icon_size + 8px;
     min-height: $icon_size + 8px;
