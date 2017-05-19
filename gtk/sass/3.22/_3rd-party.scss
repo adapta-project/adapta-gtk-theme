@@ -2832,11 +2832,23 @@ window.background:not(.csd):not(.solid-csd) {
 //  * Inkscape *
 //  ************/
 
+// 1st-row toolbar
+#CommandsToolbar {
+  button.flat.image-button {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
+}
+
 // 2nd-row toolbars
-#SelectToolbar,
-#Kludge {
+box#AuxToolbox toolbar {
   border-top: 1px solid $borders_color;
   box-shadow: none;
+
+  button.flat.image-button {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
 }
 
 // left/right-side, vertical toolbars
@@ -2845,6 +2857,10 @@ window.background:not(.csd):not(.solid-csd) {
   > button,
   > toolitem > button,
   > toolbutton > button { // revert to rectangular buttons
+    min-width: rem($icon_size * 2, $sw: 1.0);
+    min-height: rem($icon_size * 2, $sw: 1.0);
+    margin: 0;
+    padding: 0;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
     &:checked { // revert to Gtk+ 2.x styling
@@ -2864,13 +2880,29 @@ window.background:not(.csd):not(.solid-csd) {
 }
 
 // misc
-spinbutton#ZoomStatus,
-box#SelectedStyle spinbutton { // spinbuttons inside the status-bar
-  > button {
-    min-width: rem($widget_size, $sw: 1.0);
-    min-height: rem($widget_size, $sw: 1.0);
-    margin: 0;
-    padding: 0;
+box#DesktopStatusBar {
+  spinbutton { // spinbuttons inside the status-bar
+    margin: rem(5.3px, $sw: 1.0) 0;
+  }
+
+  combobox { margin: rem(5.3px, $sw: 1.0) 0; }
+}
+
+widget > box#DesktopMainTable {
+  // stop using circular animations
+  // since we can not keep the perfect square allocations
+  spinbutton > button {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    &:hover {
+      background-color: $track_color;
+      animation: none;
+    }
+    &:active {
+      background-color: $track_color;
+      transition: all 0.2s $slope_slow, background-image 0s;
+      animation: flat_ripple_effect 0.3s $slope_slow forwards;
+    }
   }
 }
 
@@ -2884,6 +2916,27 @@ box#SelectedStyle spinbutton { // spinbuttons inside the status-bar
   > progress {
     margin: if($ref_weight < 1.0, rem(-2.7px) 0,
                                   rem(-4px) 0);
+  }
+}
+
+#InkscapePanel box#PanelContents button.flat {
+  &.toggle,
+  &.radio {
+    min-width: rem($icon_size * 2, $sw: 1.0);
+    min-height: rem($icon_size * 2, $sw: 1.0);
+    margin: 0;
+    padding: 0;
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    &:checked { // revert to Gtk+ 2.x styling
+      border-image: none;
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+      &:disabled {
+        background-color: gtkopacity($selected_bg_color, 0.2);
+        color: $insensitive_selected_fg_color;
+      }
+    }
   }
 }
 
