@@ -996,8 +996,7 @@ StScrollBar {
                               25px); // = 1.875em
   background-color: $panel_bg_color;
   font-weight: 700;
-  // FUTURE
-  // transition-duration: $duratoin_long; // solid -> transparent
+  transition-duration: $duration_long;
 
   // remain top-edge solid part
   // FUTURE
@@ -1008,6 +1007,7 @@ StScrollBar {
   &.lock-screen {
     background-color: $panel_hidden_fill_color;
     box-shadow: inset 0 2px $panel_bg_color;
+    transition-duration: $duration_long;
   }
 
   #panelLeft,
