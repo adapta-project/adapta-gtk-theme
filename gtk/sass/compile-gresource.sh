@@ -31,6 +31,17 @@ usage() {
 
 xml="gtk.gresource.xml"
 xml_dark="gtk-dark.gresource.xml"
+image_list="`grep -e 'pixdata' ./$xml.in | cut -d'>' -f2 | cut -d'<' -f1 | \
+           cut -d'/' -f2`"
+
+for i in $image_list
+do
+    if [ ! -f ../asset/assets-gtk3/$i ]; then
+        echo "Error: 'assets-gtk3/$i' not found, aborted..."
+        return
+        exit 1
+    fi
+done
 
 case "$1" in
     3.18)
