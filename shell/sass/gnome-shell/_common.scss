@@ -996,8 +996,12 @@ StScrollBar {
                               25px); // = 1.875em
   background-color: $panel_bg_color;
   font-weight: 700;
+  // FUTURE
+  // transition-duration: $duratoin_long; // solid -> transparent
 
   // remain top-edge solid part
+  // FUTURE
+  // &,
   &:overview,
   &.unlock-screen,
   &.login-screen,
@@ -1014,6 +1018,8 @@ StScrollBar {
   .panel-corner {
     -panel-corner-radius: $panel-corner-radius;
     -panel-corner-background-color: $panel_bg_color;
+    // FUTURE
+    // -panel-corner-background-color: $panel_hidden_fill_color;
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
 
@@ -1100,6 +1106,14 @@ StScrollBar {
   .panel-status-menu-box { spacing: 0; }
 
   .screencast-indicator { color: $error_color; }
+
+  // FUTURE
+  // &.solid { // solid-mode of TopBar
+  //   background-color: $panel_bg_color; // fill whole area
+  //   transition-duration: $duration_long; // transparent -> solid
+  //
+  //   .panel-corner { -panel-corner-background-color: $panel_bg_color; }
+  // }
 }
 
 
