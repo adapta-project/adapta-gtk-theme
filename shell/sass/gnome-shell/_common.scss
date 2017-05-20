@@ -1025,6 +1025,9 @@ StScrollBar {
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
 
+    transition-timing-function: $slope_slow;
+    transition-duration: $duration_long;
+
     &:hover {
       background-color: $panel_hidden_fill_color;
       box-shadow: inset 0 2px $osd_fill_color;
@@ -1054,7 +1057,10 @@ StScrollBar {
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
     font-weight: 700;
-    transition-duration: $duration_medium;
+    // FIXME: once these buttons are placed in panel-corners,
+    // all of transition properties are ignored?
+    // So stop using transition as default...
+    transition-duration: 0s;
 
     .app-menu-icon { // dimensions of the icon are hardcoded
       -st-icon-style: symbolic;
