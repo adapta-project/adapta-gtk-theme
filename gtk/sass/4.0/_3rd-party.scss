@@ -1171,12 +1171,18 @@ window.budgie-switcher-window {
     padding: 4px 0;
     border-radius: 0;
     color: $inverted_fg_color;
+    transition: $budgie_transition;
     &:hover,
-    &:active,
     &:checked {
+      background-image: image(transparent);
+      background-color: transparent;
       color: $selected_fg_color;
-      background: none;
-      background-image: none;
+    }
+    &:active {
+      color: $selected_fg_color;
+      transition: $budgie_transition,
+                  background-image 0s;
+      animation: budgie_ripple_effect 0.3s $slope_slow forwards;
     }
   }
 }
