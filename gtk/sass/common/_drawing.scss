@@ -321,8 +321,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   0 0 2 / 0 0 2px;
     color: $fg_color;
     transition: all 0.2s $slope_medium,
-                box-shadow 0 $slope_medium 0.2s,
-                color 0;
+                box-shadow 0.2s $slope_medium,
+                color 0s;
   }
   @if $t==insensitive {
     border-color: $solid_light_borders_color;
@@ -351,8 +351,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   0 0 2 / 0 0 2px;
     color: $fg_color;
     transition: all 0.2s $slope_medium,
-                box-shadow 0 $slope_medium 0.2s,
-                color 0;
+                box-shadow 0.2s $slope_medium,
+                color 0s;
   }
   @if $t==flat-insensitive {
     border-color: $solid_light_borders_color;
@@ -394,7 +394,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 %button_active {
   box-shadow: $z-depth-2,
               inset 0 1px $highlight_color;
-  transition: all 0.2s $slope_slow, background-image 0;
+  transition: all 0.2s $slope_slow,
+              background-image 0s;
   animation: ripple_effect 0.3s $slope_slow forwards;
 }
 
@@ -430,7 +431,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 
 %button_flat_active {
   box-shadow: none;
-  transition: all 0.2s $slope_slow, background-image 0;
+  transition: all 0.2s $slope_slow,
+              background-image 0s;
   animation: flat_ripple_effect 0.3s $slope_slow forwards;
 }
 
