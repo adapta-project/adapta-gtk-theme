@@ -3078,6 +3078,28 @@ window.background:not(.csd):not(.solid-csd) {
 //  *********/
 
 window.background > headerbar.titlebar > box.horizontal.linked {
+  > button.toggle.session-sidebar-button { // left-most revealer button
+    min-height: $icon_size;
+    padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
+    padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    font-weight: 700;
+
+    > box { // reduce the gap between label and image
+      > label {
+        margin: rem(-2px) 0;
+        &:dir(ltr) { padding-right: rem(2.7px); }
+        &:dir(rtl) { padding-left: rem(2.7px); }
+      }
+
+      > image { // down-arrow
+        &:dir(ltr) { padding-left: rem(2.7px); }
+        &:dir(rtl) { padding-right: rem(2.7px); }
+      }
+    }
+  }
+
   > button.image-button.session-new-button { // 'plus' button
                                              // hard-coded lateral-padding = 2px
     min-width: $icon_size * 1.5 - 2px * 2;
