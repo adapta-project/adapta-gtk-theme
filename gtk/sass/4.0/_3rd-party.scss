@@ -3087,6 +3087,24 @@ window.background > headerbar.titlebar > box.horizontal.linked {
 }
 
 // left-side revealer
+window.background > overlay > revealer { // parent container
+  &.left,
+  &.right {
+    > scrolledwindow.frame {
+      border: none;
+      box-shadow: $z-depth-3; // depth-4 is semamtically right,
+                              // but too deep
+    }
+
+    &:not(.right) { // reserve area for drop-shadows
+      > scrolledwindow.frame { margin-right: 16px; }
+    }
+    &:not(.left) {
+      > scrolledwindow.frame { margin-left: 16px; }
+    }
+  }
+}
+
 list.tilix-session-sidebar {
   background-image: image($secondary_dark_color); // use -image property instead
 
