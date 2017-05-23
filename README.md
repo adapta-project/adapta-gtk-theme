@@ -219,11 +219,11 @@ Installation from Git Source
 7. To change the default 5 **Key-Colors**, pass these options:
 
  ```
- --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: int)
- --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: int)
- --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: int)
- --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: int)
- --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: int)
+ --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: string)
+ --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: string)
+ --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: string)
+ --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: string)
+ --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: string)
  ```
 
  > **Note:**
