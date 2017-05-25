@@ -728,6 +728,14 @@ $full_orientation: ((top, bottom),
     }
   }
 
+  .alternative-label { // 'always expanded' option
+    font-size: 15px; // same size with 'Local volumes' label?
+    font-weight: 400;
+
+    &:dir(ltr) { padding: 3px 0.3em 0.3em 3px; }
+    &:dir(rtl) { padding: 3px 3px 0.3em 0.3em; }
+  }
+
   GtkBox.vertical > GtkRevealer {
     > .list { // drop-down list
       box-shadow: if($variant == 'light', $inline-shadow-light,
@@ -735,6 +743,15 @@ $full_orientation: ((top, bottom),
 
       // draw top-border in row class
       .list-row:first-child { border-top: 1px solid $borders_color; }
+
+      &.always-expand { // 'always expanded' option
+        // unset revealer elevations
+        background-color: transparent;
+        box-shadow: none;
+
+        // unset top-border
+        .list-row:first-child { border-top: 0 none transparent; }
+      }
     }
   }
 

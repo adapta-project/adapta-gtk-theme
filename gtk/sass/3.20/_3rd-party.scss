@@ -771,6 +771,15 @@ popover.places-menu {
     }
   }
 
+  .alternative-label { // 'always expanded' option
+    font-size: 15px; // same size with 'Local volumes' label?
+    font-weight: 400;
+
+    // parent popover node already has 2px top-padding
+    &:dir(ltr) { padding: 1px rem(4px) rem(4px) 3px; }
+    &:dir(rtl) { padding: 1px 3px rem(4px) rem(4px); }
+  }
+
   box.vertical > revealer {
     > list { // drop-down list
       border-width: 1px 0 1px;
@@ -779,6 +788,13 @@ popover.places-menu {
       background-color: $secondary_dark_color;
       box-shadow: if($variant == 'light', $inline-shadow-light,
                                           $inline-shadow-dark);
+
+      &.always-expand { // 'always expanded' option
+        // unset revealer elevations
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+      }
     }
 
     infobar.message-bar {
