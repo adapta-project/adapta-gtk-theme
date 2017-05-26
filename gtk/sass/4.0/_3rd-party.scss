@@ -742,22 +742,30 @@ popover.places-menu {
   }
 
   .places-section-header {
-    padding: rem(4px);
+    padding: 0;
 
     > label {
+      margin-bottom: rem(1.3px, $sw: 1.0);
+      padding-bottom: rem(4px);
       color: $secondary_fg_color;
       font-weight: 700;
     }
 
     > image {
-      padding-left: 4px;
       color: $accent_color;
 
-      &:dir(rtl) { padding-right: 4px; }
+      &:dir(ltr) {
+        margin-left: 4px;
+        padding: rem(2.7px) 0 rem(4px) rem(2.7px);
+      }
+      &:dir(rtl) {
+        margin-right: 4px;
+        padding: rem(2.7px) rem(2.7px) rem(4px) 0;
+      }
     }
 
     button.image-button {
-      margin: rem(2.7px);
+      margin: rem(2.7px) rem(5.3px) rem(4px);
       &:not(:active) {
         transition: opacity 0.2s $slope_medium,
                     border-color 0.2s $slope_medium,
@@ -765,6 +773,13 @@ popover.places-menu {
                     background-image 0.2s $slope_slow,
                     box-shadow 0.2s $slope_slow;
       }
+    }
+
+    > button.flat:not(.image-button) {
+      margin: 0;
+      padding: rem(4px) rem(5.3px) rem(5.3px);
+      border-radius: 0;
+      -gtk-outline-radius: 0;
     }
   }
 
