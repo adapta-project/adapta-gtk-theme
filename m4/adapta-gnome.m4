@@ -2,7 +2,6 @@
 # -----------------------------------------------------------
 AC_DEFUN([ADAPTA_GNOME], [
 
-    GNOME_SHELL=`command -v gnome-shell`
     GNOME_VERSION=`$GNOME_SHELL --version | cut -d' ' -f3 | cut -d'.' -f1-2`
     GNOME_MINOR_VERSION=`echo $GNOME_VERSION | cut -d'.' -f2`
 
