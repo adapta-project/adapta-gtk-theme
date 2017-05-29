@@ -64,6 +64,10 @@ if test x"$GLIB_COMPILE_RESOURCES" = x; then
 fi
 
 if test x"$ENABLE_GNOME" = xyes; then
+	AC_PATH_PROG([GNOME_SHELL], [gnome-shell])
+	if test x"$GNOME_SHELL" = x; then
+		AC_MSG_ERROR(['gnome-shell' not found.])
+	fi
 	ADAPTA_GNOME
 fi
 
