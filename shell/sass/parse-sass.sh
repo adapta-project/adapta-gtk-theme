@@ -15,51 +15,61 @@
 #################
 
 SASSC="`command -v sassc` -M -t compact"
+
+# Gnome-Shell
 GNOME_SHELL=`command -v gnome-shell`
 GNOME_VERSION="`$GNOME_SHELL --version | cut -d' ' -f3 | cut -d'.' -f1-2`"
+GNOME_MAJOR_VERSION="`echo $GNOME_VERSION | cut -d'.' -f1`"
 GNOME_MINOR_VERSION="`echo $GNOME_VERSION | cut -d'.' -f2`"
 
-if [ $GNOME_MINOR_VERSION -gt "24" ]; then
-    # Gnome-Shell 3.25 or higher
+if [ -e $GNOME_SHELL ] && [ $GNOME_MAJOR_VERSION -eq "3" ] && \
+    [ $GNOME_MINOR_VERSION -ge "18" ]; then
+
+    if [ $GNOME_MINOR_VERSION -gt "24" ]; then
+        GNOME_SCSS_VERSION=$GNOME_MAJOR_VERSION.26
+    else
+        GNOME_SCSS_VERSION=$GNOME_MAJOR_VERSION.24
+    fi
+
     $SASSC \
-        gnome-shell/3.26/gnome-shell.scss ../gnome-shell/gnome-shell.css
+        gnome-shell/$GNOME_SCSS_VERSION/gnome-shell.scss \
+        ../gnome-shell/gnome-shell.css
     $SASSC \
-        gnome-shell/3.26/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
+        gnome-shell/$GNOME_SCSS_VERSION/gnome-shell-dark.scss \
+        ../gnome-shell-nokto/gnome-shell.css
     $SASSC \
-        gnome-shell/3.26/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
+        gnome-shell/$GNOME_SCSS_VERSION/gnome-shell-eta.scss \
+        ../gnome-shell-eta/gnome-shell.css
     $SASSC \
-        gnome-shell/3.26/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
+        gnome-shell/$GNOME_SCSS_VERSION/gnome-shell-dark-eta.scss \
+        ../gnome-shell-nokto-eta/gnome-shell.css
     $SASSC \
-        gnome-shell/3.26/pad-osd.scss ../gnome-shell/pad-osd.css
+        gnome-shell/$GNOME_SCSS_VERSION/pad-osd.scss \
+        ../gnome-shell/pad-osd.css
     $SASSC \
-        gnome-shell/3.26/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
+        gnome-shell/$GNOME_SCSS_VERSION/stylesheet.scss \
+        ../gnome-shell/extensions/window-list/stylesheet.css
     $SASSC \
-        gnome-shell/3.26/classic.scss ../gnome-shell/extensions/window-list/classic.css
+        gnome-shell/$GNOME_SCSS_VERSION/classic.scss \
+        ../gnome-shell/extensions/window-list/classic.css
+    if [ ! -d ../gnome-shell/extensions/workspaces-to-dock ]; then
+        mkdir -p ../gnome-shell/extensions/workspaces-to-dock
+    fi
     $SASSC \
-        gnome-shell/3.26/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
-else
-    # Gnome-Shell 3.24 or lower
-    $SASSC \
-        gnome-shell/3.24/gnome-shell.scss ../gnome-shell/gnome-shell.css
-    $SASSC \
-        gnome-shell/3.24/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
-    $SASSC \
-        gnome-shell/3.24/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
-    $SASSC \
-        gnome-shell/3.24/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
-    $SASSC \
-        gnome-shell/3.24/pad-osd.scss ../gnome-shell/pad-osd.css
-    $SASSC \
-        gnome-shell/3.24/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
-    $SASSC \
-        gnome-shell/3.24/classic.scss ../gnome-shell/extensions/window-list/classic.css
-    $SASSC \
-        gnome-shell/3.24/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
+        gnome-shell/$GNOME_SCSS_VERSION/workspaces-to-dock.scss \
+        ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 fi
 
 # Cinnamon
+if [ ! -d ../cinnamon ]; then
+    mkdir -p ../cinnamon
+fi
 $SASSC \
     cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
+
+if [ ! -d ../cinnamon-nokto ]; then
+    mkdir -p ../cinnamon-nokto
+fi
 $SASSC \
     cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
 
