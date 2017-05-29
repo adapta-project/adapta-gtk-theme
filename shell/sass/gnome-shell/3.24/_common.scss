@@ -694,6 +694,15 @@ StScrollBar {
       color: $fg_color;
     }
     &:insensitive { @include entry(insensitive); }
+
+    &,
+    &:hover,
+    &:focus,
+    &:insensitive { // tweak fake background colours
+      background-color: if($nokto == 'false',
+                           rgba(255, 255, 255, 0.01),
+                           rgba(0, 0, 0, 0.01));
+    }
   }
 
   StScrollBar {
@@ -790,6 +799,66 @@ StScrollBar {
       padding: if($eta == 'false', 0 12px 0 0, 0 8px 0 0);
       border-right-width: 1px;
     }
+  }
+}
+
+
+// /**********************
+//  * Arc Menu Extension *
+//  **********************/
+
+#panelApplications {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &:checked {
+    StIcon { color: transparent; } // hide stock icon
+  }
+
+  StIcon.popup-menu-icon {
+    min-width: if($eta == 'false', 48px - 12px, 36px - 12px);
+    padding: 0;
+    background-image: url("assets/show-apps.svg");
+    // expand actual image area as possible as we can
+    background-size: if($eta == 'false', 48px 48px, 36px 36px);
+    background-position: center center;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:checked {
+    StIcon.popup-menu-icon {
+      background-image: url("assets/show-apps-hover.svg");
+    }
+  }
+}
+
+.main-box {
+  background-color: $secondary_base_color;
+
+  .popup-menu {
+    &:ltr { padding-right: 4px; }
+    &:rtl { padding-left: 4px; }
+  }
+
+  // use tiny padding
+  .system-menu-action {
+    &,
+    &:focus,
+    &:hover,
+    &:active,
+    &:checked { padding: 10px; }
+  }
+
+  StScrollView.apps-menu { // left-pane
+    margin-bottom: if($eta == 'false', 6px, 4px);
+    padding: 0;
+    border-width: 1px;
+    background-color: $bg_color;
+
+    StIcon { icon-size: 16px; }
   }
 }
 
