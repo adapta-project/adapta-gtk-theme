@@ -2230,7 +2230,7 @@ headerbar {
     min-width: rem(30px);
     border: rem(10px) solid transparent;
     color: $inverted_secondary_fg_color;
-    background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
+    background-color: gtkopacity($inverted_secondary_fg_color, 0.2);
     outline-offset: rem(-4px);
     &:checked {
       background-color: gtkopacity($selected_bg_color, 0.2);
@@ -2238,14 +2238,14 @@ headerbar {
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
-      background-color: $track_color;
+      background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
     }
 
     slider {
       min-width: rem(20px);
       min-height: rem(20px);
       margin: rem(-5px) 0 rem(-5px) rem(-5px);
-      background-color: $inverted_bg_color;
+      background-color: $inverted_light_color;
     }
     &:hover slider {
       background-image: image(gtkalpha($selected_fg_color, 0.2));
@@ -2254,15 +2254,11 @@ headerbar {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
       background-color: $selected_bg_color;
       &:disabled {
-        background-color: mix($top_edge_borders_color,
-                              $inverted_fg_color,
-                              95.5%);
+        background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
       }
     }
     &:disabled slider {
-      background-color: mix($top_edge_borders_color,
-                            $inverted_fg_color,
-                            95.5%);
+      background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
     }
   }
 
@@ -3563,14 +3559,13 @@ switch {
   font-size: 0;
   outline-offset: rem(-4px, $sw: 1.0);
 
-  &:disabled { color: $insensitive_fg_color; }
   &:checked {
     background-color: gtkopacity($selected_bg_color, 0.2);
     &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
   }
   &:disabled {
     color: $insensitive_fg_color;
-    background-color: $track_color;
+    background-color: mix($bg_color, $fg_color, 95%);
   }
 
   // slider styling
@@ -3608,16 +3603,12 @@ switch {
   }
   &:checked:disabled slider {
     // do not use any transparentize
-    background-color: if($variant == 'light',
-                      mix($bg_color, $fg_color, 95.3%),
-                      mix($solid_light_borders_color, $fg_color, 95.5%));
+    background-color: mix($bg_color, $fg_color, 95%);
     background-image: none;
     box-shadow: none;
   }
   &:disabled slider {
-    background-color: if($variant == 'light',
-                      mix($bg_color, $fg_color, 95.3%),
-                      mix($solid_light_borders_color, $fg_color, 95.5%));
+    background-color: mix($bg_color, $fg_color, 95%);
     background-image: none;
     box-shadow: none;
   }

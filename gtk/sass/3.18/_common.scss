@@ -1544,19 +1544,19 @@ GtkComboBox {
   // switch styling
   GtkSwitch {
     &.trough {
-      background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
+      background-color: gtkopacity($inverted_secondary_fg_color, 0.2);
       &:active {
         background-color: gtkopacity($selected_bg_color, 0.2);
         &:insensitive { background-color: gtkopacity($selected_bg_color, 0.2); }
       }
       &:insensitive {
         color: $insensitive_inverted_fg_color;
-        background-color: $track_color;
+        background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
       }
     }
 
     &.slider {
-      background-color: $inverted_bg_color;
+      background-color: $inverted_light_color;
       &:hover {
         background-image: linear-gradient(to bottom,
                                           gtkalpha($selected_fg_color, 0.2));
@@ -1564,15 +1564,11 @@ GtkComboBox {
       &:active {
         background-color: $selected_bg_color;
         &:insensitive {
-          background-color: mix($top_edge_borders_color,
-                                $inverted_fg_color,
-                                95.5%);
+          background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
         }
       }
       &:insensitive {
-        background-color: mix($top_edge_borders_color,
-                              $inverted_fg_color,
-                              95.5%);
+        background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
       }
     }
   }
@@ -2446,7 +2442,7 @@ GtkSwitch {
     }
     &:insensitive {
       color: $insensitive_fg_color;
-      background-color: $track_color;
+      background-color: mix($bg_color, $fg_color, 95%);
     }
   }
 
@@ -2465,17 +2461,13 @@ GtkSwitch {
       &:hover { box-shadow: $z-depth-2; }
       &:insensitive {
         // do not use any transparentized materials
-        background-color: if($variant == 'light',
-                          mix($bg_color, $fg_color, 95.3%),
-                          mix($solid_light_borders_color, $fg_color, 95.5%));
+        background-color: mix($bg_color, $fg_color, 95%);
         background-image: none;
         box-shadow: none;
       }
     }
     &:insensitive {
-      background-color: if($variant == 'light',
-                        mix($bg_color, $fg_color, 95.3%),
-                        mix($solid_light_borders_color, $fg_color, 95.5%));
+      background-color: mix($bg_color, $fg_color, 95%);
       background-image: none;
       box-shadow: none;
     }
