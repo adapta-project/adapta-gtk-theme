@@ -147,8 +147,8 @@ Installation from Git Source
  * pkg-config (pkgconfig)
  * sassc                                     >= 3.3
 
- * gnome-shell                               >= 3.18.3 (if --enable-gnome = yes)
- * parallel                                  (if --enable-parallel = yes)
+ * gnome-shell                               >= 3.18.3 (if --enable-gnome)
+ * parallel                                  (if --enable-parallel)
  ```
 
  > **Note:**
