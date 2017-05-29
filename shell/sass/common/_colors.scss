@@ -48,6 +48,9 @@ $secondary_dark_color: if($nokto == 'false', #ECEFF1, #243035);
 $fill_color: shellopacity($fg_color, 0.15);
 $semi_fill_color: shellopacity($fg_color, 0.07);
 $hidden_fill_color: rgba(0, 0, 0, 0.01);
+$menuentry_hidden_fill_color: if($nokto == 'false',
+                                 rgba(255, 255, 255, 0.01),
+                                 rgba(0, 0, 0, 0.01));
 
 $panel_bg_color: mix(#263238, #000000, 50%);
 $panel_hidden_fill_color: rgba(19, 25, 28, 0.01);
