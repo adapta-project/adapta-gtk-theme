@@ -146,6 +146,9 @@ Installation from Git Source
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
  * sassc                                     >= 3.3
+
+ * gnome-shell                               >= 3.18.3 (if --enable-gnome = yes)
+ * parallel                                  (if --enable-parallel = yes)
  ```
 
  > **Note:**
@@ -196,6 +199,7 @@ Installation from Git Source
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
 
  ```
+ --disable-gnome         disable gnome-shell support (type: bool)
  --disable-cinnamon      disable cinnamon support (type: bool)
  --disable-flashback     disable flashback support (type: bool)
  --disable-unity         disable unity support (type: bool)
@@ -206,7 +210,7 @@ Installation from Git Source
 
  > **Note:**
  >
- >   * The installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
+ >   * The installer installs Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
 6. To enable extra Gtk+ release support, pass these options:
