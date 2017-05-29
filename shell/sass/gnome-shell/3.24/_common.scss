@@ -999,9 +999,6 @@ StScrollBar {
   transition-timing-function: $slope_slow;
   transition-duration: $duration_long;
 
-  // remain top-edge solid part
-  // FUTURE
-  // &,
   &:overview,
   &.unlock-screen,
   &.login-screen,
@@ -1020,8 +1017,6 @@ StScrollBar {
   .panel-corner {
     -panel-corner-radius: $panel-corner-radius;
     -panel-corner-background-color: $panel_bg_color;
-    // FUTURE
-    // -panel-corner-background-color: $panel_hidden_fill_color;
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
 
@@ -1054,8 +1049,7 @@ StScrollBar {
   .panel-button {
     -natural-hpadding: if($eta == 'false', 10px, 6px);
     -minimum-hpadding: if($eta == 'false', 10px, 6px);
-    color: if($nokto == 'false', $inverted_secondary_fg_color,
-                                 $secondary_fg_color);
+    color: $osd_fg_color;
     font-weight: 700;
     // FIXME: once these buttons are placed in panel-corners,
     // all of transition properties are ignored?
@@ -1097,32 +1091,10 @@ StScrollBar {
     }
   }
 
-  &.unlock-screen,
-  &.login-screen,
-  &.lock-screen {
-    .panel-corner,
-    .panel-button { // tone-up foregrounds
-      color: $osd_fg_color;
-      &:focus,
-      &:hover,
-      &:active,
-      &:checked { color: $selected_fg_color; }
-    }
-  }
-
   .panel-status-indicators-box,
   .panel-status-menu-box { spacing: 0; }
 
   .screencast-indicator { color: $error_color; }
-
-  // FUTURE
-  // &.solid { // solid-mode of TopBar
-  //   background-color: $panel_bg_color; // fill whole area
-  //   transition-timing-function: $slope_slow;
-  //   transition-duration: $duration_long; // transparent -> solid
-  //
-  //   .panel-corner { -panel-corner-background-color: $panel_bg_color; }
-  // }
 }
 
 

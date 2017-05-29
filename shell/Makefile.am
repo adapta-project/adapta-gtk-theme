@@ -389,6 +389,7 @@ sassc_option = -M -t compact
 # ****************************
 
 all:
+if ENABLE_GNOME
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
 	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
@@ -401,21 +402,21 @@ all:
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
 
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/gnome-shell.scss ../gnome-shell/gnome-shell.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell.scss ../gnome-shell/gnome-shell.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell/pad-osd.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/classic.scss ../gnome-shell/extensions/window-list/classic.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/classic.scss ../gnome-shell/extensions/window-list/classic.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
+		gnome-shell/$(GNOME_SCSS_VERSION)/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 
 	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
 
@@ -427,6 +428,7 @@ all:
 		$(shelletadir)/gnome-shell-theme.gresource.xml
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktoetadir) \
 		$(shellnoktoetadir)/gnome-shell-theme.gresource.xml
+endif
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon
@@ -467,6 +469,7 @@ endif
 # *****************
 
 install-data-local:
+if ENABLE_GNOME
 	$(MKDIR_P) $(adaptadir)/gnome-shell
 	$(MKDIR_P) $(adaptadir)/gnome-shell/assets
 	$(MKDIR_P) $(adaptadir)/gnome-shell/assets/dot
@@ -538,6 +541,7 @@ install-data-local:
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+endif
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(adaptadir)/cinnamon
@@ -615,10 +619,12 @@ endif
 # *******************
 
 uninstall-local:
+if ENABLE_GNOME
 	test -e $(noktodir)/gnome-shell && rm -rfv $(noktodir)/gnome-shell
 	test -e $(adaptadir)/gnome-shell && rm -rfv $(adaptadir)/gnome-shell
 	test -e $(noktoetadir)/gnome-shell && rm -rfv $(noktoetadir)/gnome-shell
 	test -e $(adaptaetadir)/gnome-shell && rm -rfv $(adaptaetadir)/gnome-shell
+endif
 
 if ENABLE_CINNAMON
 	test -e $(noktodir)/cinnamon && rm -rfv $(noktodir)/cinnamon
@@ -649,7 +655,9 @@ endif
 # * Clean up generated files *
 # ****************************
 
-CLEANFILES = \
+CLEANFILES =
+if ENABLE_GNOME
+CLEANFILES += \
 	$(srcdir)/gnome-shell/gnome-shell.css \
 	$(srcdir)/gnome-shell-nokto/gnome-shell.css \
 	$(srcdir)/gnome-shell-eta/gnome-shell.css \
@@ -697,6 +705,7 @@ CLEANFILES = \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/dot/*.svg \
 	$(srcdir)/asset/assets-gnome-shell/workspaces-to-dock/*.svg
+endif
 if ENABLE_CINNAMON
 CLEANFILES += \
 	$(srcdir)/cinnamon/cinnamon.css \

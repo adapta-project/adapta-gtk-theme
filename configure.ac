@@ -25,6 +25,8 @@ AM_SILENT_RULES([yes])
 
 ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
 ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
+ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
+ADAPTA_OPTION([GNOME],     [gnome],     [Gnome-Shel],     [disable])
 ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
@@ -34,7 +36,6 @@ ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
 ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
-ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -60,6 +61,10 @@ fi
 AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
 if test x"$GLIB_COMPILE_RESOURCES" = x; then
 	AC_MSG_ERROR(['glib-compile-resources' not found.])
+fi
+
+if test x"$ENABLE_GNOME" = xyes; then
+	ADAPTA_GNOME
 fi
 
 ADAPTA_COLOR_SCHEME
@@ -109,9 +114,9 @@ AC_MSG_RESULT([
         | DE and WM Support
         -----------------------------------------------------------
 
-         GNOME:                  always (>= 3.18.3)
          Budgie-Desktop:         always (>= 10.2.7)
 
+         GNOME:                  $ENABLE_GNOME (SCSS ver. : $GNOME_SCSS_VERSION)
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
          Unity:                  $ENABLE_UNITY
