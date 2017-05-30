@@ -2440,36 +2440,40 @@ GtkSwitch {
       background-color: gtkopacity($selected_bg_color, 0.2);
       &:insensitive { background-color: gtkopacity($selected_bg_color, 0.2); }
     }
-    &:insensitive {
-      color: $insensitive_fg_color;
-      background-color: mix($bg_color, $fg_color, 95%);
-    }
+    &:insensitive { background-color: mix($bg_color, $fg_color, 95%); }
   }
 
   &.slider {
     padding: 5px;
     border-radius: 100px;
     outline-radius: 100px;
-    @include button(normal);
+    background-color: $light_color;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
     &:hover {
-      @include button(hover);
       background-image: linear-gradient(to bottom,
-                                        gtkalpha($selected_fg_color, 0.1));
+                                        gtkopacity($fixed_base_color, 0.1));
+      box-shadow: $z-depth-2,
+                  inset 0 1px $highlight_color;
     }
     &:active {
-      @include button(checked);
-      &:hover { box-shadow: $z-depth-2; }
-      &:insensitive {
-        // do not use any transparentized materials
+      background-color: $selected_bg_color;
+      background-image: none;
+      box-shadow: $z-depth-1,
+                  inset 0 1px $highlight_color;
+      &:hover {
+        background-image: linear-gradient(to bottom,
+                                          gtkopacity($fixed_base_color, 0.2));
+        box-shadow: $z-depth-2,
+                    inset 0 1px $highlight_color;
+      }
+    }
+    &:insensitive {
+      &, &:active {
         background-color: mix($bg_color, $fg_color, 95%);
         background-image: none;
         box-shadow: none;
       }
-    }
-    &:insensitive {
-      background-color: mix($bg_color, $fg_color, 95%);
-      background-image: none;
-      box-shadow: none;
     }
   }
 
@@ -2486,11 +2490,17 @@ GtkSwitch {
       background-color: $bg_color;
       &:hover {
         background-image: linear-gradient(to bottom,
-                                          gtkalpha($selected_fg_color, 0.1));
+                                          gtkalpha($fixed_base_color, 0.1));
       }
       &:active {
         background-color: $base_color;
-        &:hover { box-shadow: $z-depth-2; }
+        &:hover {
+          background-image: linear-gradient(to bottom,
+                                            gtkalpha($fixed_base_color, 0.2));
+          box-shadow: $z-depth-2,
+                      inset 0 1px $highlight_color;
+        }
+        &:insensitive { background-color: $secondary_dark_color; }
       }
     }
   }

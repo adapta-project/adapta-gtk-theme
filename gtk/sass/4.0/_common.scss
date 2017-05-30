@@ -3558,26 +3558,26 @@ switch {
   background-color: $track_color;
   font-size: 0;
   outline-offset: rem(-4px, $sw: 1.0);
-
   &:checked {
     background-color: gtkopacity($selected_bg_color, 0.2);
     &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
   }
-  &:disabled {
-    color: $insensitive_fg_color;
-    background-color: mix($bg_color, $fg_color, 95%);
-  }
+  &:disabled { background-color: mix($bg_color, $fg_color, 95%); }
 
   // slider styling
   // switch slider doesn't respond to its own states
   // but relies on the switch ones
   slider {
-    @include button(normal);
     min-width: rem(20px, $sw: 1.0);
     min-height: rem(20px, $sw: 1.0);
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
+    background-color: $light_color;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
+    transition-timing-function: $slope_slow;
+    transition-duration: 0.2s;
   }
 
   // trough-based indentation
@@ -3591,26 +3591,32 @@ switch {
   }
 
   &:hover slider {
-    @include button(hover);
-    background-image: image(gtkalpha($selected_fg_color, 0.1));
-  }
-  &:checked slider { @include button(checked); }
-  &:checked:hover slider {
-    @include button(checked);
-    background-image: image(gtkalpha($selected_fg_color, 0.2));
+    background-image: image(gtkopacity($fixed_base_color, 0.1));
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
-  &:checked:disabled slider {
-    // do not use any transparentize
-    background-color: mix($bg_color, $fg_color, 95%);
+
+  &:checked slider {
+    background-color: $selected_bg_color;
     background-image: none;
-    box-shadow: none;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
   }
-  &:disabled slider {
-    background-color: mix($bg_color, $fg_color, 95%);
-    background-image: none;
-    box-shadow: none;
+
+  &:checked:hover slider {
+    background-image: image(gtkopacity($fixed_base_color, 0.2));
+    box-shadow: $z-depth-2,
+                inset 0 1px $highlight_color;
+  }
+
+  &:disabled {
+    slider,
+    &:checked slider {
+      // do not use any transparentize
+      background-color: mix($bg_color, $fg_color, 95%);
+      background-image: none;
+      box-shadow: none;
+    }
   }
 
   row:selected > & { // return to monochrome
@@ -3621,11 +3627,16 @@ switch {
     }
 
     slider { background-color: $bg_color; }
+
     &:hover slider {
       background-image: image(gtkalpha($selected_fg_color, 0.2));
     }
-    &:checked slider { background-color: $base_color; }
-    &:checked:disabled slider { background-color: $secondary_dark_color; }
+
+    &:checked {
+      slider { background-color: $base_color; }
+
+      &:disabled slider { background-color: $secondary_dark_color; }
+    }
   }
 
   // special case inside the grid and row container,
