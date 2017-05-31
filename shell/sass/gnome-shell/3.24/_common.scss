@@ -2071,6 +2071,7 @@ StScrollBar {
   color: $osd_fg_color;
   background-color: $osd_slight_fill_color;
   box-shadow: $empty_shadow;
+  transition-duration: $duration_long;
 
   &:ltr { border-radius: 0 2px 2px 0; }
   &:rtl { border-radius: 2px 0 0 2px; }
@@ -2114,6 +2115,7 @@ StScrollBar {
     padding: 0;
     border: none;
     box-shadow: $empty_shadow;
+    transition-duration: $duration_long;
   }
 
   @each $_dock, $_radius in (top, 0 0 2px 2px),
