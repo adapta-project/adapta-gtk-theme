@@ -819,6 +819,10 @@ StScrollBar {
     // expand actual image area as possible as we can
     background-size: if($eta == 'false', 48px 48px, 36px 36px);
     background-position: center center;
+    -st-background-image-shadow: $z-depth-1;
+    transition-duration: 0s;
+
+    #panel.solid & { -st-background-image-shadow: none; }
   }
 
   &:hover,
@@ -827,6 +831,10 @@ StScrollBar {
   &:checked {
     StIcon.popup-menu-icon {
       background-image: url("assets/show-apps-hover.svg");
+      -st-background-image-shadow: $z-depth-2;
+      transition-duration: 0s;
+
+      #panel.solid & { -st-background-image-shadow: none; }
     }
   }
 }

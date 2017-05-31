@@ -819,6 +819,7 @@ StScrollBar {
     // expand actual image area as possible as we can
     background-size: if($eta == 'false', 48px 48px, 36px 36px);
     background-position: center center;
+    transition-duration: 0s;
   }
 
   &:hover,
@@ -827,6 +828,7 @@ StScrollBar {
   &:checked {
     StIcon.popup-menu-icon {
       background-image: url("assets/show-apps-hover.svg");
+      transition-duration: 0s;
     }
   }
 }
