@@ -2382,6 +2382,12 @@ StScrollBar {
     color: transparent;
     transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
 
   &:hover .show-apps-icon,
@@ -2391,6 +2397,12 @@ StScrollBar {
     background-image: url("assets/show-apps-hover.svg");
     transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
   &:checked .show-apps-icon {
     color: transparent;
@@ -2399,7 +2411,11 @@ StScrollBar {
     -st-background-image-shadow: $z-depth-2;
 
     // FIXME: workaround for DashToPanelExtension
-    #panelLeft & { background-image: url("assets/show-apps-hover.svg"); }
+    #panelLeft & {
+      background-image: url("assets/show-apps-hover.svg");
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
 }
 
