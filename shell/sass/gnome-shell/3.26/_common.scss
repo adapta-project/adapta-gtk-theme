@@ -2403,7 +2403,7 @@ StScrollBar {
     background-image: url("assets/show-apps.svg");
     background-size: contain;
     color: transparent;
-    transition-duration: 0s;
+    transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
   }
 
@@ -2412,19 +2412,14 @@ StScrollBar {
   &:focus .show-apps-icon {
     color: transparent;
     background-image: url("assets/show-apps-hover.svg");
+    transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
   }
   &:checked .show-apps-icon {
     color: transparent;
     background-image: url("assets/show-apps-checked.svg");
+    transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-2;
-  }
-
-  &:hover,
-  &:focus { transition-duration: 0s; }
-  &:active,
-  &:checked {
-    &, &:hover { transition-duration: $duration_medium; }
   }
 }
 
