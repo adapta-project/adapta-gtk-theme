@@ -2435,6 +2435,11 @@ StScrollBar {
       transition-duration: 0s;
       -st-background-image-shadow: $z-depth-1;
     }
+
+    #panel.solid #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
 
   &:hover .show-apps-icon,
@@ -2450,6 +2455,11 @@ StScrollBar {
       transition-duration: 0s;
       -st-background-image-shadow: $z-depth-2;
     }
+
+    #panel.solid #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
   &:checked .show-apps-icon {
     color: transparent;
@@ -2462,6 +2472,11 @@ StScrollBar {
       background-image: url("assets/show-apps-hover.svg");
       transition-duration: 0s;
       -st-background-image-shadow: $z-depth-2;
+    }
+
+    #panel.solid #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
     }
   }
 }
