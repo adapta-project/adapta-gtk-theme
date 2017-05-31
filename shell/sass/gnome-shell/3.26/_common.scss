@@ -16,8 +16,6 @@
   transition-duration: $duration_medium;
 }
 
-$panel-corner-radius: 0;
-
 $font-family: Noto Sans, Cantarell, Sans-Serif;
 $mono-font-family: Noto Mono, Monospace;
 
@@ -1041,16 +1039,12 @@ StScrollBar {
   background-color: shellopacity($selected_bg_color, 0.2);
 
   &-left.on-primary {
-    border-radius: $panel-corner-radius $panel-corner-radius 0 0;
+    border-radius: 2px 2px 0 0;
 
-    &.tile-preview-right {
-      border-radius: $panel-corner-radius $panel-corner-radius 0 0;
-    }
+    &.tile-preview-right { border-radius: 2px 2px 0 0; }
   }
 
-  &-right.on-primary {
-    border-radius: 0 $panel-corner-radius 0 0;
-  }
+  &-right.on-primary { border-radius: 0 2px 0 0; }
 }
 
 
@@ -1087,7 +1081,7 @@ StScrollBar {
   }
 
   .panel-corner {
-    -panel-corner-radius: $panel-corner-radius;
+    -panel-corner-radius: 0;
     -panel-corner-background-color: $panel_hidden_fill_color;
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
