@@ -2517,7 +2517,7 @@ headerbar.selection-mode { // selection-mode specific
   }
 }
 
-.background:not(.maximized):not(.tiled):not(.solid-csd) {
+.background:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
   headerbar,
   .titlebar { // set rounded corners
     border-top-left-radius: 2px;
@@ -2544,7 +2544,7 @@ headerbar.selection-mode { // selection-mode specific
 }
 
 // force using rounded corners in case of paned titlebars
-window:not(.maximized):not(.tiled):not(.solid-csd) {
+window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
   paned.titlebar,
   grid.titlebar {
     border-top-left-radius: 2px;
@@ -2612,7 +2612,8 @@ headerbar.titlebar.default-decoration {
   }
 
   &.tiled,
-  &.maximized {
+  &.maximized,
+  &.fullscreen {
     box headerbar,
     headerbar {
       &, &:not(:last-child) {
