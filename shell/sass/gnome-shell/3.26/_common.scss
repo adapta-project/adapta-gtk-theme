@@ -2328,6 +2328,7 @@ StScrollBar {
     color: $osd_fg_color;
     transition-duration: 0s;
   }
+
   &:active .overview-icon {
     border-image: none;
     background-color: $osd_semi_fill_color;
@@ -2335,11 +2336,13 @@ StScrollBar {
     color: $osd_fg_color;
     transition-duration: $duration_medium;
   }
+
   &:checked .overview-icon {
-    background-color: $osd_indicator_color;
+    border-radius: 0;
+    background-color: $hidden_fill_color;
     color: $osd_fg_color;
-    box-shadow: $empty_shadow;
-    transition-duration: 0s;
+    box-shadow: inset 0 -2px $osd_indicator_color;
+    transition-duration: $duration_long;
   }
 }
 
@@ -2351,18 +2354,23 @@ StScrollBar {
       border-radius: 100px;
       transition-duration: 0s;
     }
+
     &:hover .overview-icon,
     &:focus .overview-icon { // more lighter fill than osd_semi_fill!
       background-color: $osd_slight_fill_color;
       transition-duration: 0s;
     }
+
     &:active .overview-icon {
       background-color: $osd_semi_fill_color;
       transition-duration: $duration_medium;
     }
-    &:checked .overview-icon {
-      background-color: $osd_indicator_color;
-      transition-duration: 0s;
+
+    &:checked .overview-icon,
+    &:checked:hover .overview-icon {
+      background-color: $hidden_fill_color;
+      box-shadow: $empty_shadow;
+      transition-duration: $duration_long;
     }
   }
 }
