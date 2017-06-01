@@ -1069,14 +1069,13 @@ StScrollBar {
   transition-timing-function: $slope_slow;
   transition-duration: $duration_long;
 
-  // remain top-edge solid part
   &,
   &:overview,
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
     background-color: $panel_hidden_fill_color;
-    box-shadow: inset 0 2px $panel_bg_color;
+    box-shadow: $empty_shadow;
     transition-timing-function: $slope_slow;
     transition-duration: $duration_long;
 
