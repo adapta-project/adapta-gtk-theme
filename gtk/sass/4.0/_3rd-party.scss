@@ -1012,6 +1012,8 @@ window.budgie-switcher-window {
       // keep the minimum width defined by tabswitcher.ui
       min-width: ($min_child_width + $min_spacing) * $max_childs
                  + $min_spacing * ($max_childs - 1);
+      // prepare for tall and dense fonts
+      min-height: 13.3px * 1.5; // use non-scaling unit
       color: $inverted_accent_label_color;
       font-weight: 500;
       &:dir(ltr) { padding: 0 0 3px 6px; }
