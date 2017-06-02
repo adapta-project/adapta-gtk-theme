@@ -90,13 +90,13 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 
 .gtkstyle-fallback {
   background-color: $bg_color;
-  color: $fg_color;
+  color: $secondary_fg_color;
   &:hover {
-    background-color: darken($bg_color, 5%);
+    background-color: mix($fg_color, $bg_color, 10%);
     color: $fg_color;
   }
   &:active {
-    background-color: darken($bg_color, 10%);
+    background-color: mix($fg_color, $bg_color, 20%);
     color: $fg_color;
   }
   &:disabled {

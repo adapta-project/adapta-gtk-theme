@@ -108,16 +108,16 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 
 .gtkstyle-fallback {
   background-color: $bg_color;
-  color: $fg_color;
-  &:prelight {
-    background-color: darken($bg_color, 5%);
+  color: $secondary_fg_color;
+  &:hover {
+    background-color: mix($fg_color, $bg_color, 10%);
     color: $fg_color;
   }
   &:active {
-    background-color: darken($bg_color, 10%);
+    background-color: mix($fg_color, $bg_color, 20%);
     color: $fg_color;
   }
-  &:insensitive {
+  &:disabled {
     background-color: $bg_color;
     color: $insensitive_fg_color;
   }
