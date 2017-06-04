@@ -1,0 +1,594 @@
+/***************
+ * Gnome panel *
+ ***************/
+
+PanelWidget,
+PanelApplet,
+PanelToplevel {
+  // Always use dark-color of dark variant
+  color: $inverted_secondary_fg_color;
+  background-color: $panel_bg_color;
+}
+
+PanelSeparator {
+  border-width: 0;
+  background: none;
+  background-image: none;
+}
+
+.gnome-panel-menu-bar,
+PanelApplet menubar,
+PanelMenuBar menubar,
+ClockBox {
+  font: bold;
+  color: $inverted_secondary_fg_color;
+  background-color: transparent;
+  label:backdrop,
+  &:backdrop { opacity: 1.0; }
+}
+
+.gnome-panel-menu-bar,
+PanelApplet menubar,
+PanelMenuBar menubar {
+  box-shadow: none;
+  & menuitem {
+    color: $inverted_secondary_fg_color;
+    background-color: transparent;
+    &:hover {
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
+    &:backdrop { opacity: 1.0; }
+  }
+  & menu {
+    font: regular;
+    & menuitem {
+      color: $secondary_fg_color;
+      background-color: $base_color;
+      &:hover {
+        color: $fg_color;
+        background-color: gtkalpha(currentColor, 0.1);
+	box-shadow: none;
+      }
+      &:backdrop { opacity: 1.0; }
+    }
+    separator { color: $borders_color; }
+  }
+}
+
+PanelAppletFrame {
+  border-width: 0;
+  background-color: transparent;
+  background-image: none;
+}
+
+PanelApplet {
+  & button {
+    &#tasklist-button,
+    &#clock-applet-button,
+    &#showdesktop-button {
+      @include button(flat);
+      padding: 0px 4px;
+      color: $inverted_secondary_fg_color;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      &:hover {
+        color: $selected_fg_color;
+        background-color: transparent;
+        box-shadow: inset 0 -2px $track_color;
+      }
+      &:checked,
+      &:hover:checked,
+      &:disabled:checked { // 'checked' = 'active'
+        color: $selected_fg_color;
+        background-color: transparent;
+        box-shadow: inset 0 -2px $selected_bg_color;
+      }
+      label:backdrop,
+      &:backdrop { opacity: 1.0; }
+    }
+  }
+}
+
+WnckPager {
+  &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+  &:backdrop { opacity: 1.0; }
+}
+
+NaTrayApplet {
+  -NaTrayApplet-icon-padding: 2;
+  -NaTrayApplet-icon-size: 16;
+  &:backdrop { opacity: 1.0; }
+}
+
+
+/**************
+ * Tweak-tool *
+ **************/
+
+// sidebar
+.tweak-categories {
+  background-color: $secondary_dark_color;
+  color: $secondary_fg_color;
+  &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                                 $sidebar-dark-ltr);
+  }
+  &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
+                                                 $sidebar-dark-rtl);
+  }
+
+  separator,
+  .separator {
+    @extend separator.wide;
+    min-height: 0;
+    border-color: transparent;
+    background-color: transparent;
+    color: transparent;
+  }
+}
+
+.tweak-category {
+  @extend treeview.view;
+  border: none;
+  color: $secondary_fg_color;
+  background-color: transparent;
+  font-weight: 500;
+  &:hover { color: $fg_color; }
+  &:selected {
+    color: $selected_bg_color;
+    background-color: transparent;
+
+    label { color: $selected_bg_color; }
+  }
+
+}
+
+// container and tweaks in a group
+.tweak-group {
+  padding: 6px;
+  background-color: $base_color;
+}
+
+.tweak {
+  background-color: $base_color;
+  &:hover { background-color: transparent; }
+}
+
+.tweak-group-white,
+.tweak-white {
+  background-color: $base_color;
+}
+
+
+/*******************
+ * Gnome-Flashback *
+ *******************/
+
+// use message-dialog style for popup osd windows
+FlashbackOsdWindow,
+GfPopupWindow {
+  border-radius: 2px;
+  border: 1px solid $borders_color;
+  opacity: 0.9;
+  &.background {
+    background-color: $inverted_dark_color;
+    color: $inverted_fg_color;
+  }
+}
+
+GfInputSourcePopup {
+  #input-source {
+    color: $inverted_fg_color;
+    font-size: 2em;
+    font-weight: bold;
+    &:selected {
+      border-radius: 2px;
+      background-color: $track_color;
+      color: $accent_color;
+    }
+  }
+}
+
+FlashbackLabelWindow {
+  font-size: 4em;
+}
+
+// popup for inpu-source candidates
+GfCandidatePopup {
+  &, &.solid {
+    border-radius: 2px;
+    border: 1px solid $borders_color;
+    color: $inverted_fg_color;
+  }
+
+  GfCandidateBox {
+    transition: none;
+    label { padding: 0.2em 0.2em 0.3em; } // a half of .menuitem
+
+    &:last-child { padding-left: 0; }
+    &:hover,
+    &:selected {
+      border-radius: 0;
+      background-color: $track_color;
+      color: $selected_fg_color;
+    }
+  }
+
+  button,
+  .linked > button { // page-up&down buttons
+    &,
+    &:first-child,
+    &:last-child {
+      @extend button.flat;
+      border-radius: 0;
+      border: none;
+      background-color: transparent;
+      color: $secondary_accent_color;
+      box-shadow: none;
+    }
+  }
+}
+
+
+/************
+ * Nautilus *
+ ************/
+
+.nautilus-canvas-item {
+  border-radius: 2px;
+}
+
+.nautilus-circular-button {
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
+}
+
+NautilusTrashBar {
+  @extend infobar;
+}
+
+
+/*********
+ * Geary *
+ *********/
+
+// Geary is the most ugly app for theming.
+.geary-titlebar-left {
+  // remove unexpected "hardcoded" vertical separator
+  separator { opacity: 0; }
+}
+
+.geary-titlebar-right {
+  // stop double-shadows on right paned header-bar
+  box-shadow: none;
+}
+
+
+/************
+ * Epiphany *
+ ************/
+
+// reset inverted foreground colour
+EphyWindow {
+  .nautilus-window .floating-bar { color: $secondary_fg_color; }
+}
+
+
+/************
+ * Seahorse *
+ ************/
+
+// remove double borders
+SeahorseWidget {
+  .sidebar {
+    paned separator { border: none; }
+  }
+}
+
+
+/**********
+ * Polari *
+ **********/
+
+// FIXME: it doesn't work at all
+#polari-sidebar { @extend .sidebar; }
+
+#polari-room-list {
+// row:selected { @extend row:selected; }
+}
+
+
+/*************
+ * RhythmBox *
+ *************/
+
+// add top-border to inline-toolbar
+.inline-toolbar toolbar.horizontal.sidebar-toolbar {
+  @if $variant=='light' {
+    box-shadow: inset 0 1px $solid_light_borders_color,
+                inset 0 2px 2px rgba(0, 0, 0, 0.05),
+                inset -2px 0 2px -2px rgba(0, 0, 0, 0.03),
+                inset -3px 0 3px -2px rgba(0, 0, 0, 0.03);
+  }
+  @else {
+    box-shadow: inset 0 1px $solid_light_borders_color,
+                inset 0 2px 2px rgba(0, 0, 0, 0.05),
+                inset -2px 0 1px -2px rgba(0, 0, 0, 0.02),
+                inset -3px 0 3px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  &:dir(rtl) {
+    @if $variant=='light' {
+      box-shadow: inset 0 1px $solid_light_borders_color,
+                  inset 0 2px 2px rgba(0, 0, 0, 0.05),
+                  inset 2px 0 2px -2px rgba(0, 0, 0, 0.03),
+                  inset 3px 0 3px -2px rgba(0, 0, 0, 0.03);
+    }
+    @else {
+      box-shadow: inset 0 1px $solid_light_borders_color,
+                  inset 0 2px 2px rgba(0, 0, 0, 0.05),
+                  inset 2px 0 1px -2px rgba(0, 0, 0, 0.02),
+                  inset 3px 0 3px -2px rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+// fix sidebar background colour
+.sidebar-paned GtkStack RBDisplayPageTree {
+  .sidebar {
+    background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
+                                            rgba(18, 22, 0, 0.04));
+  }
+}
+
+
+/**************
+ * Calculator *
+ **************/
+
+MathWindow {
+  & :not(.titlebar),
+  & :not( headerbar) {
+    .button:not(.flat):not(.titlebutton) {
+      @extend button.flat;
+      padding: 0.75em 1em 0.75em;  // FIXME: broken in 12pt fonts?
+      border: 0.75em solid transparent;
+      border-radius: 2px;
+      font-weight: bold;
+
+      &.suggested-action {  // '=' button
+        color: transparent;
+        font-size: 0;
+        @each $s,$as in ('',''),
+                        (':hover','-hover'),
+                        (':active','-active'),
+                        (':disabled','-insensitive') {
+          &#{$s} {
+            $_url: 'assets/equal#{$as}#{$asset_suffix}';
+            @include button(normal#{$as});
+            border-style: none;
+            border-radius: 100px;
+            background-color: transparent;
+            background-image: -gtk-scaled(url('#{$_url}.png'),
+                                          url('#{$_url}@2.png'));
+            background-size: 32px;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: none;
+	    transition-duration: 0.2s;
+	    animation: none; // FIXME: animation breaks padding.
+          }
+        }
+	&:backdrop { opacity: 0.8; }
+      }
+    }
+  }
+}
+
+
+/*********
+ * Gedit *
+ *********/
+
+.gedit-headerbar-paned {
+  color: transparent;
+  background-color: $inverted_dark_color;
+}
+
+GeditViewFrame {
+  .gedit-search-slider {
+    @extend toolbar.osd;
+    padding: 3px;
+    border-radius: 2px;
+    border-width: 9px;
+    border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
+                              url("assets/osd-shadow#{$asset_suffix}@2.png"))
+                  10 / 10px stretch;
+    color: $inverted_fg_color;
+    opacity: 0.9;
+
+    entry,
+    .linked > entry {
+      &,
+      &.error,
+      &.warning {
+        color: $inverted_fg_color;
+        &:focus { color: $selected_fg_color; }
+        &:disabled { color: $insensitive_inverted_fg_color; }
+      }
+    }
+  }
+}
+
+
+/***********
+ * Builder *
+ ***********/
+
+// pane header styling
+GbViewStack GtkBox.header.notebook,
+GbEditorWorkspace > GtkPaned > GtkBox > GtkBox.header.notebook,
+GbWorkspacePane GtkBox.header.notebook {
+  border-bottom: 1px solid $borders_color;
+  background-color: transparent;
+}
+
+GbWorkspacePane {
+  GtkStackSwitcher button { padding: 1em; }
+
+  separator { background-color: $solid_light_borders_color; }
+}
+
+// remove unwanted border
+GtkScrolledWindow.gb-linked-scroller {
+  border-top: none;
+}
+
+// force using fixed-width font
+GbSourceStyleSchemeWidget GtkSourceView,
+GtkEntry.gb-command-bar-entry {
+  font-family: Monospace;
+}
+
+GbTerminalView > GtkPaned > GtkScrolledWindow {
+  &, & > VteTerminal {
+    font-family: Monospace;
+    font-weight: 500;
+    font-size: 1em;
+  }
+}
+
+// Disable various animations that are enabled by default and really annoying
+// to the overall flow of Builder.
+GbSearchDisplayGroup GtkListBox row { transition: none; }
+
+
+/***************
+ * Gnome-music *
+ ***************/
+
+// side-bar styling
+// FIXME: it doesn't work properly
+GdMainView,
+.side-panel {
+  &:dir(ltr) { border-right: 1px solid $borders_color; }
+  &:dir(rtl) { border-left: 1px solid $borders_color; }
+
+  .view {
+    background-color: $secondary_dark_color;
+    box-shadow: none;
+    &, & row.activatable {
+      padding: 0;
+      background-color: transparent;
+      color: $secondary_fg_color;
+      font-weight: 500;
+      box-shadow: none;
+      &:hover { color: $fg_color; }
+      &:hover:selected,
+      &:selected { @extend %selected_items; }
+    }
+
+    // &:dir(ltr) {
+    //   box-shadow: if($variant=='light', $sidebar-light-ltr,
+    //                                     $sidebar-dark-ltr);
+    // }
+    // &:dir(rtl) {
+    //   box-shadow: if($variant=='light', $sidebar-light-rtl,
+    //                                     $sidebar-dark-rtl);
+    // }
+  }
+}
+
+// player-bar
+// FIXME: it doesn't work properly
+actionbar {
+  &, &.frame { background-color: $secondary_dark_color; }
+  box-shadow: $inline-shadow;
+
+  button,
+  .linked > button.image-button {
+    @extend button.flat;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    box-shadow: none;
+    border-image: -gtk-gradient(radial,
+                                center bottom, 0,
+                                center bottom, 0.001,
+                                to($track_color),
+                                to(transparent))
+                                0 0 0 / 0 0 0px;
+    color: $secondary_fg_color;
+    &:hover {
+      box-shadow: none;
+      border-image: none;
+      color: $fg_color;
+    }
+    &:checked {
+      box-shadow: none;
+      border-image: -gtk-gradient(radial,
+                                  center bottom, 0,
+                                  center bottom, 0.5,
+                                  to($selected_bg_color),
+                                  to(transparent))
+                                  0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+      &:disabled {
+        box-shadow: none;
+        background-color: transparent;
+        color: $insensitive_fg_color;
+        border-image: none;
+        > .label { color: inherit; }
+      }
+    }
+    &:disabled {
+      box-shadow: none;
+      background-color: transparent;
+      color: $insensitive_secondary_fg_color;
+      border-image: none;
+    }
+  }
+}
+
+
+/******************
+ * Gnome-contacts *
+ ******************/
+
+ContactsWindow {
+  // side-bar styling
+  list {
+    &:dir(ltr) { box-shadow: if($variant=='light', $sidebar-light-ltr,
+                                                   $sidebar-dark-ltr);
+    }
+    &:dir(rtl) { box-shadow: if($variant=='light', $sidebar-light-rtl,
+                                                   $sidebar-dark-rtl);
+    }
+
+    row.activatable {
+      color: $secondary_fg_color;
+      background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
+                                              rgba(18, 22, 0, 0.04));
+
+      &:hover { color: $fg_color; }
+      &:selected {
+        color: $selected_bg_color;
+        background-color: if($variant=='light', rgba(12, 18, 0, 0.01),
+                                                rgba(18, 22, 0, 0.04));
+      }
+      &:backdrop { opacity: 1.0; }
+    }
+
+    // hide horizontal separator
+    .separator,
+    separator {
+      @extend separator.wide;
+      min-height: 0;
+      border-color: transparent;
+      background-color: transparent;
+      color: transparent;
+    }
+  }
+}
+
