@@ -8,8 +8,10 @@ chromedir         = $(srcdir)/chrome
 chrome_file       = $(chromedir)/adapta-theme.crx
 chrome_nokto_file = $(chromedir)/adapta-nokto-theme.crx
 
-plankdir   = $(srcdir)/plank
-plank_file = $(plankdir)/dock.theme
+plankdir         = $(srcdir)/plank
+plank_file       = $(plankdir)/dock.theme
+plank_themedir   = $(DESTDIR)$(datadir)/plank/themes
+plank_adaptadir  = $(plank_themedir)/Adapta
 
 telegramdir         = $(srcdir)/telegram
 telegram_file       = $(telegramdir)/adapta.tdesktop-theme
@@ -43,12 +45,12 @@ if ENABLE_CHROME
 endif
 
 if ENABLE_PLANK
-	$(MKDIR_P) $(adaptadir)/plank
-	cp -Rv $(plank_file) $(adaptadir)/plank
-	cd $(adaptadir)
-	ln -sf ../Adapta/plank $(noktodir)/plank
-	ln -sf ../Adapta/plank $(adaptaetadir)/plank
-	ln -sf ../Adapta/plank $(noktoetadir)/plank
+	$(MKDIR_P) $(plank_adaptadir)
+	cp -Rv $(plank_file) $(plank_adaptadir)
+	cd $(plank_themedir)
+	ln -sf Adapta $(plank_themedir)/Adapta-Nokto
+	ln -sf Adapta $(plank_themedir)/Adapta-Eta
+	ln -sf Adapta $(plank_themedir)/Adapta-Nokto-Eta
 endif
 
 if ENABLE_TELEGRAM
