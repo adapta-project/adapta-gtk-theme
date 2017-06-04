@@ -1545,6 +1545,9 @@ frame.gb-search-frame {
   border-width: 0;
 }
 
+//don't have transitions on omnisearchrows to prevent flashing in dark variant
+list > omnisearchrow { transition: none; }
+
 // Tweaks for the editortweak popover in the editor.
 editortweak {
   button { padding: 0 rem(6px) 0 rem(6px); }
