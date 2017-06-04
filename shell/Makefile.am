@@ -12,9 +12,7 @@ shell_file = \
 	$(shelldir)/no-notifications.svg \
 	$(shelldir)/noise-texture.png \
 	$(shelldir)/process-working.svg \
-	$(shelldir)/toggle-off-hover.svg \
 	$(shelldir)/toggle-off.svg \
-	$(shelldir)/toggle-on-hover.svg \
 	$(shelldir)/toggle-on.svg
 shell_pad_osd_file = \
 	$(shelldir)/pad-osd.css
@@ -110,9 +108,7 @@ shell_nokto_file = \
 	$(shellnoktodir)/no-notifications.svg \
 	$(shellnoktodir)/noise-texture.png \
 	$(shellnoktodir)/process-working.svg \
-	$(shellnoktodir)/toggle-off-hover.svg \
 	$(shellnoktodir)/toggle-off.svg \
-	$(shellnoktodir)/toggle-on-hover.svg \
 	$(shellnoktodir)/toggle-on.svg
 shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/calendar-arrow-left-hover.svg \
@@ -146,9 +142,7 @@ shelleta_file = \
 	$(shelletadir)/no-notifications.svg \
 	$(shelletadir)/noise-texture.png \
 	$(shelletadir)/process-working.svg \
-	$(shelletadir)/toggle-off-hover.svg \
 	$(shelletadir)/toggle-off.svg \
-	$(shelletadir)/toggle-on-hover.svg \
 	$(shelletadir)/toggle-on.svg
 shelleta_asset_file = \
 	$(shelletadir)/assets/calendar-arrow-left-hover.svg \
@@ -182,9 +176,7 @@ shell_nokto_eta_file = \
 	$(shellnoktoetadir)/no-notifications.svg \
 	$(shellnoktoetadir)/noise-texture.png \
 	$(shellnoktoetadir)/process-working.svg \
-	$(shellnoktoetadir)/toggle-off-hover.svg \
 	$(shellnoktoetadir)/toggle-off.svg \
-	$(shellnoktoetadir)/toggle-on-hover.svg \
 	$(shellnoktoetadir)/toggle-on.svg
 shell_nokto_eta_asset_file = \
 	$(shellnoktoetadir)/assets/calendar-arrow-left-hover.svg \
@@ -688,7 +680,6 @@ CLEANFILES += \
 	$(srcdir)/gnome-shell-nokto-eta/*.png \
 	$(srcdir)/gnome-shell-nokto-eta/assets/*.svg \
 	$(srcdir)/gnome-shell-nokto-eta/assets/dot/*.svg \
-	$(srcdir)/asset/assets-gnome-shell/common/toggle-on-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/toggle-on.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/checkbox-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/checkbox.svg \
