@@ -134,6 +134,18 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   }
 }
 
+.tweak-group {
+  // for shell-extensions group
+  row.activatable:not(.tweak) {
+    &:hover,
+    &:active { // unset hover/active effects
+      background-image: none;
+      background-color: transparent;
+      animation: none;
+    }
+  }
+}
+
 row.tweak { // basic row node container in right-pane
   &:dir(ltr) { padding-left: rem(13.3px, $sw: 1.0); }
   &:dir(rtl) { padding-right: rem(13.3px, $sw: 1.0); }
