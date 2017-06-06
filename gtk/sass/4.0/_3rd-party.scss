@@ -2218,6 +2218,52 @@ MatePanelAppletFrameDBus {
   &:dir(rtl) { border-width: 0 2px 0 0; }
 }
 
+// 'hide' arrow buttons
+PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
+  @extend %button_flat_normal;
+  min-height: 4px;
+  min-width: 4px;
+  padding: 0;
+  border-radius: 0;
+  border-style: solid;
+  border-color: gtkopacity($inverted_fg_color, 0.1);
+  -gtk-outline-radius: 0;
+  background-color: transparent;
+  color: $inverted_secondary_fg_color;
+  &:hover {
+    @extend %button_flat_hover;
+    background-color: transparent;
+    color: $inverted_fg_color;
+  }
+  &:active {
+    @extend %button_flat_active;
+    background-color: transparent;
+    color: $inverted_fg_color;
+  }
+  &:disabled {
+    @extend %button_flat_disabled;
+    color: $insensitive_inverted_fg_color;
+  }
+  &:checked {
+    @extend %button_flat_checked;
+    background-color: transparent;
+    color: $inverted_fg_color;
+  }
+
+  > image {
+    padding: 0 rem(4px, $sw: 1.0);
+  }
+
+  &:first-child {
+    &:dir(ltr) { border-width: 0 1px 0 0; }
+    &:dir(rtl) { border-width: 0 0 0 1px; }
+  }
+  &:not(:first-child) {
+    &:dir(ltr) { border-width: 0 0 0 1px; }
+    &:dir(rtl) { border-width: 0 1px 0 0; }
+  }
+}
+
 .mate-panel-menu-bar menubar,
 #PanelApplet-window-menu-applet-button {
   background-color: transparent;
