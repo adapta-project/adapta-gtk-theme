@@ -2495,6 +2495,22 @@ MatePanelAppletFrameDBus {
   }
 }
 
+.mate-panel-applet-slider {
+  background-color: transparent;
+
+  frame { // draw actual widget
+    border-width: 1px;
+    border-style: solid;
+    border-color: $menu_highlight_color transparent transparent;
+    border-radius: 2px;
+    background-color: $secondary_base_color;
+
+    // unset borders
+    *,
+    > border { border: unset; }
+  }
+}
+
 
 // /*****************
 //  * Mate-Terminal *
