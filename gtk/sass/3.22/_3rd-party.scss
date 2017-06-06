@@ -2632,23 +2632,31 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
         &:dir(rtl) { margin-right: -2px; }
       }
 
+      &.toggle,
+      &.image-button,
+      &.text-button,
+      &.slider-button { // enforce square buttons
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
+      }
+
       &, &.slider-button { // use linked-array button styling
-        @include button(flat-normal);
+        @extend %button_flat_normal;
         @extend %button_array;
         &:hover {
-          @include button(flat-hover);
+          @extend %button_flat_hover;
           @extend %button_array:hover;
         }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
           @extend %button_array:active;
         }
         &:disabled {
-          @include button(flat-insensitive);
+          @extend %button_flat_disabled;
           @extend %button_array:disabled;
         }
         &:checked {
-          @include button(flat-checked);
+          @extend %button_flat_checked;
           @extend %button_array:checked;
         }
       }
