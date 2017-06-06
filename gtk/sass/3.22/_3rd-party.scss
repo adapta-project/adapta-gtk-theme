@@ -3206,9 +3206,8 @@ window#wb_main_window {
 //  * Chrome(ium) *
 //  ***************/
 
-window.background:not(.csd):not(.solid-csd) {
-  > toolbar:not(.primary-toolbar) > entry, // ver.59.0.3053 or lower
-  > entry { // ver.59.0.3067 or higher
+window.background.chromium {
+  entry.chromium {
     &, &:focus { // overrides standard borders
       border-image: none;
       border: 1px solid $borders_color;
