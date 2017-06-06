@@ -2387,6 +2387,45 @@ window.background {
   }
 }
 
+
+// /**************
+//  * Mate-Panel *
+//  **************/
+
+// Most parts are themed in Gnome-panel section
+#PanelWidget,
+#PanelPlug,
+#PanelApplet,
+PanelToplevel.background {
+  // Always use dark-color of dark variant
+  color: $inverted_secondary_fg_color;
+  background-color: $panel_bg_color;
+  box-shadow: none;
+}
+
+PanelSeparator {
+  border-width: 0;
+  background: none;
+  background-image: none;
+  color: gtkopacity($inverted_fg_color, 0.2);
+}
+
+MatePanelAppletFrameDBus {
+  border-style: solid;
+  border-color: gtkopacity($inverted_fg_color, 0.2);
+
+  &:dir(ltr) { border-width: 0 0 0 2px; }
+  &:dir(rtl) { border-width: 0 2px 0 0; }
+}
+
+.mate-panel-menu-bar menubar,
+#PanelApplet-window-menu-applet-button {
+  background-color: transparent;
+
+  // same value with Gnome-panel
+  > menuitem { padding: 0 rem(4px, $sw: 1.0); }
+}
+
 // Brisk-Menu applet
 .mate-panel-menu-bar button.flat.toggle.brisk-button {
   padding: 0 rem(4px, $sw: 1.0);
@@ -2454,45 +2493,6 @@ window.background {
       > box.horizontal > image { padding: rem(5.3px) 0; }
     }
   }
-}
-
-
-// /**************
-//  * Mate-Panel *
-//  **************/
-
-// Most parts are themed in Gnome-panel section
-#PanelWidget,
-#PanelPlug,
-#PanelApplet,
-PanelToplevel.background {
-  // Always use dark-color of dark variant
-  color: $inverted_secondary_fg_color;
-  background-color: $panel_bg_color;
-  box-shadow: none;
-}
-
-PanelSeparator {
-  border-width: 0;
-  background: none;
-  background-image: none;
-  color: gtkopacity($inverted_fg_color, 0.2);
-}
-
-MatePanelAppletFrameDBus {
-  border-style: solid;
-  border-color: gtkopacity($inverted_fg_color, 0.2);
-
-  &:dir(ltr) { border-width: 0 0 0 2px; }
-  &:dir(rtl) { border-width: 0 2px 0 0; }
-}
-
-.mate-panel-menu-bar menubar,
-#PanelApplet-window-menu-applet-button {
-  background-color: transparent;
-
-  // same value with Gnome-panel
-  > menuitem { padding: 0 rem(4px, $sw: 1.0); }
 }
 
 
