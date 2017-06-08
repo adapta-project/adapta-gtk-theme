@@ -808,11 +808,10 @@ StScrollBar {
   }
 
   StIcon.popup-menu-icon {
-    min-width: if($eta == 'false', 48px - 12px, 36px - 12px);
-    padding: 0;
-    background-image: url("assets/show-apps.svg");
-    // expand actual image area as possible as we can
-    background-size: if($eta == 'false', 48px 48px, 36px 36px);
+    min-width: if($eta == 'false', 26px, 20px);
+    padding: if($eta == 'false', 0 5px, 0 2px);
+    background-image: url("assets/show-apps-panel.svg");
+    background-size: 32px 32px;
     background-position: center center;
     transition-duration: 0s;
   }
@@ -822,7 +821,7 @@ StScrollBar {
   &:active,
   &:checked {
     StIcon.popup-menu-icon {
-      background-image: url("assets/show-apps-hover.svg");
+      background-image: url("assets/show-apps-panel-hover.svg");
       transition-duration: 0s;
     }
   }
@@ -2382,6 +2381,9 @@ StScrollBar {
 
     // FIXME: workaround for DashToPanelExtension
     #panelLeft & {
+      background-image: url("assets/show-apps-panel.svg");
+      background-size: 32px 32px;
+      background-position: center center;
       transition-duration: 0s;
       -st-background-image-shadow: none;
     }
@@ -2397,6 +2399,9 @@ StScrollBar {
 
     // FIXME: workaround for DashToPanelExtension
     #panelLeft & {
+      background-image: url("assets/show-apps-panel-hover.svg");
+      background-size: 32px 32px;
+      background-position: center center;
       transition-duration: 0s;
       -st-background-image-shadow: none;
     }
@@ -2409,7 +2414,9 @@ StScrollBar {
 
     // FIXME: workaround for DashToPanelExtension
     #panelLeft & {
-      background-image: url("assets/show-apps-hover.svg");
+      background-image: url("assets/show-apps-panel-hover.svg");
+      background-size: 32px 32px;
+      background-position: center center;
       transition-duration: 0s;
       -st-background-image-shadow: none;
     }
@@ -2523,7 +2530,7 @@ StScrollBar {
     .show-apps-icon {
       min-height: 24px;
       padding: 0;
-      background-size: 36px 36px;
+      background-size: 32px 32px;
       background-repeat: no-repeat;
     }
   }
