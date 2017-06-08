@@ -3286,6 +3286,10 @@ window#wb_main_window {
 //  ***************/
 
 window.background.chromium {
+  // checked-tab & toolbar & button widgets
+  background-color: if($variant == 'light', $bg_color, $base_color);
+  color: if($variant == 'light', $secondary_fg_color, $fg_color);
+
   entry.chromium {
     &, &:focus { // overrides standard borders
       border-image: none;
@@ -3294,7 +3298,22 @@ window.background.chromium {
   }
 
   // internal region of toolbar's entry widget
-  > textview.view { background-color: $light_color; }
+  > textview.view {
+    background-color: $light_color;
+
+    text {
+      color: if($variant == 'light', $secondary_fg_color, $fg_color);
+      caret-color: if($variant == 'light', $secondary_fg_color, $fg_color);
+      &:focus {
+        color: $fg_color;
+        caret-color: $fg_color;
+      }
+      &:selected,
+      selection {
+        &, &:focus { @extend %selected_items; }
+      }
+    }
+  }
 
   // ver.59.0.3067 or higher
   // override default @theme_bg_color in their own tooltip widgets
