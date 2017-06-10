@@ -2205,13 +2205,30 @@ window > box.vertical > box.horizontal {
 //  * Eclipse/SWT (neon) *
 //  **********************/
 
-window.background > box.vertical {
+window.background:not(.csd) > box.vertical {
   > menubar { // force setting foreground colour
     color: $inverted_secondary_fg_color;
   }
 
   > scrolledwindow widget > toolbar { // remove inline-shadows
     box-shadow: none;
+  }
+
+  > scrolledwindow > widget > widget {
+    border-width: 0 0 1px;
+    border-style: none none solid;
+    border-color: transparent transparent $solid_light_borders_color;
+
+    // reduce height of search-entry inside the main toolbar widget
+    > widget > widget > entry {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  widget > frame > widget > widget > scrolledwindow > textview {
+    // override hard-coded crazy rgb(0,0,0)
+    text { background-image: image($base_color); }
   }
 }
 
