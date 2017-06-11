@@ -2210,20 +2210,31 @@ window.background:not(.csd) > box.vertical {
     color: $inverted_secondary_fg_color;
   }
 
-  > scrolledwindow widget > toolbar { // remove inline-shadows
-    box-shadow: none;
+  > scrolledwindow widget > toolbar {
+    box-shadow: none; // remove inline-shadows
+
+    button { // hard-coded crazy zero-padding
+      min-height: if($ref_weight < 1.0, $icon_size * 1.5, $icon_size * 1.75);
+      min-width: if($ref_weight < 1.0, $icon_size * 1.5, $icon_size * 1.75);
+      margin: 2px 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+
+    separator { margin: 2px 0; }
   }
 
   > scrolledwindow > widget > widget {
     border-width: 0 0 1px;
     border-style: none none solid;
     border-color: transparent transparent $solid_light_borders_color;
+  }
 
-    // reduce height of search-entry inside the main toolbar widget
-    > widget > widget > entry {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+  scrolledwindow widget > widget > entry {
+    // internal padding is still alive in Gtk+3!?
+    // any ideas how they develop their UIs...
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   widget > frame > widget > widget > scrolledwindow > textview {
