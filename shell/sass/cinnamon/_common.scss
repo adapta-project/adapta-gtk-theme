@@ -1250,7 +1250,7 @@ $icon_size: 16px;
   }
 
   &-categories-box {
-    padding: 7px 20px 7px 20px;
+    padding: 7px 7px 0 7px;
     border: 0 solid $borders_color;
     &:ltr { border-right-width: 1px; }
     &:rtl { border-left-width: 1px; }
@@ -1260,7 +1260,7 @@ $icon_size: 16px;
   &-applications-outer-box { padding: 7px 7px 0 7px; }
 
   &-application-button {
-    padding: 7px;
+    padding: 0 7px;
     border: 1px solid transparent;
     color: $secondary_fg_color;
 
@@ -1270,39 +1270,41 @@ $icon_size: 16px;
 
     &-selected {
       @extend %button:hover;
-      padding: 7px;
+      padding: 0 7px;
       border: 1px solid transparent;
       color: $fg_color;
       &:highlighted { font-weight: 700; }
     }
 
-    &-label:ltr { padding-left: 5px; }
-    &-label:rtl { padding-right: 5px; }
+    &-label { // embed vertical padding directly
+      &:ltr { padding: 6px 0 7px 5px; }
+      &:rtl { padding: 6px 5px 7px 0; }
+    }
   }
 
   &-category-button {
-    padding: 7px;
-    border-radius: 2px;
+    padding: 0 7px;
     border: 1px solid transparent;
     color: $secondary_fg_color;
 
     &-hover,
     &-selected {
-      padding: 7px;
+      padding: 0 7px;
+      border-radius: 2px;
       border: 1px solid transparent;
       background-color: shellopacity($selected_bg_color, 0.1);
       color: $selected_bg_color;
     }
 
     &-greyed {
-      padding: 7px;
+      padding: 0 7px;
       border: 1px solid transparent;
       color: $insensitive_fg_color;
     }
 
-    &-label {
-      &:ltr { padding-left: 5px; }
-      &:rtl { padding-right: 5px; }
+    &-label { // embed vertical padding directly
+      &:ltr { padding: 6px 0 7px 5px; }
+      &:rtl { padding: 6px 5px 7px 0; }
     }
   }
 
