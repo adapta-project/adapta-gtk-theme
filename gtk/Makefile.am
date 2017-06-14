@@ -16,55 +16,70 @@ gtk318dir   = $(srcdir)/gtk-3.18
 gtk318_file = \
 	$(gtk318dir)/gtk.css \
 	$(gtk318dir)/gtk-dark.css \
+	$(gtk318dir)/gtk-contained.css \
+	$(gtk318dir)/gtk-contained-dark.css \
 	$(gtk318dir)/gtk.gresource
 
 gtk318noktodir   = $(srcdir)/gtk-3.18-nokto
 gtk318nokto_file = \
 	$(gtk318noktodir)/gtk.css \
+	$(gtk318dir)/gtk-contained-dark.css \
 	$(gtk318noktodir)/gtk.gresource
 
 gtk320dir   = $(srcdir)/gtk-3.20
 gtk320_file = \
 	$(gtk320dir)/gtk.css \
 	$(gtk320dir)/gtk-dark.css \
+	$(gtk320dir)/gtk-contained.css \
+	$(gtk320dir)/gtk-contained-dark.css \
 	$(gtk320dir)/gtk.gresource
 
 gtk320etadir   = $(srcdir)/gtk-3.20-eta
 gtk320eta_file = \
 	$(gtk320etadir)/gtk.css \
 	$(gtk320etadir)/gtk-dark.css \
+	$(gtk320etadir)/gtk-contained.css \
+	$(gtk320etadir)/gtk-contained-dark.css \
 	$(gtk320etadir)/gtk.gresource
 
 gtk320noktodir   = $(srcdir)/gtk-3.20-nokto
 gtk320nokto_file = \
 	$(gtk320noktodir)/gtk.css \
+	$(gtk320noktodir)/gtk-contained-dark.css \
 	$(gtk320noktodir)/gtk.gresource
 
 gtk320noktoetadir   = $(srcdir)/gtk-3.20-nokto-eta
 gtk320noktoeta_file = \
 	$(gtk320noktoetadir)/gtk.css \
+	$(gtk320noktoetadir)/gtk-contained-dark.css \
 	$(gtk320noktoetadir)/gtk.gresource
 
 gtk322dir   = $(srcdir)/gtk-3.22
 gtk322_file = \
 	$(gtk322dir)/gtk.css \
 	$(gtk322dir)/gtk-dark.css \
+	$(gtk322dir)/gtk-contained.css \
+	$(gtk322dir)/gtk-contained-dark.css \
 	$(gtk322dir)/gtk.gresource
 
 gtk322etadir   = $(srcdir)/gtk-3.22-eta
 gtk322eta_file = \
 	$(gtk322etadir)/gtk.css \
 	$(gtk322etadir)/gtk-dark.css \
+	$(gtk322etadir)/gtk-contained.css \
+	$(gtk322etadir)/gtk-contained-dark.css \
 	$(gtk322etadir)/gtk.gresource
 
 gtk322noktodir   = $(srcdir)/gtk-3.22-nokto
 gtk322nokto_file = \
 	$(gtk322noktodir)/gtk.css \
+	$(gtk322noktodir)/gtk-contained-dark.css \
 	$(gtk322noktodir)/gtk.gresource
 
 gtk322noktoetadir   = $(srcdir)/gtk-3.22-nokto-eta
 gtk322noktoeta_file = \
 	$(gtk322noktoetadir)/gtk.css \
+	$(gtk322noktoetadir)/gtk-contained-dark.css \
 	$(gtk322noktoetadir)/gtk.gresource
 
 gtk2dir   = $(srcdir)/gtk-2.0
@@ -411,22 +426,28 @@ gtknextdir   = $(srcdir)/gtk-4.0
 gtknext_file = \
 	$(gtknextdir)/gtk.css \
 	$(gtknextdir)/gtk-dark.css \
+	$(gtknextdir)/gtk-contained.css \
+	$(gtknextdir)/gtk-contained-dark.css \
 	$(gtknextdir)/gtk.gresource
 
 gtknextetadir   = $(srcdir)/gtk-4.0-eta
 gtknexteta_file = \
 	$(gtknextetadir)/gtk.css \
 	$(gtknextetadir)/gtk-dark.css \
+	$(gtknextetadir)/gtk-contained.css \
+	$(gtknextetadir)/gtk-contained-dark.css \
 	$(gtknextetadir)/gtk.gresource
 
 gtknextnoktodir   = $(srcdir)/gtk-4.0-nokto
 gtknextnokto_file = \
 	$(gtknextnoktodir)/gtk.css \
+	$(gtknextnoktodir)/gtk-contained-dark.css \
 	$(gtknextnoktodir)/gtk.gresource
 
 gtknextnoktoetadir   = $(srcdir)/gtk-4.0-nokto-eta
 gtknextnoktoeta_file = \
 	$(gtknextnoktoetadir)/gtk.css \
+	$(gtknextnoktoetadir)/gtk-contained-dark.css \
 	$(gtknextnoktoetadir)/gtk.gresource
 
 xfcenotifydir   = $(srcdir)/xfce-notify-4.0
