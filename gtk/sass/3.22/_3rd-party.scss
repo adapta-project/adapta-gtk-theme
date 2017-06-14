@@ -2420,25 +2420,30 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 }
 
 // Brisk-Menu applet
-.mate-panel-menu-bar button.flat.toggle.brisk-button {
-  padding: 0 rem(4px, $sw: 1.0);
-  border-radius: 0;
-  -gtk-outline-radius: 0;
-  background-image: none;
-  background-color: transparent;
-  color: $inverted_secondary_fg_color;
-  font-weight: 700;
-  &:hover {
+.mate-panel-menu-bar button.flat.toggle {
+  &.brisk-button {
+    padding: 0 rem(4px, $sw: 1.0);
+    border-radius: 0;
+    -gtk-outline-radius: 0;
     background-image: none;
-    color: $inverted_fg_color;
-    box-shadow: inset 0 -2px $track_color;
+    background-color: transparent;
+    color: $inverted_secondary_fg_color;
+    font-weight: 700;
+    &:hover {
+      background-image: none;
+      color: $inverted_fg_color;
+      box-shadow: inset 0 -2px $track_color;
+    }
+    &:active { animation: none; }
+    &:checked {
+      background-image: none;
+      color: $inverted_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
   }
-  &:active { animation: none; }
-  &:checked {
-    background-image: none;
-    color: $inverted_fg_color;
-    box-shadow: inset 0 -2px $selected_bg_color;
-  }
+
+  // vertical panel mode?
+  &.brisk-button-vertical { padding: 0; }
 }
 
 .brisk-menu {
@@ -2466,9 +2471,6 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   box.vertical > box.horizontal > box.vertical > separator.horizontal {
     min-height: 0;
     background-color: transparent;
-  }
-
-  .brisk-button { // what's this?
   }
 
   .apps-list { // right-pane
