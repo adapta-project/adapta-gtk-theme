@@ -1224,10 +1224,11 @@ $icon_size: 16px;
 .menu {
   &-favorites-box {
     padding: 7px;
-    border-radius: 2px;
-    border: 1px solid $borders_color;
-    background-color: $base_color;
-    box-shadow: $z-depth-2;
+    border-radius: 0;
+    border: 0 solid $borders_color;
+    background-color: transparent;
+    &:ltr { border-right-width: 1px; }
+    &:rtl { border-left-width: 1px; }
 
     // reset minimum-limits used in generic popup-menus
     .popup-menu-item { min-width: 0; }
@@ -1248,7 +1249,12 @@ $icon_size: 16px;
     &-button { padding: 7px; }
   }
 
-  &-categories-box { padding: 7px 20px 7px 20px; }
+  &-categories-box {
+    padding: 7px 20px 7px 20px;
+    border: 0 solid $borders_color;
+    &:ltr { border-right-width: 1px; }
+    &:rtl { border-left-width: 1px; }
+  }
 
   &-applications-inner-box,
   &-applications-outer-box { padding: 7px 7px 0 7px; }
@@ -1276,22 +1282,16 @@ $icon_size: 16px;
 
   &-category-button {
     padding: 7px;
+    border-radius: 2px;
     border: 1px solid transparent;
     color: $secondary_fg_color;
 
+    &-hover,
     &-selected {
       padding: 7px;
       border: 1px solid transparent;
-      background-color: transparent;
+      background-color: shellopacity($selected_bg_color, 0.1);
       color: $selected_bg_color;
-    }
-
-    &-hover {
-      @extend %button:hover;
-      padding: 7px;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      color: $fg_color;
     }
 
     &-greyed {
