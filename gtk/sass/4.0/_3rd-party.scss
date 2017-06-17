@@ -44,14 +44,33 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-container { background-color: transparent; }
 
 .budgie-panel {
-  // panel styling
+  // solid-mode
   // always use dark-color of dark variant
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
   font-weight: 700;
+  transition: $budgie_transition;
 
   // used to indicate unread notifications
   .alert { color: $suggested_color; }
+
+  // transparent-mode
+  &.transparent {
+    background-color: transparent;
+    transition: $budgie_transition;
+
+    box {
+      &.start-region,
+      &.center-region,
+      &.end-region { // draw shadows by default
+        // FIXME: NaTray puts widgets as "widgets",
+        // so we can not render icons-shadows anyhow...
+        image { -gtk-icon-shadow: $z-depth-1; }
+
+        label { text-shadow: $z-depth-1; }
+      }
+    }
+  }
 }
 
 @each $along_side, $opp_side in $full_orientation {
@@ -195,39 +214,56 @@ box.horizontal.pinned { // drop-target
 }
 
 // main menu styling
-.budgie-panel button.flat.budgie-menu-launcher {
-  min-width: $icon_size + 8px;
-  min-height: $icon_size + 8px;
-  padding: 0 ($icon_size + 8px) * 0.05;
-  border: 0 none transparent;
-  border-radius: 0;
-  -gtk-outline-radius: 0;
-  transition: $budgie_transition;
-  &:hover,
-  &:active,
-  &:checked {
-    background-image: none;
-    background-color: transparent;
+.budgie-panel {
+  button.flat.budgie-menu-launcher {
+    min-width: $icon_size + 8px;
+    min-height: $icon_size + 8px;
+    padding: 0 ($icon_size + 8px) * 0.05;
+    border: 0 none transparent;
+    border-radius: 0;
+    -gtk-outline-radius: 0;
+    transition: $budgie_transition;
+    &:hover,
+    &:active,
+    &:checked {
+      background-image: none;
+      background-color: transparent;
+    }
+
+    image {
+      // override stock icon with specific one
+      min-width: $icon_size + 4px;
+      min-height: $icon_size + 4px;
+      background-image: url("assets/show-apps.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: transparent;
+    }
+
+    &:hover,
+    &:active {
+      image { background-image: url("assets/show-apps-hover.svg"); }
+    }
+    &:checked,
+    &:checked:hover {
+      image { background-image: url("assets/show-apps-checked.svg"); }
+    }
   }
 
-  image {
-    // override stock icon with specific one
-    min-width: $icon_size + 4px;
-    min-height: $icon_size + 4px;
-    background-image: url("assets/show-apps.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: transparent;
-  }
+  &.transparent {
+    button.flat.budgie-menu-launcher {
+      image { background-image: url("assets/show-apps-shadow.svg"); }
 
-  &:hover,
-  &:active {
-    image { background-image: url("assets/show-apps-hover.svg"); }
-  }
-  &:checked,
-  &:checked:hover {
-    image { background-image: url("assets/show-apps-checked.svg"); }
+      &:hover,
+      &:active {
+        image { background-image: url("assets/show-apps-hover-shadow.svg"); }
+      }
+      &:checked,
+      &:checked:hover {
+        image { background-image: url("assets/show-apps-checked-shadow.svg"); }
+      }
+    }
   }
 }
 
