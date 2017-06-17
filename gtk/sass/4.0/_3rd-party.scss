@@ -87,8 +87,13 @@ $budgie_transition: opacity 0.2s $slope_medium,
 // wnck tasklist styling
 .budgie-panel button#tasklist-button {
   border: none;
-  background: none;
+  background-image: radial-gradient(circle farthest-corner at center,
+                                    gtkalpha($inverted_fg_color, 0) 100%,
+                                    transparent 0%),
+                    image(gtkalpha($inverted_fg_color, 0));
+  background-color: transparent;
   box-shadow: none; // unset standard wnck styling
+  transition: $budgie_transition;
 
   label,
   image { opacity: 0.75; }
@@ -100,6 +105,12 @@ $budgie_transition: opacity 0.2s $slope_medium,
 
     label,
     image { opacity: 1.0; }
+  }
+
+  &:active {
+    transition: $budgie_transition,
+                background-image 0s;
+    animation: budgie_ripple_effect 0.3s $slope_slow forwards;
   }
 }
 
