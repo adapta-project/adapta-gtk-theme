@@ -3603,15 +3603,29 @@ GtkInfoBar {
   .progressbar { background-color: $selected_fg_color; }
 }
 
-.info { background-color: $info_bg_color; }
+.info {
+  background-color: if($variant == 'dark',
+                       mix($info_bg_color, $bg_color, 75%),
+                       $info_bg_color);
+}
 
-.question { background-color: $question_bg_color; }
+.question {
+  background-color: if($variant == 'dark',
+                       mix($question_bg_color, $bg_color, 75%),
+                       $question_bg_color);
+}
 
-.warning { background-color: $warning_bg_color; }
+.warning {
+  background-color: if($variant == 'dark',
+                       mix($warning_bg_color, $bg_color, 75%),
+                       $warning_bg_color);
+}
 
 .error { // use white text for this
   color: $selected_fg_color;
-  background-color: $error_bg_color;
+  background-color: if($variant == 'dark',
+                       mix($error_bg_color, $bg_color, 75%),
+                       $error_bg_color);
 }
 
 
