@@ -427,7 +427,7 @@ $icon_size: 16px;
   @include fontscaling($ref_size * 1.0);
   height: 28px;
   width: 32px; // setting under 32px causes blurred window-list icons
-  color: $osd_secondary_fg_color;
+  color: $osd_fg_color;
   background-color: $panel_bg_color;
   font-weight: 700;
 
@@ -506,14 +506,14 @@ $icon_size: 16px;
     -minimum-hpadding: 3px;
     border-width: 0;
     font-weight: 700;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     &:hover { color: $selected_fg_color; }
   }
 
   &-button {
     -natural-hpadding: 6px;
     -minimum-hpadding: 3px;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     font-weight: 700;
     transition-duration: 0.2s;
     &:hover,
@@ -728,8 +728,8 @@ $icon_size: 16px;
 
   &-change-month-back,
   &-change-month-forward {
-    width: 16px;
-    height: 16px;
+    width: $icon_size;
+    height: $icon_size;
     padding: 2px;
     border-radius: 100px;
     &:focus,
@@ -1334,7 +1334,7 @@ $icon_size: 16px;
 }
 
 .menu-search-entry-icon {
-  icon-size: 16px;
+  icon-size: $icon_size;
   color: $fg_color;
 }
 
@@ -1411,7 +1411,7 @@ $icon_size: 16px;
     border: none;
     background-image: none;
     background-color: $hidden_fill_color;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     font-weight: 700;
 
     .panel-top &,
@@ -1423,7 +1423,7 @@ $icon_size: 16px;
     }
 
     &:hover {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
 
       @each $position, $_indicator in (top, 0 2px),
                                       (bottom, 0 -2px),
@@ -1438,7 +1438,7 @@ $icon_size: 16px;
     &:checked,
     &:focus {
       &, &:hover {
-        color: $osd_fg_color;
+        color: $selected_fg_color;
 
         @each $position, $_indicator in (top, 0 2px),
                                         (bottom, 0 -2px),
@@ -1494,7 +1494,7 @@ $icon_size: 16px;
     padding-top: 2px;
     padding-bottom: 2px;
 
-    StIcon { icon-size: 16px; }
+    StIcon { icon-size: $icon_size; }
 
     StLabel {
       padding-left: 5px;
@@ -1514,7 +1514,7 @@ $icon_size: 16px;
 
   StLabel { padding-top: 2px; }
 
-  StIcon { icon-size: 16px; }
+  StIcon { icon-size: $icon_size; }
 }
 
 .sound-seek-slider { width: 140px; }
@@ -1540,7 +1540,7 @@ $icon_size: 16px;
     spacing: 0.5em;
 
     StButton:small {
-      width: 16px;
+      width: $icon_size;
       height: 8px;
       padding: 1px;
 
@@ -1572,7 +1572,7 @@ $icon_size: 16px;
       &:hover{ @include button(osd-hover); }
       &:active { @include button(osd-active); }
 
-      StIcon { icon-size: 16px; }
+      StIcon { icon-size: $icon_size; }
     }
 
     StBoxLayout { padding-top: 2px; }
@@ -1625,11 +1625,11 @@ $icon_size: 16px;
 .workspace-button { // numeric buttons
   width: 20px;
   height: 10px;
-  color: $osd_secondary_fg_color;
+  color: $osd_fg_color;
   background-color: $hidden_fill_color;
   transition-duration: 0.2s;
   &:hover {
-    color: $osd_fg_color;
+    color: $selected_fg_color;
 
     @each $position, $_indicator in (top, 0 2px),
                                     (bottom, 0 -2px),
@@ -1814,21 +1814,22 @@ $icon_size: 16px;
   }
 
   &-box {
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     text-shadow: none;
     &:hover,
     &:checked {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
       background-color: $hidden_fill_color;
     }
     &:highlight { background-color: $accent_active_fill_color; }
 
-    @each $position, $_padding, $_indicator in (top, 0 3px, 0 2px),
-                                               (bottom, 0 3px, 0 -2px),
+    @each $position, $_padding, $_indicator in (top, 0 6px, 0 2px),
+                                               (bottom, 0 6px, 0 -2px),
                                                (left, 2px 0, 2px 0),
                                                (right, 2px 0, -2px 0) {
       .panel-#{$position} & {
         padding: #{$_padding};
+        spacing: 2px;
         &:hover,
         &:checked {
           box-shadow: inset #{$_indicator} 0 $osd_indicator_color;
@@ -1838,25 +1839,25 @@ $icon_size: 16px;
   }
 
   &-label {
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     font-weight: 700;
 
     &:hover,
     .applet-box:hover &,
     .applet-box:checked & {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
       text-shadow: none;
     }
   }
 
   &-icon {
-    icon-size: 16px;
-    color: $osd_secondary_fg_color;
+    icon-size: $icon_size;
+    color: $osd_fg_color;
 
     &:hover,
     .applet-box:hover > &,
     .applet-box:checked > & {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
       text-shadow: none;
     }
   }
@@ -2082,7 +2083,10 @@ $icon_size: 16px;
 // /******************
 //  * Systray Applet *
 //  ******************/
-.systray {
-  spacing: 2px;
+
+.systray,
+#CinnamonTrayIcon {
+  spacing: 0;
+  padding: 0;
 }
 
