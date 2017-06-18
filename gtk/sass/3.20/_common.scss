@@ -5245,11 +5245,13 @@ stacksidebar {
     background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                               rgba(18, 22, 0, 0.04));
 
-    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                     $sidebar-dark-ltr);
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                     $sidebar-dark-rtl);
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
     }
   }
 
@@ -5537,6 +5539,7 @@ infobar {
 
     progressbar { // use 'white' bit and trough
       trough { background-color: gtkopacity($selected_fg_color, 0.2); }
+
       progress { background-color: $selected_fg_color; }
     }
   }
