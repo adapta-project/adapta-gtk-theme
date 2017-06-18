@@ -1731,8 +1731,8 @@ toolbar {
       color: $insensitive_secondary_fg_color;
     }
 
-    button,
-    button.flat { // set specific roundness
+    &,
+    &.flat { // set specific roundness
       &,
       &.text-button,
       &.text-button.image-button {
@@ -1745,14 +1745,14 @@ toolbar {
       }
     }
 
-    .text-button,
-    .image-button.text-button {
+    &.text-button,
+    &.image-button.text-button {
       min-width: rem(13.3px);
-      min-height: rem(29.3px);
+      min-height: rem($icon_size + 13.3px);
       padding: 0 rem(13.3px) 0;
     }
 
-    .image-button {
+    &.image-button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(6.7px);
@@ -1805,7 +1805,7 @@ toolbar {
       }
     }
 
-    .image-button {
+    &.image-button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(6.7px);
@@ -1818,6 +1818,12 @@ toolbar {
     @extend %button_array;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
+  }
+
+  .background & entry {
+    min-width: rem(33.3px);
+    min-height: rem($icon_size + 13.3px);
+    padding: 0 rem(8px) 0;
   }
 
   // toolbar separators
