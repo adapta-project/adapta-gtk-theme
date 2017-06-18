@@ -2321,6 +2321,16 @@ window.background:not(.csd) > box.vertical {
     // override hard-coded crazy rgb(0,0,0)
     text { background-image: image($base_color); }
   }
+
+  scrolledwindow widget > widget {
+    > checkbutton check,
+    > radiobutton radio { // disable ripple animations
+      &:hover,
+      &:active,
+      &:hover:checked,
+      &:hover:indeterminate { animation: none; }
+    }
+  }
 }
 
 
