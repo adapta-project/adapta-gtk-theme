@@ -2633,12 +2633,13 @@ window.background > box.vertical > stack > widget > box.horizontal {
   }
 }
 
-viewport.frame > box.vertical > revealer > box.horizontal {
+viewport.frame > box.vertical box.horizontal {
   > button.round-button { // categories expander button
     // hard-coded crazy 16px roundness
     min-height: 32px;
     min-width: 32px;
     padding: 0;
+    -gtk-outline-radius: 16px;
   }
 }
 
