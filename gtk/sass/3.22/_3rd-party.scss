@@ -3437,7 +3437,10 @@ window.background.chromium {
   }
 
   // spinner colour
-  > spinner { color: $accent_label_color; }
+  > spinner {
+    color: $accent_label_color;
+    &:disabled { color: mix($accent_label_color, $bg_color, 30%); }
+  }
 
   // ver.59.0.3067 or higher
   // override default @theme_bg_color in their own tooltip widgets
