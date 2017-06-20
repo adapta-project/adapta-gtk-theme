@@ -2744,8 +2744,18 @@ window#MyControlCenter > frame > box.horizontal {
 .background:not(.csd) > box.horizontal {
   > notebook { // right-pane
     // remove unwanted frames/borders
-    border: none;
-    box-shadow: none;
+    &.frame {
+      border: none;
+
+      > stack {
+        border-width: 1px;
+        border-style: solid;
+        border-color: $bg_color;
+        box-shadow: none;
+        &:dir(ltr) { border-left-color: $paned_borders_color; }
+        &:dir(rtl) { border-right-color: $paned_borders_color; }
+      }
+    }
   }
 }
 
