@@ -70,6 +70,7 @@ stage {
 
 %entry {
   @include entry(normal);
+  min-height: 1.2em;
   padding: 7px 8px 8px;
   caret-size: 1px;
   border-radius: 0;
@@ -92,6 +93,7 @@ stage {
 
 %osd_entry {
   @include entry(normal);
+  min-height: 1.2em;
   padding: 7px 8px 8px;
   border-radius: 0;
   border-width: 0;
@@ -1328,7 +1330,6 @@ $icon_size: 16px;
 #menu-search-entry {
   @extend %entry;
   width: 24em;
-  height: 1.2em;
   caret-color: $fg_color;
   font-weight: 500;
 }
@@ -2010,7 +2011,7 @@ $icon_size: 16px;
 .expo-workspaces-name-entry {
   @include fontscaling($ref_size * 0.9);
   -cinnamon-caption-spacing: 12px;
-  height: 15px;
+  min-height: 1.2em;
   padding: 4px 8px;
   border-radius: 0;
   color: $osd_dim_fg_color;
