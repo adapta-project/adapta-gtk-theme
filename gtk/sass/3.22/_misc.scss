@@ -146,9 +146,10 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   }
 }
 
-row.tweak { // basic row node container in right-pane
-  &:dir(ltr) { padding-left: rem(13.3px, $sw: 1.0); }
-  &:dir(rtl) { padding-right: rem(13.3px, $sw: 1.0); }
+// basic row node container in right-pane
+row.tweak {
+  &:dir(ltr) { margin-left: rem(13.3px, $sw: 1.0); }
+  &:dir(rtl) { margin-right: rem(13.3px, $sw: 1.0); }
 
   &, &.title {
     min-height: rem($widget_size);
@@ -164,8 +165,39 @@ row.tweak { // basic row node container in right-pane
     color: $tertiary_fg_color;
     font-weight: 700;
     // unset indentation
-    &:dir(ltr) { padding-left: 0; }
-    &:dir(rtl) { padding-right: 0; }
+    &:dir(ltr) { margin-left: 0; }
+    &:dir(rtl) { margin-right: 0; }
+  }
+
+  // child sub list elements
+  &:not(.title) > list { // raised material
+    border-radius: 2px;
+    background-color: $base_color;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
+
+    > row.activatable {
+      color: $secondary_fg_color;
+      &:hover { // revive ripple effects
+        background-image: radial-gradient(circle farthest-corner at center,
+                                          gtkalpha(currentColor, 0) 100%,
+                                          transparent 0%),
+                          image(gtkalpha(currentColor, 0.05));
+        color: $fg_color;
+      }
+      &:active {
+        animation: list_ripple_effect 0.3s $slope_slow forwards;
+        color: $fg_color;
+      }
+
+      > box.horizontal {
+        > label,
+        > box.vertical > label:first-child { font-weight: 500; }
+      }
+
+      // draw horizontal lines
+      &:not(:last-child) { border-bottom: 1px solid $borders_color; }
+    }
   }
 }
 
@@ -218,8 +250,11 @@ row.tweak { // basic row node container in right-pane
   }
 }
 
-.tweak-titlebar-right { // FIXME: weird allocations with standard switches,
-  switch {              // use pixmap based switches instead
+// FIXME: weird allocations with standard switches,
+// use pixmap based switches instead. Python...
+.tweak-titlebar-right,
+dialog.csd > headerbar.titlebar {
+  switch {
     min-width: rem(50px);
     min-height: rem(28px);
 
