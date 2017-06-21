@@ -134,7 +134,15 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   }
 }
 
-.tweak-group {
+box.vertical > stack.main-container { // unset hard-coded margin
+  margin: -20px;
+
+  > scrolledwindow { margin: 0; }
+}
+
+list.tweak-group {
+  padding: 20px; // revive gaps for child rows
+
   // for shell-extensions group
   row.activatable:not(.tweak) {
     &:hover,
@@ -201,7 +209,8 @@ row.tweak { // basic row node container in right-pane
 }
 
 // container and tweaks in a group
-.tweak-group-startup {
+list.tweak-group-startup {
+  padding: 20px; // revive gaps for child rows
   background-color: $bg_color;
 
   row {
