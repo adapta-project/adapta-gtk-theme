@@ -152,7 +152,7 @@ Installation from Git Source
 
  > **Note:**
  >
- >   * In OpenSUSE, add 3 extra dependencies:
+ >   * In OpenSUSE, add an extra dependency:
  >
  >     ```
  >     gdk-pixbuf-devel        >= 2.32.2
