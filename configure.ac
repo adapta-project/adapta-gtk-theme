@@ -39,7 +39,6 @@ ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
-PKG_CHECK_MODULES(RSVG,       [librsvg-2.0 >= 2.40.13])
 
 if test x"$ENABLE_PARALLEL" = xyes; then
 	AC_PATH_PROG([PARALLEL], [parallel])
