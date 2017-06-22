@@ -141,7 +141,6 @@ Installation from Git Source
  * inkscape                                  >= 0.91
  * libgdk-pixbuf2.0-dev (gdk-pixbuf2-devel)  >= 2.32.2
  * libglib2.0-dev (glib2-devel)              >= 2.48.0
- * librsvg2-dev (librsvg2-devel)             >= 2.40.13
  * libsass0 (libsass)                        >= 3.3
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
@@ -157,8 +156,6 @@ Installation from Git Source
  >
  >     ```
  >     gdk-pixbuf-devel        >= 2.32.2
- >     gdk-pixbuf-loader-rsvg  >= 2.40.13
- >     librsvg-devel           >= 2.40.13
  >     ```
  >
  >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
