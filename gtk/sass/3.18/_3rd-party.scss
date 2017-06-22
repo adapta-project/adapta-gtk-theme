@@ -280,7 +280,8 @@ $full_orientation: ((top, bottom),
 
     GtkImage {
       // override stock icon with specific one
-      background-image: url("assets/show-apps.svg");
+      background-image: -gtk-scaled(url("assets/show-apps.png"),
+                                    url("assets/show-apps@2.png"));
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -289,25 +290,42 @@ $full_orientation: ((top, bottom),
 
     &:hover,
     &:active {
-      GtkImage { background-image: url("assets/show-apps-hover.svg"); }
+      GtkImage {
+        background-image: -gtk-scaled(url("assets/show-apps-hover.png"),
+                                      url("assets/show-apps-hover@2.png"));
+      }
     }
     &:checked,
     &:checked:hover {
-      GtkImage { background-image: url("assets/show-apps-checked.svg"); }
+      GtkImage {
+        background-image: -gtk-scaled(url("assets/show-apps-checked.png"),
+                                      url("assets/show-apps-checked@2.png"));
+      }
     }
   }
 
   &.transparent {
     .button.flat.budgie-menu-launcher {
-      GtkImage { background-image: url("assets/show-apps-shadow.svg"); }
+      GtkImage {
+        background-image: -gtk-scaled(url("assets/show-apps-shadow.png"),
+                                      url("assets/show-apps-shadow@2.png"));
+      }
 
       &:hover,
       &:active {
-        GtkImage { background-image: url("assets/show-apps-hover-shadow.svg"); }
+        GtkImage {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-hover-shadow.png"),
+                            url("assets/show-apps-hover-shadow@2.png"));
+        }
       }
       &:checked,
       &:checked:hover {
-        GtkImage { background-image: url("assets/show-apps-checked-shadow.svg"); }
+        GtkImage {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-checked-shadow.png"),
+                            url("assets/show-apps-checked-shadow@2.png"));
+        }
       }
     }
   }

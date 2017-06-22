@@ -245,7 +245,8 @@ box.horizontal.pinned { // drop-target
       // override stock icon with specific one
       min-width: $icon_size + 4px;
       min-height: $icon_size + 4px;
-      background-image: url("assets/show-apps.svg");
+      background-image: -gtk-scaled(url("assets/show-apps.png"),
+                                    url("assets/show-apps@2.png"));
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -254,25 +255,42 @@ box.horizontal.pinned { // drop-target
 
     &:hover,
     &:active {
-      image { background-image: url("assets/show-apps-hover.svg"); }
+      image {
+        background-image: -gtk-scaled(url("assets/show-apps-hover.png"),
+                                      url("assets/show-apps-hover@2.png"));
+      }
     }
     &:checked,
     &:checked:hover {
-      image { background-image: url("assets/show-apps-checked.svg"); }
+      image {
+        background-image: -gtk-scaled(url("assets/show-apps-checked.png"),
+                                      url("assets/show-apps-checked@2.png"));
+      }
     }
   }
 
   &.transparent {
     button.flat.budgie-menu-launcher {
-      image { background-image: url("assets/show-apps-shadow.svg"); }
+      image {
+        background-image: -gtk-scaled(url("assets/show-apps-shadow.png"),
+                                      url("assets/show-apps-shadow@2.png"));
+      }
 
       &:hover,
       &:active {
-        image { background-image: url("assets/show-apps-hover-shadow.svg"); }
+        image {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-hover-shadow.png"),
+                            url("assets/show-apps-hover-shadow@2.png"));
+        }
       }
       &:checked,
       &:checked:hover {
-        image { background-image: url("assets/show-apps-checked-shadow.svg"); }
+        image {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-checked-shadow.png"),
+                            url("assets/show-apps-checked-shadow@2.png"));
+        }
       }
     }
   }
