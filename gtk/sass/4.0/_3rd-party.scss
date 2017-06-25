@@ -24,14 +24,11 @@
   }
 }
 
-// orientation
+// basic orientation
 $orientation: ((top, bottom),
-               (bottom, top));
-
-$full_orientation: ((top, bottom),
-                    (bottom, top),
-                    (left, right),
-                    (right, left));
+               (bottom, top),
+               (left, right),
+               (right, left));
 
 // specific transition
 $budgie_transition: opacity 0.2s $slope_medium,
@@ -73,7 +70,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
   }
 }
 
-@each $along_side, $opp_side in $full_orientation {
+@each $along_side, $opp_side in $orientation {
   // panel shadow styling
   .#{$along_side} .shadow-block {
     background-color: transparent;
@@ -185,8 +182,10 @@ box.horizontal.pinned { // drop-target
 }
 
 // draw underscores and dots
-@each $along_side, $_dot in (top, top),
-                            (bottom, bottom) {
+@each $along_side, $_dot, $_h, $_w in (top, top, 2.0, 1.818),
+                                      (bottom, bottom, 2.0, 1.818),
+                                      (left, left, 1.818, 2.0),
+                                      (right, right, 1.818, 2.0) {
   .#{$along_side} .budgie-panel {
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running {
@@ -194,7 +193,7 @@ box.horizontal.pinned { // drop-target
       // FIXME: Upstream deformed aspect-ratio to 1:1.1
       border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
                                 url("assets/running-dot-#{$_dot}@2.png"))
-                    2.0 1.818 / 2.0px 1.818px;
+                    #{$_h} #{$_w} / #{$_h}px #{$_w}px;
       &:hover,
       &:active,
       &:checked {
@@ -248,7 +247,6 @@ window.budgie-popover:not(.csd) {
   button.flat.budgie-menu-launcher {
     min-width: $icon_size + 8px;
     min-height: $icon_size + 8px;
-    padding: 0 ($icon_size + 8px) * 0.05;
     border: 0 none transparent;
     border-radius: 0;
     -gtk-outline-radius: 0;
@@ -258,6 +256,18 @@ window.budgie-popover:not(.csd) {
     &:checked {
       background-image: none;
       background-color: transparent;
+    }
+
+    .top.budgie-container &,
+    .bottom.budgie-container & {
+      margin: 1px -1px;
+      padding: 1px;
+    }
+
+    .left.budgie-container &,
+    .right.budgie-container & {
+      margin: 2px -3px; // subtract lateral spacing
+      padding: 0; // keep square allocation for vertical panels
     }
 
     image {
