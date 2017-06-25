@@ -228,6 +228,7 @@ window.budgie-popover:not(.csd) {
   &.background {
     @extend popover.background;
     padding: 0; // unset padding
+    background-clip: border-box;
     // FIXME: we can't expose depth-3
     &, &:backdrop { box-shadow: $z-depth-2; }
   }
@@ -235,10 +236,11 @@ window.budgie-popover:not(.csd) {
   > frame.container {
     padding: 2px 0 0;
 
-    .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
-
     &,
-    > border { border-style: none; } // hide container borders
+    > border {
+      border-style: none; // hide container borders
+      background-color: $secondary_base_color;
+    }
   }
 }
 
