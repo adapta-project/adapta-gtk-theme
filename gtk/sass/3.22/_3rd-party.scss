@@ -224,6 +224,25 @@ box.horizontal.pinned { // drop-target
   }
 }
 
+// bdugie specific popover widgets
+window.budgie-popover:not(.csd) {
+  &.background {
+    @extend popover.background;
+    padding: 0; // unset padding
+    // FIXME: we can't expose depth-3
+    &, &:backdrop { box-shadow: $z-depth-2; }
+  }
+
+  > frame.container {
+    padding: 2px 0 0;
+
+    .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+
+    &,
+    > border { border-style: none; } // hide container borders
+  }
+}
+
 // main menu styling
 .budgie-panel {
   button.flat.budgie-menu-launcher {
@@ -300,10 +319,14 @@ box.horizontal.pinned { // drop-target
   background-color: $secondary_base_color;
 
   &.background {
-    padding: 2px 0 0; // remove side/bottom padding
     border-style: solid none none; // remove side/bottom borders
 
-    .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+    &,
+    .container {
+      padding: 2px 0 0; // remove side/bottom padding
+
+      .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+    }
   }
 
   scrolledwindow,
@@ -367,7 +390,6 @@ box.horizontal.pinned { // drop-target
 
 // user-indicator styling
 .user-menu {
-  border-radius: 2px;
   background-color: $secondary_base_color;
 
   list,
@@ -428,72 +450,73 @@ box.horizontal.pinned { // drop-target
         }
       }
     }
+  }
 
-    // top-row (user-name and avatar)
-    @at-root .user-menu > box.vertical row.activatable:first-child {
-      padding-bottom: rem(10.7px); // fix truncated drop-shadow
-      outline-offset: 0;
-      outline-width: 0;
+  // top-row (user-name and avatar)
+  > box.vertical row.activatable:first-child,
+  > frame.container > box.vertical row.activatable:first-child {
+    margin-bottom: rem(10.7px); // fix truncated drop-shadow
+    outline-offset: 0;
+    outline-width: 0;
 
-      .indicator-item {
-        background-color: $suggested_color;
-        box-shadow: $z-depth-1,
+    .indicator-item {
+      background-color: $suggested_color;
+      box-shadow: $z-depth-1,
+                  inset 0 1px $highlight_color;
+      transition-timing-function: $slope_medium;
+      transition-property: box-shadow;
+      transition-duration: 0.2s;
+
+      &:dir(ltr) { // mask avatar's background
+        padding-left: 7px; // non-scaling unit
+        background-image: image($borders_color);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 38px auto; // non-scaling unit
+      }
+      &:dir(rtl) {
+        padding-right: 7px;
+        background-image: image($borders_color);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 38px auto;
+      }
+
+      label {
+        color: $secondary_selected_fg_color;
+
+        &:dir(ltr) { padding-left: rem(8px); }
+        &:dir(rtl) { padding-right: rem(8px); }
+      }
+
+      image {
+        color: $secondary_selected_fg_color;
+
+        &:first-child { // avatar image
+          min-width: 24px;
+          min-height: 20px;
+          padding-top: rem(6.7px);
+          opacity: 0.9;
+        }
+      }
+
+      &:hover {
+        box-shadow: $z-depth-2,
                     inset 0 1px $highlight_color;
         transition-timing-function: $slope_medium;
         transition-property: box-shadow;
         transition-duration: 0.2s;
 
-        &:dir(ltr) { // mask avatar's background
-          padding-left: 7px; // non-scaling unit
-          background-image: image($borders_color);
-          background-position: left center;
-          background-repeat: no-repeat;
-          background-size: 38px auto; // non-scaling unit
-        }
-        &:dir(rtl) {
-          padding-right: 7px;
-          background-image: image($borders_color);
-          background-position: right center;
-          background-repeat: no-repeat;
-          background-size: 38px auto;
-        }
-
-        label {
-          color: $secondary_selected_fg_color;
-
-          &:dir(ltr) { padding-left: rem(8px); }
-          &:dir(rtl) { padding-right: rem(8px); }
-        }
+        label { color: $selected_fg_color; }
 
         image {
-          color: $secondary_selected_fg_color;
+          color: $selected_fg_color;
 
-          &:first-child { // avatar image
-            min-width: 24px;
-            min-height: 20px;
-            padding-top: rem(6.7px);
-            opacity: 0.9;
-          }
+          &:first-child { opacity: 1.0; }
         }
-
-        &:hover {
-          box-shadow: $z-depth-2,
-                      inset 0 1px $highlight_color;
-          transition-timing-function: $slope_medium;
-          transition-property: box-shadow;
-          transition-duration: 0.2s;
-
-          label { color: $selected_fg_color; }
-
-          image {
-            color: $selected_fg_color;
-
-            &:first-child { opacity: 1.0; }
-          }
-        }
-
-        label { font-weight: 700; }
       }
+
+      label { font-weight: 700; }
     }
   }
 }
@@ -775,37 +798,86 @@ box.horizontal.pinned { // drop-target
 }
 
 // popover of sound-indicator styling
-.budgie-container.top,
-.budgie-container.bottom {
-  > popover.background > box.vertical > button.flat.image-button {
-    min-width: rem($widget_size, $sw: 1.0);
-    min-height: rem($widget_size, $sw: 1.0);
-    margin: rem(2.7px, $sw: 1.0) 0;
-    padding: 0;
+%budgie-sound-indicator {
+  min-width: rem($widget_size, $sw: 1.0);
+  min-height: rem($widget_size, $sw: 1.0);
+  margin: rem(2.7px, $sw: 1.0) 0;
+  padding: 0;
 
-    &:first-child { // '+' button
-      &:hover {
-        background: none;
-        color: $success_color;
-        animation: volume_hover 0.2s linear forwards;
-      }
+  &:first-child { // '+' button
+    &:hover {
+      background: none;
+      color: $success_color;
+      animation: volume_hover 0.2s linear forwards;
     }
+  }
 
-    &:last-child { // '-' button
-      &:hover {
-        background: none;
-        color: $error_color;
-        animation: volume_hover 0.2s linear forwards;
-      }
+  &:last-child { // '-' button
+    &:hover {
+      background: none;
+      color: $error_color;
+      animation: volume_hover 0.2s linear forwards;
     }
   }
 }
 
+.budgie-container.top,
+.budgie-container.bottom {
+  > popover.background > box.vertical > button.flat.image-button {
+    @extend %budgie-sound-indicator;
+  }
+}
+
+window.budgie-popover.background frame.container > box.vertical {
+  > button.flat.image-button {
+    @extend %budgie-sound-indicator;
+  }
+}
+
+// night-light-indicator styling
+.night-light-indicator {
+  &,
+  frame.container { padding: 0 2px 2px; }
+
+  .view-header {
+    label {
+      @extend .dim-label;
+      font-size: 15px;
+      font-weight: 400;
+      &:dir(ltr) { padding-left: 4px; }
+      &:dir(ltr) { padding-right: 4px; }
+    }
+  }
+
+  box.vertical > button.flat.display-settings-button {
+    @extend %transition; // revive transitions
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: $secondary_accent_label_color;
+    font-weight: 700;
+    &:hover {
+      @extend %transition; // revive transitions
+      background-color: transparent;
+      color: $accent_label_color;
+    }
+    &:active {
+      background-color: transparent;
+      color: $accent_label_color;
+    }
+
+    label { padding: rem(5.3px) 0 rem(6.7px); }
+  }
+}
+
 // places-indicator styling
-popover.places-menu {
+.places-menu {
   &.background {
-    padding: 2px 0 0; // remove side/bottom padding
-    border-style: solid none none; // remove side/bottom borders
+    &,
+    .container {
+      padding: 2px 0 0; // remove side/bottom padding
+      border-style: solid none none; // remove side/bottom borders
+    }
   }
 
   .places-section-header {
@@ -1069,7 +1141,7 @@ window.budgie-switcher-window {
 
   // draw actual backgrounds and shadows
   .drop-shadow {
-    margin: 8px 8px 12px; // reserve area for shadows
+    margin: 8px 8px 16px; // reserve area for shadows
     border-radius: 2px;
     background-color: gtkopacity($inverted_dark_color, 0.9);
     box-shadow: $z-depth-4; // raise to level-4
