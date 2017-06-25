@@ -249,6 +249,7 @@ window.budgie-popover:not(.csd) {
   button.flat.budgie-menu-launcher {
     min-width: $icon_size + 8px;
     min-height: $icon_size + 8px;
+    padding: 0;
     border: 0 none transparent;
     border-radius: 0;
     -gtk-outline-radius: 0;
@@ -260,17 +261,8 @@ window.budgie-popover:not(.csd) {
       background-color: transparent;
     }
 
-    .top.budgie-container &,
-    .bottom.budgie-container & {
-      margin: 0 -1px; // do not set the positive margin
-      padding: 2px;
-    }
-
     .left.budgie-container &,
-    .right.budgie-container & {
-      margin: 2px -1px; // subtract lateral spacing
-      padding: 0; // keep square allocation for vertical panels
-    }
+    .right.budgie-container & { padding: 2px; }
 
     image {
       // override stock icon with specific one
@@ -1353,7 +1345,7 @@ window.budgie-switcher-window {
     // use non-scaling units
     min-width: $icon_size + 8px;
     min-height: $icon_size + 8px;
-    padding: 4px 0;
+    padding: 0;
     border-radius: 0;
     color: $inverted_fg_color;
     transition: $budgie_transition;
