@@ -445,6 +445,9 @@ parallel_option = -0 --no-notice --line-buffer --jobs 100% --noswap
 # * Generate CSS stylesheets and PNG images *
 # *******************************************
 
+# ignore -jN option for --enable-parallel
+.NOTPARALLEL:
+
 all:
 	$(MKDIR_P) $(srcdir)/gtk-3.20 && \
 	$(MKDIR_P) $(srcdir)/gtk-3.20-eta && \

@@ -122,6 +122,9 @@ parallel_option = -0 --no-notice --line-buffer --jobs 100% --noswap
 # * Generate PNG images and clone SVG and XBM files *
 # ***************************************************
 
+# ignore -jN option for --enable-parallel
+.NOTPARALLEL:
+
 all:
 if ENABLE_FLASHBACK
 	cd $(srcdir)/asset/assets-metacity-scripts && \
