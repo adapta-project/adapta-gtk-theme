@@ -794,13 +794,31 @@ window.budgie-popover:not(.csd) {
 }
 
 // clock-applet styling
-.budgie-panel {
+.budgie-panel { // legacy
   // shrink label
   > box widget > widget > label {
     margin-top: rem(-0.7px, $sw: 1.0);
     margin-bottom: -2px;
     padding: 1.3px 0 0;
     font-size: 80%;
+  }
+}
+
+widget.budgie-clock-applet > widget > box > label {
+  .top.budgie-container &,
+  .bottom.budgie-container & {
+    margin-top: 1px;
+    margin-bottom: -1px;
+    font-size: 100%;
+  }
+
+  .left.budgie-container &,
+  .right.budgie-container & {
+    margin: unset;
+    font-size: 80%;
+
+    &:first-child { margin-top: 3px; }
+    &:last-child { margin-bottom: 3px; }
   }
 }
 
