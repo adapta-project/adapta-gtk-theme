@@ -223,7 +223,7 @@ box.horizontal.pinned { // drop-target
   }
 }
 
-// bdugie specific popover widgets
+// budgie specific popover widgets
 window.budgie-popover:not(.csd) {
   &.background {
     @extend popover.background;
@@ -1042,17 +1042,20 @@ window.budgie-popover.background frame.container > box.vertical {
 }
 
 // keyboard indicator applet
-widget.keyboard-indicator >  widget > box.horizontal {
-  > widget > image {
-    margin-top: rem(-0.7px, $sw: 1.0);
-    &:dir(ltr) { padding: 2.7px 0 0 3px; }
-    &:dir(rtl) { padding: 2.7px 3px 0 0; }
-  }
+.top.budgie-container,
+.bottom.budgie-container {
+  widget.keyboard-indicator >  widget > box.horizontal {
+    > widget > image {
+      margin-top: rem(-0.7px, $sw: 1.0);
+      &:dir(ltr) { padding: 2.7px 0 0 3px; }
+      &:dir(rtl) { padding: 2.7px 3px 0 0; }
+    }
 
-  > stack > widget.keyboard-label > label {
-    margin-top: rem(-0.7px, $sw: 1.0);
-    &:dir(ltr) { padding: 1.3px 3px rem(1.3px, $sw: 1.0) 0; }
-    &:dir(rtl) { padding: 1.3px 0 rem(1.3px, $sw: 1.0) 3px; }
+    > stack > widget.keyboard-label > label {
+      margin-top: rem(-0.7px, $sw: 1.0);
+      &:dir(ltr) { padding: 1.3px 3px rem(1.3px, $sw: 1.0) 0; }
+      &:dir(rtl) { padding: 1.3px 0 rem(1.3px, $sw: 1.0) 3px; }
+    }
   }
 }
 
