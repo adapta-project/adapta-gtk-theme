@@ -1002,9 +1002,12 @@ popover.places-menu {
         }
       }
 
-      button.unmount-button {
-        margin: rem(1.3px) rem(5.3px);
-        padding: rem(4px);
+      button.image-button.unmount-button {
+        &:not(.text-button) { // specificity bump for overriding our default
+                              // 'eject' button spacing
+          margin: rem(1.3px) rem(5.3px);
+          padding: rem(4px);
+        }
       }
     }
 
