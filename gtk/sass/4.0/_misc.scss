@@ -1961,11 +1961,10 @@ notebook > stack > grid.vertical > actionbar {
 //  * Baobab *
 //  **********/
 
-window > box.vertical > grid.vertical > stack {
-  stack > spinner { // shrink spinner
-    min-width: rem(24px);
-    min-height: rem(24px);
-    padding: rem(53.2px) rem(79.8px) rem(53.2px);
+window > box.vertical > grid.vertical > stack > grid.horizontal {
+  stack > spinner { // shrink spinner height
+    min-height: $icon_size;
+    padding: 56px 0;
   }
 }
 
