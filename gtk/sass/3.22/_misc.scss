@@ -2191,11 +2191,6 @@ window > grid.vertical > stack > stack > grid.vertical {
 
 frame#weather-page-content-view {
   &, &:backdrop {
-    image.conditions-image { -gtk-icon-shadow: $z-depth-1; }
-
-    label.temperature-label,
-    label.conditions-label { text-shadow: $z-depth-1; }
-
     .linked.osd.stack-switcher {
       background: transparent;
 
@@ -2242,10 +2237,6 @@ frame#weather-page-content-view { // condition-specific
         > image { color: gtkopacity($fixed_fg_color, 0.5); }
       }
 
-      image.conditions-image,
-      label.temperature-label,
-      label.conditions-label { color: $fixed_fg_color; }
-
       .linked.osd.stack-switcher > button.radio.text-button,
       button.osd {
         color: gtkopacity($fixed_fg_color, 0.5);
@@ -2272,10 +2263,6 @@ frame#weather-page-content-view { // condition-specific
         > image { color: gtkopacity($selected_fg_color, 0.75); }
       }
 
-      image.conditions-image,
-      label.temperature-label,
-      label.conditions-label { color: $selected_fg_color; }
-
       .linked.osd.stack-switcher > button.radio.text-button,
       button.osd {
         color: gtkopacity($selected_fg_color, 0.75);
@@ -2300,10 +2287,6 @@ frame#weather-page-content-view { // condition-specific
         > label,
         > image { color: gtkopacity($fixed_fg_color, 0.75); }
       }
-
-      image.conditions-image,
-      label.temperature-label,
-      label.conditions-label { color: $inverted_fg_color; }
 
       .linked.osd.stack-switcher > button.radio.text-button,
       button.osd {
@@ -2330,10 +2313,6 @@ frame#weather-page-content-view { // condition-specific
         > image { color: gtkopacity($selected_fg_color, 0.5); }
       }
 
-      image.conditions-image,
-      label.temperature-label,
-      label.conditions-label { color: $selected_fg_color; }
-
       .linked.osd.stack-switcher > button.radio.text-button,
       button.osd {
         color: gtkopacity($selected_fg_color, 0.5);
@@ -2357,10 +2336,6 @@ frame#weather-page-content-view { // condition-specific
         > label,
         > image { color: gtkopacity($inverted_accent_label_color, 0.5); }
       }
-
-      image.conditions-image,
-      label.temperature-label,
-      label.conditions-label { color: $selected_fg_color; }
 
       .linked.osd.stack-switcher > button.radio.text-button,
       button.osd {
