@@ -2201,45 +2201,204 @@ terminal-window {
 //  * Gnome-Weather *
 //  *****************/
 
-window stack > frame > frame > grid.horizontal > grid.horizontal {
-  .linked.osd.stack-switcher {
-    background-color: gtkopacity($dark_color, 0.9);
-    box-shadow: $z-depth-1;
-
-    > button.radio.text-button { // remove underlines
-      &,
-      &:hover { border-image: none; }
-      &:checked {
-        border-image: radial-gradient(circle farthest-corner at center,
-                                      $selected_bg_color 100%,
-                                      transparent)
-                                      0 0 2 / 0 0 2px;
-      }
-    }
-  }
-
-  button.osd {
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem($icon_size);
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-    background-color: gtkopacity($dark_color, 0.9);
-  }
-}
-
-window stack > frame > frame > grid.horizontal {
-  #weekly-forecast-frame {
-    background: transparent;
-    background-image: image(gtkopacity($dark_color, 0.9));
-  }
-}
-
 window > grid.vertical > stack > stack > grid.vertical {
   // allocated 128px x 128px?
   > spinner {
     min-height: $icon_size;
     padding: 56px 0;
+  }
+}
+
+frame#weather-page-content-view {
+  &, &:backdrop {
+    image.conditions-image { -gtk-icon-shadow: $z-depth-1; }
+
+    label.temperature-label,
+    label.conditions-label { text-shadow: $z-depth-1; }
+
+    .linked.osd.stack-switcher {
+      background: transparent;
+
+      > button.radio.text-button { // remove underlines
+        border-image: none;
+        &:hover,
+        &:active { border-image: none; }
+        &:checked {
+          border-image: -gtk-gradient(radial,
+                                      center bottom, 0,
+                                      center bottom, 0.5,
+                                      to(currentColor),
+                                      to(transparent))
+                                      0 0 2 / 0 0 2px;
+        }
+        &:disabled { border-image: none; }
+      }
+    }
+
+    button.osd {
+      @extend %button_flat_normal;
+      min-width: $icon_size;
+      min-height: $icon_size;
+      padding: rem($icon_size);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+      background-color: transparent;
+      &:hover { @extend %button_flat_hover; }
+      &:active { @extend %button_flat_active; }
+      &:checked { @extend %button_flat_checked; }
+      &:disabled { @extend %button_flat_disabled; }
+    }
+
+    frame#weekly-forecast-frame { background: transparent; }
+  }
+}
+
+frame#weather-page-content-view { // condition-specific
+  &, &:backdrop {
+    &.weather-clear,
+    &.weather-few-clouds {
+      > grid > grid {
+        > label,
+        > image { color: gtkopacity($fixed_fg_color, 0.5); }
+      }
+
+      image.conditions-image,
+      label.temperature-label,
+      label.conditions-label { color: $fixed_fg_color; }
+
+      .linked.osd.stack-switcher > button.radio.text-button,
+      button.osd {
+        color: gtkopacity($fixed_fg_color, 0.5);
+        &:hover,
+        &:active,
+        &:checked { color: $fixed_fg_color; }
+        &:disabled { color: gtkopacity($fixed_fg_color, 0.3); }
+      }
+
+      frame#weekly-forecast-frame {
+        background: transparent;
+        background-image: image(gtkopacity($selected_fg_color, 0.1));
+
+        label,
+        image { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+      }
+    }
+
+    &.weather-showers,
+    &.weather-showers-scattered {
+      > grid > grid {
+        > label,
+        > image { color: gtkopacity($selected_fg_color, 0.75); }
+      }
+
+      image.conditions-image,
+      label.temperature-label,
+      label.conditions-label { color: $selected_fg_color; }
+
+      .linked.osd.stack-switcher > button.radio.text-button,
+      button.osd {
+        color: gtkopacity($selected_fg_color, 0.75);
+        &:hover,
+        &:active,
+        &:checked { color: $selected_fg_color; }
+        &:disabled { color: gtkopacity($selected_fg_color, 0.3); }
+      }
+
+      frame#weekly-forecast-frame {
+        background: transparent;
+        background-image: image(gtkopacity($selected_fg_color, 0.1));
+
+        label,
+        image { color: gtkopacity($selected_fg_color, 0.5); }
+      }
+    }
+
+    &.weather-overcast,
+    &.weather-fog,
+    &.weather-storm {
+      > grid > grid {
+        > label,
+        > image { color: gtkopacity($fixed_fg_color, 0.75); }
+      }
+
+      image.conditions-image,
+      label.temperature-label,
+      label.conditions-label { color: $inverted_fg_color; }
+
+      .linked.osd.stack-switcher > button.radio.text-button,
+      button.osd {
+        color: gtkopacity($fixed_fg_color, 0.75);
+        &:hover,
+        &:active,
+        &:checked { color: $fixed_fg_color; }
+        &:disabled { color: gtkopacity($fixed_fg_color, 0.3); }
+      }
+
+      frame#weekly-forecast-frame {
+        background: transparent;
+        background-image: image(gtkopacity($inverted_fg_color, 0.5));
+
+        label,
+        image { color: gtkopacity($fixed_fg_color, 0.75); }
+      }
+    }
+
+    &.weather-snow,
+    &.weather-few-clouds-night {
+      > grid > grid {
+        > label,
+        > image { color: gtkopacity($selected_fg_color, 0.5); }
+      }
+
+      image.conditions-image,
+      label.temperature-label,
+      label.conditions-label { color: $selected_fg_color; }
+
+      .linked.osd.stack-switcher > button.radio.text-button,
+      button.osd {
+        color: gtkopacity($selected_fg_color, 0.5);
+        &:hover,
+        &:active,
+        &:checked { color: $selected_fg_color; }
+        &:disabled { color: gtkopacity($selected_fg_color, 0.3); }
+      }
+
+      frame#weekly-forecast-frame {
+        background: transparent;
+        background-image: image(gtkopacity($selected_fg_color, 0.1));
+
+        label,
+        image { color: mix($selected_fg_color, $link_color, 80%); }
+      }
+    }
+
+    &.weather-clear-night {
+      > grid > grid {
+        > label,
+        > image { color: gtkopacity($inverted_accent_label_color, 0.5); }
+      }
+
+      image.conditions-image,
+      label.temperature-label,
+      label.conditions-label { color: $selected_fg_color; }
+
+      .linked.osd.stack-switcher > button.radio.text-button,
+      button.osd {
+        color: gtkopacity($inverted_accent_label_color, 0.75);
+        &:hover,
+        &:active,
+        &:checked { color: $inverted_accent_label_color; }
+        &:disabled { color: gtkopacity($inverted_accent_label_color, 0.3); }
+      }
+
+      frame#weekly-forecast-frame {
+        background: transparent;
+        background-image: image(gtkopacity($selected_fg_color, 0.1));
+
+        label,
+        image { color: mix($selected_fg_color, $accent_color, 50%); }
+      }
+    }
   }
 }
 
