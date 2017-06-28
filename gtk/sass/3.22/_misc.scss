@@ -2265,7 +2265,8 @@ frame#weather-page-content-view { // condition-specific
     }
 
     &.weather-showers,
-    &.weather-showers-scattered {
+    &.weather-showers-scattered,
+    &.weather-storm {
       > grid > grid {
         > label,
         > image { color: gtkopacity($selected_fg_color, 0.75); }
@@ -2294,8 +2295,7 @@ frame#weather-page-content-view { // condition-specific
     }
 
     &.weather-overcast,
-    &.weather-fog,
-    &.weather-storm {
+    &.weather-fog {
       > grid > grid {
         > label,
         > image { color: gtkopacity($fixed_fg_color, 0.75); }
