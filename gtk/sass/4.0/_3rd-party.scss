@@ -32,10 +32,9 @@ $orientation: ((top, bottom),
 
 // specific transition
 $budgie_transition: opacity 0.2s $slope_medium,
-                    border-color 0.2s $slope_medium,
                     background-color 0.4s $slope_slow,
                     background-image 0.4s $slope_slow,
-                    box-shadow 0.4s $slope_slow;
+                    box-shadow 0.2s $slope_slow;
 
 // main container
 .budgie-container { background-color: transparent; }
@@ -125,7 +124,7 @@ box.vertical.pinned { // drop-target
 .budgie-panel {
   button.flat.launcher {
     padding: 0;
-    border: 2px solid transparent;
+    border-radius: 0;
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha($inverted_fg_color, 0) 100%,
                                       transparent 0%),
@@ -164,40 +163,47 @@ box.vertical.pinned { // drop-target
 }
 
 // draw underscores
-@each $along_side, $opp_side in $orientation {
+@each $along_side, $_line in (top, 0 2px),
+                             (bottom, 0 -2px),
+                             (left, 2px 0),
+                             (right, -2px 0) {
   .#{$along_side} .budgie-panel {
     button#tasklist-button,
     button.flat.launcher {
-      border: 2px solid transparent;
       &:hover {
-        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
+        box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4);
       }
       &:active,
       &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
+        box-shadow: inset #{$_line} $selected_bg_color;
       }
     }
   }
 }
 
 // draw underscores and dots
-@each $along_side, $_dot, $_h, $_w in (top, top, 2.0, 1.818),
-                                      (bottom, bottom, 2.0, 1.818),
-                                      (left, left, 1.818, 2.0),
-                                      (right, right, 1.818, 2.0) {
+// draw underscores and dots
+@each $along_side, $_dot, $_h, $_w, $_line in (top, top, 4, 22, 0 2px),
+                                              (bottom, bottom, 4, 22, 0 -2px),
+                                              (left, left, 22, 4, 2px 0),
+                                              (right, right, 22, 4, -2px 0) {
   .#{$along_side} .budgie-panel {
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running {
-      border: 2px solid transparent;
-      // FIXME: Upstream deformed aspect-ratio to 1:1.1
-      border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
-                                url("assets/running-dot-#{$_dot}@2.png"))
-                    #{$_h} #{$_w} / #{$_h}px #{$_w}px;
+      > image {
+        background-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
+                                      url("assets/running-dot-#{$_dot}@2.png"));
+        background-position: #{$_dot} center;
+        background-size: #{$_w}px #{$_h}px;
+        background-repeat: no-repeat;
+      }
+
       &:hover,
       &:active,
       &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
-        border-image: none;
+        box-shadow: inset #{$_line} $selected_bg_color;
+
+        > image { background-image: none; }
       }
     }
   }
@@ -262,8 +268,8 @@ window.budgie-popover:not(.csd) {
 
     image {
       // override stock icon with specific one
-      min-width: $icon_size * 1.5;
-      min-height: $icon_size * 1.5;
+      min-width: $icon_size + 6px;
+      min-height: $icon_size + 6px;
       background-image: -gtk-scaled(url("assets/show-apps.png"),
                                     url("assets/show-apps@2.png"));
       background-position: center;
