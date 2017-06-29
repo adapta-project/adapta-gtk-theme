@@ -24,12 +24,6 @@
   }
 }
 
-// basic orientation
-$orientation: ((top, bottom),
-               (bottom, top),
-               (left, right),
-               (right, left));
-
 // specific transition
 $budgie_transition: opacity 0.2s $slope_medium,
                     background-color 0.4s $slope_slow,
@@ -69,7 +63,10 @@ $budgie_transition: opacity 0.2s $slope_medium,
   }
 }
 
-@each $along_side, $opp_side in $orientation {
+@each $along_side, $opp_side in (top, bottom),
+                                (bottom, top),
+                                (left, right),
+                                (right, left) {
   // panel shadow styling
   .#{$along_side} .shadow-block {
     background-color: transparent;
