@@ -806,6 +806,19 @@ widget.budgie-clock-applet > widget > box > label {
     margin-top: 1px;
     margin-bottom: -1px;
     font-size: 100%;
+
+    &:only-child {
+      margin-left: 3px - 1px;
+      margin-right: 2px - 1px;
+    }
+    &:first-child {
+      &:dir(ltr) { margin-left: 3px; }
+      &:dir(rtl) { margin-right: 3px; }
+    }
+    &:last-child {
+      &:dir(ltr) { margin-right: 3px; }
+      &:dir(rtl) { margin-left: 3px; }
+    }
   }
 
   .left.budgie-container &,
@@ -813,8 +826,16 @@ widget.budgie-clock-applet > widget > box > label {
     margin: unset;
     font-size: 80%;
 
-    &:first-child { margin-top: 3px; }
-    &:last-child { margin-bottom: 3px; }
+    &:first-child {
+      margin-top: 3px + 2px;
+      margin-bottom: 0;
+    }
+    &:last-child {
+      margin-top: 0;
+      margin-bottom: 3px + 1px;
+      // specificity bump
+      &:only-child { margin-top: 3px + 2px; }
+    }
   }
 }
 
