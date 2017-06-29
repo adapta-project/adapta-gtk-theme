@@ -1386,24 +1386,27 @@ window.budgie-switcher-window {
 }
 
 // raven-controller applet
-.budgie-panel > box {
-  widget > button.flat.raven-trigger {
-    padding: 0;
-    border-radius: 0;
-    color: $inverted_fg_color;
-    transition: $budgie_transition;
-    &:hover,
-    &:checked {
-      background-image: image(transparent);
-      background-color: transparent;
-      color: $selected_fg_color;
-    }
-    &:active {
-      color: $selected_fg_color;
-      transition: $budgie_transition,
-                  background-image 0s;
-      animation: budgie_ripple_effect 0.3s $slope_slow forwards;
-    }
+.budgie-panel button.flat.raven-trigger {
+  padding: 0;
+  border-radius: 0;
+  color: $inverted_fg_color;
+  transition: $budgie_transition;
+  &:hover,
+  &:checked {
+    background-image: image(transparent);
+    background-color: transparent;
+    color: $selected_fg_color;
+  }
+  &:active {
+    color: $selected_fg_color;
+    transition: $budgie_transition,
+                background-image 0s;
+    animation: budgie_ripple_effect 0.3s $slope_slow forwards;
+  }
+
+  .left.budgie-container &,
+  .right.budgie-container & {
+    image { margin: 3px 0; } // add internal spacing
   }
 }
 
