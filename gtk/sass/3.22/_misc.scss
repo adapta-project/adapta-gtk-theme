@@ -2273,10 +2273,10 @@ frame#weather-page-content-view { // condition-specific
 
       frame#weekly-forecast-frame {
         background: transparent;
-        background-image: image(gtkopacity($selected_fg_color, 0.1));
+        background-image: image(gtkopacity($fixed_fg_color, 0.1));
 
         label,
-        image { color: gtkopacity($selected_fg_color, 0.5); }
+        image { color: mix($selected_fg_color, $fixed_fg_color, 50%); }
       }
     }
 
@@ -2301,7 +2301,7 @@ frame#weather-page-content-view { // condition-specific
         background-image: image(gtkopacity($inverted_fg_color, 0.5));
 
         label,
-        image { color: gtkopacity($fixed_fg_color, 0.75); }
+        image { color: mix($fixed_fg_color, $selected_fg_color, 75%); }
       }
     }
 
