@@ -838,39 +838,54 @@ widget.budgie-clock-applet > widget > box > label {
 }
 
 // popover of sound-indicator styling
-%budgie-sound-indicator {
-  min-width: rem($widget_size, $sw: 1.0);
-  min-height: rem($widget_size, $sw: 1.0);
-  margin: rem(2.7px, $sw: 1.0) 0;
-  padding: 0;
-
-  &:first-child { // '+' button
-    &:hover {
-      background: none;
-      color: $success_color;
-      animation: volume_hover 0.2s linear forwards;
-    }
-  }
-
-  &:last-child { // '-' button
-    &:hover {
-      background: none;
-      color: $error_color;
-      animation: volume_hover 0.2s linear forwards;
-    }
-  }
-}
-
-.budgie-container.top,
-.budgie-container.bottom {
-  > popover.background > box.vertical > button.flat.image-button {
-    @extend %budgie-sound-indicator;
-  }
-}
-
+.budgie-container > popover.background > box.vertical, // legacy
 window.budgie-popover.background frame.container > box.vertical {
   > button.flat.image-button {
-    @extend %budgie-sound-indicator;
+    min-width: rem($widget_size, $sw: 1.0);
+    min-height: rem($widget_size, $sw: 1.0);
+    margin: rem(2.7px, $sw: 1.0) 0;
+    padding: 0;
+
+    &:first-child { // '+' button
+      &:hover {
+        background: none;
+        color: $success_color;
+        animation: volume_hover 0.2s linear forwards;
+      }
+    }
+
+    &:last-child { // '-' button
+      &:hover {
+        background: none;
+        color: $error_color;
+        animation: volume_hover 0.2s linear forwards;
+      }
+    }
+  }
+}
+
+window.sound-popover.background box.horizontal {
+  > button.flat.image-button { // horizontal layout
+    min-width: rem($widget_size, $sw: 1.0);
+    min-height: rem($widget_size, $sw: 1.0);
+    margin: 0;
+    padding: 0;
+
+    &:first-child { // '-' button
+      &:hover {
+        background: none;
+        color: $error_color;
+        animation: volume_hover 0.2s linear forwards;
+      }
+    }
+
+    &:last-child { // '+' button
+      &:hover {
+        background: none;
+        color: $success_color;
+        animation: volume_hover 0.2s linear forwards;
+      }
+    }
   }
 }
 
