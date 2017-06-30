@@ -2380,6 +2380,10 @@ widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>" style "entry"
 widget_class "*<GtkNotebook>*<GtkComboBoxEntry>*<GtkEntry>"               style "notebook_combobox_entry"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkComboBoxEntry>*<GtkEntry>" style "combobox_entry"
 
+# We use this weird selector to target an offscreen entry as created
+# by Chrome/Chromium to derive the style for its toolbar
+widget_class "<GtkEntry>" style "standalone_entry"
+
 # We also need to avoid changing fg color for the inactive notebook tab labels
 widget_class "*<GtkNotebook>.<GtkLabel>"                      style "notebook_tab_label"
 widget_class "*<GtkNotebook>.<GtkWidget>.<GtkLabel>"          style "notebook_tab_label"
