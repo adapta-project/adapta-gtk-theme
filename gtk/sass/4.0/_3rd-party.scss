@@ -869,8 +869,8 @@ window.budgie-popover.background frame.container > box.vertical {
 
 window.sound-popover.background box.horizontal {
   > button.flat.image-button { // horizontal layout
-    min-width: rem($widget_size, $sw: 1.0);
-    min-height: rem($widget_size, $sw: 1.0);
+    min-width: rem($widget_size - 6.7px, $sw: 1.0);
+    min-height: rem($widget_size - 6.7px, $sw: 1.0);
     margin: 0;
     padding: 0;
 
@@ -889,6 +889,11 @@ window.sound-popover.background box.horizontal {
         animation: volume_hover 0.2s linear forwards;
       }
     }
+  }
+
+  > scale.horizontal {
+    padding-top: rem(5.3px, $sw: 1.0);
+    padding-bottom: rem(5.3px, $sw: 1.0);
   }
 }
 
