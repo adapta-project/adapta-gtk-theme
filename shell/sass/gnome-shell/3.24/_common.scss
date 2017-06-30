@@ -1148,8 +1148,21 @@ StScrollBar {
 
     StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
 
-    .popup-menu-arrow { // hide down-arrows
-      width: 0;
+    &,
+    &:hover,
+    &:active,
+    &:focus,
+    &:checked,
+    &:overview,
+    &.unlock-screen,
+    &.login-screen,
+    &.lock-screen {
+      .popup-menu-arrow { // hide down-arrows
+        width: 0;
+        height: 0;
+        color: transparent;
+        icon-shadow: none; // unset drop-shadow
+      }
     }
   }
 
