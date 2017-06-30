@@ -224,6 +224,14 @@ box.vertical.pinned { // drop-target
     > image { // 'Notification' and 'User Indicator'
       min-width: $icon_size + 4px;
     }
+
+    // FIXME: try to keep 22px symbolic-icons for ugly nm-applet
+    // Negative margin of box containers trick NaChilds
+    > widget > box { // box container for NaChilds
+      &.horizontal { margin: -$icon_size * 0.375 0; }
+
+      &.vertical { margin: 0 -$icon_size * 0.375; }
+    }
   }
 }
 
