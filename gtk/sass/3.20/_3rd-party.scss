@@ -120,6 +120,8 @@ box.vertical.pinned { // drop-target
 
 .budgie-panel {
   button.flat.launcher {
+    min-width: $icon_size;
+    min-height: $icon_size;
     padding: 0;
     border-radius: 0;
     background-image: radial-gradient(circle farthest-corner at center,
@@ -250,6 +252,8 @@ window.budgie-popover:not(.csd) {
 // main menu styling
 .budgie-panel {
   button.flat.budgie-menu-launcher {
+    min-width: $icon_size;
+    min-height: $icon_size;
     padding: 0;
     border: 0 none transparent;
     border-radius: 0;
@@ -1404,6 +1408,8 @@ window.budgie-switcher-window {
 
 // raven-controller applet
 .budgie-panel button.flat.raven-trigger {
+  min-width: $icon_size;
+  min-height: $icon_size;
   padding: 0;
   border-radius: 0;
   color: $inverted_fg_color;
@@ -1419,6 +1425,11 @@ window.budgie-switcher-window {
     transition: $budgie_transition,
                 background-image 0s;
     animation: budgie_ripple_effect 0.3s $slope_slow forwards;
+  }
+
+  .top.budgie-container &,
+  .bottom.budgie-container & {
+    image { margin: 0 3px; } // add internal spacing
   }
 
   .left.budgie-container &,
