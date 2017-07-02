@@ -1153,6 +1153,10 @@ widget > box.workspace-switcher {
           background-repeat: no-repeat;
           background-size: #{$_size};
           transition-duration: 0s; // for underline-indicators
+
+          &.current-workspace {
+            background-image: image($selected_bg_color);
+          }
         }
       }
 
@@ -1180,18 +1184,6 @@ widget > box.workspace-switcher {
       }
 
       &.current-workspace {
-        @each $position, $_size in (top, calc(100% - 4px) 2px),
-                                   (bottom, calc(100% - 4px) 2px),
-                                   (left, 2px calc(100% - 4px)),
-                                   (right, 2px calc(100% - 4px)) {
-          .#{$position}.budgie-container & {
-            background-image: image($selected_bg_color);
-            background-position: #{$position} center;
-            background-repeat: no-repeat;
-            background-size: #{$_size};
-          }
-        }
-
         button.workspace-icon-button {
           > image { opacity: 1.0; }
 
