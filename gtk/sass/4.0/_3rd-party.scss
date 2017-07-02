@@ -808,29 +808,30 @@ window.budgie-popover:not(.csd) {
 widget.budgie-clock-applet > widget > box > label {
   .top.budgie-container &,
   .bottom.budgie-container & {
-    margin-top: 1px;
-    margin-bottom: -1px;
     font-size: 100%;
-
     &:only-child {
-      margin-left: 3px - 1px;
-      margin-right: 2px - 1px;
+      &:dir(ltr) {
+        margin-left: 3px - 1px;
+        margin-right: 3px - 2px;
+      }
+      &:dir(rtl) {
+        margin-left: 3px - 2px;
+        margin-right: 3px - 1px;
+      }
     }
     &:first-child {
-      &:dir(ltr) { margin-left: 3px; }
-      &:dir(rtl) { margin-right: 3px; }
+      &:dir(ltr) { margin-left: 3px - 1px; }
+      &:dir(rtl) { margin-right: 3px - 1px; }
     }
     &:last-child {
-      &:dir(ltr) { margin-right: 3px; }
-      &:dir(rtl) { margin-left: 3px; }
+      &:dir(ltr) { margin-right: 3px + 2px; }
+      &:dir(rtl) { margin-left: 3px + 2px; }
     }
   }
 
   .left.budgie-container &,
   .right.budgie-container & {
-    margin: unset;
     font-size: 80%;
-
     &:first-child {
       margin-top: 3px + 2px;
       margin-bottom: 0;
