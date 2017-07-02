@@ -1129,15 +1129,101 @@ popover.places-menu {
 }
 
 // workspace-switcher applet
-wnck-pager {
-  .top & {
-    &:hover { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
-    &:selected { box-shadow: inset 0 2px $selected_bg_color; }
+@each $position, $_line in (top, 0 2px), // legacy
+                           (bottom, 0 -2px),
+                           (left, 2px 0),
+                           (right, -2px 0) {
+  .#{$position}.budgie-container wnck-pager {
+    &:hover { box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4); }
+    &:selected { box-shadow: inset #{$_line} $selected_bg_color; }
+  }
+}
+
+widget > box.workspace-switcher {
+  // main container
+  > box.workspace-layout {
+    widget.workspace-item {
+      @each $position, $_size in (top, calc(100% - 4px) 2px),
+                                 (bottom, calc(100% - 4px) 2px),
+                                 (left, 2px calc(100% - 4px)),
+                                 (right, 2px calc(100% - 4px)) {
+        .#{$position}.budgie-container & {
+          background-image: image(gtkopacity($inverted_fg_color, 0.4));
+          background-position: #{$position} center;
+          background-repeat: no-repeat;
+          background-size: #{$_size};
+          transition-duration: 0s; // for underline-indicators
+        }
+      }
+
+      button.workspace-icon-button {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: 4px;
+        border-radius: 2px;
+        transition: $budgie_transition;
+
+        > image { opacity: 0.5; }
+
+        &:hover,
+        &:active {
+          -gtk-icon-effect: highlight;
+
+          > image { opacity: 0.75; }
+        }
+      }
+
+      // counter
+      label.workspace-more-label {
+        font-weight: 700;
+        opacity: 0.5;
+      }
+
+      &.current-workspace {
+        @each $position, $_size in (top, calc(100% - 4px) 2px),
+                                   (bottom, calc(100% - 4px) 2px),
+                                   (left, 2px calc(100% - 4px)),
+                                   (right, 2px calc(100% - 4px)) {
+          .#{$position}.budgie-container & {
+            background-image: image($selected_bg_color);
+            background-position: #{$position} center;
+            background-repeat: no-repeat;
+            background-size: #{$_size};
+          }
+        }
+
+        button.workspace-icon-button {
+          > image { opacity: 1.0; }
+
+          &:hover,
+          &:active { -gtk-icon-effect: highlight; }
+        }
+
+        label.workspace-more-label { opacity: 1.0; }
+      }
+    }
   }
 
-  .bottom & {
-    &:hover { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
-    &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+  // 'plus' button
+  button.image-button.workspace-add-button { // expanded?
+    @extend %button_flat_normal;
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: 4px;
+    border-radius: 0;
+    color: $inverted_secondary_accent_label_color;
+    background-color: transparent;
+    &:hover {
+      @extend %button_flat_hover;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+    }
+    &:disabled { @include button(flat-insensitive); }
   }
 }
 
