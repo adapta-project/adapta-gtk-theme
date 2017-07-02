@@ -675,6 +675,9 @@ window.budgie-popover:not(.csd) {
     &:checked:disabled { @include button(flat-checked-insensitive); }
   }
 
+  // enforce square outlines
+  .linked > button.image-button { -gtk-outline-radius: 0; }
+
   .raven-header {
     > .linked { margin: 0 rem(10.7px); }
 
