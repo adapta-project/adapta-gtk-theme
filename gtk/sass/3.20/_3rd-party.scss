@@ -181,19 +181,22 @@ box.vertical.pinned { // drop-target
 }
 
 // draw underscores and dots
-@each $along_side, $_dot, $_h, $_w, $_line in (top, top, 4, 22, 0 2px),
-                                              (bottom, bottom, 4, 22, 0 -2px),
-                                              (left, left, 22, 4, 2px 0),
-                                              (right, right, 22, 4, -2px 0) {
-  .#{$along_side} .budgie-panel {
+@each $position, $_line in (top, 0 2px),
+                           (bottom, 0 -2px),
+                           (left, 2px 0),
+                           (right, -2px 0) {
+  .#{$position} .budgie-panel {
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running {
       > image {
-        background-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
-                                      url("assets/running-dot-#{$_dot}@2.png"));
-        background-position: #{$_dot} center;
-        background-size: #{$_w}px #{$_h}px;
+        background-image: image($selected_bg_color);
+        background-position: #{$position} center;
+        background-size: 2px 2px;
         background-repeat: no-repeat;
+        transition: opacity 0.2s $slope_medium,
+                    background-color 0.2s $slope_slow,
+                    background-image 0s $slope_slow,
+                    box-shadow 0.2s $slope_slow;
       }
 
       &:hover,
