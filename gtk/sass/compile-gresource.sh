@@ -31,6 +31,8 @@ usage() {
 
 xml="gtk.gresource.xml"
 xml_dark="gtk-dark.gresource.xml"
+xml_legacy="gtk-legacy.gresource.xml"
+xml_dark_legacy="gtk-dark-legacy.gresource.xml"
 image_list="`grep -e 'pixdata' ./$xml.in | cut -d'>' -f2 | cut -d'<' -f1 | \
            cut -d'/' -f2`"
 
@@ -45,7 +47,7 @@ done
 
 case "$1" in
     3.18)
-        cp "$xml".in ../gtk-"$1"/"$xml"
+        cp "$xml_legacy".in ../gtk-"$1"/"$xml"
         sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"/"$xml"
         cd ../gtk-"$1" && ln -sf ../asset/assets-gtk3 assets && cd ../sass
         $(command -v glib-compile-resources) --sourcedir=../gtk-"$1" \
@@ -58,7 +60,7 @@ case "$1" in
         rm -f ../gtk-"$1"/"$xml"
         rm -rf ../gtk-"$1"/assets
 
-        cp "$xml_dark".in ../gtk-"$1"-nokto/"$xml"
+        cp "$xml_dark_legacy".in ../gtk-"$1"-nokto/"$xml"
         sed -i "s|@VERSION[@]|$1-nokto|g" ../gtk-"$1"-nokto/"$xml"
         cd ../gtk-"$1"-nokto && ln -sf ../asset/assets-gtk3 assets && cd ../sass
         $(command -v glib-compile-resources) --sourcedir=../gtk-"$1"-nokto \

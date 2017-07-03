@@ -303,45 +303,6 @@ buttonbox {
 //  * Spinner Animation *
 //  *********************/
 
-@keyframes colorful_bar {
-  0% {
-    -gtk-icon-source: url("assets/bar-red.svg");
-    -gtk-icon-transform: scale(0, 1.0);
-  }
-  24.9% {
-    -gtk-icon-source: url("assets/bar-red.svg");
-    -gtk-icon-transform: scale(1.0, 1.0);
-  }
-  25% {
-    -gtk-icon-source: url("assets/bar-yellow.svg");
-    -gtk-icon-transform: scale(1.0, 1.0);
-  }
-  49.9% {
-    -gtk-icon-source: url("assets/bar-yellow.svg");
-    -gtk-icon-transform: scale(0, 1.0);
-  }
-  50% {
-    -gtk-icon-source: url("assets/bar-green.svg");
-    -gtk-icon-transform: scale(0, 1.0);
-  }
-  74.9% {
-    -gtk-icon-source: url("assets/bar-green.svg");
-    -gtk-icon-transform: scale(1.0, 1.0);
-  }
-  75% {
-    -gtk-icon-source: url("assets/bar-blue.svg");
-    -gtk-icon-transform: scale(1.0, 1.0);
-  }
-  99.9% {
-    -gtk-icon-source: url("assets/bar-blue.svg");
-    -gtk-icon-transform: scale(0, 1.0);
-  }
-  100% {
-    -gtk-icon-source: url("assets/bar-red.svg");
-    -gtk-icon-transform: scale(0, 1.0);
-  }
-}
-
 spinner {
   min-height: rem($icon_size);
   min-width: rem($icon_size);
@@ -350,7 +311,13 @@ spinner {
   margin: 0;
   background: none;
   opacity: 0; // non spinning spinner makes no sense
-  -gtk-icon-source: url("assets/bar-red.svg");
+  -gtk-icon-source: linear-gradient(to bottom,
+                                    transparent,
+                                    transparent 50%,
+                                    $solid_red 50%,
+                                    $solid_red calc(50% + 2px),
+                                    transparent calc(50% + 2px),
+                                    transparent);
   &:checked {
     opacity: 1.0;
     animation: colorful_bar 2s linear infinite;
