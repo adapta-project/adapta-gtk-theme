@@ -121,8 +121,9 @@ $full_orientation: ((top, bottom),
 
 // icon tasklist styling
 .budgie-panel {
-  .launcher {
-    border: 2px solid transparent;
+  .flat.launcher {
+    padding: 0;
+    border-radius: 0;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.4,
@@ -170,38 +171,47 @@ $full_orientation: ((top, bottom),
 }
 
 // draw underscores
-@each $along_side, $opp_side in $orientation {
+@each $along_side, $_line in (top, 0 2px),
+                             (bottom, 0 -2px),
+                             (left, 2px 0),
+                             (right, -2px 0) {
   .#{$along_side} .budgie-panel {
     WnckTasklist .button,
-    .launcher {
-      border: 2px solid transparent;
+    .flat.launcher {
       &:hover {
-        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
+        box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4);
       }
       &:active,
       &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
+        box-shadow: inset #{$_line} $selected_bg_color;
       }
     }
   }
 }
 
 // draw underscores and dots
-@each $along_side, $_dot in (top, top),
-                            (bottom, bottom) {
+@each $along_side, $_line in (top, 0 2px),
+                             (bottom, 0 -2px) {
   .#{$along_side} .budgie-panel {
     .unpinned .launcher,
     .pinned .launcher.running {
-      border: 2px solid transparent;
-      // FIXME: Upstream deformed aspect-ratio to 1:1.1
-      border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
-                                url("assets/running-dot-#{$_dot}@2.png"))
-                    2.0 1.818 / 2.0px 1.818px;
+      > GtkImage {
+        background-image: linear-gradient(to bottom, $selected_bg_color);
+        background-position: #{$along_side} center;
+        background-size: 2px 2px;
+        background-repeat: no-repeat;
+        transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    background-image 0s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
       &:hover,
       &:active,
       &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
-        border-image: none;
+        box-shadow: inset #{$_line} $selected_bg_color;
+
+        > GtkImage { background-image: none; }
       }
     }
   }
