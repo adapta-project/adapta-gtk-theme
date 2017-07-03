@@ -211,15 +211,20 @@ box.vertical.pinned { // drop-target
 }
 
 .budgie-panel .end-region {
-  // tweak lateral spacing when 16px icons are used
   > widget > widget {
     > box.horizontal { // 'Stats Indicator'
       > widget > widget > image { // 'bluetooth' and 'sound'
         min-width: $icon_size + 2px;
       }
 
-      > widget > widget > box.horizontal > image { // 'battery'
+      > widget > widget > box.horizontal > image,
+      box.battery-icon.horizontal > image { // 'battery'
         min-width: $icon_size + 6px;
+      }
+
+      box.battery-icon.horizontal > label { // 'percent label'
+        &:dir(ltr) { margin: 0 -6px 0 3px; }
+        &:dir(rtl) { margin: 0 3px 0 -6px; }
       }
     }
 
