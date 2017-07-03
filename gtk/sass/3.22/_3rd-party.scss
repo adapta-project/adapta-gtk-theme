@@ -226,6 +226,18 @@ box.vertical.pinned { // drop-target
     > image { // 'Notification' and 'User Indicator'
       min-width: $icon_size + 4px;
     }
+
+    > widget > box { // NaTray box container
+      // 'mobile_helper_get_status_pixbuf' calls 22px * 22px * 8bit/ch
+      // pixbuf area for icons.
+      // FXIME: introduces these allocations
+      //  * 22 x 18 @ > 36px hrz
+      //  * 22 x 16 @ < 37px hrz
+      //  * 18 x 24 @ > 36px vrt
+      //  * 16 x 24 @ < 37px vrt
+      // &.horizontal { margin: -(22px - $icon_size) / 2 -1px; }
+      // &.vertical { margin: 0 -(22px - $icon_size) / 2; }
+    }
   }
 }
 
