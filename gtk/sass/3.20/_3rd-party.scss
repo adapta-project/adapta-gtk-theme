@@ -700,7 +700,7 @@ window.budgie-popover:not(.csd) {
   .linked > button.image-button { -gtk-outline-radius: 0; }
 
   .raven-header {
-    > .linked { margin: 0 rem(10.7px); }
+    > .linked { margin: 0 rem(10.7px, $sw: 1.0); }
 
     > button.image-button { // 'gear' button
       min-width: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
@@ -772,6 +772,7 @@ window.budgie-popover:not(.csd) {
   }
 
   stackswitcher.linked > button.text-button.radio { // switcher buttons
+    min-width: rem(112px, $sw: 1.0);
     min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     padding-top: 0;
     padding-bottom: 0;
