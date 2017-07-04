@@ -221,10 +221,18 @@ box.vertical.pinned { // drop-target
       box.battery-icon.horizontal > image { // 'battery'
         min-width: $icon_size + 6px;
       }
+    }
 
-      box.battery-icon.horizontal > label { // 'percent label'
+    box.battery-icon { // 'percent label'
+      &.horizontal > label.percent-label {
         &:dir(ltr) { margin: 0 -6px 0 3px; }
         &:dir(rtl) { margin: 0 3px 0 -6px; }
+      }
+
+      &.vertical > label.percent-label {
+        font-size: 75%;
+        &:dir(ltr) { margin-right: -2px; }
+        &:dir(rtl) { margin-left: -2px; }
       }
     }
 
