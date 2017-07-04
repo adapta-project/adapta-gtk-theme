@@ -388,13 +388,17 @@ window.budgie-popover:not(.csd) {
 
     .bottom.budgie-container & { border-bottom: 1px solid $borders_color; }
 
-    .category-button {
+    .category-button,
+    button.flat.radio {
       border-radius: 0; // remove roundness
       &:checked {
         background-image: none;
         background-color: transparent;
         color: $selected_bg_color;
-        &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
+        &:hover {
+          background-color: gtkopacity($selected_bg_color, 0.1);
+          color: $selected_bg_color;
+        }
         &:disabled {
           color: gtkopacity($selected_bg_color, 0.4);
 
@@ -402,7 +406,8 @@ window.budgie-popover:not(.csd) {
         }
       }
 
-      label { // tweak vertical spacing and font weight
+      label,
+      > box > label { // tweak vertical spacing and font weight
         padding: rem(5.3px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
         font-weight: 500;
       }
