@@ -1588,29 +1588,12 @@ window.budgie-switcher-window {
 
 // settings-window
 window.background.budgie-settings-window.csd {
-  > box.horizontal > stack { // right-pane
-    &:dir(ltr) {
-      margin-left: -24px;
-      border-left: 1px solid $borders_color;
+  > box.horizontal > scrolledwindow > viewport.frame { // left-pane
+    &:dir(ltr) { border-right: 1px solid $borders_color; }
+    &:dir(rtl) { border-left: 1px solid $borders_color; }
+  }
 
-      > scrolledwindow {
-        margin-left: -24px;
-
-        &, > viewport.frame { padding-left: 24px; }
-      }
-    }
-    &:dir(rtl) {
-      margin-right: -24px;
-
-      border-right: 1px solid $borders_color;
-
-      &, > scrolledwindow {
-        margin-right: -24px;
-
-        &, > viewport.frame { padding-right: 24px; }
-      }
-    }
-
+  > box.horizontal > stack > scrolledwindow { // right-pane
     viewport.frame > box.settings-page.vertical {
       // reserve the margin for raised widget's drop-shadows
       box.settings-frame.vertical > grid.horizontal { margin-bottom: 6px; }
