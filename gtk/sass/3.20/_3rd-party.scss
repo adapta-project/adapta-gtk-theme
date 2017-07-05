@@ -1586,6 +1586,33 @@ window.budgie-switcher-window {
   box-shadow: $z-depth-2;
 }
 
+// settings-window
+window.background.budgie-settings-window.csd {
+  > box.horizontal > stack { // right-pane
+    &:dir(ltr) {
+      margin-left: -24px;
+      border-left: 1px solid $borders_color;
+
+      > scrolledwindow {
+        margin-left: -24px;
+
+        &, > viewport.frame { padding-left: 24px; }
+      }
+    }
+    &:dir(rtl) {
+      margin-right: -24px;
+
+      border-right: 1px solid $borders_color;
+
+      &, > scrolledwindow {
+        margin-right: -24px;
+
+        &, > viewport.frame { padding-right: 24px; }
+      }
+    }
+  }
+}
+
 
 // /*****************
 //  * Unity-Desktop *
