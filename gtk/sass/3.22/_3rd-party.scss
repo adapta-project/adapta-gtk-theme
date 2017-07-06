@@ -373,13 +373,14 @@ window.budgie-popover:not(.csd) {
   }
 
   row.activatable { // reset background
+    padding: 0;
     background-image: none;
     background-color: $secondary_base_color;
     color: $secondary_fg_color;
     transition: none;
 
     // FIXME: enlarge vertical spacing with padding of icons
-    image { padding: rem(5.3px) 0 rem(6.7px); }
+    image { padding: rem(8px) 0; }
 
     &:hover,
     &:selected {
@@ -388,6 +389,15 @@ window.budgie-popover:not(.csd) {
       // child button node has hover state already
       color: $secondary_fg_color;
       transition: none;
+    }
+
+    button.flat {
+      border-radius: 0; // remove roundness
+      -gtk-outline-radius: 0;
+
+      > box > label { // tweak base-line
+        padding-bottom: rem(1.3px, $sw: 1.0);
+      }
     }
   }
 
