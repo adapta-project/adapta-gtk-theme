@@ -88,6 +88,18 @@ $budgie_transition: opacity 0.2s $slope_medium,
   box-shadow: none; // unset standard wnck styling
   transition: $budgie_transition;
 
+  @each $position, $_w, $_h in (top, 0, $icon_size * 1.5),
+                               (bottom, 0, $icon_size * 1.5),
+                               (left, $icon_size * 1.5, 0),
+                               (right, $icon_size * 1.5, 0) {
+    .#{$position}.budgie-container & {
+      image {
+        min-width: #{$_w};
+        min-height: #{$_h};
+      }
+    }
+  }
+
   label,
   image { opacity: 0.75; }
 
