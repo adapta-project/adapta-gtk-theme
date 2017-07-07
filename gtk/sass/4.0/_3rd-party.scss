@@ -286,51 +286,39 @@ window.budgie-popover:not(.csd) {
       // override stock icon with specific one
       min-width: $icon_size + 6px;
       min-height: $icon_size + 6px;
-      background-image: -gtk-scaled(url("assets/show-apps.png"),
-                                    url("assets/show-apps@2.png"));
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
       color: transparent;
     }
-
-    &:hover,
-    &:active {
-      image {
-        background-image: -gtk-scaled(url("assets/show-apps-hover.png"),
-                                      url("assets/show-apps-hover@2.png"));
-      }
-    }
-    &:checked,
-    &:checked:hover {
-      image {
-        background-image: -gtk-scaled(url("assets/show-apps-checked.png"),
-                                      url("assets/show-apps-checked@2.png"));
+    @each $class, $_suffix in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-hover'),
+                              (':checked', '-checked'),
+                              (':checked:hover', '-checked') {
+      &#{$class} {
+        image {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps#{$_suffix}.png"),
+                            url("assets/show-apps#{$_suffix}@2.png"));
+        }
       }
     }
   }
 
   &.transparent {
     button.flat.budgie-menu-launcher {
-      image {
-        background-image: -gtk-scaled(url("assets/show-apps-shadow.png"),
-                                      url("assets/show-apps-shadow@2.png"));
-      }
-
-      &:hover,
-      &:active {
-        image {
-          background-image: -gtk-scaled(
-                            url("assets/show-apps-hover-shadow.png"),
-                            url("assets/show-apps-hover-shadow@2.png"));
-        }
-      }
-      &:checked,
-      &:checked:hover {
-        image {
-          background-image: -gtk-scaled(
-                            url("assets/show-apps-checked-shadow.png"),
-                            url("assets/show-apps-checked-shadow@2.png"));
+      @each $class, $_suffix in ('', ''),
+                                (':hover', '-hover'),
+                                (':active', '-hover'),
+                                (':checked', '-checked'),
+                                (':checked:hover', '-checked') {
+        &#{$class} {
+          image {
+            background-image: -gtk-scaled(
+                              url("assets/show-apps#{$_suffix}-shadow.png"),
+                              url("assets/show-apps#{$_suffix}-shadow@2.png"));
+          }
         }
       }
     }
