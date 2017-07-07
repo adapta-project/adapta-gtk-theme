@@ -2585,6 +2585,16 @@ overlay.article-list > stack {
   }
 }
 
+revealer > widget > headerbar.imageOverlay.titlebar {
+  > box > button.close.titlebutton { // non-CSD inline-headerbar
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
+  }
+}
+
 
 // /************
 //  * Synaptic *
