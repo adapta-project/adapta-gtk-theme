@@ -657,12 +657,11 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                         (100%, $solid_red, 0) {
     #{$progress} {
       -gtk-icon-source: linear-gradient(to bottom,
-                                        transparent,
                                         transparent 50%,
                                         #{$_color} 50%,
                                         #{$_color} calc(50% + 2px),
                                         transparent calc(50% + 2px),
-                                        transparent);
+                                        transparent 100%);
       -gtk-icon-transform: scale(#{$_hscale}, 1.0);
     }
   }
