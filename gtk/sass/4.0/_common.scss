@@ -306,7 +306,6 @@ buttonbox {
 spinner {
   min-height: rem($icon_size);
   min-width: rem($icon_size);
-  // FIXME: workaround for 3.20.1. Needs vertical padding more than 4px?
   padding: rem(5.3px) 0 rem(5.3px);
   margin: 0;
   background: none;
@@ -1586,11 +1585,6 @@ toolbar {
       }
     }
 
-    spinner {
-      min-height: $icon_size;
-      padding: rem(($widget_size - $icon_size) / 2) 0;
-    }
-
     label { padding: 0 1em; }
   }
 
@@ -2238,13 +2232,6 @@ headerbar {
     &:disabled slider {
       background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
     }
-  }
-
-  // spinner spacing
-  spinner {
-    min-width: rem(13.3px);
-    min-height: rem(13.3px);
-    margin: rem(-5.3px);
   }
 
   // spinbutton spacing
@@ -3399,12 +3386,6 @@ notebook {
       // weird wdiget gets in our way
       // no need to add extra 50% padding
       > widget > box > image { padding: rem(5.3px, $sw: 1.0); }
-    }
-
-    spinner {
-      min-height: rem($icon_size);
-      min-width: $icon_size;
-      padding: rem(6.7px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
     }
   }
 
@@ -5672,13 +5653,6 @@ button.flat.scale { // standalone Speaker/Mic buttons
     &:active,
     &:checked { color: $inverted_accent_label_color; }
     &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
-  }
-
-  spinner {
-    min-height: $icon_size - 4px;
-    min-width: $icon_size - 4px;
-    padding: rem(6.7px) 0 rem(6.7px);
-    margin: 0 rem(-1px);
   }
 
   // axes left border and border radius
