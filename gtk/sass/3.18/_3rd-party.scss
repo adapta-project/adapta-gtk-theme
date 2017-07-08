@@ -540,7 +540,8 @@ $full_orientation: ((top, bottom),
     &.top { // always use dark variant
       background-color: $inverted_dark_color;
       color: $inverted_fg_color;
-      box-shadow: $z-depth-2;
+      box-shadow: if($variant == 'light', $header-shadow-light,
+                                          $header-shadow-dark);
 
       .button.image-button,
       .button.text-button {
@@ -554,6 +555,11 @@ $full_orientation: ((top, bottom),
       > GtkImage { // gear icon in settings-view
         &:dir(ltr) { padding-left: 4px; }
         &:dir(rtl) { padding-right: 4px; }
+      }
+
+      .linked.stack-switcher > .button.text-button {
+        // show underlines for :checked only
+        &:not(:checked) { border-image: none; }
       }
     }
 
