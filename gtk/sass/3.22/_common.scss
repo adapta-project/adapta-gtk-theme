@@ -311,12 +311,11 @@ spinner {
   background: none;
   opacity: 0; // non spinning spinner makes no sense
   -gtk-icon-source: linear-gradient(to bottom,
-                                    transparent,
                                     transparent 50%,
                                     $solid_red 50%,
                                     $solid_red calc(50% + 2px),
                                     transparent calc(50% + 2px),
-                                    transparent);
+                                    transparent 100%);
   &:checked {
     opacity: 1.0;
     animation: colorful_bar 2s linear infinite;
