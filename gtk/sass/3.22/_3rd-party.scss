@@ -587,7 +587,8 @@ window.budgie-popover:not(.csd) {
     &.top { // always use dark variant
       background-color: $inverted_dark_color;
       color: $inverted_fg_color;
-      box-shadow: $z-depth-2;
+      box-shadow: if($variant == 'light', $header-shadow-light,
+                                          $header-shadow-dark);
 
       button.image-button,
       button.text-button {
@@ -601,6 +602,11 @@ window.budgie-popover:not(.csd) {
       > image { // gear icon in settings-view
         &:dir(ltr) { margin-left: 4px; }
         &:dir(rtl) { margin-right: 4px; }
+      }
+
+      stackswitcher.linked > button.text-button.radio {
+        // show underlines for :checked only
+        &:not(:checked) { border-image: none; }
       }
     }
 
