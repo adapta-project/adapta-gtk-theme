@@ -225,8 +225,14 @@ box.vertical.pinned { // drop-target
 .budgie-panel .end-region {
   > widget > widget {
     > box.horizontal { // 'Stats Indicator'
-      > widget > widget > image { // 'bluetooth' and 'sound'
+      > widget > widget > image { // 'bluetooth'
+        &:dir(ltr) { margin: 0 2px 0 -1px; }
+        &:dir(rtl) { margin: 0 -1px 0 2px; }
+      }
+
+      > widget.sound-applet > widget > image { // 'sound'
         min-width: $icon_size + 2px;
+        margin: 0;
       }
 
       > widget > widget > box.horizontal > image,
