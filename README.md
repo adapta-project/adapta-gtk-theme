@@ -217,6 +217,10 @@ Installation from Git Source
  --enable-gtk_next      enable Gtk+ 4.0 support (type: bool)
  ```
 
+ > **Note:**
+ >
+ >   * Development for Gtk+ 3.18.x theming is over.
+
 7. To change the default 5 **Key-Colors**, pass these options:
 
  ```
