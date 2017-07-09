@@ -1883,6 +1883,19 @@ UnityPanelWidget,
   #buttonbox_frame {
     padding-top: 8px; // reserve gap between infobar and buttonbox
   }
+
+  // non-CSD context menus
+  window.background.popup > menu {
+    margin: unset;
+    padding: 1px;
+    border-radius: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $menu_highlight_color
+                  $solid_light_borders_color
+                  $solid_light_borders_color;
+    background-clip: border-box;
+  }
 }
 
 
