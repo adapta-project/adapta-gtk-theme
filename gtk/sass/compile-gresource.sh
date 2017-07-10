@@ -40,7 +40,6 @@ for i in $image_list
 do
     if [ ! -f ../asset/assets-gtk3/$i ]; then
         echo "Error: 'assets-gtk3/$i' not found, aborted..."
-        return
         exit 1
     fi
 done
