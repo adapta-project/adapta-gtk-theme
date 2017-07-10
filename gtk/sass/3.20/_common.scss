@@ -475,6 +475,23 @@ entry {
 
   .osd & {
   }
+
+  > window.background:not(.csd) { // 'candidate' pop-down window
+    border-radius: 0;
+    background-color: $base_color;
+
+    // non-CSD decoration
+    decoration { box-shadow: $z-depth-1; }
+
+    frame > border { border: none; }
+
+    treeview.view {
+      &:selected { // fallback to standard hovering
+        background-color: gtkopacity($fg_color, 0.1);
+        color: $fg_color;
+      }
+    }
+  }
 }
 
 
