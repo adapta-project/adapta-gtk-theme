@@ -374,7 +374,7 @@ window.budgie-popover:not(.csd) {
     background-image: none;
     background-color: $secondary_base_color;
     color: $secondary_fg_color;
-    transition: none;
+    transition-duration: 0s;
 
     // FIXME: enlarge vertical spacing with padding of icons
     image { padding: rem(8px) 0; }
@@ -385,7 +385,7 @@ window.budgie-popover:not(.csd) {
       background-color: $secondary_base_color;
       // child button node has hover state already
       color: $secondary_fg_color;
-      transition: none;
+      transition-duration: 0s;
     }
 
     button.flat {
@@ -407,6 +407,7 @@ window.budgie-popover:not(.csd) {
 
     button.flat.radio.category-button {
       border-radius: 0; // remove roundness
+      &:not(:active) { transition-duration: 0.1s; } // use list-transition
       &:checked {
         background-image: none;
         background-color: transparent;
@@ -454,7 +455,7 @@ window.budgie-popover:not(.csd) {
       background-image: none;
       background-color: $secondary_base_color;
       color: $secondary_fg_color;
-      transition: none;
+      transition-duration: 0s;
 
       .indicator-item {
         label,
@@ -472,23 +473,24 @@ window.budgie-popover:not(.csd) {
         &:dir(ltr) { border-left: $icon_size * 2 solid transparent; }
         &:dir(rtl) { border-right: $icon_size * 2 solid transparent; }
       }
-    }
-    &.activatable:hover,
-    &.activatable:selected {
-      background-image: none;
-      background-color: $secondary_base_color;
-      color: $secondary_fg_color;
-      transition: none;
 
-      .indicator-item {
-        label,
-        image { color: $secondary_fg_color; }
+      &:hover,
+      &:selected {
+        background-image: none;
+        background-color: $secondary_base_color;
+        color: $secondary_fg_color;
+        transition-duration: 0s;
 
-        &:hover,
-        &:active,
-        &:checked {
+        .indicator-item {
           label,
-          image { color: $fg_color; }
+          image { color: $secondary_fg_color; }
+
+          &:hover,
+          &:active,
+          &:checked {
+            label,
+            image { color: $fg_color; }
+          }
         }
       }
     }
