@@ -3395,17 +3395,13 @@ widget > box#DesktopMainTable {
   }
 }
 
-#InkscapePanel spinbutton > entry {
+#DesktopMainTable spinbutton > entry {
   // workaround for truncated labels in GimpSpinScale
   // FIXME: need to override weird inner-padding?
-  margin: if($ref_weight < 1.0, rem(-2.7px) 0,
-                                rem(-4px) 0);
+  padding: 0;
 
   // re-fit to the parent entry node spacing
-  > progress {
-    margin: if($ref_weight < 1.0, rem(-2.7px) 0,
-                                  rem(-4px) 0);
-  }
+  > progress { margin: 0; }
 }
 
 #InkscapePanel box#PanelContents button {
