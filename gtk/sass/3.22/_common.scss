@@ -458,8 +458,7 @@ entry {
     }
   }
 
-  grid &,
-  spinbutton:not(.vertical) > & { // special case
+  grid & { // special case
     padding-top: rem(9.3px - 2.7px);
     padding-bottom: rem(10.7px - 2.7px);
 
@@ -1208,14 +1207,15 @@ spinbutton {
     // behaves as the entry, so we extend the entry styling
     // and nuke the style on the internal entry
     @extend entry;
-    padding: 0;
+
+    &, grid & { padding: 0; }
 
     // FIXME: this should not be set at all, but otherwise it gets the wrong
     // color
     &:disabled { color: $insensitive_fg_color; }
 
-    entry { // unset all of fallback mode
-      &,
+    entry {
+      &, // unset all of fallback mode
       &:focus,
       &:disabled {
         margin: 0;
@@ -1224,15 +1224,18 @@ spinbutton {
         border-image: none;
         box-shadow: none;
       }
+
+      padding-top: rem(9.3px - 2.7px);
+      padding-bottom: rem(10.7px - 2.7px);
+
+      > progress { margin: rem(-9.3px + 2.7px) 0 rem(-10.7px + 2.7px); }
     }
 
     button {
       @extend %button_flat_normal;
-      min-width: rem($widget_size - 9.3px, $sw: 1.0);
-      min-height: rem($widget_size - 9.3px, $sw: 1.0);
-      margin: if($ref_weight < 1.0, rem(-1.3px, $sw: 1.0), 0);
-      padding: 0;
-      border: rem(2.7px, $sw: 1.0) solid transparent;
+      min-width: rem($icon_size);
+      min-height: rem($icon_size);
+      padding: rem(($widget_size - 4px - 13.3px) / 2);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
       background: none;
