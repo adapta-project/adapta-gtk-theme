@@ -3644,18 +3644,16 @@ window.background.chromium {
 
   // FIXME: not for actual button widgets but for toolbar's separators
   // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
-  button { // for inactive-tab borders
+  button { // for active-tab borders
     border-width: 1px;
     border-style: solid;
     border-color: if($variant == 'light',
-                     mix($fg_color, $solid_light_borders_color, 10%),
+                     $solid_light_borders_color,
                      mix($bg_color, $solid_dark_borders_color, 75%));
   }
 
-  &:backdrop button { // for inactive-tab edges
-    border-color: if($variant == 'light',
-                     mix($fg_color, $solid_light_borders_color, 5%),
-                     mix($bg_color, $solid_dark_borders_color, 85%));
+  *:backdrop button { // outdated? let's unset borders
+    border-color: transparent;
   }
 
   entry.chromium {
