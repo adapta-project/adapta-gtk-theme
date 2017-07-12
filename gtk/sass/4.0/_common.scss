@@ -2427,8 +2427,8 @@ headerbar {
 
   // reduce hidden gap reserved for separators
   > box.horizontal {
-    &.left { margin-right: -8px; }
-    &.right { margin-left: -8px; }
+    &.left { margin-right: -3px; }
+    &.right { margin-left: -3px; }
   }
 
   // To avoid double-padding, set it only for titlebar in case it
@@ -5763,6 +5763,34 @@ decoration {
 // Window manager buttons
 .csd headerbar:not(.default-decoration),
 .solid-csd headerbar:not(.default-decoration) {
+  > box.horizontal { // enforce 'gapless' titlebutton placements
+    &.left {
+      @each $class, $_left, $_right in ('.close', 0, -3px),
+                                       ('.maximize', -3px, -3px),
+                                       ('.minimize', -3px, -3px),
+                                       ('.appmenu', 0, -3px),
+                                       ('.icon', 0, -3px) {
+        > button.titlebutton#{$class} {
+          margin-left: #{$_left};
+          margin-right: #{$_right};
+        }
+      }
+    }
+
+    &.right {
+      @each $class, $_left, $_right in ('.close', -3px, 0),
+                                       ('.maximize', -3px, -3px),
+                                       ('.minimize', -3px, -3px),
+                                       ('.appmenu', -3px, 0),
+                                       ('.icon', -3px, 0) {
+        > button.titlebutton#{$class} {
+          margin-left: #{$_left};
+          margin-right: #{$_right};
+        }
+      }
+    }
+  }
+
   // appmenu buttons
   box > button.titlebutton.icon,
   box > button.titlebutton.appmenu,
@@ -6036,6 +6064,22 @@ decoration {
 
 // specific button styling for Metacity's CSDs and XWayland
 headerbar.titlebar.default-decoration {
+  > box.horizontal {
+    &.left,
+    &.right { // unset lateral negative margins
+      @each $class, $_left, $_right in ('.close', 0, 0),
+                                       ('.maximize', 0, 0),
+                                       ('.minimize', 0, 0),
+                                       ('.appmenu', 0, 0),
+                                       ('.icon', 0, 0) {
+        > button.titlebutton#{$class} {
+          margin-left: #{$_left};
+          margin-right: #{$_right};
+        }
+      }
+    }
+  }
+
   &,
   .tiled &,
   .maximized & {
