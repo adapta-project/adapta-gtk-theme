@@ -685,7 +685,9 @@ button {
     &.radio.text-button {
       min-height: $icon_size * 1.5;
       min-width: $icon_size * 1.5;
-      padding: rem(($widget_size - $icon_size * 1.5) / 2);
+      padding: if($ref_weight < 1.0,
+               rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+               rem(($widget_size - $icon_size * 1.5) / 2));
       border-radius: 9999px;
       -gtk-outline-radius: 9999px;
 
@@ -778,6 +780,7 @@ button {
       padding-right: rem(4px);
     }
   }
+
   // vertical array
   .linked.vertical > &:not(:only-child) { border-radius: 0; }
   .linked.vertical > & {
@@ -789,8 +792,9 @@ button {
   }
 
   // generic switcher image buttons
-  .linked > &.image-button.radio,
-  .linked.vertical > &.image-button.radio {
+  .linked > &.image-button,
+  .linked.vertical > &.image-button {
+    &, &.radio {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(10.7px);
@@ -798,6 +802,7 @@ button {
       -gtk-outline-radius: 0;
 
       image { padding: 0; }
+    }
   }
 
   // inline-toolbar and action-bar buttons
