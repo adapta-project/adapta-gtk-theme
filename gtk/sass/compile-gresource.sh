@@ -33,7 +33,7 @@ xml="gtk.gresource.xml"
 xml_dark="gtk-dark.gresource.xml"
 xml_legacy="gtk-legacy.gresource.xml"
 xml_dark_legacy="gtk-dark-legacy.gresource.xml"
-image_list="`grep -e 'pixdata' ./$xml.in | cut -d'>' -f2 | cut -d'<' -f1 | \
+image_list="`grep -e '.png' ./$xml.in | cut -d'>' -f2 | cut -d'<' -f1 | \
            cut -d'/' -f2`"
 
 for i in $image_list
