@@ -121,7 +121,11 @@
                          box-shadow;
     transition-duration: 0.2s;
 
-    > GtkImage { opacity: 0.5; }
+    > GtkImage {
+      opacity: 0.5;
+      transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  background-image 0s;
+    }
 
     &:hover {
       -gtk-image-effect: highlight;
@@ -181,9 +185,7 @@
         background-size: 2px 2px;
         background-repeat: no-repeat;
         transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    background-image 0s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    background-image 0s;
       }
 
       &:hover,
