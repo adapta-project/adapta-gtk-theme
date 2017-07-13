@@ -301,55 +301,19 @@ window.budgie-popover:not(.csd) {
     padding: 0;
     border: 0 none transparent;
     border-radius: 0;
-    -gtk-outline-radius: 0;
+    color: $inverted_fg_color;
     transition: $budgie_transition;
     &:hover,
-    &:active,
     &:checked {
-      background-image: none;
+      background-image: image(transparent);
       background-color: transparent;
+      color: $selected_fg_color;
     }
-
-    image {
-      // override stock icon with specific one
-      min-width: $icon_size + 6px;
-      min-height: $icon_size + 6px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      color: transparent;
-    }
-
-    @each $class, $_suffix in ('', ''),
-                              (':hover', '-hover'),
-                              (':active', '-hover'),
-                              (':checked', '-checked'),
-                              (':checked:hover', '-checked') {
-      &#{$class} {
-        image {
-          background-image: -gtk-scaled(
-                            url("assets/show-apps#{$_suffix}.png"),
-                            url("assets/show-apps#{$_suffix}@2.png"));
-        }
-      }
-    }
-  }
-
-  &.transparent {
-    button.flat.budgie-menu-launcher {
-      @each $class, $_suffix in ('', ''),
-                                (':hover', '-hover'),
-                                (':active', '-hover'),
-                                (':checked', '-checked'),
-                                (':checked:hover', '-checked') {
-        &#{$class} {
-          image {
-            background-image: -gtk-scaled(
-                              url("assets/show-apps#{$_suffix}-shadow.png"),
-                              url("assets/show-apps#{$_suffix}-shadow@2.png"));
-          }
-        }
-      }
+    &:active { // non-implemented?
+      color: $selected_fg_color;
+      transition: $budgie_transition,
+                  background-image 0s;
+      animation: budgie_ripple_effect 0.3s $slope_slow forwards;
     }
   }
 }
