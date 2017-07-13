@@ -292,53 +292,13 @@ GtkWindow.budgie-popover:not(.csd) {
     border: 0 none transparent;
     border-radius: 0;
     outline-color: transparent;
+    color: $inverted_fg_color;
     &:hover,
     &:active,
     &:checked {
       background-image: none;
       background-color: transparent;
-    }
-
-    GtkImage {
-      // override stock icon with specific one
-      background-image: -gtk-scaled(url("assets/show-apps.png"),
-                                    url("assets/show-apps@2.png"));
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      color: transparent;
-    }
-
-    @each $class, $_suffix in ('', ''),
-                              (':hover', '-hover'),
-                              (':active', '-hover'),
-                              (':checked', '-checked'),
-                              (':checked:hover', '-checked') {
-      &#{$class} {
-        GtkImage {
-          background-image: -gtk-scaled(
-                            url("assets/show-apps#{$_suffix}.png"),
-                            url("assets/show-apps#{$_suffix}@2.png"));
-        }
-      }
-    }
-  }
-
-  &.transparent {
-    .button.flat.budgie-menu-launcher {
-      @each $class, $_suffix in ('', ''),
-                                (':hover', '-hover'),
-                                (':active', '-hover'),
-                                (':checked', '-checked'),
-                                (':checked:hover', '-checked') {
-        &#{$class} {
-          GtkImage {
-            background-image: -gtk-scaled(
-                              url("assets/show-apps#{$_suffix}-shadow.png"),
-                              url("assets/show-apps#{$_suffix}-shadow@2.png"));
-          }
-        }
-      }
+      color: $selected_fg_color;
     }
   }
 }
