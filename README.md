@@ -18,7 +18,7 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
  2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
    - Very famous as the default truetype font in Android (English ver.).
    - Multilingual support is not good.
-   - Weight used in Adapta: 400, 500, 700
+   - Weight used in Adapta: 300, 400, 500, 700
 
 > **Note:**
 >
