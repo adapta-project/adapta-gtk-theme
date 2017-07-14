@@ -2501,7 +2501,13 @@ headerbar {
     scale,
     spinner { margin: rem(5.3px) 0; }
 
-    switch { margin: rem(5.3px + (($widget_size - 30px) / 2)) 0; }
+    switch {
+      margin: if($ref_weight < 1.0,
+                 rem(5.3px + (($widget_size - 30px) / 2) + 1.3px)
+                 0
+                 rem(5.3px + (($widget_size - 30px) / 2) - 1.3px),
+                 rem(5.3px + (($widget_size - 30px) / 2) - 2px) 0);
+    }
 
     .title { margin-bottom: rem(5.3px - 1.3px); }
 
