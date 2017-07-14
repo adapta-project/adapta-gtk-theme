@@ -293,19 +293,31 @@ window.budgie-popover:not(.csd) {
     padding: 0;
     border: 0 none transparent;
     border-radius: 0;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      gtkalpha($inverted_fg_color, 0.4) 50%,
+                                      transparent 0%),
+                      image(gtkalpha($inverted_fg_color, 0.5));
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 0% 0%; // hide ripples in normal state
+    background-color: transparent;
     color: $inverted_fg_color;
-    transition: $budgie_transition;
-    &:hover,
-    &:checked {
-      background-image: image(transparent);
+    transition: background-image 0s,
+                background-size 0s;
+    &:hover {
       background-color: transparent;
       color: $selected_fg_color;
     }
-    &:active { // non-implemented?
+    &:checked {
+      background-image: radial-gradient(circle farthest-corner at center,
+                                        gtkalpha($inverted_fg_color, 0) 50%,
+                                        transparent 0%),
+                        image(gtkalpha($inverted_fg_color, 0));
+      background-size: 100% * 2 100% * 2;
+      background-color: transparent;
       color: $selected_fg_color;
-      transition: $budgie_transition,
-                  background-image 0s;
-      animation: budgie_ripple_effect 0.3s $slope_slow forwards;
+      transition: background-image 0.3s $slope_slow,
+                  background-size 0.3s $slope_medium;
     }
   }
 }
