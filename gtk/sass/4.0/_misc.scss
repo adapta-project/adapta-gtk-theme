@@ -674,6 +674,9 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
         margin: rem(-2px) 0;
         font-weight: 700;
       }
+
+      // correct base-line
+      image { margin: rem(1.3px, $sw: 1.0) 0 rem(-1.3px, $sw: 1.0); }
     }
   }
 
@@ -723,6 +726,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
     > border { border: none; }
 
     treeview.view {
+      background-color: $base_color;
       font-weight: 400; // reset weight
       &:selected {
         &, &:focus {
