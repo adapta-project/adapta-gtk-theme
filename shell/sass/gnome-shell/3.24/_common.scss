@@ -3300,19 +3300,20 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
   &-clock {
     padding-bottom: 1.5em;
-    color: $selected_fg_color;
+    color: $osd_fg_color;
     text-align: center;
 
     &-time {
       @include fontscaling($ref_size * 8.4);
+      font-family: Roboto, Noto Sans, Cantarell, Sans-Serif;
       font-weight: 300;
-      text-shadow: none;
+      text-shadow: $z-depth-1;
     }
 
     &-date {
       @include fontscaling($ref_size * 1.3);
       font-weight: 700;
-      text-shadow: none;
+      text-shadow: $z-depth-1;
     }
   }
 
