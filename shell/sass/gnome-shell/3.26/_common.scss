@@ -2056,8 +2056,6 @@ StScrollBar {
   @extend %status_text;
 }
 
-.list-search-results { spacing: 3px; }
-
 .search-section-separator {
   height: 1px;
   &:ltr { margin-left: 96px; }
@@ -2068,18 +2066,74 @@ StScrollBar {
   -gradient-end: $osd_semi_fill_color;
 }
 
-.list-search-result {
-  &-content {
-    spacing: if($eta == 'false', 12px, 8px);
-    padding: if($eta == 'false', 12px, 8px);
+.list-search {
+  &-results { spacing: 3px; }
+
+  &-result {
+    padding: 0;
+    transition-duration: 0s;
+    &:focus,
+    &:selected,
+    &:hover {
+      background-color: $osd_slight_fill_color;
+      transition-duration: 0s;
+
+      .list-search-result {
+        &-title { color: $osd_fg_color; }
+
+        &-description { color: $osd_secondary_fg_color; }
+      }
+    }
+    &:active {
+      background-color: $osd_semi_fill_color;
+      transition-duration: $duration_medium;
+
+      .list-search-result {
+        &-title { color: $osd_fg_color; }
+
+        &-description { color: $osd_secondary_fg_color; }
+      }
+    }
+    &:checked {
+      background-color: $osd_indicator_color;
+      transition-duration: $duration_medium;
+
+      .list-search-result {
+        &-title { color: $osd_fg_color; }
+
+        &-description { color: $osd_secondary_fg_color; }
+      }
+    }
+
+    &-content {
+      spacing: if($eta == 'false', 12px, 8px);
+      padding: if($eta == 'false', 12px, 8px);
+    }
+
+    &-title {
+      @include fontscaling($ref_size * 1.1);
+      color: $osd_secondary_fg_color;
+      font-weight: 700;
+    }
+
+    &-description {
+      margin-top: if($eta == 'false', 4px, 3px);
+      color: $osd_dim_fg_color;
+    }
   }
 
-  &-title {
-    @include fontscaling($ref_size * 1.5);
-    color: $osd_fg_color;
-  }
+  &-provider {
+    &-content {
+      spacing: if($eta == 'false', 12px, 8px);
+      padding: if($eta == 'false', 12px, 8px);
+    }
 
-  &-description { color: $osd_dim_fg_color; }
+    &-details {
+      width: 150px;
+      margin-top: if($eta == 'false', 4px, 3px);
+      color: $osd_dim_fg_color;
+    }
+  }
 }
 
 .search-provider {
@@ -2299,25 +2353,6 @@ StScrollBar {
 }
 
 // Icon tile
-.list-search-result {
-  @extend %icon_tile;
-  transition-duration: 0s;
-  &:focus,
-  &:selected,
-  &:hover {
-    background-color: $osd_slight_fill_color;
-    transition-duration: 0s;
-  }
-  &:active {
-    background-color: $osd_semi_fill_color;
-    transition-duration: $duration_medium;
-  }
-  &:checked {
-    background-color: $osd_indicator_color;
-    transition-duration: $duration_medium;
-  }
-}
-
 .app-well-app,
 .app-well-app.app-folder,
 .show-apps,
