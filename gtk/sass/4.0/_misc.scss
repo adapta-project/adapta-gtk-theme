@@ -2775,7 +2775,7 @@ headerbar > box.horizontal > buttonbox.linked {
   }
 }
 
-window.background > box.vertical > stack > widget > stack {
+window.background > box.vertical > overlay > stack > widget > stack {
   // "Installed" stack
   > box.vertical > scrolledwindow > viewport.frame > widget > list {
     background-color: $bg_color; // override $base_color
@@ -2788,12 +2788,14 @@ window.background > box.vertical > stack > widget > stack {
   }
 
   // "Updates" stack
-  > scrolledwindow > viewport.frame > widget > box.vertical {
+  > scrolledwindow > viewport.frame > widget > box.vertical.app-list {
     // override $base_color
-    > list { background-color: $bg_color; }
+    background-image: image($bg_color);
+
+    > box.vertical > list { background-color: $bg_color; }
 
     // use asymmetrical separators
-    > separator {
+    separator {
       &:dir(ltr) { border-left: $icon_size * 6 solid transparent; }
       &:dir(rtl) { border-right: $icon_size * 6 solid transparent; }
     }
@@ -2801,7 +2803,7 @@ window.background > box.vertical > stack > widget > stack {
 }
 
 // sidebar-pane styling
-window.background > box.vertical > stack > widget > box.horizontal {
+window.background > box.vertical > overlay > stack > widget > box.horizontal {
   > scrolledwindow.category-sidebar.frame > viewport.frame > list {
     margin-top: -4px; // hide weird header-gap
     background-color: $secondary_dark_color;
