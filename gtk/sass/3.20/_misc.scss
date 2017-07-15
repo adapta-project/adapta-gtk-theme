@@ -145,11 +145,12 @@ list.tweak-group {
 
   // for shell-extensions group
   row.activatable:not(.tweak) {
-    &:hover,
-    &:active { // unset hover/active effects
-      background-image: none;
+    &:hover { // unset hover effects
+      background-image: radial-gradient(circle farthest-corner at center,
+                                        gtkalpha(currentColor, 0) 100%,
+                                        transparent 0%),
+                        image(gtkalpha(currentColor, 0));
       background-color: transparent;
-      animation: none;
     }
   }
 }
@@ -183,31 +184,31 @@ list.tweak-group-startup {
   background-color: $bg_color;
 
   row {
-    &, &.activatable {
+    &.activatable {
       padding: rem(8px);
       background-image: image($bg_color);
       background-repeat: repeat-x;
       background-size: auto;
+      transition-duration: 0s; // child 'grid' already has
       &:hover {
-        > grid { background-image: image(gtkalpha($secondary_fg_color, 0.1)); }
+        > grid {
+          background-image: image(gtkalpha($secondary_fg_color, 0.1));
+          transition: background-image 0.1s $slope_slow;
+        }
       }
-      &:active {
+      &:active { // disable ripples
         transition: none;
         animation: none;
-
-        > grid {
-          transition: none;
-          animation: list_ripple_effect 0.2s $slope_slow forwards;
-        }
       }
 
       > grid { // actual container
         border-radius: 2px;
         padding: rem(8px);
+        transition: background-image 0.1s $slope_slow;
 
         > button { // 'remove' buttons
           color: $secondary_selected_fg_color;
-          background-color: $suggested_color;
+          background-color: $destructive_color;
           &:hover { color: $selected_fg_color; }
           &:active {
             color: $selected_fg_color;
@@ -215,7 +216,7 @@ list.tweak-group-startup {
           }
           &:checked {
             color: $secondary_selected_fg_color;
-            background-color: mix($selected_fg_color, $suggested_color, 20%);
+            background-color: mix($selected_fg_color, $destructive_color, 20%);
           }
           &:disabled {
             @include button(flat-insensitive, $track_color,
