@@ -1996,20 +1996,27 @@ StScrollBar {
 }
 
 // Search results
+$provider_icon_size: 32px;
+
 #searchResultsBin { max-width: 1000px; }
 
 #searchResultsContent {
-  padding-left: if($eta == 'false', 20px, 14px);
-  padding-right: if($eta == 'false', 20px, 14px);
-  spacing: if($eta == 'false', 16px, 10px);
+  spacing: if($eta == 'false', $provider_icon_size / 2,
+                               $provider_icon_size / 4);
+  padding: if($eta == 'false', $provider_icon_size / 2,
+                               $provider_icon_size / 4);
 }
 
  // This should be equal to #searchResultsContent spacing
 .search-section {
-  spacing: if($eta == 'false', 16px, 10px);
+  spacing: if($eta == 'false', $provider_icon_size / 2,
+                               $provider_icon_size / 4);
 
   // This is the space between the provider icon and the results container
-  &-content { spacing: 32px; }
+  &-content {
+    spacing: if($eta == 'false', $provider_icon_size / 2,
+                                 $provider_icon_size / 4);
+  }
 }
 .search-statustext { // "no results"
   @extend %status_text;
@@ -2017,8 +2024,14 @@ StScrollBar {
 
 .search-section-separator {
   height: 1px;
-  &:ltr { margin-left: 96px; }
-  &:rtl { margin-right: 96px; }
+  &:ltr {
+    margin-left: if($eta == 'false', $provider_icon_size * (2 + 0.5),
+                                     $provider_icon_size * (2 + 0.25));
+  }
+  &:rtl {
+    margin-right: if($eta == 'false', $provider_icon_size * (2 + 0.5),
+                                      $provider_icon_size * (2 + 0.25));
+  }
 
   -gradient-height: 1px;
   -gradient-start: $osd_semi_fill_color;
@@ -2029,6 +2042,9 @@ StScrollBar {
   &-results { spacing: 3px; }
 
   &-result {
+    &:ltr { margin-right: $provider_icon_size / 2; }
+    &:rtl { margin-left: $provider_icon_size / 2; }
+
     padding: 0;
     transition-duration: 0s;
     &:focus,
@@ -2065,8 +2081,12 @@ StScrollBar {
     }
 
     &-content {
-      spacing: if($eta == 'false', 12px, 8px);
-      padding: if($eta == 'false', 12px, 8px);
+      spacing: if($eta == 'false', $provider_icon_size / 2,
+                                   $provider_icon_size / 4);
+      padding: if($eta == 'false', $provider_icon_size / 2,
+                                   $provider_icon_size / 4);
+      // concern the rows without 48px icons
+      min-height: $provider_icon_size * (1.5 + 0.5);
     }
 
     &-title {
@@ -2076,15 +2096,17 @@ StScrollBar {
     }
 
     &-description {
-      margin-top: if($eta == 'false', 4px, 3px);
+      @include fontscaling($ref_size * 0.9);
       color: $osd_dim_fg_color;
     }
   }
 
   &-provider {
     &-content {
-      spacing: if($eta == 'false', 12px, 8px);
-      padding: if($eta == 'false', 12px, 8px);
+      spacing: if($eta == 'false', $provider_icon_size / 2,
+                                   $provider_icon_size / 4);
+      padding: if($eta == 'false', $provider_icon_size / 2,
+                                   $provider_icon_size / 4);
     }
 
     &-details {
@@ -2097,7 +2119,8 @@ StScrollBar {
 
 .search-provider {
   &-icon {
-    padding: 15px;
+    margin: if($eta == 'false', $provider_icon_size / 4 0, 0);
+    padding: $provider_icon_size / 2;
     border: none;
     border-radius: 100px;
     color: $osd_secondary_fg_color;
@@ -2119,8 +2142,8 @@ StScrollBar {
   }
 
   &-icon-more {
-    width: 16px;
-    height: 16px;
+    width: $provider_icon_size / 2;
+    height: $provider_icon_size / 2;
     background-image: url("assets/more-results.svg");
     -st-background-image-shadow: $z-depth-1;
   }
