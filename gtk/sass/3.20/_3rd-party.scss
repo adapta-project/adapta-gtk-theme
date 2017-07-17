@@ -3417,6 +3417,7 @@ window#MyControlCenter > frame > box.horizontal {
 //  ****************/
 
 window.background:not(.csd):not(.solid-csd) {
+  // FIXME: still keep blocing CSDs.
   // reserved area at the most-right side of GtkMenuBar
   > grid.horizontal > grid.horizontal {
     background-color: $inverted_dark_color;
@@ -3429,7 +3430,9 @@ window.background:not(.csd):not(.solid-csd) {
       &:disabled { color: $insensitive_inverted_fg_color; }
     }
   }
+}
 
+window.background:not(.solid-csd) {
   // for 'Notebookbar' toolbar
   > notebook:not(.frame) {
     border: 0 none transparent; // unset borders
