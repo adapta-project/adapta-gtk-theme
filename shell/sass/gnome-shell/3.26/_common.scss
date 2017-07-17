@@ -280,8 +280,7 @@ StScrollBar {
   }
 }
 
-.show-processes-dialog-subject,
-.mount-question-dialog-subject,
+.mount-dialog-subject,
 .end-session-dialog-subject { // this should be a generic header class
   @include fontscaling($ref_size * 1.3);
 }
@@ -367,15 +366,11 @@ StScrollBar {
 
 .shell-mount-operation-icon { icon-size: 48px; }
 
-.mount-question-dialog-subject {
-  max-width: 34em;
-}
-
-.show-processes,
-.mount-question {
+.mount {
   &-dialog { spacing: if($eta == 'false', 24px, 18px); }
 
   &-dialog-subject {
+    max-width: 34em;
     padding-top: if($eta == 'false', 10px, 8px);
     padding-bottom: if($eta == 'false', 6px, 5px);
     &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
@@ -387,10 +382,8 @@ StScrollBar {
     &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
     &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
   }
-}
 
-.show-processes-dialog {
-  &-app-list {
+  &-dialog-app-list {
     max-height: if($eta == 'false', 200px, 180px);
     padding-top: if($eta == 'false', 24px, 18px);
     &:ltr {
