@@ -616,6 +616,26 @@ StScrollBar {
 }
 
 
+// /********************
+//  * Extension Dialog *
+//  ********************/
+
+.extension-dialog {
+  .message-dialog {
+    &-main-layout {
+      padding: if($eta == 'false', 12px, 8px);
+      spacing: if($eta == 'false', 24px, 16px);
+    }
+
+    &-title {
+      // @include fontscaling($ref_size * 1.0);
+      // color: $osd_secondary_fg_color;
+      // font-weight: 400;
+    }
+  }
+}
+
+
 // /************************
 //  * Network Agent Dialog *
 //  ************************/
