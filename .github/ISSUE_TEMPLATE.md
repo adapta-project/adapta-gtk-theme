@@ -3,7 +3,8 @@
  ```
  * Distribution -
  * Gtk+ 3.0 version -
- * Desktop environment - 
+ * Desktop environment -
+ * Display server protocol - X11 or Wayland?
  ```
 
 **Adapta version (if you knew)**
