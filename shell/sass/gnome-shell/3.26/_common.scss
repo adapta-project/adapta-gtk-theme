@@ -285,6 +285,43 @@ StScrollBar {
   @include fontscaling($ref_size * 1.3);
 }
 
+// /******************
+//  * Message Dialog *
+//  ******************/
+
+.message-dialog {
+  &-main-layout {
+    padding: if($eta == 'false', 12px 20px 0,
+                                 8px 16px 0);
+    spacing: if($eta == 'false', 12px, 8px);
+  }
+
+  &-content {
+    max-width: 28em;
+    // same values with the parent lateral padding
+    spacing: if($eta == 'false', 20px, 16px);
+    color: $osd_fg_color;
+  }
+
+  &-icon {
+    min-width: 48px;
+    color: $osd_fg_color;
+    icon-size: 48px;
+    -st-icon-style: symbolic;
+  }
+
+  &-title {
+    @include fontscaling($ref_size * 1.3);
+    color: $osd_fg_color;
+    font-weight: 700;
+  }
+
+  &-subtitle {
+    color: $osd_secondary_fg_color;
+    font-weight: 400;
+  }
+}
+
 
 // /**********************
 //  * End Session Dialog *
