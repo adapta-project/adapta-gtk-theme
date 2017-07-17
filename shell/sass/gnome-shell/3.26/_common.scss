@@ -285,6 +285,7 @@ StScrollBar {
   @include fontscaling($ref_size * 1.3);
 }
 
+
 // /******************
 //  * Message Dialog *
 //  ******************/
@@ -313,7 +314,7 @@ StScrollBar {
   &-title {
     @include fontscaling($ref_size * 1.3);
     color: $osd_fg_color;
-    font-weight: 700;
+    font-weight: 500;
   }
 
   &-subtitle {
@@ -404,20 +405,24 @@ StScrollBar {
 .shell-mount-operation-icon { icon-size: 48px; }
 
 .mount {
-  &-dialog { spacing: if($eta == 'false', 24px, 18px); }
+  &-dialog {
+    spacing: if($eta == 'false', 24px, 18px);
 
-  &-dialog-subject {
-    max-width: 34em;
-    padding-top: if($eta == 'false', 10px, 8px);
-    padding-bottom: if($eta == 'false', 6px, 5px);
-    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
-    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
-  }
+    .message-dialog {
+      &-title {
+        max-width: 34em;
+        padding-top: if($eta == 'false', 10px, 8px);
+        padding-bottom: if($eta == 'false', 6px, 5px);
+        &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
+        &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
+      }
 
-  &-dialog-description {
-    width: 28em;
-    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
-    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
+      &-body {
+        width: 28em;
+        &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
+        &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
+      }
+    }
   }
 
   &-dialog-app-list {
@@ -462,18 +467,19 @@ StScrollBar {
   width: 34em;
   border: none;
 
-  &-main-layout {
-    spacing: if($eta == 'false', 24px, 18px);
-    padding: if($eta == 'false', 10px, 8px);
-  }
+  .message-dialog {
+    &-main-layout {
+      spacing: if($eta == 'false', 24px, 18px);
+      padding: if($eta == 'false', 10px, 8px);
+    }
 
-  &-message-layout { spacing: if($eta == 'false', 16px, 12px); }
+    &-content { spacing: if($eta == 'false', 16px, 12px); }
 
-  &-headline {
-    @include fontscaling($ref_size * 1.3);
-    color: if($nokto == 'false', $inverted_fg_color,
-                                 $fg_color);
-    font-weight: 500;
+    &-title {
+      @include fontscaling($ref_size * 1.3);
+      color: $osd_fg_color;
+      font-weight: 500;
+    }
   }
 
   &-description {
@@ -566,30 +572,6 @@ StScrollBar {
 
 .access-dialog {
   spacing: if($eta == 'false', 30px, 24px);
-
-  &-main-layout {
-    padding: if($eta == 'false', 1em 1.6em 0, 0.7em 1.2em 0);
-    spacing: if($eta == 'false', 1em, 0.7em);
-  }
-
-  &-content {
-    max-width: 28em;
-    spacing: if($eta == 'false', 2em, 1.6em);
-  }
-
-  &-icon {
-    min-width: 48px;
-    icon-size: 48px;
-  }
-
-  &-title { font-weight: 700; }
-
-  &-subtitle {
-    @include fontscaling($ref_size * 1.1);
-    color: if($nokto == 'false', $inverted_dim_fg_color,
-                                 $dim_fg_color);
-    font-weight: 700;
-  }
 }
 
 
@@ -599,20 +581,6 @@ StScrollBar {
 
 .geolocation-dialog {
   spacing: if($eta == 'false', 30px, 24px);
-
-  &-main-layout { spacing: if($eta == 'false', 1em, 0.7em); }
-
-  &-content { spacing: if($eta == 'false', 2em, 1.6em); }
-
-  &-icon { icon-size: 48px; }
-
-  &-title { font-weight: 700; }
-
-  &-reason {
-    color: if($nokto == 'false', $inverted_dim_fg_color,
-                                 $dim_fg_color);
-    font-weight: 400;
-  }
 }
 
 
