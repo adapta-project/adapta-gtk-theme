@@ -109,6 +109,8 @@ gtk2_arrow_file = \
 	$(gtk2_assetdir)/Arrows/up.png \
 	$(gtk2_assetdir)/Arrows/up-dark.png
 gtk2_button_file = \
+	$(gtk2_assetdir)/Buttons/accent-flat-button-active.png \
+	$(gtk2_assetdir)/Buttons/accent-flat-button-hover.png \
 	$(gtk2_assetdir)/Buttons/button-active.png \
 	$(gtk2_assetdir)/Buttons/button-hover.png \
 	$(gtk2_assetdir)/Buttons/button-insensitive.png \
@@ -276,6 +278,8 @@ gtk2_nokto_arrow_file = \
 	$(gtk2_assetdir)/Arrows/up-dark.png \
 	$(gtk2_assetdir)/Arrows/up-insensitive-dark.png
 gtk2_nokto_button_file = \
+	$(gtk2_assetdir)/Buttons/accent-flat-button-active.png \
+	$(gtk2_assetdir)/Buttons/accent-flat-button-hover.png \
 	$(gtk2_assetdir)/Buttons/button-active-dark.png \
 	$(gtk2_assetdir)/Buttons/button-dark.png \
 	$(gtk2_assetdir)/Buttons/button-hover-dark.png \
