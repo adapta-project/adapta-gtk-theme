@@ -5294,9 +5294,9 @@ placessidebar {
       label { color: $selected_bg_color; }
 
       button.image-button {
-        color: $secondary_selected_bg_color;
-        &:hover,
-        &:active { color: $selected_bg_color; }
+        color: $selected_bg_color;
+        &:hover, // use opaque and brighter colour
+        &:active { color: mix($selected_bg_color, $selected_fg_color, 75%); }
       }
     }
 
