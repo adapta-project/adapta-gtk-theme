@@ -602,16 +602,8 @@ endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Xfce
-	$(MKDIR_P) $(noktodir)/gtk-2.0/Xfce
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Xfce
-	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(adaptadir)/xfce-notify-4.0
 	cp -Rv $(xfce_rc_file) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfce_image_file) $(adaptadir)/gtk-2.0/Xfce
-	cp -Rv $(xfce_image_file) $(noktodir)/gtk-2.0/Xfce
-	cp -Rv $(xfce_image_file) $(adaptaetadir)/gtk-2.0/Xfce
-	cp -Rv $(xfce_image_file) $(noktoetadir)/gtk-2.0/Xfce
 endif
 
 # *******************
@@ -641,14 +633,6 @@ endif
 if ENABLE_XFCE
 	test -e $(adaptadir)/xfce-notify-4.0 && \
 		rm -rfv $(adaptadir)/xfce-notify-4.0
-	test -e $(adaptadir)/gtk-2.0/Xfce && \
-		rm -rfv $(adaptadir)/gtk-2.0/Xfce
-	test -e $(noktodir)/gtk-2.0/Xfce && \
-		rm -rfv $(noktodir)/gtk-2.0/Xfce
-	test -e $(adaptaetadir)/gtk-2.0/Xfce && \
-		rm -rfv $(adaptaetadir)/gtk-2.0/Xfce
-	test -e $(noktoetadir)/gtk-2.0/Xfce && \
-		rm -rfv $(noktoetadir)/gtk-2.0/Xfce
 endif
 
 # ****************************
