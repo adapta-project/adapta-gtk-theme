@@ -625,14 +625,15 @@ window.budgie-popover:not(.csd) {
   .powerstrip {
     background-color: $secondary_dark_color;
     background-image: linear-gradient(to top,
-                      if($variant == 'light',
-                        $dark_color,
-                        mix($dark_color, $secondary_dark_color, 50%)) 50%,
-                      if($variant == 'light',
-                        gtkalpha($top_edge_borders_color, 0.005),
-                        gtkalpha($solid_dark_borders_color, 0.02)) calc(50% + 1px),
-                      transparent 1px,
-                      transparent);
+                      mix($dark_color, $secondary_dark_color, 50%)
+                        calc(50% - 4px),
+                      mix(mix($dark_color, $secondary_dark_color, 50%),
+                          $borders_color,
+                          40%)
+                        calc(50% - 1px),
+                      $borders_color calc(50% - 1px),
+                      $borders_color 50%,
+                      transparent 50%);
     box-shadow: none;
 
     button.flat.image-button {
