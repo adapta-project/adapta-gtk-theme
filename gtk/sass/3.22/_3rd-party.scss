@@ -1613,6 +1613,32 @@ window.background.budgie-settings-window.csd {
 
       // hide double-borders
       buttonbox.inline-toolbar { border-style: none none solid; }
+
+      frame > box.vertical > overlay { // inline header
+        > label.dim-label { // title
+          font-size: 110%;
+          font-weight: 500;
+        }
+
+        > button.popup.suggested-action.toggle { // 'plus' button
+          // same goemetries with 'minus' buttons below
+          min-height: 32px;
+          min-width: 32px;
+          margin: 8px; // prevent truncated drop-shadow
+          padding: 0;
+          border-radius: 100px;
+          -gtk-outline-radius: 100px;
+        }
+      }
+
+      frame > box.vertical list > row {
+        &:dir(ltr) { padding-right: 8px + 1px; } // experimental extra 1px
+        &:dir(rtl) { padding-left: 8px + 1px; }
+
+        button.desutructive-action.round-button {
+          margin: 0; // unset margin
+        }
+      }
     }
   }
 }
