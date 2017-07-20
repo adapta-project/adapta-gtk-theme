@@ -1130,6 +1130,24 @@ toolpalette {
   }
 }
 
+// font-selector buttons
+fontbutton { // standard raised button styling
+  @include button(normal);
+  min-height: rem(13.3px);
+  min-width: rem(33.3px);
+  padding: rem(9.3px) rem(13.3px) rem(10.7px);
+  border: none; // unset all borders
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
+  background-repeat: no-repeat;
+  background-position: center, center;
+  &:hover { @include button(hover); }
+  &:active { @include button(active); }
+  &:disabled { @include button(insensitive); }
+  &:checked { @include button(checked); }
+  &:checked:disabled { @include button(checked-insensitive); }
+}
+
 
 // /*********
 //  * Links *
