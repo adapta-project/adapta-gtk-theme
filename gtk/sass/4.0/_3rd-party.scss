@@ -1926,6 +1926,12 @@ window.background:not(.csd):not(.solid-csd) > overlay {
   @extend .nautilus-desktop.nautilus-canvas-item;
 }
 
+.nemo {
+  &-canvas-item { @extend .nautilus-canvas-item; }
+
+  &-list-dim-label { @extend .nautilus--list-dim-label; }
+}
+
 .nemo-window {
   // workaround for invisible text in rename entry (Eeleditable.entry)
   .nemo-window-pane scrolledwindow widget > widget.entry {

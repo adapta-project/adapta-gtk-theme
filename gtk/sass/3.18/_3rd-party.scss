@@ -1475,6 +1475,12 @@ GtkStack .button.profile-button {
   @extend .nautilus-desktop.nautilus-canvas-item;
 }
 
+.nemo {
+  &-canvas-item { @extend .nautilus-canvas-item; }
+
+  &-list-dim-label { @extend .nautilus--list-dim-label; }
+}
+
 NemoWindow {
   // workaround for invisible text in rename entry
   EelEditableLabel.entry {
