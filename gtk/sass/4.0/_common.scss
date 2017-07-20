@@ -385,7 +385,7 @@ entry {
     &.right { margin-left: rem(8px); }
   }
 
-  progress { @extend %entry_progressbar; }
+  progress > trough > progress { @extend %entry_progressbar; }
 
   // fallback linked-entries for non-native apps
   .linked > &, &.flat,
@@ -462,7 +462,9 @@ entry {
     padding-top: rem(9.3px - 2.7px);
     padding-bottom: rem(10.7px - 2.7px);
 
-    > progress { margin: rem(-9.3px + 2.7px) 0 rem(-10.7px + 2.7px); }
+    > progress > trough > progress {
+      margin: rem(-9.3px + 2.7px) 0 rem(-10.7px + 2.7px);
+    }
   }
 
   .osd & {
@@ -1208,7 +1210,9 @@ spinbutton {
       padding-top: rem(9.3px - 2.7px);
       padding-bottom: rem(10.7px - 2.7px);
 
-      > progress { margin: rem(-9.3px + 2.7px) 0 rem(-10.7px + 2.7px); }
+      > progress > trough > progress {
+        margin: rem(-9.3px + 2.7px) 0 rem(-10.7px + 2.7px);
+      }
     }
 
     button {
@@ -4460,6 +4464,7 @@ progressbar {
       box-shadow: none;
       background-color: gtkopacity($accent_color, 0.2);
     }
+
     progress {
       background-image: none;
       background-color: $accent_color;
