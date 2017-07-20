@@ -3162,7 +3162,7 @@ notebook {
     transition: none;
 
     // remove madness borders around header
-    > header {
+    > box > header {
       &, &.frame { border-style: none; }
       @each $_header, $_margin in (top, -1px -1px 0 -1px),
                                   (bottom, 0 -1px -1px -1px),
@@ -3173,7 +3173,7 @@ notebook {
     }
   }
 
-  > stack {
+  > box > stack {
     transition: none;
     &:only-child {
       border: none;
@@ -3191,7 +3191,7 @@ notebook {
     }
   }
 
-  > header {
+  > box > header {
     $tab_indicator_size: 2px;
     // vertical tab sizing
     $vt_vpadding: rem(5.3px);

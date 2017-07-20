@@ -488,7 +488,7 @@ dialog.csd > headerbar.titlebar {
 .nautilus-desktop-window {
   &,
   notebook,
-  notebook > stack { background: transparent; }
+  notebook > box > stack { background: transparent; }
 }
 
 .nautilus-desktop.nautilus-canvas-item {
@@ -507,7 +507,7 @@ dialog.csd > headerbar.titlebar {
       // cover up top-edge 1px line
       box-shadow: inset 0 1px $base_color;
 
-      > stack > box.vertical > grid > overlay > scrolledwindow {
+      > box > stack > box.vertical > grid > overlay > scrolledwindow {
         > .view:not(.nautilus-desktop) {
           // drop unneeded images
           background-image: none;
@@ -875,7 +875,7 @@ headerbar.titlebar.incognito-mode {
 }
 
 // reset inverted foreground colour
-notebook > stack > box.vertical > paned.vertical > overlay {
+notebook > box > stack > box.vertical > paned.vertical > overlay {
   > .floating-bar { color: $secondary_fg_color; }
 }
 
@@ -926,7 +926,7 @@ popover.background > box.vertical > scrolledwindow > viewport.frame {
 }
 
 // For Ephy 3.23.x
-window.background > box.vertical > notebook > header.top > box.horizontal {
+window.background > box.vertical > notebook > box > header.top > box.horizontal {
   > button.flat { // 'Open a new tab' and arrow button at most-right
     &.image-button,
     &.popup.toggle {
@@ -1210,8 +1210,8 @@ window.background.solid-csd > headerbar.titlebar > box.horizontal > box.horizont
   }
 }
 
-notebook > stack > grid.horizontal > grid.horizontal > grid.horizontal,
-notebook > stack > box > grid.horizontal > grid.horizontal > grid.horizontal {
+notebook > box > stack > grid.horizontal > grid.horizontal > grid.horizontal,
+notebook > box > stack > box > grid.horizontal > grid.horizontal > grid.horizontal {
   button.flat.toggle { // 'edit' and 'browse' button
     &:checked { // draw underline indicator
       border-radius: 0;
@@ -1368,7 +1368,7 @@ $fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
     }
   }
 
-  notebook > header.top { // show drop-shadows
+  notebook > box > header.top { // show drop-shadows
     @if $variant==light {
       box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
                   inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
@@ -1956,7 +1956,7 @@ window overlay > grid > frame > grid {
 }
 
 // bottom-paned actionbar
-notebook > stack > grid.vertical > actionbar {
+notebook > box > stack > grid.vertical > actionbar {
   revealer > box.horizontal {
     // 'New Detail' button
     button.popup.toggle:not(.image-button):not(.text-button) {
@@ -2144,7 +2144,7 @@ terminal-window {
     color: $inverted_fg_color;
   }
 
-  notebook > header.top { // show drop-shadows
+  notebook > box > header.top { // show drop-shadows
     @if $variant==light {
       box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
                   inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
@@ -2511,7 +2511,7 @@ window > popover > stack > grid > button {
 
 // network settings
 .background.csd > box.vertical > stack > box.vertical > widget {
-  notebook > stack > notebook > stack > box.vertical {
+  notebook > box > stack > notebook > box > stack > box.vertical {
     // use buttonbox's flat-buttons
     > box.horizontal { @extend buttonbox; }
   }
@@ -2727,7 +2727,7 @@ scrolledwindow.character-list-scroll {
 //  * Gnome-Power-Manager *
 //  ***********************/
 
-window.background > box.horizontal > notebook.frame > stack {
+window.background > box.horizontal > notebook.frame > box > stack {
   margin: 0 -1px 0;
   border-width: 0 1px 1px;
   border-style: none solid solid;

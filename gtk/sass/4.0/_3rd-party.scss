@@ -2006,7 +2006,7 @@ window.background:not(.csd):not(.solid-csd) > overlay {
 
   // tweak notebook colour
   grid > paned > box > paned > box > notebook {
-    &, > stack:not(:only-child) {
+    &, > box > stack:not(:only-child) {
       background-color: $base_color;
     }
   }
@@ -2652,7 +2652,7 @@ window.background {
     box-shadow: none; // hide fake-shadows
   }
 
-  paned > notebook > stack > scrolledwindow.frame > widget.view {
+  paned > notebook > box > stack > scrolledwindow.frame > widget.view {
     // transition causes missing 'selected-items'
     background-image: none;
     transition: none;
@@ -2838,7 +2838,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 //  *****************/
 
 .mate-terminal {
-  notebook > header.top { // show drop-shadows
+  notebook > box > header.top { // show drop-shadows
     background-color: $inverted_bg_color;
     box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
                 inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
@@ -3038,7 +3038,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       border-width: 1px 0 1px;
     }
 
-    > header.top { // revive top-border when tabs are shown
+    > box > header.top { // revive top-border when tabs are shown
       border-top: 1px solid $borders_color;
       background-color: $secondary_dark_color;
       box-shadow: if($variant == 'light', $inline-shadow-light,
@@ -3127,7 +3127,7 @@ window#MyControlCenter > frame > box.horizontal {
     &.frame {
       border: none;
 
-      > stack {
+      > box > stack {
         border-width: 1px;
         border-style: solid;
         border-color: $bg_color;
@@ -3161,7 +3161,7 @@ window#MyControlCenter > frame > box.horizontal {
 
 .pluma-window {
   paned.horizontal notebook {
-    > header.top { // revive top-border when tabs are shown
+    > box > header.top { // revive top-border when tabs are shown
       border-top: 1px solid $borders_color;
       background-color: $secondary_dark_color;
       box-shadow: if($variant == 'light', $inline-shadow-light,
@@ -3274,13 +3274,13 @@ window.background:not(.solid-csd) {
     border: 0 none transparent; // unset borders
     background-color: $bg_color;
 
-    > stack {
+    > box > stack {
       border: none;
       background-color: $bg_color;
       box-shadow: none;
     }
 
-    > header.top {
+    > box > header.top {
       border: 0 none transparent; // unset borders
       background-color: $bg_color;
       box-shadow: $toolbar-shadow-light,
@@ -3564,7 +3564,7 @@ window.background:not(.solid-csd) > box.vertical {
 
 window#wb_main_window {
   notebook#model_tabs {
-    > header.top {
+    > box > header.top {
       background-color: $inverted_dark_color;
 
       tabs {
@@ -3611,7 +3611,7 @@ window#wb_main_window {
   box#dbquery,
   box#db.query.QueryBuffer,
   paned.vertical > box.horizontal > box.vertical > box.horizontal,
-  notebook#model_tabs > stack > box.vertical > box.horizontal {
+  notebook#model_tabs > box > stack > box.vertical > box.horizontal {
     border-bottom: 1px solid $borders_color;
   }
 
