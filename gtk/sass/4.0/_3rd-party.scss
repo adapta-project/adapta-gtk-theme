@@ -975,27 +975,57 @@ popover.places-menu {
     }
   }
 
-  .places-section-header {
+  box.places-section-header {
     padding: 0;
 
-    > label {
+    %header_label {
       margin-bottom: rem(1.3px, $sw: 1.0);
       padding-bottom: rem(4px);
-      color: $secondary_fg_color;
       font-weight: 700;
     }
 
-    > image {
+    %folder_image {
       color: $accent_color;
+      &:dir(ltr) { margin-left: 4px; }
+      &:dir(rtl) { margin-right: 4px; }
+    }
 
-      &:dir(ltr) {
-        margin-left: 4px;
-        padding: rem(2.7px) 0 rem(4px) rem(2.7px);
+    > button.flat:not(.image-button) { // an actual child
+      padding: rem(5.3px) rem(5.3px);
+      border-radius: 0;
+      -gtk-outline-radius: 0;
+      &:not(:active) {
+        transition: opacity 0.2s $slope_medium,
+                    border-color 0.2s $slope_medium,
+                    background-color 0.2s $slope_slow,
+                    background-image 0.2s $slope_slow,
+                    box-shadow 0.2s $slope_slow;
       }
-      &:dir(rtl) {
-        margin-right: 4px;
-        padding: rem(2.7px) rem(2.7px) rem(4px) 0;
+
+      box.horizontal {
+        > label { @extend %header_label; }
+
+        > image {
+          &:first-child { @extend %folder_image; }
+          &:not(:first-child) { // 'arrow'
+            // same margins with 'eject' button
+            &:dir(ltr) { margin-right: rem(5.3px); }
+            &:dir(rtl) { margin-left: rem(5.3px); }
+          }
+        }
       }
+    }
+
+    // for legacy
+    > label {
+      @extend %header_label;
+      color: $secondary_fg_color;
+    }
+
+    > image {
+      @extend %folder_image;
+      &:dir(ltr) { padding: rem(2.7px) 0 rem(4px) rem(2.7px); }
+      &:dir(rtl) { padding: rem(2.7px) rem(2.7px) rem(4px) 0; }
     }
 
     button.image-button {
@@ -1007,13 +1037,6 @@ popover.places-menu {
                     background-image 0.2s $slope_slow,
                     box-shadow 0.2s $slope_slow;
       }
-    }
-
-    > button.flat:not(.image-button) {
-      margin: 0;
-      padding: rem(4px) rem(5.3px) rem(5.3px);
-      border-radius: 0;
-      -gtk-outline-radius: 0;
     }
   }
 
