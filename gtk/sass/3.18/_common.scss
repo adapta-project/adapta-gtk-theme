@@ -666,6 +666,41 @@ GtkTextView {
     }
   }
 
+  .inline-toolbar &,
+  .action-bar & {
+    @each $_type, $_color in (suggested, $suggested_color),
+                             (destructive, $destructive_color) {
+      &.#{$_type}-action {
+        &,
+        &.image-button,
+        &.text-button {
+          @extend %button_normal;
+          background-color: #{$_color};
+          color: $secondary_selected_fg_color;
+          box-shadow: $z-depth-1;
+          &:hover {
+            @extend %button_hover;
+            color: $selected_fg_color;
+            box-shadow: $z-depth-2;
+          }
+          &:active {
+            @extend %button_active;
+            color: $selected_fg_color;
+            background-color: $selected_bg_color;
+            box-shadow: $z-depth-2;
+          }
+          &:checked {
+            @extend %button_checked;
+            background-color: #{$_color};
+            color: $inverted_fg_color;
+            box-shadow: $z-depth-1;
+          }
+          &:insensitive { @include button(insensitive); }
+        }
+      }
+    }
+  }
+
   .inline-toolbar .stack-switcher > &,
   .action-bar .stack-switcher > & {
     &, &:not(.text-button).image-button {
