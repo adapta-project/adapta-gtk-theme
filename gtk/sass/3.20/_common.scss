@@ -836,57 +836,35 @@ button {
       &:checked { background-color: transparent; }
     }
 
-    &.suggested-action {
-      &,
-      &.image-button,
-      &.text-button {
-        @extend %button_normal;
-        background-color: $suggested_color;
-        color: $secondary_selected_fg_color;
-        &:hover {
-          @extend %button_hover;
-          color: $selected_fg_color;
-        }
-        &:active {
-          @extend %button_active;
-          color: $selected_fg_color;
-          background-color: $selected_bg_color;
-        }
-        &:checked {
-          @extend %button_checked;
-          background-color: $suggested_color;
-          color: $inverted_fg_color;
-        }
-        &:disabled { @include button(insensitive); }
-      }
-    }
-
-    &.destructive-action {
-      &,
-      &.image-button,
-      &.text-button {
-        @extend %button_normal;
-        background-color: $destructive_color;
-        color: $secondary_selected_fg_color;
-        box-shadow: $z-depth-1;
-        &:hover {
-          @extend %button_hover;
-          color: $selected_fg_color;
-          box-shadow: $z-depth-2;
-        }
-        &:active {
-          @extend %button_active;
-          color: $selected_fg_color;
-          background-color: $selected_bg_color;
-          box-shadow: $z-depth-2;
-        }
-        &:checked {
-          @extend %button_checked;
-          background-color: $destructive_color;
-          color: $inverted_fg_color;
+    @each $_type, $_color in (suggested, $suggested_color),
+                             (destructive, $destructive_color) {
+      &.#{$_type}-action {
+        &,
+        &.image-button,
+        &.text-button {
+          @extend %button_normal;
+          background-color: #{$_color};
+          color: $secondary_selected_fg_color;
           box-shadow: $z-depth-1;
+          &:hover {
+            @extend %button_hover;
+            color: $selected_fg_color;
+            box-shadow: $z-depth-2;
+          }
+          &:active {
+            @extend %button_active;
+            color: $selected_fg_color;
+            background-color: $selected_bg_color;
+            box-shadow: $z-depth-2;
+          }
+          &:checked {
+            @extend %button_checked;
+            background-color: #{$_color};
+            color: $inverted_fg_color;
+            box-shadow: $z-depth-1;
+          }
+          &:disabled { @include button(insensitive); }
         }
-        &:disabled { @include button(insensitive); }
       }
     }
   }
