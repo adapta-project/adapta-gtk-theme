@@ -1762,26 +1762,74 @@ UnityPanelWidget,
 }
 
 
-// /***********************
-//  * Lightdm-Gtk-Greeter *
-//  ***********************/
+// /*******************
+//  * Lightdm-Greeter *
+//  *******************/
 
+%greeter_panel_window {
+  background-image: image($panel_bg_color);
+  color: $inverted_fg_color;
+  box-shadow: none;
+  font-weight: 700;
+  text-shadow: none;
+
+  &, &.background,
+  > * > * { background-color: transparent; } // FIXME: ugly wildcard
+}
+
+%greeter_panel_menubar {
+  @extend .gnome-panel-menu-bar;
+  background-color: transparent;
+  color: $inverted_fg_color;
+
+  &:hover {
+    color: $selected_fg_color;
+    box-shadow: inset 0 2px $selected_bg_color;
+
+    label,
+    image { color: $selected_fg_color; }
+  }
+}
+
+%greeter_panel_menubar_menuitem {
+  // flip underline-indicator vertically
+  padding: rem(5.3px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
+  background-color: transparent;
+  &:hover { box-shadow: inset 0 2px $selected_bg_color; }
+}
+
+%greeter_panel_menu_menuitem {
+  padding: rem(5.3px) rem(8px) rem(6.7px);
+  font-weight: 400;
+  text-shadow: none;
+
+  &, label { color: $secondary_fg_color; }
+  &:hover,
+  &:hover label { color: $fg_color; }
+  &:disabled,
+  &:disabled label { color: $insensitive_fg_color; }
+}
+
+%non_csd_menu {
+  margin: unset;
+  padding: 1px;
+  border-radius: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $menu_highlight_color
+                $solid_light_borders_color
+                $solid_light_borders_color;
+  background-clip: border-box;
+}
+
+// gtk-greeter
 .lightdm-gtk-greeter {
   // top-panel styling
   #panel_window {
-    background-image: image($panel_bg_color);
-    color: $inverted_fg_color;
-    box-shadow: none;
-    font-weight: 700;
-    text-shadow: none;
-
-    &, &.background,
-    > * > * { background-color: transparent; } // FIXME: ugly wildcard
+    @extend %greeter_panel_window;
 
     menubar {
-      @extend .gnome-panel-menu-bar;
-      background-color: transparent;
-      color: $inverted_fg_color;
+      @extend %greeter_panel_menubar;
 
       label,
       image {
@@ -1789,35 +1837,9 @@ UnityPanelWidget,
         color: $inverted_fg_color;
       }
 
-      &:hover {
-        color: $selected_fg_color;
-        box-shadow: inset 0 2px $selected_bg_color;
+      > menuitem { @extend %greeter_panel_menubar_menuitem; }
 
-        label,
-        image { color: $selected_fg_color; }
-      }
-
-      // flip underline-indicator vertically
-      > menuitem {
-        padding: rem(5.3px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
-        background-color: transparent;
-        &:hover { box-shadow: inset 0 2px $selected_bg_color; }
-      }
-
-      menu {
-        menuitem {
-          padding: rem(5.3px) rem(8px) rem(6.7px);
-          font-weight: 400;
-          text-shadow: none;
-
-          // override above hacks
-          &, label { color: $secondary_fg_color; }
-          &:hover,
-          &:hover label { color: $fg_color; }
-          &:disabled,
-          &:disabled label { color: $insensitive_fg_color; }
-        }
-      }
+      menu menuitem { @extend %greeter_panel_menu_menuitem; }
     }
   }
 
@@ -1881,6 +1903,7 @@ UnityPanelWidget,
       }
     }
 
+    %greeter_entry,
     entry { // prevent junmping when showing CapsLock warning
       min-height: rem($widget_size);
       padding: 0 if($ref_weight < 1.0, 4px / 2, 8px / 2);
@@ -1908,16 +1931,127 @@ UnityPanelWidget,
   }
 
   // non-CSD context menus
+  window.background.popup > menu { @extend %non_csd_menu; }
+}
+
+// slick-greeter
+$greeter_panel_height: 32px; // pixmap height
+$greeter_panel_shadow: 11px; // pixmap shadow region
+
+window.background.lightdm {
+  // top-panel
+  menubar {  // broken
+    @extend %greeter_panel_menubar;
+    padding-top: ($greeter_panel_height - $greeter_panel_shadow - $icon_size)
+                 / 2;
+    background-color: gtkalpha($panel_bg_color, 1.0); // does not work
+    font-weight: 700;
+    text-shadow: none;
+
+    > menuitem {
+      @extend %greeter_panel_menubar_menuitem;
+      padding: 0 rem(6.7px, $sw: 1.0);
+
+      label,
+      image { color: $inverted_fg_color; }
+
+      &:hover {
+        box-shadow: inset 0 2px $selected_bg_color;
+
+        label, // does not work?
+        image { color: $selected_fg_color; }
+      }
+
+      label { margin: 0 2px rem(1.3px, $sw: 1.0); }
+    }
+  }
+
   window.background.popup > menu {
-    margin: unset;
-    padding: 1px;
+    @extend %non_csd_menu;
+
+    menuitem  { @extend %greeter_panel_menu_menuitem; }
+  }
+
+  button {
+    &:not(.option-button):not(.toggle-button) {
+      padding: rem(6.7px, $sw: 1.0);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+    }
+
+    &.flat.option-button { // session logo button
+      padding: rem(6.7px, $sw: 1.0);
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+      color: $inverted_fg_color;
+
+      image { opacity: 0.75; }
+
+      &:hover,
+      &:active {
+        color: $selected_fg_color;
+
+        image { opacity: 1.0; }
+      }
+    }
+
+    &, // back arrow
+    &.toggle-button { // session list rows
+      @extend %button_flat_normal;
+      padding: rem(10px) rem(13.3px);
+      border-radius: 0;
+      -gtk-outline-radius: 0;
+      background-color: transparent;
+      color: $inverted_fg_color;
+      font-size: 110%;
+      font-weight: 500;
+
+      label { padding-bottom: rem(1.3px, $sw: 1.0); }
+
+      image { opacity: 0.75; }
+
+      &:hover,
+      &:active,
+      &.selected {
+        image { opacity: 1.0; }
+      }
+
+      &:hover {
+        @extend %button_flat_hover;
+        background-color: transparent;
+        color: $selected_fg_color;
+      }
+      &:active {
+        @extend %button_flat_active;
+        background-color: transparent;
+        color: $selected_fg_color;
+      }
+      &.selected {
+        @extend %button_flat_normal;
+        background-image: image($selected_bg_color);
+        &, &:hover {
+          color: $selected_fg_color;
+
+          image { opacity: 1.0; }
+        }
+      }
+    }
+  }
+
+  entry,
+  .lightdm-combo entry {
+    @extend %greeter_entry;
+    &,
+    &:focus {
+      color: $inverted_fg_color;
+      caret-color: $inverted_fg_color;
+    }
+    &:disabled { color: $insensitive_inverted_fg_color; }
+  }
+
+  .lightdm-combo {
     border-radius: 0;
-    border-width: 1px;
-    border-style: solid;
-    border-color: $menu_highlight_color
-                  $solid_light_borders_color
-                  $solid_light_borders_color;
-    background-clip: border-box;
+    background-color: transparent;
   }
 }
 
