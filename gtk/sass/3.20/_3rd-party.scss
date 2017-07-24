@@ -2049,6 +2049,16 @@ window.background.lightdm {
     &:disabled { color: $insensitive_inverted_fg_color; }
   }
 
+  entry:active { // for spinner
+    -gtk-icon-source: linear-gradient(to bottom,
+                                      transparent 50%,
+                                      $solid_red 50%,
+                                      $solid_red calc(50% + 2px),
+                                      transparent calc(50% + 2px),
+                                      transparent 100%);
+    animation: colorful_bar 2s linear infinite;
+  }
+
   .lightdm-combo {
     border-radius: 0;
     background-color: transparent;
