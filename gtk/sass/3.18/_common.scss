@@ -3002,12 +3002,16 @@ GtkProgressBar {
     background-color: $accent_color;
     border-radius: 0;
     box-shadow: none;
+
     &.indicator-discrete {
       &.horizontal { margin: 0 1px; }
       &.vertical { margin: 1px 0; }
     }
+
     &.level-high { background-color: $success_color; }
-    &.level-low { background-color: $accent_color; }
+
+    &.level-low { background-color: $warning_color; }
+
     &.empty-fill-block { background-color: $track_color; }
   }
 }
