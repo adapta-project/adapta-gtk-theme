@@ -4065,7 +4065,7 @@ window.background > overlay > revealer { // parent container
 list.tilix-session-sidebar {
   background-image: image($secondary_dark_color); // use -image property instead
 
-  > row.activatable > overlay > grid > button.tilix-sidebar-close-button {
+  button.tilix-sidebar-close-button {
     min-height: 20px;
     min-width: 20px;
     padding: 0;
@@ -4117,6 +4117,15 @@ widget > box.terminal-titlebar {
     }
   }
 
+  > button.image-button { // 'plus' and 'close'
+    &, &.toggle {
+      margin: rem(2.7px) 0;
+      padding: rem(10px - 2.7px);
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+
   &.compact { // 'Small' option
     > button.flat.popup.toggle {
       &:dir(ltr),
@@ -4124,6 +4133,13 @@ widget > box.terminal-titlebar {
 
       label.tilix-terminal-title {
         padding: rem(1.3px, $sw: 1.0) rem(2.7px) rem(2.7px, $sw: 1.0);
+      }
+    }
+
+    > button.image-button {
+      &, &.toggle {
+        margin: 0;
+        padding: rem(2.7px, $sw: 1.0);
       }
     }
   }
