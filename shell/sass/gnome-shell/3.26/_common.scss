@@ -2402,9 +2402,6 @@ $provider_icon_size: 32px;
     @extend %icon_tile;
     color: $osd_secondary_fg_color;
     transition-duration: 0s;
-
-    // FIXME: workaround for DashToPanelExtension
-    #panelLeft & { border-radius: 0; }
   }
 
   &:focus .overview-icon,
@@ -2415,18 +2412,6 @@ $provider_icon_size: 32px;
     background-image: none;
     color: $osd_fg_color;
     transition-duration: 0s;
-
-    // FIXME: workaround for DashToPanelExtension
-    #panelLeft & {
-      border-radius: 0;
-      background-color: $hidden_fill_color;
-      box-shadow: inset 0 2px $osd_fill_color;
-    }
-
-    #dashtopanelScrollview & {
-      background-color: $osd_slight_fill_color;
-      box-shadow: $empty_shadow;
-    }
   }
 
   &:active .overview-icon {
@@ -2435,18 +2420,6 @@ $provider_icon_size: 32px;
     background-image: none;
     color: $osd_fg_color;
     transition-duration: $duration_medium;
-
-    // FIXME: workaround for DashToPanelExtension
-    #panelLeft & {
-      border-radius: 0;
-      background-color: $hidden_fill_color;
-      box-shadow: inset 0 2px $osd_fill_color;
-    }
-
-    #dashtopanelScrollview & {
-      background-color: $osd_slight_fill_color;
-      box-shadow: $empty_shadow;
-    }
   }
 
   &:checked .overview-icon {
@@ -2455,11 +2428,6 @@ $provider_icon_size: 32px;
     color: $osd_fg_color;
     box-shadow: inset 0 -2px $osd_indicator_color;
     transition-duration: $duration_long;
-
-    // FIXME: workaround for DashToPanelExtension
-    #panelLeft & { box-shadow: inset 0 2px $osd_indicator_color; }
-
-    #dashtopanelScrollview & { box-shadow: $empty_shadow; }
   }
 }
 
@@ -2518,20 +2486,6 @@ $provider_icon_size: 32px;
     color: transparent;
     transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
-
-    // FIXME: workaround for DashToPanelExtension
-    #panelLeft & {
-      background-image: url("assets/show-apps-panel.svg");
-      background-size: 32px 32px;
-      background-position: center center;
-      transition-duration: 0s;
-      -st-background-image-shadow: $z-depth-1;
-    }
-
-    #panel.solid #panelLeft & {
-      transition-duration: 0s;
-      -st-background-image-shadow: none;
-    }
   }
 
   &:hover .show-apps-icon,
@@ -2541,40 +2495,12 @@ $provider_icon_size: 32px;
     background-image: url("assets/show-apps-hover.svg");
     transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
-
-    // FIXME: workaround for DashToPanelExtension
-    #panelLeft & {
-      background-image: url("assets/show-apps-panel-hover.svg");
-      background-size: 32px 32px;
-      background-position: center center;
-      transition-duration: 0s;
-      -st-background-image-shadow: $z-depth-2;
-    }
-
-    #panel.solid #panelLeft & {
-      transition-duration: 0s;
-      -st-background-image-shadow: none;
-    }
   }
   &:checked .show-apps-icon {
     color: transparent;
     background-image: url("assets/show-apps-checked.svg");
     transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-2;
-
-    // FIXME: workaround for DashToPanelExtension
-    #panelLeft & {
-      background-image: url("assets/show-apps-panel-hover.svg");
-      background-size: 32px 32px;
-      background-position: center center;
-      transition-duration: 0s;
-      -st-background-image-shadow: $z-depth-2;
-    }
-
-    #panel.solid #panelLeft & {
-      transition-duration: 0s;
-      -st-background-image-shadow: none;
-    }
   }
 }
 
@@ -2677,19 +2603,92 @@ $provider_icon_size: 32px;
 //  * Dash To Panel Extension *
 //  ***************************/
 
-// main workarounds for .overview-icon class are embedded
-// into common section directly.
-#panelLeft {
-  StBin.overview-icon {
-    .show-apps-icon {
-      min-height: 24px;
+@each $_position, $_line in (Top, 0 2px),
+                            (Bottom, 0 -2px) {
+  #panel.dashtopanelMainPanel.dashtopanel#{$_position} {
+    #panelLeft,
+    #panelCenter,
+    .panel-corner,
+    .panel-button {
+      &:hover {
+        box-shadow: inset #{$_line} $osd_fill_color;
+      }
+      &:active,
+      &:focus,
+      &:checked,
+      &:overview {
+        box-shadow: inset #{$_line} $osd_indicator_color;
+      }
+    }
+
+    .app-well-app,
+    .show-apps {
+      .overview-icon { border-radius: 0; }
+
+      &:focus .overview-icon,
+      &:hover .overview-icon,
+      &:active .overview-icon {
+        border-radius: 0;
+        background-color: $hidden_fill_color;
+        box-shadow: inset #{$_line} $osd_fill_color;
+      }
+      &:checked .overview-icon {
+        box-shadow: inset #{$_line} $osd_indicator_color;
+      }
+    }
+
+    #dashtopanelScrollview {
       padding: 0;
-      background-size: 32px 32px;
-      background-repeat: no-repeat;
+
+      .app-well-app,
+      .show-apps { // unset underlines
+        &:focus .overview-icon,
+        &:hover .overview-icon,
+        &:active .overview-icon {
+          background-color: $osd_slight_fill_color;
+          box-shadow: $empty_shadow;
+        }
+        &:checked .overview-icon {
+          background-color: $hidden_fill_color;
+          box-shadow: $empty_shadow;
+        }
+      }
+    }
+
+    .show-apps {
+      .show-apps-icon {
+        min-height: 24px;
+        background-image: url("assets/show-apps-panel.svg");
+        background-size: 32px 32px;
+        background-position: center center;
+        transition-duration: 0s;
+        -st-background-image-shadow: $z-depth-1;
+      }
+
+      &:hover .show-apps-icon,
+      &:active .show-apps-icon,
+      &:focus .show-apps-icon {
+        background-image: url("assets/show-apps-panel-hover.svg");
+        -st-background-image-shadow: $z-depth-2;
+      }
+
+      &:checked .show-apps-icon {
+        background-image: url("assets/show-apps-panel-hover.svg");
+        -st-background-image-shadow: $z-depth-2;
+      }
+    }
+
+    &.solid { // unset icon-shadows
+      .show-apps {
+        &:hover,
+        &:active,
+        &:focus,
+        &:checked {
+          .show-apps-icon { -st-background-image-shadow: none; }
+        }
+      }
     }
   }
-
-  StScrollView#dashtopanelScrollview { padding: 0; }
 }
 
 
