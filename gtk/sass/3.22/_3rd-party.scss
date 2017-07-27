@@ -623,42 +623,24 @@ window.budgie-popover:not(.csd) {
   }
 
   .powerstrip {
-    background-color: $secondary_dark_color;
-    background-image: linear-gradient(to top,
-                      mix($dark_color, $secondary_dark_color, 50%)
-                        calc(50% - 4px),
-                      mix(mix($dark_color, $secondary_dark_color, 50%),
-                          $borders_color,
-                          40%)
-                        calc(50% - 1px),
-                      $borders_color calc(50% - 1px),
-                      $borders_color 50%,
-                      transparent 50%);
+    background-color: $panel_bg_color;
     box-shadow: none;
 
+    // = stackswitcher width in raven-header
+    $strip_width: rem(112px * 2, $sw: 1.0);
+
     button.flat.image-button {
-      @extend %button_normal;
-      margin: rem(2px) rem(8px);
-      padding: rem(5.3px);
-      color: $secondary_selected_fg_color;
-      background-color: $suggested_color;
-      &:hover {
-        @extend %button_hover;
-        color: $selected_fg_color;
-      }
-      &:active {
-        @extend %button_active;
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
-      }
-      &:checked {
-        @extend %button_checked;
-        color: $inverted_fg_color;
-        background-color: mix($selected_fg_color, $suggested_color, 20%);
-      }
+      min-width: $strip_width / 3;
+      margin: -2px -8px;
+      padding: rem(6.7px, $sw: 1.0) 0;
+      color: $inverted_secondary_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $inverted_fg_color; }
       &:disabled {
-        @include button(flat-insensitive, $secondary_dark_color,
-                                          $insensitive_inverted_fg_color);
+        @include button(flat-insensitive,
+                        transparent,
+                        $insensitive_inverted_fg_color);
       }
     }
   }
