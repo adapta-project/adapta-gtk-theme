@@ -4091,6 +4091,11 @@ window.background.chromium {
     color: $accent_label_color;
     &:disabled { color: mix($accent_label_color, $bg_color, 30%); }
   }
+
+  menu menuitem:hover { // 61.0.3159 or higher
+    // revive hovered backgrounds
+    background-color: mix($fg_color, $secondary_base_color, 10%);
+  }
 }
 
 
