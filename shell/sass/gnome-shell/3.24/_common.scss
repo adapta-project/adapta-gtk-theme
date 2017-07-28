@@ -1164,6 +1164,27 @@ StScrollBar {
         icon-shadow: none; // unset drop-shadow
       }
     }
+
+    // notification dot at the right-side of clock label
+    &.clock-display {
+      > StBoxLayout > StLabel:last-child {
+        // align top
+        padding-bottom: if($eta == 'false', (30px - 14px) / 2,
+                                            (25px - 14px) / 2);
+        color: $suggested_color;
+        font-size: 14px; // fixed size
+        font-weight: 400;
+        &:ltr { padding-left: 0; }
+        &:rtl { padding-right: 0; }
+      }
+
+      &:hover,
+      &:active {
+        > StBoxLayout > StLabel:last-child {
+          color: $accent_color;
+        }
+      }
+    }
   }
 
   .panel-status-indicators-box,
