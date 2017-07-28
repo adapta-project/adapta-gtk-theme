@@ -1967,51 +1967,40 @@ StScrollBar {
 }
 
 // Search entry
-.search-entry { // use raised entry-box styling
+.search-entry {
   @include fontscaling($ref_size * 1.1);
   width: 320px;
-  padding: 0;
-  border-radius: 100px;
-  border-color: transparent;
-  border-top: 1px solid if($nokto == 'false', $borders_highlight,
-                                              $panel_bg_color);
-  color: $secondary_fg_color;
-  background-color: if($nokto == 'false', $bg_color, $panel_bg_color);
-  font-weight: 500;
-  box-shadow: if($nokto == 'false', $z-depth-2, none);
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  font-weight: 400;
+  color: transparent; // hide placeholder "Type to search"
+  background-color: shellopacity($bg_color, 0.4);
+  box-shadow: none;
 
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
 
-  StLabel { margin: 0 8px 7px; }
-
-  &:hover,
-  &:focus {
-    border-top: 1px solid if($nokto == 'false', $borders_highlight,
-                                                $panel_bg_color);
-    color: $fg_color;
-    box-shadow: if($nokto == 'false', $z-depth-3, none);
-    transition-duration: $duration_medium;
-  }
-
   .search-entry-icon {
     margin: 0;
-    padding: 8px 16px 7px;
-    icon-size: 16px;
-    border-radius: 100px;
-    border-width: if($nokto == 'false', 1px, 0);
-    border-style: solid;
-    border-color: if($nokto == 'false',
-                  transparent $borders_color $borders_color,
-                  transparent transparent transparent);
-    color: $secondary_fg_color;
-    background-color: if($nokto == 'false', $base_color,
-                                            transparent);
-    box-shadow: if($nokto == 'false', $z-depth-3, none);
+    padding: 0 10px;
+    icon-size: 14px;
+    color: if($nokto == 'false', $inverted_fg_color, $fg_color);
   }
 
-  &:hover,
+  &:hover {
+    box-shadow: $z-depth-2;
+    background-color: shellopacity($bg_color, 0.45);
+    transition-duration: $duration_short;
+  }
+
   &:focus {
+    width: 480px;
+    color: $fg_color;
+    background-color: shellopacity($bg_color, 0.9);
+    box-shadow: $z-depth-2;
+    transition-duration: $duration_medium;
+
     .search-entry-icon { color: $fg_color; }
   }
 }
