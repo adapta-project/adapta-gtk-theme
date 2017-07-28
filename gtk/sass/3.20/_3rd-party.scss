@@ -1252,6 +1252,59 @@ widget > box.workspace-switcher {
   }
 }
 
+window.budgie-popover.workspace-popover {
+  $max_children_per_line: 4;
+  $requested_width: 150px;
+
+  box.workspace-popover-button-box {
+    > button.flat { // 'Rename' and 'Remove'
+      min-width: $requested_width;
+      padding: rem(5.3px) rem(8px + 5.3px) rem(6.7px);
+      border-radius: 0;
+      -gtk-outline-radius: 0;
+      font-weight: 500;
+
+      &:first-child { // draw an arrow
+        &:dir(ltr) {
+          border-image:-gtk-icontheme("pan-end-symbolic")
+                                      0 13.3 0 0 / 0 13.3px 0 0;
+        }
+        &:dir(rtl) {
+          border-image:-gtk-icontheme("pan-end-symbolic")
+                                      0 0 0 13.3 / 0 0 0 13.3px;
+        }
+      }
+    }
+
+    // hide unneeded separators
+    > separator.horizontal {
+      min-height: 0;
+      margin: 0;
+      background-color: transparent;
+    }
+  }
+
+  flowbox > flowboxchild { // apps icon grid
+    button.flat:not(:active) {
+      transition-property: opacity,
+                           border-color,
+                           border-image,
+                           background-color,
+                           background-image,
+                           box-shadow,
+                           icon-shadow;
+      transition-timing-function: $slope_slow;
+      transition-duration: 0.2s;
+    }
+
+    image {
+      padding: ($requested_width - $icon_size * ($max_children_per_line + 1))
+               / ($max_children_per_line * 2)
+               0;
+    }
+  }
+}
+
 // show-desktop applet
 @each $position, $_spacing, $_line in (top, 0 6px, 0 2px),
                                       (bottom, 0 6px, 0 -2px),
