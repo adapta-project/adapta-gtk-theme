@@ -5561,24 +5561,26 @@ infobar {
 
 tooltip {
   &.background {
+    border: 1px solid gtkopacity($inverted_dark_color, 0.9);
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    border: 1px solid gtkopacity($inverted_dark_color, 0.9);
-    background-color: gtkopacity($inverted_dark_color, 0.9);
+    //
+    // FIXME: Eclipse specific tooltip widgets needs non-inverted backgrounds
+    // even if aplha-value was 0.1%, so real backgrounds are drawin with
+    // background-image property instead.
+    background-color: gtkopacity($base_color, 0.001);
+    background-image: image(gtkopacity($inverted_dark_color, 0.901));
     background-clip: padding-box;
   }
 
-  color: $inverted_fg_color;
   padding: rem(4px);
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
 
   // FIXME: we need a border or tooltips vanish on black background.
   decoration { background-color: transparent; }
 
-  * { // Yeah this is ugly
-    background-color: transparent;
-    color: $inverted_fg_color;
-  }
+  label,
+  image { color: $inverted_fg_color; } // default foregrounds
 
   // use roundness only for CSDs
   &.csd { border-radius: 2px; }
@@ -6423,7 +6425,10 @@ popover.touch-selection {
   font-weight: 700;
 
   // shortcut keycaps for Gnome-builder
-  tooltip.background & { background-color: $suggested_color; }
+  tooltip.background & {
+    background-color: $suggested_color;
+    color: $selected_fg_color;
+  }
 }
 
 // shortcut-window
