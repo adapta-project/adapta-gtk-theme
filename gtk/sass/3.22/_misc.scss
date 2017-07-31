@@ -1666,6 +1666,7 @@ layouttabbar {
   box.horizontal > button {
     &, &.popup.toggle {
       @extend %button_flat_normal;
+      margin: 4px;
       padding: rem(4px) rem(5.3px) rem(5.3px);
       border-radius: 2px;
       background-color: transparent;
@@ -1878,6 +1879,37 @@ greeter > box.vertical > stack > box.vertical > stack {
   > box.vertical > scrolledwindow {
     background-image: if($variant == 'light', $fake-shadow-light,
                                               $fake-shadow-dark);
+  }
+}
+
+preferences > box.horizontal {
+  > box.vertical,
+  > scrolledwindow {
+    background-image: if($variant == 'light', $fake-shadow-light,
+                                              $fake-shadow-dark);
+  }
+
+  preferencesgroup {
+    > box.vertical > label { // titles
+      color: $tertiary_fg_color;
+      font-weight: 700;
+    }
+
+    scrolledwindow > viewport.frame > list {
+      // override shared.css
+      row.activatable:not(:last-child) {
+        border-image: image($borders_color) 0 0 1 / 0 0 1px;
+      }
+    }
+  }
+}
+
+preferencesbin > box.horizontal {
+  > image { // small 'ckeck' image
+    color: $selected_bg_color;
+
+    // back to standard 'arrows'
+    preferencesgroup#languages & { color: $fg_color; }
   }
 }
 
