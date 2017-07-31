@@ -7,6 +7,7 @@ style "xfce-heading" {
 }
 
 style "theme-panel" {
+  GtkButton::inner-border = { 0, 0, 0, 0 }
   xthickness = 2
   ythickness = 0
 
@@ -37,6 +38,7 @@ style "panelbar" {
 }
 
 style "panelbuttons" {
+  GtkButton::inner-border = { 0, 0, 0, 0 }
   xthickness = 2
   ythickness = 0
 
@@ -259,6 +261,7 @@ widget_class "*Xfce*Panel*Button*"                    style "panelbuttons"
 widget_class "*<XfceArrowButton>"                     style "panelbuttons"
 widget_class "*<XfceActionsPlugin>*"                  style "panelbuttons"
 widget_class "*XfcePanelPlugin.GtkButton"             style "panelbuttons"
+widget_class "*XfcePanelPlugin.GtkToggleButton"       style "panelbuttons"
 widget "*dict*Applet*"                                style "panelbuttons"
 widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
 widget_class "*Tasklist*"                             style:highest "panelbuttons"
