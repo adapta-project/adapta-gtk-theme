@@ -1335,17 +1335,6 @@ window.background {
 //  * Gedit *
 //  *********/
 
-$fake-shadow-light: linear-gradient(to bottom, rgba(0, 0, 0, 0.36),
-                                               rgba(0, 0, 0, 0.15) 2px,
-                                               rgba(0, 0, 0, 0.05) 4px,
-                                               rgba(0, 0, 0, 0.01) 6px,
-                                               transparent);
-$fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
-                                              rgba(0, 0, 0, 0.08) 2px,
-                                              rgba(0, 0, 0, 0.02) 3px,
-                                              rgba(0, 0, 0, 0.01) 4px,
-                                              transparent);
-
 .gedit-bottom-panel-paned {
   .gedit-search-slider {
     @extend toolbar.osd;
@@ -1867,10 +1856,23 @@ popover {
   box.popover-action-area { @extend buttonbox.dialog-action-area; }
 }
 
-greeter > box.vertical > stack > box.vertical > stack {
-  > box.vertical > scrolledwindow {
+greeter > box.vertical > stack { // draw fake-shadows
+  > box.vertical > stack > box.vertical > scrolledwindow,
+  > stack > createprojectwidget > scrolledwindow,
+  > stack > gitclonewidget > overlay > box.vertical,
+  > stack > flatpakclonewidget > overlay > box.vertical {
     background-image: if($variant == 'light', $fake-shadow-light,
                                               $fake-shadow-dark);
+  }
+
+  // project selections
+  > box.vertical > stack > box.vertical > scrolledwindow {
+    frame > list {
+      // override shared.css
+      row.activatable:not(:last-child) {
+        border-image: image($borders_color) 0 0 1 / 0 0 1px;
+      }
+    }
   }
 }
 
@@ -1879,6 +1881,41 @@ preferences > box.horizontal {
   > scrolledwindow {
     background-image: if($variant == 'light', $fake-shadow-light,
                                               $fake-shadow-dark);
+  }
+
+  > box.vertical { // side-pane
+    background-color: $secondary_dark_color;
+    &:dir(ltr) { // move stacksidebar shadows to the parent box
+      border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
+                                               rgba(0, 0, 0, 0.11) 2px,
+                                               rgba(0, 0, 0, 0.05) 4px,
+                                               rgba(0, 0, 0, 0.05))
+                    0 1 0 0 / 0 1px 0 0 stretch;
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
+    }
+    &:dir(rtl) {
+      border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
+                                               rgba(0, 0, 0, 0.11) 2px,
+                                               rgba(0, 0, 0, 0.05) 4px,
+                                               rgba(0, 0, 0, 0.05))
+                    0 0 0 1 / 0 0 0 1px stretch;
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
+    }
+
+    > entry { margin: 0 4px; } // stop touching L/R edges
+
+    > stacksidebar.sidebar {
+      &, list { box-shadow: none; } // unset sidebar-shadows
+
+      list {
+        background-color: transparent;
+
+        // enlarge padding
+        row.activatable { padding: rem(9.3px) rem(13.3px) rem(10.7px); }
+      }
+    }
   }
 
   preferencesgroup {
@@ -1890,7 +1927,7 @@ preferences > box.horizontal {
     scrolledwindow > viewport.frame > list {
       // override shared.css
       row.activatable:not(:last-child) {
-        border-image: image($borders_color) 0 0 1 / 0 0 1px;
+        border-image: image($base_color) 0 0 1 / 0 0 1px;
       }
     }
   }
@@ -1903,6 +1940,12 @@ preferencesbin > box.horizontal {
     // back to standard 'arrows'
     preferencesgroup#languages & { color: $fg_color; }
   }
+}
+
+// info-bars beneath GtkHeaderBar
+window.background.workbench box.message-box.vertical {
+  // hide bottom border
+  infobar.horizontal { border-bottom-width: 0; }
 }
 
 
