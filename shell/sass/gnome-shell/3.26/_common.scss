@@ -953,6 +953,11 @@ StScrollBar {
 }
 
 .switcher-list {
+  > StLabel { // for app titles in AlternativeTabExtension
+    // prepare for tall/dense font-families
+    min-height: 13.3px * 2; // use 'px' unit
+  }
+
   &-item-container { spacing: if($eta == 'false', 8px, 6px); }
 
   .item-box {
@@ -1051,7 +1056,9 @@ StScrollBar {
 }
 
 %osd-panel {
-  padding: if($eta == 'false', 12px, 8px);
+  // the value of bottom-padding is shared with '.switcher-arrow' size,
+  // so do not reduce to < 12px (StDrawingArea)
+  padding: if($eta == 'false', 16px, 12px);
   border-radius: 2px;
   border: none;
   color: $osd_fg_color;
