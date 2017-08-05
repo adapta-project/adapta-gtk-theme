@@ -3538,6 +3538,8 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 //  * Looking Glass *
 //  *****************/
 
+$tool_icon_size: 24px;
+
 #LookingGlassDialog {
   spacing: 4px;
   padding: 0;
@@ -3548,22 +3550,27 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   box-shadow: $z-depth-4;
 
   > #Toolbar {
-    padding: 0 8px;
+    padding: if($eta == 'false', 0 8px, 0 6px);
     border: none;
     border-radius: 0;
     background-color: $osd_bg_color;
     box-shadow: $z-depth-1;
+
+    > StIcon { // 'color-picker' and 'trash'
+      // base-line shift
+      padding: if($eta == 'false', 5px 4px 3px, 4px 3px 2px);
+    }
   }
 
   .labels { spacing: 0; }
 
   .notebook-tab {
-    -natural-hpadding: 12px;
-    -minimum-hpadding: 6px;
-    padding: 7px 32px 8px;
+    @include fontscaling($ref_size * 0.9);
+    min-height: $tool_icon_size + if($eta == 'false', 8px, 6px);
+    padding: if($eta == 'false', 0 8px * 2, 0 6px * 2);
     color: $osd_secondary_fg_color;
     font-weight: 700;
-    transition-duration: 0s;
+    transition-duration: $duration_medium;
     &:hover {
       border-bottom-width: 0;
       border-color: transparent;
@@ -3571,7 +3578,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
       color: if($nokto == 'false', $osd_fg_color, $fg_color);
       box-shadow: inset 0 -2px $osd_fill_color;
       text-shadow: none;
-      transition-duration: 0s;
+      transition-duration: $duration_medium;
     }
     &:selected {
       border-bottom-width: 0;
@@ -3582,6 +3589,8 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
       text-shadow: none;
       transition-duration: $duration_medium;
     }
+
+    StLabel { padding-bottom: 0.1em; }
   }
 
   StBoxLayout#EvalBox {
