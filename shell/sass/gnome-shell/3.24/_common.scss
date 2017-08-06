@@ -2043,7 +2043,11 @@ $provider_icon_size: 32px;
 
 .search-section-separator {
   height: 1px;
-  background-color: $osd_semi_fill_color;
+  // FIXME: keep meaningless gradient properties
+  // otherwise warnings are recorded
+  -gradient-height: 1px;
+  -gradient-start: $osd_semi_fill_color;
+  -gradient-end: $osd_semi_fill_color;
   &:ltr {
     margin-left: if($eta == 'false', $provider_icon_size * (2 + 0.5),
                                      $provider_icon_size * (2 + 0.25));
