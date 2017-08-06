@@ -813,7 +813,9 @@ StScrollBar {
     padding: if($eta == 'false', 0 5px, 0 2px);
     background-image: url("assets/show-apps-panel.svg");
     background-size: 32px 32px;
-    background-position: center center;
+    // FIXME: G-S can't recognize position property
+    // and may be aligned center automatically?
+    // background-position: center center;
     transition-duration: 0s;
   }
 
@@ -2608,7 +2610,9 @@ $provider_icon_size: 32px;
         min-height: 24px;
         background-image: url("assets/show-apps-panel.svg");
         background-size: 32px 32px;
-        background-position: center center;
+        // FIXME: G-S can't recognize position property
+        // and may be aligned center automatically?
+        // background-position: center center;
         transition-duration: 0s;
         -st-background-image-shadow: none;
       }
