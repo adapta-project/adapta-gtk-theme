@@ -465,8 +465,7 @@ entry {
     }
   }
 
-  grid &,
-  spinbutton:not(.vertical) > & { // special case
+  grid & { // special case
     padding-top: rem(9.3px - 2.7px);
     padding-bottom: rem(10.7px - 2.7px);
 
@@ -1196,12 +1195,18 @@ button:visited {
 }
 
 spinbutton {
+  &:not(.vertical),
+  &.vertical {
+    &,
+    grid &,
+    row.activatable & { padding: 0; }  // specificity bump
+  }
+
   &:not(.vertical) {
     // in this horizontal configuration, the whole spinbutton
     // behaves as the entry, so we extend the entry styling
     // and nuke the style on the internal entry
     @extend entry;
-    padding: 0;
 
     // FIXME: this should not be set at all, but otherwise it gets the wrong
     // color
@@ -1217,6 +1222,11 @@ spinbutton {
         border-image: none;
         box-shadow: none;
       }
+
+      padding-top: rem(9.3px - 2.7px);
+      padding-bottom: rem(10.7px - 2.7px);
+
+      > progress { margin: rem(-9.3px + 2.7px) 0 rem(-10.7px + 2.7px); }
     }
 
     button {

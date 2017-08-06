@@ -1190,13 +1190,18 @@ button:visited {
 //  *****************/
 
 spinbutton {
+  &:not(.vertical),
+  &.vertical {
+    &,
+    grid &,
+    row.activatable & { padding: 0; }  // specificity bump
+  }
+
   &:not(.vertical) {
     // in this horizontal configuration, the whole spinbutton
     // behaves as the entry, so we extend the entry styling
     // and nuke the style on the internal entry
     @extend entry;
-
-    &, grid & { padding: 0; }
 
     // FIXME: this should not be set at all, but otherwise it gets the wrong
     // color
