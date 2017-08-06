@@ -2882,9 +2882,9 @@ window.background:not(.solid-csd) > box.vertical {
     border-color: transparent transparent $solid_light_borders_color;
   }
 
-  scrolledwindow widget > widget > entry {
-    // internal padding is still alive in Gtk+3!?
-    // any ideas how they develop their UIs...
+  scrolledwindow widget > widget > entry,
+  scrolledwindow widget > widget > combobox entry {
+    // min-height is hard-coded
     padding-top: 0;
     padding-bottom: 0;
   }
