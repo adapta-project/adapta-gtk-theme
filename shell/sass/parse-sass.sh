@@ -25,7 +25,7 @@ GNOME_MINOR_VERSION="`echo $GNOME_VERSION | cut -d'.' -f2`"
 if [ -e $GNOME_SHELL ] && [ $GNOME_MAJOR_VERSION -eq "3" ] && \
     [ $GNOME_MINOR_VERSION -ge "18" ]; then
 
-    if [ $GNOME_MINOR_VERSION -gt "23" ]; then
+    if [ $GNOME_MINOR_VERSION -gt "24" ]; then
         GNOME_SCSS_VERSION=$GNOME_MAJOR_VERSION.26
     else
         GNOME_SCSS_VERSION=$GNOME_MAJOR_VERSION.24
