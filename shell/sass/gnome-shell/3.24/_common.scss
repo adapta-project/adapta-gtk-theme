@@ -2036,26 +2036,27 @@ $provider_icon_size: 32px;
     spacing: if($eta == 'false', $provider_icon_size / 2,
                                  $provider_icon_size / 4);
   }
-}
-.search-statustext { // "no results"
-  @extend %status_text;
+
+  &-separator {
+    height: 1px;
+    // FIXME: keep meaningless gradient properties
+    // otherwise warnings are recorded
+    -gradient-height: 1px;
+    -gradient-start: $osd_semi_fill_color;
+    -gradient-end: $osd_semi_fill_color;
+    &:ltr {
+      margin-left: if($eta == 'false', $provider_icon_size * (2 + 0.5),
+                                       $provider_icon_size * (2 + 0.25));
+    }
+    &:rtl {
+      margin-right: if($eta == 'false', $provider_icon_size * (2 + 0.5),
+                                        $provider_icon_size * (2 + 0.25));
+    }
+  }
 }
 
-.search-section-separator {
-  height: 1px;
-  // FIXME: keep meaningless gradient properties
-  // otherwise warnings are recorded
-  -gradient-height: 1px;
-  -gradient-start: $osd_semi_fill_color;
-  -gradient-end: $osd_semi_fill_color;
-  &:ltr {
-    margin-left: if($eta == 'false', $provider_icon_size * (2 + 0.5),
-                                     $provider_icon_size * (2 + 0.25));
-  }
-  &:rtl {
-    margin-right: if($eta == 'false', $provider_icon_size * (2 + 0.5),
-                                      $provider_icon_size * (2 + 0.25));
-  }
+.search-statustext { // "no results"
+  @extend %status_text;
 }
 
 .list-search {
@@ -2172,9 +2173,9 @@ $provider_icon_size: 32px;
   &:rtl { border-radius: 2px 0 0 2px; }
 
   .placeholder {
+    height: 24px;
     background-image: url("assets/dash-placeholder.svg");
     background-size: contain;
-    height: 24px;
   }
 
   .empty-dash-drop-target {
@@ -2409,8 +2410,8 @@ $provider_icon_size: 32px;
 .app-well-app-running-dot { // running apps indicator
   width: 32px;
   height: 2px;
-  background-color: $osd_indicator_color;
   margin-bottom: 0;
+  background-color: $osd_indicator_color;
 }
 
 %icon_tile {
