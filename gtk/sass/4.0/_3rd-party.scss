@@ -172,6 +172,8 @@ box.vertical.pinned { // drop-target
 
     &:hover {
       background-image: none;
+      // use box-shadow instead
+      box-shadow: inset 0 0 0 999px gtkopacity($inverted_fg_color, 0.2);
       -gtk-icon-filter: brightness(1.2);
 
       > image { opacity: 0.75; }
@@ -190,7 +192,10 @@ box.vertical.pinned { // drop-target
     }
     &:checked {
       background-color: transparent;
-      &:hover { -gtk-icon-filter: brightness(1.2); }
+      &:hover {
+        box-shadow: inset 0 0 0 999px gtkopacity($inverted_fg_color, 0.2);
+        -gtk-icon-filter: brightness(1.2);
+      }
 
       > image { opacity: 1.0; }
     }
@@ -198,7 +203,10 @@ box.vertical.pinned { // drop-target
 
   .unpinned button.flat.launcher,
   .pinned button.flat.launcher.running {
-    &:hover { -gtk-icon-filter: brightness(1.2); }
+    &:hover {
+      box-shadow: inset 0 0 0 999px gtkopacity($inverted_fg_color, 0.2);
+      -gtk-icon-filter: brightness(1.2);
+    }
 
     > image { opacity: 1.0; }
   }
@@ -229,9 +237,6 @@ box.vertical.pinned { // drop-target
                            (right, -2px 0) {
   .#{$position} .budgie-panel {
     .pinned button.flat.launcher {
-      &:hover > image {
-        box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4);
-      }
       &:active > image,
       &:checked > image {
         box-shadow: inset #{$_line} $selected_bg_color;
