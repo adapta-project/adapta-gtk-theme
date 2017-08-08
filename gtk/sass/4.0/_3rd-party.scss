@@ -2,7 +2,7 @@
 //  * Budgie-Desktop *
 //  ******************/
 
-// specific ripple-effect for panel-buttons
+// specific ripple-effect for IconTaskList
 @keyframes budgie_ripple_effect {
   0% {
     background-image: radial-gradient(circle farthest-corner at center,
@@ -21,30 +21,6 @@
                                       gtkalpha($inverted_fg_color, 0) 100%,
                                       transparent 0%),
                       image(gtkalpha($inverted_fg_color, 0.1));
-  }
-}
-
-// specific animation for icon-tasklists
-@keyframes icon_shake {
-  0% {
-    -gtk-icon-transform: translate(0, -2px)
-                         scale(0.8);
-  }
-  33% {
-    -gtk-icon-transform: translate(0, 4px)
-                         scale(0.8);
-  }
-  66% {
-    -gtk-icon-transform: translate(0, -4px)
-                         scale(0.8);
-  }
-  90% {
-    -gtk-icon-transform: translate(0, 2px)
-                         scale(0.8);
-  }
-  100% {
-    -gtk-icon-transform: translate(0, 0)
-                         scale(1.0);
   }
 }
 
@@ -160,33 +136,30 @@ box.vertical.pinned { // drop-target
     min-height: $icon_size;
     padding: 0;
     border-radius: 0;
-    background-image: none;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      gtkalpha($inverted_fg_color, 0) 100%,
+                                      transparent 0%),
+                      image(gtkalpha($inverted_fg_color, 0));
+    background-position: center center;
     transition: $budgie_transition;
 
     > image {
       opacity: 0.5;
       transition: opacity 0.2s $slope_medium,
-                  background-image 0s,
-                  box-shadow 0.2s $slope_medium;
+                  background-image 0s;
     }
 
     &:hover {
-      background-image: none;
       -gtk-icon-filter: brightness(1.2);
 
       > image { opacity: 0.75; }
     }
     &:active {
-      background-image: none;
-      -gtk-icon-filter: brightness(1.2);
-      animation: none;
-      transition: $budgie_transition;
+      transition: $budgie_transition,
+                  background-image 0s;
+      animation: budgie_ripple_effect 0.3s $slope_slow forwards;
 
-      > image {
-        opacity: 1.0;
-        // FIXME: can't employ slower animations
-        animation: icon_shake 0.2s $slope_slow forwards;
-      }
+      > image { opacity: 1.0; }
     }
     &:checked {
       background-color: transparent;
@@ -204,13 +177,14 @@ box.vertical.pinned { // drop-target
   }
 }
 
-// draw lines for wnck-tasklists
+// draw underscores
 @each $along_side, $_line in (top, 0 2px),
                              (bottom, 0 -2px),
                              (left, 2px 0),
                              (right, -2px 0) {
   .#{$along_side} .budgie-panel {
-    button#tasklist-button {
+    button#tasklist-button,
+    button.flat.launcher {
       &:hover {
         box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4);
       }
@@ -222,22 +196,12 @@ box.vertical.pinned { // drop-target
   }
 }
 
-// draw lines and dots for icon-tasklists
+// draw underscores and dots
 @each $position, $_line in (top, 0 2px),
                            (bottom, 0 -2px),
                            (left, 2px 0),
                            (right, -2px 0) {
   .#{$position} .budgie-panel {
-    .pinned button.flat.launcher {
-      &:hover > image {
-        box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4);
-      }
-      &:active > image,
-      &:checked > image {
-        box-shadow: inset #{$_line} $selected_bg_color;
-      }
-    }
-
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running {
       > image {
@@ -246,17 +210,15 @@ box.vertical.pinned { // drop-target
         background-size: 2px 2px;
         background-repeat: no-repeat;
         transition: opacity 0.2s $slope_medium,
-                    background-image 0s,
-                    box-shadow 0.2s $slope_medium;
+                    background-image 0s;
       }
 
       &:hover,
       &:active,
       &:checked {
-        > image {
-          background-image: none;
-          box-shadow: inset #{$_line} $selected_bg_color;
-        }
+        box-shadow: inset #{$_line} $selected_bg_color;
+
+        > image { background-image: none; }
       }
     }
   }
