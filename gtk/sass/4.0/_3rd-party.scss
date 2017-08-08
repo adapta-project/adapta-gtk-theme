@@ -4004,6 +4004,17 @@ headerbar > box.horizontal.linked {
   }
 }
 
+headerbar.titlebar > stack {
+  > widget > label.title { // stack title
+    margin-bottom: rem(5.3px - 1.3px);
+  }
+
+  > box.linked > entry { // unset vertical padding
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
 // left-side revealer
 window.background > overlay > revealer { // parent container
   &.left,
