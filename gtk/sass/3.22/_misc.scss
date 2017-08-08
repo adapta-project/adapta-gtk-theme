@@ -2178,11 +2178,18 @@ window.background > box.vertical box.horizontal {
 
   > box.vertical > scrolledwindow > viewport.frame > list { // right-pane
     // hide single-line separators
-    > separator { background-color: transparent; }
+    > separator {
+      background-color: transparent;
+
+      &.compressed-rows-group-separator {
+        background-image : image($solid_light_borders_color); // use opaque colour
+      }
+    }
 
     // > 3.25.90
-    row.event {
+    row.event.activatable {
       color: $secondary_fg_color;
+      transition-duration: 0.1s;
       &:hover,
       &:active { color: $fg_color; }
 
@@ -2195,6 +2202,21 @@ window.background > box.vertical box.horizontal {
       &.compressed-row {
         background-image: image($secondary_dark_color);
         color: $fg_color;
+        transition-property: opacity, // exclude background-color
+                             border-image,
+                             background-image,
+                             box-shadow;
+        &:hover {
+          background-image: image(mix($fg_color, $secondary_dark_color, 10%));
+          color: $fg_color;
+        }
+        &:active {
+          &, &:focus {
+            background-image: image(mix($fg_color, $secondary_dark_color, 20%));
+            color: $fg_color;
+            animation: none;
+          }
+        }
 
         &.popover-activated-row {
           background-image: image($selected_bg_color);
@@ -2204,6 +2226,13 @@ window.background > box.vertical box.horizontal {
         &-header {
           background-image: image(mix($selected_bg_color, $base_color, 10%));
           color: $selected_bg_color;
+          &:active {
+            &, &:focus {
+              background-image: image(mix($selected_bg_color, $base_color, 20%));
+              color: $selected_bg_color;
+              animation: none;
+            }
+          }
         }
       }
     }
