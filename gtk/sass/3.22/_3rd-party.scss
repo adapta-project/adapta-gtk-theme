@@ -4087,7 +4087,11 @@ window.background.chromium {
 //  * Tilix *
 //  *********/
 
-window.background > headerbar.titlebar > box.horizontal.linked {
+headerbar.tilix-embedded-headerbar button { // non-CSD mode
+  margin: rem(5.3px) 0;
+}
+
+headerbar > box.horizontal.linked {
   > button.toggle.session-sidebar-button { // left-most revealer button
     min-height: $icon_size;
     padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
