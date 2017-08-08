@@ -2132,7 +2132,7 @@ headerbar > button.flat.popup.title-menu-button.toggle {
   }
 }
 
-window.background > box.vertical > stack > box.horizontal {
+window.background > box.vertical box.horizontal {
   list.categories { // side-pane
     border: none;
     background-color: $secondary_dark_color;
@@ -2170,35 +2170,34 @@ window.background > box.vertical > stack > box.horizontal {
   > box.vertical > scrolledwindow > viewport.frame > list { // right-pane
     // hide single-line separators
     > separator { background-color: transparent; }
-  }
-}
 
-// plugin mode in Ephy
-window.background > widget > window.background > box.vertical {
-  > toolbar.horizontal {
-    border-top: 1px solid $borders_color;
-    background-color: $secondary_dark_color;
+    // > 3.25.90
+    row.event {
+      color: $secondary_fg_color;
+      &:hover,
+      &:active { color: $fg_color; }
 
-    .linked.raised > button.image-button { // reset image spacing
-      min-width: $icon_size;
-
-      image { padding: 0; }
-    }
-  }
-
-  > scrolledwindow {
-    scrollbar {
-      &,
-      &.overlay-indicator,
-      trough {
-        background-color: $bg_color;
-        transition: none;
+      label.compressed-entries-label { // hard-coded background-color?
+        background-image: image($suggested_color);
+        color: $selected_fg_color;
+        font-weight: 700;
       }
 
-      slider { transition: none; }
-    }
+      &.compressed-row {
+        background-image: image($secondary_dark_color);
+        color: $fg_color;
 
-    evview.content-view.view { transition: none; }
+        &.popover-activated-row {
+          background-image: image($selected_bg_color);
+          color: $selected_fg_color;
+        }
+
+        &-header {
+          background-image: image(mix($selected_bg_color, $base_color, 10%));
+          color: $selected_bg_color;
+        }
+      }
+    }
   }
 }
 

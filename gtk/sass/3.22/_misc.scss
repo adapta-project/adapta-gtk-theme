@@ -2140,7 +2140,7 @@ headerbar > button.flat.popup.title-menu-button.toggle {
   }
 }
 
-window.background > box.vertical > stack > box.horizontal {
+window.background > box.vertical box.horizontal {
   list.categories { // side-pane
     border: none;
     background-color: $secondary_dark_color;
@@ -2179,6 +2179,34 @@ window.background > box.vertical > stack > box.horizontal {
   > box.vertical > scrolledwindow > viewport.frame > list { // right-pane
     // hide single-line separators
     > separator { background-color: transparent; }
+
+    // > 3.25.90
+    row.event {
+      color: $secondary_fg_color;
+      &:hover,
+      &:active { color: $fg_color; }
+
+      label.compressed-entries-label { // hard-coded background-color?
+        background-image: image($suggested_color);
+        color: $selected_fg_color;
+        font-weight: 700;
+      }
+
+      &.compressed-row {
+        background-image: image($secondary_dark_color);
+        color: $fg_color;
+
+        &.popover-activated-row {
+          background-image: image($selected_bg_color);
+          color: $selected_fg_color;
+        }
+
+        &-header {
+          background-image: image(mix($selected_bg_color, $base_color, 10%));
+          color: $selected_bg_color;
+        }
+      }
+    }
   }
 }
 
