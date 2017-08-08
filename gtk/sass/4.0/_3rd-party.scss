@@ -4102,3 +4102,15 @@ widget > box.terminal-titlebar {
   }
 }
 
+// tab 'close' button when 'use tabs instead of sidebars'
+notebook.tilix-background tab.reorderable-page button.tilix-small-button {
+  // hard-coded 2px padding
+  min-width: 0;
+  min-height: 0;
+
+  > widget > box > image {
+    margin: 0 -2px;
+    padding: rem(5.3px - 2.7px, $sw: 1.0);
+  }
+}
+
