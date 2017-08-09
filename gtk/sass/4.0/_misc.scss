@@ -2168,12 +2168,11 @@ window.background > box.vertical box.horizontal {
   }
 
   > box.vertical > scrolledwindow > viewport.frame > list { // right-pane
-    // hide single-line separators
     > separator {
-      background-color: transparent;
+      background-color: transparent; // hide single-line separators
 
-      &.compressed-rows-group-separator {
-        background-image : image($solid_light_borders_color); // use opaque colour
+      &.compressed-rows-group-separator { // use opaque colour
+        background-image : image($solid_light_borders_color);
       }
     }
 
@@ -2198,12 +2197,13 @@ window.background > box.vertical box.horizontal {
                              background-image,
                              box-shadow;
         &:hover {
-          background-image: image(mix($fg_color, $secondary_dark_color, 10%));
+          background-image: image(mix($fg_color, $secondary_dark_color, 5%));
           color: $fg_color;
         }
         &:active {
           &, &:focus {
-            background-image: image(mix($fg_color, $secondary_dark_color, 20%));
+            background-image: image(mix($fg_color,
+                                        $secondary_dark_color, 10%));
             color: $fg_color;
             animation: none;
           }
@@ -2215,14 +2215,25 @@ window.background > box.vertical box.horizontal {
         }
 
         &-header {
-          background-image: image(mix($selected_bg_color, $base_color, 10%));
+          background-image: image($base_color); // stop highlighting
           color: $selected_bg_color;
+          &:hover {
+            background-image: image(mix($selected_bg_color,
+                                        $base_color, 5%));
+          }
           &:active {
             &, &:focus {
-              background-image: image(mix($selected_bg_color, $base_color, 20%));
+              background-image: image(mix($selected_bg_color,
+                                          $base_color, 10%));
               color: $selected_bg_color;
               animation: none;
             }
+          }
+
+          label.compressed-entries-label {
+            background-image: image($selected_bg_color);
+            color: $selected_fg_color;
+            transition-duration: 0s;
           }
         }
       }
