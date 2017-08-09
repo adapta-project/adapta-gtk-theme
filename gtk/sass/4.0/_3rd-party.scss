@@ -1203,7 +1203,7 @@ widget > box.workspace-switcher {
 
         &:hover,
         &:active {
-          -gtk-icon-effect: highlight;
+          -gtk-icon-filter: brightness(1.2);
 
           > image { opacity: 0.75; }
         }
@@ -1220,7 +1220,7 @@ widget > box.workspace-switcher {
           > image { opacity: 1.0; }
 
           &:hover,
-          &:active { -gtk-icon-effect: highlight; }
+          &:active { -gtk-icon-filter: brightness(1.2); }
         }
 
         label.workspace-more-label { opacity: 1.0; }
@@ -1802,32 +1802,26 @@ window.background.budgie-settings-window.csd {
       &.combo {
         min-height: rem($widget_size);
         padding: 0 if($ref_weight < 1.0, 4px, 8px);
-        border-image: -gtk-gradient(radial,
-                                    center bottom, 0,
-                                    center bottom, 0.5,
-                                    to($track_color),
-                                    to(transparent))
-                                    0 0 1 / 0 0 1px;
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      $track_color 100%,
+                                      transparent)
+                                      0 0 1 / 0 0 1px;
         color: $inverted_fg_color;
         font-weight: 500;
         &:hover,
         &:active {
-          border-image: -gtk-gradient(radial,
-                                      center bottom, 0,
-                                      center bottom, 0.5,
-                                      to($selected_bg_color),
-                                      to(transparent))
-                                      0 0 2 / 0 0 2px;
+          border-image: radial-gradient(circle farthest-corner at center,
+                                        $selected_bg_color 100%,
+                                        transparent)
+                                        0 0 2 / 0 0 2px;
           color: $selected_fg_color;
         }
         &:disabled,
         &:checked:disabled {
-          border-image: -gtk-gradient(radial,
-                                      center bottom, 0,
-                                      center bottom, 0.5,
-                                      to($track_color),
-                                      to(transparent))
-                                      0 0 1 / 0 0 1px;
+          border-image: radial-gradient(circle farthest-corner at center,
+                                        $track_color 100%,
+                                        transparent)
+                                        0 0 1 / 0 0 1px;
           color: $insensitive_inverted_fg_color;
         }
       }
