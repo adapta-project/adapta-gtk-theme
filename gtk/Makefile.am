@@ -443,7 +443,7 @@ indexeta_file       = $(srcdir)/index.theme-eta
 index_noktoeta_file = $(srcdir)/index.theme-nokto-eta
 
 sassc_option = -M -t compact
-parallel_option = -0 --no-notice --line-buffer --jobs 100% --noswap
+parallel_option = -0 --no-notice --line-buffer --jobs 100%
 
 # *******************************************
 # * Generate CSS stylesheets and PNG images *
