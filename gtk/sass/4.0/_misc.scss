@@ -718,48 +718,71 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
   }
 }
 
-// left-pane styling
-.sidebar.vertical > paned.sidebar-pane-separator {
-  // remove unwanted frame
-  .folder-frame > border { border-width: 0 0 1px; }
+%folder_frame_border { border-width: 0 0 1px; }
 
-  .conversation-frame {
-    > border { border: none; }
+%conversation_frame {
+  > border { border: none; }
 
-    treeview.view {
-      background-color: $base_color;
-      font-weight: 400; // reset weight
-      &:selected {
-        &, &:focus {
-          background-color: gtkopacity($selected_bg_color, 0.2);
-          color: $fg_color;
-          &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
-          &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
-        }
+  treeview.view {
+    background-color: $base_color;
+    font-weight: 400; // reset weight
+    &:selected {
+      &, &:focus {
+        background-color: gtkopacity($selected_bg_color, 0.2);
+        color: $fg_color;
+        &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
+        &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
       }
     }
   }
+}
 
-  .folder-frame > scrolledwindow {
-    background-color: $secondary_dark_color;
+%folder_frame {
+  background-color: $secondary_dark_color;
 
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
+  }
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
+  }
+
+  treeview.view.sidebar {
+    &.cell { // = row height of placessidebar
+      padding-top: rem(4px);
+      padding-bottom: rem(4px);
     }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
 
-    treeview.view.sidebar {
-      &:selected {
-        &, &:focus {
-          background-color: transparent;
-          color: $selected_bg_color;
-        }
+    &:selected {
+      &, &:focus {
+        background-color: transparent;
+        color: $selected_bg_color;
       }
     }
+  }
+}
+
+// left-pane styling (legacy)
+.sidebar.vertical > paned.sidebar-pane-separator {
+  .conversation-frame { @extend %conversation_frame; }
+
+  .folder-frame {
+    > border { @extend %folder_frame_border; }
+
+    > scrolledwindow { @extend %folder_frame; }
+  }
+}
+
+// left-pane styling (current)
+.sidebar.vertical > paned.geary-sidebar-pane-separator {
+  .geary-conversation-frame { @extend %conversation_frame; }
+
+  .geary-folder-frame {
+    > border { @extend  %folder_frame_border; }
+
+    > scrolledwindow { @extend %folder_frame; }
   }
 }
 
