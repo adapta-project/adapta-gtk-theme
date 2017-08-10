@@ -887,19 +887,89 @@ GtkWindow.budgie-popover:not(.csd) {
 }
 
 // workspace-switcher applet
-.start-region,
-.center-region,
-.end-region {
-  .top & {
-    WnckPager{
-      &:selected { box-shadow: inset 0 2px $selected_bg_color; }
+@each $position, $_line in (top, 0 2px), // legacy
+                           (bottom, 0 -2px),
+                           (left, 2px 0),
+                           (right, -2px 0) {
+  .#{$position}.budgie-container wnck-pager {
+    &:hover { box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4); }
+    &:selected { box-shadow: inset #{$_line} $selected_bg_color; }
+  }
+}
+
+GtkWidget > GtkBox.workspace-switcher {
+  // main container
+  > GtkBox.workspace-layout {
+    GtkWidget.workspace-item {
+      @each $position, $_size in (top, 98% 2px),
+                                 (bottom, 98% 2px),
+                                 (left, 2px 98%),
+                                 (right, 2px 98%) {
+        .#{$position}.budgie-container & {
+          background-image: linear-gradient(to bottom,
+                                            gtkopacity($inverted_fg_color, 0.4));
+          background-position: #{$position} center;
+          background-repeat: no-repeat;
+          background-size: #{$_size};
+          transition-duration: 0s; // for underline-indicators
+
+          &.current-workspace {
+            background-image: linear-gradient(to bottom, $selected_bg_color);
+          }
+        }
+      }
+
+      .button.workspace-icon-button {
+        padding: 4px;
+        border-radius: 2px;
+
+        > gtkImage { opacity: 0.5; }
+
+        &:hover,
+        &:active {
+          -gtk-image-effect: highlight;
+
+          > GtkImage { opacity: 0.75; }
+        }
+      }
+
+      // counter
+      .label.workspace-more-label {
+        font-weight: 700;
+        opacity: 0.5;
+      }
+
+      &.current-workspace {
+        .button.workspace-icon-button {
+          > GtkImage { opacity: 1.0; }
+
+          &:hover,
+          &:active { -gtk-image-effect: highlight; }
+        }
+
+        .label.workspace-more-label { opacity: 1.0; }
+      }
     }
   }
 
-  .bottom & {
-    WnckPager {
-      &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+  // 'plus' button
+  .button.image-button.workspace-add-button { // expanded?
+    @extend %button_flat_normal;
+    padding: 4px;
+    border-radius: 0;
+    color: $inverted_secondary_accent_label_color;
+    background-color: transparent;
+    &:hover {
+      @extend %button_flat_hover;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
     }
+    &:active {
+      @extend %button_flat_active;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+    }
+    &:insensitive { @include button(flat-insensitive); }
   }
 }
 
