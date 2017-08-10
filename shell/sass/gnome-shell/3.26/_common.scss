@@ -2009,13 +2009,11 @@ StScrollBar {
 }
 
 .window-picker { // container around window thumbnails
-  -horizontal-spacing: if($eta == 'false', 32px, 26px);
-  -vertical-spacing: if($eta == 'false', 32px, 26px);
-  padding-left: if($eta == 'false', 32px, 26px);
-  padding-right: if($eta == 'false', 32px, 26px);
-  padding-bottom: if($eta == 'false', 48px, 36px);
+  -horizontal-spacing: if($eta == 'false', 16px, 12px);
+  -vertical-spacing: if($eta == 'false', 16px, 12px);
+  padding: if($eta == 'false', 0 16px 16px, 0 12px 12px);
 
-  &.external-monitor { padding: if($eta == 'false', 32px, 26px); }
+  &.external-monitor { padding: if($eta == 'false', 16px, 12px); }
 }
 
 .window-clone-border {
@@ -2027,19 +2025,13 @@ StScrollBar {
   box-shadow: inset 0 0 0 1px $osd_slight_fill_color;
 }
 
-.window-caption {
+.window-caption { // hovered tooltips
   spacing: if($eta == 'false', 25px, 19px);
   padding: if($eta == 'false', 4px 8px, 3px 6px);
   border-radius: 2px;
   color: $osd_fg_color;
-  background-color: shellopacity($osd_bg_color, 0.9);
-  -shell-caption-spacing: if($eta == 'false', 12px, 8px);
-  box-shadow: $z-depth-1;
-  &:hover {
-    color: $osd_fg_color;
-    background-color: $osd_semi_fill_color;
-    box-shadow: $z-depth-2;
-  }
+  background-color: $osd_semi_fill_color;
+  box-shadow: $z-depth-2;
 }
 
 // Search entry
