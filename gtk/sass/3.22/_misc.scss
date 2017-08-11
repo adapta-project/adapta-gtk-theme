@@ -831,16 +831,59 @@ window.background > box.vertical > paned.horizontal > frame {
   }
 }
 
+%composer_headerbar {
+  > .linked.raised > button.image-button { // 'trash/save' button
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+  }
+
+  > button.flat:not(.image-button) { // 'Reply to' text-button
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
+}
+
+// right-pane styling (legacy)
 paned.vertical > overlay > scrolledwindow > overlay {
   > widget > widget > box > widget > headerbar { // in-line headerbars
-    > .linked.raised > button.image-button { // 'trash/save' button
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
-    }
+    @extend %composer_headerbar;
+  }
+}
 
-    > button.flat:not(.image-button) { // 'Reply to' text-button
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
+// right-pane styling (current)
+stack#conversation_viewer {
+  scrolledwindow.geary-conversation-scroller > viewport.frame {
+    border: none; // unset borders
+  }
+
+  list.background.conversation-listbox {
+    background-color: $base_color;
+
+    > row.activatable {
+      > box.geary_email {
+        margin: -1px; // hide hard-coded parent borders
+        border-top: 1px solid $highlight_color;
+
+        grid.geary-message-summary {
+          border-bottom: 1px solid $borders_color;
+        }
+      }
+
+      &:not(.geary-expanded) { // retracted headers
+        grid.geary-headers.vertical {
+          label { @extend .dim-label; } // tone down
+        }
+      }
+
+      > widget.geary-composer-embed {
+        headerbar { // in-line headerbars
+          @extend %composer_headerbar;
+          margin: -1px -1px 0; // FIXME: does not work
+          border-top: 1px solid $highlight_color;
+          box-shadow: if($variant == 'light', $header-shadow-light,
+                                              $header-shadow-dark);
+        }
+      }
     }
   }
 }
