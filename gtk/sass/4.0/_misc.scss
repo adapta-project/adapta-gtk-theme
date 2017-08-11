@@ -583,13 +583,16 @@ dialog.csd > headerbar.titlebar {
   border: 0 none transparent;
 
   &.free {
-    background-color: $track_color;
-    color: $insensitive_fg_color;
+    border-radius: 100px;
+    background-color: mix($fg_color, $base_color, 10%);
   }
 
-  &.used { background-color: $selected_bg_color; }
+  &.used {
+    border-radius: 100px;
+    background-color: $accent_color;
+  }
 
-  &.unknown { background-color: $warning_color; }
+  &.unknown { background-color: mix($accent_color, $base_color, 55%); }
 }
 
 // 'batch-rename' dialogs
