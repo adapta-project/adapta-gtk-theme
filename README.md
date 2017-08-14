@@ -331,7 +331,6 @@ TODO
 * Prepare for Meson build system (priority: high)
 * Prepare for FlatPak packaging (priority: mid)
 * Prepare for Steam theming (priority: Low)
-* Add Firefox specific theming (priority: undecided)
 
 Public License
 --------------
