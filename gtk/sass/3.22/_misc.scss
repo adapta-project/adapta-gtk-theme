@@ -93,8 +93,12 @@ gp-arrow-button {
 
 sn-button { padding: 0 rem(4px, $sw: 1.0); }
 
-gp-applet.separator > separator {
-  margin: 3px;
+gp-applet > separator {
+  &.vertical {
+    min-width: 2px;
+    margin: 3px;
+  }
+
   background-color: gtkopacity($inverted_secondary_fg_color, 0.1 * 0.55);
 }
 
