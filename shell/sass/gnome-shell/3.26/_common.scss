@@ -827,43 +827,6 @@ StScrollBar {
 //  * Arc Menu Extension *
 //  **********************/
 
-#panelApplications {
-  &,
-  &:hover,
-  &:focus,
-  &:active,
-  &:checked {
-    StIcon { color: transparent; } // hide stock icon
-  }
-
-  StIcon.popup-menu-icon {
-    min-width: if($eta == 'false', 26px, 20px);
-    padding: if($eta == 'false', 0 5px, 0 2px);
-    background-image: url("assets/show-apps-panel.svg");
-    background-size: 32px 32px;
-    // FIXME: G-S can't recognize position property
-    // and may be aligned center automatically?
-    // background-position: center center;
-    -st-background-image-shadow: $z-depth-1;
-    transition-duration: 0s;
-
-    #panel.solid & { -st-background-image-shadow: none; }
-  }
-
-  &:hover,
-  &:focus,
-  &:active,
-  &:checked {
-    StIcon.popup-menu-icon {
-      background-image: url("assets/show-apps-panel-hover.svg");
-     -st-background-image-shadow: $z-depth-2;
-      transition-duration: 0s;
-
-      #panel.solid & { -st-background-image-shadow: none; }
-    }
-  }
-}
-
 .main-box {
   background-color: $secondary_base_color;
 
