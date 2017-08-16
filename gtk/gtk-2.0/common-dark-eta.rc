@@ -11,6 +11,11 @@ style "default" {
   #
   # Style Properties
   #
+  GnomeHRef::link_color = @link_color
+  GtkHTML::link-color = @link_color
+  GtkHTML::vlink-color = @visited_link_color
+  GtkIMHtml::hyperlink-color = @link_color
+  GtkIMHtml::hyperlink-visited-color = @visited_link_color
   GtkWidget::link-color = @link_color
   GtkWidget::visited-link-color = @visited_link_color
   GtkWidget::focus-line-width = 1
@@ -1182,6 +1187,14 @@ style "flat_button" {
   }
 }
 
+style "link_button" {
+  engine "pixmap" {
+    image {
+      function = BOX
+    }
+  }
+}
+
 style "location_button" {
   xthickness = 2
   ythickness = 3
@@ -2331,6 +2344,7 @@ style "text" {
 class "GtkWidget"            style "default"
 class "GtkScrollbar"         style "scrollbar"
 class "GtkButton"            style "button"
+class "GtkLinkButton"        style "link_button"
 class "GtkEntry"             style "entry"
 class "GtkOldEditable"       style "entry"
 class "GtkSpinButton"        style "spinbutton"
