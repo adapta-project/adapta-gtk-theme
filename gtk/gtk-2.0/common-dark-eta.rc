@@ -4,7 +4,7 @@
 gtk-auto-mnemonics = 1
 gtk-primary-button-warps-slider = 1
 
-style "default" {
+style "default" = "default_colors" {
   xthickness = 0
   ythickness = 0
 
@@ -2335,7 +2335,7 @@ style "tooltips" {
   bg[SELECTED] = @tooltip_bg_color
 }
 
-style "text" {
+style "text" = "default_colors" {
   fg[NORMAL] = @fg_color # FIXME: VMWare needs this?
 
   engine "murrine" { textstyle = 0 }
