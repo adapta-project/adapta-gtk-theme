@@ -1771,6 +1771,7 @@ style "menu_item" {
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
   bg[SELECTED] = mix(0.9, @base_color, @fg_color)
   bg[PRELIGHT] = mix(0.9, @base_color, @fg_color)
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
   fg[PRELIGHT] = shade(0.96, @fg_color)
   fg[SELECTED] = shade(0.96, @fg_color)
   text[PRELIGHT] = shade(0.96, @fg_color)
@@ -1938,7 +1939,15 @@ style "menu_item" {
   }
 }
 
-style "separator_menu_item"  {
+style "menu_item_label" {
+  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[PRELIGHT] = shade(0.96, @fg_color)
+  fg[SELECTED] = shade(0.96, @fg_color)
+
+  engine "murrine" { textstyle = 0 }
+}
+
+style "separator_menu_item" {
   xthickness = 0
   ythickness = 2
 
@@ -2314,6 +2323,8 @@ style "tooltips" {
 }
 
 style "text" {
+  fg[NORMAL] = @fg_color # FIXME: VMWare needs this?
+
   engine "murrine" { textstyle = 0 }
 }
 
@@ -2331,6 +2342,10 @@ class "GtkScrolledWindow"    style "scrolled_window"
 class "GtkFrame"             style "frame"
 class "GtkToolbar"           style "toolbar"
 
+# Fixes insensitive text shadows
+widget_class "*<GtkLabel>"    style "text"
+widget_class "*<GtkCellView>" style "text"
+
 widget_class "*<GtkButton>*<GtkLabel>"               style "button_label"
 widget_class "*<GtkComboBox>*<GtkButton>*<GtkLabel>" style "misc_button_label"
 widget_class "*<GtkCombo>*<GtkButton>*<GtkLabel>"    style "misc_button_label"
@@ -2341,6 +2356,7 @@ widget_class "*<GtkCheckButton>*<GtkLabel>"          style "misc_button_label"
 widget_class "*<GtkMenuBar>*"                    style "menubar"
 widget_class "*<GtkMenu>*"                       style "menu"
 widget_class "*<GtkMenuItem>*"                   style "menu_item"
+widget_class "*<GtkMenuItem>*<GtkLabel>"         style "menu_item_label"
 widget_class "*<GtkMenuBar>.<GtkMenuItem>*"      style "menubar_item"
 widget_class "*<GtkMenu>*<GtkSeparatorMenuItem>" style "separator_menu_item"
 
@@ -2398,9 +2414,3 @@ widget_class "*<GtkNotebook>.<GtkWidget>.<GtkBox>.<GtkLabel>" style "notebook_ta
 
 # GTK tooltips
 widget "gtk-tooltip*" style "tooltips"
-
-# Fixes insensitive text shadows
-widget_class "*<GtkLabel>"                     style "text"
-widget_class "*<GtkComboBox>*<GtkCellLayout>"  style "text"
-widget_class "*<GtkNotebook>*<GtkLabel>"       style "text"
-widget_class "*<GtkNotebook>*<GtkCellLayout>"  style "text"
