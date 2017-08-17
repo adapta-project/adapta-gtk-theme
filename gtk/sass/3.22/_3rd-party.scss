@@ -3220,6 +3220,12 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 //  * Caja *
 //  ********/
 
+.caja {
+  &-canvas-item { @extend .nautilus-canvas-item; }
+
+  &-list-dim-label { @extend .nautilus-list-dim-label; }
+}
+
 .caja-desktop { // desktop icon-grid styling
   &.caja-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
 
@@ -3269,8 +3275,8 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(10.7px);
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
     }
   }
 
@@ -3322,7 +3328,8 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 
   button.image-button.toggle { // most-left toggle button in path-bar pane
     @include button(flat-normal);
-    @extend %image_button;
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }

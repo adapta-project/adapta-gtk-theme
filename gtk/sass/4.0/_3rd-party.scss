@@ -3113,6 +3113,12 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 //  * Caja *
 //  ********/
 
+.caja {
+  &-canvas-item { @extend .nautilus-canvas-item; }
+
+  &-list-dim-label { @extend .nautilus-list-dim-label; }
+}
+
 .caja-desktop { // desktop icon-grid styling
   &.caja-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
 
@@ -3161,8 +3167,8 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(10.7px);
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
     }
   }
 
@@ -3203,31 +3209,19 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       }
 
       &, &.slider-button { // use linked-array button styling
-        @extend %button_flat_normal;
         @extend %button_array;
-        &:hover {
-          @extend %button_flat_hover;
-          @extend %button_array:hover;
-        }
-        &:active {
-          @extend %button_flat_active;
-          @extend %button_array:active;
-        }
-        &:disabled {
-          @extend %button_flat_disabled;
-          @extend %button_array:disabled;
-        }
-        &:checked {
-          @extend %button_flat_checked;
-          @extend %button_array:checked;
-        }
+        &:hover { @extend %button_array:hover; }
+        &:active { @extend %button_array:active; }
+        &:disabled { @extend %button_array:disabled; }
+        &:checked { @extend %button_array:checked; }
       }
     }
   }
 
   button.image-button.toggle { // most-left toggle button in path-bar pane
     @include button(flat-normal);
-    @extend %image_button;
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
     &:hover { @include button(flat-hover); }
     &:active { @include button(flat-active); }
     &:disabled { @include button(flat-insensitive); }
