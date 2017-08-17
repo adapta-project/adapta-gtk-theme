@@ -1354,13 +1354,6 @@ window.background {
   > grid.vertical > box.vertical > box.vertical > widget,
   > grid.vertical > box.vertical grid.math-buttons {
     button {
-      @include button(flat-normal);
-      &:hover { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
-      &:disabled { @include button(flat-insensitive); }
-      &:checked { @include button(flat-checked); }
-      &:checked:disabled { @include button(flat-checked-insensitive); }
-
       min-width: rem(13.3px);
       min-height: rem(13.3px);
       // FIXME: broken in 12pt fonts?
@@ -1369,29 +1362,23 @@ window.background {
       border-radius: 2px;
       font-weight: 700;
 
+      &:not(.suggested-action) {
+        @include button(flat-normal);
+        &:hover { @include button(flat-hover); }
+        &:active { @include button(flat-active); }
+        &:disabled { @include button(flat-insensitive); }
+        &:checked { @include button(flat-checked); }
+        &:checked:disabled { @include button(flat-checked-insensitive); }
+      }
+
       &.suggested-action {  // '=' button
-        color: transparent;
-        font-size: 0;
-        @each $s,$as in ('',''),
-                        (':hover','-hover'),
-                        (':active','-active'),
-                        (':disabled','-insensitive') {
-          &#{$s} {
-            $_url: 'assets/equal#{$as}#{$asset_suffix}';
-            @include button(normal#{$as});
-            border-style: none;
-            border-radius: 100px;
-            background-color: transparent;
-            background-image: -gtk-scaled(url('#{$_url}.png'),
-                                          url('#{$_url}@2.png'));
-            background-size: 32px;
-            background-repeat: no-repeat;
-            background-position: center;
-            box-shadow: none;
-            transition-duration: 0.2s;
-            animation: none; // FIXME: animation breaks padding.
-          }
-        }
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+
+        &,
+        &:hover,
+        &:active,
+        &:checked { box-shadow: none; }
       }
     }
   }
