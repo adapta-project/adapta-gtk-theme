@@ -2465,128 +2465,46 @@ frame#weather-page-content-view {
 
 frame#weather-page-content-view { // condition-specific
   &, &:backdrop {
-    &.weather-clear,
-    &.weather-few-clouds {
-      > grid > grid {
-        > label,
-        > image { color: gtkopacity($fixed_fg_color, 0.5); }
-      }
+    @each $_condition,
+          $_label_1_color,
+          $_label_2_color,
+          $_frame_mask,
+          $_label_alpha,
+          $_mask_alpha,
+          $_mix_pct in
+    (clear, $fixed_fg_color, $selected_fg_color, $selected_fg_color, 0.5, 0.1, 10%),
+    (few-clouds, $fixed_fg_color, $selected_fg_color, $selected_fg_color, 0.5, 0.1, 10%),
+    (showers, $selected_fg_color, $fixed_fg_color, $fixed_fg_color, 0.75, 0.1, 50%),
+    (showers-scattered, $selected_fg_color, $fixed_fg_color, $fixed_fg_color, 0.75, 0.1, 50%),
+    (storm, $selected_fg_color, $fixed_fg_color, $fixed_fg_color, 0.75, 0.1, 50%),
+    (overcast, $fixed_fg_color, $selected_fg_color, $inverted_fg_color, 0.75, 0.5, 75%),
+    (fog, $fixed_fg_color, $selected_fg_color, $inverted_fg_color, 0.75, 0.5, 75%),
+    (snow, $selected_fg_color, $link_color, $selected_fg_color, 0.5, 0.1, 80%),
+    (few-clouds-night, $selected_fg_color, $link_color, $selected_fg_color, 0.5, 0.1, 80%),
+    (clear-night, $inverted_accent_label_color, $selected_fg_color, $selected_fg_color, 0.75, 0.1, 50%) {
 
-      .linked.osd.stack-switcher > button.radio.text-button,
-      button.osd {
-        color: gtkopacity($fixed_fg_color, 0.5);
-        &:hover,
-        &:active,
-        &:checked { color: $fixed_fg_color; }
-        &:disabled { color: gtkopacity($fixed_fg_color, 0.3); }
-      }
+      &.weather-#{$_condition} {
+        > grid > grid {
+          > label,
+          > image { color: gtkopacity($_label_1_color, $_label_alpha); }
+        }
 
-      frame#weekly-forecast-frame {
-        background: transparent;
-        background-image: image(gtkopacity($selected_fg_color, 0.1));
+        .linked.osd.stack-switcher > button.radio.text-button,
+        button.osd {
+          color: gtkopacity($_label_1_color, $_label_alpha);
+          &:hover,
+          &:active,
+          &:checked { color: #{$_label_1_color}; }
+          &:disabled { color: gtkopacity($_label_1_color, 0.3); }
+        }
 
-        label,
-        image { color: mix($selected_fg_color, $selected_bg_color, 80%); }
-      }
-    }
+        frame#weekly-forecast-frame {
+          background: transparent;
+          background-image: image(gtkopacity($_frame_mask, $_mask_alpha));
 
-    &.weather-showers,
-    &.weather-showers-scattered,
-    &.weather-storm {
-      > grid > grid {
-        > label,
-        > image { color: gtkopacity($selected_fg_color, 0.75); }
-      }
-
-      .linked.osd.stack-switcher > button.radio.text-button,
-      button.osd {
-        color: gtkopacity($selected_fg_color, 0.75);
-        &:hover,
-        &:active,
-        &:checked { color: $selected_fg_color; }
-        &:disabled { color: gtkopacity($selected_fg_color, 0.3); }
-      }
-
-      frame#weekly-forecast-frame {
-        background: transparent;
-        background-image: image(gtkopacity($fixed_fg_color, 0.1));
-
-        label,
-        image { color: mix($selected_fg_color, $fixed_fg_color, 50%); }
-      }
-    }
-
-    &.weather-overcast,
-    &.weather-fog {
-      > grid > grid {
-        > label,
-        > image { color: gtkopacity($fixed_fg_color, 0.75); }
-      }
-
-      .linked.osd.stack-switcher > button.radio.text-button,
-      button.osd {
-        color: gtkopacity($fixed_fg_color, 0.75);
-        &:hover,
-        &:active,
-        &:checked { color: $fixed_fg_color; }
-        &:disabled { color: gtkopacity($fixed_fg_color, 0.3); }
-      }
-
-      frame#weekly-forecast-frame {
-        background: transparent;
-        background-image: image(gtkopacity($inverted_fg_color, 0.5));
-
-        label,
-        image { color: mix($fixed_fg_color, $selected_fg_color, 75%); }
-      }
-    }
-
-    &.weather-snow,
-    &.weather-few-clouds-night {
-      > grid > grid {
-        > label,
-        > image { color: gtkopacity($selected_fg_color, 0.5); }
-      }
-
-      .linked.osd.stack-switcher > button.radio.text-button,
-      button.osd {
-        color: gtkopacity($selected_fg_color, 0.5);
-        &:hover,
-        &:active,
-        &:checked { color: $selected_fg_color; }
-        &:disabled { color: gtkopacity($selected_fg_color, 0.3); }
-      }
-
-      frame#weekly-forecast-frame {
-        background: transparent;
-        background-image: image(gtkopacity($selected_fg_color, 0.1));
-
-        label,
-        image { color: mix($selected_fg_color, $link_color, 80%); }
-      }
-    }
-
-    &.weather-clear-night {
-      > grid > grid {
-        > label,
-        > image { color: gtkopacity($inverted_accent_label_color, 0.5); }
-      }
-
-      .linked.osd.stack-switcher > button.radio.text-button,
-      button.osd {
-        color: gtkopacity($inverted_accent_label_color, 0.75);
-        &:hover,
-        &:active,
-        &:checked { color: $inverted_accent_label_color; }
-        &:disabled { color: gtkopacity($inverted_accent_label_color, 0.3); }
-      }
-
-      frame#weekly-forecast-frame {
-        background: transparent;
-        background-image: image(gtkopacity($selected_fg_color, 0.1));
-
-        label,
-        image { color: mix($selected_fg_color, $accent_color, 50%); }
+          label,
+          image { color: mix($_label_1_color, $_label_2_color, $_mix_pct); }
+        }
       }
     }
   }
