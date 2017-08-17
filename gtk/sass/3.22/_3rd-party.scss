@@ -1867,7 +1867,6 @@ UnityPanelWidget,
   #login_window,
   #shutdown_dialog,
   #restart_dialog {
-    @extend messagedialog;
     padding: 0;
     border-style: solid;
     border-width: 10px;
@@ -1875,6 +1874,8 @@ UnityPanelWidget,
     border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
                               url("assets/osd-shadow#{$asset_suffix}@2.png"))
                   10 / 10px stretch;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    color: $inverted_fg_color;
     box-shadow: none;
 
     button {
@@ -1928,6 +1929,13 @@ UnityPanelWidget,
       min-height: rem($widget_size);
       padding: 0 if($ref_weight < 1.0, 4px / 2, 8px / 2);
       font-family: monospace;
+
+      &,
+      &:focus {
+        color: $inverted_fg_color;
+        caret-color: $inverted_fg_color;
+      }
+      &:disabled { color: $insensitive_inverted_fg_color; }
     }
 
     infobar.error { // notification revealer
@@ -3303,24 +3311,11 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       }
 
       &, &.slider-button { // use linked-array button styling
-        @extend %button_flat_normal;
         @extend %button_array;
-        &:hover {
-          @extend %button_flat_hover;
-          @extend %button_array:hover;
-        }
-        &:active {
-          @extend %button_flat_active;
-          @extend %button_array:active;
-        }
-        &:disabled {
-          @extend %button_flat_disabled;
-          @extend %button_array:disabled;
-        }
-        &:checked {
-          @extend %button_flat_checked;
-          @extend %button_array:checked;
-        }
+        &:hover { @extend %button_array:hover; }
+        &:active { @extend %button_array:active; }
+        &:disabled { @extend %button_array:disabled; }
+        &:checked { @extend %button_array:checked; }
       }
     }
   }
