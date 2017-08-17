@@ -120,9 +120,7 @@ gp-applet > separator {
                                         $sidebar-dark-rtl);
   }
 
-  separator,
-  .separator {
-    @extend separator.wide;
+  separator.horizontal {
     min-height: 0;
     border-color: transparent;
     background-color: transparent;
@@ -1354,8 +1352,7 @@ window.background {
 
   > grid.vertical > box.vertical > widget,
   > grid.vertical > box.vertical > box.vertical > widget,
-  > grid.vertical > box.vertical > grid.math-buttons,
-  > grid.vertical > box.vertical > box.vertical > grid.math-buttons {
+  > grid.vertical > box.vertical grid.math-buttons {
     button {
       @include button(flat-normal);
       &:hover { @include button(flat-hover); }
@@ -1867,7 +1864,6 @@ headerbar > omnibar.linked.horizontal {
   }
 }
 
-docktabstrip,
 tabstrip {
   min-height: rem(34.7px);
   padding: rem(5.3px) rem(16px);
@@ -1878,8 +1874,12 @@ tabstrip {
 
   // remove fake-shadow from bottom tabstrip
   layoutpane.bottom & { background-image: none; }
+}
 
-  docktab,
+docktabstrip { @extend tabstrip; }
+
+tabstrip {
+  %tabstrip_tab,
   tab {
     color: $tertiary_fg_color;
     font-weight: 700;
@@ -1894,6 +1894,8 @@ tabstrip {
     }
   }
 }
+
+docktabstrip docktab { @extend  %tabstrip_tab; }
 
 dockstack > stack { // treeviews inside the left/right layoutpane
   > dockwidget treeview.project-tree.view,
@@ -2707,7 +2709,7 @@ window > popover > stack > grid > button {
 .background.csd > box.vertical > stack > box.vertical > widget {
   notebook > box > stack > notebook > box > stack > box.vertical {
     // use buttonbox's flat-buttons
-    > box.horizontal { @extend buttonbox; }
+    > box.horizontal { @extend buttonbox.dialog-action-area; }
   }
 }
 
