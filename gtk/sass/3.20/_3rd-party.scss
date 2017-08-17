@@ -49,17 +49,12 @@ $budgie_transition: opacity 0.2s $slope_medium,
     background-color: transparent;
     transition: $budgie_transition;
 
-    box {
-      &.start-region,
-      &.center-region,
-      &.end-region { // draw shadows by default
-        // FIXME: NaTray puts widgets as "widgets",
-        // so we can not render icons-shadows anyhow...
-        image { -gtk-icon-shadow: $z-depth-1; }
+    // draw shadows by default
+    // FIXME: NaTray puts widgets as "widgets",
+    // so we can not render icons-shadows anyhow...
+    image { -gtk-icon-shadow: $z-depth-1; }
 
-        label { text-shadow: $z-depth-1; }
-      }
-    }
+    label { text-shadow: $z-depth-1; }
   }
 }
 
@@ -92,7 +87,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
                                (bottom, 0, $icon_size * 1.5),
                                (left, $icon_size * 1.5, 0),
                                (right, $icon_size * 1.5, 0) {
-    .#{$position}.budgie-container & {
+    .#{$position} & {
       image {
         min-width: #{$_w};
         min-height: #{$_h};
@@ -120,8 +115,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
 }
 
 // icon tasklist styling
-box.horizontal.pinned,
-box.vertical.pinned { // drop-target
+box.pinned { // drop-target
   &:drop(active) {
     border: none;
     border-radius: 0;
@@ -224,41 +218,39 @@ box.vertical.pinned { // drop-target
   }
 }
 
-.budgie-panel .end-region {
-  > widget > widget {
-    > box.horizontal { // 'Stats Indicator'
-      > widget > widget > image { // 'bluetooth'
-        &:dir(ltr) { margin: 0 2px 0 -1px; }
-        &:dir(rtl) { margin: 0 -1px 0 2px; }
-      }
+.end-region > widget > widget {
+  > box.horizontal { // 'Stats Indicator'
+    > widget > widget > image { // 'bluetooth'
+      &:dir(ltr) { margin: 0 2px 0 -1px; }
+      &:dir(rtl) { margin: 0 -1px 0 2px; }
+    }
 
-      > widget.sound-applet > widget > image { // 'sound'
-        min-width: $icon_size + 2px;
-        margin: 0;
-      }
+    > widget.sound-applet > widget > image { // 'sound'
+      min-width: $icon_size + 2px;
+      margin: 0;
+    }
 
-      > widget > widget > box.horizontal > image,
+    > widget > widget > box.horizontal > image,
       box.battery-icon.horizontal > image { // 'battery'
-        min-width: $icon_size + 6px;
-      }
+      min-width: $icon_size + 6px;
+    }
+  }
+
+  box.battery-icon { // 'percent label'
+    &.horizontal > label.percent-label {
+      &:dir(ltr) { margin: 0 -6px 0 3px; }
+      &:dir(rtl) { margin: 0 3px 0 -6px; }
     }
 
-    box.battery-icon { // 'percent label'
-      &.horizontal > label.percent-label {
-        &:dir(ltr) { margin: 0 -6px 0 3px; }
-        &:dir(rtl) { margin: 0 3px 0 -6px; }
-      }
-
-      &.vertical > label.percent-label {
-        font-size: 75%;
-        &:dir(ltr) { margin-right: -2px; }
-        &:dir(rtl) { margin-left: -2px; }
-      }
+    &.vertical > label.percent-label {
+      font-size: 75%;
+      &:dir(ltr) { margin-right: -2px; }
+      &:dir(rtl) { margin-left: -2px; }
     }
+  }
 
-    > image { // 'Notification' and 'User Indicator'
-      min-width: $icon_size + 4px;
-    }
+  > image { // 'Notification' and 'User Indicator'
+    min-width: $icon_size + 4px;
   }
 }
 
@@ -269,14 +261,14 @@ window.budgie-popover:not(.csd) {
     padding: 0; // unset padding
     background-clip: border-box;
     // FIXME: we can't expose depth-3
-    &, &:backdrop { box-shadow: $z-depth-2; }
+    box-shadow: $z-depth-2;
   }
 
   > frame.container {
     margin: 0 -1px -1px; // remove gap
     padding: 2px 0 0;
 
-    .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+    .bottom & { padding: 2px 0 2px; } // revive bottom padding
 
     &,
     > border {
@@ -333,7 +325,7 @@ window.budgie-popover:not(.csd) {
     .container {
       padding: 2px 0 0; // remove side/bottom padding
 
-      .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+      .bottom & { padding: 2px 0 2px; } // revive bottom padding
     }
   }
 
@@ -422,15 +414,12 @@ window.budgie-popover:not(.csd) {
   }
 
   row {
-    // stop weird and unhandled ripple-effect
-    &.activatable {
+    &.activatable { // stop weird and unhandled ripple-effect
       &, .indicator-item {
         &:active,
         &:selected { animation: none; }
       }
-    }
 
-    &.activatable {
       background-image: none;
       background-color: $secondary_base_color;
       color: $secondary_fg_color;
@@ -627,11 +616,6 @@ window.budgie-popover:not(.csd) {
       &:hover,
       &:active,
       &:checked { color: $selected_fg_color; }
-      &:disabled {
-        @include button(flat-insensitive,
-                        transparent,
-                        $insensitive_inverted_fg_color);
-      }
     }
   }
 
@@ -748,12 +732,6 @@ window.budgie-popover:not(.csd) {
 
     // reduce height of scale node
     scale { padding: rem(10px - 2px, $sw: 1.0); }
-
-    > box.horizontal > combobox > box.linked > button.combo {
-      // 'Top Panel'/'Bottom Panel' combo node
-      // FIXME: set min-width for prevent unwanted shrinking horizontally
-      min-width: rem(120px, $sw: 1.0);
-    }
   }
 
   stackswitcher.linked > button.text-button.radio { // switcher buttons
@@ -816,8 +794,8 @@ window.budgie-popover:not(.csd) {
 }
 
 widget.budgie-clock-applet > widget > box > label {
-  .top.budgie-container &,
-  .bottom.budgie-container & {
+  .top &,
+  .bottom & {
     font-size: 100%;
     &:only-child {
       &:dir(ltr) {
@@ -839,8 +817,8 @@ widget.budgie-clock-applet > widget > box > label {
     }
   }
 
-  .left.budgie-container &,
-  .right.budgie-container & {
+  .left &,
+  .right & {
     font-size: 80%;
     &:first-child {
       margin-top: 3px + 2px;
@@ -1048,10 +1026,6 @@ window.sound-popover.background box.horizontal {
         box-shadow: none;
       }
     }
-
-    infobar.message-bar {
-      border-radius: 2px 2px 0 0;
-    }
   }
 
   list {
@@ -1138,8 +1112,8 @@ window.sound-popover.background box.horizontal {
 }
 
 // keyboard indicator applet
-.top.budgie-container,
-.bottom.budgie-container {
+.top,
+.bottom {
   widget.keyboard-indicator >  widget > box.horizontal {
     > widget > image {
       margin-top: rem(-0.7px, $sw: 1.0);
@@ -1166,7 +1140,7 @@ window.sound-popover.background box.horizontal {
                            (bottom, 0 -2px),
                            (left, 2px 0),
                            (right, -2px 0) {
-  .#{$position}.budgie-container wnck-pager {
+  .#{$position} wnck-pager {
     &:hover { box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4); }
     &:selected { box-shadow: inset #{$_line} $selected_bg_color; }
   }
@@ -1284,7 +1258,7 @@ window.budgie-popover.workspace-popover {
     }
   }
 
-  flowbox > flowboxchild { // apps icon grid
+  flowboxchild { // apps icon grid
     button.flat:not(:active) {
       transition-property: opacity,
                            border-color,
@@ -1435,7 +1409,7 @@ window.budgie-switcher-window {
     }
   }
 
-  flowbox > flowboxchild { // icon-tiles
+  flowboxchild { // icon-tiles
     margin: $min_spacing / 2;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
@@ -1609,7 +1583,7 @@ window.budgie-switcher-window {
 }
 
 // raven-controller applet
-.budgie-panel button.flat.raven-trigger {
+button.flat.raven-trigger {
   min-width: $icon_size;
   min-height: $icon_size;
   padding: 0;
@@ -1629,13 +1603,13 @@ window.budgie-switcher-window {
     animation: budgie_ripple_effect 0.3s $slope_slow forwards;
   }
 
-  .top.budgie-container &,
-  .bottom.budgie-container & {
+  .top &,
+  .bottom & {
     image { margin: 0 3px; } // add internal spacing
   }
 
-  .left.budgie-container &,
-  .right.budgie-container & {
+  .left &,
+  .right & {
     image { margin: 3px 0; } // add internal spacing
   }
 }
@@ -1882,7 +1856,6 @@ UnityPanelWidget,
   #login_window,
   #shutdown_dialog,
   #restart_dialog {
-    @extend messagedialog;
     padding: 0;
     border-style: solid;
     border-width: 10px;
@@ -1890,6 +1863,8 @@ UnityPanelWidget,
     border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
                               url("assets/osd-shadow#{$asset_suffix}@2.png"))
                   10 / 10px stretch;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    color: $inverted_fg_color;
     box-shadow: none;
 
     button {
@@ -1943,6 +1918,13 @@ UnityPanelWidget,
       min-height: rem($widget_size);
       padding: 0 if($ref_weight < 1.0, 4px / 2, 8px / 2);
       font-family: monospace;
+
+      &,
+      &:focus {
+        color: $inverted_fg_color;
+        caret-color: $inverted_fg_color;
+      }
+      &:disabled { color: $insensitive_inverted_fg_color; }
     }
 
     infobar.error { // notification revealer
@@ -2184,8 +2166,7 @@ scrolledwindow > viewport.frame > list {
 }
 
 // top-right 'close' button on attached images
-window.background > grid.horizontal > widget,
-window.background > stack > grid.horizontal > widget {
+stack > grid.horizontal > widget {
   > button.close-button.image-button {
     // disabled box-shadow by hard-coded style.css
     @extend button.destructive-action;
@@ -2701,8 +2682,7 @@ window.background:not(.csd) > box.vertical {
   text-shadow: none;
 }
 
-.xfce4-panel,
-.xfce4-panel.background {
+.xfce4-panel {
   &, // unset borders
   frame > border { border: 0 none transparent; }
 
@@ -3483,27 +3463,6 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 }
 
 
-// /********************
-//  * Mate-Screensaver *
-//  ********************/
-
-.lock-dialog {
-  @extend messagedialog;
-  border-radius: 2px;
-  border: 1px solid gtkopacity($inverted_dark_color, 0.9);
-  background-color: transparent;
-  // outset-shadow does not work since decoration node wasn't implemented
-  box-shadow: none;
-
-  &.background {
-    border-radius: 2px;
-    background-color: gtkopacity($inverted_dark_color, 0.9);
-  }
-
-  frame { border: none; }
-}
-
-
 // /***********************
 //  * Mate-Control-Center *
 //  ***********************/
@@ -3684,20 +3643,7 @@ window.background:not(.solid-csd) {
       }
 
       tabs {
-        &, > tab {
-          background-color: transparent;
-
-          &, // FIXME: this does not work
-          label,
-          image { color: $tertiary_fg_color; }
-
-          &:hover,
-          &:checked {
-            &,
-            label,
-            image { color: $fg_color; }
-          }
-        }
+        &, > tab { background-color: transparent; }
       }
     }
   }

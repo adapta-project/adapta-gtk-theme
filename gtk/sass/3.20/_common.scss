@@ -129,7 +129,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 
 .view,
 %view {
-  @extend row.activatable;
+  @extend %activatable_row;
   background-color: $base_color;
   color: $fg_color;
   &:hover,
@@ -4721,6 +4721,7 @@ list {
 
 row { padding: 2px; }
 
+%activatable_row,
 row.activatable {
   // let's take care of background colors
   background-image: radial-gradient(circle farthest-corner at center,

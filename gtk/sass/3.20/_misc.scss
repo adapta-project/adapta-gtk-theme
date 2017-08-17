@@ -111,9 +111,7 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
                                         $sidebar-dark-rtl);
   }
 
-  separator,
-  .separator {
-    @extend separator.wide;
+  separator.horizontal {
     min-height: 0;
     border-color: transparent;
     background-color: transparent;
@@ -1614,7 +1612,6 @@ eggsearchbar box.search-bar {
   background-color: $secondary_dark_color;
 }
 
-docktabstrip,
 tabstrip {
   min-height: rem(34.7px);
   padding: rem(5.3px) rem(16px);
@@ -1625,8 +1622,12 @@ tabstrip {
 
   // remove fake-shadow from bottom tabstrip
   layoutpane.bottom & { background-image: none; }
+}
 
-  docktab,
+docktabstrip { @extend tabstrip; }
+
+tabstrip {
+  %tabstrip_tab,
   tab {
     color: $tertiary_fg_color;
     font-weight: 700;
@@ -1641,6 +1642,8 @@ tabstrip {
     }
   }
 }
+
+docktabstrip docktab { @extend  %tabstrip_tab; }
 
 dockstack > stack { // treeviews inside the left/right layoutpane
   > dockwidget treeview.project-tree.view,
@@ -2197,7 +2200,7 @@ window > popover > stack > grid > button {
 .background.csd > box.vertical > stack > box.vertical > widget {
   notebook > stack > notebook > stack > box.vertical {
     // use buttonbox's flat-buttons
-    > box.horizontal { @extend buttonbox; }
+    > box.horizontal { @extend buttonbox.dialog-action-area; }
   }
 }
 
