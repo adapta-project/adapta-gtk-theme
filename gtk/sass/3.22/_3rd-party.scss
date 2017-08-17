@@ -2116,56 +2116,46 @@ headerbar.titlebar box {
     // it doesn't work
     .avatar-round { border-color: transparent; }
   }
-
-  button.image-button.toggle { // tweet button
-    min-width: $icon_size * 1.5;
-    min-height: $icon_size * 1.5;
-    padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-             rem(($widget_size - $icon_size * 1.5) / 2));
-  }
 }
 
-box.vertical > stack > scrolledwindow {
-  list > row.activatable.tweet {
-    // speed-up scrolling
+list > row.activatable.tweet {
+  // speed-up scrolling
+  background-image: none;
+  &:hover {
     background-image: none;
-    &:hover {
-      background-image: none;
-      background-color: gtkalpha(currentColor, 0.05);
-    }
+    background-color: gtkalpha(currentColor, 0.05);
+  }
 
-    &,
-    widget.inline-media,
-    button.text-only-button {
-      transition: none;
-      &:active { animation: none; }
+  &,
+  widget.inline-media,
+  button.text-only-button {
+    transition: none;
+    &:active { animation: none; }
 
-      label { transition: none; }
-    }
+    label { transition: none; }
+  }
 
-    // dim 'quotes' inside the tweets (labels only)
-    grid.horizontal.quote label {
-      opacity: 0.75;
+  // dim 'quotes' inside the tweets (labels only)
+  grid.horizontal.quote label {
+    opacity: 0.75;
 
-      &.dim-label { opacity: 0.4; }
-    }
+    &.dim-label { opacity: 0.4; }
+  }
 
-    // use asymmetrical separators
-    &:dir(ltr) {
-      border-image: linear-gradient(to right,
-                                    transparent 72px,
-                                    $borders_color 72px,
-                                    $borders_color)
-                                    0 0 1 / 0 0 1px;
-    }
-    &:dir(rtl) {
-      border-image: linear-gradient(to left,
-                                    transparent 72px,
-                                    $borders_color 72px,
-                                    $borders_color)
-                                    0 0 1 / 0 0 1px;
-    }
+  // use asymmetrical separators
+  &:dir(ltr) {
+    border-image: linear-gradient(to right,
+                                  transparent 72px,
+                                  $borders_color 72px,
+                                  $borders_color)
+                                  0 0 1 / 0 0 1px;
+  }
+  &:dir(rtl) {
+    border-image: linear-gradient(to left,
+                                  transparent 72px,
+                                  $borders_color 72px,
+                                  $borders_color)
+                                  0 0 1 / 0 0 1px;
   }
 }
 
@@ -2176,7 +2166,7 @@ scrolledwindow > viewport.frame > list {
 }
 
 // top-right 'close' button on attached images
-stack > grid.horizontal > widget {
+grid.horizontal > widget {
   > button.close-button.image-button {
     // disabled box-shadow by hard-coded style.css
     @extend button.destructive-action;
