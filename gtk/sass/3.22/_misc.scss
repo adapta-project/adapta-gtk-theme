@@ -1379,6 +1379,13 @@ window.background {
         border-radius: 100px;
         -gtk-outline-radius: 100px;
 
+        &:hover {
+          background-color: mix($selected_fg_color, $suggested_color, 10%);
+        }
+        &:active {
+          background-color: $selected_bg_color;
+        }
+
         &,
         &:hover,
         &:active,
