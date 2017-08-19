@@ -1000,8 +1000,7 @@ window.background > box.vertical > box.vertical > toolbar.primary-toolbar {
   }
 }
 
-window.background.csd > headerbar.titlebar > box.horizontal > box.horizontal,
-window.background.solid-csd > headerbar.titlebar > box.horizontal > box.horizontal {
+headerbar.titlebar > box.horizontal > box.horizontal {
   // 'search' button
   > button.toggle:not(.text-button):not(.image-button):not(.popup) {
     min-width: $icon_size * 1.5;
@@ -1012,8 +1011,7 @@ window.background.solid-csd > headerbar.titlebar > box.horizontal > box.horizont
   }
 }
 
-notebook > stack > grid.horizontal > grid.horizontal > grid.horizontal,
-notebook > stack > box > grid.horizontal > grid.horizontal > grid.horizontal {
+notebook > stack grid.horizontal > grid.horizontal > grid.horizontal {
   button.flat.toggle { // 'edit' and 'browse' button
     &:checked { // draw underline indicator
       border-radius: 0;
@@ -2329,21 +2327,19 @@ window.background > box.horizontal > notebook.frame > stack {
 //  ******************/
 
 // get more uniformity for all 'All', 'Installed', 'Updates' buttons
-headerbar > box.horizontal > buttonbox.linked {
-  > button.toggle.toolbar-primary-buttons-software {
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
+buttonbox.linked > button.toggle.toolbar-primary-buttons-software {
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
 
-    > box.horizontal > label.text-button { font-weight: 700; }
+  > box.horizontal > label.text-button { font-weight: 700; }
 
-    &:hover,
-    &:active,
-    &:checked {
+  &:hover,
+  &:active,
+  &:checked {
+    color: $inverted_fg_color;
+
+    > box.horizontal > label.text-button {
       color: $inverted_fg_color;
-
-      > box.horizontal > label.text-button {
-        color: $inverted_fg_color;
-      }
     }
   }
 }
@@ -2381,40 +2377,37 @@ window.background > box.vertical > stack > widget > stack {
 }
 
 // sidebar-pane styling
-window.background > box.vertical > stack > widget > box.horizontal {
-  > scrolledwindow.category-sidebar.frame > viewport.frame > list {
-    margin-top: -4px; // hide weird header-gap
-    background-color: $secondary_dark_color;
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
+scrolledwindow.category-sidebar.frame > viewport.frame > list {
+  margin-top: -4px; // hide weird header-gap
+  background-color: $secondary_dark_color;
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
+  }
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
+  }
 
-    > row.activatable {
-      color: $secondary_fg_color;
-      font-weight: 500;
-      &:hover { color: $fg_color; }
-      &:selected {
-        color: $selected_bg_color;
-        background-color: transparent;
+  > row.activatable {
+    color: $secondary_fg_color;
+    font-weight: 500;
+    &:hover { color: $fg_color; }
+    &:selected {
+      color: $selected_bg_color;
+      background-color: transparent;
 
-        > label { color: $selected_bg_color; }
-      }
+      > label { color: $selected_bg_color; }
     }
   }
 }
 
-viewport.frame > box.vertical > revealer > box.horizontal {
-  > button.round-button { // categories expander button
-    // hard-coded crazy 16px roundness
-    min-height: 32px;
-    min-width: 32px;
-    padding: 0;
-  }
+button.round-button { // categories expander button
+  // hard-coded crazy 16px roundness
+  min-height: 32px;
+  min-width: 32px;
+  padding: 0;
+  -gtk-outline-radius: 16px;
 }
 
 
