@@ -2179,7 +2179,26 @@ scrolledwindow > viewport.frame > list {
 stack > grid.horizontal > widget {
   > button.close-button.image-button {
     // disabled box-shadow by hard-coded style.css
-    @extend button.destructive-action;
+    background-color: $destructive_color;
+    color: $secondary_selected_fg_color;
+    &:hover {
+      @extend %button_hover;
+      background-color: $destructive_color;
+      color: $selected_fg_color;
+    }
+    &:active {
+      @extend %button_active;
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+    &:checked {
+      background-color: mix($selected_fg_color,
+                            $destructive_color, 20%);
+    }
+    &:disabled {
+      @include button(insensitive, transparent,
+                                   $insensitive_inverted_fg_color);
+    }
   }
 }
 
