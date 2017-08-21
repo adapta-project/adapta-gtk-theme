@@ -24,10 +24,8 @@ panel-applet > menubar,
 
 .gnome-panel-menu-bar,
 panel-applet menubar {
-  box-shadow: none;
-
-  > menuitem,
-  > .gnome-panel-menu-item {
+  > .gnome-panel-menu-item,
+  > menuitem {
     padding: 0 rem(4px, $sw: 1.0);
     color: $inverted_secondary_fg_color;
     background-color: transparent;
@@ -948,16 +946,6 @@ notebook > box > stack > box.vertical > paned.vertical > overlay {
 }
 
 .background:not(.csd) > box.vertical > headerbar {
-  // hide double-title remained in GtkHeaderBar running under SSD-mode
-  > stack > box.vertical { // title-box
-    .title { color: transparent; }
-
-    .subtitle { // centering vertically
-      margin-top: rem(-17.3px, $sw: 1.0);
-      font-size: 100%;
-    }
-  }
-
   // conflicts with .primary-toolbar styling?
   .linked > button.image-button { // = 'back/forward' button
     border-radius: 100px;
@@ -1038,15 +1026,13 @@ dialog.background.csd > box.dialog-vbox.vertical > box.horizontal {
 }
 
 // bookmark-tag flowbox-childs (almost hard-coded)
-viewport.frame > flowbox > flowboxchild {
-  &.bookmark-tag-widget {
-    color: gtkopacity($fixed_fg_color, 0.55); // unchecked
-    font-weight: 500;
+flowboxchild.bookmark-tag-widget {
+  color: gtkopacity($fixed_fg_color, 0.55); // unchecked
+  font-weight: 500;
 
-    label { margin-bottom: rem(1.3px, $sw: 1.0); }
+  label { margin-bottom: rem(1.3px, $sw: 1.0); }
 
-    &-selected { color: $selected_fg_color; } // checked
-  }
+  &-selected { color: $selected_fg_color; } // checked
 }
 
 
@@ -1209,8 +1195,7 @@ window.solid-csd > box.vertical > box.vertical {
 }
 
 // force using circle buttons for 'play/pause' etc
-window.background.csd > box.vertical > box.vertical > toolbar,
-window.background.solid-csd > box.vertical > box.vertical > toolbar {
+window.background > box.vertical > box.vertical > toolbar {
   button,
   .linked > button {
     min-width: $widget_size;
@@ -1227,8 +1212,7 @@ $album_art: 54px;
 $min_circle: 24px;
 $toolitem_margin: ($album_art - $min_circle) * 0.5;
 
-window.background > box.vertical > toolbar.primary-toolbar,
-window.background > box.vertical > box.vertical > toolbar.primary-toolbar {
+window.background box.vertical > toolbar.primary-toolbar {
   toolitem {
     &:first-child { // 'prev/play/next'
       .linked > button.image-button.raised {
