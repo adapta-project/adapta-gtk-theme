@@ -1879,7 +1879,9 @@ UnityPanelWidget,
     box-shadow: none;
 
     button {
-      padding: rem(9.3px, $sw: 1.0) rem(13.3px, $sw: 1.0) rem(10.7px, $sw: 1.0);
+      padding: rem(9.3px, $sw: 1.0)
+               rem(13.3px, $sw: 1.0)
+               rem(10.7px, $sw: 1.0);
       color: $inverted_secondary_fg_color;
       &:hover,
       &:active { color: $inverted_fg_color; }
@@ -3238,7 +3240,9 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 
     slider { // always use dark variant
       background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
-      &:hover { background-color: gtkopacity($inverted_secondary_fg_color, 0.55); }
+      &:hover {
+        background-color: gtkopacity($inverted_secondary_fg_color, 0.55);
+      }
       &:active { background-color: $inverted_fg_color; }
       &:disabled { opacity: 0.4; }
     }
@@ -4039,7 +4043,7 @@ headerbar > box.horizontal.linked {
   }
 
   > button.image-button.session-new-button { // 'plus' button
-                                             // hard-coded lateral-padding = 2px
+                                             // hard-coded 2px lateral-padding
     min-width: $icon_size * 1.5 - 2px * 2;
 
     // make spacing gap between "View Session Sidebar" button and this
@@ -4054,7 +4058,6 @@ headerbar > box.horizontal.linked {
     }
   }
 }
-
 
 headerbar.titlebar > stack {
   > widget > label.title { // stack title
@@ -4087,7 +4090,8 @@ window.background > overlay > revealer { // parent container
 }
 
 list.tilix-session-sidebar {
-  background-image: image($secondary_dark_color); // use -image property instead
+  // use -image property instead
+  background-image: image($secondary_dark_color);
 
   button.tilix-sidebar-close-button {
     min-height: 20px;
