@@ -2950,11 +2950,13 @@ scrolledwindow.category-sidebar.frame > viewport.frame > list {
   }
 }
 
+%gnome-software_round_button,
 button.round-button { // categories expander button
-  // hard-coded crazy 16px roundness
+  // > 3.25.90, dropped from upstream CSS
   min-height: 32px;
   min-width: 32px;
   padding: 0;
+  border-radius: 16px; // > 3.25.90
   -gtk-outline-radius: 16px;
 }
 
