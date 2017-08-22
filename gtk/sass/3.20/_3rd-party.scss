@@ -167,7 +167,19 @@ box.pinned { // drop-target
   .pinned button.flat.launcher.running {
     &:hover { -gtk-icon-effect: highlight; }
 
-    > image { opacity: 1.0; }
+    > image {
+      background-size: 2px 2px;
+      background-repeat: no-repeat;
+      transition: opacity 0.2s $slope_medium,
+                  background-image 0s;
+      opacity: 1.0;
+    }
+
+    &:hover,
+    &:active,
+    &:checked {
+      > image { background-image: none; }
+    }
   }
 }
 
@@ -201,18 +213,12 @@ box.pinned { // drop-target
       > image {
         background-image: image($selected_bg_color);
         background-position: #{$position} center;
-        background-size: 2px 2px;
-        background-repeat: no-repeat;
-        transition: opacity 0.2s $slope_medium,
-                    background-image 0s;
       }
 
       &:hover,
       &:active,
       &:checked {
         box-shadow: inset #{$_line} $selected_bg_color;
-
-        > image { background-image: none; }
       }
     }
   }
@@ -1150,20 +1156,19 @@ widget > box.workspace-switcher {
   // main container
   > box.workspace-layout {
     widget.workspace-item {
+      background-image: image(gtkopacity($inverted_fg_color, 0.4));
+      background-repeat: no-repeat;
+      transition-duration: 0s; // for underline-indicators
+
+      &.current-workspace { background-image: image($selected_bg_color); }
+
       @each $position, $_size in (top, calc(100% - 4px) 2px),
                                  (bottom, calc(100% - 4px) 2px),
                                  (left, 2px calc(100% - 4px)),
                                  (right, 2px calc(100% - 4px)) {
-        .#{$position}.budgie-container & {
-          background-image: image(gtkopacity($inverted_fg_color, 0.4));
+        .#{$position} & {
           background-position: #{$position} center;
-          background-repeat: no-repeat;
           background-size: #{$_size};
-          transition-duration: 0s; // for underline-indicators
-
-          &.current-workspace {
-            background-image: image($selected_bg_color);
-          }
         }
       }
 
@@ -1280,37 +1285,43 @@ window.budgie-popover.workspace-popover {
 }
 
 // show-desktop applet
+.budgie-panel > box > widget > button.flat {
+  // specificity bump to prevent conflicts
+  &:not(.raven-trigger):not(.budgie-menu-launcher) {
+    min-width: $icon_size;
+    min-height: $icon_size;
+    border-radius: 0;
+    color: $insensitive_inverted_fg_color; // dim normal state
+    transition: $budgie_transition;
+    &:hover {
+      background-image: image(transparent);
+      background-color: transparent;
+      color: $selected_fg_color;
+    }
+    &:active {
+      color: $selected_fg_color;
+      transition: $budgie_transition,
+                  background-image 0s;
+      animation: budgie_ripple_effect 0.3s $slope_slow forwards;
+    }
+    &:checked {
+      background-image: image(transparent);
+      background-color: transparent;
+      color: $selected_fg_color;
+    }
+  }
+}
+
 @each $position, $_spacing, $_line in (top, 0 6px, 0 2px),
                                       (bottom, 0 6px, 0 -2px),
                                       (left, 3px 0, 2px 0),
                                       (right, 3px 0, -2px 0) {
-  .#{$position}.budgie-container .budgie-panel {
+  .#{$position} .budgie-panel {
     > box > widget > button.flat {
       // specificity bump to prevent conflicts
       &:not(.raven-trigger):not(.budgie-menu-launcher) {
-        min-width: $icon_size;
-        min-height: $icon_size;
         padding: #{$_spacing};
-        border-radius: 0;
-        color: $insensitive_inverted_fg_color; // dim normal state
-        transition: $budgie_transition;
-        &:hover {
-          background-image: image(transparent);
-          background-color: transparent;
-          color: $selected_fg_color;
-        }
-        &:active {
-          color: $selected_fg_color;
-          transition: $budgie_transition,
-                      background-image 0s;
-          animation: budgie_ripple_effect 0.3s $slope_slow forwards;
-        }
-        &:checked {
-          background-image: image(transparent);
-          background-color: transparent;
-          color: $selected_fg_color;
-          box-shadow: inset #{$_line} $selected_bg_color;
-        }
+        &:checked { box-shadow: inset #{$_line} $selected_bg_color; }
       }
     }
   }
