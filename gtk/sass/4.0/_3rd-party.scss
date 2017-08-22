@@ -1366,6 +1366,8 @@ window.budgie-popover.workspace-popover {
 
 .budgie-notification,
 .budgie-osd,
+.budgie-session-dialog,
+.budgie-polkit-dialog,
 .drop-shadow {
   button,
   .linked > button { // OSD-style buttons
@@ -1528,38 +1530,10 @@ window.budgie-switcher-window {
     }
   }
 
-  entry {
-    &, &:focus {
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
-    }
-    &:disabled { color: $insensitive_inverted_fg_color; }
-  }
-
-  button,
-  .linked > button {
-    @extend %button_flat_normal;
+  buttonbox.linked > button {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border: 2px solid transparent;
     border-radius: 0;
-    color: $inverted_secondary_accent_label_color;
-    background-color: transparent;
-    &:hover {
-      @extend %button_flat_hover;
-      background-color: transparent;
-      color: $inverted_accent_label_color;
-    }
-    &:active {
-      @extend %button_flat_active;
-      background-color: transparent;
-      color: $inverted_accent_label_color;
-    }
-    &:checked {
-      @extend %button_flat_checked;
-      background-color: transparent;
-      color: $inverted_secondary_accent_label_color;
-    }
-    &:disabled { @include button(flat-insensitive); }
 
     &:first-child {
       border-radius: 0 0 0 2px;
@@ -1574,6 +1548,14 @@ window.budgie-switcher-window {
 
 // polkit-dialog specific styling
 .budgie-polkit-dialog {
+  entry {
+    &, &:focus {
+      color: $inverted_fg_color;
+      caret-color: $inverted_fg_color;
+    }
+    &:disabled { color: $insensitive_inverted_fg_color; }
+  }
+
   .message { color: $inverted_secondary_fg_color; }
 
   .failure {
@@ -1628,38 +1610,36 @@ window.background.budgie-settings-window.csd {
     &:dir(rtl) { border-left: 1px solid $borders_color; }
   }
 
-  > box.horizontal > stack > scrolledwindow { // right-pane
-    viewport.frame > box.settings-page.vertical {
-      // reserve the margin for raised widget's drop-shadows
-      box.settings-frame.vertical > grid.horizontal { margin-bottom: 6px; }
+  box.settings-page.vertical { // right-pane
+    // reserve the margin for raised widget's drop-shadows
+    box.settings-frame.vertical > grid.horizontal { margin-bottom: 6px; }
 
-      // hide double-borders
-      buttonbox.inline-toolbar { border-style: none none solid; }
+    // hide double-borders
+    buttonbox.inline-toolbar { border-style: none none solid; }
 
-      frame > box.vertical > overlay { // inline header
-        > label.dim-label { // title
-          font-size: 110%;
-          font-weight: 500;
-        }
-
-        > button.popup.suggested-action.toggle { // 'plus' button
-          // same goemetries with 'minus' buttons below
-          min-height: 32px;
-          min-width: 32px;
-          margin: 8px; // prevent truncated drop-shadow
-          padding: 0;
-          border-radius: 100px;
-          -gtk-outline-radius: 100px;
-        }
+    frame > box.vertical > overlay { // inline header
+      > label.dim-label { // title
+        font-size: 110%;
+        font-weight: 500;
       }
 
-      frame > box.vertical list > row {
-        &:dir(ltr) { padding-right: 8px + 1px; } // experimental extra 1px
-        &:dir(rtl) { padding-left: 8px + 1px; }
+      > button.popup.suggested-action.toggle { // 'plus' button
+        // same goemetries with 'minus' buttons below
+        min-height: 32px;
+        min-width: 32px;
+        margin: 8px; // prevent truncated drop-shadow
+        padding: 0;
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+      }
+    }
 
-        button.desutructive-action.round-button {
-          margin: 0; // unset margin
-        }
+    frame > box.vertical list > row {
+      &:dir(ltr) { padding-right: 8px + 1px; } // experimental extra 1px
+      &:dir(rtl) { padding-left: 8px + 1px; }
+
+      button.desutructive-action.round-button {
+        margin: 0; // unset margin
       }
     }
   }
