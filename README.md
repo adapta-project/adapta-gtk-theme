@@ -324,13 +324,13 @@ Extra Telegram Support
 
 Work in Progress
 ----------------
+* Performance tuning
 * Conversion to Gtk+ 4.0
 
 TODO
 ----
 * Prepare for Meson build system (priority: high)
 * Prepare for FlatPak packaging (priority: mid)
-* Prepare for Steam theming (priority: Low)
 
 Public License
 --------------
