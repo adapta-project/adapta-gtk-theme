@@ -5004,21 +5004,24 @@ messagedialog {
     background-color: $inverted_dark_color;
   }
 
-  entry {
-    &,
-    &:focus {
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
+  &,
+  &.background {
+    entry {
+      &,
+      &:focus {
+        color: $inverted_fg_color;
+        caret-color: $inverted_fg_color;
+      }
+      &:disabled { color: $insensitive_inverted_fg_color; }
     }
-    &:disabled { color: $insensitive_inverted_fg_color; }
-  }
 
-  button { // set foregrounds for fallback-mode
-    color: $inverted_secondary_accent_label_color;
-    &:hover,
-    &:active,
-    &:checked { color: $inverted_accent_label_color; }
-    &:disabled { color: $insensitive_inverted_fg_color; }
+    button { // set foregrounds for fallback-mode
+      color: $inverted_secondary_accent_label_color;
+      &:hover,
+      &:active,
+      &:checked { color: $inverted_accent_label_color; }
+      &:disabled { color: $insensitive_inverted_fg_color; }
+    }
   }
 
   .linked > button {
