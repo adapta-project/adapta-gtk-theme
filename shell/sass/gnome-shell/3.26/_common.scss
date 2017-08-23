@@ -2041,42 +2041,42 @@ StScrollBar {
 }
 
 // Search results
-$provider_icon_size: 24px;
+$results_icon_size: 24px;
 $provider_details_width: 120px;
 
 #searchResultsBin { max-width: 1000px; }
 
 #searchResultsContent {
-  spacing: if($eta == 'false', $provider_icon_size / 2,
-                               $provider_icon_size / 4);
-  padding: if($eta == 'false', $provider_icon_size / 2,
-                               $provider_icon_size / 4);
+  spacing: if($eta == 'false', $results_icon_size / 2,
+                               $results_icon_size / 4);
+  padding: if($eta == 'false', $results_icon_size / 2,
+                               $results_icon_size / 4);
 }
 
  // This should be equal to #searchResultsContent spacing
 .search-section {
-  spacing: if($eta == 'false', $provider_icon_size / 2,
-                               $provider_icon_size / 4);
+  spacing: if($eta == 'false', $results_icon_size / 2,
+                               $results_icon_size / 4);
 
   // This is the space between the provider icon and the results container
   &-content {
-    spacing: if($eta == 'false', $provider_icon_size / 2,
-                                 $provider_icon_size / 4);
+    spacing: if($eta == 'false', $results_icon_size / 2,
+                                 $results_icon_size / 4);
   }
 
   &-separator {
     height: 1px;
     background-color: $osd_semi_fill_color;
     &:ltr {
-      margin-left: if($eta == 'false', $provider_icon_size * 3.33
+      margin-left: if($eta == 'false', $results_icon_size * 3.33
                                        + $provider_details_width,
-                                       $provider_icon_size * 2.33
+                                       $results_icon_size * 2.33
                                        + $provider_details_width);
     }
     &:rtl {
-      margin-right: if($eta == 'false', $provider_icon_size * 3.33
+      margin-right: if($eta == 'false', $results_icon_size * 3.33
                                         + $provider_details_width,
-                                        $provider_icon_size * 2.33
+                                        $results_icon_size * 2.33
                                         + $provider_details_width);
     }
   }
@@ -2090,8 +2090,8 @@ $provider_details_width: 120px;
   &-results { spacing: 3px; }
 
   &-result {
-    &:ltr { margin-right: $provider_icon_size / 2; }
-    &:rtl { margin-left: $provider_icon_size / 2; }
+    &:ltr { margin-right: $results_icon_size / 2; }
+    &:rtl { margin-left: $results_icon_size / 2; }
 
     padding: 0;
     transition-duration: 0s;
@@ -2129,12 +2129,12 @@ $provider_details_width: 120px;
     }
 
     &-content {
-      spacing: if($eta == 'false', $provider_icon_size / 2,
-                                   $provider_icon_size / 4);
-      padding: if($eta == 'false', $provider_icon_size / 2,
-                                   $provider_icon_size / 4);
+      spacing: if($eta == 'false', $results_icon_size / 2,
+                                   $results_icon_size / 4);
+      padding: if($eta == 'false', $results_icon_size / 2,
+                                   $results_icon_size / 4);
       // concern the rows without 48px icons
-      min-height: $provider_icon_size * (1.5 + 0.5);
+      min-height: $results_icon_size * (1.5 + 0.5);
     }
 
     &-title {
@@ -2146,12 +2146,12 @@ $provider_details_width: 120px;
       StLabel {
         // add spacing to start-position only
         &:ltr {
-          padding-left: if($eta == 'false', $provider_icon_size  / 2,
-                                            $provider_icon_size  / 4);
+          padding-left: if($eta == 'false', $results_icon_size  / 2,
+                                            $results_icon_size  / 4);
         }
         &:rtl {
-          padding-right: if($eta == 'false', $provider_icon_size / 2,
-                                             $provider_icon_size / 4);
+          padding-right: if($eta == 'false', $results_icon_size / 2,
+                                             $results_icon_size / 4);
         }
       }
     }
@@ -2164,10 +2164,10 @@ $provider_details_width: 120px;
 
   &-provider {
     &-content {
-      spacing: if($eta == 'false', $provider_icon_size / 2,
-                                   $provider_icon_size / 4);
-      padding: if($eta == 'false', $provider_icon_size / 2,
-                                   $provider_icon_size / 4);
+      spacing: if($eta == 'false', $results_icon_size / 2,
+                                   $results_icon_size / 4);
+      padding: if($eta == 'false', $results_icon_size / 2,
+                                   $results_icon_size / 4);
     }
 
     &-details { // labels at the right-side of -icon
@@ -2186,10 +2186,10 @@ $provider_details_width: 120px;
 }
 
 .search-provider-icon {
-  min-height: if($eta == 'false', $provider_icon_size * 3,
-                                  $provider_icon_size * 2.5);
-  padding: if($eta == 'false', 0 $provider_icon_size / 4,
-                               0 $provider_icon_size / 8);
+  min-height: if($eta == 'false', $results_icon_size * 3,
+                                  $results_icon_size * 2.5);
+  padding: if($eta == 'false', 0 $results_icon_size / 4,
+                               0 $results_icon_size / 8);
   border: none;
   border-radius: 2px;
   transition-duration: 0s;
