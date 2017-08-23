@@ -2041,7 +2041,8 @@ StScrollBar {
 }
 
 // Search results
-$provider_icon_size: 32px;
+$provider_icon_size: 24px;
+$provider_details_width: 120px;
 
 #searchResultsBin { max-width: 1000px; }
 
@@ -2065,18 +2066,18 @@ $provider_icon_size: 32px;
 
   &-separator {
     height: 1px;
-    // FIXME: keep meaningless gradient properties
-    // otherwise warnings are recorded
-    -gradient-height: 1px;
-    -gradient-start: $osd_semi_fill_color;
-    -gradient-end: $osd_semi_fill_color;
+    background-color: $osd_semi_fill_color;
     &:ltr {
-      margin-left: if($eta == 'false', $provider_icon_size * (2 + 0.5),
-                                       $provider_icon_size * (2 + 0.25));
+      margin-left: if($eta == 'false', $provider_icon_size * 4
+                                       + $provider_details_width,
+                                       $provider_icon_size * 3
+                                       + $provider_details_width);
     }
     &:rtl {
-      margin-right: if($eta == 'false', $provider_icon_size * (2 + 0.5),
-                                        $provider_icon_size * (2 + 0.25));
+      margin-right: if($eta == 'false', $provider_icon_size * 4
+                                        + $provider_details_width,
+                                        $provider_icon_size * 3
+                                        + $provider_details_width);
     }
   }
 }
@@ -2140,10 +2141,23 @@ $provider_icon_size: 32px;
       @include fontscaling($ref_size * 1.1);
       color: $osd_secondary_fg_color;
       font-weight: 700;
+
+      StIcon,
+      StLabel {
+        // add spacing to start-position only
+        &:ltr {
+          padding-left: if($eta == 'false', $provider_icon_size  / 2,
+                                            $provider_icon_size  / 4);
+        }
+        &:rtl {
+          padding-right: if($eta == 'false', $provider_icon_size / 2,
+                                             $provider_icon_size / 4);
+        }
+      }
     }
 
     &-description {
-      @include fontscaling($ref_size * 0.9);
+      padding: 0;
       color: $osd_dim_fg_color;
     }
   }
@@ -2156,43 +2170,40 @@ $provider_icon_size: 32px;
                                    $provider_icon_size / 4);
     }
 
-    &-details {
-      width: 150px;
-      margin-top: if($eta == 'false', 4px, 3px);
-      color: $osd_dim_fg_color;
+    &-details { // labels at the right-side of -icon
+      @include fontscaling($ref_size * 0.9);
+      width: $provider_details_width;
+      // margin-top: if($eta == 'false', 4px, 3px);
+      color: $osd_secondary_fg_color;
+      font-weight: 700;
+
+      .search-provider-icon:hover &,
+      .search-provider-icon:active & { color: $osd_fg_color; }
+
+      .search-provider-icon:checked & { color: $selected_fg_color; }
     }
   }
 }
 
-.search-provider {
-  &-icon {
-    margin: if($eta == 'false', $provider_icon_size / 4 0, 0);
-    padding: $provider_icon_size / 2;
-    border: none;
-    border-radius: 100px;
-    color: $osd_secondary_fg_color;
+.search-provider-icon {
+  min-height: if($eta == 'false', $provider_icon_size * 3,
+                                  $provider_icon_size * 2.5);
+  border: none;
+  border-radius: 2px;
+  transition-duration: 0s;
+  &:focus,
+  &:selected,
+  &:hover {
+    background-color: $osd_slight_fill_color;
     transition-duration: 0s;
-    &:focus,
-    &:selected,
-    &:hover {
-      background-color: $osd_slight_fill_color;
-      transition-duration: 0s;
-    }
-    &:active {
-      background-color: $osd_semi_fill_color;
-      transition-duration: $duration_medium;
-    }
-    &:checked {
-      background-color: $osd_indicator_color;
-      transition-duration: $duration_medium;
-    }
   }
-
-  &-icon-more { // this will be deprecated
-    width: $provider_icon_size / 2;
-    height: $provider_icon_size / 2;
-    background-image: url("assets/more-results.svg");
-    -st-background-image-shadow: $z-depth-2;
+  &:active {
+    background-color: $osd_semi_fill_color;
+    transition-duration: $duration_medium;
+  }
+  &:checked {
+    background-color: $osd_indicator_color;
+    transition-duration: $duration_medium;
   }
 }
 
