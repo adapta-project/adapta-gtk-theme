@@ -2704,6 +2704,45 @@ stack > box.vertical > widget > overlay grid.horizontal > stack {
   margin-bottom: -1px;
 }
 
+// > 3.25.90
+scrolledwindow.view > viewport.frame > stack > list { // left-pane
+  background-color: $secondary_dark_color;
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
+  }
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
+  }
+
+  > row.activatable {
+    color: $secondary_fg_color;
+    font-weight: 500;
+
+    image.dim-label { opacity: 0.75; } // tone up icons
+
+    label,
+    image { color: $secondary_fg_color; }
+
+    &:hover,
+    &:active {
+      color: $fg_color;
+
+      label,
+      image { color: $fg_color; }
+    }
+
+    &:selected {
+      background-color: transparent;
+      color: $selected_bg_color;
+
+      label,
+      image { color: $selected_bg_color; }
+    }
+  }
+}
+
 
 // /*************
 //  * Evolution *
