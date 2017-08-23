@@ -5007,12 +5007,14 @@ messagedialog {
   &,
   &.background {
     entry {
-      &,
-      &:focus {
-        color: $inverted_fg_color;
-        caret-color: $inverted_fg_color;
+      &, &.combo {
+        &,
+        &:focus {
+          color: $inverted_fg_color;
+          caret-color: $inverted_fg_color;
+        }
+        &:disabled { color: $insensitive_inverted_fg_color; }
       }
-      &:disabled { color: $insensitive_inverted_fg_color; }
     }
 
     button { // set foregrounds for fallback-mode
@@ -5021,6 +5023,14 @@ messagedialog {
       &:active,
       &:checked { color: $inverted_accent_label_color; }
       &:disabled { color: $insensitive_inverted_fg_color; }
+
+      &.combo {
+        color: $inverted_secondary_fg_color;
+        &:hover,
+        &:active,
+        &:checked { color: $inverted_fg_color; }
+        &:disabled { color: $insensitive_inverted_fg_color; }
+      }
     }
   }
 
