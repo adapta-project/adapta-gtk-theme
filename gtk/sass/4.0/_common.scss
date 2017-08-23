@@ -4773,33 +4773,27 @@ row:selected { // special case to use raised GtkEntry
     }
 
     button {
-      @extend %button_flat_normal;
-      background-color: transparent;
-      &:not(:active):not(:disabled):not(hover) {
+      &:not(hover):not(:active):not(:checked):not(:disabled) {
         background-color: transparent;
         color: $inverted_secondary_accent_label_color;
       }
       &:hover {
-        @extend %button_flat_hover;
         background-color: transparent;
         color: $inverted_accent_label_color;
       }
       &:active {
-        @extend %button_flat_active;
         border-image: none;
         background-color: transparent;
         color: $inverted_accent_label_color;
         box-shadow: none;
       }
       &:checked {
-        @extend %button_flat_checked;
         border-image: none;
         background-color: transparent;
         color: $inverted_accent_label_color;
         box-shadow: none;
       }
       &:disabled {
-        @extend %button_flat_disabled;
         background-color: transparent;
         color: gtkopacity($inverted_accent_label_color, 0.4);
       }
