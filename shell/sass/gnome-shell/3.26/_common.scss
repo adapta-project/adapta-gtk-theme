@@ -3198,6 +3198,17 @@ $provider_details_width: 120px;
   }
 }
 
+.login-dialog-username,
+.user-widget-label {
+  @include fontscaling($ref_size * 1.2);
+  color: $osd_fg_color;
+  font-weight: 700;
+  text-align: left;
+
+  &:ltr { padding-left: 1.5em; }
+  &:rtl { padding-right: 1.5em; }
+}
+
 .login-dialog {
   &-logo-bin { padding: 24px 0; }
 
@@ -3250,22 +3261,19 @@ $provider_details_width: 120px;
     spacing: 12px;
 
     &:expanded .login-dialog-user-list-item {
-      &:focus {
-        color: $osd_fg_color;
-        background-color: $hidden_fill_color;
-        box-shadow: inset 0 0 0 2px $osd_semi_fill_color;
-      }
-      &:hover {
-        color: $osd_fg_color;
-        background-color: $osd_semi_fill_color;
-      }
-      &:active {
-        color: $osd_fg_color;
-        background-color: $osd_fill_color;
-      }
       &:selected {
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        &, &:focus {
+          background-color: $hidden_fill_color;
+          box-shadow: inset 0 0 0 2px shellopacity($selected_bg_color, 0.2);
+        }
+        &:hover,
+        &:hover:focus {
+          background-color: shellopacity($selected_bg_color, 0.1);
+        }
+        &:active,
+        &:active:focus {
+          background-color: shellopacity($selected_bg_color, 0.2);
+        }
       }
 
       &:logged-in {
@@ -3294,28 +3302,46 @@ $provider_details_width: 120px;
   &-user-list-item {
     padding: 4px 4px 0;
     border-radius: 2px;
-    color: $osd_secondary_fg_color;
     transition-duration: $duration_short;
 
     &:ltr { padding-right: 1em; }
     &:rtl { padding-left: 1em; }
 
+    .login-dialog-username, // actual label colour
+    .user-widget-label { color: $osd_secondary_fg_color; }
+
     &:focus {
-      color: $osd_fg_color;
       background-color: $hidden_fill_color;
       box-shadow: inset 0 0 0 2px $osd_semi_fill_color;
     }
-    &:hover {
-      color: $osd_fg_color;
-      background-color: $osd_semi_fill_color;
+    &:hover { background-color: $osd_semi_fill_color; }
+    &:active { background-color: $osd_fill_color; }
+    &:selected {
+      &, &:focus {
+        background-color: $hidden_fill_color;
+        box-shadow: inset 0 0 0 2px shellopacity($selected_bg_color, 0.2);
+      }
+      &:hover,
+      &:hover:focus {
+        background-color: shellopacity($selected_bg_color, 0.1);
+      }
+      &:active,
+      &:active:focus {
+        background-color: shellopacity($selected_bg_color, 0.2);
+      }
     }
+
+    &:focus,
+    &:hover,
     &:active {
-      color: $osd_fg_color;
-      background-color: $osd_fill_color;
+      .login-dialog-username,
+      .user-widget-label { color: $osd_fg_color; }
     }
     &:selected {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      &, &:focus {
+        .login-dialog-username,
+        .user-widget-label { color: $selected_bg_color; }
+      }
     }
 
     .login-dialog-timed-login-indicator {
@@ -3328,20 +3354,6 @@ $provider_details_width: 120px;
       background-color: $osd_fg_color;
     }
   }
-}
-
-.login-dialog-username,
-.user-widget-label {
-  @include fontscaling($ref_size * 1.2);
-  padding-left: 15px;
-  color: $osd_fg_color;
-  font-weight: 700;
-  text-align: left;
-}
-
-.user-widget-label {
-  &:ltr { padding-left: 1.5em; }
-  &:rtl { padding-right: 1.5em; }
 }
 
 .login-dialog-prompt {
