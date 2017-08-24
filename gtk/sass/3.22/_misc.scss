@@ -2717,6 +2717,7 @@ scrolledwindow.view > viewport.frame > stack > list { // left-pane
   }
 
   > row.activatable {
+    padding: 0; // unset padding
     color: $secondary_fg_color;
     font-weight: 500;
 
@@ -2741,6 +2742,12 @@ scrolledwindow.view > viewport.frame > stack > list { // left-pane
       image { color: $selected_bg_color; }
     }
   }
+}
+
+box.horizontal.titlebar > headerbar > stack > box.vertical {
+  > .title { margin: 0; }
+
+  > .subtitle { margin: rem(-2.7px) 0; }
 }
 
 
