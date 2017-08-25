@@ -2364,6 +2364,11 @@ headerbar {
     button:not(.suggested-action):not(.destructive-action) {
       border-radius: 100px;
       -gtk-outline-radius: 100px;
+      color: $secondary_selected_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $selected_fg_color; }
+      &:disabled { color: $insensitive_selected_fg_color; }
 
       &.text-button,
       &.flat.selection-menu,
