@@ -3104,19 +3104,26 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     background-color: transparent;
   }
 
-  .apps-list { // right-pane
+  .apps-list, // legacy
+  list.content-view.view { // right-pane
     background-color: $base_color;
 
-    row.activatable > button.flat {
-      padding-top: unset;
-      padding-bottom: unset;
-      border-radius: 0; // remove roundness
-      -gtk-outline-radius: 0;
-      font-weight: 400;
-      transition: none; // needs quicker response
+    row.activatable {
+      padding: 0;
+      background-image: none;
+      transition-duration: 0s;
 
-      // set vertical padding with icon's padding
-      > box.horizontal > image { padding: rem(5.3px) 0; }
+      > button.flat {
+        padding-top: unset;
+        padding-bottom: unset;
+        border-radius: 0; // remove roundness
+        -gtk-outline-radius: 0;
+        font-weight: 400;
+        transition-duration: 0s; // needs quicker response
+
+        // set vertical padding with icon's padding
+        > box.horizontal > image { padding: rem(5.3px) 0; }
+      }
     }
   }
 }
