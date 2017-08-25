@@ -1974,6 +1974,118 @@ window.background.workbench box.message-box.vertical {
   infobar.horizontal { border-bottom-width: 0; }
 }
 
+// 3.25.9x
+#titlebar_container headerbar {
+  // override upstream CSS
+  > omnibar.linked {
+    > entry {
+      border-image:
+        radial-gradient(circle farthest-corner at center,
+                        gtkopacity($inverted_secondary_fg_color, 0.2) 100%,
+                        transparent)
+                        0 0 1 / 0 0 1px;
+      background-image: image($inverted_dark_color);
+
+      label,
+      image { color: $inverted_secondary_fg_color; }
+    }
+
+    &:hover,
+    &:active,
+    &:checked {
+      > entry label,
+      > entry image { color: $inverted_fg_color; }
+    }
+
+    &:active > entry {
+      border-image: radial-gradient(circle farthest-corner at center,
+                                    $selected_bg_color 100%,
+                                    transparent)
+                                    0 0 2 / 0 0 2px;
+    }
+  }
+}
+
+ide {
+  // left-pane sidebar?
+  &editorsidebar {
+    background-image: image($secondary_dark_color);
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
+    }
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
+    }
+  }
+
+  // editor-pane headers?
+  &layoutstackheader { // damned upstream CSS
+    border-bottom: 1px solid $borders_color;
+    box-shadow: inset 0 0 0 26px gtkopacity($fixed_base_color, 0.05);
+
+    button {
+      min-width: 26px;
+      min-height: 26px;
+
+      label { padding-bottom: rem(1.3px, $sw: 1.0); }
+    }
+  }
+}
+
+dzl {
+  &multipaned {
+    > box.vertical {
+      // draw borders for pane-grip
+      border-top: 1px solid $borders_color;
+    }
+
+    list.open-pages { // 'open-pages' list
+      background-color: $secondary_dark_color;
+    }
+  }
+
+  &menubuttonsection { // child elements in their GtkPopovers
+    // kill ugly upstream CSS's parent margins
+    &:only-child { margin: -6px; }
+    &:first-child { margin: -6px -6px 0; }
+    &:last-child { margin: 0 -6px -6px; }
+
+    // reset weight
+    button.dzlmenubuttonitem { font-weight: 400; }
+  }
+
+  &preferencesview {
+    stacksidebar.sidebar viewport.frame > list {
+      background-image: image($secondary_dark_color);
+      &:dir(ltr) {
+        box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                            $sidebar-dark-ltr);
+      }
+      &:dir(rtl) {
+        box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                            $sidebar-dark-rtl);
+      }
+
+      row.activatable { padding: rem(9.3px) rem(13.3px) rem(10.7px); }
+    }
+  }
+
+  &preferencesgroup#languages {
+    // back to standard 'arrows'
+    preferencesbin > box.horizontal > image { color: $fg_color; }
+  }
+}
+
+popover.messagepopover {
+  // use action-area style buttons
+  box.popover-content-area {
+    @extend buttonbox.dialog-action-area;
+    margin: -12px; // kill outer spacing
+  }
+}
+
 
 // /***************
 //  * Gnome-Music *

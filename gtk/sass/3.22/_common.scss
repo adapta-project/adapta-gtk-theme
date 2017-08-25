@@ -775,6 +775,7 @@ button {
   // mimic tab-switcher-like button array
   // horizontal array
   .linked > &:not(.flat):not(:only-child) { border-radius: 0; }
+
   .linked > & {
     @extend %button_array;
     min-width: rem(13.3px);
@@ -3144,6 +3145,14 @@ popover.background {
   box-shadow:  $z-depth-3;
 
   &:backdrop { box-shadow: $z-depth-1; }
+
+  &.menu { // reset standard menu spacing
+    margin: 0;
+    padding: 2px;
+
+    // compensate outer margins
+    > stack { margin: -6px; }
+  }
 
   .csd &,
   & {
