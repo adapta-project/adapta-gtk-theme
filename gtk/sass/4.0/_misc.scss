@@ -1791,28 +1791,49 @@ eggsearchbar box.search-bar {
   background-color: $secondary_dark_color;
 }
 
-headerbar > omnibar.linked.horizontal {
+headerbar > omnibar.linked {
   // enforce inverted label colour
-  > entry.horizontal {
-    color: $inverted_secondary_fg_color;
-    caret-color: $inverted_secondary_fg_color;
+  &:not(:hover):not(:active) {
+    > entry {
+      border-image:
+        radial-gradient(circle farthest-corner at center,
+                        gtkopacity($inverted_secondary_fg_color, 0.2) 100%,
+                        transparent)
+                        0 0 1 / 0 0 1px;
+      background-image: image($inverted_dark_color);
+      caret-color: $inverted_secondary_fg_color;
+
+      &,
+      label { color: $inverted_secondary_fg_color; }
+    }
   }
 
   &:hover {
-    > entry.horizontal {
-      color: $inverted_fg_color;
+    > entry {
+      border-image:
+        radial-gradient(circle farthest-corner at center,
+                        gtkopacity($inverted_fg_color, 0.2) 100%,
+                        transparent)
+                        0 0 1 / 0 0 1px;
+      background-image: image($inverted_dark_color);
       caret-color: $inverted_fg_color;
+
+      &,
+      label { color: $inverted_fg_color; }
     }
   }
   &:active {
-    > entry.horizontal {
+    > entry {
       &, &:focus {
         border-image: radial-gradient(circle farthest-corner at center,
                                       $selected_bg_color 100%,
                                       transparent)
                                       0 0 2 / 0 0 2px;
-        color: $inverted_fg_color;
+        background-image: image($inverted_dark_color);
         caret-color: $inverted_fg_color;
+
+        &,
+        label { color: $inverted_fg_color; }
       }
     }
   }
@@ -1975,37 +1996,6 @@ window.background.workbench box.message-box.vertical {
 }
 
 // 3.25.9x
-#titlebar_container headerbar {
-  // override upstream CSS
-  > omnibar.linked {
-    > entry {
-      border-image:
-        radial-gradient(circle farthest-corner at center,
-                        gtkopacity($inverted_secondary_fg_color, 0.2) 100%,
-                        transparent)
-                        0 0 1 / 0 0 1px;
-      background-image: image($inverted_dark_color);
-
-      label,
-      image { color: $inverted_secondary_fg_color; }
-    }
-
-    &:hover,
-    &:active,
-    &:checked {
-      > entry label,
-      > entry image { color: $inverted_fg_color; }
-    }
-
-    &:active > entry {
-      border-image: radial-gradient(circle farthest-corner at center,
-                                    $selected_bg_color 100%,
-                                    transparent)
-                                    0 0 2 / 0 0 2px;
-    }
-  }
-}
-
 ide {
   // left-pane sidebar?
   &editorsidebar {
