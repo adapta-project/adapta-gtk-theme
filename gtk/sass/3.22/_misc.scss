@@ -2067,10 +2067,17 @@ dzl {
       border-top: 1px solid $borders_color;
     }
 
-    list.open-pages { // 'open-pages' list
-      background-color: $secondary_dark_color;
-    }
+    // 'open-pages' list
+    list.open-pages { background-color: transparent; }
+
+    // no need to highlighten headers
+    buildpanel notebook > header.top { background-color: transparent; }
   }
+
+  // &dockpaned > box.vertical { // main container of left-pane
+  //   background-image: if($variant == 'light', $fake-shadow-light,
+  //                                             $fake-shadow-dark);
+  // }
 
   &menubuttonsection { // child elements in their GtkPopovers
     // kill ugly upstream CSS's parent margins
