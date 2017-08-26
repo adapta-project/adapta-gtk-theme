@@ -2052,6 +2052,8 @@ ide {
   &layoutgridcolumn { /// main container of eidtor-pane
     // draw vertically gradient pane-separators
     @extend %builder_gradient_separator;
+    &:dir(ltr) { border-image-slice: 0 0 0 1; }
+    &:dir(rtl) { border-image-slice: 0 1 0 0; }
   }
 
   // editor-pane headers?
