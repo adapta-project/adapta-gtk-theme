@@ -2032,6 +2032,15 @@ window.background.workbench box.message-box.vertical {
 }
 
 // 3.25.9x
+stack.titlebar#titlebar_container > stack > headerbar { // needs full-path
+  > box.horizontal > box.linked.horizontal > button.toggle {
+    border-radius: 2px; // revert to square buttons
+    -gtk-outline-radius: 2px;
+
+    image { padding: 0; }
+  }
+}
+
 ide {
   // left-pane sidebar?
   &editorsidebar {
