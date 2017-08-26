@@ -1777,11 +1777,7 @@ layouttab {
   }
 }
 
-layout {
-  // hide top/bottom pane-separator
-  border-width: 0 1px 0;
-  border-style: none solid none;
-  border-color: $solid_light_borders_color;
+%builder_gradient_separator {
   // draw vertically gradient pane-separators
   @if $variant=='light' {
     border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32),
@@ -1797,6 +1793,15 @@ layout {
                                              rgba(0, 0, 0, 0.11))
                   0 1 0 / 0 1px 0 stretch;
   }
+}
+
+layout {
+  // draw vertically gradient pane-separators
+  @extend %builder_gradient_separator;
+  // hide top/bottom pane-separator
+  border-width: 0 1px 0;
+  border-style: none solid none;
+  border-color: $solid_light_borders_color;
   // revive top-edge border with box-shadow
   box-shadow: inset 0 -1px $solid_light_borders_color;
 
@@ -1807,20 +1812,7 @@ layout {
 layoutgrid > paned.horizontal separator:not(.vertical),
 layoutgrid > paned.horizontal > paned.horizontal separator:not(.vertical) {
   // draw vertically gradient pane-separators
-  @if $variant=='light' {
-    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32),
-                                             rgba(0, 0, 0, 0.21) 2px,
-                                             rgba(0, 0, 0, 0.09) 4px,
-                                             rgba(0, 0, 0, 0.09))
-                  0 1 0 / 0 1px 0 stretch;
-  }
-  @if $variant=='dark' {
-    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
-                                             rgba(0, 0, 0, 0.16) 2px,
-                                             rgba(0, 0, 0, 0.11) 4px,
-                                             rgba(0, 0, 0, 0.11))
-                  0 1 0 / 0 1px 0 stretch;
-  }
+  @extend %builder_gradient_separator;
 }
 
 eggsearchbar box.search-bar {
@@ -2045,14 +2037,21 @@ ide {
   // left-pane sidebar?
   &editorsidebar {
     background-image: image($secondary_dark_color);
-    &:dir(ltr) {
+    &.left {
+      margin-right: -1px; // override upstream CSS
       box-shadow: if($variant == 'light', $sidebar-light-ltr,
                                           $sidebar-dark-ltr);
     }
-    &:dir(rtl) {
+    &.right {
+      margin-left: -1px;
       box-shadow: if($variant == 'light', $sidebar-light-rtl,
                                           $sidebar-dark-rtl);
     }
+  }
+
+  &layoutgridcolumn { /// main container of eidtor-pane
+    // draw vertically gradient pane-separators
+    @extend %builder_gradient_separator;
   }
 
   // editor-pane headers?
@@ -2083,10 +2082,10 @@ dzl {
     buildpanel notebook > header.top { background-color: transparent; }
   }
 
-  // &dockpaned > box.vertical { // main container of left-pane
-  //   background-image: if($variant == 'light', $fake-shadow-light,
-  //                                             $fake-shadow-dark);
-  // }
+  &dockpaned > box.vertical { // main container of left-pane
+    background-image: if($variant == 'light', $fake-shadow-light,
+                                              $fake-shadow-dark);
+  }
 
   &menubuttonsection { // child elements in their GtkPopovers
     // kill ugly upstream CSS's parent margins
@@ -2099,6 +2098,11 @@ dzl {
   }
 
   &preferencesview {
+    entry.preferences-search.search {
+      // add 1px bottom shadow as a border
+      box-shadow: inset 0 -1px $borders_color;
+    }
+
     stacksidebar.sidebar viewport.frame > list {
       background-image: image($secondary_dark_color);
       &:dir(ltr) {
