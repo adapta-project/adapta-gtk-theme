@@ -2516,32 +2516,11 @@ headerbar {
   &.titlebar,
   .csd &,
   box &:only-child {
+    @extend %headerbar_child_margins;
     padding: 0 rem(5.3px); // only add lateral spacer
     // draw hilight and shadows
     box-shadow: if($variant == 'light', $header-shadow-light,
                                         $header-shadow-dark);
-
-    button, // set spacer with vertical margin
-    entry,
-    spinbutton,
-    scale,
-    spinner { margin: rem(5.3px) 0; }
-
-    switch {
-      margin: if($ref_weight < 1.0,
-                 rem(5.3px + (($widget_size - 30px) / 2) + 1.3px)
-                 0
-                 rem(5.3px + (($widget_size - 30px) / 2) - 1.3px),
-                 rem(5.3px + (($widget_size - 30px) / 2) - 2px) 0);
-    }
-
-    .title { margin-bottom: rem(5.3px - 1.3px); }
-
-    > box.vertical {
-      > .title { margin: 0; }
-
-      > .subtitle { margin: rem(-2.7px) 0; }
-    }
   }
 
   // override unwanted side-borders
@@ -2572,6 +2551,31 @@ headerbar {
     &:dir(rtl) {
       // border-right: 1px solid $solid_dark_borders_color;
     }
+  }
+}
+
+
+%headerbar_child_margins {
+  button, // set spacer with vertical margin
+  entry,
+  spinbutton,
+  scale,
+  spinner { margin: rem(5.3px) 0; }
+
+  switch {
+    margin: if($ref_weight < 1.0,
+               rem(5.3px + (($widget_size - 30px) / 2) + 1.3px)
+               0
+               rem(5.3px + (($widget_size - 30px) / 2) - 1.3px),
+               rem(5.3px + (($widget_size - 30px) / 2) - 2px) 0);
+  }
+
+  .title { margin-bottom: rem(5.3px - 1.3px); }
+
+  > box.vertical {
+    > .title { margin: 0; }
+
+    > .subtitle { margin: rem(-2.7px) 0; }
   }
 }
 
@@ -2674,7 +2678,8 @@ headerbar.titlebar.default-decoration {
   box headerbar,
   headerbar {
     &, &:not(:last-child) {
-      padding: rem(5.3px);
+      @extend %headerbar_child_margins;
+      padding: 0 rem(5.3px); // only add lateral spacer
       border-radius: 0;
       border-top: 0 none transparent;
       box-shadow: none;
