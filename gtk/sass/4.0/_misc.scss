@@ -2496,12 +2496,10 @@ frame#weather-page-content-view {
       &:hover,
       &:active { border-image: none; }
       &:checked {
-        border-image: -gtk-gradient(radial,
-                                    center bottom, 0,
-                                    center bottom, 0.5,
-                                    to(currentColor),
-                                    to(transparent))
-                                    0 0 2 / 0 0 2px;
+        border-image: radial-gradient(circle farthest-corner at center,
+                                      currentColor 100%,
+                                      transparent)
+                                      0 0 2 / 0 0 2px;
       }
       &:disabled { border-image: none; }
     }
