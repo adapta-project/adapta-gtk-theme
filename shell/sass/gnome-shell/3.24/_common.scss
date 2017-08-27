@@ -1146,20 +1146,19 @@ StScrollBar {
     &.clock-display {
       > StBoxLayout > StLabel:last-child {
         // align top
-        padding-bottom: if($eta == 'false', (30px - 14px) / 2,
-                                            (25px - 14px) / 2);
+        padding-bottom: if($eta == 'false', (30px - 16px) / 2,
+                                            (25px - 16px) / 2);
         color: $suggested_color;
-        font-size: 14px; // fixed size
+        font-size: 16px; // fixed size
         font-weight: 400;
+        font-family: $mono-font-family; // use fixed-font
         &:ltr { padding-left: 0; }
         &:rtl { padding-right: 0; }
       }
 
       &:hover,
       &:active {
-        > StBoxLayout > StLabel:last-child {
-          color: $accent_color;
-        }
+        > StBoxLayout > StLabel:last-child { color: $accent_color; }
       }
     }
   }
