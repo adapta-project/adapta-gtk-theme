@@ -1719,41 +1719,37 @@ workbench.background > stack.titlebar > headerbar > stack {
 }
 
 window overlay > grid > frame > grid {
-  toolbar { box-shadow: none; }
+  toolbar.primary-toolbar { box-shadow: none; }
+}
 
-  // side-bar styling
-  list {
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
+// side-bar styling
+list.contacts-view {
+  background-image: image($secondary_dark_color); // use -image instead
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
+  }
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
+  }
 
-    row {
-      color: $secondary_fg_color;
-      background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                                rgba(18, 22, 0, 0.04));
-      font-weight: 500;
-      &:hover { color: $fg_color; }
-      &:selected,
-      &:selected.activatable {
-        &, label { color: $selected_bg_color; }
-        background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                                  rgba(18, 22, 0, 0.04));
-      }
-    }
-
-    // hide horizontal separator
-    separator {
-      @extend separator.wide;
-      min-height: 0;
-      border-color: transparent;
+  row.activatable {
+    color: $secondary_fg_color;
+    font-weight: 500;
+    &:hover { color: $fg_color; }
+    &:selected {
       background-color: transparent;
-      color: transparent;
+
+      &, label { color: $selected_bg_color; }
     }
+  }
+
+  // hide horizontal separator
+  separator {
+    min-height: 0;
+    border-color: transparent;
+    background-color: transparent;
   }
 }
 
@@ -1915,18 +1911,6 @@ window.background > widget > window.background > box.vertical {
     }
 
     evview.content-view.view { transition: none; }
-  }
-}
-
-
-// /************
-//  * Deja-dup *
-//  ************/
-
-window > box.vertical > box.vertical > widget > grid.vertical {
-  > expander > scrolledwindow {
-    min-height: rem(160.0px); // enlarge widget height
-    border: 1px solid $borders_color; // draw borders
   }
 }
 
@@ -2293,34 +2277,6 @@ window.background > grid.horizontal {
         font-weight: 700;
       }
     }
-  }
-}
-
-
-// /***********************
-//  * Gnome-Power-Manager *
-//  ***********************/
-
-window.background > box.horizontal > notebook.frame > stack {
-  margin: 0 -1px 0;
-  border-width: 0 1px 1px;
-  border-style: none solid solid;
-  border-color: $borders_color;
-
-  > scrolledwindow.frame {
-    margin: -13px 0 0;
-    border-style: none;
-
-    > treeview.view > header > button > box > widget > label {
-      padding: 3px 0;
-    }
-
-    > undershoot,
-    > overshoot {
-      &.top { background-position: center 13px - 1px; }
-    }
-
-    > scrollbar.vertical { padding: 13px - 1px 0 0; }
   }
 }
 
