@@ -2436,18 +2436,6 @@ window.background > box.vertical box.horizontal {
 }
 
 
-// /************
-//  * Deja-dup *
-//  ************/
-
-window > box.vertical > box.vertical > widget > grid.vertical {
-  > expander > scrolledwindow {
-    min-height: rem(160.0px); // enlarge widget height
-    border: 1px solid $borders_color; // draw borders
-  }
-}
-
-
 // /******************
 //  * Gnome-Terminal *
 //  ******************/
@@ -3020,34 +3008,6 @@ scrolledwindow.character-list-scroll {
         background-color: gtkopacity($tertiary_fixed_fg_color, 0.55);
       }
     }
-  }
-}
-
-
-// /***********************
-//  * Gnome-Power-Manager *
-//  ***********************/
-
-window.background > box.horizontal > notebook.frame > stack {
-  margin: 0 -1px 0;
-  border-width: 0 1px 1px;
-  border-style: none solid solid;
-  border-color: $borders_color;
-
-  > scrolledwindow.frame {
-    margin: -13px 0 0;
-    border-style: none;
-
-    > treeview.view > header > button > box > widget > label {
-      padding: 3px 0;
-    }
-
-    > undershoot,
-    > overshoot {
-      &.top { background-position: center 13px - 1px; }
-    }
-
-    > scrollbar.vertical { padding: 13px - 1px 0 0; }
   }
 }
 
