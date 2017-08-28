@@ -1700,6 +1700,20 @@ window.background.budgie-settings-window.csd {
   &:disabled label { color: $insensitive_fg_color; }
 }
 
+%greeter_entry {
+  // prevent junmping when showing CapsLock warning
+  min-height: rem($widget_size);
+  padding: 0 if($ref_weight < 1.0, 4px / 2, 8px / 2);
+  font-family: monospace;
+
+  &,
+  &:focus {
+    color: $inverted_fg_color;
+    caret-color: $inverted_fg_color;
+  }
+  &:disabled { color: $insensitive_inverted_fg_color; }
+}
+
 %non_csd_menu {
   margin: unset;
   padding: 1px;
@@ -1813,19 +1827,7 @@ window.background.budgie-settings-window.csd {
       }
     }
 
-    %greeter_entry,
-    entry { // prevent junmping when showing CapsLock warning
-      min-height: rem($widget_size);
-      padding: 0 if($ref_weight < 1.0, 4px / 2, 8px / 2);
-      font-family: monospace;
-
-      &,
-      &:focus {
-        color: $inverted_fg_color;
-        caret-color: $inverted_fg_color;
-      }
-      &:disabled { color: $insensitive_inverted_fg_color; }
-    }
+    entry { @extend %greeter_entry; }
 
     infobar.error { // notification revealer
       margin: 0 4px; // prevent unwanted overflow
@@ -1858,7 +1860,6 @@ window.background.lightdm {
     @extend %greeter_panel_menubar;
     padding-top: ($greeter_panel_height - $greeter_panel_shadow - $icon_size)
                  / 2;
-    background-color: gtkalpha($panel_bg_color, 1.0); // does not work
     font-weight: 700;
     text-shadow: none;
 
@@ -1869,12 +1870,7 @@ window.background.lightdm {
       label,
       image { color: $inverted_fg_color; }
 
-      &:hover {
-        box-shadow: inset 0 2px $selected_bg_color;
-
-        label, // does not work?
-        image { color: $selected_fg_color; }
-      }
+      &:hover { box-shadow: inset 0 2px $selected_bg_color; }
 
       label { margin: 0 2px rem(1.3px, $sw: 1.0); }
     }
@@ -1940,28 +1936,21 @@ window.background.lightdm {
         background-color: transparent;
         color: $selected_fg_color;
       }
-      &.selected {
-        @extend %button_flat_normal;
-        background-image: image($selected_bg_color);
-        &, &:hover {
-          color: $selected_fg_color;
+    }
 
-          image { opacity: 1.0; }
-        }
+    &.toggle-button.selected { // selected row
+      @extend %button_flat_normal;
+      background-image: image($selected_bg_color);
+      &, &:hover {
+        color: $selected_fg_color;
+
+        image { opacity: 1.0; }
       }
     }
   }
 
   entry,
-  .lightdm-combo entry {
-    @extend %greeter_entry;
-    &,
-    &:focus {
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
-    }
-    &:disabled { color: $insensitive_inverted_fg_color; }
-  }
+  .lightdm-combo entry { @extend %greeter_entry; }
 
   entry:active { // for spinner
     -gtk-icon-source: linear-gradient(to bottom,
