@@ -3073,6 +3073,7 @@ $provider_details_width: 120px;
     height: 2em;
 
     .vertical & { padding-top: 0.5em; }
+
     .horizontal & { padding-left: 0.5em; }
   }
 
@@ -3131,17 +3132,17 @@ $provider_details_width: 120px;
   background-color: transparent;
 
   StEntry {
+    @include entry(normal, $fc: $osd_semi_fill_color);
     min-height: 1.2em; // prevent unwanted shrinking
     color: $osd_fg_color;
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
     font-family: $mono-font-family;
     transition-duration: 0s;
-    @include entry(normal, $fc:$osd_semi_fill_color);
-    &:hover { @include entry(hover, $fc:$osd_fill_color); }
-    &:focus { @include entry(focus, $fc:$osd_indicator_color); }
+    &:hover { @include entry(hover, $fc: $osd_fill_color); }
+    &:focus { @include entry(focus, $fc: $osd_indicator_color); }
     &:insensitive {
-      @include entry(insensitive, $fc:$insensitive_osd_fill_color);
+      @include entry(insensitive, $fc: $insensitive_osd_fill_color);
       color: $insensitive_osd_fg_color;
     }
 
@@ -3152,11 +3153,11 @@ $provider_details_width: 120px;
 
   .modal-dialog-button {
     @include fontscaling($ref_size * 1.1);
-    padding: 7px 16px 8px;
-    font-weight: 700;
     @include button(flat-normal, $tc: if($nokto == 'false',
                                       $inverted_secondary_fg_color,
                                       $secondary_fg_color));
+    padding: 7px 16px 8px;
+    font-weight: 700;
     &:hover,
     &:focus {
       @include button(flat-hover, $c: $osd_semi_fill_color,
