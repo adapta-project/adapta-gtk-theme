@@ -140,7 +140,8 @@ StScrollBar {
 
 .separator {
   height: 1px; // not really the whole box
-  margin: 0.6em 0.4em;
+  margin: 0;
+  padding: 0;
   border-color: $borders_color;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -391,7 +392,8 @@ StScrollBar {
 
   &-separator-menu-item {
     height: 1px; // not really the whole box
-    margin: 0.6em 0.4em;
+    margin: 0;
+    padding: 0;
     border-color: $borders_color;
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -715,17 +717,19 @@ $icon_size: 16px;
 
   &-month-label {
     @include fontscaling($ref_size * 0.8);
-    margin: 8px 2px;
-    padding: 0.2em 0 0; // adjust base-line
+    margin: 0 2px;
+    padding-top: (1.5em + 0.5em) / 8; // label centering
     color: $fg_color;
     font-weight: 400;
   }
 
   &-change-month-back,
   &-change-month-forward {
-    width: $icon_size;
-    height: $icon_size;
-    padding: 2px;
+    @include fontscaling($ref_size * 0.8);
+    width: 1.5em + 0.5em; // embed padding of -month-label
+    height: 1.5em + 0.5em;
+    margin: 0;
+    padding: 0;
     border-radius: 100px;
     &:focus,
     &:hover { background-color: $semi_fill_color; }
