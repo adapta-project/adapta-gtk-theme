@@ -2220,7 +2220,8 @@ window.background > popover.background > frame > list > row.activatable {
 }
 
 window.background:not(.csd):not(.solid-csd) > overlay {
-  > box.nobg.osd > revealer > button { // back/forward buttons
+  > box.nobg.osd > revealer > button, // legacy
+  > revealer > button.osd {  // back/forward buttons
     @extend button.osd.image-button;
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
