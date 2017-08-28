@@ -3893,19 +3893,13 @@ headerbar.titlebar > stack {
 
 // left-side revealer
 window.background > overlay > revealer { // parent container
-  &.left,
-  &.right {
-    > scrolledwindow.frame {
+  @each $_position, $_side_margin in (left, right),
+                                     (right, left) {
+    &.#{$_position} > scrolledwindow.frame {
+      margin-#{$_side_margin}: 16px;
       border: none;
       box-shadow: $z-depth-3; // depth-4 is semamtically right,
                               // but too deep
-    }
-
-    &:not(.right) { // reserve area for drop-shadows
-      > scrolledwindow.frame { margin-right: 16px; }
-    }
-    &:not(.left) {
-      > scrolledwindow.frame { margin-left: 16px; }
     }
   }
 }
