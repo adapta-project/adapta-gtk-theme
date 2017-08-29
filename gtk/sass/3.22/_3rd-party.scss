@@ -2118,6 +2118,7 @@ headerbar.titlebar box {
 list > row.activatable.tweet {
   // speed-up scrolling
   background-image: none;
+  background-color: $bg_color; // override $base_color
   &:hover {
     background-image: none;
     background-color: gtkalpha(currentColor, 0.05);
@@ -2220,12 +2221,20 @@ window.background > popover.background > frame > list > row.activatable {
 }
 
 window.background:not(.csd):not(.solid-csd) > overlay {
-  > box.nobg.osd > revealer > button, // legacy
+  > box.nobg.osd > revealer > button, // < 1.6
   > revealer > button.osd {  // back/forward buttons
     @extend button.osd.image-button;
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
   }
+}
+
+// top-highlight
+replyindicator { background-image: image($accent_color); }
+
+// tweet details
+grid.tweet-info-grid.view { // raised material
+  box-shadow: $z-depth-2;
 }
 
 
