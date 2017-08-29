@@ -2154,6 +2154,13 @@ list > row.activatable.tweet {
                                   $borders_color)
                                   0 0 1 / 0 0 1px;
   }
+
+  stack > box.vertical & { // stacking-mode
+    &:dir(ltr), &:dir(rtl) { // full-width border
+      border-image: image($solid_light_borders_color)
+                    0 0 1 / 0 0 1px;
+    }
+  }
 }
 
 scrolledwindow > viewport.frame > list {
