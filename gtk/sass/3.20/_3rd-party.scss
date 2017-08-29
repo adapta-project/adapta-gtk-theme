@@ -1854,8 +1854,8 @@ UnityPanelWidget,
 
   // main container
   #login_window,
-  #shutdown_dialog,
-  #restart_dialog {
+  #restart_dialog,
+  #shutdown_dialog {
     padding: 0;
     border-style: solid;
     border-width: 10px;
@@ -1875,31 +1875,33 @@ UnityPanelWidget,
       &:hover,
       &:active { color: $inverted_fg_color; }
       &:disabled { color: $insensitive_inverted_fg_color; }
+    }
+  }
 
-      @each $node_id, $_color in ('#login_button', $suggested_color),
-                                 ('#restart_button', $destructive_color),
-                                 ('#shutdown_button', $destructive_color) {
-        &#{$node_id} {
-          background-color: #{$_color};
-          color: $secondary_selected_fg_color;
-          &:hover {
-            @extend %button_hover;
-            background-color: #{$_color};
-            color: $selected_fg_color;
-          }
-          &:active {
-            @extend %button_active;
-            background-color: $selected_bg_color;
-            color: $selected_fg_color;
-          }
-          &:checked {
-            background-color: mix($selected_fg_color, $_color, 20%);
-          }
-          &:disabled {
-            @include button(insensitive, transparent,
-                                         $insensitive_inverted_fg_color);
-          }
-        }
+  @each $node_id_1, $node_id_2, $_color in
+  ('#login_window', '#login_button', $suggested_color),
+  ('#restart_dialog', '#restart_button', $destructive_color),
+  ('#shutdown_dialog', '#shutdown_button', $destructive_color) {
+
+    #{$node_id_1} button#{$node_id_2} {
+      background-color: #{$_color};
+      color: $secondary_selected_fg_color;
+      &:hover {
+        @extend %button_hover;
+        background-color: #{$_color};
+        color: $selected_fg_color;
+      }
+      &:active {
+        @extend %button_active;
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+      &:checked {
+        background-color: mix($selected_fg_color, $_color, 20%);
+      }
+      &:disabled {
+        @include button(insensitive, transparent,
+                                     $insensitive_inverted_fg_color);
       }
     }
   }
