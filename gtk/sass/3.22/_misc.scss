@@ -452,28 +452,24 @@ dialog.csd > headerbar.titlebar {
 
   button,
   .linked > button { // page-up&down buttons
-    &,
-    &:first-child,
-    &:last-child {
-      @extend %button_flat_normal;
-      border-radius: 0;
-      border: none;
+    @extend %button_flat_normal;
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: $inverted_secondary_accent_label_color;
+    &:hover {
+      @extend %button_flat_hover;
       background-color: transparent;
-      color: $inverted_secondary_accent_label_color;
-      &:hover {
-        @extend %button_flat_hover;
-        background-color: transparent;
-        color: $inverted_accent_label_color;
-      }
-      &:active {
-        @extend %button_flat_active;
-        background-color: transparent;
-        color: $inverted_accent_label_color;
-      }
-      &:disabled {
-        @extend %button_flat_disabled;
-        color: $insensitive_inverted_fg_color;
-      }
+      color: $inverted_accent_label_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+    }
+    &:disabled {
+      @extend %button_flat_disabled;
+      color: $insensitive_inverted_fg_color;
     }
   }
 }
@@ -2616,7 +2612,6 @@ frame#weather-page-content-view { // condition-specific
       }
 
       frame#weekly-forecast-frame {
-        background: transparent;
         background-image: image(gtkopacity($_frame_mask, $_mask_alpha));
 
         label,
@@ -2668,16 +2663,9 @@ window headerbar > box.horizontal:not(.linked) {
   }
 }
 
-window > popover > stack > grid > button {
-  &.text-button:not(.suggested-action) {
-    // use flat-button style
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { @include button(flat-checked); }
-    &:checked:disabled { @include button(flat-checked-insensitive); }
-  }
+window > popover > stack > grid > button.text-button {
+  // prevent unwanted truncation of drop-shadows
+  margin: 2px 6px 12px;
 }
 
 
@@ -3223,7 +3211,7 @@ dialog.background {
 window.background > box.vertical > overlay > stack > box.vertical {
   > scrolledwindow > viewport.frame {
     button.tile.view {
-      // prevent unwated truncation of drop-shadows
+      // prevent unwanted truncation of drop-shadows
       margin-bottom: rem(13.3px, $sw: 1.0);
       // revive ripple-effect
       &:active { @extend %button_active; }
@@ -3279,7 +3267,7 @@ window.background > box.vertical > overlay > stack > box.horizontal {
 
 flowbox > flowboxchild > button.recipe.tile.view {
   // add outer spacing around those tiles
-  // to prevent unwated truncation of drop-shadows
+  // to prevent unwanted truncation of drop-shadows
   margin: if($ref_weight < 1.0, 6px, 8px);
 }
 
