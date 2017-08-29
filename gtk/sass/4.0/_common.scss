@@ -5783,13 +5783,10 @@ decoration {
     // just doing borders, wm draws actual shadows
     // otherwise incorrect shadows are appeared
     box-shadow: $z-depth-1-backdrop;
-
-    .tiled & .titlebar,
-    .maximized & .titlebar {
-      border-top-color: $inverted_dark_color;
-      border-radius: 0;
-    }
   }
+
+  // 'tiled' state in X11-SSD mode
+  .tiled.ssd & { box-shadow: $z-depth-1-backdrop-tiled; }
 
   .csd.popup & {
     border-radius: 2px;
