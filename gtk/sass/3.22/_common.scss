@@ -4106,8 +4106,11 @@ radio,
 check {
   min-width: rem($icon_size, $sw: 1.0);
   min-height: rem($icon_size, $sw: 1.0);
-  margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
-  padding: rem(10px, $sw: 1.0);
+
+  .background & { // exclude non-native apps
+    margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
+    padding: rem(10px, $sw: 1.0);
+  }
 
   &:hover {
     animation: check_radio_hover 0.2s $slope_quick forwards;
