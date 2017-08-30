@@ -3043,6 +3043,7 @@ window.background:not(.solid-csd) {
     > entry > entry { // 52.x or lower
       // enforce fallback entries inside the HTML pages
       @extend %entry_fallback_normal;
+      padding: rem(10.7px - 5.3px) rem(8px); // really need to reduce height?
       border-radius: 2px;
       &:focus { @extend %entry_fallback_focus; }
       &:disabled { @extend %entry_fallback_insensitive; }
