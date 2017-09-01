@@ -697,7 +697,7 @@ StScrollBar {
 
   &.panel-menu {
     -boxpointer-gap: 4px;
-    margin-bottom: if($eta == 'false', 1.75em, 1.2em);
+    margin-bottom: 16px;
   }
 
   StEntry { // use variant-sensitive foreground colours
@@ -740,7 +740,7 @@ StScrollBar {
     height: 16px;
   }
 
-  &-icon { icon-size: 14px; }
+  &-icon { icon-size: 16px; }
 
   &-ornament {
     width: 1.2em;
@@ -796,6 +796,22 @@ StScrollBar {
 .background-menu {
   -boxpointer-gap: 0;
   -arrow-rise: 0;
+}
+
+// an avatar icon in menus
+$default_spacing: if($eta == 'false', 8px, 6px);
+$extra_spacing: 2.5px;
+
+.system-switch-user-submenu-icon {
+  &.user-icon {
+    icon-size: 16px + 4px;
+    padding: 0 ($default_spacing + $extra_spacing - 4px) / 2;
+  }
+
+  &.default-icon {
+    icon-size: 16px;
+    padding: 0 ($default_spacing + $extra_spacing) / 2;
+  }
 }
 
 // Volume-mixer extension
@@ -1718,23 +1734,6 @@ StScrollBar {
       color: $secondary_fg_color;
       background-color: $accent_fill_color;
     }
-  }
-}
-
-
-// /******************************
-//  * A Little Unstructured Mess *
-//  ******************************/
-
-.system-switch-user-submenu-icon {
-  &.user-icon {
-    icon-size: 20px;
-    padding: 0 1px;
-  }
-
-  &.default-icon {
-    icon-size: 16px;
-    padding: 0 3px;
   }
 }
 
