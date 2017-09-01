@@ -1756,6 +1756,10 @@ style "menubar_item" {
   }
 }
 
+style "menubar_item_label" {
+  engine "murrine" { textstyle = 0 }
+}
+
 style "menu" {
   xthickness = 0
   ythickness = 0
@@ -2367,12 +2371,13 @@ widget_class "*<GtkFontButton>*<GtkLabel>"           style "misc_button_label"
 widget_class "*<GtkSpinButton>*<GtkLabel>"           style "misc_button_label"
 widget_class "*<GtkCheckButton>*<GtkLabel>"          style "misc_button_label"
 
-widget_class "*<GtkMenuBar>*"                    style "menubar"
-widget_class "*<GtkMenu>*"                       style "menu"
-widget_class "*<GtkMenuItem>*"                   style "menu_item"
-widget_class "*<GtkMenuItem>*<GtkLabel>"         style "menu_item_label"
-widget_class "*<GtkMenuBar>.<GtkMenuItem>*"      style "menubar_item"
-widget_class "*<GtkMenu>*<GtkSeparatorMenuItem>" style "separator_menu_item"
+widget_class "*<GtkMenuBar>*"                         style "menubar"
+widget_class "*<GtkMenu>*"                            style "menu"
+widget_class "*<GtkMenuItem>*"                        style "menu_item"
+widget_class "*<GtkMenuItem>*<GtkLabel>"              style "menu_item_label"
+widget_class "*<GtkMenuBar>.<GtkMenuItem>*"           style "menubar_item"
+widget_class "*<GtkMenuBar>.<GtkMenuItem>*<GtkLabel>" style "menubar_item_label"
+widget_class "*<GtkMenu>*<GtkSeparatorMenuItem>"      style "separator_menu_item"
 
 widget_class "*<GtkComboBox>*<GtkButton>"      style "combobox_button"
 widget_class "*<GtkComboBoxEntry>*<GtkEntry>"  style "combobox_entry"
