@@ -604,9 +604,6 @@ StScrollBar {
 .popup-menu {
   min-width: 15em;
 
-  .popup-menu-arrow { // defined globally in the TOP BAR
-  }
-
   .popup-sub-menu {
     border-bottom: 1px solid $borders_color;
     background-color: $secondary_dark_color;
@@ -710,11 +707,20 @@ StScrollBar {
   }
 }
 
-.popup-menu-ornament {
-  width: 1.2em;
-  height: 0; // trick for minimum separator-menu-item height
-  color: $selected_bg_color;
-  text-align: right;
+.popup-menu {
+  &-arrow { // not really top bar only
+    width: 16px;
+    height: 16px;
+  }
+
+  &-icon { icon-size: 14px; }
+
+  &-ornament {
+    width: 1.2em;
+    height: 0; // trick for minimum separator-menu-item height
+    color: $selected_bg_color;
+    text-align: right;
+  }
 }
 
 .popup-menu-boxpointer {
@@ -1782,17 +1788,11 @@ StScrollBar {
   &:rtl { background-image: url("assets/corner-ripple-rtl.svg"); }
 }
 
-// not really top bar only
-.popup-menu {
-  &-arrow {
-    width: 16px;
-    height: 16px;
-  }
 
-  &-icon { icon-size: 14px; }
-}
+// /*****************
+//  * Close Buttons *
+//  *****************/
 
-// close buttons
 .window-close {
   height: 32px;
   width: 32px;
@@ -1805,13 +1805,6 @@ StScrollBar {
     -st-background-image-shadow: $z-depth-2;
   }
   &:active { background-image: url("assets/window-close-active.svg"); }
-
-  &:rtl {
-    -st-background-image-shadow: $z-depth-1;
-    &:hover {
-      -st-background-image-shadow: $z-depth-2;
-    }
-  }
 }
 
 
