@@ -660,6 +660,12 @@ style "progressbar" {
   }
 }
 
+style "inline_progress" {
+  # do not set normal state background
+  # bg[NORMAL] = mix(0.2, @accent_color, @base_color)
+  bg[SELECTED] = mix(0.8, @accent_color, @fg_color) # progress
+}
+
 style "range" { 
   engine "pixmap" {
     image {
@@ -2380,6 +2386,9 @@ widget_class "*<GtkComboBoxEntry>*<GtkButton>" style "combobox_entry_button"
 widget_class "*<GtkCombo>*<GtkEntry>"          style "combobox_entry"
 widget_class "*<GtkCombo>*<GtkButton>"         style "combobox_entry_button"
 widget_class "*<GtkCombo>*<GtkButton>"         style "combo_entry_button"
+
+# A hack for inline-progress widget inside the GtkTreeView
+widget_class "*<GtkTreeView>"                                   style "inline_progress"
 
 widget_class "*HandleBox"                                       style "handlebox"
 widget_class "*<GtkTreeView>*<GtkButton>*"                      style "treeview_header"
