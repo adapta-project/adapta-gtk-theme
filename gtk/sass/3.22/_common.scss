@@ -4107,9 +4107,16 @@ check {
   min-width: rem($icon_size, $sw: 1.0);
   min-height: rem($icon_size, $sw: 1.0);
 
-  .background & { // exclude non-native apps
-    margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
-    padding: rem(10px, $sw: 1.0);
+  .background {
+    & { // exclude non-native apps
+      margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
+      padding: rem(10px, $sw: 1.0);
+    }
+
+    menu menuitem & { // unset for menuitems
+      margin: 0;
+      padding: 0;
+    }
   }
 
   &:hover {
