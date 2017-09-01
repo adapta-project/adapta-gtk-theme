@@ -280,6 +280,7 @@ buttonbox {
       }
       &:disabled {
         @extend %button_flat_disabled;
+        background-color: transparent;
         color: $insensitive_fg_color;
       }
       &:checked {
@@ -1018,7 +1019,7 @@ button {
     &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
     &:disabled {
       color: $insensitive_fg_color;
-      background-color: $track_color;
+      background-color: transparent;
       &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
       &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
 
@@ -1027,7 +1028,7 @@ button {
   }
   &:disabled {
     color: $insensitive_fg_color;
-    background-color: $track_color;
+    background-color: transparent;
     &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
     &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
   }
