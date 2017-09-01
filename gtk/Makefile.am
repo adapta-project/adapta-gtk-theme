@@ -131,8 +131,11 @@ gtk2_button_file = \
 	$(gtk2_assetdir)/Buttons/rtl-button.png
 gtk2_checkradio_file = \
 	$(gtk2_assetdir)/Check-Radio/check-off-active.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-hover-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/check-off-hover.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-insensitive-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/check-off-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/check-off.png \
 	$(gtk2_assetdir)/Check-Radio/check-on-active.png \
 	$(gtk2_assetdir)/Check-Radio/check-on-hover.png \
@@ -142,8 +145,11 @@ gtk2_checkradio_file = \
 	$(gtk2_assetdir)/Check-Radio/check-on-insensitive-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/check-on-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/radio-off-active.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-hover-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/radio-off-hover.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-insensitive-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/radio-off-insensitive.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-menuitem.png \
 	$(gtk2_assetdir)/Check-Radio/radio-off.png \
 	$(gtk2_assetdir)/Check-Radio/radio-on-active.png \
 	$(gtk2_assetdir)/Check-Radio/radio-on-hover.png \
@@ -302,7 +308,10 @@ gtk2_nokto_checkradio_file = \
 	$(gtk2_assetdir)/Check-Radio/check-off-active-dark.png \
 	$(gtk2_assetdir)/Check-Radio/check-off-dark.png \
 	$(gtk2_assetdir)/Check-Radio/check-off-hover-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-hover-menuitem-dark.png \
 	$(gtk2_assetdir)/Check-Radio/check-off-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-insensitive-menuitem-dark.png \
+	$(gtk2_assetdir)/Check-Radio/check-off-menuitem-dark.png \
 	$(gtk2_assetdir)/Check-Radio/check-on-active-dark.png \
 	$(gtk2_assetdir)/Check-Radio/check-on-dark.png \
 	$(gtk2_assetdir)/Check-Radio/check-on-hover-dark.png \
@@ -313,7 +322,10 @@ gtk2_nokto_checkradio_file = \
 	$(gtk2_assetdir)/Check-Radio/radio-off-active-dark.png \
 	$(gtk2_assetdir)/Check-Radio/radio-off-dark.png \
 	$(gtk2_assetdir)/Check-Radio/radio-off-hover-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-hover-menuitem-dark.png \
 	$(gtk2_assetdir)/Check-Radio/radio-off-insensitive-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-insensitive-menuitem-dark.png \
+	$(gtk2_assetdir)/Check-Radio/radio-off-menuitem-dark.png \
 	$(gtk2_assetdir)/Check-Radio/radio-on-active-dark.png \
 	$(gtk2_assetdir)/Check-Radio/radio-on-dark.png \
 	$(gtk2_assetdir)/Check-Radio/radio-on-hover-dark.png \
