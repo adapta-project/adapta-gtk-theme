@@ -152,8 +152,13 @@ StScrollBar {
 //  * Slider *
 //  **********/
 
+$slider_size: 18px;
+$slider_margin: 2px;
+$container_padding: 1px;
+
 .slider {
-  height: 16px;
+  height: $slider_size - $slider_margin * 2;
+  margin: ($slider_margin + $container_padding) 0;
   color: $accent_color;
   -slider-height: 2px;
   -slider-background-color: if($nokto == 'false',
@@ -163,7 +168,13 @@ StScrollBar {
   -slider-active-background-color: $accent_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
   -slider-border-width: 0;
-  -slider-handle-radius: 8px;
+  -slider-handle-radius: ($slider_size - $slider_margin * 2) / 2;
+
+  .popup-menu-item:hover & { // enlarge when hovered
+    height: $slider_size;
+    margin: $container_padding 0;
+    -slider-handle-radius: $slider_size / 2;
+  }
 }
 
 
