@@ -6504,21 +6504,20 @@ popover.touch-selection {
 
 popover.emoji-picker {
   scrolledwindow.view {
-    margin-top: rem(5.3px);
+    margin-top: 2px;
     border: 1px solid $borders_color;
     background-image: none;
-    background-color: $base_color;
   }
 }
 
 flowboxchild.emoji { // emoji tiled view
   padding: 0;
   border-radius: 2px;
+  font-weight: 400;
 
   label {
-    padding: rem(5.3px, $sw: 1.0);
-    font-size: 130%;
-    font-weight: 400;
+    padding: 4px;
+    font-size: $icon_size; // use fixed label size
     color: $secondary_fg_color;
   }
 
@@ -6531,7 +6530,7 @@ flowboxchild.emoji { // emoji tiled view
 button.emoji-section.text-button:not(.image-button) {
   min-height: rem($widget_size - 4px, $sw: 1.0);
   min-width: rem($widget_size - 4px, $sw: 1.0);
-  margin: 2px 4px 0;
+  margin: 2px 0 0;
   padding: 0;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
