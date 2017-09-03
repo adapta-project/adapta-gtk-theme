@@ -2459,7 +2459,10 @@ headerbar {
 
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
+      margin: -1px -1px 0 -1px; // hide inset border-frame in decoration node
       border-radius: 0;
+      border-top: 0 none transparent; // unset top-edge
+      box-shadow: none;
     }
   }
 }
@@ -5813,13 +5816,13 @@ decoration {
   }
 
   .solid-csd & {
-    margin: 0 0 1px;
+    margin: 0;
+    padding: 2px + 1px; // actual outset borders + inset border-frame
     border-radius: 0;
     border: none;
-    background-color: $bg_color;
-    background-image: linear-gradient(to top, $borders_color 1px,
-                                              $borders_color 1px);
-    box-shadow: none;
+    background-color: $solid_light_borders_color;
+    box-shadow: inset 0 0 0 2px $inverted_dark_color,
+                inset 0 1px $top_edge_borders_color;
   }
 }
 
