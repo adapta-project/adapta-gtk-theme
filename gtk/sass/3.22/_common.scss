@@ -6497,3 +6497,52 @@ popover.touch-selection {
   }
 }
 
+
+// /****************
+//  * Emoji Picker *
+//  ****************/
+
+popover.emoji-picker {
+  scrolledwindow.view {
+    margin-top: rem(5.3px);
+    border: 1px solid $borders_color;
+    background-image: none;
+    background-color: $base_color;
+  }
+}
+
+flowboxchild.emoji { // emoji tiled view
+  padding: 0;
+  border-radius: 2px;
+
+  label {
+    padding: rem(5.3px, $sw: 1.0);
+    font-size: 130%;
+    font-weight: 400;
+    color: $secondary_fg_color;
+  }
+
+  widget:hover label { // no active/checked states
+    background-color: gtkopacity($fg_color, 0.1);
+    color: $fg_color;
+  }
+}
+
+button.emoji-section.text-button:not(.image-button) {
+  min-height: rem($widget_size - 4px, $sw: 1.0);
+  min-width: rem($widget_size - 4px, $sw: 1.0);
+  margin: 2px 4px 0;
+  padding: 0;
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
+
+  label {
+    padding: 0; // unset padding
+    font-size: $icon_size * 1.5; // use fixed label size
+  }
+
+  &:checked {
+    &, &:hover { color: $selected_bg_color; }
+  }
+}
+

@@ -978,9 +978,11 @@ notebook > box > stack > box.vertical > paned.vertical > overlay {
 }
 
 // popover for downloaded lists
-popover.background > box.vertical > scrolledwindow > viewport.frame {
+popover.background:not(.emoji-picker) > box.vertical > scrolledwindow {
   // re-define background colours for GtkListBox
-  > list.background { background-color: $secondary_base_color; }
+  > viewport.frame > list.background {
+    background-color: $secondary_base_color;
+  }
 }
 
 // For Ephy 3.23.x
@@ -999,7 +1001,7 @@ window.background > box.vertical > notebook > box > header.top > box.horizontal 
 }
 
 // popover for bookmarks
-popover.background > box.vertical > stack > box.vertical {
+popover.background:not(.emoji-picker) > box.vertical > stack > box.vertical {
   scrolledwindow > viewport.frame {
     border: 1px solid $borders_color;
 
