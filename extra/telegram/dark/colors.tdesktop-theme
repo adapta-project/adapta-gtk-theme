@@ -21,6 +21,7 @@ SELECTED_FG_COLOR: #FFFFFF;                     // Selected foreground color
 2ND_SELECTED_FG_COLOR: #FFFFFFD9;               // Secondary selected foreground color (85%)
 OSD_FG_COLOR: #CFD8DC;                          // Tooltip foreground color
 PLACEHOLDER_COLOR: #78909C;                     // Placeholder foreground color
+FIXED_SECONDARY_FG_COLOR: #263238BF;            // Dark foreground color in dark variant (75%)
 
 ACCENT_LABEL_COLOR: #8DCDC8;                    // Action-area foreground color
 2ND_ACCENT_LABEL_COLOR: #8DCDC8E5;              // Secondary action-area foreground color (90%)
@@ -251,7 +252,7 @@ dialogsUnreadBgMuted: FILL_COLOR;               // Unread counter (for muted cha
 dialogsUnreadFg: FG_COLOR;                      // Unread counter text color
 
 dialogsBgOver: SEMI_FILL_COLOR;                 // Inactive chat color on hover
-dialogsNameFgOver: SECONDARY_FG_COLOR;
+dialogsNameFgOver: FG_COLOR;
 dialogsChatIconFgOver: dialogsNameFgOver;
 dialogsDateFgOver: windowSubTextFgOver;
 dialogsTextFgOver: windowSubTextFgOver;
@@ -268,7 +269,7 @@ dialogsUnreadFgOver: dialogsUnreadFg;
 dialogsBgActive: SELECTED_BG_COLOR;             // Active chat color (in chats list)
 dialogsNameFgActive: SELECTED_FG_COLOR;
 dialogsChatIconFgActive: dialogsNameFgActive;
-dialogsDateFgActive: SECONDARY_FG_COLOR;
+dialogsDateFgActive: FIXED_SECONDARY_FG_COLOR;  // Selected sub label color
 dialogsTextFgActive: dialogsDateFgActive;
 dialogsTextFgServiceActive: dialogsTextFgActive;
 dialogsDraftFgActive: WARNING_COLOR;            // "Draft" word when chat is selected
