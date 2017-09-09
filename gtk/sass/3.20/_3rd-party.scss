@@ -4050,6 +4050,16 @@ window.background.chromium {
   background-color: if($variant == 'light', $bg_color, $base_color);
   color: if($variant == 'light', $secondary_fg_color, $fg_color);
 
+  // from nav_button_provider_gtk3.cc (> 62.0.3202?)
+  headerbar.titlebar button.titlebutton {
+    // define global titlebutton class sizing
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
+  }
+
   // FIXME: not for actual button widgets but for toolbar's separators
   // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
   button { // for active-tab borders
