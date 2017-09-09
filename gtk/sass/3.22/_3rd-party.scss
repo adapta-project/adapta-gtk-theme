@@ -3930,11 +3930,35 @@ window.background.chromium {
   // from nav_button_provider_gtk3.cc (> 62.0.3202?)
   headerbar.titlebar button.titlebutton {
     // define global titlebutton class sizing
-    min-width: $icon_size * 1.5;
-    min-height: $icon_size * 1.5;
-    padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-             rem(($widget_size - $icon_size * 1.5) / 2));
+    // FIXME: use SSDs titlebutton instead
+    min-width: $titlebutton_small;
+    min-height: $titlebutton_small;
+    margin: 0; // unset margins
+    padding: 0;
+    background-size: $titlebutton_small $titlebutton_small;
+    color: transparent; // hide stock icons
+
+    @each $_class, $_suffix1 in ('close', 'close'),
+                                ('minimize', 'minimize'),
+                                ('maximize', 'maximize'),
+                                ('restore', 'unmaximize') {
+      @each $_pseudo, $_suffix2 in ('', ''),
+                                   (':hover', '-hover'),
+                                   (':active', '-active') {
+        &.#{$_class}#{$_pseudo} {
+          background-image:
+            -gtk-scaled(
+              url("assets/window-#{$_suffix1}-ssd#{$_suffix2}.png"),
+              url("assets/window-#{$_suffix1}-ssd#{$_suffix2}@2.png"));
+          @if $ref_weight < 1.0 {
+            background-image:
+              -gtk-scaled(
+                url("assets/window-#{$_suffix1}-ssd-eta#{$_suffix2}.png"),
+                url("assets/window-#{$_suffix1}-ssd-eta#{$_suffix2}@2.png"));
+          }
+        }
+      }
+    }
   }
 
   // FIXME: not for actual button widgets but for toolbar's separators
