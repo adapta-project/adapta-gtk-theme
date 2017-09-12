@@ -987,12 +987,9 @@ style "entry" {
   xthickness = 6
   ythickness = 6
 
-  bg[NORMAL] = @bg_color
-  bg[ACTIVE] = @bg_color
-  bg[INSENSITIVE] = @bg_color
-  base[NORMAL] = @bg_color
+  base[NORMAL] = @light_color
   base[ACTIVE] = @selected_bg_color
-  base[INSENSITIVE] = @bg_color
+  base[INSENSITIVE] = @light_color
 
   engine "pixmap" {
     image {
@@ -1044,12 +1041,9 @@ style "entry" {
 }
 
 style "notebook_entry" = "entry" {
-  bg[NORMAL] = @bg_color
-  bg[ACTIVE] = @bg_color
-  bg[INSENSITIVE] = @bg_color
-  base[NORMAL] = @bg_color
+  base[NORMAL] = @light_color
   base[ACTIVE] = @selected_bg_color
-  base[INSENSITIVE] = @bg_color
+  base[INSENSITIVE] = @light_color
 }
 
 style "button" {
@@ -1276,6 +1270,10 @@ style "combobox_entry" {
   xthickness = 6
   ythickness = 6
 
+  base[NORMAL] = @light_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @light_color
+
   engine "pixmap" {
     # LTR version
     image {
@@ -1344,6 +1342,10 @@ style "combobox_entry" {
 }
 
 style "notebook_combobox_entry" {
+  base[NORMAL] = @light_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @light_color
+
   engine "pixmap" {
     # LTR version
     image {
