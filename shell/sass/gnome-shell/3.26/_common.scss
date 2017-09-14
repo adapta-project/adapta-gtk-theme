@@ -2008,12 +2008,12 @@ $extra_spacing: 2.5px;
 }
 
 .window-caption { // hovered tooltips
-  spacing: if($eta == 'false', 25px, 19px);
-  padding: if($eta == 'false', 4px 8px, 3px 6px);
+  min-width: 3em;
+  padding: if($eta == 'false', 0.3em 0.9em 0.4em, 0.2em 0.6em 0.3em);
   border-radius: 2px;
   color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
-  box-shadow: $z-depth-2;
+  box-shadow: $z-depth-3;
 }
 
 // Search entry
@@ -2259,7 +2259,7 @@ $provider_details_width: 120px;
 }
 
 .dash-label { // osd tooltip
-  padding: if($eta == 'false', 4px 12px, 3px 8px);
+  padding: if($eta == 'false', 0.3em 0.9em 0.4em, 0.2em 0.6em 0.3em);
   border-radius: 2px;
   color: if($nokto == 'false', $osd_fg_color, $fg_color);
   background-color: shellopacity($osd_bg_color, 0.9);
