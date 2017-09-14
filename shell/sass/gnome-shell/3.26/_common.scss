@@ -1215,7 +1215,7 @@ $extra_spacing: 2.5px;
 
     // notification dot at the right-side of clock label
     &.clock-display {
-      > StBoxLayout > StLabel:last-child {
+      > StBoxLayout > StLabel:last-child { // legacy
         // align top
         padding-bottom: if($eta == 'false', (30px - 16px) / 2,
                                             (25px - 16px) / 2);
@@ -1230,6 +1230,19 @@ $extra_spacing: 2.5px;
       &:hover,
       &:active {
         > StBoxLayout > StLabel:last-child { color: $accent_color; }
+      }
+
+      > StBoxLayout > StIcon { // current
+        // align top
+        padding-bottom: if($eta == 'false', (30px - 16px) / 2,
+                                            (25px - 16px) / 2);
+        icon-size: 16px;
+        color: $suggested_color;
+      }
+
+      &:hover,
+      &:active {
+        > StBoxLayout > StIcon { color: $accent_color; }
       }
     }
   }

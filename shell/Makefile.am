@@ -8,6 +8,7 @@ shelldir   = $(srcdir)/gnome-shell
 shell_file = \
 	$(shelldir)/gnome-shell.css \
 	$(shelldir)/gnome-shell-theme.gresource \
+	$(shelldir)/message-indicator-symbolic.svg \
 	$(shelldir)/no-events.svg \
 	$(shelldir)/no-notifications.svg \
 	$(shelldir)/noise-texture.png \
@@ -106,6 +107,7 @@ shellnoktodir    = $(srcdir)/gnome-shell-nokto
 shell_nokto_file = \
 	$(shellnoktodir)/gnome-shell.css \
 	$(shellnoktodir)/gnome-shell-theme.gresource \
+	$(shellnoktodir)/message-indicator-symbolic.svg \
 	$(shellnoktodir)/no-events.svg \
 	$(shellnoktodir)/no-notifications.svg \
 	$(shellnoktodir)/noise-texture.png \
@@ -142,6 +144,7 @@ shelletadir   = $(srcdir)/gnome-shell-eta
 shelleta_file = \
 	$(shelletadir)/gnome-shell.css \
 	$(shelletadir)/gnome-shell-theme.gresource \
+	$(shelletadir)/message-indicator-symbolic.svg \
 	$(shelletadir)/no-events.svg \
 	$(shelletadir)/no-notifications.svg \
 	$(shelletadir)/noise-texture.png \
@@ -178,6 +181,7 @@ shellnoktoetadir     = $(srcdir)/gnome-shell-nokto-eta
 shell_nokto_eta_file = \
 	$(shellnoktoetadir)/gnome-shell.css \
 	$(shellnoktoetadir)/gnome-shell-theme.gresource \
+	$(shellnoktoetadir)/message-indicator-symbolic.svg \
 	$(shellnoktoetadir)/no-events.svg \
 	$(shellnoktoetadir)/no-notifications.svg \
 	$(shellnoktoetadir)/noise-texture.png \
