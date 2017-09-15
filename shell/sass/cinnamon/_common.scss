@@ -333,7 +333,7 @@ StScrollBar {
     }
   }
 
-  .popup-menu-content { padding: 1em 0 1em 0; }
+  .popup-menu-content { padding: 0.45em 0; }
 
   .popup-menu-item {
     min-width: 120px;
@@ -2077,5 +2077,53 @@ $icon_size: 16px;
 #CinnamonTrayIcon {
   spacing: 0;
   padding: 0;
+}
+
+
+// /********************
+//  * Slingshot Applet *
+//  ********************/
+
+.slingshot {
+  &.popup-menu-content {
+    // horizontal padding is non-sense
+    // so add outer spacing instead
+    margin: 0 3px;
+    padding: 0.45em 0;
+  }
+
+  .button {
+    padding: 4px;
+    border-radius: 2px;
+  }
+
+  .entry {
+    padding: 4px 8px;
+    border-radius: 2px;
+    border-color: transparent;
+    background-color: $hidden_fill_color;
+    color: $secondary_fg_color;
+    caret-color: $secondary_fg_color;
+    box-shadow: inset 0 0 0 1px $borders_color;
+    &:ltr { margin-right: 3px; }
+    &:rtl { margin-left: 3px; }
+
+    &:focus,
+    &:focus:hover {
+      border-color: transparent;
+      color: $fg_color;
+      caret-color: $fg_color;
+      box-shadow: inset 0 0 0 1px $selected_bg_color;
+    }
+    &:insensitive {
+      border-color: transparent;
+      background-color: $hidden_fill_color;
+      color: $insensitive_fg_color;
+      box-shadow: inset 0 0 0 1px $borders_color;
+    }
+  }
+
+  // insert vertical spacing
+  > StBoxLayout > StBoxLayout { margin: 3px 0; }
 }
 
