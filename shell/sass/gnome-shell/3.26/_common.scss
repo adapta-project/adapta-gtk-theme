@@ -188,23 +188,35 @@ $container_padding: 1px;
   StBin {
     width: 20px;
     height: 20px;
-    background-image: url("assets/checkbox-off.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/checkbox-off.svg"),
+      url("resource:///org/gnome/shell/theme/assets/checkbox-off.svg"));
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
   }
 
   &:focus StBin {
-    background-image: url("assets/checkbox-off-hover.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/checkbox-off-hover.svg"),
+      url("resource:///org/gnome/shell/theme/assets/checkbox-off-hover.svg"));
     color: if($nokto == 'false', $inverted_fg_color,
                                  $fg_color);
   }
   &:checked StBin {
-    background-image: url("assets/checkbox.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/checkbox.svg"),
+      url("resource:///org/gnome/shell/theme/assets/checkbox.svg"));
     color: if($nokto == 'false', $inverted_fg_color,
                                  $fg_color);
   }
   &:focus:checked StBin {
-    background-image: url("assets/checkbox-hover.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/checkbox-hover.svg"),
+      url("resource:///org/gnome/shell/theme/assets/checkbox-hover.svg"));
     color: if($nokto == 'false', $inverted_fg_color,
                                  $fg_color);
   }
@@ -223,8 +235,16 @@ $container_padding: 1px;
 
 @each $v in us, intl {
   .toggle-switch-#{$v} {
-    background-image: url("toggle-off.svg");
-    &:checked { background-image: url("toggle-on.svg"); }
+    background-image:
+      if($gdm == 'false',
+      url("toggle-off.svg"),
+      url("resource:///org/gnome/shell/theme/toggle-off.svg"));
+    &:checked {
+      background-image:
+        if($gdm == 'false',
+        url("toggle-on.svg"),
+        url("resource:///org/gnome/shell/theme/toggle-on.svg"));
+    }
   }
 }
 
@@ -1034,7 +1054,10 @@ $extra_spacing: 2.5px;
   &-active-up {
     height: if($eta == 'false', 50px, 36px);
     background-color: $accent_active_fill_color;
-    background-image: url("assets/go-up.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/go-up.svg"),
+      url("resource:///org/gnome/shell/theme/assets/go-up.svg"));
     background-size: 24px;
     border-radius: 2px;
   }
@@ -1042,7 +1065,10 @@ $extra_spacing: 2.5px;
   &-active-down {
     height: if($eta == 'false', 50px, 36px);
     background-color: $accent_active_fill_color;
-    background-image: url("assets/go-down.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/go-down.svg"),
+      url("resource:///org/gnome/shell/theme/assets/go-down.svg"));
     background-size: 24px;
     border-radius: 2px;
   }
@@ -1398,26 +1424,58 @@ $extra_spacing: 2.5px;
 
 .calendar-change-month {
   &-back { // arrow back
-    background-image: url("assets/calendar-arrow-left.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/calendar-arrow-left.svg"),
+      url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left.svg"));
     &:hover,
-    &:focus { background-image: url("assets/calendar-arrow-left-hover.svg"); }
+    &:focus {
+      background-image:
+        if($gdm == 'false',
+        url("assets/calendar-arrow-left-hover.svg"),
+        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left-hover.svg"));
+    }
 
-    &:rtl { background-image: url("assets/calendar-arrow-right.svg"); }
+    &:rtl {
+      background-image:
+        if($gdm == 'false',
+        url("assets/calendar-arrow-right.svg"),
+        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right.svg"));
+    }
     &:rtl:hover,
     &:rtl:focus {
-      background-image: url("assets/calendar-arrow-right-hover.svg");
+      background-image:
+        if($gdm == 'false',
+        url("assets/calendar-arrow-right-hover.svg"),
+        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right-hover.svg"));
     }
   }
 
   &-forward { // arrow foreward
-    background-image: url("assets/calendar-arrow-right.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/calendar-arrow-right.svg"),
+      url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right.svg"));
     &:hover,
-    &:focus { background-image: url("assets/calendar-arrow-right-hover.svg"); }
+    &:focus {
+      background-image:
+        if($gdm == 'false',
+        url("assets/calendar-arrow-right-hover.svg"),
+        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right-hover.svg"));
+    }
 
-    &:rtl { background-image: url("assets/calendar-arrow-left.svg"); }
+    &:rtl {
+      background-image:
+        if($gdm == 'false',
+        url("assets/calendar-arrow-left.svg"),
+        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left.svg"));
+    }
     &:rtl:hover,
     &:rtl:focus {
-      background-image: url("assets/calendar-arrow-left-hover.svg");
+      background-image:
+        if($gdm == 'false',
+        url("assets/calendar-arrow-left-hover.svg"),
+        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left-hover.svg"));
     }
   }
 }
@@ -1717,12 +1775,18 @@ $extra_spacing: 2.5px;
   background-size: 32px 32px;
   &:hover {
     color: $accent_label_color;
-    background-image: url("assets/media-control-hover.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/media-control-hover.svg"),
+      url("resource:///org/gnome/shell/theme/assets/media-control-hover.svg"));
     background-size: 32px 32px;
   }
   &:active {
     color: $accent_label_color;
-    background-image: url("assets/media-control-active.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/media-control-active.svg"),
+      url("resource:///org/gnome/shell/theme/assets/media-control-active.svg"));
     background-size: 32px 32px;
   }
   &:insensitive {
@@ -1767,7 +1831,10 @@ $extra_spacing: 2.5px;
 //  ************/
 
 #appMenu {
-  spinner-image: url("process-working.svg");
+  spinner-image:
+    if($gdm == 'false',
+    url("process-working.svg"),
+    url("resource:///org/gnome/shell/theme/process-working.svg"));
   padding: if($eta == 'false', 0 10px, 0 6px);
 
   StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
@@ -1867,10 +1934,18 @@ $extra_spacing: 2.5px;
 .ripple-box {
   width: 52px;
   height: 52px;
-  background-image: url("assets/corner-ripple-ltr.svg");
+  background-image:
+    if($gdm == 'false',
+    url("assets/corner-ripple-ltr.svg"),
+    url("resource:///org/gnome/shell/theme/assets/corner-ripple-ltr.svg"));
   background-size: contain;
 
-  &:rtl { background-image: url("assets/corner-ripple-rtl.svg"); }
+  &:rtl {
+    background-image:
+      if($gdm == 'false',
+      url("assets/corner-ripple-rtl.svg"),
+      url("resource:///org/gnome/shell/theme/assets/corner-ripple-rtl.svg"));
+  }
 }
 
 
@@ -1883,13 +1958,24 @@ $extra_spacing: 2.5px;
   width: 32px;
   -shell-close-overlap: 24px;
   -st-background-image-shadow: $z-depth-1;
-  background-image: url("assets/window-close.svg");
+  background-image:
+    if($gdm == 'false',
+    url("assets/window-close.svg"),
+    url("resource:///org/gnome/shell/theme/assets/window-close.svg"));
   background-size: 32px;
   &:hover {
-    background-image: url("assets/window-close-hover.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/window-close-hover.svg"),
+      url("resource:///org/gnome/shell/theme/assets/window-close-hover.svg"));
     -st-background-image-shadow: $z-depth-2;
   }
-  &:active { background-image: url("assets/window-close-active.svg"); }
+  &:active {
+    background-image:
+      if($gdm == 'false',
+      url("assets/window-close-active.svg"),
+      url("resource:///org/gnome/shell/theme/assets/window-close-active.svg"));
+  }
 }
 
 
@@ -2242,7 +2328,10 @@ $provider_details_width: 120px;
 
   .placeholder {
     height: 24px;
-    background-image: url("assets/dash-placeholder.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/dash-placeholder.svg"),
+      url("resource:///org/gnome/shell/theme/assets/dash-placeholder.svg"));
     background-size: contain;
   }
 
@@ -2504,7 +2593,10 @@ $provider_details_width: 120px;
 .show-apps {
   .show-apps-icon {
     border: none;
-    background-image: url("assets/show-apps.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/show-apps.svg"),
+      url("resource:///org/gnome/shell/theme/assets/show-apps.svg"));
     background-size: contain;
     color: transparent;
     transition-duration: $duration_long;
@@ -2515,13 +2607,19 @@ $provider_details_width: 120px;
   &:active .show-apps-icon,
   &:focus .show-apps-icon {
     color: transparent;
-    background-image: url("assets/show-apps-hover.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/show-apps-hover.svg"),
+      url("resource:///org/gnome/shell/theme/assets/show-apps-hover.svg"));
     transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
   }
   &:checked .show-apps-icon {
     color: transparent;
-    background-image: url("assets/show-apps-checked.svg");
+    background-image:
+      if($gdm == 'false',
+      url("assets/show-apps-checked.svg"),
+      url("resource:///org/gnome/shell/theme/assets/show-apps-checked.svg"));
     transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-2;
   }
@@ -2681,7 +2779,10 @@ $provider_details_width: 120px;
     .show-apps {
       .show-apps-icon {
         min-height: 24px;
-        background-image: url("assets/show-apps-panel.svg");
+        background-image:
+          if($gdm == 'false',
+          url("assets/show-apps-panel.svg"),
+          url("resource:///org/gnome/shell/theme/assets/show-apps-panel.svg"));
         background-size: 32px 32px;
         // FIXME: G-S can't recognize position property
         // and may be aligned center automatically?
@@ -2693,12 +2794,18 @@ $provider_details_width: 120px;
       &:hover .show-apps-icon,
       &:active .show-apps-icon,
       &:focus .show-apps-icon {
-        background-image: url("assets/show-apps-panel-hover.svg");
+        background-image:
+          if($gdm == 'false',
+          url("assets/show-apps-panel-hover.svg"),
+          url("resource:///org/gnome/shell/theme/assets/show-apps-panel-hover.svg"));
         -st-background-image-shadow: $z-depth-2;
       }
 
       &:checked .show-apps-icon {
-        background-image: url("assets/show-apps-panel-hover.svg");
+        background-image:
+          if($gdm == 'false',
+          url("assets/show-apps-panel-hover.svg"),
+          url("resource:///org/gnome/shell/theme/assets/show-apps-panel-hover.svg"));
         -st-background-image-shadow: $z-depth-2;
       }
     }
@@ -3484,7 +3591,10 @@ $provider_details_width: 120px;
 }
 
 #lockDialogGroup {
-  background: $osd_bg_color url("noise-texture.png");
+  background: $osd_bg_color
+              if($gdm == 'false',
+              url("noise-texture.png"),
+              url("resource:///org/gnome/shell/theme/noise-texture.png"));
   background-repeat: repeat;
 }
 

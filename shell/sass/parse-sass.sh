@@ -43,6 +43,20 @@ if [ -e $GNOME_SHELL ] && [ $GNOME_MAJOR_VERSION -eq "3" ] && \
     $SASSC \
         gnome-shell/$GNOME_SCSS_VERSION/gnome-shell-dark-eta.scss \
         ../gnome-shell-nokto-eta/gnome-shell.css
+    if [ $GNOME_MINOR_VERSION -gt "24" ]; then
+        $SASSC \
+            gnome-shell/$GNOME_SCSS_VERSION/gdm3.scss \
+            ../gnome-shell/gdm3-Adapta.css
+        $SASSC \
+            gnome-shell/$GNOME_SCSS_VERSION/gdm3-dark.scss \
+            ../gnome-shell-nokto/gdm3-Adapta-Nokto.css
+        $SASSC \
+            gnome-shell/$GNOME_SCSS_VERSION/gdm3-eta.scss \
+            ../gnome-shell-eta/gdm3-Adapta-Eta.css
+        $SASSC \
+            gnome-shell/$GNOME_SCSS_VERSION/gdm3-dark-eta.scss \
+            ../gnome-shell-nokto-eta/gdm3-Adapta-Nokto-Eta.css
+    fi
     $SASSC \
         gnome-shell/$GNOME_SCSS_VERSION/pad-osd.scss \
         ../gnome-shell/pad-osd.css
