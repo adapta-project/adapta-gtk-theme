@@ -2095,7 +2095,41 @@ $icon_size: 16px;
   .button {
     padding: 4px;
     border-radius: 2px;
+    border-color: $solid_light_borders_color;
+    background-color: $light_color;
     box-shadow: $empty_shadow; // hide unwanted inner higlights
+    &:hover {
+      background-color: $semi_fill_color;
+      color: $fg_color;
+    }
+    &:checked,
+    &:active:checked {
+      &, &:hover {
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+    }
+    &:insensitive {
+      background-color: $hidden_fill_color;
+      color: $insensitive_fg_color;
+    }
+  }
+
+  .sidebar .button,
+  .button.app {
+    background-color: $hidden_fill_color;
+    &:hover {
+      background-color: $semi_fill_color;
+      color: $fg_color;
+    }
+    &:checked,
+    &:active:checked {
+      &, &:hover {
+        border-color: transparent;
+        background-color: shellopacity($selected_bg_color, 0.1);
+        color: $selected_bg_color;
+      }
+    }
   }
 
   .entry {
@@ -2103,16 +2137,17 @@ $icon_size: 16px;
     padding: 0 8px; // do not set vertical padding causes truncation of StLabel
     border-radius: 2px;
     border-color: transparent;
-    background-color: $hidden_fill_color;
+    background-color: $light_color;
     color: $secondary_fg_color;
     caret-color: $secondary_fg_color;
-    box-shadow: inset 0 0 0 1px $borders_color;
+    box-shadow: inset 0 0 0 1px $solid_light_borders_color;
     &:ltr { margin-right: 3px; }
     &:rtl { margin-left: 3px; }
 
     &:focus,
     &:focus:hover {
       border-color: transparent;
+      background-color: $light_color;
       color: $fg_color;
       caret-color: $fg_color;
       box-shadow: inset 0 0 0 1px $selected_bg_color;
@@ -2121,7 +2156,7 @@ $icon_size: 16px;
       border-color: transparent;
       background-color: $hidden_fill_color;
       color: $insensitive_fg_color;
-      box-shadow: inset 0 0 0 1px $borders_color;
+      box-shadow: inset 0 0 0 1px $solid_light_borders_color;
     }
   }
 

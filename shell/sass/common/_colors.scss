@@ -44,6 +44,9 @@ $bg_color: if($nokto == 'false', #FAFBFC, #263238);
 $base_color: if($nokto == 'false', #FFFFFF, #29353B);
 $secondary_base_color: if($nokto == 'false', #FDFDFE, #28343A);
 $secondary_dark_color: if($nokto == 'false', #ECEFF1, #243035);
+$light_color: if($nokto == 'false',
+                 $base_color,
+                 mix(#263238, #37474F, 50%));
 
 $fill_color: shellopacity($fg_color, 0.15);
 $semi_fill_color: shellopacity($fg_color, 0.07);
@@ -99,6 +102,7 @@ $inverted_secondary_accent_label_color:
 
 $borders_color: if($nokto == 'false', shellopacity(#000000, 0.09),
                                       shellopacity(#000000, 0.13));
+$solid_light_borders_color: if($nokto == 'false', #E5E9EC, #212B30);
 $borders_edge: shellopacity(#000000, 0.05);
 $top_hilight: $borders_edge;
 $borders_highlight: shellopacity(#FFFFFF, 0.07);
