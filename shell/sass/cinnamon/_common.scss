@@ -2095,10 +2095,12 @@ $icon_size: 16px;
   .button {
     padding: 4px;
     border-radius: 2px;
+    box-shadow: $empty_shadow; // hide unwanted inner higlights
   }
 
   .entry {
-    padding: 4px 8px;
+    min-height: 16px + 4px * 2;
+    padding: 0 8px; // do not set vertical padding causes truncation of StLabel
     border-radius: 2px;
     border-color: transparent;
     background-color: $hidden_fill_color;
