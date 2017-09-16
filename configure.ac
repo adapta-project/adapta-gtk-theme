@@ -68,8 +68,8 @@ if test x"$ENABLE_GNOME" = xyes; then
 		AC_MSG_ERROR(['gnome-shell' not found.])
 	fi
 	ADAPTA_GNOME
-	AM_CONDITIONAL(GNOME_IS_326, [test x"$GNOME_SCSS_VERSION" = x3.26])
 fi
+AM_CONDITIONAL(GNOME_IS_326, [test x"$GNOME_SCSS_VERSION" = x3.26])
 
 ADAPTA_COLOR_SCHEME
 

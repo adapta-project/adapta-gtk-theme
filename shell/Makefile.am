@@ -15,8 +15,10 @@ shell_file = \
 	$(shelldir)/process-working.svg \
 	$(shelldir)/toggle-off.svg \
 	$(shelldir)/toggle-on.svg
+if ENABLE_GNOME
 if GNOME_IS_326
 shell_gdm3_file = $(shelldir)/gdm3-Adapta.css
+endif
 endif
 shell_pad_osd_file = \
 	$(shelldir)/pad-osd.css
@@ -117,8 +119,10 @@ shell_nokto_file = \
 	$(shellnoktodir)/process-working.svg \
 	$(shellnoktodir)/toggle-off.svg \
 	$(shellnoktodir)/toggle-on.svg
+if ENABLE_GNOME
 if GNOME_IS_326
 shell_nokto_gdm3_file = $(shellnoktodir)/gdm3-Adapta-Nokto.css
+endif
 endif
 shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/calendar-arrow-left-hover.svg \
@@ -157,8 +161,10 @@ shelleta_file = \
 	$(shelletadir)/process-working.svg \
 	$(shelletadir)/toggle-off.svg \
 	$(shelletadir)/toggle-on.svg
+if ENABLE_GNOME
 if GNOME_IS_326
 shell_eta_gdm3_file = $(shelletadir)/gdm3-Adapta-Eta.css
+endif
 endif
 shelleta_asset_file = \
 	$(shelletadir)/assets/calendar-arrow-left-hover.svg \
@@ -197,8 +203,10 @@ shell_nokto_eta_file = \
 	$(shellnoktoetadir)/process-working.svg \
 	$(shellnoktoetadir)/toggle-off.svg \
 	$(shellnoktoetadir)/toggle-on.svg
+if ENABLE_GNOME
 if GNOME_IS_326
 shell_nokto_eta_gdm3_file = $(shellnoktoetadir)/gdm3-Adapta-Nokto-Eta.css
+endif
 endif
 shell_nokto_eta_asset_file = \
 	$(shellnoktoetadir)/assets/calendar-arrow-left-hover.svg \
