@@ -3142,11 +3142,20 @@ menuitem {
 //  ************/
 
 popover.background {
-  padding: 2px;
+  padding: 0;
   background-color: $secondary_base_color;
   box-shadow:  $z-depth-3;
 
   &:backdrop { box-shadow: $z-depth-1; }
+
+  &.menu { // reset standard menu spacing
+    margin: 0;
+    padding: 0;
+
+    // compensate outer margins
+    // subtract top-edge border width
+    > stack { margin: -(6px - 2px) -6px -6px; }
+  }
 
   .csd &,
   & {
@@ -3171,7 +3180,9 @@ popover.background {
     background-color: transparent;
   }
 
-  separator { margin: rem(3px) 0; }
+  &, list {
+    separator { margin: 0; } // unset outer margins
+  }
 
   list {
     > row,
@@ -3179,14 +3190,12 @@ popover.background {
       transition-property: opacity,
                            background-image;
     }
-
-    separator { margin: 0; } // unset outer margins
   }
 
   button {
     menuitem.flat,
     &.flat {
-      padding: 0 rem(10px) 0;
+      padding: 0 rem(13.3px) 0;
       background-color: transparent;
       color: $secondary_fg_color;
       font-weight: 400;
@@ -3198,8 +3207,8 @@ popover.background {
       }
 
       // FIXME: label padding is ugly
-      // vertical padding of GtkMenuItem * 0.5
-      label { padding: rem(2.7px) 0 rem(3.3px); }
+      // vertical padding of GtkMenuItem
+      label { padding: rem(5.3px) 0 rem(6.7px); }
     }
 
     &.image-button { padding: rem(6.7px); }
