@@ -264,7 +264,6 @@ box.pinned { // drop-target
 window.budgie-popover:not(.csd) {
   &.background {
     @extend popover.background;
-    padding: 0; // unset padding
     background-clip: border-box;
     // FIXME: we can't expose depth-3
     box-shadow: $z-depth-2;
@@ -272,7 +271,6 @@ window.budgie-popover:not(.csd) {
 
   > frame.container {
     margin: 0 -1px -1px; // remove gap
-    padding: 2px 0 0;
 
     .bottom & { padding: 2px 0 2px; } // revive bottom padding
 
@@ -411,6 +409,9 @@ window.budgie-popover:not(.csd) {
 // user-indicator styling
 .user-menu {
   background-color: $secondary_base_color;
+
+  &,
+  frame.container { padding: (6px + 2px) 6px 6px; }
 
   list,
   row { // reset styling
@@ -898,7 +899,7 @@ window.sound-popover.background box.horizontal {
 // night-light-indicator styling
 .night-light-indicator {
   &,
-  frame.container { padding: 0 2px 2px; }
+  frame.container { padding: (6px + 2px) 6px 6px; }
 
   .view-header {
     label {
@@ -936,7 +937,7 @@ popover.places-menu {
   &.background {
     &,
     .container {
-      padding: 2px 0 0; // remove side/bottom padding
+      padding: (6px + 2px) 6px 6px;
       border-style: solid none none; // remove side/bottom borders
     }
   }
@@ -1009,17 +1010,13 @@ popover.places-menu {
   .alternative-label { // 'always expanded' option
     font-size: 15px; // same size with 'Local volumes' label?
     font-weight: 400;
-
-    // parent popover node already has 2px top-padding
-    &:dir(ltr) { padding: 1px rem(4px) rem(4px) 3px; }
-    &:dir(rtl) { padding: 1px 3px rem(4px) rem(4px); }
+    &:dir(ltr) { padding: 0 0 3px 3px; }
+    &:dir(rtl) { padding: 0 3px 3px 0; }
   }
 
   box.vertical > revealer {
     > list { // drop-down list
-      border-width: 1px 0 1px;
-      border-style: solid none solid;
-      border-color: $borders_color transparent $borders_color;
+      border: 1px solid $borders_color;
       background-color: $secondary_dark_color;
       box-shadow: if($variant == 'light', $inline-shadow-light,
                                           $inline-shadow-dark);
@@ -1041,6 +1038,7 @@ popover.places-menu {
       &:hover,
       &:active {
         color: $fg_color;
+        background-image: none;
 
         button.text-button.name-button { // = 'toolbutton > button'
           &,
@@ -1048,7 +1046,6 @@ popover.places-menu {
           &:active {
             color: $fg_color;
             background-color: transparent;
-            background-image: none;
             transition: none;
             animation: none;
           }
@@ -1071,7 +1068,7 @@ popover.places-menu {
           > image,
           > spinner { margin: rem(5.3px) 0; }
 
-          > label { padding-bottom: rem(1.3px, $sw: 1.0); }
+          > label { padding: rem(5.3px) 0 rem(6.7px); }
         }
       }
 
