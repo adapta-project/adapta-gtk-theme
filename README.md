@@ -29,6 +29,10 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
 Adapta uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
 In some distributions, users may need to install `fonts-noto-hinted`.
 
+> **Note:**
+>
+> In Gnome-Shell 3.26 theming, we've switched to Roboto already.
+
 Adapta is designed with nominal **13px (or 14px)** Roboto font.
 In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
   ```
