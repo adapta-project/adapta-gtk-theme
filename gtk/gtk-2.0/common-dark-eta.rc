@@ -2333,6 +2333,11 @@ style "base" {
   bg[INSENSITIVE] = @base_color
 }
 
+style "calendar" {
+  bg[NORMAL] = @secondary_dark_color
+  base[NORMAL] = @light_color
+}
+
 style "tooltips" {
   xthickness = 4
   ythickness = 4
@@ -2362,6 +2367,7 @@ class "GtkSeparatorMenuItem" style "separator_menu_item"
 class "GtkScrolledWindow"    style "scrolled_window"
 class "GtkFrame"             style "frame"
 class "GtkToolbar"           style "toolbar"
+class "GtkCalendar"          style "calendar"
 
 # Fixes insensitive text shadows
 widget_class "*<GtkLabel>"    style "text"
