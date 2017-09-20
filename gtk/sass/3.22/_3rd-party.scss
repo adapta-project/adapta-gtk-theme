@@ -1372,7 +1372,7 @@ window.budgie-popover.workspace-popover {
 
     trough {
       color: $inverted_fg_color;
-      background-color: $track_color;
+      background-color: $outline_track_color;
     }
 
     progress { background-color: $success_color; }
@@ -1918,7 +1918,7 @@ UnityPanelWidget,
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($track_color),
+                                  to($outline_track_color),
                                   to(transparent))
                                   0 0 1 / 0 0 1px;
       color: $inverted_fg_color;
@@ -1938,7 +1938,7 @@ UnityPanelWidget,
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($track_color),
+                                    to($outline_track_color),
                                     to(transparent))
                                     0 0 1 / 0 0 1px;
         color: $insensitive_inverted_fg_color;
@@ -2364,7 +2364,7 @@ grid.tweet-info-grid.view { // raised material
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.001,
-                                  to($track_color),
+                                  to($outline_track_color),
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
       background-color: transparent;
@@ -2728,7 +2728,7 @@ window.background:not(.csd) > box.vertical {
       background-color: transparent;
       background-image: none;
       color: $selected_fg_color;
-      box-shadow: inset 0 -2px $track_color;
+      box-shadow: inset 0 -2px $outline_track_color;
       transition: none;
     }
     &:active,
@@ -3064,7 +3064,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     &:hover {
       background-image: none;
       color: $inverted_fg_color;
-      box-shadow: inset 0 -2px $track_color;
+      box-shadow: inset 0 -2px $outline_track_color;
     }
     &:active { animation: none; }
     &:checked {

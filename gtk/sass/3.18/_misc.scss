@@ -62,7 +62,7 @@ PanelApplet {
       &:hover {
         color: $selected_fg_color;
         background-color: transparent;
-        box-shadow: inset 0 -2px $track_color;
+        box-shadow: inset 0 -2px $outline_track_color;
       }
       &:checked,
       &:hover:checked,
@@ -86,7 +86,7 @@ TaskList TaskItem {
   &:hover {
     color: $selected_fg_color;
     background-color: transparent;
-    box-shadow: inset 0 -2px $track_color;
+    box-shadow: inset 0 -2px $outline_track_color;
   }
   &:checked,
   &:hover:checked,
@@ -328,7 +328,7 @@ NautilusTrashBar {
   border: 0 none transparent;
 
   &.free {
-    background-color: $track_color;
+    background-color: $outline_track_color;
     color: $insensitive_fg_color;
   }
 
@@ -775,7 +775,7 @@ GdMainView,
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
-                                to($track_color),
+                                to($outline_track_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;

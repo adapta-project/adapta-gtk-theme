@@ -70,7 +70,7 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 
   outline-style: solid;
   outline-width: 2px;
-  outline-color: $track_color;
+  outline-color: $outline_track_color;
   outline-offset: -4px;
   outline-radius: 2px;
 
@@ -744,7 +744,7 @@ GtkTextView {
   border-image: -gtk-gradient(radial,
                               center bottom, 0,
                               center bottom, 0.5,
-                              to($track_color),
+                              to($outline_track_color),
                               to(transparent))
                               0 0 1 / 0 0 1px;
   background-color: transparent;
@@ -755,7 +755,7 @@ GtkTextView {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
-                                to($track_color),
+                                to($outline_track_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
     background-color: transparent;
@@ -792,7 +792,7 @@ GtkTextView {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
-                                to($track_color),
+                                to($outline_track_color),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
     background-color: transparent;
@@ -810,8 +810,8 @@ GtkTextView {
   &:hover {
     @extend %button_flat_hover;
     color: $fg_color;
-    &:dir(ltr) { box-shadow: inset 2px 0 $track_color; }
-    &:dir(rtl) { box-shadow: inset -2px 0 $track_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $outline_track_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $outline_track_color; }
   }
   &:active,
   &:checked {
@@ -833,12 +833,12 @@ GtkTextView {
     @extend %button_flat_insensitive;
     color: $insensitive_fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
-    &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
+    &:dir(ltr) { box-shadow: inset 1px 0 $outline_track_color; }
+    &:dir(rtl) { box-shadow: inset -1px 0 $outline_track_color; }
   }
 
-  &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
-  &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
+  &:dir(ltr) { box-shadow: inset 1px 0 $outline_track_color; }
+  &:dir(rtl) { box-shadow: inset -1px 0 $outline_track_color; }
 }
 
 %image_button {
@@ -1284,7 +1284,7 @@ GtkComboBox {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
-                                to($track_color),
+                                to($outline_track_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
@@ -1445,7 +1445,7 @@ GtkComboBox {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
-                                to($track_color),
+                                to($outline_track_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
@@ -1845,7 +1845,7 @@ GtkTreeView.view {
   // this is actually the tree lines color,
   // while this is the grid lines color, better then nothing to avoid borders
   // being overridden by the previously set props
-  border-left-color: $track_color;
+  border-left-color: $outline_track_color;
   border-top-color: $borders_color;
 
   border-radius: 0; // rest border radius in lists
@@ -1907,7 +1907,7 @@ GtkTreeView.view {
   &.trough { // progress bar trough in treeviews
     @extend %treeview_progressbar;
     border-color: gtkopacity($accent_color, 0.2);
-    &:selected { border-color: $track_color; }
+    &:selected { border-color: $outline_track_color; }
   }
 
   &, GtkPaned & { // redraw some stuff for RhythmBox
@@ -2254,7 +2254,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 
     // here's the interesting stuff
     &:hover,
-    &.prelight-page { border-color: $track_color; }
+    &.prelight-page { border-color: $outline_track_color; }
     &:active,
     &.active-page { border-color: $selected_bg_color; }
 
@@ -2824,7 +2824,7 @@ GtkRadioButton.text-button {
     }
   }
   // marks color
-  &.separator { color: $track_color; }
+  &.separator { color: $outline_track_color; }
 
   // scales on selected list rows
   .list-row:selected & {
@@ -3012,7 +3012,7 @@ GtkProgressBar {
 
     &.level-low { background-color: $warning_color; }
 
-    &.empty-fill-block { background-color: $track_color; }
+    &.empty-fill-block { background-color: $outline_track_color; }
   }
 }
 

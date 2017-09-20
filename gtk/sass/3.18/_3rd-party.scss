@@ -1009,7 +1009,7 @@ GtkWidget > GtkBox.workspace-switcher {
   GtkProgressBar { // mimic level-bar
     &.trough {
       color: $inverted_fg_color;
-      background-color: $track_color;
+      background-color: $outline_track_color;
     }
   }
 
@@ -1430,7 +1430,7 @@ UnityPanelWidget,
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($track_color),
+                                  to($outline_track_color),
                                   to(transparent))
                                   0 0 1 / 0 0 1px;
       color: $inverted_fg_color;
@@ -1450,7 +1450,7 @@ UnityPanelWidget,
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($track_color),
+                                    to($outline_track_color),
                                     to(transparent))
                                     0 0 1 / 0 0 1px;
         color: $insensitive_inverted_fg_color;
@@ -1635,7 +1635,7 @@ NemoWindow {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.001,
-                                  to($track_color),
+                                  to($outline_track_color),
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
       background-color: transparent;
@@ -1737,7 +1737,7 @@ CcShellCategoryView { // stop using $base_color
       color: $selected_fg_color;
       background-color: transparent;
       background-image: none;
-      box-shadow: inset 0 -2px $track_color;
+      box-shadow: inset 0 -2px $outline_track_color;
       transition: none;
     }
     &:active,

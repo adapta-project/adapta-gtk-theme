@@ -52,7 +52,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 
   outline-style: solid;
   outline-width: 2px;
-  outline-color: $track_color;
+  outline-color: $outline_track_color;
   outline-offset: rem(-4px);
   -gtk-outline-radius: 2px;
 
@@ -928,7 +928,7 @@ button {
   color: $secondary_fg_color;
   background-color: transparent;
   border-image: radial-gradient(circle farthest-corner at center,
-                                $track_color 100%,
+                                $outline_track_color 100%,
                                 transparent)
                                 0 0 1 / 0 0 1px;
   &:hover {
@@ -937,7 +937,7 @@ button {
     color: $fg_color;
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $track_color 100%,
+                                  $outline_track_color 100%,
                                   transparent)
                                   0 0 2 / 0 0 2px;
   }
@@ -973,7 +973,7 @@ button {
     color: $insensitive_fg_color;
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $track_color 100%,
+                                  $outline_track_color 100%,
                                   transparent)
                                   0 0 1 / 0 0 1px;
   }
@@ -986,13 +986,13 @@ button {
   -gtk-outline-radius: 0;
   background-color: transparent;
   color: $secondary_fg_color;
-  &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
-  &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
+  &:dir(ltr) { box-shadow: inset 1px 0 $outline_track_color; }
+  &:dir(rtl) { box-shadow: inset -1px 0 $outline_track_color; }
   &:hover {
     @extend %button_flat_hover;
     color: $fg_color;
-    &:dir(ltr) { box-shadow: inset 2px 0 $track_color; }
-    &:dir(rtl) { box-shadow: inset -2px 0 $track_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $outline_track_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $outline_track_color; }
   }
   &:active {
     @extend %button_flat_active;
@@ -1019,8 +1019,8 @@ button {
   &:disabled {
     color: $insensitive_fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 1px 0 $track_color; }
-    &:dir(rtl) { box-shadow: inset -1px 0 $track_color; }
+    &:dir(ltr) { box-shadow: inset 1px 0 $outline_track_color; }
+    &:dir(rtl) { box-shadow: inset -1px 0 $outline_track_color; }
   }
 }
 
@@ -1486,7 +1486,7 @@ combobox {
     color: $secondary_fg_color;
     background: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $track_color 100%,
+                                  $outline_track_color 100%,
                                   transparent)
                                   0 0 1 / 0 0 1px;
     &:hover,
@@ -1507,7 +1507,7 @@ combobox {
       color: $insensitive_fg_color;
       background: transparent;
       border-image: radial-gradient(circle farthest-corner at center,
-                                    $track_color 100%,
+                                    $outline_track_color 100%,
                                     transparent)
                                     0 0 1 / 0 0 1px;
     }
@@ -1653,7 +1653,7 @@ toolbar {
     @extend %button_flat_normal;
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $track_color 0%,
+                                  $outline_track_color 0%,
                                   transparent 0%)
                                   0 0 0 / 0 0 0px;
     color: $secondary_fg_color;
@@ -1849,7 +1849,7 @@ actionbar {
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $track_color 0%,
+                                  $outline_track_color 0%,
                                   transparent)
                                   0 0 0 / 0 0 0px;
     background-color: transparent;
@@ -1953,7 +1953,7 @@ headerbar {
   button:not(.suggested-action):not(.destructive-action) {
     @include button(flat-normal);
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $track_color 0%,
+                                  $outline_track_color 0%,
                                   transparent)
                                   0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
@@ -2781,7 +2781,7 @@ treeview.view {
   // this is actually the tree lines color,
   // while this is the grid lines color, better then nothing to avoid borders
   // being overridden by the previously set props
-  border-left-color: $track_color;
+  border-left-color: $outline_track_color;
   border-top-color: $borders_color;
 
   border-radius: 0; // rest border radius in lists
@@ -2951,7 +2951,7 @@ menubar {
     // special mode in .unity-csd class
     .background.unity-csd > grid.vertical & {
       color: $secondary_fg_color;
-      box-shadow: inset 0 -1px $track_color;
+      box-shadow: inset 0 -1px $outline_track_color;
       &:hover {
         color: $fg_color;
         box-shadow: inset 0 -2px $selected_bg_color;
@@ -3353,7 +3353,7 @@ notebook {
         &:hover {
           border-color: $borders_color;
           border-#{$_border}-width: 2px;
-          border-#{$_border}-color: $track_color;
+          border-#{$_border}-color: $outline_track_color;
           background-color: $base_color;
           box-shadow: none;
         }
@@ -3423,7 +3423,7 @@ notebook {
                 box-shadow 0.2s $slope_medium;
 
     // here's the interesting stuff
-    &:hover { border-color: $track_color; }
+    &:hover { border-color: $outline_track_color; }
     &:checked { // draw ripples via transitions
       border-color: $selected_bg_color;
       background-image: radial-gradient(circle farthest-side at center,
@@ -3643,7 +3643,7 @@ switch {
   border: rem(10px, $sw: 1.0) solid transparent;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
-  background-color: $track_color;
+  background-color: $outline_track_color;
   font-size: 0;
   outline-offset: rem(-4px, $sw: 1.0);
   &:checked {
@@ -4159,11 +4159,11 @@ check {
 %scale_trough {
   border: 1px solid transparent;
   border-radius: 0;
-  background-color: $track_color;
+  background-color: $outline_track_color;
   box-shadow: none;
   &:disabled {
     color: $insensitive_fg_color;
-    background-color: $track_color;
+    background-color: $outline_track_color;
   }
 
   &:backdrop {
@@ -4180,7 +4180,7 @@ check {
   background-color: $accent_color;
   &:disabled {
     color: $insensitive_fg_color;
-    background-color: $track_color;
+    background-color: $outline_track_color;
   }
 
   &:backdrop {
@@ -4311,7 +4311,7 @@ scale {
 
   separator {
     color: transparent;
-    background-color: $track_color;
+    background-color: $outline_track_color;
   }
 
   // scales on selected list rows
@@ -4588,7 +4588,7 @@ levelbar {
 
     &.full { background-color: $success_color; }
 
-    &.empty { background-color: $track_color; }
+    &.empty { background-color: $outline_track_color; }
   }
 }
 
