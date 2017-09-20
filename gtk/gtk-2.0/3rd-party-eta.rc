@@ -46,7 +46,7 @@ style "panelbuttons" {
   fg[PRELIGHT] = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @fg_color)
+  fg[INSENSITIVE] = mix(0.28, @selected_fg_color, @fg_color)
   bg[ACTIVE] = mix(0.1, @inverted_fg_color, @panel_bg_color)
 
   font_name = "Bold"
@@ -131,12 +131,12 @@ style "panel-entry" {
   fg[PRELIGHT] = @inverted_fg_color
   fg[ACTIVE] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @fg_color)
+  fg[INSENSITIVE] = mix(0.28, @selected_fg_color, @fg_color)
   text[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @fg_color))
   text[PRELIGHT] = @inverted_fg_color
   text[ACTIVE] = @selected_fg_color
   text[SELECTED] = @selected_fg_color
-  text[INSENSITIVE] = mix(0.4, @selected_fg_color, @fg_color)
+  text[INSENSITIVE] = mix(0.28, @selected_fg_color, @fg_color)
 }
 
 style "theme-main-menu-text" = "theme-panel-text" {
@@ -242,13 +242,13 @@ style "xfsm-logout" {
 
   bg[NORMAL]   = @bg_color
   bg[SELECTED] = @bg_color # Border around the dialog
-  fg[NORMAL]   = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL]   = mix(0.87, @fg_color, @bg_color)
 }
 
 style "xfsm-label" {
   font_name = "12"
 
-  fg[NORMAL]   = mix(0.4, @fg_color, @bg_color)
+  fg[NORMAL]   = mix(0.28, @fg_color, @bg_color)
 }
 
 widget_class "*XfceHeading*"                          style "xfce-heading"
@@ -329,10 +329,10 @@ widget_class "*XfsmLogoutDialog*GtkVBox.GtkVBox.GtkLabel" style "xfsm-label"
 style "thunar_location_button" = "location_button" {
   ThunarLocationButtons::spacing = 0
 
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
   fg[ACTIVE] = @fg_color
-  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {

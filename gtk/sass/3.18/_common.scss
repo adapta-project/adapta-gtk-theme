@@ -349,7 +349,7 @@ GtkTextView {
   }
 
   &.image { // entry icons colors
-    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
+    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
     &:active { color: $selected_bg_color; }
     &:insensitive { color: gtkalpha(currentColor, 0.6); }
   }
@@ -1893,7 +1893,7 @@ GtkTreeView.view {
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
     &:selected {
-      color: gtkopacity($selected_fg_color, 0.75);
+      color: gtkopacity($selected_fg_color, 0.87);
       &:hover, &:active { color: $selected_fg_color; }
     }
   }
@@ -3197,7 +3197,7 @@ GtkScrolledWindow {
   -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
 
   &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-  &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
+  &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
   &:selected { color: $selected_fg_color; }
 
   &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
@@ -3446,7 +3446,7 @@ GtkSidebarRow {
   .sidebar-revealer { padding: 0.2em 1.1em 0.2em 1em; }
 
   .sidebar-icon {
-    opacity: 0.75; // dim the device icons
+    opacity: 0.87; // dim the device icons
     &:dir(ltr) { padding-right: 0.6em; }
     &:dir(rtl) { padding-left: 0.6em; }
   }

@@ -970,7 +970,7 @@ notebook > box > stack > box.vertical > paned.vertical > overlay {
 
   // render yellow 'star' icon if bookmarked
   &.starred > image.right {
-    color: gtkalpha($question_bg_color, 0.75);
+    color: gtkalpha($question_bg_color, 0.87);
     &:hover,
     &:active,
     &:checked { color: $question_bg_color; }
@@ -1578,7 +1578,7 @@ overlay > box.vertical > paned.horizontal > box.vertical {
       label { color: $selected_bg_color; }
 
       button {
-        color: gtkalpha($selected_bg_color, 0.75);
+        color: gtkalpha($selected_bg_color, 0.87);
         &:hover,
         &:active { color: $selected_bg_color; }
       }
@@ -2088,7 +2088,7 @@ popover.messagepopover {
 }
 
 button.dzlmenubuttonitem.check { // menuitem buttons
-  box > image { opacity: 0.75; }
+  box > image { opacity: 0.87; }
 
   // :checked inside the popover menus!?
   &:checked label { // keep default label colour
@@ -2569,7 +2569,7 @@ frame#weather-page-content-view { // condition-specific
         &:hover,
         &:active,
         &:checked { color: #{$_label_1_color}; }
-        &:disabled { color: gtkopacity($_label_1_color, 0.3); }
+        &:disabled { color: gtkopacity($_label_1_color, 0.28); }
       }
 
       frame#weekly-forecast-frame {
@@ -2705,7 +2705,7 @@ window > popover > stack > grid > button.text-button {
 // employ flat-destructive style
 button.image-button.reset-shortcut-button {
   // remove fill-area and ripple-effect at all
-  color: gtkopacity($destructive_color, 0.75);
+  color: gtkopacity($destructive_color, 0.87);
   background-color: transparent;
   transition-property: opacity,
                        border-color,
@@ -2780,7 +2780,7 @@ scrolledwindow.view > viewport.frame > stack > list { // left-pane
     color: $secondary_fg_color;
     font-weight: 500;
 
-    image.dim-label { opacity: 0.75; } // tone up icons
+    image.dim-label { opacity: 0.87; } // tone up icons
 
     label,
     image { color: $secondary_fg_color; }

@@ -96,7 +96,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
   }
 
   label,
-  image { opacity: 0.75; }
+  image { opacity: 0.87; }
 
   &:hover,
   &:active,
@@ -138,7 +138,7 @@ box.pinned { // drop-target
     transition: $budgie_transition;
 
     > image {
-      opacity: 0.75;
+      opacity: 0.87;
       transition: opacity 0.2s $slope_medium,
                   background-image 0s;
     }
@@ -728,7 +728,7 @@ window.budgie-popover:not(.csd) {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(8px);
-      color: gtkopacity($destructive_color, 0.75);
+      color: gtkopacity($destructive_color, 0.87);
       &:hover,
       &:active,
       &:checked { color: $destructive_color; }
@@ -1171,20 +1171,20 @@ widget > box.workspace-switcher {
         border-radius: 2px;
         transition: $budgie_transition;
 
-        > image { opacity: 0.5; }
+        > image { opacity: 0.54; }
 
         &:hover,
         &:active {
           -gtk-icon-effect: highlight;
 
-          > image { opacity: 0.75; }
+          > image { opacity: 0.87; }
         }
       }
 
       // counter
       label.workspace-more-label {
         font-weight: 700;
-        opacity: 0.5;
+        opacity: 0.54;
       }
 
       &.current-workspace {
@@ -2000,7 +2000,7 @@ window.background.lightdm {
       -gtk-outline-radius: 100px;
       color: $inverted_fg_color;
 
-      image { opacity: 0.75; }
+      image { opacity: 0.87; }
 
       &:hover,
       &:active {
@@ -2023,7 +2023,7 @@ window.background.lightdm {
 
       label { padding-bottom: rem(1.3px, $sw: 1.0); }
 
-      image { opacity: 0.75; }
+      image { opacity: 0.87; }
 
       &:hover,
       &:active,
@@ -2117,7 +2117,7 @@ list > row.activatable.tweet {
 
   // dim 'quotes' inside the tweets (labels only)
   grid.horizontal.quote label {
-    opacity: 0.75;
+    opacity: 0.87;
 
     &.dim-label { opacity: 0.4; }
   }
@@ -3746,10 +3746,9 @@ box#AuxToolbox {
     padding: 0;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
-    &:checked { // revert to Gtk+ 2.x styling
+    &:checked {
+      @include button(flat-checked);
       border-image: none;
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
     }
   }
 }
@@ -3811,14 +3810,10 @@ widget > box#DesktopMainTable {
     padding: 0;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
-    &:checked { // revert to Gtk+ 2.x styling
+    &:checked {
+     @include button(flat-checked);
       border-image: none;
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-      &:disabled {
-        background-color: gtkopacity($selected_bg_color, 0.2);
-        color: $insensitive_selected_fg_color;
-      }
+      &:disabled { @include button(flat-checked-insensitive); }
     }
   }
 }
@@ -3868,17 +3863,17 @@ window.popup:not(.csd) {
 
     menuitem {
       background-color: $secondary_base_color;
-      color: mix($fg_color, $secondary_base_color, 75%);
+      color: mix($fg_color, $secondary_base_color, 87%);
       &:hover {
-        background-color: mix($fg_color, $secondary_base_color, 10%);
+        background-color: mix($fg_color, $secondary_base_color, 12%);
         color: $fg_color;
       }
-      &:disabled { // popup frame pulls this fg colours?
+      &:disabled { // popup frame pulls this?
         background-color: $secondary_base_color;
-        color: mix($fixed_fg_color, $secondary_base_color, 30%);
+        color: mix($fixed_fg_color, $secondary_base_color, 28%);
 
         label, // reset for generic non-composited Gtk+ apps
-        arrow { color: mix($fg_color, $secondary_base_color, 30%); }
+        arrow { color: mix($fg_color, $secondary_base_color, 28%); }
       }
     }
   }
@@ -4075,7 +4070,7 @@ window.background.chromium {
     &.minimize,
     &.maximize,
     &.restore {
-      &:hover { background-color: gtkopacity($inverted_fg_color, 0.1); }
+      &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
       &:active { background-color: gtkopacity($inverted_fg_color, 0.2); }
     }
   }
@@ -4199,7 +4194,7 @@ list.tilix-session-sidebar {
     min-height: 20px;
     min-width: 20px;
     padding: 0;
-    color: gtkalpha($destructive_color, 0.75);
+    color: gtkalpha($destructive_color, 0.87);
     &:hover,
     &:active,
     &:checked { color: $destructive_color; }

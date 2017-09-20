@@ -141,8 +141,8 @@ StScrollBar {
   StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: shellopacity($osd_fg_color, 0.5 * 0.55);
-    &:hover { background-color: shellopacity($osd_fg_color, 0.75 * 0.55); }
+    background-color: shellopacity($osd_fg_color, 0.54 * 0.55);
+    &:hover { background-color: shellopacity($osd_fg_color, 0.87 * 0.55); }
     &:active { background-color: $osd_fg_color; }
   }
 }
@@ -698,7 +698,7 @@ $container_padding: 1px;
         background-color: shellopacity($selected_bg_color, 0.2);
         color: $selected_bg_color;
       }
-      &:insensitive { color: shellopacity($selected_bg_color, 0.5); }
+      &:insensitive { color: shellopacity($selected_bg_color, 0.4); }
     }
     &.selected {
       background-color: if($nokto == 'false',
@@ -715,12 +715,12 @@ $container_padding: 1px;
       transition-duration: $duration_medium;
     }
     &.selected:active { color: $fg_color; }
-    &:insensitive { color: shellopacity($fg_color, 0.5); }
+    &:insensitive { color: $insensitive_fg_color; }
   }
 
   .popup-inactive-menu-item { // all icons and other graphical elements
     color: $secondary_fg_color;
-    &:insensitive { color: shellopacity($secondary_fg_color, 0.5); }
+    &:insensitive { color: $insensitive_fg_color; }
   }
 
   .popup-status-menu-item {
@@ -758,8 +758,8 @@ $container_padding: 1px;
 
     StButton#vhandle,
     StButton#hhandle { // use variant-sensitive slider-bit
-      background-color: shellopacity($fg_color, 0.5 * 0.55);
-      &:hover { background-color: shellopacity($fg_color, 0.75 * 0.55); }
+      background-color: shellopacity($fg_color, 0.54 * 0.55);
+      &:hover { background-color: shellopacity($fg_color, 0.87 * 0.55); }
       &:active { background-color: $fg_color; }
     }
   }
@@ -1542,8 +1542,8 @@ $extra_spacing: 2.5px;
 
   &,
   &.calendar-day-with-events {
-    background-color: shellopacity($panel_bg_color, 0.75);
-    color: shellopacity($selected_fg_color, 0.75);
+    background-color: shellopacity($panel_bg_color, 0.87);
+    color: shellopacity($selected_fg_color, 0.87);
     &:hover,
     &:focus {
       background-color: $panel_bg_color;
@@ -1565,7 +1565,7 @@ $extra_spacing: 2.5px;
   &:focus { background-color: shellopacity($semi_fill_color, 0.5); }
 
   &.calendar-day-with-events {
-    color: shellopacity($link_color, 0.5);
+    color: shellopacity($link_color, 0.54);
     &:hover,
     &:focus { background-color: shellopacity($link_color, 0.1); }
   }
@@ -2684,7 +2684,7 @@ $provider_details_width: 120px;
     margin: 2px;
     padding: 0;
     background-image: none;
-    background-color: shellopacity($osd_indicator_color, 0.75);
+    background-color: shellopacity($osd_indicator_color, 0.87);
   }
   &:checked .page-indicator-icon {
     margin: 0;
@@ -3084,7 +3084,7 @@ $provider_details_width: 120px;
 //  ************/
 
 // On-screen Keyboard
-#keyboard { background-color: shellopacity($panel_bg_color, 0.75); }
+#keyboard { background-color: shellopacity($panel_bg_color, 0.87); }
 
 .keyboard-layout {
   spacing: 10px;

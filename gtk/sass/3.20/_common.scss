@@ -438,9 +438,9 @@ entry {
   }
 
   image { // entry icons colors
-    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
+    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
     &:active { color: $selected_bg_color; }
-    &:disabled { color: gtkalpha(currentColor, 0.55); }
+    &:disabled { color: gtkalpha(currentColor, 0.54); }
   }
 
   &:drop(active) {
@@ -2223,7 +2223,7 @@ headerbar {
       &:disabled { color: $insensitive_fg_color; }
     }
 
-    accelerator { color: gtkalpha(currentColor, 0.55); }
+    accelerator { color: gtkalpha(currentColor, 0.54); }
 
     separator { color: $borders_color; }
   }
@@ -3111,7 +3111,7 @@ menu {
 }
 
 menuitem {
-  accelerator { color: gtkalpha(currentColor, 0.55); }
+  accelerator { color: gtkalpha(currentColor, 0.54); }
 
   separator {
     color: transparent;
@@ -4871,7 +4871,7 @@ row:selected { // special case to use raised GtkEntry
       border-style: none;
       border-image: none;
       background-color: $track_color;
-      color: gtkopacity($selected_fg_color, 0.3);
+      color: $insensitive_fg_color;
       box-shadow: none;
     }
 
@@ -4950,7 +4950,7 @@ expander {
     min-height: $icon_size;
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
+    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
     &:selected { color: $selected_fg_color; }
   }
 
@@ -5014,7 +5014,7 @@ calendar {
 
   &:indeterminate { color: gtkalpha(currentColor, 0.20); }
   &.highlight {
-    color: gtkalpha(currentColor, 0.55);
+    color: gtkalpha(currentColor, 0.54);
     font-size: 90%;
     font-weight: 500;
   }
@@ -5335,7 +5335,7 @@ placessidebar {
 
     image.sidebar-icon {
       padding: rem(4px) 0;
-      opacity: 0.75; // dim the device icons
+      opacity: 0.87; // dim the device icons
       &:dir(ltr) { padding-right: rem(5.3px); }
       &:dir(rtl) { padding-left: rem(5.3px); }
     }

@@ -86,7 +86,7 @@
     box-shadow: none;
 
     .label,
-    GtkImage { opacity: 0.75; }
+    GtkImage { opacity: 0.87; }
 
     &:hover,
     &:active,
@@ -122,7 +122,7 @@
     transition-duration: 0.2s;
 
     > GtkImage {
-      opacity: 0.75;
+      opacity: 0.87;
       transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                   background-image 0s;
     }
@@ -679,7 +679,7 @@ GtkWindow.budgie-popover:not(.csd) {
       padding: 0.5em;
       border-radius: 100px;
       outline-radius: 100px;
-      color: gtkopacity($destructive_color, 0.75);
+      color: gtkopacity($destructive_color, 0.87);
       &:hover,
       &:active,
       &:checked { color: $destructive_color; }
@@ -923,20 +923,20 @@ GtkWidget > GtkBox.workspace-switcher {
         padding: 4px;
         border-radius: 2px;
 
-        > gtkImage { opacity: 0.5; }
+        > gtkImage { opacity: 0.54; }
 
         &:hover,
         &:active {
           -gtk-image-effect: highlight;
 
-          > GtkImage { opacity: 0.75; }
+          > GtkImage { opacity: 0.87; }
         }
       }
 
       // counter
       .label.workspace-more-label {
         font-weight: 700;
-        opacity: 0.5;
+        opacity: 0.54;
       }
 
       &.current-workspace {

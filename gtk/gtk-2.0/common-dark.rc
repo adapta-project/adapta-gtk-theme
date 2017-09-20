@@ -1050,10 +1050,10 @@ style "button" {
   xthickness = 6
   ythickness = 6
 
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
@@ -1106,18 +1106,18 @@ style "button" {
 }
 
 style "button_label" {
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
   font_name = "Bold"
 }
 
 style "misc_button_label" {
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
   font_name = "Regular"
 }
 
@@ -1126,10 +1126,10 @@ style "flat_button" {
   xthickness = 6
   ythickness = 6
 
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
@@ -1193,10 +1193,10 @@ style "location_button" {
   xthickness = 2
   ythickness = 5
 
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
   fg[ACTIVE] = @fg_color
-  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
@@ -1231,10 +1231,10 @@ style "location_button" {
 }
 
 style "location_button_label" {
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
   fg[ACTIVE] = @fg_color
-  fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
   font_name = "Bold"
 }
 
@@ -1726,9 +1726,9 @@ style "menubar" {
   ythickness = 0
 
   bg[NORMAL] = @inverted_dark_color
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
-  fg[PRELIGHT] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @inverted_fg_color, @inverted_dark_color)
+  fg[PRELIGHT] = @inverted_fg_color
+  fg[INSENSITIVE] = mix(0.28, @inverted_fg_color, @inverted_dark_color)
 }
 
 style "menubar_item" {
@@ -1737,9 +1737,9 @@ style "menubar_item" {
 
   bg[NORMAL] = @inverted_dark_color
   bg[PRELIGHT] = @inverted_dark_color
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
-  fg[PRELIGHT] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @inverted_fg_color, @inverted_dark_color)
+  fg[PRELIGHT] = @inverted_fg_color
+  fg[INSENSITIVE] = mix(0.28, @inverted_fg_color, @inverted_dark_color)
 
   engine "pixmap" {
     image {
@@ -1785,11 +1785,11 @@ style "menu_item" {
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
   bg[SELECTED] = mix(0.9, @base_color, @fg_color)
   bg[PRELIGHT] = mix(0.9, @base_color, @fg_color)
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
-  fg[PRELIGHT] = shade(1.04, @fg_color)
-  fg[SELECTED] = shade(1.04, @fg_color)
-  text[PRELIGHT] = shade(1.04, @fg_color)
-  text[SELECTED] = shade(1.04, @fg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @base_color)
+  fg[PRELIGHT] = @fg_color
+  fg[SELECTED] = @fg_color
+  text[PRELIGHT] = @fg_color
+  text[SELECTED] = @fg_color
 
   engine "pixmap" {
 
@@ -1954,9 +1954,9 @@ style "menu_item" {
 }
 
 style "menu_item_label" {
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
-  fg[PRELIGHT] = shade(1.04, @fg_color)
-  fg[SELECTED] = shade(1.04, @fg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, mix(0.5, @base_color, @bg_color))
+  fg[PRELIGHT] = @fg_color
+  fg[SELECTED] = @fg_color
 
   engine "murrine" { textstyle = 0 }
 }
@@ -2308,7 +2308,7 @@ style "inline_toolbar" {
 }
 
 style "bg" {
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
   fg[ACTIVE] = @fg_color
   bg[NORMAL] = @bg_color
@@ -2318,7 +2318,7 @@ style "bg" {
 }
 
 style "base" {
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
   fg[ACTIVE] = @fg_color
   bg[NORMAL] = @base_color

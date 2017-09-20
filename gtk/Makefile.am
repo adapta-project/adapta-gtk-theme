@@ -115,10 +115,6 @@ gtk2_button_file = \
 	$(gtk2_assetdir)/Buttons/button-hover.png \
 	$(gtk2_assetdir)/Buttons/button-insensitive.png \
 	$(gtk2_assetdir)/Buttons/button.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button-active.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button-hover.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button-insensitive.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button.png \
 	$(gtk2_assetdir)/Buttons/flat-button-active.png \
 	$(gtk2_assetdir)/Buttons/flat-button-hover.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-active.png \
@@ -290,10 +286,6 @@ gtk2_nokto_button_file = \
 	$(gtk2_assetdir)/Buttons/button-dark.png \
 	$(gtk2_assetdir)/Buttons/button-hover-dark.png \
 	$(gtk2_assetdir)/Buttons/button-insensitive-dark.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button-active.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button-hover.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button-insensitive.png \
-	$(gtk2_assetdir)/Buttons/checked-flat-button.png \
 	$(gtk2_assetdir)/Buttons/flat-button-active-dark.png \
 	$(gtk2_assetdir)/Buttons/flat-button-hover-dark.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-active-dark.png \
