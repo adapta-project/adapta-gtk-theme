@@ -58,7 +58,7 @@ stage {
   box-shadow: 0 0 0 2px transparent;
   text-shadow: none;
   icon-shadow: none;
-  font-weight: 700;
+  font-weight: 500;
   &:hover {
     color: $inverted_accent_label_color;
     background-color: $accent_fill_color;
@@ -1491,7 +1491,7 @@ $extra_spacing: 2.5px;
     padding: 0.5em 0 0;
     background-color: transparent;
     color: $dim_fg_color;
-    font-weight: 700;
+    font-weight: 500;
     text-align: center;
   }
 }
@@ -1518,9 +1518,9 @@ $extra_spacing: 2.5px;
   &-with-events {
     background-image: none;
     color: $link_color;
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: underline;
-    &:hover { background-color: shellopacity($link_color, 0.2); }
+    &:hover { background-color: shellopacity($link_color, 0.12); }
     &:active,
     &:selected {
       &, &:hover {
@@ -1583,7 +1583,7 @@ $extra_spacing: 2.5px;
     margin:  if($eta == 'false', 1.5em 1.5em 0, 1.2em 1.2em 0);
     color: $secondary_accent_label_color;
     background-color: transparent;
-    font-weight: 700;
+    font-weight: 500;
     &:hover,
     &:focus {
       color: $accent_label_color;
@@ -2000,7 +2000,7 @@ $extra_spacing: 2.5px;
       .button {
         color: $inverted_secondary_accent_label_color;
         background-color: transparent;
-        font-weight: 700;
+        font-weight: 500;
         &:hover {
           color: $inverted_accent_label_color;
           background-color: $accent_fill_color;
@@ -2459,7 +2459,7 @@ $provider_details_width: 120px;
 .app-view-control { // favorties | all toggle button
   padding: if($eta == 'false', 7px 32px 8px, 5px 32px 6px);
   border-radius: 0;
-  font-weight: 700;
+  font-weight: 500;
   color: if($nokto == 'false', $osd_secondary_fg_color,
                                $secondary_fg_color);
   background-color: $hidden_fill_color !important;
@@ -2935,7 +2935,7 @@ $provider_details_width: 120px;
     padding: if($eta == 'false', 9px 4px 10px, 6px 3px 7px);
     background-color: transparent;
     color: $inverted_secondary_accent_label_color;
-    font-weight: 700;
+    font-weight: 500;
 
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
@@ -3263,7 +3263,7 @@ $provider_details_width: 120px;
                                       $inverted_secondary_fg_color,
                                       $secondary_fg_color));
     padding: 7px 16px 8px;
-    font-weight: 700;
+    font-weight: 500;
     &:hover,
     &:focus {
       @include button(flat-hover, $c: $osd_semi_fill_color,
@@ -3341,7 +3341,7 @@ $provider_details_width: 120px;
     padding: 4px 4px 5px;
     border-radius: 2px;
     color: $inverted_secondary_accent_label_color;
-    font-weight: 700;
+    font-weight: 500;
     text-align: center;
 
     .login-dialog-not-listed-button:focus & {
@@ -3695,7 +3695,7 @@ $tool_icon_size: 24px;
     border-radius: 2px;
     background-color: $suggested_color;
     color: $secondary_selected_fg_color;
-    font-weight: 700;
+    font-weight: 500;
     &:hover,
     &:focus {
       @include button(hover);
