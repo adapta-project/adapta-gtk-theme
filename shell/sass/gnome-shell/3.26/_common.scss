@@ -2887,8 +2887,7 @@ $provider_details_width: 120px;
 .notification-banner {
   @include fontscaling($ref_size * 1.1);
   width: 34em;
-  min-height: if($eta == 'false', 4.5em, 3.6em);
-  margin: 5px;
+  margin: 6px;
   border: none;
   border-radius: 2px;
   background-color: shellopacity($osd_bg_color, 0.9);
@@ -2901,14 +2900,23 @@ $provider_details_width: 120px;
     box-shadow: $z-depth-2;
   }
 
-  .notification-icon { padding: if($eta == 'false', 8px, 6px); }
+  .notification {
+    &-icon { padding: if($eta == 'false', 8px, 6px); }
 
-  .notification-content {
-    padding: if($eta == 'false', 8px, 6px);
-    spacing: if($eta == 'false', 8px, 6px);
+    &-content {
+      padding: if($eta == 'false', 8px, 6px);
+      spacing: if($eta == 'false', 8px, 6px);
+    }
+
+    &-actions {
+      padding: 0;
+      spacing: 0;
+      border: transparent;
+      background-color: transparent;
+    }
   }
 
-  .secondary-icon { icon-size: 14px; }
+  .secondary-icon { icon-size: 16px; }
 
   * > StIcon { color: $inverted_secondary_accent_label_color; }
 
@@ -2917,17 +2925,10 @@ $provider_details_width: 120px;
     color: $inverted_accent_label_color;
     background-color: $accent_fill_color;
   }
+
   *:active > StIcon {
     color: $inverted_accent_label_color;
     background-color: $accent_active_fill_color;
-  }
-
-  .notification-actions {
-    padding-top: 0;
-    border: transparent;
-    spacing: 1px;
-    color: $inverted_secondary_accent_label_color;
-    background-color: transparent;
   }
 
   .notification-button {
