@@ -1583,11 +1583,11 @@ GtkComboBox {
       &:active {
         background-color: gtkopacity($selected_bg_color, 0.54);
         &:insensitive {
-          background-color: gtkopacity($selected_bg_color, 0.54 * 0.3);
+          background-color: gtkopacity($selected_bg_color, 0.54 * 0.28);
         }
       }
       &:insensitive {
-        background-color: gtkopacity($inverted_tertiary_fg_color, 0.3);
+        background-color: gtkopacity($inverted_tertiary_fg_color, 0.28);
       }
     }
 
@@ -1600,11 +1600,11 @@ GtkComboBox {
       &:active {
         background-color: $selected_bg_color;
         &:insensitive {
-          background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.3);
+          background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
         }
       }
       &:insensitive {
-        background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.3);
+        background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
       }
     }
   }
@@ -2474,9 +2474,9 @@ GtkSwitch {
     background-color: $tertiary_fg_color;
     &:active {
       background-color: gtkopacity($selected_bg_color, 0.54);
-      &:insensitive { background-color: gtkopacity($selected_bg_color, 0.54 * 0.3); }
+      &:insensitive { background-color: gtkopacity($selected_bg_color, 0.54 * 0.28); }
     }
-    &:insensitive { background-color: gtkopacity($tertiary_fg_color, 0.3); }
+    &:insensitive { background-color: gtkopacity($tertiary_fg_color, 0.28); }
   }
 
   &.slider {
@@ -2509,7 +2509,7 @@ GtkSwitch {
     }
     &:insensitive {
       &, &:active {
-        background-color: mix($fg_color, $bg_color, 54% * 0.3);
+        background-color: mix($fg_color, $bg_color, 54% * 0.28);
         background-image: none;
         box-shadow: none;
       }
