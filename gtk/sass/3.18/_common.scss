@@ -1579,31 +1579,32 @@ GtkComboBox {
   // switch styling
   GtkSwitch {
     &.trough {
-      background-color: gtkopacity($inverted_secondary_fg_color, 0.2);
+      background-color: $inverted_tertiary_fg_color;
       &:active {
-        background-color: gtkopacity($selected_bg_color, 0.2);
-        &:insensitive { background-color: gtkopacity($selected_bg_color, 0.2); }
+        background-color: gtkopacity($selected_bg_color, 0.54);
+        &:insensitive {
+          background-color: gtkopacity($selected_bg_color, 0.54 * 0.3);
+        }
       }
       &:insensitive {
-        color: $insensitive_inverted_fg_color;
-        background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
+        background-color: gtkopacity($inverted_tertiary_fg_color, 0.3);
       }
     }
 
     &.slider {
-      background-color: $inverted_light_color;
+      background-color: mix($inverted_fg_color, $inverted_bg_color, 87%);
       &:hover {
         background-image: linear-gradient(to bottom,
-                                          gtkalpha($selected_fg_color, 0.2));
+                                          gtkalpha($inverted_fg_color, 0.12));
       }
       &:active {
         background-color: $selected_bg_color;
         &:insensitive {
-          background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
+          background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.3);
         }
       }
       &:insensitive {
-        background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
+        background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.3);
       }
     }
   }
@@ -2470,24 +2471,27 @@ GtkSwitch {
     // similar to the .scale
     border: 10px solid transparent;
     border-radius: 100px;
-    background-color: $track_color;
+    background-color: $tertiary_fg_color;
     &:active {
-      background-color: gtkopacity($selected_bg_color, 0.2);
-      &:insensitive { background-color: gtkopacity($selected_bg_color, 0.2); }
+      background-color: gtkopacity($selected_bg_color, 0.54);
+      &:insensitive { background-color: gtkopacity($selected_bg_color, 0.54 * 0.3); }
     }
-    &:insensitive { background-color: mix($bg_color, $fg_color, 95%); }
+    &:insensitive { background-color: gtkopacity($tertiary_fg_color, 0.3); }
   }
 
   &.slider {
     padding: 5px;
     border-radius: 100px;
     outline-radius: 100px;
-    background-color: $light_color;
+    background-color: if($variant == 'light', $light_color,
+                                              mix($fg_color, $bg_color, 87%));
     box-shadow: $z-depth-1,
                 inset 0 1px $highlight_color;
     &:hover {
-      background-image: linear-gradient(to bottom,
-                                        gtkopacity($fixed_base_color, 0.1));
+    background-image: linear-gradient(to bottom,
+                                      if($variant == 'light',
+                                      gtkopacity($fixed_fg_color, 0.12),
+                                      gtkopacity($fg_color, 0.12)));
       box-shadow: $z-depth-2,
                   inset 0 1px $highlight_color;
     }
@@ -2498,14 +2502,14 @@ GtkSwitch {
                   inset 0 1px $highlight_color;
       &:hover {
         background-image: linear-gradient(to bottom,
-                                          gtkopacity($fixed_base_color, 0.2));
+                                          gtkopacity($fixed_base_color, 0.12));
         box-shadow: $z-depth-2,
                     inset 0 1px $highlight_color;
       }
     }
     &:insensitive {
       &, &:active {
-        background-color: mix($bg_color, $fg_color, 95%);
+        background-color: mix($fg_color, $bg_color, 54% * 0.3);
         background-image: none;
         box-shadow: none;
       }
@@ -2514,28 +2518,26 @@ GtkSwitch {
 
   .list-row:selected & { // return to monochrome
     &.trough {
-      background-color: $bg_color;
+      background-color: mix($selected_fg_color, $selected_bg_color, 54%);
       &:active {
-        background-color: $secondary_dark_color;
-        &:insensitive { background-color: $secondary_dark_color; }
+        background-color: $selected_fg_color;
       }
     }
 
     &.slider {
-      background-color: $bg_color;
+      background-color: $selected_fg_color;
       &:hover {
         background-image: linear-gradient(to bottom,
-                                          gtkalpha($fixed_base_color, 0.1));
+                                          gtkalpha($fixed_fg_color, 0.12));
       }
       &:active {
-        background-color: $base_color;
+        background-color: $selected_fg_color;
         &:hover {
           background-image: linear-gradient(to bottom,
-                                            gtkalpha($fixed_base_color, 0.2));
+                                            gtkalpha($fixed_fg_color, 0.12));
           box-shadow: $z-depth-2,
                       inset 0 1px $highlight_color;
         }
-        &:insensitive { background-color: $secondary_dark_color; }
       }
     }
   }
@@ -2612,34 +2614,22 @@ GtkSwitch {
   .list-row:selected GtkGrid & {
     &.trough { // use ugly pixmaps
       background-image: -gtk-scaled(
-                        url("assets/toggle-off-row#{$asset_suffix}.png"),
-                        url("assets/toggle-off-row#{$asset_suffix}@2.png"));
+                        url("assets/toggle-off-selected-row.png"),
+                        url("assets/toggle-off-selected-row@2.png"));
       &:hover {
         background-image: -gtk-scaled(
-                          url("assets/toggle-off-row-hover#{$asset_suffix}.png"),
-                          url("assets/toggle-off-row-hover#{$asset_suffix}@2.png"));
+                          url("assets/toggle-off-selected-row-hover.png"),
+                          url("assets/toggle-off-selected-row-hover@2.png"));
       }
       &:active {
         background-image: -gtk-scaled(
-                          url("assets/toggle-on-row#{$asset_suffix}.png"),
-                          url("assets/toggle-on-row#{$asset_suffix}@2.png"));
+                          url("assets/toggle-on-selected-row.png"),
+                          url("assets/toggle-on-selected-row@2.png"));
         &:hover {
           background-image: -gtk-scaled(
-                            url("assets/toggle-on-row-hover#{$asset_suffix}.png"),
-                            url("assets/toggle-on-row-hover#{$asset_suffix}@2.png"));
+                            url("assets/toggle-on-selected-row-hover.png"),
+                            url("assets/toggle-on-selected-row-hover@2.png"));
         }
-        &:insensitive,
-        &:insensitive:hover {
-          background-image: -gtk-scaled(
-                            url("assets/toggle-on-row-insensitive#{$asset_suffix}.png"),
-                            url("assets/toggle-on-row-insensitive#{$asset_suffix}@2.png"));
-        }
-      }
-      &:insensitive,
-      &:insensitive:hover {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-off-row-insensitive#{$asset_suffix}.png"),
-                          url("assets/toggle-off-row-insensitive#{$asset_suffix}@2.png"));
       }
     }
   }

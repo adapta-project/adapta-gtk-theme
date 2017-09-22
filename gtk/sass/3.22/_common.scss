@@ -2314,36 +2314,30 @@ headerbar {
   switch {
     min-width: rem(30px);
     border: rem(10px) solid transparent;
-    color: $inverted_secondary_fg_color;
-    background-color: gtkopacity($inverted_secondary_fg_color, 0.2);
+    background-color: $inverted_tertiary_fg_color;
     outline-offset: rem(-4px);
-    &:checked {
-      background-color: gtkopacity($selected_bg_color, 0.2);
-      &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
-    }
     &:disabled {
-      color: $insensitive_inverted_fg_color;
-      background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
+      background-color: gtkopacity($inverted_tertiary_fg_color, 0.3);
     }
 
     slider {
       min-width: rem(20px);
       min-height: rem(20px);
       margin: rem(-5px) 0 rem(-5px) rem(-5px);
-      background-color: $inverted_light_color;
+      background-color: mix($inverted_fg_color, $inverted_bg_color, 87%);
     }
     &:hover slider {
-      background-image: image(gtkalpha($selected_fg_color, 0.2));
+      background-image: image(gtkopacity($inverted_fg_color, 0.12));
     }
     &:checked slider {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
       background-color: $selected_bg_color;
       &:disabled {
-        background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
+        background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.3);
       }
     }
     &:disabled slider {
-      background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
+      background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.3);
     }
   }
 
@@ -3695,14 +3689,16 @@ switch {
   border: rem(10px, $sw: 1.0) solid transparent;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
-  background-color: $outline_track_color;
+  background-color: $tertiary_fg_color;
   font-size: 0;
   outline-offset: rem(-4px, $sw: 1.0);
   &:checked {
-    background-color: gtkopacity($selected_bg_color, 0.2);
-    &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
+    background-color: gtkopacity($selected_bg_color, 0.54);
+    &:disabled {
+      background-color: gtkopacity($selected_bg_color, 0.54 * 0.3);
+    }
   }
-  &:disabled { background-color: mix($bg_color, $fg_color, 95%); }
+  &:disabled { background-color: gtkopacity($tertiary_fg_color, 0.3); }
 
   // slider styling
   // switch slider doesn't respond to its own states
@@ -3713,7 +3709,8 @@ switch {
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    background-color: $light_color;
+    background-color: if($variant == 'light', $light_color,
+                                              mix($fg_color, $bg_color, 87%));
     box-shadow: $z-depth-1,
                 inset 0 1px $highlight_color;
     transition-timing-function: $slope_slow;
@@ -3731,7 +3728,9 @@ switch {
   }
 
   &:hover slider {
-    background-image: image(gtkopacity($fixed_base_color, 0.1));
+    background-image: image(if($variant == 'light',
+                            gtkopacity($fixed_fg_color, 0.12),
+                            gtkopacity($fg_color, 0.12)));
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
@@ -3744,7 +3743,7 @@ switch {
   }
 
   &:checked:hover slider {
-    background-image: image(gtkopacity($fixed_base_color, 0.2));
+    background-image: image(gtkopacity($fixed_base_color, 0.12));
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
@@ -3753,30 +3752,21 @@ switch {
     slider,
     &:checked slider {
       // do not use any transparentize
-      background-color: mix($bg_color, $fg_color, 95%);
+      background-color: mix($fg_color, $bg_color, 54% * 0.3);
       background-image: none;
       box-shadow: none;
     }
   }
 
   row:selected > & { // return to monochrome
-    background-color: $bg_color;
-    &:checked {
-      background-color: $secondary_dark_color;
-      &:disabled { background-color: $secondary_dark_color; }
-    }
+    background-color: mix($selected_fg_color, $selected_bg_color, 54%);
+    &:checked { background-color: $selected_fg_color; }
 
-    slider { background-color: $bg_color; }
+    slider { background-color: $selected_fg_color; }
 
-    &:hover slider {
-      background-image: image(gtkalpha($selected_fg_color, 0.2));
-    }
+    &:hover slider { background-image: image(gtkopacity($fixed_fg_color, 0.12)); }
 
-    &:checked {
-      slider { background-color: $base_color; }
-
-      &:disabled slider { background-color: $secondary_dark_color; }
-    }
+    &:checked slider { background-color: $selected_fg_color; }
   }
 
   // special case inside the grid and row container,
@@ -3874,35 +3864,23 @@ switch {
   row:selected * & {
     &:not(:hover):not(:checked):not(:disabled) {
       background-image: -gtk-scaled(
-                        url("assets/toggle-off-row#{$asset_suffix}.png"),
-                        url("assets/toggle-off-row#{$asset_suffix}@2.png"));
+                        url("assets/toggle-off-selected-row.png"),
+                        url("assets/toggle-off-selected-row@2.png"));
     }
     &:hover {
       background-image: -gtk-scaled(
-                        url("assets/toggle-off-row-hover#{$asset_suffix}.png"),
-                        url("assets/toggle-off-row-hover#{$asset_suffix}@2.png"));
+                        url("assets/toggle-off-selected-row-hover.png"),
+                        url("assets/toggle-off-selected-row-hover@2.png"));
     }
     &:checked {
       background-image: -gtk-scaled(
-                        url("assets/toggle-on-row#{$asset_suffix}.png"),
-                        url("assets/toggle-on-row#{$asset_suffix}@2.png"));
+                        url("assets/toggle-on-selected-row.png"),
+                        url("assets/toggle-on-selected-row@2.png"));
       &:hover {
         background-image: -gtk-scaled(
-                          url("assets/toggle-on-row-hover#{$asset_suffix}.png"),
-                          url("assets/toggle-on-row-hover#{$asset_suffix}@2.png"));
+                          url("assets/toggle-on-selected-row-hover.png"),
+                          url("assets/toggle-on-selected-row-hover@2.png"));
       }
-      &:disabled,
-      &:disabled:hover {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-on-row-insensitive#{$asset_suffix}.png"),
-                          url("assets/toggle-on-row-insensitive#{$asset_suffix}@2.png"));
-      }
-    }
-    &:disabled,
-    &:disabled:hover {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-row-insensitive#{$asset_suffix}.png"),
-                        url("assets/toggle-off-row-insensitive#{$asset_suffix}@2.png"));
     }
   }
 }
