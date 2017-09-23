@@ -6,21 +6,21 @@
 @keyframes budgie_ripple_effect {
   0% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0.2) 0%,
+                                      gtkalpha($inverted_fg_color, 0.25) 0%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.1));
+                      image(gtkalpha($inverted_fg_color, 0.12));
   }
   66% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0.2) 100%,
+                                      gtkalpha($inverted_fg_color, 0.25) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.1));
+                      image(gtkalpha($inverted_fg_color, 0.12));
   }
   100% {
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha($inverted_fg_color, 0) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.1));
+                      image(gtkalpha($inverted_fg_color, 0.12));
   }
 }
 
@@ -119,7 +119,7 @@ box.pinned { // drop-target
   &:drop(active) {
     border: none;
     border-radius: 0;
-    background-color: gtkopacity($drop_target_color, 0.2);
+    background-color: gtkopacity($drop_target_color, 0.25);
     box-shadow: inset 0 0 0 2px $drop_target_color;
   }
 }
@@ -398,7 +398,7 @@ window.budgie-popover:not(.csd) {
         background-color: transparent;
         color: $selected_bg_color;
         &:hover {
-          background-color: gtkopacity($selected_bg_color, 0.1);
+          background-color: $track_color;
           color: $selected_bg_color;
         }
         &:disabled {
@@ -651,7 +651,7 @@ window.budgie-popover:not(.csd) {
       &, label {
         color: $selected_bg_color;
       }
-      &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
+      &:hover { background-color: $track_color; }
     }
 
     separator {
@@ -661,7 +661,7 @@ window.budgie-popover:not(.csd) {
       border: none;
       color: transparent;
       background-color: transparent;
-      background-image: image(gtkopacity($fg_color, 0.1));
+      background-image: image(gtkopacity($fg_color, 0.12));
       background-position: center;
       background-repeat: no-repeat;
       background-size: auto 1px;
@@ -771,7 +771,7 @@ window.budgie-popover:not(.csd) {
       border-bottom: 1px solid $borders_color;
       &:selected {
         &, &:focus {
-          background-color: gtkopacity($selected_bg_color, 0.2);
+          background-color: gtkopacity($selected_bg_color, 0.25);
           &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
           &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
 
@@ -1433,7 +1433,7 @@ window.budgie-switcher-window {
     background-color: transparent;
     &:hover,
     &:active {
-      background-color: gtkopacity($accent_color, 0.1);
+      background-color: gtkopacity($accent_color, 0.12);
       color: $inverted_accent_label_color;
     }
     &:selected { // use the same values with Gnome-Shell
@@ -1441,7 +1441,7 @@ window.budgie-switcher-window {
       color: $inverted_accent_label_color;
       -gtk-icon-effect: highlight;
       &:disabled {
-        background-color: gtkopacity($inverted_fg_color, 0.1);
+        background-color: gtkopacity($inverted_fg_color, 0.12);
         -gtk-icon-effect: dim;
 
         &, label { color: $insensitive_inverted_fg_color; }
@@ -2588,7 +2588,7 @@ window.background:not(.csd) > box.vertical {
     min-height: 150px;
     border-radius: 2px;
     border: none;
-    background-color: gtkopacity($inverted_fg_color, 0.1);
+    background-color: gtkopacity($inverted_fg_color, 0.12);
   }
 
   .passwordentry {
@@ -2645,7 +2645,7 @@ window.background:not(.csd) > box.vertical {
     }
     &:disabled {
       @extend %button_flat_disabled;
-      background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
+      background-color: gtkopacity($inverted_secondary_fg_color, 0.12);
       color: gtkopacity($inverted_secondary_fg_color, 0.4);
 
       label,
@@ -2743,7 +2743,7 @@ window.background:not(.csd) > box.vertical {
       animation: none;
     }
     &:active {
-      &, &:hover { background-color: gtkopacity($inverted_fg_color, 0.1); }
+      &, &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
     }
   }
 
@@ -2798,11 +2798,11 @@ overlay.article-list > stack {
     background-color: $bg_color;
 
     > row.activatable {
-      &:hover { background-color: gtkalpha(currentColor, 0.1); }
+      &:hover { background-color: $track_color; }
       &:selected {
         &,
         &:focus {
-          background-color: gtkopacity($selected_bg_color, 0.2);
+          background-color: gtkopacity($selected_bg_color, 0.25);
           &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
           &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
 
@@ -2986,12 +2986,12 @@ PanelSeparator {
   border-width: 0;
   background: none;
   background-image: none;
-  color: gtkopacity($inverted_secondary_fg_color, 0.1 * 0.55);
+  color: gtkopacity($inverted_secondary_fg_color, 0.12 * 0.55);
 }
 
 MatePanelAppletFrameDBus {
   border-style: solid;
-  border-color: gtkopacity($inverted_secondary_fg_color, 0.1 * 0.55);
+  border-color: gtkopacity($inverted_secondary_fg_color, 0.12 * 0.55);
 
   &:dir(ltr) { border-width: 0 0 0 2px; }
   &:dir(rtl) { border-width: 0 2px 0 0; }
@@ -3005,7 +3005,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   padding: 0;
   border-radius: 0;
   border-style: solid;
-  border-color: gtkopacity($inverted_secondary_fg_color, 0.1 * 0.55);
+  border-color: gtkopacity($inverted_secondary_fg_color, 0.12 * 0.55);
   -gtk-outline-radius: 0;
   background-color: transparent;
   color: $inverted_secondary_fg_color;
@@ -3950,7 +3950,7 @@ window.background.chromium {
     &.maximize,
     &.restore {
       &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
-      &:active { background-color: gtkopacity($inverted_fg_color, 0.2); }
+      &:active { background-color: gtkopacity($inverted_fg_color, 0.25); }
     }
   }
 

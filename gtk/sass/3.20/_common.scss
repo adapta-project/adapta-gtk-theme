@@ -487,7 +487,7 @@ entry {
 
     treeview.view {
       &:selected { // fallback to standard hovering
-        background-color: gtkopacity($fg_color, 0.1);
+        background-color: $track_color;
         color: $fg_color;
       }
     }
@@ -624,7 +624,7 @@ button {
         &:hover { @include button(flat-hover, $track_color, $b_color); }
         &:active {
           @extend %button_flat_active;
-          background-color: gtkalpha($selected_bg_color, 0.2);
+          background-color: gtkalpha($selected_bg_color, 0.25);
           color: $selected_bg_color;
         }
         &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
@@ -1173,7 +1173,7 @@ button:visited {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha(currentColor, 0.1)),
+                                    to($track_color),
                                     to(transparent));
   }
 }
@@ -1183,7 +1183,7 @@ button:visited {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha(currentColor, 0.2)),
+                                    to(gtkalpha(currentColor, 0.25)),
                                     to(transparent));
   }
   to {
@@ -1337,12 +1337,12 @@ spinbutton {
       &.up { // '+' button
         &:hover {
           @extend %button_flat_hover;
-          background-color: gtkopacity($success_color, 0.1);
+          background-color: $track_color;
           color: $success_color;
         }
         &:active {
           @extend %button_flat_active;
-          background-color: gtkopacity($success_color, 0.1);
+          background-color: $track_color;
           color: $success_color;
         }
         &:disabled {
@@ -1355,12 +1355,12 @@ spinbutton {
       &.down { // '-' button
         &:hover {
           @extend %button_flat_hover;
-          background-color: gtkopacity($error_color, 0.1);
+          background-color: $track_color;
           color: $error_color;
         }
         &:active {
           @extend %button_flat_active;
-          background-color: gtkopacity($error_color, 0.1);
+          background-color: $track_color;
           color: $error_color;
         }
         &:disabled {
@@ -2887,11 +2887,11 @@ treeview.view {
       color: $tertiary_fg_color;
       &:hover {
         @extend %column_header_button;
-        background-color: gtkalpha(currentColor, 0.1);
+        background-color: $track_color;
         color: $secondary_fg_color;
       }
       &:active {
-        background-color: gtkalpha(currentColor, 0.1);
+        background-color: $track_color;
         color: $fg_color;
       }
       &:disabled {
@@ -3025,7 +3025,7 @@ menu {
     > arrow { color: $secondary_fg_color; }
 
     &:hover {
-      background-color: gtkalpha(currentColor, 0.1);
+      background-color: $track_color;
       transition: none;
 
       &,
@@ -3906,14 +3906,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha(currentColor, 0.1)),
+                                    to($track_color),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha(currentColor, 0.1)),
+                                    to($track_color),
                                     to(transparent));
   }
 }
@@ -3923,14 +3923,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(gtkalpha($selected_bg_color, 0.12)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(gtkalpha($selected_bg_color, 0.12)),
                                     to(transparent));
   }
 }
@@ -3940,7 +3940,7 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.2)),
+                                    to(gtkalpha($selected_bg_color, 0.25)),
                                     to(transparent));
   }
   to {
@@ -4981,7 +4981,7 @@ calendar {
     &:hover {
       @extend %button_flat_hover;
       color: currentColor;
-      background-color: gtkalpha(currentColor, 0.1);
+      background-color: $track_color;
     }
     &:active {
       @extend %button_flat_active;
@@ -5732,7 +5732,7 @@ colorchooser .popover.osd {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha(currentColor, 0.1)),
+                                    to($track_color),
                                     to(transparent));
   }
 }
@@ -6034,7 +6034,7 @@ decoration {
       &:hover,
       &:active {
         color: $inverted_fg_color;
-        background-color: gtkopacity($inverted_fg_color, 0.1);
+        background-color: $track_color;
 
         > image {
           background-image:
@@ -6054,7 +6054,7 @@ decoration {
       &:hover,
       &:active {
         color: $inverted_fg_color;
-        background-color: gtkopacity($inverted_fg_color, 0.1);
+        background-color: $track_color;
 
         > image {
           background-image:

@@ -221,7 +221,7 @@ list.tweak-group-startup {
       transition-duration: 0s; // child 'grid' already has
       &:hover {
         > grid {
-          background-image: image(gtkalpha($secondary_fg_color, 0.1));
+          background-image: image(gtkalpha($secondary_fg_color, 0.12));
           transition: background-image 0.1s $slope_slow;
         }
       }
@@ -382,15 +382,15 @@ dialog.csd > headerbar.titlebar {
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     color: $inverted_secondary_accent_label_color;
-    background-color: gtkopacity($accent_color, 0.2);
+    background-color: gtkopacity($accent_color, 0.25);
     &:hover {
       color: $inverted_accent_label_color;
-      background-color: gtkopacity($accent_color, 0.2);
+      background-color: gtkopacity($accent_color, 0.25);
     }
     &:active,
     &:checked {
       color: $inverted_accent_label_color;
-      background-color: gtkopacity($accent_color, 0.2);
+      background-color: gtkopacity($accent_color, 0.25);
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
@@ -723,7 +723,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
     font-weight: 400; // reset weight
     &:selected {
       &, &:focus {
-        background-color: gtkopacity($selected_bg_color, 0.2);
+        background-color: gtkopacity($selected_bg_color, 0.25);
         color: $fg_color;
         &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
         &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }

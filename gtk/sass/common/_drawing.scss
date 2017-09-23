@@ -222,19 +222,19 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 
   0% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha(currentColor, 0.1) 0%,
+                                      $track_color 0%,
                                       transparent 0%),
                       image(gtkalpha(currentColor, 0));
   }
   66% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha(currentColor, 0.1) 100%,
+                                      $track_color 100%,
                                       transparent 0%),
-                      image(gtkalpha(currentColor, 0.1));
+                      image($track_color);
   }
   100% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha(currentColor, 0) 100%,
+                                      $track_color 100%,
                                       transparent 0%),
                       image(gtkalpha(currentColor, 0));
   }
@@ -243,21 +243,21 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 @keyframes flat_ripple_effect {
   0% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha(currentColor, 0.1) 0%,
+                                      $track_color 0%,
                                       transparent 0%),
-                      image(gtkalpha(currentColor, 0.1));
+                      image($track_color);
   }
   66% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha(currentColor, 0.1) 100%,
+                                      $track_color 100%,
                                       transparent 0%),
-                      image(gtkalpha(currentColor, 0.1));
+                      image($track_color);
   }
   100% {
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha(currentColor, 0) 100%,
                                       transparent 0%),
-                      image(gtkalpha(currentColor, 0.1));
+                      image($track_color);
   }
 }
 
@@ -449,7 +449,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   background-image: radial-gradient(circle farthest-corner at center,
                                     gtkalpha(currentColor, 0) 100%,
                                     transparent 0%),
-                    image(gtkalpha(currentColor, 0.1));
+                    image($track_color);
   box-shadow: none;
 }
 
