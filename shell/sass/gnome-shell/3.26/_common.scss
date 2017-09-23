@@ -2077,10 +2077,11 @@ $extra_spacing: 2.5px;
 }
 
 .window-caption { // hovered tooltips
-  padding: if($eta == 'false', 0.3em 0.9em 0.4em, 0.2em 0.6em 0.3em);
-  border-radius: 2px;
+  padding: if($eta == 'false', 0.6em 1.2em 0.7em, 0.4em 0.9em 0.5em);
+  border-radius: 100px;
+  border-top: 1px solid $borders_highlight;
   color: $osd_fg_color;
-  background-color: shellopacity($osd_bg_color, 0.9);
+  background-color: $panel_bg_color;
   box-shadow: $z-depth-3;
 }
 
