@@ -41,7 +41,7 @@
     background-gradient-drection: vertical;
     background-gradient-start: $panel_hidden_fill_color;
     background-gradient-end: $panel_hidden_fill_color;
-    box-shadow: inset 0 -2px $osd_fill_color;
+    box-shadow: inset 0 -2px $osd_outline_fill_color;
   }
 
   &:active > StWidget,
@@ -63,12 +63,12 @@
 
   &.minimized {
     & > StWidget {
-      color: $inverted_dim_fg_color;
+      color: $osd_tertiary_fg_color;
       box-shadow: none;
     }
     &:hover > StWidget {
       color: $osd_fg_color;
-      box-shadow: inset 0 -2px $osd_fill_color;
+      box-shadow: inset 0 -2px $osd_outline_fill_color;
     }
     &:active > StWidget {
       color: $osd_fg_color;
@@ -99,7 +99,7 @@
     background-gradient-drection: vertical;
     background-gradient-start: $panel_hidden_fill_color;
     background-gradient-end: $panel_hidden_fill_color;
-    box-shadow: inset 0 -2px $osd_fill_color;
+    box-shadow: inset 0 -2px $osd_outline_fill_color;
 
     & > StWidget { color: $osd_fg_color; }
   }

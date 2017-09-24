@@ -71,7 +71,7 @@ $duration_short: 0.1s;
     border-color: transparent;
     background-color: $hidden_fill_color;
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
-                                                         $fill_color);
+                                                         $outline_fill_color);
   }
   @if $t==focus {
     border-color: transparent;
@@ -81,19 +81,21 @@ $duration_short: 0.1s;
   @if $t==hover {
     border-color: transparent;
     box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc,
-                                                         $fill_color);
+                                                         $outline_fill_color);
   }
   @if $t==insensitive {
     border-color: transparent;
     color: $insensitive_fg_color;
-    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
-                                                         $insensitive_fill_color);
+    box-shadow: inset 0 -1px if($fc!=$selected_bg_color,
+                                $fc,
+                                $insensitive_outline_fill_color);
   }
   @if $t==osd-normal {
     border-color: transparent;
     background-color: $hidden_fill_color;
-    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
-                                                         $osd_fill_color);
+    box-shadow: inset 0 -1px if($fc!=$selected_bg_color,
+                                $fc,
+                                $osd_outline_fill_color);
   }
   @if $t==osd-focus {
     border-color: transparent;
@@ -107,8 +109,9 @@ $duration_short: 0.1s;
     border-color: transparent;
     background-color: $hidden_fill_color;
     color: $insensitive_osd_fg_color;
-    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
-                                                         $insensitive_osd_fill_color);
+    box-shadow: inset 0 -1px if($fc!=$selected_bg_color,
+                                 $fc,
+                                 $insensitive_osd_outline_fill_color);
   }
 }
 
@@ -184,7 +187,9 @@ $duration_short: 0.1s;
   //
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $insensitive_secondary_fg_color);
-    background-color: if($c!=$bg_color, $c, $insensitive_fill_color);
+    background-color: if($c!=$bg_color,
+                         $c,
+                         shellopacity($insensitive_secondary_fg_color, 0.12));
     box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
@@ -208,7 +213,6 @@ $duration_short: 0.1s;
     box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
-    // box-shadow: inset 0px 0px 0px 2px $fill_color;
   }
 
   @else if $t==flat-hover {
@@ -264,7 +268,6 @@ $duration_short: 0.1s;
     box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
-    // box-shadow: inset 0px 0px 0px 2px $fill_color;
   }
 
   @else if $t==osd-hover {
@@ -273,7 +276,7 @@ $duration_short: 0.1s;
   //
     border-color: transparent;
     color: if($tc!=$fg_color, $tc, $osd_fg_color);
-    background-color: if($c!=$bg_color, $osd_fill_color, $osd_semi_fill_color);
+    background-color: if($c!=$bg_color, $tc, $osd_semi_fill_color);
     box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
