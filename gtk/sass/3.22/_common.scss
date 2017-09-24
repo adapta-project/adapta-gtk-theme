@@ -3207,6 +3207,8 @@ popover.background {
         background-color: transparent; // remove double-bg
         color: $fg_color;
       }
+      // enforce insensitive foregrounds
+      &:disabled { color: $insensitive_secondary_fg_color; }
 
       // FIXME: label padding is ugly
       // vertical padding of GtkMenuItem

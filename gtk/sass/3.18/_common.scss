@@ -2125,6 +2125,8 @@ column-header.button.dnd { // for treeview-like derive widgets
       background-color: transparent; // remove double-bg
       color: $fg_color;
     }
+    // enforce insensitive foregrounds
+    &:insensitive { color: $insensitive_secondary_fg_color; }
 
     // FIXME: label padding is ugly
     // vertical padding of GtkMenuItem * 0.5
