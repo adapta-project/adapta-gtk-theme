@@ -2083,9 +2083,6 @@ dzl {
     &:only-child { margin: -6px; }
     &:first-child { margin: -6px -6px 0; }
     &:last-child { margin: 0 -6px -6px; }
-
-    // reset weight
-    button.dzlmenubuttonitem { font-weight: 400; }
   }
 
   &preferencesview {
@@ -2123,14 +2120,25 @@ popover.messagepopover {
   }
 }
 
+window.background.workbench > popover.menu { // right-most popover
+  > stack { // reduce embedded margins more
+    margin: -(12px - 2px) -12px -12px;
+  }
+}
+
 button.dzlmenubuttonitem.check { // menuitem buttons
+  transition-duration: 0s; // unset transition
+  font-weight: 400; // reset weight
+
   box > image { opacity: 0.87; }
+
+  label { padding: rem(5.3px) 0 rem(6.7px); }
 
   // :checked inside the popover menus!?
   &:checked label { // keep default label colour
     color: $secondary_fg_color;
 
-    &.dim-label { color: gtkopacity($secondary_fg_color, 0.55); }
+    &.dim-label { color: $secondary_fg_color; }
   }
 }
 
