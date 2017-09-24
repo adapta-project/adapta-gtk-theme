@@ -26,12 +26,15 @@ $secondary_selected_fg_color: shellopacity($selected_fg_color, 0.87);
 
 
 //
-// Inverted foreground colors
+// OSD Foreground colors
 //
 
-$inverted_fg_color: if($nokto == 'false', #CFD8DC, #263238);
-$inverted_secondary_fg_color: shellopacity($inverted_fg_color, 0.87);
-$inverted_tertiary_fg_color: shellopacity($inverted_fg_color, 0.54);
+$osd_fg_color: #CFD8DC;
+$osd_secondary_fg_color: shellopacity($osd_fg_color, 0.87);
+$osd_tertiary_fg_color: shellopacity($osd_fg_color, 0.54);
+
+$insensitive_osd_fg_color: shellopacity($osd_fg_color, 0.28);
+$insensitive_osd_secondary_fg_color: shellopacity($osd_secondary_fg_color, 0.28);
 
 
 //
@@ -64,12 +67,18 @@ $insensitive_outline_fill_color: shellopacity($outline_fill_color, 0.28);
 
 
 //
-// Inverted background colors
+// OSD Background colors
 //
 
-$inverted_bg_color: if($nokto == 'false', #263238, #FAFBFC);
-$inverted_base_color: #29353B;
-$inverted_dim_bg_color: shellopacity($inverted_bg_color, 0.2);
+$osd_bg_color: mix(#263238, #000000, 90%);
+
+$osd_fill_color: shellopacity($osd_fg_color, 0.25);
+$osd_semi_fill_color: shellopacity($osd_fg_color, 0.12);
+
+$osd_indicator_color: $selected_bg_color;
+
+$osd_outline_fill_color: shellopacity($osd_fg_color, 0.2);
+$insensitive_osd_outline_fill_color: shellopacity($osd_outline_fill_color, 0.28);
 
 
 //
@@ -88,9 +97,7 @@ $accent_fill_color: shellopacity($accent_color, 0.25);
 $accent_semi_fill_color: shellopacity($accent_color, 0.12);
 $accent_outline_fill_color: shellopacity($accent_color, 0.2);
 
-$inverted_accent_label_color: if($nokto == 'false',
-                              mix($key_accent_color, $inverted_fg_color, 60%),
-                              mix($key_accent_color, $fg_color, 60%));
+$inverted_accent_label_color: mix($key_accent_color, $osd_fg_color, 60%);
 $inverted_secondary_accent_label_color:
   shellopacity($inverted_accent_label_color, 0.87);
 
@@ -118,31 +125,4 @@ $error_color: #F44336;
 $success_color: #00E676;
 
 $suggested_color: $key_suggestion_color;
-
-
-//
-// OSD Foreground colors
-//
-
-$osd_fg_color: if($nokto == 'false', $inverted_fg_color, $fg_color);
-$osd_secondary_fg_color: shellopacity($osd_fg_color, 0.87);
-$osd_tertiary_fg_color: shellopacity($osd_fg_color, 0.54);
-
-$insensitive_osd_fg_color: shellopacity($osd_fg_color, 0.28);
-$insensitive_osd_secondary_fg_color: shellopacity($osd_secondary_fg_color, 0.28);
-
-
-//
-// OSD Background colors
-//
-
-$osd_bg_color: mix(#263238, #000000, 90%);
-
-$osd_fill_color: shellopacity($osd_fg_color, 0.25);
-$osd_semi_fill_color: shellopacity($osd_fg_color, 0.12);
-
-$osd_indicator_color: $selected_bg_color;
-
-$osd_outline_fill_color: shellopacity($osd_fg_color, 0.2);
-$insensitive_osd_outline_fill_color: shellopacity($osd_outline_fill_color, 0.28);
 

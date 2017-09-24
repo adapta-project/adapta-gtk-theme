@@ -243,7 +243,7 @@ StScrollBar {
 .modal-dialog {
   border: none;
   border-radius: 2px;
-  color: $osd_fg_color);
+  color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-4;
 
@@ -348,8 +348,7 @@ StScrollBar {
 
   &-app-list-item-description {
     @include fontscaling($ref_size * 1.0);
-    color: if($nokto == 'false', $inverted_dim_fg_color,
-                                 $dim_fg_color);
+    color: $osd_tertiary_fg_color;
   }
 }
 
@@ -547,8 +546,7 @@ StScrollBar {
 
   &-subtitle {
     @include fontscaling($ref_size * 1.1);
-    color: if($nokto == 'false', $inverted_dim_fg_color,
-                                 $dim_fg_color);
+    color: $osd_tertiary_fg_color;
     font-weight: 700;
   }
 }
@@ -570,8 +568,7 @@ StScrollBar {
   &-title { font-weight: 700; }
 
   &-reason {
-    color: if($nokto == 'false', $inverted_dim_fg_color,
-                                 $dim_fg_color);
+    color: $osd_tertiary_fg_color;
     font-weight: 400;
   }
 }
@@ -1552,7 +1549,7 @@ $extra_spacing: 2.5px;
 
     .popup-menu & {
       &,
-      > .event-time { color: $dim_fg_color; }
+      > .event-time { color: $tertiary_fg_color; }
     }
   }
 
