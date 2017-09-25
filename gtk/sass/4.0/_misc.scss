@@ -2080,7 +2080,8 @@ popover.messagepopover {
   // use action-area style buttons
   box.popover-content-area {
     @extend buttonbox.dialog-action-area;
-    margin: -12px; // kill outer spacing
+    // desired negative margin breaks builder 3.22 theming...
+    // margin: -12px;
   }
 }
 
