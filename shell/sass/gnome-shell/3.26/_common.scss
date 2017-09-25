@@ -94,7 +94,9 @@ stage {
 
 StEntry {
   @include entry(normal);
-  padding: if($eta == 'false', 7px 8px 8px, 5px 6px 6px);
+  min-height: if($eta == 'false', 1em + 0.7em + 0.8em,
+                                  1em + 0.5em + 0.6em);
+  padding: if($eta == 'false', 0 0.8em, 0 0.6em);
   border-radius: 0;
   border-width: 0;
   color: $osd_fg_color;
@@ -108,7 +110,7 @@ StEntry {
   StIcon.capslock-warning {
     icon-size: 16px;
     warning-color: $warning_color;
-    padding: 0 2px;
+    padding: 0 0.3em;
   }
 }
 
@@ -2073,7 +2075,7 @@ $extra_spacing: 2.5px;
 // Search entry
 .search-entry { // use raised entry-box styling
   width: if($eta == 'false', 400px, 340px);
-  padding: if($eta == 'false', 12px 0.6em, 9px 0.4em);
+  padding: if($eta == 'false', 0.4em 0.8em, 0.3em 0.6em);
   border-radius: 100px;
   border-color: transparent;
   border-top: 1px solid $borders_highlight;
@@ -2099,7 +2101,6 @@ $extra_spacing: 2.5px;
   }
 
   .search-entry-icon {
-    margin: 0.1em 4px 0;
     icon-size: 16px;
     color: $osd_tertiary_fg_color;
   }
@@ -3209,7 +3210,6 @@ $provider_details_width: 120px;
 
   StEntry {
     @include entry(normal, $fc: $osd_outline_fill_color);
-    min-height: 1.2em; // prevent unwanted shrinking
     color: $osd_fg_color;
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
