@@ -240,7 +240,11 @@ gtk2_spin_file = \
 	$(gtk2_assetdir)/Spin/rtl-up-active.png \
 	$(gtk2_assetdir)/Spin/rtl-up-hover.png \
 	$(gtk2_assetdir)/Spin/rtl-up-insensitive.png \
-	$(gtk2_assetdir)/Spin/rtl-up.png
+	$(gtk2_assetdir)/Spin/rtl-up.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg-active.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg-hover.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg-insensitive.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg.png
 gtk2_toolbar_file = \
 	$(gtk2_assetdir)/Toolbar/inline-toolbar.png
 
@@ -411,7 +415,11 @@ gtk2_nokto_spin_file = \
 	$(gtk2_assetdir)/Spin/rtl-up-active-dark.png \
 	$(gtk2_assetdir)/Spin/rtl-up-dark.png \
 	$(gtk2_assetdir)/Spin/rtl-up-hover-dark.png \
-	$(gtk2_assetdir)/Spin/rtl-up-insensitive-dark.png
+	$(gtk2_assetdir)/Spin/rtl-up-insensitive-dark.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg-active-dark.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg-dark.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg-hover-dark.png \
+	$(gtk2_assetdir)/Spin/spinscale-bg-insensitive-dark.png
 gtk2_nokto_toolbar_file = \
 	$(gtk2_assetdir)/Toolbar/inline-toolbar-dark.png
 
