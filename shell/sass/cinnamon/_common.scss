@@ -1159,7 +1159,9 @@ $icon_size: 16px;
 #keyboard {
   border-width: 0;
   background-color: shellopacity($osd_bg_color, 0.7);
+}
 
+.keyboard {
   &-layout {
     spacing: 10px;
     padding: 10px;
@@ -1169,18 +1171,32 @@ $icon_size: 16px;
 
   &-key {
     @include fontscaling($ref_size * 2.0);
-    @include button(normal);
     min-height: 2em;
     min-width: 2em;
     border-radius: 2px;
-    border: 1px 0 0;
-    color: inherit;
+    border-width: 1px;
+    background-color: mix($panel_bg_color, $selected_fg_color, 95%);
+    color: $osd_secondary_fg_color;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
+    text-shadow: none;
+    icon-shadow: none;
     font-weight: 700;
-    &:focus { @include button(focus); }
+    &:focus {
+      color: $selected_fg_color;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
+    }
     &:hover,
-    &:checked { @include button(hover); }
-    &:active { @include button(active);}
-
+    &:checked {
+      color: $selected_fg_color;
+      background-color: mix($panel_bg_color, $selected_fg_color, 95%);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.36);
+    }
+    &:active {
+      @include fontscaling($ref_size * 1.8);
+      color: $osd_tertiary_fg_color;
+      background-color: $panel_bg_color;
+      box-shadow: 0 0 3px rgba(255, 255, 255, 0.24);
+    }
     &:grayed { // FIXME
       border-top-color: $osd_outline_fill_color;
       color: $osd_tertiary_fg_color;
@@ -1198,8 +1214,8 @@ $icon_size: 16px;
     -arrow-base: 0;
     -arrow-rise: 0;
     -boxpointer-gap: 5px;
-    background-color: $bg_color;
-    color: $osd_fg_color;
+    background-color: shellopacity($osd_bg_color, 0.9);
+    color: $osd_secondary_fg_color;
     box-shadow: $z-depth-2;
   }
 }
