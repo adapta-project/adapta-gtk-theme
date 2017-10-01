@@ -3056,61 +3056,60 @@ $provider_details_width: 120px;
 // On-screen Keyboard
 #keyboard { background-color: shellopacity($panel_bg_color, 0.87); }
 
-.keyboard-layout {
-  spacing: 10px;
-  padding: 10px;
-}
+.keyboard {
+  &-layout {
+    spacing: if($eta == 'false', 12px, 8px);
+    padding: if($eta == 'false', 12px, 8px);
+  }
 
-.keyboard-row { spacing: 15px; }
+  &-row { spacing: if($eta == 'false', 12px, 8px); }
 
-.keyboard-key {
-  @include fontscaling($ref_size * 2.0);
-  min-height: 2em;
-  min-width: 2em;
-  border-radius: 2px;
-  border-width: 1px;
-  background-color: mix($panel_bg_color, $selected_fg_color, 95%);
-  color: $osd_secondary_fg_color;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
-  text-shadow: none;
-  icon-shadow: none;
-  font-weight: 700;
-  &:focus {
-    color: $selected_fg_color;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
-  }
-  &:hover,
-  &:checked {
-    color: $selected_fg_color;
-    background-color: mix($panel_bg_color, $selected_fg_color, 95%);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.36);
-  }
-  &:active {
-    @include fontscaling($ref_size * 1.8);
-    color: $osd_tertiary_fg_color;
-    background-color: $panel_bg_color;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.24);
-  }
-  &:grayed { // FIXME
-    border-top-color: $osd_outline_fill_color;
-    color: $osd_tertiary_fg_color;
+  &-key {
+    @include fontscaling($ref_size * 2.0);
+    min-height: 2em;
+    min-width: 2em;
+    border-radius: 2px;
+    border: none;
     background-color: $osd_bg_color;
+    color: $osd_secondary_fg_color;
+    box-shadow: $empty_shadow;
+    text-shadow: none;
+    icon-shadow: none;
+    font-weight: 700;
+    transition-timing-function: $slope_slow;
+    &:focus,
+    &:hover,
+    &:checked {
+      color: $osd_fg_color;
+      background-color: mix($osd_bg_color, $osd_fg_color, 88%);
+      transition-timing-function: $slope_slow;
+    }
+    &:active {
+      color: $osd_fg_color;
+      background-color: mix($osd_bg_color, $osd_fg_color, 75%);
+      transition-timing-function: $slope_slow;
+    }
+    &:grayed { // FIXME
+      color: $osd_tertiary_fg_color;
+      background-color: $panel_bg_color;
+      transition-timing-function: $slope_slow;
+    }
   }
-}
 
-.keyboard-subkeys { //long press on a key popup
-  padding: 5px;
-  border-radius: 2px;
-  -arrow-border-radius: 0;
-  -arrow-background-color: transparent;
-  -arrow-border-width: 0;
-  -arrow-border-color: transparent;
-  -arrow-base: 0;
-  -arrow-rise: 0;
-  -boxpointer-gap: 5px;
-  background-color: shellopacity($osd_bg_color, 0.9);
-  color: $osd_secondary_fg_color;
-  box-shadow: $z-depth-2;
+  &-subkeys { //long press on a key popup
+    padding: 0;
+    border-radius: 2px;
+    -arrow-border-radius: 0;
+    -arrow-background-color: transparent;
+    -arrow-border-width: 0;
+    -arrow-border-color: transparent;
+    -arrow-base: 0;
+    -arrow-rise: 0;
+    -boxpointer-gap: if($eta == 'false', 12px, 8px);
+    background-color: $suggested_color;
+    color: $selected_fg_color;
+    box-shadow: $z-depth-2;
+  }
 }
 
 
