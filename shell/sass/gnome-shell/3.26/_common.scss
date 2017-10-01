@@ -1623,7 +1623,7 @@ $extra_spacing: 2.5px;
   // 'no-values' can keep its height automatically even
   // if switched to scrolled-view mode.
   // So only padding property seems enough to control the spacing.
-  padding: 6px;
+  padding: if($eta == 'false', 0.6em, 0.45em);
   border-radius: 0;
   background-color: transparent;
   color: $osd_fg_color;
@@ -1674,10 +1674,7 @@ $extra_spacing: 2.5px;
   &-icon-bin {
     padding: 0; // FIXME: needs to override the stock gresource
                 // (Since upstream still uses padding properties)
-
-    // subtruct .message-content's 'close' button padding
-    &:ltr { margin: 4px - 2px 0 0 6px; }
-    &:rtl { margin: 4px - 2px 6px 0 0; }
+    margin: if($eta == 'false', 0.2em 0.6em 0, 0.2em 0.45em 0);
 
     > StIcon {
       color: $osd_fg_color;
@@ -1688,13 +1685,14 @@ $extra_spacing: 2.5px;
 
   &-secondary-bin {
     color: $osd_tertiary_fg_color;
-    &:ltr { padding-left: 6px; }
-    &:rtl { padding-right: 6px; }
+    &:ltr { padding-left: if($eta == 'false', 0.6em, 0.45em); }
+    &:rtl { padding-right: if($eta == 'false', 0.6em, 0.45em); }
 
     > .event-time {
-      @include fontscaling($ref_size * 0.8);
-      // '.message-title' padding + extra 0.1em for finer base-line
-      padding-bottom: 0.5em + 0.1em;
+      @include fontscaling($ref_size * 0.9);
+      min-height: 12px;
+      margin-bottom: (1.15em - 0.9em) * 1.22;
+      padding: 0;
       color: $osd_tertiary_fg_color;
     }
 
@@ -1708,20 +1706,21 @@ $extra_spacing: 2.5px;
 
   &-title {
     @include fontscaling($ref_size * 1.1);
-    padding: 0 0 4px;
+    min-height: 14px;
+    margin-bottom: 0.05em; // base-line correction
+    padding: 0;
     color: $osd_fg_color;
     font-weight: 700;
   }
 
   &-content {
-    @include fontscaling($ref_size * 0.9);
-    padding: 0 8px 4px;
+    padding: 0;
     color: $osd_fg_color;
 
     * > StIcon {
-      padding: 2px;
+      padding: 0.2em;
       border-radius: 100px;
-      icon-size: 1.09em;
+      icon-size: 16px;
       color: $secondary_accent_label_color;
     }
 
@@ -1771,8 +1770,6 @@ $extra_spacing: 2.5px;
 .media-message-cover-icon {
   // use 'important' flag to overrride .message-icon-bin > StIcon size
   icon-size: if($eta == 'false', 48px, 36px) !important;
-  // subtruct .message-content's 'close' button padding
-  margin-bottom: 4px - 2px;
 
   &.fallback {
     icon-size: if($eta == 'false', 24px, 16px) !important;
