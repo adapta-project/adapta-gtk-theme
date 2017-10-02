@@ -3005,14 +3005,19 @@ menubar {
 .menu,
 .context-menu,
 menu {
-  margin: rem(4px) 0;
-  padding: rem(4px) 0;
-  border-width: 1px; // adds borders in a non composited env
-  border-style: solid;
-  border-color: $menu_highlight_color transparent transparent;
-  background-color: $secondary_base_color;
+  &,
+  .solid-csd.popup & {
+    padding: rem(4px) 1px;
+    border-radius: 0;
+    border-width: 1px; // adds borders in a non composited env
+    border-style: solid;
+    border-color: $solid_light_borders_color;
+    background-color: $secondary_base_color;
+  }
 
-  .csd & { // axes borders in a composited env
+  .csd.popup & { // axes borders in a composited env
+    margin: rem(4px) 0;
+    padding: rem(4px) 0;
     border-radius: 2px;
     border-width: 1px 0 0;
     border-style: solid none none;
@@ -3134,8 +3139,13 @@ menuitem {
   }
 }
 
-// round corners for CSD menus
-.csd.popup { border-radius: 2px; }
+window.popup {
+  &, &.solid-csd { border-radius: 0; }
+
+  &.csd { // round corners for CSD menus
+    border-radius: 2px;
+  }
+}
 
 
 // /************
