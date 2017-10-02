@@ -3564,21 +3564,6 @@ window.background:not(.solid-csd) {
       border: none;
       box-shadow: none;
     }
-
-    > header.top {
-      border: 0 none transparent; // unset borders
-      background-color: $bg_color;
-      box-shadow: $toolbar-shadow-light,
-                  inset 0 -1px $borders_color;
-      @if $variant = 'dark' {
-        box-shadow: $toolbar-shadow-dark,
-                    inset 0 -1px $borders_color;
-      }
-
-      tabs {
-        &, > tab { background-color: transparent; }
-      }
-    }
   }
 }
 
@@ -4157,7 +4142,7 @@ notebook.tilix-background tab.reorderable-page button.tilix-small-button {
 
   > widget > box > image {
     margin: 0 -2px;
-    padding: rem(5.3px - 2.7px, $sw: 1.0);
+    padding: rem(6.7px - 2.7px);
   }
 }
 

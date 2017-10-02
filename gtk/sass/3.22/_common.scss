@@ -3297,12 +3297,9 @@ notebook {
 
   > header {
     $tab_indicator_size: 2px;
-    // vertical tab sizing
-    $vt_vpadding: rem(5.3px);
-    $vt_hpadding: rem(16px);
-    // horizontal tab sizing
-    $ht_vpadding: rem(5.3px);
-    $ht_hpadding: rem(10px);
+    // tab sizing
+    $vpadding: rem(5.3px);
+    $hpadding: rem(5.3px);
 
     background-color: $bg_color;
     tabs { background-color: transparent; }
@@ -3322,12 +3319,10 @@ notebook {
         margin: 0 rem(6px) -1px rem(6px);
         > tab {
           margin: 0 -1px 0 -1px; // 1px horizontal overlap
-          padding: $vt_vpadding $vt_hpadding;
+          padding: $vpadding $hpadding;
           border-bottom-width: $tab_indicator_size;
           box-shadow: none;
           &.reorderable-page {
-            padding-left: rem(10px);  // for a nicer close button
-            padding-right: rem(10px); // placement
             border-left-width: 1px;
             border-right-width: 1px;
           }
@@ -3339,12 +3334,10 @@ notebook {
         margin: -1px rem(6px) 0 rem(6px);
         > tab {
           margin: 0 -1px 0 -1px;
-          padding: $vt_vpadding $vt_hpadding;
+          padding: $vpadding $hpadding;
           border-top-width: $tab_indicator_size;
           box-shadow: none;
           &.reorderable-page {
-            padding-left: rem(16px);
-            padding-right: rem(16px);
             border-left-width: 1px;
             border-right-width: 1px;
           }
@@ -3356,7 +3349,7 @@ notebook {
         margin: rem(6px) -1px rem(6px) 0;
         > tab {
           margin: -1px 0 -1px 0; // 1px vertical overlap
-          padding: $ht_vpadding $ht_hpadding;
+          padding: $vpadding $hpadding;
           border-right-width: $tab_indicator_size;
           box-shadow: none;
           &.reorderable-page {
@@ -3371,7 +3364,7 @@ notebook {
         margin: rem(6px) 0 rem(6px) -1px;
         > tab {
           margin: -1px 0 -1px 0;
-          padding: $ht_vpadding $ht_hpadding;
+          padding: $vpadding $hpadding;
           border-left-width: $tab_indicator_size;
           box-shadow: none;
           &.reorderable-page {
@@ -3410,39 +3403,11 @@ notebook {
 
     // Arrow buttons
     > tabs > arrow {
-      transition: none;
-      min-height: rem($icon_size);
-      min-width: rem($icon_size);
-      margin: rem(-1.3px) rem(6.7px);
-      padding: 0;
-      border-radius: 0;
       color: $tertiary_fg_color;
+      transition: none;
       &:hover,
       &:active { color: $fg_color; }
       &:disabled { color: transparent; }
-    }
-
-    &.top, &.bottom,
-    &.left, &.right { // button outside the tabs
-      button {
-        min-height: rem($icon_size);
-        min-width: rem($icon_size);
-        padding: 0;
-
-        > image { padding: rem(6.7px); }
-
-        &.toggle {
-          &:checked { // draw underlines
-            background-color: transparent;
-            border-image: -gtk-gradient(radial,
-                                        center bottom, 0,
-                                        center bottom, 0.5,
-                                        to($selected_bg_color),
-                                        to(transparent))
-                                        0 0 2 / 0 0 2px;
-          }
-        }
-      }
     }
   }
 
@@ -3489,31 +3454,7 @@ notebook {
       }
     }
 
-    label { // tab text
-      padding: rem(1.3px);
-      font-weight: 700;
-      color: $tertiary_fg_color;
-    }
-
-    &.reorderable-page label { // reorderable-page tab text
-      padding: if($ref_weight < 1.0, rem(5.3px - 2.7px) 0 rem(5.3px - 2.7px),
-                                     rem(5.3px - 1.3px) 0 rem(5.3px - 1.3px));
-    }
-
-    button { // tab close button
-      min-width: rem($icon_size);
-      min-height: rem($icon_size);
-      padding: 0;
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
-
-      &.flat { color: $tertiary_fg_color; }
-
-      image { // this is a hack which makes tabs grow
-        padding: rem(5.3px + 2.7px, $sw: 1.0);
-      }
-    }
-
+    button.flat { color: $tertiary_fg_color; }
     &:hover button.flat,
     &:checked button.flat {
       color: $secondary_fg_color;
@@ -3521,17 +3462,6 @@ notebook {
       &:active { color: $fg_color; }
     }
     &:disabled button.flat { color: $insensitive_fg_color; }
-
-    // special case for Gedit's tab 'close' button
-    button.flat.image-button.small-button {
-      min-width: rem($icon_size);
-      min-height: rem($icon_size);
-      padding: 0;
-
-      // weird wdiget gets in our way
-      // no need to add extra 50% padding
-      > widget > box > image { padding: rem(5.3px, $sw: 1.0); }
-    }
   }
 
   &:not(.reorderable-page) > entry {
@@ -3546,6 +3476,61 @@ notebook {
     &:disabled {
       @include entry(insensitive);
       background-color: transparent;
+    }
+  }
+
+  header {
+    &.top, &.bottom,
+    &.left, &.right {
+      label,
+      .reorderable-page label { // label spacing
+        min-height: $icon_size;
+        padding: rem(5.3px);
+        font-weight: 500;
+      }
+
+      tabs > arrow { // arrow spacing
+        min-height: $icon_size;
+        min-width: $icon_size;
+        margin: 0 rem(5.3px);
+        padding: 0;
+        border-radius: 0;
+        -gtk-outline-radius: 0;
+      }
+
+      button { // button spacing
+        min-height: $icon_size;
+        min-width: $icon_size;
+        padding: 0;
+
+        image { padding: rem(6.7px); }
+      }
+
+      button { // buttons outside tabs
+        &.image-button { // revert to square
+          border-radius: 2px;
+          -gtk-outline-radius: 2px;
+        }
+
+        &.toggle:checked { // draw underlines
+          background-color: transparent;
+          border-image: -gtk-gradient(radial,
+                                      center bottom, 0,
+                                      center bottom, 0.5,
+                                      to($selected_bg_color),
+                                      to(transparent))
+                                      0 0 2 / 0 0 2px;
+        }
+      }
+
+      tab button { // tab close button
+        &,
+        &.image-button,
+        &.small-button {
+          border-radius: 100px;
+          -gtk-outline-radius: 100px;
+        }
+      }
     }
   }
 }
