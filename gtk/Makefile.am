@@ -204,6 +204,7 @@ gtk2_other_file = \
 	$(gtk2_assetdir)/Others/bottom.png \
 	$(gtk2_assetdir)/Others/focus.png \
 	$(gtk2_assetdir)/Others/left.png \
+	$(gtk2_assetdir)/Others/menu-bg.png \
 	$(gtk2_assetdir)/Others/null.svg \
 	$(gtk2_assetdir)/Others/right.png \
 	$(gtk2_assetdir)/Others/top-hover.png \
@@ -393,6 +394,7 @@ gtk2_nokto_other_file = \
 	$(gtk2_assetdir)/Others/bottom.png \
 	$(gtk2_assetdir)/Others/focus-dark.png \
 	$(gtk2_assetdir)/Others/left.png \
+	$(gtk2_assetdir)/Others/menu-bg-dark.png \
 	$(gtk2_assetdir)/Others/null.svg \
 	$(gtk2_assetdir)/Others/right.png \
 	$(gtk2_assetdir)/Others/top-hover.png \

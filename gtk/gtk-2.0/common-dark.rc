@@ -1834,8 +1834,8 @@ style "menubar_item_label" {
 }
 
 style "menu" {
-  xthickness = 0
-  ythickness = 0
+  xthickness = 1
+  ythickness = 1
 
   GtkMenuItem::arrow-scaling = 0.4
 
@@ -1844,7 +1844,15 @@ style "menu" {
   bg[INSENSITIVE] = mix(0.5, @base_color, @bg_color)
 }
 
-style "menu_framed_box" {
+style "menu_frame" {
+  engine "pixmap" {
+    image {
+      function = BOX
+      file     = "Others/menu-bg-dark.png"
+      border   = { 1, 1, 1, 1 }
+      stretch  = TRUE
+    }
+  }
 }
 
 style "menu_item" {
@@ -2189,7 +2197,7 @@ style "notebook" {
     # How to draw boxes with a gap on one side (ie the page of a notebook)
     image {
       function   = BOX_GAP
-      file       = "Shadows/frame.png" 
+      file       = "Shadows/frame.png"
       border     = { 1, 1, 1, 1 }
       stretch    = TRUE
       gap_file   = "Others/null.svg"
@@ -2216,7 +2224,7 @@ style "notebook" {
     }
     image {
       function   = BOX_GAP
-      file       = "Shadows/frame.png" 
+      file       = "Shadows/frame.png"
       border     = { 1, 1, 1, 1 }
       stretch    = TRUE
       gap_file   = "Others/null.svg"
@@ -2511,6 +2519,7 @@ widget_class "*<GtkSpinButton>*<GtkLabel>"           style "misc_button_label"
 widget_class "*<GtkCheckButton>*<GtkLabel>"          style "misc_button_label"
 
 widget_class "*<GtkMenuBar>*"                         style "menubar"
+widget_class "*<GtkMenu>"                             style "menu_frame"
 widget_class "*<GtkMenu>*"                            style "menu"
 widget_class "*<GtkMenuItem>*"                        style "menu_item"
 widget_class "*<GtkMenuItem>*<GtkLabel>"              style "menu_item_label"
