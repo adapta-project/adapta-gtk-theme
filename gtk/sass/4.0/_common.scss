@@ -2461,11 +2461,18 @@ headerbar {
 
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
-      margin: -1px -1px 0 -1px; // hide inset border-frame in decoration node
-      border-radius: 0;
-      border-top: 0 none transparent; // unset top-edge
-      box-shadow: none;
+      &, &:not(:only-child):last-child {
+        margin: -1px -1px 0 -1px; // hide inset border-frame in decoration node
+        border-radius: 0;
+        border-top: 0 none transparent; // unset top-edge
+        box-shadow: none;
+      }
     }
+  }
+
+  .solid-csd box &:not(:only-child):last-child { // revive separators
+    &:dir(ltr) { border-left: 1px solid $borders_color; }
+    &:dir(rtl) { border-right: 1px solid $borders_color; }
   }
 }
 
