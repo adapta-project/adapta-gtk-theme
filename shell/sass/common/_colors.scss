@@ -56,10 +56,6 @@ $menuentry_hidden_fill_color: if($nokto == 'false',
                                  rgba(255, 255, 255, 0.01),
                                  rgba(0, 0, 0, 0.01));
 
-$panel_bg_color: mix(#263238, #000000, 50%);
-$panel_hidden_fill_color: rgba(19, 25, 28, 0.01);
-$panel_fill_color: rgba(19, 25, 28, 1.0);
-
 $selected_bg_color: $key_selection_color;
 
 $outline_fill_color: shellopacity($fg_color, 0.2);
@@ -125,4 +121,15 @@ $error_color: #F44336;
 $success_color: #00E676;
 
 $suggested_color: $key_suggestion_color;
+
+
+//
+// Panel colors
+//
+
+$panel_bg_color: mix(#263238, #000000, 50%);
+$panel_hidden_fill_color: rgba(19, 25, 28, 0.01);
+$panel_fill_color: rgba(19, 25, 28, 1.0);
+
+$panel_dynamic_fg_color: mix($selected_fg_color, $panel_bg_color, 93%);
 

@@ -1168,7 +1168,7 @@ $extra_spacing: 2.5px;
   .panel-button {
     -natural-hpadding: if($eta == 'false', 10px, 6px);
     -minimum-hpadding: if($eta == 'false', 10px, 6px);
-    color: $osd_fg_color;
+    color: $panel_dynamic_fg_color;
     font-weight: 700;
     // FIXME: once these buttons are placed in panel-corners,
     // all of transition properties are ignored?
@@ -1260,6 +1260,12 @@ $extra_spacing: 2.5px;
     .panel-corner { -panel-corner-background-color: $panel_bg_color; }
 
     .panel-button {
+      color: $osd_fg_color;
+      &:hover,
+      &:active,
+      &:focus,
+      &:checked { color: $selected_fg_color; }
+
       &,
       &:hover,
       &:active,
