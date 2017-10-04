@@ -2359,6 +2359,10 @@ headerbar {
     &:backdrop { opacity: 1.0; }
 
     .tiled &,
+    .tiled-top &,
+    .tiled-bottom &,
+    .tiled-left &,
+    .tiled-right &,
     .maximized & { border-top-color: $selected_bg_color; }
 
     .subtitle:link { @extend *:link:selected;  }
@@ -2480,6 +2484,10 @@ headerbar {
 
   // misc
   .tiled &,
+  .tiled-top &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .tiled-right &,
   .maximized &,
   .fullscreen & {
     border-top-color: $inverted_dark_color;
@@ -2624,56 +2632,60 @@ headerbar.selection-mode { // selection-mode specific
 }
 
 .background:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
-  headerbar,
-  .titlebar { // set rounded corners
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-  }
-
-  box headerbar {
-    &:not(:last-child) {
-      &:dir(ltr) {
-        border-top-left-radius: 2px;
-        border-top-right-radius: 0;
-      }
-      &:dir(rtl) {
-        border-top-left-radius: 0;
-        border-top-right-radius: 2px;
-      }
+  &:not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right) {
+    headerbar,
+    .titlebar { // set rounded corners
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
     }
 
-    &:last-child {
-      &:dir(ltr) { border-top-left-radius: 0; }
-      &:dir(rtl) { border-top-right-radius: 0; }
+    box headerbar {
+      &:not(:last-child) {
+        &:dir(ltr) {
+          border-top-left-radius: 2px;
+          border-top-right-radius: 0;
+        }
+        &:dir(rtl) {
+          border-top-left-radius: 0;
+          border-top-right-radius: 2px;
+        }
+      }
+
+      &:last-child {
+        &:dir(ltr) { border-top-left-radius: 0; }
+        &:dir(rtl) { border-top-right-radius: 0; }
+      }
     }
   }
 }
 
 // force using rounded corners in case of paned titlebars
 window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
-  paned.titlebar,
-  grid.titlebar {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+  &:not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right) {
+    paned.titlebar,
+    grid.titlebar {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
 
-    > headerbar:not(:last-child) {
-      &:dir(ltr) {
-        border-top-left-radius: 2px;
-        border-top-right-radius: 0;
+      > headerbar:not(:last-child) {
+        &:dir(ltr) {
+          border-top-left-radius: 2px;
+          border-top-right-radius: 0;
+        }
+        &:dir(rtl) {
+          border-top-left-radius: 0;
+          border-top-right-radius: 2px;
+        }
       }
-      &:dir(rtl) {
-        border-top-left-radius: 0;
-        border-top-right-radius: 2px;
-      }
-    }
-    > headerbar:last-child {
-      &:dir(ltr) {
-        border-top-left-radius: 0;
-        border-top-right-radius: 2px;
-      }
-      &:dir(rtl) {
-        border-top-left-radius: 2px;
-        border-top-right-radius: 0;
+      > headerbar:last-child {
+        &:dir(ltr) {
+          border-top-left-radius: 0;
+          border-top-right-radius: 2px;
+        }
+        &:dir(rtl) {
+          border-top-left-radius: 2px;
+          border-top-right-radius: 0;
+        }
       }
     }
   }
@@ -2696,6 +2708,10 @@ headerbar.titlebar.default-decoration {
   box-shadow: none; // reset outset shadows
 
   .tiled &,
+  .tiled-top &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .tiled-right &,
   .maximized & {
     border-top-color: $inverted_dark_color;
     border-radius: 0;
@@ -2719,6 +2735,10 @@ headerbar.titlebar.default-decoration {
   }
 
   &.tiled,
+  &.tiled-top,
+  &.tiled-bottom,
+  &.tiled-left,
+  &.tiled-right,
   &.maximized,
   &.fullscreen {
     box headerbar,
@@ -5877,8 +5897,26 @@ decoration {
   }
 
   .fullscreen &,
-  .maximized &,
-  .tiled & { border-radius: 0; }
+  .maximized & {
+    // draw empty shadows when max'd and fullscreen'd
+    &, &:backdrop {
+      border-radius: 0;
+      box-shadow: $z-depth-2-backdrop-maxd;
+    }
+  }
+
+  @each $_constraint,
+        $_shadow in ('', $z-depth-2-backdrop-tiled),
+                    ('-top', $z-depth-2-backdrop-tiled-top),
+                    ('-bottom', $z-depth-2-backdrop-tiled-bottom),
+                    ('-left', $z-depth-2-backdrop-tiled-left),
+                    ('-right' $z-depth-2-backdrop-tiled-right) {
+    // draw empty shadows + window edges when tiled
+    .tiled#{$_constraint} & {
+      border-radius: 0;
+      box-shadow: #{$_shadow};
+    }
+  }
 
   .popup & { box-shadow: none; }
 
@@ -5890,7 +5928,15 @@ decoration {
   }
 
   // 'tiled' state in X11-SSD mode
-  .tiled.ssd & { box-shadow: $z-depth-1-backdrop-tiled; }
+  @each $_constraint,
+        $_shadow in ('', $z-depth-1-backdrop-tiled),
+                    ('-top', $z-depth-1-backdrop-tiled-top),
+                    ('-bottom', $z-depth-1-backdrop-tiled-bottom),
+                    ('-left', $z-depth-1-backdrop-tiled-left),
+                    ('-right' $z-depth-1-backdrop-tiled-right) {
+    // draw empty shadows + window edges when tiled
+    .ssd.tiled#{$_constraint} & { box-shadow: #{$_shadow}; }
+  }
 
   .csd.popup & {
     border-radius: 2px;
@@ -6241,6 +6287,10 @@ headerbar.titlebar.default-decoration {
 
   &,
   .tiled &,
+  .tiled-top &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .tiled-right &,
   .maximized & {
     button.titlebutton {
       @extend %fade_effect;
@@ -6279,7 +6329,12 @@ headerbar.titlebar.default-decoration {
 }
 
 headerbar.titlebar.default-decoration {
-  &, .tiled & {
+  &,
+  .tiled &,
+  .tiled-top &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .tiled-right & {
     %metacity_csd_button,
     button.titlebutton {
       @each $_class,

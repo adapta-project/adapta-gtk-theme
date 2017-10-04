@@ -5789,12 +5789,26 @@ decoration {
   }
 
   .fullscreen &,
-  .maximized &,
-  .tiled &,
-  .tiled-top &,
-  .tiled-bottom &,
-  .tiled-left &,
-  .tiled-right & { border-radius: 0; }
+  .maximized & {
+    // draw empty shadows when max'd and fullscreen'd
+    &, &:backdrop {
+      border-radius: 0;
+      box-shadow: $z-depth-2-backdrop-maxd;
+    }
+  }
+
+  @each $_constraint,
+        $_shadow in ('', $z-depth-2-backdrop-tiled),
+                    ('-top', $z-depth-2-backdrop-tiled-top),
+                    ('-bottom', $z-depth-2-backdrop-tiled-bottom),
+                    ('-left', $z-depth-2-backdrop-tiled-left),
+                    ('-right' $z-depth-2-backdrop-tiled-right) {
+    // draw empty shadows + window edges when tiled
+    .tiled#{$_constraint} & {
+      border-radius: 0;
+      box-shadow: #{$_shadow};
+    }
+  }
 
   .popup & { box-shadow: none; }
 
@@ -5806,9 +5820,15 @@ decoration {
   }
 
   // 'tiled' state in X11-SSD mode
-  .tiled.ssd &,
-  .tiled-left.ssd &,
-  .tiled-right.ssd & { box-shadow: $z-depth-1-backdrop-tiled; }
+  @each $_constraint,
+        $_shadow in ('', $z-depth-1-backdrop-tiled),
+                    ('-top', $z-depth-1-backdrop-tiled-top),
+                    ('-bottom', $z-depth-1-backdrop-tiled-bottom),
+                    ('-left', $z-depth-1-backdrop-tiled-left),
+                    ('-right' $z-depth-1-backdrop-tiled-right) {
+    // draw empty shadows + window edges when tiled
+    .ssd.tiled#{$_constraint} & { box-shadow: #{$_shadow}; }
+  }
 
   .csd.popup & {
     border-radius: 2px;
