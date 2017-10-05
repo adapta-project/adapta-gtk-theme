@@ -1907,12 +1907,12 @@ $extra_spacing: 2.5px;
   width: if($eta == 'false', 400px, 340px);
   padding: if($eta == 'false', 0.4em 0.8em, 0.3em 0.6em);
   border-radius: 100px;
-  border-color: transparent;
-  border-top: 1px solid $borders_highlight;
-  color: $osd_tertiary_fg_color;
-  background-color: $osd_semi_fill_color;
+  border-top: 1px solid transparent;
+  color: $tertiary_fg_color;
+  background-color: if($nokto == 'false', shellopacity($base_color, 0.54),
+                                          shellopacity($panel_bg_color, 0.54));
   font-weight: 400;
-  box-shadow: $z-depth-1;
+  box-shadow: $z-depth-2;
   transition-duration: $duration_medium;
 
   selection-background-color: $selected_bg_color;
@@ -1924,15 +1924,15 @@ $extra_spacing: 2.5px;
   &:focus {
     border-top: 1px solid if($nokto == 'false',
                              $borders_highlight,
-                             shellopacity($borders_highlight, 0.5));
+                             shellopacity($borders_highlight, 0.54));
     color: $fg_color;
     background-color: if($nokto == 'false', $base_color, $panel_bg_color);
-    box-shadow: $z-depth-2;
+    box-shadow: $z-depth-3;
   }
 
   .search-entry-icon {
     icon-size: 16px;
-    color: $osd_tertiary_fg_color;
+    color: $tertiary_fg_color;
   }
 
   &:hover,
