@@ -2176,9 +2176,9 @@ $provider_details_width: 120px;
       transition-duration: 0s;
 
       .list-search-result {
-        &-title { color: $osd_fg_color; }
+        &-title { color: $selected_fg_color; }
 
-        &-description { color: $osd_secondary_fg_color; }
+        &-description { color: $osd_fg_color; }
       }
     }
     &:active {
@@ -2186,9 +2186,9 @@ $provider_details_width: 120px;
       transition-duration: $duration_medium;
 
       .list-search-result {
-        &-title { color: $osd_fg_color; }
+        &-title { color: $selected_fg_color; }
 
-        &-description { color: $osd_secondary_fg_color; }
+        &-description { color: $osd_fg_color; }
       }
     }
     &:checked {
@@ -2213,7 +2213,7 @@ $provider_details_width: 120px;
 
     &-title {
       @include fontscaling($ref_size * 1.1);
-      color: $osd_secondary_fg_color;
+      color: $osd_fg_color;
       font-weight: 700;
 
       StIcon,
@@ -2232,7 +2232,7 @@ $provider_details_width: 120px;
 
     &-description {
       padding: 0;
-      color: $osd_tertiary_fg_color;
+      color: $osd_secondary_fg_color;
     }
   }
 
