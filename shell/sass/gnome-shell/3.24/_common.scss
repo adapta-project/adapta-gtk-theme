@@ -2002,9 +2002,9 @@ $provider_icon_size: 32px;
       transition-duration: 0s;
 
       .list-search-result {
-        &-title { color: $osd_fg_color; }
+        &-title { color: $selected_fg_color; }
 
-        &-description { color: $osd_secondary_fg_color; }
+        &-description { color: $osd_fg_color; }
       }
     }
     &:active {
@@ -2012,9 +2012,9 @@ $provider_icon_size: 32px;
       transition-duration: $duration_medium;
 
       .list-search-result {
-        &-title { color: $osd_fg_color; }
+        &-title { color: $selected_fg_color; }
 
-        &-description { color: $osd_secondary_fg_color; }
+        &-description { color: $osd_fg_color; }
       }
     }
     &:checked {
@@ -2022,9 +2022,9 @@ $provider_icon_size: 32px;
       transition-duration: $duration_medium;
 
       .list-search-result {
-        &-title { color: $osd_fg_color; }
+        &-title { color: $selected_fg_color; }
 
-        &-description { color: $osd_secondary_fg_color; }
+        &-description { color: $osd_fg_color; }
       }
     }
 
@@ -2039,13 +2039,13 @@ $provider_icon_size: 32px;
 
     &-title {
       @include fontscaling($ref_size * 1.1);
-      color: $osd_secondary_fg_color;
+      color: $osd_fg_color;
       font-weight: 700;
     }
 
     &-description {
       @include fontscaling($ref_size * 0.9);
-      color: $osd_tertiary_fg_color;
+      color: $osd_secondary_fg_color;
     }
   }
 }
@@ -2056,7 +2056,7 @@ $provider_icon_size: 32px;
     padding: $provider_icon_size / 2;
     border: none;
     border-radius: 100px;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     transition-duration: 0s;
     &:focus,
     &:selected,
@@ -2271,7 +2271,7 @@ $provider_icon_size: 32px;
 .grid-search-result {
   .overview-icon {
     @extend %icon_tile;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     transition-duration: 0s;
   }
 
@@ -2281,7 +2281,7 @@ $provider_icon_size: 32px;
     border-image: none;
     background-color: $osd_semi_fill_color;
     background-image: none;
-    color: $osd_fg_color;
+    color: $selected_fg_color;
     transition-duration: 0s;
   }
 
@@ -2289,14 +2289,14 @@ $provider_icon_size: 32px;
     border-image: none;
     background-color: $osd_fill_color;
     background-image: none;
-    color: $osd_fg_color;
+    color: $selected_fg_color;
     transition-duration: $duration_medium;
   }
 
   &:checked .overview-icon {
     border-radius: 0;
     background-color: $hidden_fill_color;
-    color: $osd_fg_color;
+    color: $selected_fg_color;
     box-shadow: inset 0 -2px $osd_indicator_color;
     transition-duration: $duration_long;
   }
