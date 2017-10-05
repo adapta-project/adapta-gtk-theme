@@ -4772,7 +4772,7 @@ row.activatable {
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha(currentColor, 0) 100%,
                                       transparent 0%),
-                      image(gtkalpha(currentColor, 0.05));
+                      image($track_color);
     transition-timing-function: $slope_slow;
     transition-duration: 0.1s;
   }
@@ -4783,7 +4783,7 @@ row.activatable {
                 background-color 0s $slope_slow,
                 background-image 0s $slope_slow,
                 box-shadow 0.2s $slope_slow;
-    animation: list_ripple_effect 0.3s $slope_slow forwards;
+    animation: flat_ripple_effect 0.3s $slope_slow forwards;
   }
   &:selected {
     transition: opacity 0.2s $slope_slow,

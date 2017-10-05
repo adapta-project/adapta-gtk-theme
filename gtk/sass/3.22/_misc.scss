@@ -188,11 +188,11 @@ row.tweak {
         background-image: radial-gradient(circle farthest-corner at center,
                                           gtkalpha(currentColor, 0) 100%,
                                           transparent 0%),
-                          image(gtkalpha(currentColor, 0.05));
+                          image($track_color);
         color: $fg_color;
       }
       &:active {
-        animation: list_ripple_effect 0.3s $slope_slow forwards;
+        animation: flat_ripple_effect 0.3s $slope_slow forwards;
         color: $fg_color;
       }
 
