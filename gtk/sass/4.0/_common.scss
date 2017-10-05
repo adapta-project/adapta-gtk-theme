@@ -5889,10 +5889,10 @@ decoration {
   }
 
   // appmenu buttons
-  box > button.titlebutton.icon,
-  box > button.titlebutton.appmenu,
-  &.selection-mode box > button.titlebutton.icon,
-  &.selection-mode box > button.titlebutton.appmenu {
+  button.titlebutton.icon,
+  button.titlebutton.appmenu,
+  &.selection-mode button.titlebutton.icon,
+  &.selection-mode button.titlebutton.appmenu {
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
     padding: if($ref_weight < 1.0,
@@ -5906,8 +5906,8 @@ decoration {
     }
   }
 
-  box > button.titlebutton,
-  &.selection-mode box > button.titlebutton {
+  button.titlebutton,
+  &.selection-mode button.titlebutton {
     @extend %fade_effect;
 
     &.close,
@@ -6018,8 +6018,8 @@ decoration {
 
 .csd.maximized headerbar:not(.default-decoration),
 .solid-csd.maximized headerbar:not(.default-decoration) {
-  box > button.titlebutton,
-  &.selection-mode box > button.titlebutton {
+  button.titlebutton,
+  &.selection-mode button.titlebutton {
     &.maximize {
       > image {
         background-image:
@@ -6137,7 +6137,7 @@ decoration {
 }
 
 .maximized.ssd .titlebar {
-  button.titlebutton {
+  .titlebutton {
     @each $_class, $_state in ('', ''),
                               (':hover', '-hover'),
                               (':active', '-active'),
@@ -6179,10 +6179,6 @@ headerbar.titlebar.default-decoration {
 
   &,
   .tiled &,
-  .tiled-top &,
-  .tiled-bottom &,
-  .tiled-left &,
-  .tiled-right &,
   .maximized & {
     button.titlebutton {
       @extend %fade_effect;
@@ -6222,11 +6218,7 @@ headerbar.titlebar.default-decoration {
 
 headerbar.titlebar.default-decoration {
   &,
-  .tiled &,
-  .tiled-top &,
-  .tiled-bottom &,
-  .tiled-left &,
-  .tiled-right & {
+  .tiled & {
     %metacity_csd_button,
     button.titlebutton {
       @each $_class,
