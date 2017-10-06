@@ -2147,22 +2147,24 @@ button.dzlmenubuttonitem.check { // menuitem buttons
   }
 }
 
+// side-bar styling
 window overlay > grid > frame > grid {
   toolbar.primary-toolbar { box-shadow: none; }
+
+  scrolledwindow > viewport.frame {
+    background-color: $secondary_dark_color;
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
+    }
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
+    }
+  }
 }
 
-// side-bar styling
 list.contacts-view {
-  background-image: image($secondary_dark_color); // use -image instead
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
-
   row.activatable {
     color: $secondary_fg_color;
     font-weight: 500;
@@ -2183,7 +2185,7 @@ list.contacts-view {
 }
 
 // bottom-paned actionbar
-notebook > box > stack > grid.vertical > actionbar {
+stack > overlay > grid.horizontal > overlay > stack actionbar {
   revealer > box.horizontal {
     // 'New Detail' button
     button.popup.toggle:not(.image-button):not(.text-button) {
