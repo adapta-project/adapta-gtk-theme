@@ -2314,7 +2314,15 @@ headerbar {
     .tiled-right &,
     .maximized & { border-top-color: $selected_bg_color; }
 
-    .subtitle:link { @extend *:link:selected;  }
+    label {
+      &.title { color: $fixed_fg_color; } // turn to dark label
+
+      &.subtitle {
+        color: $secondary_fixed_fg_color;
+
+        &:link { @extend *:link:selected;  }
+      }
+    }
 
     button,
     button.image-button {
