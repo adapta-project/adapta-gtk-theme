@@ -5798,11 +5798,7 @@ decoration {
 
   .fullscreen &,
   .maximized & {
-    // draw empty shadows when max'd and fullscreen'd
-    &, &:backdrop {
-      border-radius: 0;
-      box-shadow: $z-depth-2-backdrop-maxd;
-    }
+    &, &:backdrop { border-radius: 0; }
   }
 
   @each $_constraint,
