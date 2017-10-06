@@ -40,11 +40,11 @@
 </frame_geometry>
 
 <frame_geometry name="tiled_left" title_scale="medium" rounded_top_left="false" rounded_top_right="false" parent="max">
-	<distance name="right_width" value="0" />
+	<distance name="right_width" value="1" />
 </frame_geometry>
 
 <frame_geometry name="tiled_right" title_scale="medium" rounded_top_left="false" rounded_top_right="false" parent="max">
-	<distance name="left_width" value="0" />
+	<distance name="left_width" value="1" />
 </frame_geometry>
 
 <frame_geometry name="small" title_scale="small" parent="normal" rounded_top_left="false" rounded_top_right="false">
@@ -159,28 +159,38 @@
 </draw_ops>
 
 <!-- tiled state -->
-<draw_ops name="tiled_entire_background_focused">
+<draw_ops name="tiled_left_entire_background_focused">
 	<rectangle color="#222D32" x="0" y="0" width="width" height="height" filled="true" />
+	<line color="#13191C" x1="width-1" y1="0" x2="width-1" y2="height" />
 </draw_ops>
 
-<draw_ops name="tiled_entire_background_unfocused">
-	<include name="tiled_entire_background_focused" />
+<draw_ops name="tiled_left_entire_background_unfocused">
+	<include name="tiled_left_entire_background_focused" />
 </draw_ops>
 
-<draw_ops name="tiled_titlebar_fill_focused">
-	<include name="tiled_entire_background_focused" />
+<draw_ops name="tiled_left_titlebar_fill_focused">
+	<include name="tiled_left_entire_background_focused" />
 </draw_ops>
 
-<draw_ops name="tiled_titlebar_fill_unfocused">
-	<include name="tiled_entire_background_unfocused" />
+<draw_ops name="tiled_left_titlebar_fill_unfocused">
+	<include name="tiled_left_entire_background_unfocused" />
 </draw_ops>
 
-<draw_ops name="tiled_titlebar_focused">
-	<include name="tiled_titlebar_fill_focused" />
+<draw_ops name="tiled_right_entire_background_focused">
+	<rectangle color="#222D32" x="0" y="0" width="width" height="height" filled="true" />
+	<line color="#13191C" x1="0" y1="0" x2="0" y2="height" />
 </draw_ops>
 
-<draw_ops name="tiled_titlebar_unfocused">
-	<include name="tiled_titlebar_fill_unfocused" />
+<draw_ops name="tiled_right_entire_background_unfocused">
+	<include name="tiled_right_entire_background_focused" />
+</draw_ops>
+
+<draw_ops name="tiled_right_titlebar_fill_focused">
+	<include name="tiled_right_entire_background_focused" />
+</draw_ops>
+
+<draw_ops name="tiled_right_titlebar_fill_unfocused">
+	<include name="tiled_right_entire_background_unfocused" />
 </draw_ops>
 
 	<!-- button icons-->
@@ -994,8 +1004,8 @@
 </frame_style>
 
 <frame_style name="tiled_left_focused" geometry="tiled_left">
-	<piece position="entire_background" draw_ops="tiled_entire_background_focused" />
-	<piece position="titlebar" draw_ops="tiled_titlebar_fill_focused" />
+	<piece position="entire_background" draw_ops="tiled_left_entire_background_focused" />
+	<piece position="titlebar" draw_ops="tiled_left_titlebar_fill_focused" />
 	<piece position="title" draw_ops="title_focused" />
 	<button function="close" state="normal" draw_ops="close_focused" />
 	<button function="close" state="prelight" draw_ops="close_focused_prelight" />
@@ -1032,8 +1042,8 @@
 </frame_style>
 
 <frame_style name="tiled_left_unfocused" geometry="tiled_left">
-	<piece position="entire_background" draw_ops="tiled_entire_background_unfocused" />
-	<piece position="titlebar" draw_ops="tiled_titlebar_fill_unfocused" />
+	<piece position="entire_background" draw_ops="tiled_left_entire_background_unfocused" />
+	<piece position="titlebar" draw_ops="tiled_left_titlebar_fill_unfocused" />
 	<piece position="title" draw_ops="title_unfocused" />
 	<button function="close" state="normal" draw_ops="close_unfocused"/>
 	<button function="close" state="prelight" draw_ops="close_unfocused_prelight"/>
@@ -1070,8 +1080,8 @@
 </frame_style>
 
 <frame_style name="tiled_right_focused" geometry="tiled_right">
-	<piece position="entire_background" draw_ops="tiled_entire_background_focused" />
-	<piece position="titlebar" draw_ops="tiled_titlebar_fill_focused" />
+	<piece position="entire_background" draw_ops="tiled_right_entire_background_focused" />
+	<piece position="titlebar" draw_ops="tiled_right_titlebar_fill_focused" />
 	<piece position="title" draw_ops="title_focused" />
 	<button function="close" state="normal" draw_ops="close_focused" />
 	<button function="close" state="prelight" draw_ops="close_focused_prelight" />
@@ -1108,8 +1118,8 @@
 </frame_style>
 
 <frame_style name="tiled_right_unfocused" geometry="tiled_right">
-	<piece position="entire_background" draw_ops="tiled_entire_background_unfocused" />
-	<piece position="titlebar" draw_ops="tiled_titlebar_fill_unfocused" />
+	<piece position="entire_background" draw_ops="tiled_right_entire_background_unfocused" />
+	<piece position="titlebar" draw_ops="tiled_right_titlebar_fill_unfocused" />
 	<piece position="title" draw_ops="title_unfocused" />
 	<button function="close" state="normal" draw_ops="close_unfocused"/>
 	<button function="close" state="prelight" draw_ops="close_unfocused_prelight"/>
