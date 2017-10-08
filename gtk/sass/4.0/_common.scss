@@ -3579,7 +3579,8 @@ scrollbar {
   ('vertical', $slider_min_width, $slider_min_length),
   ('horizontal', $slider_min_length, $slider_min_width) {
     &.#{$_position} {
-      &, &.fine-tune {
+      &,
+      range.fine-tune {
         slider {
           min-width: #{$_min_w};
           min-height: #{$_min_l};
