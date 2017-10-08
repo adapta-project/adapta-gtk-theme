@@ -641,7 +641,9 @@ button {
           background-color: $track_color;
           color: $selected_bg_color;
         }
-        &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
+        &:checked {
+          @include button(flat-checked, $b_color, $selected_fg_color);
+        }
         &:disabled {
           @include button(flat-insensitive, $b_color,
                                             $insensitive_selected_fg_color);
@@ -1010,8 +1012,12 @@ button {
     &:disabled {
       color: $insensitive_fg_color;
       background-color: transparent;
-      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
-      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
+      &:dir(ltr) {
+        box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2);
+      }
+      &:dir(rtl) {
+        box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2);
+      }
 
       > label { color: inherit; }
     }
@@ -1095,7 +1101,8 @@ modelbutton.flat arrow {
 button.color {
   min-width: rem(33.3px);
   min-height: rem(20px);
-  padding: rem(6.7px) rem(8px) rem(6.7px); // Uniform padding on the GtkColorButton
+  // Uniform padding on the GtkColorButton
+  padding: rem(6.7px) rem(8px) rem(6.7px);
 
   > colorswatch:first-child:last-child { // :first-child:last-child for
                                          // a specificity bump, it gets
@@ -1573,9 +1580,10 @@ toolbar {
     color: $inverted_fg_color;
     background-color: $inverted_dark_color;
     &:backdrop {
-      border-image: -gtk-scaled(url("assets/osd-shadow-backdrop#{$asset_suffix}.png"),
-                                url("assets/osd-shadow-backdrop#{$asset_suffix}@2.png"))
-                    10 / 10px stretch;
+      border-image:
+        -gtk-scaled(url("assets/osd-shadow-backdrop#{$asset_suffix}.png"),
+                    url("assets/osd-shadow-backdrop#{$asset_suffix}@2.png"))
+        10 / 10px stretch;
     }
 
     button {
@@ -2282,11 +2290,13 @@ headerbar {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
       background-color: $selected_bg_color;
       &:disabled {
-        background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
+        background-color:
+          mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
       }
     }
     &:disabled slider {
-      background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
+      background-color:
+        mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
     }
   }
 
@@ -2707,7 +2717,7 @@ dialog.background.csd > headerbar.titlebar {
   > button:not(.image-button):not(.text-button):not(.toggle):not(.popup) {
     border-radius: 2px;
     -gtk-outline-radius: 2px;
- }
+  }
 }
 
 
@@ -3724,7 +3734,9 @@ switch {
 
     slider { background-color: $selected_fg_color; }
 
-    &:hover slider { background-image: image(gtkopacity($fixed_fg_color, 0.12)); }
+    &:hover slider {
+      background-image: image(gtkopacity($fixed_fg_color, 0.12));
+    }
 
     &:checked slider { background-color: $selected_fg_color; }
   }
@@ -3808,16 +3820,18 @@ switch {
       }
       &:disabled,
       &:disabled:hover {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
-                          url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
+        background-image:
+          -gtk-scaled(
+            url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
+            url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
       }
     }
     &:disabled,
     &:disabled:hover {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
-                        url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
+      background-image:
+        -gtk-scaled(
+          url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
+          url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
     }
   }
 
@@ -3909,8 +3923,9 @@ switch {
                   (':checked:active', '-checked-solid'),
                   (':checked:disabled','-checked-solid-insensitive') {
     #{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
-                                    url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
+      -gtk-icon-source:
+        -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
+                    url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
     }
   }
@@ -3929,8 +3944,9 @@ switch {
                   (':checked:active', '-checked-active'),
                   (':checked:disabled','-checked-insensitive') {
     .background #{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
-                                    url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
+      -gtk-icon-source:
+        -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
+                    url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
     }
   }
@@ -3960,25 +3976,29 @@ treeview.view radio {
     row.activatable {
       #{$w}:selected#{$s},
       #{$w}:selected:focus#{$s} {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
-                                      url("assets/#{$a}#{$as}-selected@2.png"));
+        -gtk-icon-source:
+          -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
+                      url("assets/#{$a}#{$as}-selected@2.png"));
         -gtk-icon-shadow: none;
       }
       // use dark variant for insensitive states
       #{$w}:selected:disabled,
       #{$w}:selected:focus:disabled {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
-                                      url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
+        -gtk-icon-source:
+          -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
+                      url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
       }
       #{$w}:selected:indeterminate:disabled,
       #{$w}:selected:focus:indeterminate:disabled {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
-                                      url("assets/#{$a}-mixed-insensitive-dark@2.png"));
+        -gtk-icon-source:
+          -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
+                      url("assets/#{$a}-mixed-insensitive-dark@2.png"));
       }
       #{$w}:selected:checked:disabled,
       #{$w}:selected:focus:checked:disabled {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
-                                      url("assets/#{$a}-checked-insensitive-dark@2.png"));
+        -gtk-icon-source:
+          -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
+                      url("assets/#{$a}-checked-insensitive-dark@2.png"));
       }
     }
   }
@@ -3994,15 +4014,17 @@ treeview.view radio {
                   (':checked:active', '-checked-active-selectionmode'),
                   (':disabled:checked', '-checked-insensitive-selectionmode') {
   .view.content-view.check#{$s}:not(list) {
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
-                                  url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+    -gtk-icon-source:
+      -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
+                  url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
   }
 
   flowbox > flowboxchild overlay checkbutton.bottom {
     > check#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
-                                    url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+      -gtk-icon-source:
+        -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
+                    url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
       background-color: transparent;
     }
 
@@ -5606,8 +5628,10 @@ colorswatch {
   &#add-color-button {
     background-image: linear-gradient(to right,
                                       $error_bg_color 25%,
-                                      $warning_bg_color 25%, $warning_bg_color 50%,
-                                      $info_bg_color 50%, $info_bg_color 75%,
+                                      $warning_bg_color 25%,
+                                      $warning_bg_color 50%,
+                                      $info_bg_color 50%,
+                                      $info_bg_color 75%,
                                       $question_bg_color 75%);
     color: white;
   }
@@ -5626,9 +5650,10 @@ colorchooser .popover.osd {
   color: $inverted_fg_color;
   background-color: $inverted_dark_color;
   &:backdrop {
-    border-image: -gtk-scaled(url("assets/osd-shadow-backdrop#{$asset_suffix}.png"),
-                              url("assets/osd-shadow-backdrop#{$asset_suffix}@2.png"))
-                  10 / 10px stretch;
+    border-image:
+      -gtk-scaled(url("assets/osd-shadow-backdrop#{$asset_suffix}.png"),
+                  url("assets/osd-shadow-backdrop#{$asset_suffix}@2.png"))
+      10 / 10px stretch;
   }
 
   label {
@@ -6155,8 +6180,9 @@ decoration {
 
         @if $ref_weight < 1.0 {
           background-image:
-            -gtk-scaled(url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
-                        url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+            -gtk-scaled(
+              url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
+              url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
         }
       }
     }
@@ -6260,8 +6286,9 @@ headerbar.titlebar.default-decoration {
 
           @if $ref_weight < 1.0 {
             background-image:
-              -gtk-scaled(url("assets/window-minimize-ssd-eta#{$_state}.png"),
-                          url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+              -gtk-scaled(
+                url("assets/window-minimize-ssd-eta#{$_state}.png"),
+                url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
           }
         }
       }
@@ -6279,8 +6306,9 @@ headerbar.titlebar.default-decoration {
 
           @if $ref_weight < 1.0 {
             background-image:
-              -gtk-scaled(url("assets/window-maximize-ssd-eta#{$_state}.png"),
-                          url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+              -gtk-scaled(
+                url("assets/window-maximize-ssd-eta#{$_state}.png"),
+                url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
           }
         }
       }
@@ -6304,8 +6332,9 @@ headerbar.titlebar.default-decoration {
 
           @if $ref_weight < 1.0 {
             background-image:
-              -gtk-scaled(url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
-                          url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+              -gtk-scaled(
+                url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
+                url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
           }
         }
       }
