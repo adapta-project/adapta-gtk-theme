@@ -71,15 +71,13 @@ gtk2dir   = $(srcdir)/gtk-2.0
 gtk2_file = \
 	$(gtk2dir)/3rd-party.rc \
 	$(gtk2dir)/colors.rc \
-	$(gtk2dir)/common.rc \
-	$(gtk2dir)/misc.rc
+	$(gtk2dir)/common.rc
 gtk2_gtkrc_file = \
 	$(gtk2dir)/gtkrc
 gtk2_eta_file = \
 	$(gtk2dir)/3rd-party-eta.rc \
 	$(gtk2dir)/colors.rc \
-	$(gtk2dir)/common-eta.rc \
-	$(gtk2dir)/misc-eta.rc
+	$(gtk2dir)/common-eta.rc
 gtk2_eta_gtkrc_file = \
 	$(gtk2dir)/gtkrc-eta
 gtk2_assetdir   = $(srcdir)/asset/assets-gtk2
@@ -255,24 +253,18 @@ gtk2_spin_file = \
 	$(gtk2_assetdir)/Spin/rtl-up-active.png \
 	$(gtk2_assetdir)/Spin/rtl-up-hover.png \
 	$(gtk2_assetdir)/Spin/rtl-up-insensitive.png \
-	$(gtk2_assetdir)/Spin/rtl-up.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg-active.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg-hover.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg-insensitive.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg.png
+	$(gtk2_assetdir)/Spin/rtl-up.png
 gtk2_toolbar_file = \
 	$(gtk2_assetdir)/Toolbar/inline-toolbar.png
 
 gtk2_nokto_file = \
 	$(gtk2dir)/3rd-party-dark.rc \
 	$(gtk2dir)/colors-dark.rc \
-	$(gtk2dir)/common-dark.rc \
-	$(gtk2dir)/misc-dark.rc
+	$(gtk2dir)/common-dark.rc
 gtk2_nokto_eta_file = \
 	$(gtk2dir)/3rd-party-dark-eta.rc \
 	$(gtk2dir)/colors-dark.rc \
-	$(gtk2dir)/common-dark-eta.rc \
-	$(gtk2dir)/misc-dark-eta.rc
+	$(gtk2dir)/common-dark-eta.rc
 gtk2_nokto_gtkrc_file = \
 	$(gtk2dir)/gtkrc-dark
 gtk2_nokto_eta_gtkrc_file = \
@@ -445,11 +437,7 @@ gtk2_nokto_spin_file = \
 	$(gtk2_assetdir)/Spin/rtl-up-active-dark.png \
 	$(gtk2_assetdir)/Spin/rtl-up-dark.png \
 	$(gtk2_assetdir)/Spin/rtl-up-hover-dark.png \
-	$(gtk2_assetdir)/Spin/rtl-up-insensitive-dark.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg-active-dark.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg-dark.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg-hover-dark.png \
-	$(gtk2_assetdir)/Spin/spinscale-bg-insensitive-dark.png
+	$(gtk2_assetdir)/Spin/rtl-up-insensitive-dark.png
 gtk2_nokto_toolbar_file = \
 	$(gtk2_assetdir)/Toolbar/inline-toolbar-dark.png
 
