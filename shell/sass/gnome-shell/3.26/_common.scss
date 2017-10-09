@@ -2750,8 +2750,8 @@ $provider_details_width: 120px;
         min-height: 24px;
         background-image:
           if($gdm == 'false',
-          url("assets/show-apps-panel.svg"),
-          url("resource:///org/gnome/shell/theme/assets/show-apps-panel.svg"));
+          url("assets/show-apps-panel-dynamic.svg"),
+          url("resource:///org/gnome/shell/theme/assets/show-apps-panel-dynamic.svg"));
         background-size: 32px 32px;
         // FIXME: G-S can't recognize position property
         // and may be aligned center automatically?
@@ -2779,12 +2779,20 @@ $provider_details_width: 120px;
       }
     }
 
-    &.solid { // unset icon-shadows
+    &.solid {
       .show-apps {
+        .show-apps-icon {
+          background-image:
+            if($gdm == 'false',
+            url("assets/show-apps-panel.svg"),
+            url("resource:///org/gnome/shell/theme/assets/show-apps-panel.svg"));
+        }
+
+        &,
         &:hover,
         &:active,
         &:focus,
-        &:checked {
+        &:checked { // unset icon-shadows
           .show-apps-icon { -st-background-image-shadow: none; }
         }
       }
