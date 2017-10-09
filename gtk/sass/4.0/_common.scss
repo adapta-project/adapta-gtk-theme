@@ -6408,7 +6408,21 @@ popover.touch-selection {
   }
 }
 
-// shortcut window keys
+// FIXME: needs to be done widget by widget,
+// this wildcard should really die
+*:not(decoration):not(window):drop(active) {
+  &, &:focus {
+    border-color: $drop_target_color;
+    box-shadow: inset 0 0 0 1px $drop_target_color;
+    caret-color: $drop_target_color;
+  }
+}
+
+
+// /*******************
+//  * Shortcut Window *
+//  *******************/
+
 .keycap {
   min-width: rem(20px, $sw: 1.0);
   min-height: rem(20px, $sw: 1.0);
@@ -6431,7 +6445,6 @@ popover.touch-selection {
   }
 }
 
-// shortcut-window
 shortcuts {
   &-group {
   }
@@ -6439,6 +6452,11 @@ shortcuts {
   &-section {
     // margin: 20px;
   }
+}
+
+.shortcuts-search-results {
+  // margin: 20px;
+  // border-spacing: 24px;
 }
 
 .background.csd > box.vertical > stack > box.vertical > box.horizontal,
@@ -6450,16 +6468,6 @@ shortcuts {
     background-size: auto 1px;
     background-position: center center;
     background-repeat: repeat-x;
-  }
-}
-
-// FIXME: needs to be done widget by widget,
-// this wildcard should really die
-*:not(decoration):not(window):drop(active) {
-  &, &:focus {
-    border-color: $drop_target_color;
-    box-shadow: inset 0 0 0 1px $drop_target_color;
-    caret-color: $drop_target_color;
   }
 }
 
