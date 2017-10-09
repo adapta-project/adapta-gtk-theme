@@ -537,35 +537,45 @@ dialog.csd > headerbar.titlebar {
     padding-bottom: 0;
   }
 
-  flowboxchild { // for 3.23/24
+  flowboxchild { // experimental 'new view' mode
     margin: unset; // unset spacing first
     padding: unset;
+    color: $fg_color;
+    outline-width: 0; // unset outlines
 
-    > widget > box > .icon {
-      &-background { // use solid black backgrounds
+    * { transition-duration: 0s; } // unset child transitions
+
+    > widget box.icon {
+      &-item-background {
         border: 0 none transparent;
-        background-color: black;
+
+        > label {
+          padding: if($ref_weight < 1.0, 2px 4px 3px, 3px 6px 4px);
+          border-radius: 2px;
+          background-color: transparent;
+        }
       }
 
-      &-item-background {
-        padding: 4px;
-        border-radius: 2px;
+      &-background { // use solid black backgrounds
+        // gap between images and labels
+        margin: if($ref_weight < 1.0, 3px 0, 4px 0);
         border: 0 none transparent;
+        border-radius: 0;
         background-color: black;
       }
     }
 
     &:selected {
-      // unset selection colour
-      background-color: transparent;
+      background-color: transparent; // unset selection colour
 
-      > widget > box > .icon {
-        &-background,
-        &-item-background {
-          // re-add selection colour for specific childs
-          border: 0 none transparent;
+      > widget box.icon {
+        &-item-background > label {
           background-color: $selected_bg_color;
+          color: $selected_fg_color;
         }
+
+        // tone up image node
+        &-background > image { -gtk-icon-filter: brightness(1.2); }
       }
     }
   }
