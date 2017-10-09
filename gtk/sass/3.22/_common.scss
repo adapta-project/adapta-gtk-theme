@@ -5940,7 +5940,9 @@ decoration {
                     ('-left', $z-depth-2-backdrop-tiled-left),
                     ('-right' $z-depth-2-backdrop-tiled-right) {
     // draw empty shadows + window edges when tiled
-    .tiled#{$_constraint} & {
+    // FIXME: window node was not needed semantically, but Solus build seems
+    // to draw tiled-edges in GtkDialogs. Mystery...
+    window.tiled#{$_constraint} & {
       border-radius: 0;
       box-shadow: #{$_shadow};
     }
@@ -5963,7 +5965,7 @@ decoration {
                     ('-left', $z-depth-1-backdrop-tiled-left),
                     ('-right' $z-depth-1-backdrop-tiled-right) {
     // draw empty shadows + window edges when tiled
-    .ssd.tiled#{$_constraint} & { box-shadow: #{$_shadow}; }
+    window.ssd.tiled#{$_constraint} & { box-shadow: #{$_shadow}; }
   }
 
   .csd.popup & {
