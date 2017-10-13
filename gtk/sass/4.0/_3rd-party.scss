@@ -2081,21 +2081,6 @@ grid.horizontal > widget {
   }
 }
 
-// popup window for media
-window.background:not(.csd):not(.solid-csd):not(.unity-csd) > frame {
-  > scrolledwindow {
-    > scrollbar { // always draw troughs
-      background-color: gtkopacity($base_color, 0.55);
-
-      &.overlay-indicator {
-        &:not(.dragging):not(.hovering) {
-          background-color: gtkopacity($base_color, 0.55);
-        }
-      }
-    }
-  }
-}
-
 window.background > popover.background > frame > list > row.activatable {
   > grid.horizontal > button.flat.image-button {
     // revive transitions
@@ -2111,6 +2096,7 @@ window.background > popover.background > frame > list > row.activatable {
   }
 }
 
+// popup window for media
 window.background:not(.csd):not(.solid-csd) > overlay {
   > box.nobg.osd > revealer > button, // < 1.6
   > revealer > button.osd {  // back/forward buttons
