@@ -5947,8 +5947,6 @@ decoration {
     }
   }
 
-  .popup & { box-shadow: none; }
-
   // server-side decorations as used by mutter
   .ssd & {
     // just doing borders, wm draws actual shadows
@@ -5966,6 +5964,8 @@ decoration {
     // draw empty shadows + window edges when tiled
     window.ssd.tiled#{$_constraint} & { box-shadow: #{$_shadow}; }
   }
+
+  .popup & { box-shadow: none; }
 
   .csd.popup & {
     border-radius: 2px;
@@ -6050,19 +6050,15 @@ decoration {
     &.close,
     &.minimize,
     &.maximize {
-      &,
-      &:hover,
-      &:active,
-      &:backdrop,
-      &:backdrop:hover,
-      &:backdrop:active {
-        min-width: $icon_size * 1.5;
-        min-height: $icon_size * 1.5;
-        padding: if($ref_weight < 1.0,
-                 rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-                 rem(($widget_size - $icon_size * 1.5) / 2));
-        border-radius: 100px;
-        -gtk-outline-radius: 100px;
+      min-width: $icon_size * 1.5;
+      min-height: $icon_size * 1.5;
+      padding: if($ref_weight < 1.0,
+               rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+               rem(($widget_size - $icon_size * 1.5) / 2));
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+
+      &:not(:disabled) {
         background-image: none;
 
         > image {
@@ -6184,25 +6180,15 @@ decoration {
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
+    &:not(:disabled) {
+      color: transparent;
+      background: none;
+      box-shadow: none;
 
-    &.close,
-    &.minimize,
-    &.maximize { // reset styling
-      &,
-      &:hover,
-      &:active,
-      &:backdrop,
-      &:backdrop:hover,
-      &:backdrop:active {
-        color: transparent;
-        background: none;
-        box-shadow: none;
-
-        &, image {
-          background-size: $titlebutton_small $titlebutton_small;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
+      image {
+        background-size: $titlebutton_small $titlebutton_small;
+        background-repeat: no-repeat;
+        background-position: center;
       }
     }
 
@@ -6299,22 +6285,6 @@ decoration {
 
 // specific button styling for Metacity's CSDs and XWayland
 headerbar.titlebar.default-decoration {
-  > box.horizontal {
-    &.left,
-    &.right { // unset lateral negative margins
-      @each $class, $_left, $_right in ('.close', 0, 0),
-                                       ('.maximize', 0, 0),
-                                       ('.minimize', 0, 0),
-                                       ('.appmenu', 0, 0),
-                                       ('.icon', 0, 0) {
-        > button.titlebutton#{$class} {
-          margin-left: #{$_left};
-          margin-right: #{$_right};
-        }
-      }
-    }
-  }
-
   &,
   .tiled &,
   .maximized & {
@@ -6325,29 +6295,18 @@ headerbar.titlebar.default-decoration {
       padding: 0;
       border-radius: 100px;
       -gtk-outline-radius: 100px;
+      &:hover:backdrop,
+      &:active:backdrop { opacity: 1.0; }
+      &:not(:disabled) {
+        color: transparent;
+        background: none;
+        box-shadow: none;
+        animation: none; // FIXME: XWayland hides :active buttons
 
-      &.close,
-      &.minimize,
-      &.maximize {
-        &:hover:backdrop,
-        &:active:backdrop { opacity: 1.0; }
-
-        &,
-        &:hover,
-        &:active,
-        &:backdrop,
-        &:backdrop:hover,
-        &:backdrop:active {
-          color: transparent;
-          background: none;
-          box-shadow: none;
-          animation: none; // FIXME: XWayland hides :active buttons
-
-          &, image {
-            background-size: $titlebutton_small $titlebutton_small;
-            background-repeat: no-repeat;
-            background-position: center;
-          }
+        image {
+          background-size: $titlebutton_small $titlebutton_small;
+          background-repeat: no-repeat;
+          background-position: center;
         }
       }
     }
