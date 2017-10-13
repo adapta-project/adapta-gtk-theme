@@ -5800,6 +5800,7 @@ button.flat.scale { // standalone Speaker/Mic buttons
 //  *********************/
 
 decoration {
+  margin: 8px; // this is used for the resize cursor area
   border-radius: 2px 2px 0 0;
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0;
@@ -5807,11 +5808,6 @@ decoration {
   transition-property: box-shadow;
   transition-timing-function: $slope_slow;
   transition-duration: 0.2s;
-
-  // FIXME rationalize shadows
-
-  // this is used for the resize cursor area
-  margin: 8px;
 
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
@@ -5940,34 +5936,27 @@ decoration {
   button.titlebutton,
   &.selection-mode button.titlebutton {
     @extend %fade_effect;
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+    padding: if($ref_weight < 1.0,
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+             rem(($widget_size - $icon_size * 1.5) / 2));
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    &:not(:disabled) {
+      background-image: none;
 
-    &.close,
-    &.minimize,
-    &.maximize {
-      min-width: $icon_size * 1.5;
-      min-height: $icon_size * 1.5;
-      padding: if($ref_weight < 1.0,
-               rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-               rem(($widget_size - $icon_size * 1.5) / 2));
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
-
-      &:not(:disabled) {
-        background-image: none;
-
-        > image {
-          min-height: $icon_size;
-          min-width: $icon_size;
-          color: transparent;
-          background-size: $icon_size $icon_size;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
+      > image {
+        min-height: $icon_size;
+        min-width: $icon_size;
+        color: transparent;
+        background-size: $icon_size $icon_size;
+        background-repeat: no-repeat;
+        background-position: center;
       }
-
-      &:hover:backdrop,
-      &:active:backdrop { opacity: 1.0; }
     }
+    &:hover:backdrop,
+    &:active:backdrop { opacity: 1.0; }
 
     // raised 'Close' button
     &.close {
@@ -6179,98 +6168,82 @@ decoration {
 
 // specific button styling for Metacity's CSDs and XWayland
 headerbar.titlebar.default-decoration {
-  &,
-  .tiled &,
-  .maximized & {
-    button.titlebutton {
-      @extend %fade_effect;
-      min-width: $titlebutton_small;
-      min-height: $titlebutton_small;
-      padding: 0;
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
-      &:hover:backdrop,
-      &:active:backdrop { opacity: 1.0; }
-      &:not(:disabled) {
-        color: transparent;
-        background: none;
-        box-shadow: none;
-        animation: none; // FIXME: XWayland hides :active buttons
+  button.titlebutton {
+    @extend %fade_effect;
+    min-width: $titlebutton_small;
+    min-height: $titlebutton_small;
+    padding: 0;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    &:hover:backdrop,
+    &:active:backdrop { opacity: 1.0; }
+    &:not(:disabled) {
+      color: transparent;
+      background: none;
+      box-shadow: none;
+      animation: none; // FIXME: XWayland hides :active buttons
 
-        image {
-          background-size: $titlebutton_small $titlebutton_small;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
+      image {
+        background-size: $titlebutton_small $titlebutton_small;
+        background-repeat: no-repeat;
+        background-position: center;
       }
     }
   }
-}
 
-headerbar.titlebar.default-decoration {
-  &,
-  .tiled & {
-    %metacity_csd_button,
-    button.titlebutton {
-      @each $_class,
-            $_state,
-            $_shadow in ('', '', none),
-                        (':hover', '-hover', $z-depth-1),
-                        (':active', '-active', $z-depth-1),
-                        (':backdrop', '-backdrop', none),
-                        (':backdrop:hover', '-backdrop-hover', $z-depth-1),
-                        (':backdrop:active', '-backdrop-active', $z-depth-1) {
-        &.close#{$_class} {
+  %metacity_csd_button,
+  button.titlebutton {
+    @each $_class,
+          $_state,
+          $_shadow in ('', '', none),
+                      (':hover', '-hover', $z-depth-1),
+                      (':active', '-active', $z-depth-1),
+                      (':backdrop', '-backdrop', none),
+                      (':backdrop:hover', '-backdrop-hover', $z-depth-1),
+                      (':backdrop:active', '-backdrop-active', $z-depth-1) {
+      &.close#{$_class} {
+        background-image:
+          -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
+                      url("assets/window-close-ssd#{$_state}@2.png"));
+        box-shadow: #{$_shadow};
+
+        @if $ref_weight < 1.0 {
           background-image:
-            -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
-                        url("assets/window-close-ssd#{$_state}@2.png"));
-          box-shadow: #{$_shadow};
+            -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
+                        url("assets/window-close-ssd-eta#{$_state}@2.png"));
+        }
+      }
+    }
 
-          @if $ref_weight < 1.0 {
-            background-image:
-              -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
-                          url("assets/window-close-ssd-eta#{$_state}@2.png"));
-          }
+    @each $_class, $_state in ('', ''),
+                              (':hover', '-hover'),
+                              (':active', '-active'),
+                              (':backdrop', '-backdrop'),
+                              (':backdrop:hover', '-backdrop-hover'),
+                              (':backdrop:active', '-backdrop-active') {
+      &.minimize#{$_class} {
+        background-image:
+          -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
+                      url("assets/window-minimize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
+          background-image:
+            -gtk-scaled(
+              url("assets/window-minimize-ssd-eta#{$_state}.png"),
+              url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
         }
       }
 
-      @each $_class, $_state in ('', ''),
-                                (':hover', '-hover'),
-                                (':active', '-active'),
-                                (':backdrop', '-backdrop'),
-                                (':backdrop:hover', '-backdrop-hover'),
-                                (':backdrop:active', '-backdrop-active') {
-        &.minimize#{$_class} {
+      &.maximize#{$_class} {
+        background-image:
+          -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
+                      url("assets/window-maximize-ssd#{$_state}@2.png"));
+
+        @if $ref_weight < 1.0 {
           background-image:
-            -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
-                        url("assets/window-minimize-ssd#{$_state}@2.png"));
-
-          @if $ref_weight < 1.0 {
-            background-image:
-              -gtk-scaled(
-                url("assets/window-minimize-ssd-eta#{$_state}.png"),
-                url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
-          }
-        }
-      }
-
-      @each $_class, $_state in ('', ''),
-                                (':hover', '-hover'),
-                                (':active', '-active'),
-                                (':backdrop', '-backdrop'),
-                                (':backdrop:hover', '-backdrop-hover'),
-                                (':backdrop:active', '-backdrop-active') {
-        &.maximize#{$_class} {
-          background-image:
-            -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
-                        url("assets/window-maximize-ssd#{$_state}@2.png"));
-
-          @if $ref_weight < 1.0 {
-            background-image:
-              -gtk-scaled(
-                url("assets/window-maximize-ssd-eta#{$_state}.png"),
-                url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
-          }
+            -gtk-scaled(
+              url("assets/window-maximize-ssd-eta#{$_state}.png"),
+              url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
         }
       }
     }
