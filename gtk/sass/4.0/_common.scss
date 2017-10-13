@@ -5915,24 +5915,6 @@ decoration {
     }
   }
 
-  // appmenu buttons
-  button.titlebutton.icon,
-  button.titlebutton.appmenu,
-  &.selection-mode button.titlebutton.icon,
-  &.selection-mode button.titlebutton.appmenu {
-    min-width: $icon_size * 1.5;
-    min-height: $icon_size * 1.5;
-    padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-             rem(($widget_size - $icon_size * 1.5) / 2));
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-    &:checked { // reset fill-area
-      background-color: transparent;
-      background-image: none;
-    }
-  }
-
   button.titlebutton,
   &.selection-mode button.titlebutton {
     @extend %fade_effect;
@@ -5943,7 +5925,16 @@ decoration {
              rem(($widget_size - $icon_size * 1.5) / 2));
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    &:not(:disabled) {
+
+    &.icon,
+    &.appmenu { // appmenu buttons
+      &:checked { // reset fill-area
+        background-color: transparent;
+        background-image: none;
+      }
+    }
+
+    &:not(.appmenu):not(.icon):not(:disabled) {
       background-image: none;
 
       > image {
@@ -6063,16 +6054,19 @@ decoration {
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    &:not(:disabled) {
+
+    image {
+      background-size: $titlebutton_small $titlebutton_small;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.close,
+    &.minimize,
+    &.maximize {
       color: transparent;
       background: none;
       box-shadow: none;
-
-      image {
-        background-size: $titlebutton_small $titlebutton_small;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
     }
 
     // tiny 2px padding causes truncation of shadows,
@@ -6177,17 +6171,20 @@ headerbar.titlebar.default-decoration {
     -gtk-outline-radius: 100px;
     &:hover:backdrop,
     &:active:backdrop { opacity: 1.0; }
-    &:not(:disabled) {
+
+    image {
+      background-size: $titlebutton_small $titlebutton_small;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.close,
+    &.minimize,
+    &.maximize {
       color: transparent;
       background: none;
       box-shadow: none;
       animation: none; // FIXME: XWayland hides :active buttons
-
-      image {
-        background-size: $titlebutton_small $titlebutton_small;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
     }
   }
 
