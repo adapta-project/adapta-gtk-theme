@@ -10,28 +10,27 @@ Before using Adapta
 
 Adapta strongly depends on Material Design resources, especially its **fonts**.
 
- 1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
+ 1. [**Roboto**](https://fonts.google.com/specimen/Roboto)
+   - Very famous as the default truetype font in Android (English ver.).
+   - Multilingual support is not good.
+   - Weight used in Adapta: 300, 400, 500, 700
+
+ 2. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
    - Developed by Monotype and Adobe.
    - Weight used in Adapta: 400, (500), 700
 
- 2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
-   - Very famous as the default truetype font in Android (English ver.).
-   - Multilingual support is not good.
-   - Weight used in Adapta: 300, 400, 500, 700
+|                   |**Roboto**|**Noto Sans**|
+|:-----------------:|:--------:|:-----------:|
+|Gnome-Shell >= 3.26|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />| |
+|Gnome-Shell =< 3.24| |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Cinnamon           | |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
 
 > **Note:**
 >
 > * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
 > * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
 > * NotoSans CJK supports 500 weight.
-
-Adapta uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
-In some distributions, users may need to install `fonts-noto-hinted`.
-
-> **Note:**
->
-> In Gnome-Shell 3.26 theming, we've switched to Roboto already.
 
 Adapta is designed with nominal **13px (or 14px)** Roboto font.
 In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
