@@ -2084,8 +2084,8 @@ $extra_spacing: 2.5px;
   color: $tertiary_fg_color;
   background-color: if($nokto == 'false', shellopacity($base_color, 0.54),
                                           shellopacity($panel_bg_color, 0.54));
+  box-shadow: $empty_shadow;
   font-weight: 400;
-  box-shadow: $z-depth-2;
   transition-duration: $duration_medium;
 
   selection-background-color: $selected_bg_color;
@@ -2100,7 +2100,7 @@ $extra_spacing: 2.5px;
                              shellopacity($borders_highlight, 0.54));
     color: $fg_color;
     background-color: if($nokto == 'false', $base_color, $panel_bg_color);
-    box-shadow: $z-depth-3;
+    box-shadow: $z-depth-2;
   }
 
   .search-entry-icon {
