@@ -20,11 +20,11 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
    - Developed by Monotype and Adobe.
    - Weight used in Adapta: 400, (500), 700
 
-|                   |**Roboto**|**Noto Sans**|
-|:-----------------:|:--------:|:-----------:|
-|Gnome-Shell >= 3.26|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />| |
-|Gnome-Shell =< 3.24| |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Cinnamon           | |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+| |Primary|Fallback|
+|:-----:|:-----:|:-----:|
+|Gnome-Shell >= 3.26|**Roboto**|Sans-serif|
+|Gnome-Shell =< 3.24|**NotoSans**|Sans-serif|
+|Cinnamon           |**NotoSans**|Sans-serif|
 
 > **Note:**
 >
