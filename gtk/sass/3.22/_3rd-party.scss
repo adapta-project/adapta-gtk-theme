@@ -2903,6 +2903,12 @@ window.background:not(.solid-csd) > box.vertical {
 //  * Firefox *
 //  ***********/
 
+%_html_widget_spacing {
+  min-width: if($ref_weight < 1.0, 20px, 24px);
+  min-height: if($ref_weight < 1.0, 20px, 24px);
+  padding: if($ref_weight < 1.0, 2px 5px 3px, 3px 7px 4px);
+}
+
 // FIXME: Gtk+3 firefox needs this!
 window.background:not(.solid-csd) {
   > window.background > menu {
@@ -2920,22 +2926,28 @@ window.background:not(.solid-csd) {
     > frame,
     > separator { color: $borders_color; }
 
-    > button > button:not(.flat) {
-      // enforce fallback buttons inside the HTML pages
-      @extend %button_fallback_normal;
-      &:hover { @extend %button_fallback_hover; }
-      &:active,
-      &:checked { @extend %button_fallback_active; }
-      &:disabled { @extend %button_fallback_insensitive; }
-      &:checked:disabled {
-        @extend %button_fallback_checked_insensitive;
+    > button {
+      &, &.combo {
+        @extend %_html_widget_spacing;
+        // enforce fallback buttons inside the HTML pages
+
+        > button {
+          @extend %button_fallback_normal;
+          &:hover { @extend %button_fallback_hover; }
+          &:active,
+          &:checked { @extend %button_fallback_active; }
+          &:disabled { @extend %button_fallback_insensitive; }
+          &:checked:disabled {
+            @extend %button_fallback_checked_insensitive;
+          }
+        }
       }
     }
 
     > entry {
+      @extend %_html_widget_spacing;
       // enforce fallback entries inside the HTML pages
       @extend %entry_fallback_normal;
-      padding: rem(10.7px - 5.3px) rem(8px); // really need to reduce height?
       border-radius: 2px;
       &:focus { @extend %entry_fallback_focus; }
       &:disabled { @extend %entry_fallback_insensitive; }
