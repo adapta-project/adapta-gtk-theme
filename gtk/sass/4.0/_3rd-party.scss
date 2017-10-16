@@ -2778,6 +2778,12 @@ window.background:not(.solid-csd) > box.vertical {
 //  * Firefox *
 //  ***********/
 
+%_html_widget_spacing {
+  min-width: if($ref_weight < 1.0, 20px, 24px);
+  min-height: if($ref_weight < 1.0, 20px, 24px);
+  padding: if($ref_weight < 1.0, 2px 5px 3px, 3px 7px 4px);
+}
+
 // FIXME: Gtk+3 firefox needs this!
 window.background:not(.solid-csd) {
   > window.background > menu {
