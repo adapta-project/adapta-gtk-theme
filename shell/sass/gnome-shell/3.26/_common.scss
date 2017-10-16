@@ -1252,6 +1252,9 @@ $extra_spacing: 2.5px;
 
   &.solid { // solid-mode of TopBar
     background-color: $panel_bg_color; // fill whole area
+    // FIXME: override ugly ubuntu.css
+    background-gradient-start: $panel_bg_color;
+    background-gradient-end: $panel_bg_color;
     text-shadow: none;
     icon-shadow: none;
     transition-timing-function: $slope_slow;
