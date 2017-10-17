@@ -2774,9 +2774,9 @@ window.background:not(.solid-csd) > box.vertical {
 }
 
 
-// /***********
-//  * Firefox *
-//  ***********/
+// /*******************
+//  * Firefox Quantum *
+//  *******************/
 
 %_html_widget_spacing {
   min-width: if($ref_weight < 1.0, 20px, 24px);
@@ -2784,9 +2784,33 @@ window.background:not(.solid-csd) > box.vertical {
   padding: if($ref_weight < 1.0, 2px 5px 3px, 3px 7px 4px);
 }
 
-// FIXME: Gtk+3 firefox needs this!
-window.background:not(.solid-csd) {
+#MozillaGtkWidget.background {
+  // blend with weird toolbar backgrounds
+   background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
+
+  frame,
+  frame > border,
+  toolbar,
+  infobar,
+  separator,
+  scrollbar,
+  scrolledwindow {
+    background-color: $bg_color; // reset backgrounds
+  }
+
+  textview text {
+    // FIXME: this affected to popover widget as well,
+    // so we can not set $light_color to search-bar...
+    background-color: $secondary_base_color;
+    color: $secondary_fg_color;
+    &:selected,
+    &:selected:focus,
+    selection { @extend %selected_items; }
+  }
+
   > window.background > menu {
+    background-color: $secondary_base_color;
+
     // revert to standard separators
     separator { color: $borders_color; }
 

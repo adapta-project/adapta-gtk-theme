@@ -133,8 +133,6 @@ textview {
     background-color: $base_color;
     color: $fg_color;
     &:disabled { color: $insensitive_fg_color; }
-    &:selected, // FIXME: firefox 51.x specific
-    &:selected:focus { @extend %selected_items; }
 
     selection {
       &, &:focus { @extend %selected_items; }
