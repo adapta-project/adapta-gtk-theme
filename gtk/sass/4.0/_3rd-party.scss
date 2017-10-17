@@ -2785,13 +2785,14 @@ window.background:not(.solid-csd) > box.vertical {
 }
 
 #MozillaGtkWidget.background {
-  // blend with weird toolbar backgrounds
-   background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
+  &:first-child { // apply to main window only
+    // blend with weird toolbar backgrounds
+    background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
+  }
 
+  widget,
   frame,
   frame > border,
-  toolbar,
-  infobar,
   separator,
   scrollbar,
   scrolledwindow {
