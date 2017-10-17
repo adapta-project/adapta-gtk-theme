@@ -2910,35 +2910,29 @@ window.background:not(.solid-csd) > box.vertical {
 }
 
 #MozillaGtkWidget.background {
-  &:first-child { // apply to main window only
-    // blend with weird toolbar backgrounds
-    background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
-  }
+  // blend with weird toolbar backgrounds
+  background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
 
-  widget,
+  // FIXME: resetting child elements background is not fully functional yet
+  // because WidgetStyleCache keeps holding initial background-color.
+  // the stem of this incorrect colouring seems to be caused by their
+  // gdk_rgba to ns_rgba conversion. I don't think theme's fault.
+  .background,
   frame,
-  frame > border,
   separator,
   scrollbar,
-  scrolledwindow {
-    background-color: $bg_color; // reset backgrounds
-  }
+  scrolledwindow { background-color: $bg_color; }
 
-  textview text {
-    // FIXME: this affected to popover widget as well,
-    // so we can not set $light_color to search-bar...
-    background-color: $secondary_base_color;
-    color: $secondary_fg_color;
-    &:selected,
-    &:selected:focus,
-    selection { @extend %selected_items; }
-  }
+  *:hover,
+  *:focus,
+  *:active,
+  *:checked { color: $fg_color; } // enforce opaque foregrounds
 
-  > window.background > menu {
+  > window.background > menu { // context-menus
     background-color: $secondary_base_color;
 
     // revert to standard separators
-    separator { color: $borders_color; }
+    > separator { background-color: $solid_light_borders_color; }
 
     > menuitem > radio:checked {
       -gtk-icon-source: -gtk-scaled(
@@ -2948,15 +2942,28 @@ window.background:not(.solid-csd) > box.vertical {
   }
 
   > widget {
-    > frame,
-    > separator { color: $borders_color; }
+    border,
+    separator { color: $solid_light_borders_color; }
+
+    // FIXME: this affected to popover widget as well,
+    // so we can not set $light_color to search-bar...
+    > scrolledwindow > textview {
+      background-color: $secondary_base_color;
+
+      text {
+        background-color: transparent;
+        color: $secondary_fg_color;
+        &:selected,
+        &:selected:focus,
+        selection { @extend %selected_items; }
+      }
+    }
 
     > button {
       &, &.combo {
         @extend %_html_widget_spacing;
-        // enforce fallback buttons inside the HTML pages
 
-        > button {
+        > button { // enforce fallback buttons inside the HTML pages
           @extend %button_fallback_normal;
           &:hover { @extend %button_fallback_hover; }
           &:active,
