@@ -201,7 +201,10 @@ label {
   &.separator { color: $tertiary_fg_color; }
 
   &:selected,
-  row:selected & { @extend %nobg_selected_items; }
+  row:selected & { // no need to set backgrounds
+    color: $selected_fg_color;
+    &:disabled { color: $insensitive_selected_fg_color; }
+  }
 
   selection,
   selection:focus { @extend %selected_items; }
@@ -209,7 +212,7 @@ label {
   &:disabled {
     color: $insensitive_fg_color;
 
-    selection { @extend %selected_items:disabled; }
+    selection { color: $insensitive_selected_fg_color; }
   }
 
   // always use dark foreground in Gnome-Software
@@ -674,11 +677,12 @@ button {
       padding-left: rem(4px);
       padding-right: rem(4px);
     }
+  }
 
-    &:drop(active) {
-      color: $drop_target_color;
-      background-color: $drop_target_fill_color;
-    }
+  %button_drop_target,
+  &:drop(active) {
+    color: $drop_target_color;
+    background-color: $drop_target_fill_color;
   }
 
   &.circular {
@@ -1150,6 +1154,7 @@ toolpalette {
     &:active { color: $link_visited_color; }
     *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
   }
+  %selected_link,
   &:selected,
   *:selected & { color: mix($selected_fg_color, $selected_bg_color, 80%); }
   &:disabled { opacity: 0.4; }
@@ -1406,7 +1411,7 @@ combobox {
   }
 
   &:drop(active) {
-    button.combo { @extend button:drop(active); }
+    button.combo { @extend %button_drop_target; }
   }
 
   > window.popup { // context-menu popup
@@ -2359,7 +2364,7 @@ headerbar {
       &.subtitle {
         color: $secondary_fixed_fg_color;
 
-        &:link { @extend *:link:selected;  }
+        &:link { @extend %selected_link;  }
       }
     }
 
@@ -5397,7 +5402,7 @@ placessidebar {
     // &:selected:active { box-shadow: none; }
 
     // looks like the label doesn't get all the states so work around
-    &:selected:disabled label { @extend %selected_items:disabled; }
+    &:selected:disabled label { color: $insensitive_selected_fg_color; }
     // &:selected:backdrop:disabled label {
     //   @extend %selected_items:backdrop:disabled;
     // }
@@ -6410,14 +6415,9 @@ headerbar.titlebar.default-decoration {
 
 %selected_items {
   background-color: $selected_bg_color;
-
-  @at-root %nobg_selected_items, & {
-    color: $selected_fg_color;
-    &:disabled { color: $insensitive_selected_fg_color; }
-    &:backdrop {
-      // color: $backdrop_selected_fg_color;
-      &:disabled { color: $insensitive_selected_fg_color; }
-    }
+  color: $selected_fg_color;
+  &:disabled {
+    &, &:backdrop { color: $insensitive_selected_fg_color; }
   }
 }
 

@@ -608,10 +608,7 @@ dialog.csd > headerbar.titlebar {
     background-color: $warning_color;
     color: $fixed_fg_color;
   }
-  &:selected {
-    background-color: $selected_bg_color;
-    color: $selected_fg_color;
-  }
+  &:selected { @extend %selected_items; }
 }
 
 // hide unwanted frame in batch-rename dialog
@@ -1079,10 +1076,7 @@ window.background box.vertical > paned.horizontal > box.vertical {
         background-color: transparent;
         font-weight: 500;
         &:hover { color: $fg_color; }
-        &:selected {
-          color: $selected_fg_color;
-          background-color: $selected_bg_color;
-        }
+        &:selected { @extend %selected_items; }
       }
     }
   }
@@ -2875,10 +2869,7 @@ window.background > box.vertical {
 
       treeview.view {
         background-color: transparent;
-        &:selected {
-          background-color: $selected_bg_color;
-          color: $selected_fg_color;
-        }
+        &:selected { @extend %selected_items; }
       }
     }
   }

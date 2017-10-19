@@ -2257,8 +2257,7 @@ grid.tweet-info-grid.view { // raised material
       transition: none;
 
       &:selected { // FIXME: selection node doesn't work?
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        @extend %selected_items;
       }
     }
   }
@@ -2485,8 +2484,7 @@ window.background:not(.csd) > box.vertical {
       &, &.view {
         background-color: transparent;
         &:selected {
-          color: $selected_fg_color;
-          background-color: $selected_bg_color;
+          @extend %selected_items;
 
           label { color: $selected_fg_color; }
         }
@@ -2516,10 +2514,7 @@ window.background:not(.csd) > box.vertical {
           transition-duration: 0s;
           animation: none;
         }
-        &:selected {
-          background-color: $selected_bg_color;
-          color: $selected_fg_color;
-        }
+        &:selected { @extend %selected_items; }
       }
     }
   }
@@ -3275,8 +3270,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       transition: none;
 
       &:selected { // FIXME: selection node doesn't work?
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        @extend %selected_items;
       }
     }
   }
@@ -3299,10 +3293,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       treeview.view {
         background-color: transparent;
         // font-weight: 500;
-        &:selected {
-          background-color: $selected_bg_color;
-          color: $selected_fg_color;
-        }
+        &:selected { @extend %selected_items; }
       }
     }
 
@@ -3407,8 +3398,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
       transition: none;
 
       &:selected { // FIXME: selection node doesn't work?
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        @extend %selected_items;
       }
     }
   }
@@ -3535,10 +3525,7 @@ window#MyControlCenter > frame > box.horizontal {
     > .view { // = evview?
       transition: none;
       &:selected,
-      &:active {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color;
-      }
+      &:active { @extend %selected_items; }
     }
   }
 }
@@ -3839,8 +3826,7 @@ window.background:not(.solid-csd) > box.vertical {
   > widget widget,
   > box.vertical widget {
     &:selected { // selected-row?
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      @extend %selected_items;
     }
   }
 }
