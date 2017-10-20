@@ -3003,10 +3003,16 @@ window.background:not(.solid-csd) > box.vertical {
 //  * Firefox *
 //  ***********/
 
-%_html_widget_spacing {
-  min-width: if($ref_weight < 1.0, 20px, 24px);
-  min-height: if($ref_weight < 1.0, 20px, 24px);
-  padding: if($ref_weight < 1.0, 2px 5px 3px, 3px 7px 4px);
+%_html_button_spacing {
+  min-width: unset; // do not set min-width/height
+  min-height: unset;
+  padding: if($ref_weight < 1.0, 4px 8px 5px, 7px 11px 8px);
+}
+
+%_html_entry_spacing {
+  min-width: if($ref_weight < 1.0, 24px, 24px + 4px);
+  min-height: if($ref_weight < 1.0, 24px, 24px + 4px);
+  padding: if($ref_weight < 1.0, 0 4px, 0 7px);
 }
 
 // FIXME: Gtk+3 firefox needs this!
@@ -3033,10 +3039,7 @@ window.background:not(.solid-csd) {
 
     > button {
       &, &.combo {
-        @extend %_html_widget_spacing;
-        // enforce fallback buttons inside the HTML pages
-
-        > button {
+        > button { // enforce fallback buttons inside the HTML pages
           @extend %button_fallback_normal;
           &:hover { @extend %button_fallback_hover; }
           &:active,
@@ -3047,11 +3050,17 @@ window.background:not(.solid-csd) {
           }
         }
       }
+
+      &.combo, // generic button and combo spacing
+      & { @extend %_html_button_spacing; }
+
+      // toolbar combo buttons in 'downloads' sub-window
+      &:not(.combo) > button { @extend %_html_button_spacing; }
     }
 
     > entry, // 53.x
     > entry > entry { // 52.x or lower
-      @extend %_html_widget_spacing;
+      @extend %_html_entry_spacing;
       // enforce fallback entries inside the HTML pages
       @extend %entry_fallback_normal;
       border-radius: 2px;
