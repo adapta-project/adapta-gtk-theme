@@ -3176,6 +3176,33 @@ window.popup {
   }
 }
 
+#IBus { // ibus-candidate popups
+  &Candidate {
+    border: 1px solid $borders_color;
+    background-color: $secondary_base_color;
+    box-shadow: inset 0 1px $menu_highlight_color;
+
+    > box > label { color: $tertiary_fg_color; }
+
+    widget label {
+      color: $secondary_fg_color;
+      font-size: 110%;
+      &:selected {
+        color: $selected_bg_color;
+        // hide background via caret-color
+        -gtk-secondary-caret-color: $secondary_base_color;
+      }
+    }
+
+    button.flat.image-button { margin: rem(4px); }
+  }
+
+  &Handle { // a grip inside the ibus-candidate popups
+    // override ugly grey backgrounds
+    background-image: image($secondary_base_color);
+  }
+}
+
 
 // /************
 //  * Popovers *
