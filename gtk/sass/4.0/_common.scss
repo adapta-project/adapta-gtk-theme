@@ -3146,14 +3146,11 @@ window.popup {
 
     > box > label { color: $tertiary_fg_color; }
 
-    widget label {
+    widget > label {
       color: $secondary_fg_color;
       font-size: 110%;
-      &:selected {
-        color: $selected_bg_color;
-        // hide background via caret-color
-        -gtk-secondary-caret-color: $secondary_base_color;
-      }
+      -gtk-secondary-caret-color: $suggested_color;
+      &:selected { color: $selected_fg_color; }
     }
 
     button.flat.image-button { margin: rem(4px); }
