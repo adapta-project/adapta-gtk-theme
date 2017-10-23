@@ -3199,67 +3199,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 
 .mate-terminal {
   notebook > header.top { // show drop-shadows
-    background-color: $inverted_bg_color;
-    box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
-                inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
-                inset 0 -1px $borders_color;
-
-    tab.reorderable-page {
-      &:hover {
-        background-color: $inverted_base_color;
-        box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
-                    inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
-                    inset 0 -1px $borders_color;
-      }
-      &:checked {
-        background-color: $inverted_base_color;
-        box-shadow: -1px 0 2px rgba(0, 0, 0, 0.02),
-                    -1px 0 4px rgba(0, 0, 0, 0.03),
-                    1px 0 2px rgba(0, 0, 0, 0.02),
-                    1px 0 4px rgba(0, 0, 0, 0.03),
-                    inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
-                    inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
-                    inset 0 -1px $borders_color;
-      }
-    }
-
-    tab {
-      label { color: $inverted_tertiary_fg_color; }
-      &:hover label,
-      &:checked label { color: $inverted_fg_color; }
-
-      button {
-        &,
-        image { color: $inverted_tertiary_fg_color; }
-      }
-
-      &:hover button,    // hover tab close button
-      &:checked button { // active tab close button
-        &,
-        image { color: $inverted_fg_color; }
-      }
-    }
-
-    tabs > arrow {
-      color: $inverted_tertiary_fg_color;
-      &:hover,
-      &:active { color: $inverted_fg_color; }
-      &:disabled { color: $insensitive_inverted_secondary_fg_color; }
-    }
-  }
-
-  scrollbar {
-    background-color: $inverted_dark_color;
-    // border: 1px none transparent;
-
-    slider { // always use dark variant
-      background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
-      &:hover {
-        background-color: gtkopacity($inverted_secondary_fg_color, 0.55);
-      }
-      &:active { background-color: $inverted_fg_color; }
-      &:disabled { opacity: 0.4; }
-    }
+    @extend %ssd_notebook_shadow;
   }
 }
 
