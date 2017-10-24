@@ -306,25 +306,28 @@ list.tweak-group-startup {
   &, &.solid {
     border: 1px solid $borders_color;
     background-color: gtkopacity($inverted_dark_color, 0.9);
-    color: $inverted_fg_color;
+    color: $inverted_tertiary_fg_color;
   }
 
   // for non-composited environments
   &.solid { border-radius: 0; }
 
   gf-candidate-box {
+    border-radius: 2px;
+    color: $inverted_secondary_fg_color;
     transition: none;
-    // a half of .menuitem
+
     label {
-      padding: rem(2.7px) rem(2.7px) rem(4px);
+      padding: rem(2.7px) rem(8px) rem(4px);
       font-size: 110%;
     }
 
-    &:last-child { padding-left: 0; }
-    &:hover,
-    &:selected {
-      border-radius: 0;
+    &:hover {
       background-color: $track_color;
+      color: $inverted_fg_color;
+    }
+    &:selected {
+      background-color: $suggested_color;
       color: $selected_fg_color;
     }
   }
