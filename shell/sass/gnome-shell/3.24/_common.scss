@@ -2953,11 +2953,13 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   &-popup-content {
     padding: 0.5em;
     spacing: 0.3em;
+    color: $osd_tertiary_fg_color;
   }
 
   &-index {
-    padding: 0 0.5em 0 0;
-    color: $osd_tertiary_fg_color;
+    color: $osd_secondary_fg_color;
+    &:ltr { padding: 0.3em 0.5em 0.3em 0; }
+    &:rtl { padding: 0.3em 0 0.3em 0.5em; }
   }
 
   &-box {
@@ -2966,11 +2968,23 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     border-radius: 2px;
     color: $osd_secondary_fg_color;
     transition-duration: 0s;
-    &:hover,
-    &:active,
-    &:selected {
+    &:hover {
+      background-color: $osd_semi_fill_color;
+      color: $osd_fg_color;
+
+      .candidate-index { color: $osd_fg_color; }
+    }
+    &:active {
       background-color: $osd_fill_color;
+      color: $osd_fg_color;
+
+      .candidate-index { color: $osd_fg_color; }
+    }
+    &:selected {
+      background-color: $suggested_color;
       color: $selected_fg_color;
+
+      .candidate-index { color: $osd_secondary_fg_color; }
     }
   }
 
