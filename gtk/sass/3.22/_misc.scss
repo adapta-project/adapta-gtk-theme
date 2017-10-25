@@ -2947,29 +2947,25 @@ window.background > grid.horizontal.titlebar {
 //  ********************/
 
 // side-pane styling
-window.background > grid.vertical > box.horizontal > grid.vertical {
-  > scrolledwindow > viewport.frame > list.categories {
-    background-color: $secondary_dark_color;
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
+scrolledwindow > viewport.frame list.categories {
+  background-color: $secondary_dark_color;
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
+  }
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
+  }
 
-    > row.category.activatable {
-      font-weight: 500;
-      &:selected {
-        background-color: transparent;
-        color: $selected_bg_color;
+  > row.category.activatable {
+    font-weight: 500;
+    &:selected {
+      background-color: transparent;
+      color: $selected_bg_color;
 
-        > box.horizontal {
-          > .category-icon,
-          > .category-label { color: $selected_bg_color; }
-        }
-      }
+      image.category-icon,
+      label.category-label { color: $selected_bg_color; }
     }
   }
 }
