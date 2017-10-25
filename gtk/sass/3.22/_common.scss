@@ -6083,7 +6083,8 @@ decoration {
       }
     }
 
-    &:not(.appmenu):not(.icon):not(:disabled) {
+    // 'indeterminate' is the synthetic wildcard
+    &:not(.appmenu):not(.icon):not(:indeterminate) {
       background-image: none;
 
       > image {
