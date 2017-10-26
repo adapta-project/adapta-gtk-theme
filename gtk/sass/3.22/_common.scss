@@ -2405,7 +2405,9 @@ headerbar {
       &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
     }
   }
+}
 
+headerbar {
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
       &, &:not(:only-child):last-child {
@@ -2421,16 +2423,27 @@ headerbar {
     &:dir(ltr) { border-left: 1px solid $borders_color; }
     &:dir(rtl) { border-right: 1px solid $borders_color; }
   }
-}
 
-headerbar { // selection-mode styling
-  &.selection-mode {
+  &.selection-mode { // selection-mode styling
     border-width: 1px 0 1px 0; // remove side borders
     border-top-color: $highlight_color;
     border-bottom-color: transparent;
     background-color: $selected_bg_color;
     color: $selected_fg_color;
     &:backdrop { opacity: 1.0; }
+
+    box & { // Remove unneeded side shadows with dirty hacks
+      &:not(:only-child):last-child {
+        &:dir(ltr) {
+          box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
+                                              $selected-header-shadow-dark-ltr);
+        }
+        &:dir(rtl) {
+          box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
+                                              $selected-header-shadow-dark-rtl);
+        }
+      }
+    }
 
     .tiled &,
     .tiled-top &,
@@ -2656,21 +2669,6 @@ headerbar {
     > .title { margin: 0; }
 
     > .subtitle { margin: rem(-2.7px) 0; }
-  }
-}
-
-headerbar.selection-mode { // selection-mode specific
-  box & { // Remove unneeded side shadows with dirty hacks
-    &:not(:only-child):last-child {
-      &:dir(ltr) {
-        box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
-                                            $selected-header-shadow-dark-ltr);
-      }
-      &:dir(rtl) {
-        box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
-                                            $selected-header-shadow-dark-rtl);
-      }
-    }
   }
 }
 
