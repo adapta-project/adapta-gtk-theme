@@ -125,8 +125,8 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   }
 }
 
-.view,
-%view {
+%view,
+.view {
   @extend %activatable_row;
   background-color: $base_color;
   color: $fg_color;
@@ -165,7 +165,7 @@ textview {
   border { background-color: $bg_color; }
 }
 
-iconview { @extend .view; }
+iconview { @extend %view; }
 
 .rubberband,
 rubberband {
@@ -1179,6 +1179,7 @@ fontbutton { // standard raised button styling
 //  * Links *
 //  *********/
 
+%link,
 *:link {
   color: $link_color;
   &:hover,
@@ -1198,7 +1199,7 @@ fontbutton { // standard raised button styling
 button:link,
 button:visited {
   // FIXME: aggregate with buttons
-  @extend *:link;
+  @extend %link;
 
   > label { text-decoration-line: underline; }
 }
