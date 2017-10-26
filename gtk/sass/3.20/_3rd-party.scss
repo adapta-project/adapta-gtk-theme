@@ -3787,29 +3787,28 @@ widget > box#DesktopMainTable {
 //  * Emacs24/25 *
 //  **************/
 
-window#Emacs24,
-window#Emacs {
-  background-color: $bg_color;
-  transition: none;
-
-  > box#pane {
+@each $_version in '', '24' {
+  window#Emacs#{$_version} {
     background-color: $bg_color;
+    transition: none;
 
-    > widget > toolbar#emacs-toolbar {
+    > box#pane {
       background-color: $bg_color;
-      transition: none;
-    }
 
-    > box > widget#emacs,
-    > box > widget#emacs24,
-    > box > widget#emacs25 {
-     transition: none;
-
-      > widget > scrollbar,
-      > widget > scrollbar trough {
+      > widget > toolbar#emacs-toolbar {
         background-color: $bg_color;
         transition: none;
       }
+    }
+  }
+
+  window#Emacs#{$_version} widget#emacs#{$_version} {
+    transition: none;
+
+    > widget > scrollbar {
+      background-color: $bg_color;
+
+      &, * { transition: none; }
     }
   }
 }
