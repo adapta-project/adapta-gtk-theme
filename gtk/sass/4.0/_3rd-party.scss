@@ -482,8 +482,6 @@ window.budgie-popover:not(.csd) {
   > box.vertical row.activatable:first-child,
   > frame.container > box.vertical row.activatable:first-child {
     margin-bottom: rem(10.7px); // fix truncated drop-shadow
-    outline-offset: 0;
-    outline-width: 0;
 
     .indicator-item {
       background-color: $suggested_color;
@@ -678,8 +676,9 @@ window.budgie-popover:not(.csd) {
     &:checked:disabled { @include button(flat-checked-insensitive); }
   }
 
-  // enforce square outlines
-  .linked > button.image-button { -gtk-outline-radius: 0; }
+  .linked > button.image-button { // enforce square outlines
+    &:focus(visible) { -gtk-outline-radius: 0; }
+  }
 
   .raven-header {
     > .linked { margin: 0 rem(10.7px, $sw: 1.0); }

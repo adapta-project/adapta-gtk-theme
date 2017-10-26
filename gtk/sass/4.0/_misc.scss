@@ -512,15 +512,6 @@ dialog.csd > headerbar.titlebar {
   }
 }
 
-.nautilus { // hide outlines
-  &-canvas-item {
-    border-radius: 2px;
-    outline-width: 0;
-  }
-
-  &-list-view treeview.view { outline-width: 0; }
-}
-
 .nautilus-circular-button {
   border-radius: 9999px;
   -gtk-outline-radius: 9999px;
@@ -544,7 +535,7 @@ dialog.csd > headerbar.titlebar {
     margin: unset; // unset spacing first
     padding: unset;
     color: $fg_color;
-    outline-width: 0; // unset outlines
+    &:focus(visible) { outline-width: 0; } // unset outlines
 
     * { transition-duration: 0s; } // unset child transitions
 

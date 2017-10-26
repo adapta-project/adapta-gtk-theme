@@ -46,21 +46,36 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   padding: 0;
   background-clip: padding-box;
 
-  // We use the outline properties to signal the focus properties
-  // to the adwaita engine: using real CSS properties is faster,
-  // and we don't use any outlines for now.
-
-  outline-style: solid;
-  outline-width: 2px;
-  outline-color: $outline_track_color;
-  outline-offset: rem(-4px);
-  -gtk-outline-radius: 2px;
-
   -gtk-secondary-caret-color: $selected_bg_color;
 
   // disable drop-shadows as default
   text-shadow: none;
   -gtk-icon-shadow: none;
+
+  // We use the outline properties to signal the focus properties
+  // to the adwaita engine: using real CSS properties is faster,
+  // and we don't use any outlines for now.
+  outline-color: $outline_track_color;
+  -gtk-outline-radius: 2px;
+}
+
+@each $_node, // visible focus styling
+      $_style,
+      $_width,
+      $_offset in (button, solid, 2px, rem(-4px)),
+                  (modelbutton, solid, 2px, rem(-1px)),
+                  (flowboxchild, solid, 2px, -2px),
+                  (checkbutton, solid, 2px, 0),
+                  (radiobutton, solid, 2px, 0),
+                  (switch, solid, 2px, rem(-4px, $sw: 1.0)),
+                  (scale, none, 0, 0),
+                  (tab, solid, 2px, rem(-6px)),
+                  (label, solid, 2px, rem(-4px)), {
+  #{$_node}:focus(visible) {
+    outline-style: #{$_style};
+    outline-width: #{$_width};
+    outline-offset: #{$_offset};
+  }
 }
 
 
@@ -116,10 +131,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   color: $fg_color;
   &:hover,
   &:active,
-  &:selected {
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-  }
+  &:selected { border-radius: 2px; }
   &:disabled { color: $insensitive_fg_color; }
   &:backdrop {
   }
@@ -141,8 +153,6 @@ textview {
 }
 
 textview {
-  outline-width: 0;
-
   &,
   &.view,
   text,
@@ -168,11 +178,7 @@ flowbox {
   flowboxchild {
     padding: rem(4px, $sw: 1.0);
     border-radius: 0;
-    -gtk-outline-radius: 2px;
-    &:selected {
-      @extend %selected_items;
-      outline-offset: -2px;
-    }
+    &:selected { @extend %selected_items; }
   }
 }
 
@@ -1056,7 +1062,6 @@ menuitem button.flat {
   @extend %button_flat_normal;
   min-height: rem(26.6px);
   padding: rem(5.3px) rem(8px) rem(6.7px);
-  outline-offset: rem(-1px);
   background-color: transparent;
   color: $secondary_fg_color;
   transition: none;
@@ -1925,7 +1930,7 @@ headerbar {
   background-clip: border-box;
 
   // hide all outlines
-  * {
+  *:focus(visible) {
     outline-style: none;
     outline-width: 0;
     outline-color: transparent;
@@ -2285,7 +2290,6 @@ headerbar {
     min-width: rem(30px);
     border: rem(10px) solid transparent;
     background-color: $inverted_tertiary_fg_color;
-    outline-offset: rem(-4px);
     &:disabled {
       background-color: gtkopacity($inverted_tertiary_fg_color, 0.28);
     }
@@ -3449,7 +3453,6 @@ notebook {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%; // hide ripples in normal state
-    outline-offset: rem(-6px);
     transition: border-color 0.2s $slope_medium,
                 border-image 0.2s $slope_medium,
                 background-size 0s,
@@ -3698,7 +3701,6 @@ switch {
   -gtk-outline-radius: 100px;
   background-color: $tertiary_fg_color;
   font-size: 0;
-  outline-offset: rem(-4px, $sw: 1.0);
   &:checked {
     background-color: gtkopacity($selected_bg_color, 0.54);
     &:disabled {
@@ -3787,7 +3789,7 @@ switch {
     min-width: rem(50px, $sw: 1.0);
     min-height: rem(28px, $sw: 1.0);
     font-size: 0;
-    outline-color: transparent;
+    &:focus(visible) { outline-color: transparent; }
 
     // reset all of default troughs
     &:not(:hover):not(:checked):not(:disabled),
@@ -4080,7 +4082,6 @@ checkbutton.text-button,
 radiobutton.text-button {
   // this is for a nice focus on check and radios text
   padding: rem(2.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
-  outline-offset: 0;
   color: $secondary_fg_color;
   &:hover,
   &:active,
@@ -4156,7 +4157,6 @@ flowbox > flowboxchild overlay checkbutton.bottom {
       min-width: $icon_size * 2.5;
       margin: 0; // remove unneeded spacing for animations
       padding: 0;
-      outline-width: 0; // hide unneeded outlines
       animation: none; // stop hover/active animations
     }
   }
@@ -4244,23 +4244,11 @@ $_marks_length: rem(6px, $sw: 1.0);
 $_marks_distance: rem(6px, $sw: 1.0);
 
 scale {
-  // remove ugly outlines
-  &,
-  trough,
-  trough highlight {
-    outline-style: none;
-    outline-offset: 0;
-    outline-width: 0;
-  }
-
   min-height: rem(10px, $sw: 1.0);
   min-width: rem(10px, $sw: 1.0);
   padding: rem(8px, $sw: 1.0);
 
   &.fine-tune {
-    // remove ugly outlines
-    outline-offset: 0;
-    outline-width: 0;
     &.horizontal {
       min-height: rem(10px, $sw: 1.0);
       padding-top: rem(8px, $sw: 1.0);
