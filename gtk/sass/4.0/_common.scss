@@ -1924,7 +1924,7 @@ actionbar {
 //  * Header bars *
 //  ***************/
 
-.titlebar,
+%headerbar,
 headerbar {
   @extend %fade_effect;
   background-color: $inverted_dark_color;
@@ -2326,6 +2326,58 @@ headerbar {
     border: 0 none transparent;
   }
 
+  // misc
+  .tiled &,
+  .tiled-top &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .tiled-right &,
+  .maximized &,
+  .fullscreen & {
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
+  }
+
+  &.default-decoration {
+    padding: 0 3px; // override scaling-unit
+    border-radius: 2px 2px 0 0;
+    border-width: 0;
+
+    .title { // fade_effect doesn't work
+      color: $inverted_fg_color;
+      &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
+    }
+
+    .titlebutton {
+      min-width: $titlebutton_small;
+      min-height: $titlebutton_small;
+      margin: 3px 0 2px; // concern top-edge border
+      padding: 0;
+      color: $inverted_secondary_fg_color;
+      &:hover,
+      &:active { color: $inverted_fg_color; }
+      &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
+    }
+  }
+
+  .solid-csd & {
+    &:dir(rtl), &:dir(ltr) { // specificity bump
+      &, &:not(:only-child):last-child {
+        margin: -1px -1px 0 -1px; // hide inset border-frame in decoration node
+        border-radius: 0;
+        border-top: 0 none transparent; // unset top-edge
+        box-shadow: none;
+      }
+    }
+  }
+
+  .solid-csd box &:not(:only-child):last-child { // revive separators
+    &:dir(ltr) { border-left: 1px solid $borders_color; }
+    &:dir(rtl) { border-right: 1px solid $borders_color; }
+  }
+}
+
+headerbar {
   // selection-mode styling
   &.selection-mode {
     border-width: 1px 0 1px 0; // remove side borders
@@ -2459,55 +2511,17 @@ headerbar {
       }
     }
   }
+}
 
-  // misc
-  .tiled &,
-  .tiled-top &,
-  .tiled-bottom &,
-  .tiled-left &,
-  .tiled-right &,
-  .maximized &,
-  .fullscreen & {
-    border-top-color: $inverted_dark_color;
-    border-radius: 0;
+.titlebar {
+  &:not(headerbar) { // extend to non-headerbar cases
+    @extend %headerbar;
   }
 
-  &.default-decoration {
-    padding: 0 3px; // override scaling-unit
-    border-radius: 2px 2px 0 0;
-    border-width: 0;
-
-    .title { // fade_effect doesn't work
-      color: $inverted_fg_color;
-      &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
-    }
-
-    .titlebutton {
-      min-width: $titlebutton_small;
-      min-height: $titlebutton_small;
-      margin: 3px 0 2px; // concern top-edge border
-      padding: 0;
-      color: $inverted_secondary_fg_color;
-      &:hover,
-      &:active { color: $inverted_fg_color; }
-      &:backdrop { color: gtkopacity($inverted_fg_color, 0.4); }
-    }
-  }
-
-  .solid-csd & {
-    &:dir(rtl), &:dir(ltr) { // specificity bump
-      &, &:not(:only-child):last-child {
-        margin: -1px -1px 0 -1px; // hide inset border-frame in decoration node
-        border-radius: 0;
-        border-top: 0 none transparent; // unset top-edge
-        box-shadow: none;
-      }
-    }
-  }
-
-  .solid-csd box &:not(:only-child):last-child { // revive separators
-    &:dir(ltr) { border-left: 1px solid $borders_color; }
-    &:dir(rtl) { border-right: 1px solid $borders_color; }
+  // revive top-edge highlight border for SSDs
+  .ssd & {
+    border-top: 1px solid $top_edge_borders_color;
+    box-shadow: none;
   }
 }
 
