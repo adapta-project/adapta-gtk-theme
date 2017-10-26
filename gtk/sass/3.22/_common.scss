@@ -2141,13 +2141,16 @@ headerbar {
              rem(($widget_size - $icon_size * 1.5) / 2));
   }
 
-  .linked > button {
-    &.image-button:not(.text-button) {
+  .linked,
+  .linked.raised {
+    > button.image-button:not(.text-button) {
       min-width: $icon_size * 1.5;
       min-height: $icon_size * 1.5;
       padding: if($ref_weight < 1.0,
                rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                rem(($widget_size - $icon_size * 1.5) / 2));
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
     }
   }
 
