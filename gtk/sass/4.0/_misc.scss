@@ -2807,6 +2807,26 @@ box.horizontal.titlebar > headerbar > stack > box.vertical {
   > .subtitle { margin: rem(-2.7px) 0; }
 }
 
+dialog.background.csd {
+  > headerbar.titlebar {
+    // FIXME: this is for incompetence Gnome-Control-Center's python code
+    // That code can neither compute any child allocations nor define .title
+    // class...
+    min-height: if($ref_weight < 1.0,
+                  calc((0.28rem * 2) + (0.3rem * 2) + 24px - 2px),
+                  calc((0.4rem * 2) + (0.5rem * 2) + 24px - 2px));
+
+    > label:not(.title):not(.subtitle) {
+      color: $inverted_fg_color;
+      font-weight: 700;
+    }
+  }
+
+  &:backdrop > headerbar.titlebar > label:not(.title):not(.subtitle) {
+    color: gtkopacity($inverted_fg_color, 0.75 * 0.75);
+  }
+}
+
 
 // /*************
 //  * Evolution *
