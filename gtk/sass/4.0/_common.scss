@@ -1925,7 +1925,7 @@ actionbar {
 //  * Header bars *
 //  ***************/
 
-%headerbar,
+.titlebar,
 headerbar {
   @extend %fade_effect;
   background-color: $inverted_dark_color;
@@ -2096,9 +2096,8 @@ headerbar {
              rem(($widget_size - $icon_size * 1.5) / 2));
   }
 
-  .linked,
-  .linked.raised {
-    > button.image-button:not(.text-button) {
+  .linked > button {
+    &.image-button:not(.text-button) {
       min-width: $icon_size * 1.5;
       min-height: $icon_size * 1.5;
       padding: if($ref_weight < 1.0,
@@ -2530,10 +2529,6 @@ headerbar {
 }
 
 .titlebar {
-  &:not(headerbar) { // extend to non-headerbar cases
-    @extend %headerbar;
-  }
-
   // revive top-edge highlight border for SSDs
   .ssd & {
     border-top: 1px solid $top_edge_borders_color;
