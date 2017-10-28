@@ -249,7 +249,7 @@ Installation from Git Source
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
 GtkSourceView/Gedit Color Scheme Support
----------------------------------------
+----------------------------------------
  A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
  See details in [`README.md`](/extra/gedit/README.md).
 
@@ -257,6 +257,12 @@ GtkSourceView/Gedit Color Scheme Support
  >
  >   * The color-scheme can be used in Gnome-Builder, Gnome-Sushi, Meld and Gedit if installed to `~/.local/share/gtksourceview-3.0/styles` directory.
  >   * Currently only dark-variant is supported.
+
+Visual Studio Code (VS Code) Theme Support
+------------------------------------------
+ [**Visual Studio Marketplace**](https://marketplace.visualstudio.com/items?itemName=SolarLiner.linux-themes)
+
+ Author: SolarLiner
 
 Extra Browser Support
 ---------------------
