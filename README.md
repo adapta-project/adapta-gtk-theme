@@ -112,7 +112,7 @@ Unsupported Gtk+ Based Desktop(s)
 
 Installation from Package(s)
 ----------------------------
- * Archlinux (community): https://www.archlinux.org/packages/community/any/adapta-gtk-theme/
+ * Arch Linux (community): https://www.archlinux.org/packages/community/any/adapta-gtk-theme/
 
  * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
 
@@ -120,9 +120,7 @@ Installation from Package(s)
 
  * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
 
- > **Note:**
- >
- >   * Solus OS has an eopkg (ypkg) in main repository.
+ * Solus OS:  package can be found in official repositories
 
 Installation from Git Source
 ----------------------------
