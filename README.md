@@ -337,7 +337,6 @@ Work in Progress
 TODO
 ----
 * Prepare for Meson build system (priority: high)
-* Prepare for FlatPak packaging (priority: mid)
 
 Public License
 --------------
