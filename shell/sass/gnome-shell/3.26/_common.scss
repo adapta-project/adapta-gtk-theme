@@ -2124,36 +2124,36 @@ $provider_details_width: 120px;
 #searchResultsBin { max-width: 1000px; }
 
 #searchResultsContent {
-  spacing: if($eta == 'false', $results_icon_size / 2,
-                               $results_icon_size / 4);
-  padding: if($eta == 'false', $results_icon_size / 2,
-                               $results_icon_size / 4);
+  spacing: if($eta == 'false', $results_icon_size / 3,
+                               $results_icon_size / 6);
+  padding: if($eta == 'false', $results_icon_size / 3,
+                               $results_icon_size / 6);
 }
 
  // This should be equal to #searchResultsContent spacing
 .search-section {
-  spacing: if($eta == 'false', $results_icon_size / 2,
-                               $results_icon_size / 4);
+  spacing: if($eta == 'false', $results_icon_size / 3,
+                               $results_icon_size / 6);
 
   // This is the space between the provider icon and the results container
   &-content {
-    spacing: if($eta == 'false', $results_icon_size / 2,
-                                 $results_icon_size / 4);
+    spacing: if($eta == 'false', $results_icon_size / 3,
+                                 $results_icon_size / 6);
   }
 
   &-separator {
     height: 1px;
     background-color: $osd_outline_fill_color;
     &:ltr {
-      margin-left: if($eta == 'false', $results_icon_size * 3.33
+      margin-left: if($eta == 'false', $results_icon_size * 3
                                        + $provider_details_width,
-                                       $results_icon_size * 2.33
+                                       $results_icon_size * 2
                                        + $provider_details_width);
     }
     &:rtl {
-      margin-right: if($eta == 'false', $results_icon_size * 3.33
+      margin-right: if($eta == 'false', $results_icon_size * 3
                                         + $provider_details_width,
-                                        $results_icon_size * 2.33
+                                        $results_icon_size * 2
                                         + $provider_details_width);
     }
   }
@@ -2171,6 +2171,7 @@ $provider_details_width: 120px;
     &:rtl { margin-left: $results_icon_size / 2; }
 
     padding: 0;
+    border-radius: 2px;
     transition-duration: 0s;
     &:focus,
     &:selected,
@@ -2206,10 +2207,10 @@ $provider_details_width: 120px;
     }
 
     &-content {
-      spacing: if($eta == 'false', $results_icon_size / 2,
-                                   $results_icon_size / 4);
-      padding: if($eta == 'false', $results_icon_size / 2,
-                                   $results_icon_size / 4);
+      spacing: if($eta == 'false', $results_icon_size / 3,
+                                   $results_icon_size / 6);
+      padding: if($eta == 'false', $results_icon_size / 3,
+                                   $results_icon_size / 6);
       // concern the rows without 48px icons
       min-height: $results_icon_size * (1.5 + 0.5);
     }
@@ -2223,12 +2224,12 @@ $provider_details_width: 120px;
       StLabel {
         // add spacing to start-position only
         &:ltr {
-          padding-left: if($eta == 'false', $results_icon_size  / 2,
-                                            $results_icon_size  / 4);
+          padding-left: if($eta == 'false', $results_icon_size  / 3,
+                                            $results_icon_size  / 6);
         }
         &:rtl {
-          padding-right: if($eta == 'false', $results_icon_size / 2,
-                                             $results_icon_size / 4);
+          padding-right: if($eta == 'false', $results_icon_size / 3,
+                                             $results_icon_size / 6);
         }
       }
     }
@@ -2241,10 +2242,10 @@ $provider_details_width: 120px;
 
   &-provider {
     &-content {
-      spacing: if($eta == 'false', $results_icon_size / 2,
-                                   $results_icon_size / 4);
-      padding: if($eta == 'false', $results_icon_size / 2,
-                                   $results_icon_size / 4);
+      spacing: if($eta == 'false', $results_icon_size / 3,
+                                   $results_icon_size / 6);
+      padding: if($eta == 'false', $results_icon_size / 3,
+                                   $results_icon_size / 6);
     }
 
     &-details { // labels at the right-side of -icon
@@ -2261,8 +2262,8 @@ $provider_details_width: 120px;
 }
 
 .search-provider-icon {
-  min-height: if($eta == 'false', $results_icon_size * 3,
-                                  $results_icon_size * 2.5);
+  min-height: if($eta == 'false', $results_icon_size * 2.75,
+                                  $results_icon_size * 2.42);
   padding: if($eta == 'false', 0 $results_icon_size / 4,
                                0 $results_icon_size / 8);
   border: none;
