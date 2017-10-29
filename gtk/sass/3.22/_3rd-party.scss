@@ -2945,8 +2945,9 @@ window.background:not(.solid-csd) > box.vertical {
   }
 
   > widget {
-    border,
-    separator { color: $solid_light_borders_color; }
+    border { border-color: $solid_light_borders_color; }
+
+    separator { background-color: $solid_light_borders_color; }
 
     // FIXME: this affected to popover widget as well,
     // so we can not set $light_color to search-bar...
