@@ -4232,7 +4232,6 @@ check {
     padding: 0;
     &:dir(ltr) { margin-right: rem(8px, $sw: 1.0); }
     &:dir(rtl) { margin-left: rem(8px, $sw: 1.0); }
-
     &:not(:backdrop) { // FIXME: use button reset mixin
       border-color: transparent;
       background-image: none;
@@ -4242,10 +4241,6 @@ check {
       -gtk-icon-shadow: none;
       animation: none;
     }
-    &:checked:not(:backdrop),
-    &:indeterminate:not(:backdrop),
-    &:not(:active):not(:checked):not(:backdrop),
-    &:not(:active):not(:indeterminate):not(:backdrop) { transition: none; }
   }
 }
 
@@ -4286,12 +4281,23 @@ check {
   &:not(:active):not(:indeterminate):not(:backdrop) { // ease-out
     -gtk-icon-transform: unset;
     transition: 0.2s;
+
+    menu menuitem & { transition: none; }
   }
-  &:active { -gtk-icon-transform: scale(0, 1); }
+  &:active {
+    -gtk-icon-transform: scale(0, 1);
+
+    menu menuitem & {
+      -gtk-icon-transform: unset;
+      transition: none;
+    }
+  }
   &:checked:not(:backdrop),
   &:indeterminate:not(:backdrop) { // ease-in
     -gtk-icon-transform: unset;
     transition: 0.2s;
+
+    menu menuitem & { transition: none; }
   }
 }
 
