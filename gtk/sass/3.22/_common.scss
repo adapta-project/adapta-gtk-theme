@@ -4025,7 +4025,7 @@ switch {
 @each $w,$a in ('check', 'checkbox'),
                ('radio','radio') {
 
-  // workaround for WebKitGtk and LibreOffice
+  // workaround for WebKitGtk, FirefoxQuantum and LibreOffice
   @each $s,$as in ('','-unchecked-solid'),
                   (':hover', '-unchecked-solid'),
                   (':active', '-unchecked-solid'),
@@ -4059,7 +4059,8 @@ switch {
                   (':checked:hover', '-checked-active'),
                   (':checked:active', '-checked-active'),
                   (':checked:disabled','-checked-insensitive') {
-    .background #{$w}#{$s} {
+    // FIXME: exclude damned FirefoxQuantum
+    .background:not(#MozillaGtkWidget) #{$w}#{$s} {
       -gtk-icon-source:
         -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
@@ -4157,9 +4158,13 @@ treeview.view radio {
 
 checkbutton.text-button,
 radiobutton.text-button {
-  // this is for a nice focus on check and radios text
-  padding: rem(2.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
-  outline-offset: 0;
+  // FIXME: exclude damned FirefoxQuantum
+  .background:not(#MozillaGtkWidget) & {
+    // this is for a nice focus on check and radios text
+    padding: rem(2.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
+    outline-offset: 0;
+  }
+
   color: $secondary_fg_color;
   &:hover,
   &:active,
@@ -4177,7 +4182,8 @@ check {
   min-width: rem($icon_size, $sw: 1.0);
   min-height: rem($icon_size, $sw: 1.0);
 
-  .background & { // exclude non-native apps
+  // FIXME: exclude damned FirefoxQuantum as well
+  .background:not(#MozillaGtkWidget) & {
     margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
     padding: rem(10px, $sw: 1.0);
   }
@@ -4189,14 +4195,20 @@ check {
 
   &:hover {
     animation: check_radio_hover 0.2s $slope_quick forwards;
+
+    menu menuitem & { animation: none; }
   }
   &:active {
     transition-duration: 0.2s;
     animation: check_radio_active_reverse 0.2s $slope_quick forwards;
+
+    menu menuitem & { animation: none; }
   }
   &:hover:checked,
   &:hover:indeterminate {
     animation: check_radio_active 0.2s $slope_quick forwards;
+
+    menu menuitem & { animation: none; }
   }
 
   menu menuitem & {
@@ -4207,7 +4219,7 @@ check {
     &:dir(ltr) { margin-right: rem(8px, $sw: 1.0); }
     &:dir(rtl) { margin-left: rem(8px, $sw: 1.0); }
 
-    &, &:hover, &:disabled { //FIXME: use button reset mixin
+    &:not(:backdrop) { // FIXME: use button reset mixin
       border-color: transparent;
       background-image: none;
       background-color: transparent;

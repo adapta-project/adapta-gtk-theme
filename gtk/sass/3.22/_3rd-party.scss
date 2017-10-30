@@ -2992,6 +2992,14 @@ window.background:not(.solid-csd) > box.vertical {
       &:focus { @extend %entry_fallback_focus; }
       &:disabled { @extend %entry_fallback_insensitive; }
     }
+
+    > check,
+    > radio { // unset all
+      min-width: $icon_size;
+      min-height: $icon_size;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
