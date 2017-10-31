@@ -5216,11 +5216,13 @@ messagedialog {
     }
   }
 
-  &.csd { // rounded bottom border styling for csd version
-    &.background {
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
-    }
+  &.csd.background {
+    // rounded bottom border styling for csd version
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+    // reset unneeded min-height
+    .titlebar { min-height: unset; }
   }
 
   &.background,
