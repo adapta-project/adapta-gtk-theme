@@ -99,8 +99,8 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 
 // for backdrop, tone down element surfaces with transparentize
 %fade_effect {
-  *:backdrop {
-    opacity: 0.75;
+  &:backdrop > * {
+    opacity: 0.4;
     transition: 0.2s;
   }
 }
@@ -1942,7 +1942,6 @@ actionbar {
 
 .titlebar,
 headerbar {
-  @extend %fade_effect;
   background-color: $inverted_dark_color;
   background-clip: border-box;
 
@@ -1972,7 +1971,6 @@ headerbar {
     padding: 0 rem(13.3px);
     color: $inverted_fg_color;
     font-weight: 700;
-    &:backdrop { @extend .dim-label; }
   }
 
   .subtitle {
@@ -1980,7 +1978,6 @@ headerbar {
     padding: 0 rem(13.3px);
     color: $inverted_secondary_fg_color;
     font-size: if($ref_weight < 1.0, 80%, 90%);
-    &:backdrop { @extend .dim-label; }
   }
 
   // separators
@@ -2209,7 +2206,6 @@ headerbar {
         caret-color: $inverted_fg_color;
       }
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
-      &:backdrop { opacity: 0.5; }
     }
 
     > button.combo {
@@ -2223,7 +2219,6 @@ headerbar {
         &:disabled { color: $insensitive_inverted_fg_color; }
       }
       &:disabled { color: $insensitive_inverted_secondary_fg_color; }
-      &:backdrop { opacity: 0.5; }
     }
   }
 
@@ -2552,6 +2547,8 @@ headerbar {
 }
 
 headerbar {
+  @extend %fade_effect; // add fade_effect
+
   // draw borders
   border-width: 1px 0 1px;
   border-style: solid;
@@ -2732,7 +2729,7 @@ headerbar.titlebar.default-decoration {
       box-shadow: none;
 
       // unset fade-effect
-      *:backdrop { opacity: 1.0; }
+      &:backdrop > * { opacity: 1.0; }
     }
   }
 
@@ -6030,8 +6027,9 @@ decoration {
         background-position: center;
       }
     }
-    &:hover:backdrop,
-    &:active:backdrop { opacity: 1.0; }
+    &:backdrop {
+      image { opacity: 1.0; }
+    }
 
     // raised 'Close' button
     &.close {
@@ -6246,6 +6244,10 @@ decoration {
 
 // specific button styling for Metacity's CSDs and XWayland
 headerbar.titlebar.default-decoration {
+  &:backdrop > * {
+    opacity: 1.0; // unset fade_effect
+  }
+
   button.titlebutton {
     @extend %fade_effect;
     min-width: $titlebutton_small;
@@ -6253,8 +6255,6 @@ headerbar.titlebar.default-decoration {
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    &:hover:backdrop,
-    &:active:backdrop { opacity: 1.0; }
 
     image {
       background-size: $titlebutton_small $titlebutton_small;

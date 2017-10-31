@@ -100,8 +100,8 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 
 // for backdrop, tone down element surfaces with transparentize
 %fade_effect {
-  *:backdrop {
-    opacity: 0.75;
+  &:backdrop > * {
+    opacity: 0.4;
     transition: 0.2s;
   }
 }
@@ -1382,8 +1382,6 @@ GtkComboBox {
 
 .titlebar,
 .header-bar {
-  @extend %fade_effect;
-
   -GtkPaned-handle-size: 0; // FIXME: workaround for ugly Gedit!
 
   padding: 0.4em;
@@ -1418,7 +1416,6 @@ GtkComboBox {
     padding-right: 1em;
     color: $inverted_fg_color;
     font-weight: 700;
-    &:backdrop { @extend .dim-label; }
   }
 
   .subtitle {
@@ -1427,7 +1424,6 @@ GtkComboBox {
     padding-right: 1em;
     color: $inverted_secondary_fg_color;
     font-size: 90%;
-    &:backdrop { @extend .dim-label; }
   }
 
   // separator
@@ -1737,6 +1733,8 @@ GtkComboBox {
 }
 
 .header-bar { // draw hilight and shadows
+  @extend %fade_effect; // add fade_effect
+
   .csd &,
   GtkBox &:only-child {
     box-shadow: if($variant == 'light', $header-shadow-light,
@@ -4005,8 +4003,9 @@ GtkVolumeButton.button {
     &.close,
     &.minimize,
     &.maximize {
-      &:hover:backdrop,
-      &:active:backdrop { opacity: 1.0; }
+      &:backdrop {
+        GtkImage { opacity: 1.0; }
+      }
 
       > GtkImage {
         color: transparent;
