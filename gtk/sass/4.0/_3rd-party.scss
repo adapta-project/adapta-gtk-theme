@@ -3785,7 +3785,8 @@ window.background.chromium {
                                 ('restore', 'unmaximize') {
       @each $_pseudo, $_suffix2 in ('', ''),
                                    (':hover', '-active'),
-                                   (':active', '-active') {
+                                   (':active', '-active'),
+                                   (':backdrop', '-backdrop') {
         &.#{$_class}#{$_pseudo} {
           background-image:
             -gtk-scaled(
@@ -3798,6 +3799,9 @@ window.background.chromium {
     &.close {
       &:hover { background-color: $destructive_color; }
       &:active { background-color: $selected_bg_color; }
+      &:backdrop:hover {
+        background-color: gtkopacity($destructive_color, 0.5);
+      }
     }
 
     &.minimize,
@@ -3805,6 +3809,9 @@ window.background.chromium {
     &.restore {
       &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
       &:active { background-color: gtkopacity($inverted_fg_color, 0.25); }
+      &:backdrop:hover {
+        background-color: gtkopacity($inverted_fg_color, 0.12 * 0.5);
+      }
     }
   }
 
