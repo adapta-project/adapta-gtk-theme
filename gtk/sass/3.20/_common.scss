@@ -4147,13 +4147,13 @@ treeview.view radio {
 
 // selection-mode
 @each $s,$as in ('','-selectionmode'),
-                  (':hover', '-active-selectionmode'),
-                  (':active', '-active-selectionmode'),
-                  (':disabled', '-insensitive-selectionmode'),
-                  (':checked', '-checked-selectionmode'),
-                  (':checked:hover', '-checked-active-selectionmode'),
-                  (':checked:active', '-checked-active-selectionmode'),
-                  (':disabled:checked', '-checked-insensitive-selectionmode') {
+                (':hover', '-active-selectionmode'),
+                (':active', '-active-selectionmode'),
+                (':disabled', '-insensitive-selectionmode'),
+                (':checked', '-checked-selectionmode'),
+                (':checked:hover', '-checked-active-selectionmode'),
+                (':checked:active', '-checked-active-selectionmode'),
+                (':disabled:checked', '-checked-insensitive-selectionmode') {
   .view.content-view.check#{$s}:not(list) {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
