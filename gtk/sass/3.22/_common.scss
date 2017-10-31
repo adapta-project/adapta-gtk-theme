@@ -4080,60 +4080,61 @@ switch {
   }
 }
 
-// check/radio inside treeview
-treeview.view check,
-treeview.view radio {
-  &, &:only-child {
-    padding: 0; // FIXME: negative margin doesn't work.
+.background:not(#MozillaGtkWidget) {
+  // check/radio inside treeview
+  treeview.view check,
+  treeview.view radio {
+    &, &:only-child {
+      padding: 0; // FIXME: negative margin doesn't work.
+    }
   }
-}
 
-// check/radio inside selected-rows
-@each $w,$a in ('check', 'checkbox'),
-               ('radio','radio') {
+  // check/radio inside selected-rows
+  @each $w,$a in ('check', 'checkbox'),
+                 ('radio','radio') {
 
-  // standard checks and radios
-  @each $s,$as in ('','-unchecked'),
-                  (':active', '-unchecked'),
-                  (':indeterminate', '-mixed'),
-                  (':indeterminate:active', '-mixed'),
-                  (':checked', '-checked'),
-                  (':checked:active', '-checked') {
-    treeview.view,
-    row,
-    row.activatable {
-      #{$w}:selected#{$s},
-      #{$w}:selected:focus#{$s} {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
-                      url("assets/#{$a}#{$as}-selected@2.png"));
-        -gtk-icon-shadow: none;
-      }
-      // use dark variant for insensitive states
-      #{$w}:selected:disabled,
-      #{$w}:selected:focus:disabled {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
-                      url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
-      }
-      #{$w}:selected:indeterminate:disabled,
-      #{$w}:selected:focus:indeterminate:disabled {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
-                      url("assets/#{$a}-mixed-insensitive-dark@2.png"));
-      }
-      #{$w}:selected:checked:disabled,
-      #{$w}:selected:focus:checked:disabled {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
-                      url("assets/#{$a}-checked-insensitive-dark@2.png"));
+    // standard checks and radios
+    @each $s,$as in ('','-unchecked'),
+                    (':active', '-unchecked'),
+                    (':indeterminate', '-mixed'),
+                    (':indeterminate:active', '-mixed'),
+                    (':checked', '-checked'),
+                    (':checked:active', '-checked') {
+      treeview.view,
+      row,
+      row.activatable {
+        #{$w}:selected#{$s},
+        #{$w}:selected:focus#{$s} {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
+                        url("assets/#{$a}#{$as}-selected@2.png"));
+          -gtk-icon-shadow: none;
+        }
+        // use dark variant for insensitive states
+        #{$w}:selected:disabled,
+        #{$w}:selected:focus:disabled {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
+                        url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
+        }
+        #{$w}:selected:indeterminate:disabled,
+        #{$w}:selected:focus:indeterminate:disabled {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
+                        url("assets/#{$a}-mixed-insensitive-dark@2.png"));
+        }
+        #{$w}:selected:checked:disabled,
+        #{$w}:selected:focus:checked:disabled {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
+                        url("assets/#{$a}-checked-insensitive-dark@2.png"));
+        }
       }
     }
   }
-}
 
-// selection-mode
-@each $s,$as in ('','-selectionmode'),
+  // selection-mode
+  @each $s,$as in ('','-selectionmode'),
                   (':hover', '-active-selectionmode'),
                   (':active', '-active-selectionmode'),
                   (':disabled', '-insensitive-selectionmode'),
@@ -4141,28 +4142,29 @@ treeview.view radio {
                   (':checked:hover', '-checked-active-selectionmode'),
                   (':checked:active', '-checked-active-selectionmode'),
                   (':disabled:checked', '-checked-insensitive-selectionmode') {
-  .view.content-view.check#{$s}:not(list) {
-    -gtk-icon-source:
-      -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
-                  url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
-    background-color: transparent;
-  }
-
-  flowbox > flowboxchild overlay checkbutton.bottom {
-    > check#{$s} {
+    .view.content-view.check#{$s}:not(list) {
       -gtk-icon-source:
         -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                     url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
       background-color: transparent;
     }
 
-    // add some gap between the contents and check images
-    &.right > check#{$s} {
-      margin: if($ref_weight < 1.0, 0 6px 6px 0, 0 8px 8px 0);
-    }
+    flowbox > flowboxchild overlay checkbutton.bottom {
+      > check#{$s} {
+        -gtk-icon-source:
+          -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
+                      url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+        background-color: transparent;
+      }
 
-    &.left > check#{$s} {
-      margin: if($ref_weight < 1.0, 0 0 6px 6px, 0 0 8px 8px);
+      // add some gap between the contents and check images
+      &.right > check#{$s} {
+        margin: if($ref_weight < 1.0, 0 6px 6px 0, 0 8px 8px 0);
+      }
+
+      &.left > check#{$s} {
+        margin: if($ref_weight < 1.0, 0 0 6px 6px, 0 0 8px 8px);
+      }
     }
   }
 }
