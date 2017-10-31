@@ -2397,7 +2397,7 @@ headerbar {
     border-bottom-color: transparent;
     background-color: $selected_bg_color;
     color: $selected_fg_color;
-    &:backdrop { opacity: 1.0; }
+    &:backdrop > * { opacity: 1.0; } // unset fade_effect
 
     box & { // Remove unneeded side shadows with dirty hacks
       &:not(:only-child):last-child {
