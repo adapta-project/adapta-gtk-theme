@@ -4193,30 +4193,19 @@ check {
     padding: rem(10px, $sw: 1.0);
   }
 
-  .background menu menuitem & { // unset for menuitems
-    margin: 0;
-    padding: 0;
-  }
-
   &:hover {
     animation: check_radio_hover 0.2s $slope_quick forwards;
-
-    menu menuitem & { animation: none; }
   }
   &:active {
     transition-duration: 0.2s;
     animation: check_radio_active_reverse 0.2s $slope_quick forwards;
-
-    menu menuitem & { animation: none; }
   }
   &:hover:checked,
   &:hover:indeterminate {
     animation: check_radio_active 0.2s $slope_quick forwards;
-
-    menu menuitem & { animation: none; }
   }
 
-  menu menuitem & {
+  .background menu menuitem & {
     min-width: rem($icon_size, $sw: 1.0);
     min-height: rem($icon_size, $sw: 1.0);
     margin: 0;
@@ -4230,6 +4219,8 @@ check {
       color: inherit;
       box-shadow: none;
       -gtk-icon-shadow: none;
+      -gtk-icon-transform: unset;
+      transition: none;
       animation: none;
     }
   }
@@ -4272,23 +4263,12 @@ check {
   &:not(:active):not(:indeterminate):not(:backdrop) { // ease-out
     -gtk-icon-transform: unset;
     transition: 0.2s;
-
-    menu menuitem & { transition: none; }
   }
-  &:active {
-    -gtk-icon-transform: scale(0, 1);
-
-    menu menuitem & {
-      -gtk-icon-transform: unset;
-      transition: none;
-    }
-  }
+  &:active { -gtk-icon-transform: scale(0, 1); }
   &:checked:not(:backdrop),
   &:indeterminate:not(:backdrop) { // ease-in
     -gtk-icon-transform: unset;
     transition: 0.2s;
-
-    menu menuitem & { transition: none; }
   }
 }
 
