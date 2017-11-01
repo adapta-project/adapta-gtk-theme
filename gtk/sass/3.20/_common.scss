@@ -3215,6 +3215,7 @@ window.popup {
 //  * Popovers *
 //  ************/
 
+%popover,
 popover.background {
   padding: 0;
   background-color: $secondary_base_color;
@@ -3315,7 +3316,9 @@ popover.background {
     &:checked:disabled { @include button(flat-checked-insensitive); }
     &:disabled { @include button(flat-insensitive); }
   }
+}
 
+popover.background {
   &.touch-selection,
   &.magnifier,
   &.osd {

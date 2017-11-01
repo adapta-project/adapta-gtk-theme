@@ -184,12 +184,12 @@ box.pinned { // drop-target
   }
 }
 
-// draw underscores
-@each $along_side, $_line in (top, 0 2px),
-                             (bottom, 0 -2px),
-                             (left, 2px 0),
-                             (right, -2px 0) {
-  .#{$along_side} .budgie-panel {
+// draw underscores and dots
+@each $position, $_line in (top, 0 2px),
+                           (bottom, 0 -2px),
+                           (left, 2px 0),
+                           (right, -2px 0) {
+  .#{$position} .budgie-panel {
     button#tasklist-button,
     button.flat.launcher {
       &:hover {
@@ -200,15 +200,7 @@ box.pinned { // drop-target
         box-shadow: inset #{$_line} $selected_bg_color;
       }
     }
-  }
-}
 
-// draw underscores and dots
-@each $position, $_line in (top, 0 2px),
-                           (bottom, 0 -2px),
-                           (left, 2px 0),
-                           (right, -2px 0) {
-  .#{$position} .budgie-panel {
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running {
       > image {
@@ -276,7 +268,7 @@ box.pinned { // drop-target
 // budgie specific popover widgets
 window.budgie-popover:not(.csd) {
   &.background {
-    @extend popover.background;
+    @extend %popover;
     background-clip: border-box;
     // FIXME: we can't expose depth-3
     box-shadow: $z-depth-2;
