@@ -457,7 +457,7 @@ $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
 // Overshoot
 //
 
-@mixin overshoot($p, $t:normal, $c:$secondary_selected_bg_color) {
+@mixin overshoot($p, $t:normal, $c:$accent_color) {
 //
 // Overshoot drawing function
 //
@@ -483,7 +483,7 @@ $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
   background-image: -gtk-gradient(radial,
                                   $_position, 0,
                                   $_position, 0.75,
-                                  to(gtkopacity($c, 0.2)),
+                                  to(gtkopacity($c, 0.13)),
                                   to(transparent));
   background-repeat: no-repeat;
   background-position: $_position;

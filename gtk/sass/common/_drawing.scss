@@ -631,7 +631,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 // Overshoot
 //
 
-@mixin overshoot($p, $t:normal, $c:$secondary_selected_bg_color) {
+@mixin overshoot($p, $t:normal, $c:$accent_color) {
 //
 // Overshoot drawing function
 //
@@ -651,8 +651,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   @if ($p == left) or ($p == right) { background-size: 50% 150%; }
 
   background-image: radial-gradient(circle farthest-side at $p,
-                                    gtkopacity($c, 0.1) 50%,
-                                    gtkopacity($c, 0.1) 50%,
+                                    gtkopacity($c, 0.13) 50%,
+                                    gtkopacity($c, 0.13) 50%,
                                     transparent);
   background-repeat: no-repeat;
   background-position: $p;

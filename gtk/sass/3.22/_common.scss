@@ -155,8 +155,8 @@ iconview { @extend %view; }
 
 .rubberband,
 rubberband {
-  border: 1px solid $secondary_selected_bg_color;
-  background-color: gtkopacity($secondary_selected_bg_color, 0.2);
+  border: 1px solid $selected_bg_color;
+  background-color: gtkopacity($selected_bg_color, 0.2);
 }
 
 flowbox {
@@ -198,7 +198,7 @@ frame.content-view flowbox > flowboxchild.tile {
     //             inset 0 1px $highlight_color;
   }
   &:selected {
-    background-color: gtkopacity($secondary_selected_bg_color, 0.4);
+    background-color: gtkopacity($selected_bg_color, 0.2);
     color: $fg_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;

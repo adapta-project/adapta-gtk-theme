@@ -140,8 +140,8 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 }
 
 .rubberband {
-  border: 1px solid $secondary_selected_bg_color;
-  background-color: gtkopacity($secondary_selected_bg_color, 0.2);
+  border: 1px solid $selected_bg_color;
+  background-color: gtkopacity($selected_bg_color, 0.2);
 }
 
 .label {
@@ -3459,13 +3459,15 @@ GtkPlacesSidebar.sidebar {
   // .list-row:selected:active { box-shadow: none; }
 
   // looks like the label doesn't get all the states so work around
-  .list-row:selected:insensitive .label { color: $insensitive_selected_fg_color; }
+  .list-row:selected:insensitive .label {
+    color: $insensitive_selected_fg_color;
+  }
 
   .list-row:selected { // 'eject' button
     .sidebar-button.button {
-      color: $secondary_selected_bg_color;
-      &:hover,
-      &:active { color: $selected_bg_color; }
+      color: $selected_bg_color;
+      &:hover, // use opaque and brighter colour
+      &:active { color: mix($selected_bg_color, $selected_fg_color, 75%); }
     }
   }
 
