@@ -263,83 +263,51 @@ list.tweak-group-startup {
 .tweak-titlebar-right,
 dialog.csd > headerbar.titlebar {
   > switch {
-    min-width: rem(50px);
-    min-height: rem(28px);
-
-    &:not(:hover):not(:checked):not(:disabled),
-    &:hover,
-    &:checked,
-    &:checked:hover,
-    &:checked:disabled,
-    &:disabled {
+    // 'indeterminate' is the synthetic wildcard
+    &:not(:indeterminate) {
+      @extend %reset_switch;
+      min-width: rem(50px);
+      min-height: rem(28px);
       margin: 0 0 rem(-7px);
-      padding: 0;
-      border: none;
-      color: transparent;
-      background: none;
-      background-image: none;
       background-size: rem(50px) rem(35px);
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none;
 
-      &:dir(rtl) { background-position: left center; }
-    }
+      slider:not(:indeterminate) {
+        @extend %reset_switch;
+        margin: 0;
+        background-size: rem(50px) rem(35px);
+      }
 
-    // reset all of default sliders
-    &:not(:hover):not(:checked):not(:disabled) slider,
-    &:hover slider,
-    &:checked slider,
-    &:checked:hover slider,
-    &:checked:disabled slider,
-    &:disabled slider {
-      margin: 0;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      color: transparent;
-      background: none;
-      background-image: none;
-      background-size: rem(50px) rem(35px);
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none;
-
-      &:dir(rtl) { background-position: left center; }
-    }
-
-    // use ugly pixmaps
-    &:not(:hover):not(:checked):not(:disabled) {
+      // use ugly pixmaps
       background-image: -gtk-scaled(
                         url("assets/toggle-off-dark.png"),
                         url("assets/toggle-off-dark@2.png"));
-    }
-    &:hover {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-hover-dark.png"),
-                        url("assets/toggle-off-hover-dark@2.png"));
-    }
-    &:checked {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-on-dark.png"),
-                        url("assets/toggle-on-dark@2.png"));
       &:hover {
         background-image: -gtk-scaled(
-                          url("assets/toggle-on-hover-dark.png"),
-                          url("assets/toggle-on-hover-dark@2.png"));
+                          url("assets/toggle-off-hover-dark.png"),
+                          url("assets/toggle-off-hover-dark@2.png"));
+      }
+      &:checked {
+        background-image: -gtk-scaled(
+                          url("assets/toggle-on-dark.png"),
+                          url("assets/toggle-on-dark@2.png"));
+        &:hover {
+          background-image: -gtk-scaled(
+                            url("assets/toggle-on-hover-dark.png"),
+                            url("assets/toggle-on-hover-dark@2.png"));
+        }
+        &:disabled,
+        &:disabled:hover {
+          background-image: -gtk-scaled(
+                            url("assets/toggle-on-insensitive-dark.png"),
+                            url("assets/toggle-on-insensitive-dark@2.png"));
+        }
       }
       &:disabled,
       &:disabled:hover {
         background-image: -gtk-scaled(
-                          url("assets/toggle-on-insensitive-dark.png"),
-                          url("assets/toggle-on-insensitive-dark@2.png"));
+                          url("assets/toggle-off-insensitive-dark.png"),
+                          url("assets/toggle-off-insensitive-dark@2.png"));
       }
-    }
-    &:disabled,
-    &:disabled:hover {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-insensitive-dark.png"),
-                        url("assets/toggle-off-insensitive-dark@2.png"));
     }
   }
 }

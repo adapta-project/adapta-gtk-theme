@@ -3802,70 +3802,56 @@ switch {
 
     &:checked slider { background-color: $selected_fg_color; }
   }
+}
 
+%reset_switch {
+  &, &:disabled { // specificity bump
+    padding: 0;
+    border: none;
+    color: transparent;
+    background: unset;
+    background-image: unset;
+    background-repeat: no-repeat;
+    background-position: right center;
+    box-shadow: none;
+    font-size: 0;
+    &:focus(visible) { outline-color: transparent; }
+
+    &:dir(rtl) { background-position: left center; }
+  }
+}
+
+switch {
   // special case inside the grid and row container,
   // need to protect geometry by using pixmaps images...
   // FIXME: wild-card should be dropped
   row * &,
   row:selected * &,
   grid & {
-    min-width: rem(50px, $sw: 1.0);
-    min-height: rem(28px, $sw: 1.0);
-    font-size: 0;
-    &:focus(visible) { outline-color: transparent; }
-
     // reset all of default troughs
-    &:not(:hover):not(:checked):not(:disabled),
-    &:hover,
-    &:checked,
-    &:checked:hover,
-    &:checked:disabled,
-    &:disabled {
+    // 'indeterminate' is the synthetic wildcard
+    &:not(:indeterminate) {
+      @extend %reset_switch;
+      min-width: rem(50px, $sw: 1.0);
+      min-height: rem(28px, $sw: 1.0);
       margin-bottom: rem(-7px, $sw: 1.0);
-      padding: 0;
-      border: none;
-      color: transparent;
-      background: none;
-      background-image: none;
       background-size: rem(50px, $sw: 1.0) rem(35px, $sw: 1.0);
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none;
 
-      &:dir(rtl) { background-position: left center; }
-    }
-
-    // reset all of default sliders
-    &:not(:hover):not(:checked):not(:disabled) slider,
-    &:hover slider,
-    &:checked slider,
-    &:checked:hover slider,
-    &:checked:disabled slider,
-    &:disabled slider {
-      margin: 0;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      color: transparent;
-      background: none;
-      background-image: none;
-      background-size: rem(50px, $sw: 1.0) rem(35px, $sw: 1.0);
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none;
-
-      &:dir(rtl) { background-position: left center; }
+      // reset all of default sliders
+      slider:not(:indeterminate) {
+        @extend %reset_switch;
+        margin: 0;
+        background-size: rem(50px, $sw: 1.0) rem(35px, $sw: 1.0);
+      }
     }
   }
 
-  row * &,
-  grid & {
+  row * &:not(:indeterminate),
+  grid &:not(:indeterminate) {
     // use ugly pixmaps
-    &:not(:hover):not(:checked):not(:disabled) {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off#{$asset_suffix}.png"),
-                        url("assets/toggle-off#{$asset_suffix}@2.png"));
-    }
+    background-image: -gtk-scaled(
+                      url("assets/toggle-off#{$asset_suffix}.png"),
+                      url("assets/toggle-off#{$asset_suffix}@2.png"));
     &:hover {
       background-image: -gtk-scaled(
                         url("assets/toggle-off-hover#{$asset_suffix}.png"),
@@ -3897,12 +3883,10 @@ switch {
     }
   }
 
-  row:selected * & {
-    &:not(:hover):not(:checked):not(:disabled) {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-selected-row.png"),
-                        url("assets/toggle-off-selected-row@2.png"));
-    }
+  row:selected * &:not(:indeterminate) {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-off-selected-row.png"),
+                      url("assets/toggle-off-selected-row@2.png"));
     &:hover {
       background-image: -gtk-scaled(
                         url("assets/toggle-off-selected-row-hover.png"),
