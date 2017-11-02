@@ -238,7 +238,7 @@ Installation from Git Source
  >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
- >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#4DB6AC```
+ >     ```./autogen.sh --with-selection_color=#009688```
  >
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
