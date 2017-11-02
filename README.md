@@ -222,11 +222,10 @@ Installation from Git Source
  >
  >   * Development for Gtk+ 3.18.x theming is over.
 
-7. To change the default 5 **Key-Colors**, pass these options:
+7. To change the default 4 **Key-Colors**, pass these options:
 
  ```
  --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: string)
- --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: string)
  --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: string)
  --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: string)
  --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: string)
@@ -243,8 +242,8 @@ Installation from Git Source
  >
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
- >     and `second_selection_color` and `accent_color` should use `300` colors.
- >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
+ >     and `accent_color` should use `300` colors.
+ >   * While doing `make`, Adapta changes those 4 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 

@@ -4,8 +4,6 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
 
     selection_default="`grep 'Cyan500' ./gtk/sass/common/_colors.scss | \
                         cut -d' ' -f3`"
-    second_selection_default="`grep 'Cyan300' ./gtk/sass/common/_colors.scss | \
-                               cut -d' ' -f3`"
     accent_default="`grep 'Teal300' ./gtk/sass/common/_colors.scss | \
                      cut -d' ' -f3`"
     suggestion_default="`grep 'Teal500' ./gtk/sass/common/_colors.scss | \
@@ -24,18 +22,6 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
         [SELECTION=$selection_default]
     )
     AC_SUBST([SELECTION])
-
-    AC_ARG_WITH(
-        [second_selection_color],
-        [AS_HELP_STRING(
-            [--with-second_selection_color],
-            [Primary color for 'select' effects \
-             (Default: #4DD0E1 (Cyan300))]
-        )],
-        [SECOND_SELECTION="$withval"],
-        [SECOND_SELECTION=$second_selection_default]
-    )
-    AC_SUBST([SECOND_SELECTION])
 
     AC_ARG_WITH(
         [accent_color],
@@ -77,9 +63,6 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
 echo \
 "// Selection (Primary) color
 \$key_selection_color: `echo $SELECTION`;
-
-// Sub-selection-color
-\$key_secondary_selection_color: `echo $SECOND_SELECTION`;
 
 // Accent (Seondary) color
 \$key_accent_color: `echo $ACCENT`;

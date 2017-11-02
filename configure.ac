@@ -100,7 +100,6 @@ AC_MSG_RESULT([
          glib-compile-resources: $GLIB_COMPILE_RESOURCES
 
          selection-color:        $SELECTION (default: $selection_default)
-         2nd-selection-color:    $SECOND_SELECTION (default: $second_selection_default)
          accent-color:           $ACCENT (default: $accent_default)
          suggestion-color:       $SUGGESTION (default: $suggestion_default)
          destruction-color:      $DESTRUCTION (default: $destruction_default)
