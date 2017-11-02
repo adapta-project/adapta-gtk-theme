@@ -1021,15 +1021,12 @@ $extra_spacing: 2.5px;
 
 .tile-preview {
   border: 1px solid $selected_bg_color;
+  border-radius: 0;
   background-color: shellopacity($selected_bg_color, 0.2);
 
-  &-left.on-primary {
-    border-radius: 2px 2px 0 0;
-
-    &.tile-preview-right { border-radius: 2px 2px 0 0; }
-  }
-
-  &-right.on-primary { border-radius: 0 2px 0 0; }
+  &-left.on-primary,
+  &-left.on-primary.tile-preview-right,
+  &-right.on-primary { border-radius: 0; }
 }
 
 
