@@ -1329,11 +1329,6 @@ $extra_spacing: 2.5px;
   border-radius: 2px;
 }
 
-.message-list-section-list {
-  &:ltr { padding-left: 0.4em; }
-  &:rtl { padding-right: 0.4em; }
-}
-
 .datemenu-today-button,
 .world-clocks-button,
 .weather-button,
@@ -1592,31 +1587,19 @@ $extra_spacing: 2.5px;
     &:insensitive { @include button(flat-insensitive); }
   }
 
-  &-sections { spacing: if($eta == 'false', 1.5em, 1.2em); }
+  &-sections { spacing: 0; }
 
-  &-section,
-  &-section-list { spacing: 0.7em; }
+  &-section {
+    spacing: 0;
+    padding: 0;
 
-  &-section-title-box { spacing: 0.4em; }
-
-  &-section-close {
-    > StIcon {
-      padding: 0.45em;
-      border-radius: 100px;
-      icon-size: 16px;
-      color: $secondary_fg_color;
-      background-color: transparent;
-    }
-
-    // FIXME: how do you do this in sass?
-    &:hover > StIcon,
-    &:focus > StIcon {
-      color: $fg_color;
-      background-color: $semi_fill_color;
-    }
-    &:active > StIcon {
-      color: $fg_color;
-      background-color: $fill_color;
+    &-list {
+      spacing: 1px; // for internal seprators
+      margin-bottom: if($eta == 'false', 0.6em, 0.4em);
+      padding: 0;
+      border: 1px solid $menuentry_hidden_fill_color;
+      border-radius: 2px;
+      background-color: $borders_color; // for internal seprators
     }
   }
 
@@ -1629,16 +1612,15 @@ $extra_spacing: 2.5px;
   // 'no-values' can keep its height automatically even
   // if switched to scrolled-view mode.
   // So only padding property seems enough to control the spacing.
-  padding: if($eta == 'false', 0.6em, 0.45em);
+  padding: if($eta == 'false', 0.9em, 0.6em);
   border-radius: 0;
   background-color: transparent;
   color: $osd_fg_color;
 
   .popup-menu & {
-    background-color: $semi_fill_color;
+    padding: if($eta == 'false', 0.6em, 0.45em);
+    background-color: $base_color;
     color: $secondary_fg_color;
-    &:ltr { box-shadow: inset 4px 0 $outline_fill_color; }
-    &:rtl { box-shadow: inset -4px 0 $outline_fill_color; }
 
     .message-icon-bin > StIcon,
     .message-title,
@@ -1646,10 +1628,8 @@ $extra_spacing: 2.5px;
 
     &:hover,
     &:focus {
-      background-color: $accent_semi_fill_color;
+      background-color: mix($accent_color, $base_color, 13%); // use opaque
       color: $fg_color;
-      &:ltr { box-shadow: inset 4px 0 $secondary_accent_color; }
-      &:rtl { box-shadow: inset -4px 0 $secondary_accent_color; }
 
       .message-icon-bin > StIcon,
       .message-title,
@@ -1661,10 +1641,8 @@ $extra_spacing: 2.5px;
       }
     }
     &:active {
-      background-color: $accent_fill_color;
+      background-color: mix($accent_color, $base_color, 25%);
       color: $fg_color;
-      &:ltr { box-shadow: inset 4px 0 $accent_color; }
-      &:rtl { box-shadow: inset -4px 0 $accent_color; }
 
       .message-icon-bin > StIcon,
       .message-title,
