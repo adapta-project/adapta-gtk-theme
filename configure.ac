@@ -27,6 +27,7 @@ ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
 ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
 ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 ADAPTA_OPTION([GNOME],     [gnome],     [Gnome-Shell],    [disable])
+AC_ARG_VAR(GNOME_VERSION, Minimal GNOME version to support)
 ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
@@ -63,9 +64,14 @@ if test x"$GLIB_COMPILE_RESOURCES" = x; then
 fi
 
 if test x"$ENABLE_GNOME" = xyes; then
-	AC_PATH_PROG([GNOME_SHELL], [gnome-shell])
-	if test x"$GNOME_SHELL" = x; then
-		AC_MSG_ERROR(['gnome-shell' not found.])
+	if test x"$GNOME_VERSION" = x; then
+		AC_PATH_PROG([GNOME_SHELL], [gnome-shell])
+		if test x"$GNOME_SHELL" = x; then
+			AC_MSG_ERROR(['gnome-shell' not found.])
+		fi
+		GNOME_VERSION=`$GNOME_SHELL --version | cut -d' ' -f3 | cut -d'.' -f1-2`
+	else
+		AC_MSG_NOTICE([use gnome version "$GNOME_VERSION".])
 	fi
 	ADAPTA_GNOME
 fi
