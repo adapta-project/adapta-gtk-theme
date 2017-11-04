@@ -2245,29 +2245,6 @@ headerbar {
   }
 
   // check and radio styling
-  @each $w,$a in ('check', 'checkbox'),
-                 ('radio','radio') {
-    @each $s,$as in ('','-unchecked'),
-                    (':hover', '-unchecked-active'),
-                    (':active', '-unchecked-active'),
-                    (':disabled','-unchecked-insensitive'),
-                    (':indeterminate', '-mixed'),
-                    (':indeterminate:hover', '-mixed-active'),
-                    (':indeterminate:active', '-mixed-active'),
-                    (':indeterminate:disabled', '-mixed-insensitive'),
-                    (':checked', '-checked'),
-                    (':checked:hover', '-checked-active'),
-                    (':checked:active', '-checked-active'),
-                    (':checked:disabled','-checked-insensitive') {
-      #{$w}#{$s},
-      #{$w}button.text-button #{$w}#{$s} {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"),
-                                      url("assets/#{$a}#{$as}-dark@2.png"));
-        -gtk-icon-shadow: none;
-      }
-    }
-  }
-
   radio,
   check {
     min-width: rem($icon_size, $sw: 1.0);
@@ -3996,6 +3973,14 @@ switch {
                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
     }
+
+    // dark-variant-only mode
+    .background:not(#MozillaGtkWidget) headerbar #{$w}#{$s},
+    messagedialog.background:not(#MozillaGtkWidget) #{$w}#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"),
+                                    url("assets/#{$a}#{$as}-dark@2.png"));
+      -gtk-icon-shadow: none;
+    }
   }
 }
 
@@ -5054,31 +5039,6 @@ messagedialog {
     -gtk-outline-radius: 2px;
     border-image: none;
     box-shadow: none;
-  }
-
-  @each $s,$as in ('','-unchecked'),
-                  (':hover', '-unchecked-active'),
-                  (':active', '-unchecked-active'),
-                  (':disabled','-unchecked-insensitive'),
-                  (':indeterminate', '-mixed'),
-                  (':indeterminate:hover', '-mixed-active'),
-                  (':indeterminate:active', '-mixed-active'),
-                  (':indeterminate:disabled', '-mixed-insensitive'),
-                  (':checked', '-checked'),
-                  (':checked:hover', '-checked-active'),
-                  (':checked:active', '-checked-active'),
-                  (':checked:disabled','-checked-insensitive') {
-    check#{$s},
-    &.csd check#{$s} { // always use dark variant
-      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
-                                    url("assets/checkbox#{$as}-dark@2.png"));
-    }
-
-    radio#{$s},
-    &.csd radio#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
-                                    url("assets/radio#{$as}-dark@2.png"));
-    }
   }
 
   checkbutton.text-button,
