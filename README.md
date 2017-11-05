@@ -147,7 +147,6 @@ Installation from Git Source
  * pkg-config (pkgconfig)
  * sassc                                     >= 3.3
 
- * gnome-shell                               >= 3.18.3 (if --enable-gnome)
  * parallel                                  (if --enable-parallel)
  ```
 
@@ -162,6 +161,7 @@ Installation from Git Source
  >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
  >   * Adapta uses `inkscape` to generate installable PNG files.
  >   * Adapta uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
+ >   * `glib-2.0 >= 2.53`, Gnome-Shell 3.26 theming is used if `--enable-gnome`.
 
 3. Build and install system-wide:
 

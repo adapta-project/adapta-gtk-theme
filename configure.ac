@@ -37,8 +37,24 @@ ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
 ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
 
+PKG_PROG_PKG_CONFIG()
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
+
+AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
+if test x"$GLIB_COMPILE_RESOURCES" = x; then
+	AC_MSG_ERROR(['glib-compile-resources' not found.])
+fi
+
+AC_PATH_PROG([INKSCAPE], [inkscape])
+if test x"$INKSCAPE" = x; then
+	AC_MSG_ERROR(['inkscape' not found.])
+fi
+
+AC_PATH_PROG([SASSC], [sassc])
+if test x"$SASSC" = x; then
+	AC_MSG_ERROR(['sassc' not found.])
+fi
 
 if test x"$ENABLE_PARALLEL" = xyes; then
 	AC_PATH_PROG([PARALLEL], [parallel])
@@ -47,26 +63,7 @@ if test x"$ENABLE_PARALLEL" = xyes; then
 	fi
 fi
 
-AC_PATH_PROG([SASSC], [sassc])
-if test x"$SASSC" = x; then
-	AC_MSG_ERROR(['sassc' not found.])
-fi
-
-AC_PATH_PROG([INKSCAPE], [inkscape])
-if test x"$INKSCAPE" = x; then
-	AC_MSG_ERROR(['inkscape' not found.])
-fi
-
-AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
-if test x"$GLIB_COMPILE_RESOURCES" = x; then
-	AC_MSG_ERROR(['glib-compile-resources' not found.])
-fi
-
 if test x"$ENABLE_GNOME" = xyes; then
-	AC_PATH_PROG([GNOME_SHELL], [gnome-shell])
-	if test x"$GNOME_SHELL" = x; then
-		AC_MSG_ERROR(['gnome-shell' not found.])
-	fi
 	ADAPTA_GNOME
 fi
 AM_CONDITIONAL(GNOME_IS_326, [test x"$GNOME_SCSS_VERSION" = x3.26])
@@ -92,12 +89,12 @@ AC_MSG_RESULT([
                                  ${datarootdir}/themes/Adapta-Eta
                                  ${datarootdir}/themes/Adapta-Nokto-Eta
 
+         glib-compile-resources: $GLIB_COMPILE_RESOURCES
+         inkscape:               $INKSCAPE
+         sassc:                  $SASSC
+
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL
-
-         sassc:                  $SASSC
-         inkscape:               $INKSCAPE
-         glib-compile-resources: $GLIB_COMPILE_RESOURCES
 
          selection-color:        $SELECTION (default: $selection_default)
          accent-color:           $ACCENT (default: $accent_default)
