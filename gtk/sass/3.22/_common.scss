@@ -2355,23 +2355,15 @@ headerbar {
     padding: 0;
     border: 0 none transparent;
   }
+}
 
-  // misc
-  .tiled &,
-  .tiled-top &,
-  .tiled-bottom &,
-  .tiled-left &,
-  .tiled-right &,
-  .maximized &,
-  .fullscreen & {
-    border-top-color: $inverted_dark_color;
-    border-radius: 0;
-  }
-
+.titlebar {
   &.default-decoration {
     padding: 0 3px; // override scaling-unit
     border-radius: 2px 2px 0 0;
-    border-width: 0;
+    border-width: 1px 0 0;
+    border-top-color: $top_edge_borders_color;
+    box-shadow: none;
 
     .title { // fade_effect doesn't work
       color: $inverted_fg_color;
@@ -2383,11 +2375,24 @@ headerbar {
       min-height: $titlebutton_small;
       margin: 3px 0 2px; // concern top-edge border
       padding: 0;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
       color: $inverted_secondary_fg_color;
       &:hover,
       &:active { color: $inverted_fg_color; }
       &:backdrop { color: $unfocused_inverted_fg_color; }
     }
+  }
+
+  .tiled &,
+  .tiled-top &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .tiled-right &,
+  .maximized &,
+  .fullscreen & {
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
   }
 }
 
@@ -2562,14 +2567,6 @@ headerbar {
   }
 }
 
-.titlebar {
-  // revive top-edge highlight border for SSDs
-  .ssd & {
-    border-top: 1px solid $top_edge_borders_color;
-    box-shadow: none;
-  }
-}
-
 headerbar {
   @extend %fade_effect; // add fade_effect
 
@@ -2579,6 +2576,17 @@ headerbar {
   // do not use transparentize
   border-top-color: $top_edge_borders_color;
   border-bottom-color: $borders_color;
+
+  .tiled &,
+  .tiled-top &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .tiled-right &,
+  .maximized &,
+  .fullscreen & {
+    border-top-color: $inverted_dark_color;
+    border-radius: 0;
+  }
 
   // reduce hidden gap reserved for separators
   > box.horizontal {
@@ -2711,22 +2719,6 @@ window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
         }
       }
     }
-  }
-}
-
-// revive top-edge highlight border for Metacity's CSDs
-headerbar.titlebar.default-decoration {
-  border-top: 1px solid $top_edge_borders_color;
-  box-shadow: none; // reset outset shadows
-
-  .tiled &,
-  .tiled-top &,
-  .tiled-bottom &,
-  .tiled-left &,
-  .tiled-right &,
-  .maximized & {
-    border-top-color: $inverted_dark_color;
-    border-radius: 0;
   }
 }
 
@@ -6148,12 +6140,6 @@ decoration {
 // specific button styling for Mutter's SSDs
 .ssd .titlebar {
   .titlebutton {
-    min-width: $titlebutton_small;
-    min-height: $titlebutton_small;
-    padding: 0;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-
     image {
       background-size: $titlebutton_small $titlebutton_small;
       background-repeat: no-repeat;
@@ -6267,11 +6253,6 @@ headerbar.titlebar.default-decoration {
 
   button.titlebutton {
     @extend %fade_effect;
-    min-width: $titlebutton_small;
-    min-height: $titlebutton_small;
-    padding: 0;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
 
     image {
       background-size: $titlebutton_small $titlebutton_small;
