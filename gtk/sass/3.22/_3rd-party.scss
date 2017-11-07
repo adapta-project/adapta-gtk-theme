@@ -2550,14 +2550,14 @@ window.background:not(.csd) > box.vertical {
     background-color: transparent;
   }
 
-  .audiopanel,
-  .infopanel { // OSDs placed at top-left/right corners
-    border: none;
-    background-color: gtkopacity($inverted_dark_color, 0.9);
-    box-shadow: $z-depth-1;
-
-    &:not(.infopanel) { border-radius: 0 0 2px 0; }
-    &:not(.audiopanel) { border-radius: 0 0 0 2px; }
+  @each $_class, $_radius in (audio, 0 0 2px 0),
+                             (info, 0 0 0 2px) {
+    .#{$_class}panel { // OSDs placed at top-left/right corners
+      border: none;
+      border-radius: #{$_radius};
+      background-color: gtkopacity($inverted_dark_color, 0.9);
+      box-shadow: $z-depth-1;
+    }
   }
 
   .notificationwidget,
@@ -2614,39 +2614,20 @@ window.background:not(.csd) > box.vertical {
   }
 
   .transparentbutton { // = 'unlock'/'switch-user' button
-    @extend %button_flat_normal;
     border: none;
     background-color: transparent;
-    &:not(:active):not(:disabled):not(hover) {
-      background-color: transparent;
-      color: $secondary_accent_color;
-    }
+    color: $inverted_secondary_accent_label_color;
     &:hover {
-      @extend %button_flat_hover;
-      background-color: transparent;
-      color: $accent_color;
+      background-color: $track_color;
+      color: $inverted_accent_label_color;
     }
-    &:active {
-      @extend %button_flat_active;
-      border-image: none;
-      background-color: transparent;
-      color: $accent_color;
-      box-shadow: none;
-    }
-    &:checked {
-      @extend %button_flat_checked;
-      border-image: none;
-      background-color: transparent;
-      color: $accent_color;
-      box-shadow: none;
-    }
+    &:active,
+    &:checked { color: $inverted_accent_label_color; }
     &:disabled {
-      @extend %button_flat_disabled;
-      background-color: gtkopacity($inverted_secondary_fg_color, 0.12);
-      color: gtkopacity($inverted_secondary_fg_color, 0.4);
-
-      label,
-      image { color: inherit; }
+      color: gtkalpha($inverted_fg_color, 0.4);
+      &:checked {
+        color: gtkopacity($inverted_accent_label_color, 0.4);
+      }
     }
   }
 
@@ -2668,7 +2649,7 @@ window.background:not(.csd) > box.vertical {
 
   .albumartist {
     font-size: 80%;
-    color: $insensitive_inverted_fg_color;
+    color: $inverted_tertiary_fg_color;
     background-image: none;
     background-color: transparent;
   }
