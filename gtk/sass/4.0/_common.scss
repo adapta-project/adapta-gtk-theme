@@ -268,42 +268,6 @@ assistant {
   }
 }
 
-// button box is always shown with flat-buttons
-buttonbox {
-  &, &.dialog-action-area {
-    &:not(.linked) button {
-      @extend %button_flat_normal;
-      background-color: transparent;
-      color: $secondary_accent_label_color;
-      font-weight: 700;
-      &:hover {
-        @extend %button_flat_hover;
-        background-color: transparent;
-        color: $accent_label_color;
-      }
-      &:active {
-        @extend %button_flat_active;
-        background-color: transparent;
-        color: $accent_label_color;
-      }
-      &:disabled {
-        @extend %button_flat_disabled;
-        color: $insensitive_fg_color;
-      }
-      &:checked {
-        @extend %button_flat_checked;
-        background-color: transparent;
-        color: $accent_label_color;
-        &:disabled {
-          @extend %button_flat_checked_disabled;
-          background-color: transparent;
-          color: gtkopacity($accent_label_color, 0.4);
-        }
-      }
-    }
-  }
-}
-
 %osd, .osd { opacity: 0.9; }
 
 
@@ -1170,6 +1134,45 @@ fontbutton { // standard raised button styling
   &:disabled { @include button(insensitive); }
   &:checked { @include button(checked); }
   &:checked:disabled { @include button(checked-insensitive); }
+}
+
+// button box is always shown with flat-buttons
+buttonbox {
+  &, &.dialog-action-area {
+    &:not(.linked) button { @extend %action-area-button; }
+  }
+}
+
+%action-area-button {
+  @extend %button_flat_normal;
+  background-color: transparent;
+  color: $secondary_accent_label_color;
+  font-weight: 700;
+  &:hover {
+    @extend %button_flat_hover;
+    background-color: transparent;
+    color: $accent_label_color;
+  }
+  &:active {
+    @extend %button_flat_active;
+    background-color: transparent;
+    color: $accent_label_color;
+  }
+  &:disabled {
+    @extend %button_flat_disabled;
+    background-color: transparent;
+    color: $insensitive_fg_color;
+  }
+  &:checked {
+    @extend %button_flat_checked;
+    background-color: transparent;
+    color: $accent_label_color;
+    &:disabled {
+      @extend %button_flat_checked_disabled;
+      background-color: transparent;
+      color: gtkopacity($accent_label_color, 0.4);
+    }
+  }
 }
 
 
@@ -5054,31 +5057,18 @@ messagedialog {
     .dialog-action-area {
       button,
       .linked > button {
-        @extend %button_flat_normal;
         border: 2px solid transparent;
         border-radius: 0;
-        background-color: transparent;
         color: $inverted_secondary_accent_label_color;
         font-size: initial;
-        font-weight: 700;
-        &:hover {
-          @extend %button_flat_hover;
-          background-color: transparent;
-          color: $inverted_accent_label_color;
-        }
-        &:active {
-          @extend %button_flat_active;
-          background-color: transparent;
-          color: $inverted_accent_label_color;
-        }
-        &:checked {
-          @extend %button_flat_checked;
-          background-color: transparent;
-          color: $inverted_secondary_accent_label_color;
-        }
+        &:hover,
+        &:active,
+        &:checked { color: $inverted_accent_label_color; }
         &:disabled {
-          @extend %button_flat_disabled;
           color: gtkalpha($inverted_fg_color, 0.4);
+          &:checked {
+            color: gtkopacity($inverted_accent_label_color, 0.4);
+          }
         }
 
         &:first-child {

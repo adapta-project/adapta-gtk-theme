@@ -1876,7 +1876,7 @@ popover {
   }
 
   // use action-area style buttons
-  box.popover-action-area { @extend buttonbox.dialog-action-area; }
+  box.popover-action-area button { @extend %action-area-button; }
 }
 
 greeter > box.vertical > stack { // draw fake-shadows
@@ -2073,8 +2073,8 @@ dzl {
 
 popover.messagepopover {
   // use action-area style buttons
-  box.popover-content-area {
-    @extend buttonbox.dialog-action-area;
+  box.popover-content-area button {
+    @extend %action-area-button;
     // desired negative margin breaks builder 3.22 theming...
     // margin: -12px;
   }
@@ -2717,7 +2717,7 @@ window > popover > stack > grid > button.text-button {
 .background.csd > box.vertical > stack > box.vertical > widget {
   notebook > stack > notebook > stack > box.vertical {
     // use buttonbox's flat-buttons
-    > box.horizontal { @extend buttonbox.dialog-action-area; }
+    > box.horizontal button { @extend %action-area-button; }
   }
 }
 
