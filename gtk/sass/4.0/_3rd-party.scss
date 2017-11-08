@@ -1994,6 +1994,61 @@ headerbar.titlebar box {
   }
 }
 
+box.topbar {
+  // FIXME: foreground-color is locked by style.css
+  border-bottom: 1px solid $solid_light_borders_color;
+
+  > button.image-button.radio {
+    all: unset;
+
+    > image {
+      min-width: $icon_size * 1.5;
+      min-height: $icon_size * 1.5;
+      padding: rem(6.7px);
+      background-image: radial-gradient(circle farthest-corner at center,
+                                        gtkalpha($inverted_fg_color, 0.4) 25%,
+                                        transparent 0%);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 0% 0%; // hide ripples in normal state
+      background-color: if($variant == 'light', $suggested_color,
+                                                $bg_color);
+      transition: background-image 0s $slope_slow,
+                  background-size 0s $slope_medium,
+                  box-shadow 0.2s $slope_slow;
+    }
+
+    &:hover > image {
+      background-color: if($variant == 'light',
+                        mix($inverted_fg_color, $suggested_color, 12%),
+                        mix($fg_color, $bg_color, 12%));
+      box-shadow: inset 0 -2px gtkopacity($inverted_fg_color, 0.2);
+    }
+
+    &:checked > image {
+      background-image: radial-gradient(circle farthest-corner at center,
+                                        gtkalpha($inverted_fg_color, 0) 25%,
+                                        transparent 0%);
+      background-size: 100% * 4 100% * 4;
+      background-color: if($variant == 'light',
+                        mix($inverted_fg_color, $suggested_color, 12%),
+                        $bg_color);
+      box-shadow: inset 0 -2px if($variant == 'light', $selected_fg_color,
+                                                       $selected_bg_color);
+      transition: background-image 0.4s $slope_slow,
+                  background-size 0.4s $slope_medium;
+    }
+
+    &:checked:hover > image {
+      background-color: if($variant == 'light',
+                        mix($inverted_fg_color, $suggested_color, 25%),
+                        mix($fg_color, $bg_color, 12%));
+      box-shadow: inset 0 -2px if($variant == 'light', $selected_fg_color,
+                                                       $selected_bg_color);
+    }
+  }
+}
+
 list > row.activatable.tweet {
   // speed-up scrolling
   background-image: none;
