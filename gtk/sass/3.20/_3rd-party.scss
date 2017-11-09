@@ -2479,16 +2479,7 @@ window > headerbar > widget > box.horizontal {
 // left-pane styling
 window.background > grid.vertical > stack > paned.horizontal > widget {
   grid.vertical > scrolledwindow {
-    background-color: $secondary_dark_color;
-
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
+    @extend %sidebar_template;
 
     > treeview.view.sidebar {
       background-color: transparent;
@@ -3369,15 +3360,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   // side-panel styling
   .caja-side-pane {
     scrolledwindow {
-      background-color: $secondary_dark_color;
-      &:dir(ltr) {
-        box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                            $sidebar-dark-ltr);
-      }
-      &:dir(rtl) {
-        box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                            $sidebar-dark-rtl);
-      }
+      @extend %sidebar_template;
 
       treeview.view {
         background-color: transparent;
