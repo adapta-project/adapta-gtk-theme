@@ -1656,11 +1656,13 @@ $extra_spacing: 2.5px;
   }
 
   &-icon-bin {
+    margin: if($eta == 'false', 0.2em 0.6em 0, 0.2em 0.45em 0);
     padding: 0; // FIXME: needs to override the stock gresource
                 // (Since upstream still uses padding properties)
-    margin: if($eta == 'false', 0.2em 0.6em 0, 0.2em 0.45em 0);
 
     > StIcon {
+      min-width: 16px;  // for an indentation of .message-content
+      min-height: 16px; // reserve StIcon region even if StIcon was null
       color: $osd_fg_color;
       icon-size: 16px;
       -st-icon-style: symbolic;

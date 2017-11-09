@@ -1527,6 +1527,8 @@ $extra_spacing: 2.5px;
     &:rtl { margin: 4px - 2px 6px 0 0; }
 
     > StIcon {
+      min-width: 16px;  // for an indentation of .message-content
+      min-height: 16px; // reserve StIcon region even if StIcon was null
       color: $osd_fg_color;
       icon-size: 16px;
       -st-icon-style: symbolic;
