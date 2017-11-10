@@ -5199,6 +5199,29 @@ filechooserbutton:drop(active) {
 //  * Sidebar *
 //  ***********/
 
+%sidebar_template {
+  background-color: $secondary_dark_color;
+  &:dir(ltr) {
+    box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
+  }
+  &:dir(rtl) {
+    box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
+  }
+}
+
+%sidebar_treeview {
+  background-color: transparent;
+  font-weight: 500;
+  &:selected {
+    &, &:focus {
+      background-color: transparent;
+      color: $selected_bg_color;
+    }
+  }
+}
+
 .sidebar {
   border: none;
   color: $secondary_fg_color;
@@ -5215,23 +5238,18 @@ filechooserbutton:drop(active) {
   }
 
   // remove background from child-elements
-  treeview.view,
   .frame,
   list { background-color: transparent; }
 
-  treeview.view {
-    box-shadow: none;
-    &:selected,
-    row:selected { @extend %selected_items; }
-  }
+  treeview.view { @extend %sidebar_treeview; }
 
   // fill actual background
   background-color: $secondary_dark_color;
+
   .frame list { box-shadow: none; }
 
   list,
-  row,
-  row.activatable {
+  row {
     color: $secondary_fg_color;
     background-color: transparent;
     font-weight: 500;
@@ -5251,8 +5269,7 @@ filechooserbutton:drop(active) {
 }
 
 stacksidebar {
-  row,
-  row.activatable {
+  row {
     padding: rem(5.3px) rem(8px) rem(6.7px);
 
     > label {
@@ -5275,20 +5292,7 @@ stacksidebar {
     &.needs-attention > label { @extend %needs_attention; }
   }
 
-  .frame list { // draw shadows
-    // dim background with alpha-blending
-    background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                              rgba(18, 22, 0, 0.04));
-
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
-  }
+  .frame list { @extend %sidebar_template; } // draw shadows
 
   // remove unwanted separator
   separator,

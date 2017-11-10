@@ -105,21 +105,10 @@ gp-applet > separator {
 //  * Gnome Tweaks *
 //  ****************/
 
-%sidebar_template {
-  background-image: image($secondary_dark_color);
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
-}
-
 // sidebar
 .tweak-categories {
   @extend %sidebar_template;
+  background-image: image($secondary_dark_color);
   color: $secondary_fg_color;
 
   separator.horizontal {
@@ -719,16 +708,11 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
   @extend %sidebar_template;
 
   treeview.view.sidebar {
+    @extend %sidebar_treeview;
+
     &.cell { // = row height of placessidebar
       padding-top: rem(4px);
       padding-bottom: rem(4px);
-    }
-
-    &:selected {
-      &, &:focus {
-        background-color: transparent;
-        color: $selected_bg_color;
-      }
     }
   }
 }
@@ -1106,27 +1090,11 @@ window.background > box.horizontal > overlay > stack > overlay > box.vertical {
 // tweak sidebar styling
 .sidebar-paned {
   scrolledwindow {
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
+    @extend %sidebar_template;
+    background-image: image($secondary_dark_color);
   }
 
-  treeview.view.sidebar {
-    background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                              rgba(18, 22, 0, 0.04));
-    &:selected {
-      &, &:focus {
-        background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                                  rgba(18, 22, 0, 0.04));
-        color: $selected_bg_color;
-      }
-    }
-  }
+  treeview.view.sidebar { @extend %sidebar_treeview; }
 }
 
 // tweak border and frame in alt-toolbar
@@ -1957,17 +1925,10 @@ stack.titlebar#titlebar_container > stack > headerbar { // needs full-path
 ide {
   // left-pane sidebar?
   &editorsidebar {
+    @extend %sidebar_template;
     background-image: image($secondary_dark_color);
-    &.left {
-      margin-right: -1px; // override upstream CSS
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &.right {
-      margin-left: -1px;
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
+    &.left { margin-right: -1px; } // override upstream CSS
+    &.right { margin-left: -1px; }
   }
 
   &layoutgridcolumn { /// main container of eidtor-pane
@@ -2603,26 +2564,9 @@ window > popover > stack > grid > button.text-button {
 
 .background.csd > box.horizontal > frame > scrolledwindow {
   // side-bar styling
-  background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                            rgba(18, 22, 0, 0.04));
+  @extend %sidebar_template;
 
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
-
-  treeview.view {
-    background-color: transparent;
-    font-weight: 500;
-    &:selected {
-      background-color: transparent;
-      color: $selected_bg_color;
-    }
-  }
+  treeview.view { @extend %sidebar_treeview; }
 }
 
 
@@ -2633,26 +2577,9 @@ window > popover > stack > grid > button.text-button {
 .background.csd > box.vertical > paned.horizontal > scrolledwindow,
 .background.solid-csd > box.vertical > paned.horizontal > scrolledwindow {
   // side-bar styling
-  background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                            rgba(18, 22, 0, 0.04));
+  @extend %sidebar_template;
 
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
-
-  treeview.view {
-    background-color: transparent;
-    font-weight: 500;
-    &:selected {
-      background-color: transparent;
-      color: $selected_bg_color;
-    }
-  }
+  treeview.view { @extend %sidebar_treeview; }
 }
 
 

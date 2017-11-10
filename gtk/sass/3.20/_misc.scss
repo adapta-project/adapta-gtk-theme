@@ -96,21 +96,10 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
 //  * Gnome-Tweak-Tool *
 //  ********************/
 
-%sidebar_template {
-  background-image: image($secondary_dark_color);
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
-}
-
 // sidebar
 .tweak-categories {
   @extend %sidebar_template;
+  background-image: image($secondary_dark_color);
   color: $secondary_fg_color;
 
   separator.horizontal {
@@ -614,14 +603,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
   .folder-frame > scrolledwindow {
     @extend %sidebar_template;
 
-    treeview.view.sidebar {
-      &:selected {
-        &, &:focus {
-          background-color: transparent;
-          color: $selected_bg_color;
-        }
-      }
-    }
+    treeview.view.sidebar { @extend %sidebar_treeview; }
   }
 }
 
@@ -886,27 +868,11 @@ box > headerbar > label.polari-titlebar-separator {
 // tweak sidebar styling
 .sidebar-paned {
   scrolledwindow {
-    &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
-    }
-    &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
-    }
+    @extend %sidebar_template;
+    background-image: image($secondary_dark_color);
   }
 
-  treeview.view.sidebar {
-    background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                              rgba(18, 22, 0, 0.04));
-    &:selected {
-      &, &:focus {
-        background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                                  rgba(18, 22, 0, 0.04));
-        color: $selected_bg_color;
-      }
-    }
-  }
+  treeview.view.sidebar { @extend %sidebar_treeview; }
 }
 
 // tweak border and frame in alt-toolbar
@@ -1702,15 +1668,8 @@ window overlay > grid > frame > grid {
 
 // side-bar styling
 list.contacts-view {
+  @extend %sidebar_template;
   background-image: image($secondary_dark_color); // use -image instead
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
 
   row.activatable {
     color: $secondary_fg_color;
@@ -2091,26 +2050,9 @@ window > popover > stack > grid > button {
 
 .background.csd > box.horizontal > frame > scrolledwindow {
   // side-bar styling
-  background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                            rgba(18, 22, 0, 0.04));
+  @extend %sidebar_template;
 
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
-
-  treeview.view {
-    background-color: transparent;
-    font-weight: 500;
-    &:selected {
-      background-color: transparent;
-      color: $selected_bg_color;
-    }
-  }
+  treeview.view { @extend %sidebar_treeview; }
 }
 
 
@@ -2121,26 +2063,9 @@ window > popover > stack > grid > button {
 .background.csd > box.vertical > paned.horizontal > scrolledwindow,
 .background.solid-csd > box.vertical > paned.horizontal > scrolledwindow {
   // side-bar styling
-  background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
-                                            rgba(18, 22, 0, 0.04));
+  @extend %sidebar_template;
 
-  &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
-  }
-  &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
-  }
-
-  treeview.view {
-    background-color: transparent;
-    font-weight: 500;
-    &:selected {
-      background-color: transparent;
-      color: $selected_bg_color;
-    }
-  }
+  treeview.view { @extend %sidebar_treeview; }
 }
 
 
