@@ -84,15 +84,14 @@ $budgie_transition: opacity 0.2s $slope_medium,
   box-shadow: none; // unset standard wnck styling
   transition: $budgie_transition;
 
-  @each $position, $_w, $_h in (top, 0, $icon_size * 1.5),
-                               (bottom, 0, $icon_size * 1.5),
-                               (left, $icon_size * 1.5, 0),
-                               (right, $icon_size * 1.5, 0) {
-    .#{$position} & {
-      image {
-        min-width: #{$_w};
-        min-height: #{$_h};
-      }
+  image {
+    min-width: 0;
+    min-height: $icon_size * 1.5;
+
+    .left &,
+    .right & {
+      min-width: $icon_size * 1.5;
+      min-height: 0;
     }
   }
 
@@ -334,7 +333,6 @@ window.budgie-popover:not(.csd) {
   &.background {
     border-style: solid none none; // remove side/bottom borders
 
-    &,
     .container {
       padding: 2px 0 0; // remove side/bottom padding
 
@@ -419,7 +417,6 @@ window.budgie-popover:not(.csd) {
 .user-menu {
   background-color: $secondary_base_color;
 
-  &,
   frame.container { padding: (6px + 2px) 6px 6px; }
 
   list,
@@ -481,7 +478,6 @@ window.budgie-popover:not(.csd) {
   }
 
   // top-row (user-name and avatar)
-  > box.vertical row.activatable:first-child,
   > frame.container > box.vertical row.activatable:first-child {
     margin-bottom: rem(10.7px); // fix truncated drop-shadow
     outline-offset: 0;
@@ -572,7 +568,6 @@ window.budgie-popover:not(.csd) {
       box-shadow: if($variant == 'light', $header-shadow-light,
                                           $header-shadow-dark);
 
-      button.image-button,
       button.text-button {
         color: $inverted_secondary_fg_color;
         &:hover,
@@ -580,32 +575,10 @@ window.budgie-popover:not(.csd) {
         &:checked { color: $inverted_fg_color; }
         &:disabled { color: $insensitive_inverted_fg_color; }
       }
-
-      > image { // gear icon in settings-view
-        &:dir(ltr) { margin-left: 4px; }
-        &:dir(rtl) { margin-right: 4px; }
-      }
-
-      stackswitcher.linked > button.text-button.radio {
-        // show underlines for :checked only
-        &:not(:checked) { border-image: none; }
-      }
     }
 
     // reduce the gap between child elements
     &:not(.top):not(.bottom) { margin-top: rem(-10.7px); }
-
-    // last-child is constructed without header-label
-    &:not(.top):not(.bottom):not(:last-child) {
-      > label,
-      > box > label,
-      > box > image { color: $tertiary_fg_color; }
-    }
-  }
-
-  > stack > box.vertical > stack > stack > box.vertical > .raven-header {
-    // revert to original top-margin for 'AppletSettings'
-    margin-top: 0;
   }
 
   .raven-background {
@@ -635,11 +608,6 @@ window.budgie-popover:not(.csd) {
     }
   }
 
-  .option-subtitle {
-    color: $insensitive_secondary_fg_color;
-    font-size: 90%;
-  }
-
   scrolledwindow,
   list { background: transparent; }
 
@@ -647,23 +615,9 @@ window.budgie-popover:not(.csd) {
     background-color: transparent;
     &:hover { color: $fg_color; }
     &:selected {
-      &, label {
-        color: $selected_bg_color;
-      }
-      &:hover { background-color: $track_color; }
-    }
+      &, label { color: $selected_bg_color; }
 
-    separator {
-      min-height: 1px;
-      min-width: 1px;
-      margin: 0 rem(5.3px);
-      border: none;
-      color: transparent;
-      background-color: transparent;
-      background-image: image(gtkopacity($fg_color, 0.12));
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: auto 1px;
+      &:hover { background-color: $track_color; }
     }
   }
 
@@ -680,45 +634,8 @@ window.budgie-popover:not(.csd) {
     &:checked:disabled { @include button(flat-checked-insensitive); }
   }
 
-  // enforce square outlines
-  .linked > button.image-button { -gtk-outline-radius: 0; }
-
   .raven-header {
     > .linked { margin: 0 rem(10.7px, $sw: 1.0); }
-
-    > button.image-button { // 'gear' button
-      min-width: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
-      min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
-      padding: 0;
-    }
-
-    > button.text-button { // 'exit' button
-      min-width: $widget_size - if($ref_weight < 1.0, 2.7px, 0);
-      min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
-      padding: 0;
-      background-color: $suggested_color;
-      &:hover {
-        &, label { color: $selected_fg_color; }
-      }
-      &:active {
-        background-color: $selected_bg_color;
-
-        &, label { color: $selected_fg_color; }
-      }
-      &:checked {
-        background-color: mix($selected_fg_color, $suggested_color, 20%);
-
-        &, label { color: $secondary_selected_fg_color; }
-      }
-      &:disabled {
-        @include button(flat-insensitive, $track_color, $insensitive_fg_color);
-      }
-
-      label {
-        padding-bottom: rem(1.3px);
-        color: $secondary_selected_fg_color;
-      }
-    }
 
     button.flat.expander-button { // expander arrow buttons
       min-width: $icon_size;
@@ -754,6 +671,8 @@ window.budgie-popover:not(.csd) {
     min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     padding-top: 0;
     padding-bottom: 0;
+    // show underlines for :checked only
+    &:not(:checked) { border-image: none; }
 
     label { padding-bottom: rem(1.3px); }
   }
@@ -798,20 +717,19 @@ window.budgie-popover:not(.csd) {
 }
 
 // clock-applet styling
-.budgie-panel { // legacy
-  // shrink label
-  > box widget > widget > label {
-    margin-top: rem(-0.7px, $sw: 1.0);
-    margin-bottom: -2px;
-    padding: 1.3px 0 0;
-    font-size: 80%;
-  }
-}
-
 widget.budgie-clock-applet > widget > box > label {
+  font-size: 100%;
+  &:first-child {
+    &:dir(ltr) { margin-left: 3px - 1px; }
+    &:dir(rtl) { margin-right: 3px - 1px; }
+  }
+  &:last-child {
+    &:dir(ltr) { margin-right: 3px + 2px; }
+    &:dir(rtl) { margin-left: 3px + 2px; }
+  }
+
   .top &,
   .bottom & {
-    font-size: 100%;
     &:only-child {
       &:dir(ltr) {
         margin-left: 3px - 1px;
@@ -821,14 +739,6 @@ widget.budgie-clock-applet > widget > box > label {
         margin-left: 3px - 2px;
         margin-right: 3px - 1px;
       }
-    }
-    &:first-child {
-      &:dir(ltr) { margin-left: 3px - 1px; }
-      &:dir(rtl) { margin-right: 3px - 1px; }
-    }
-    &:last-child {
-      &:dir(ltr) { margin-right: 3px + 2px; }
-      &:dir(rtl) { margin-left: 3px + 2px; }
     }
   }
 
@@ -849,32 +759,6 @@ widget.budgie-clock-applet > widget > box > label {
 }
 
 // popover of sound-indicator styling
-.budgie-container > popover.background > box.vertical, // legacy
-window.budgie-popover.background frame.container > box.vertical {
-  > button.flat.image-button {
-    min-width: rem($widget_size, $sw: 1.0);
-    min-height: rem($widget_size, $sw: 1.0);
-    margin: rem(2.7px, $sw: 1.0) 0;
-    padding: 0;
-
-    &:first-child { // '+' button
-      &:hover {
-        background: none;
-        color: $success_color;
-        animation: volume_hover 0.2s linear forwards;
-      }
-    }
-
-    &:last-child { // '-' button
-      &:hover {
-        background: none;
-        color: $error_color;
-        animation: volume_hover 0.2s linear forwards;
-      }
-    }
-  }
-}
-
 window.sound-popover.background box.horizontal {
   > button.flat.image-button { // horizontal layout
     min-width: rem($widget_size - 6.7px, $sw: 1.0);
@@ -907,7 +791,6 @@ window.sound-popover.background box.horizontal {
 
 // night-light-indicator styling
 .night-light-indicator {
-  &,
   frame.container { padding: (6px + 2px) 6px 6px; }
 
   .view-header {
@@ -944,24 +827,11 @@ window.sound-popover.background box.horizontal {
 // places-indicator styling
 .places-menu {
   &.background {
-    &,
     .container { padding: (6px + 2px) 6px 6px; }
   }
 
   box.places-section-header {
     padding: 0;
-
-    %header_label {
-      margin-bottom: rem(1.3px, $sw: 1.0);
-      padding-bottom: rem(4px);
-      font-weight: 700;
-    }
-
-    %folder_image {
-      color: $accent_color;
-      &:dir(ltr) { margin-left: 4px; }
-      &:dir(rtl) { margin-right: 4px; }
-    }
 
     > button.flat:not(.image-button) { // an actual child
       padding: rem(5.3px) rem(5.3px);
@@ -976,10 +846,18 @@ window.sound-popover.background box.horizontal {
       }
 
       box.horizontal {
-        > label { @extend %header_label; }
+        > label {
+          margin-bottom: rem(1.3px, $sw: 1.0);
+          padding-bottom: rem(4px);
+          font-weight: 700;
+        }
 
         > image {
-          &:first-child { @extend %folder_image; }
+          &:first-child {
+            color: $accent_color;
+            &:dir(ltr) { margin-left: 4px; }
+            &:dir(rtl) { margin-right: 4px; }
+          }
           &:not(:first-child) { // 'arrow'
             // same margins with 'eject' button
             &:dir(ltr) { margin-right: rem(5.3px); }
@@ -987,18 +865,6 @@ window.sound-popover.background box.horizontal {
           }
         }
       }
-    }
-
-    // for legacy
-    > label {
-      @extend %header_label;
-      color: $secondary_fg_color;
-    }
-
-    > image {
-      @extend %folder_image;
-      &:dir(ltr) { padding: rem(2.7px) 0 rem(4px) rem(2.7px); }
-      &:dir(rtl) { padding: rem(2.7px) rem(2.7px) rem(4px) 0; }
     }
 
     button.image-button {
@@ -1144,16 +1010,6 @@ window.sound-popover.background box.horizontal {
 }
 
 // workspace-switcher applet
-@each $position, $_line in (top, 0 2px), // legacy
-                           (bottom, 0 -2px),
-                           (left, 2px 0),
-                           (right, -2px 0) {
-  .#{$position}.budgie-container wnck-pager {
-    &:hover { box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4); }
-    &:selected { box-shadow: inset #{$_line} $selected_bg_color; }
-  }
-}
-
 widget > box.workspace-switcher {
   // main container
   > box.workspace-layout {
@@ -1599,10 +1455,7 @@ button.flat.raven-trigger {
     animation: budgie_ripple_effect 0.3s $slope_slow forwards;
   }
 
-  .top &,
-  .bottom & {
-    image { margin: 0 3px; } // add internal spacing
-  }
+  image { margin: 0 3px; } // add internal spacing
 
   .left &,
   .right & {
