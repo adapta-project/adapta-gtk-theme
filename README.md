@@ -90,7 +90,7 @@ Supported Desktop Environments
  ```
  * GNOME-Shell     >= 3.18.3
  * GNOME-Flashback >= 3.18.2
- * Budgie-Desktop  >= 10.2.7
+ * Budgie-Desktop  >= 10.4
  * Cinnamon        >= 2.8.6
  * Unity7          >= 7.4.0 (Gtk+ 3.x only)
  * XFce4           >= 4.12.2
