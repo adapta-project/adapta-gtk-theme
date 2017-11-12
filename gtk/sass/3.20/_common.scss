@@ -1144,27 +1144,42 @@ toolpalette {
 //  *********/
 
 *:link {
-  color: $link_color;
-  &:hover,
-  &:active { color: $link_color; }
+  @at-root %normal_link,
+  & {
+    color: $link_color;
+    &:hover,
+    &:active { color: $link_color; }
+
+    *:selected & { color: $secondary_selected_fg_color; }
+  }
+
+  @at-root %visited_link,
   &:visited {
     color: $link_visited_color;
     &:hover,
     &:active { color: $link_visited_color; }
-    *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
+
+    *:selected & { color: $tertiary_selected_fg_color; }
   }
-  %selected_link,
-  &:selected,
-  *:selected & { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+
+  @at-root %selected_link,
+  &:selected {  color: $secondary_selected_fg_color; }
+
   &:disabled { opacity: 0.4; }
 }
 
-button:link,
-button:visited {
-  // FIXME: aggregate with buttons
+link {
+  &:link { @extend %normal_link; }
+  &:visited { @extend %visited_link; }
+}
+
+button.flat.link { // specificity bump with .flat class
   @extend *:link;
 
-  > label { text-decoration-line: underline; }
+  > label {
+    color: inherit;
+    text-decoration-line: underline;
+  }
 }
 
 
