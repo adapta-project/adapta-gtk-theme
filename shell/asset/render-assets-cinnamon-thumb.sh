@@ -19,6 +19,26 @@ ASSETS_DARK_DIR="../cinnamon-nokto/assets"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 THUMB="thumbnail"
 
+# Default colours
+selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
+                   cut -d' ' -f3`"
+
+# Check and re-color SVG files
+if [ -e $KEY_FILE ]; then
+    selection2="`grep 'key_selection' $KEY_FILE | \
+                 cut -d' ' -f2 | cut -d';' -f1`"
+IFS=$'
+'
+    cp -f $SRC_DIR/$THUMB.svg.in $SRC_DIR/$THUMB.svg
+    cp -f $SRC_DARK_DIR/$THUMB.svg.in $SRC_DARK_DIR/$THUMB.svg
+
+    if [ $selection1 != $selection2 ]; then
+        sed -i "s/$selection1/$selection2/gi" $SRC_DIR/$THUMB.svg
+        sed -i "s/$selection1/$selection2/gi" $SRC_DARK_DIR/$THUMB.svg
+        echo $THUMB.svg is re-colored with $selection2.
+    fi
+fi
+
 inkver="`$INKSCAPE --version | awk '{print $2}' | cut -c 1-4`"
 if [ "$inkver" = 0.91 ]; then
     non_scale_dpi=90

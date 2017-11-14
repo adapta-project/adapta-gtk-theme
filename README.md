@@ -343,7 +343,10 @@ Public License
 
  > **Note:**
  >
- > SVG files are licensed under CC BY-SA 4.0
+ > SVG files are licensed under CC BY-SA 4.0.
+ > And an icon-theme in Cinnamon thumbnails:
+ > [**Paper Icons**](http://snwh.org/paper/icons) by Sam Hewitt is licensed under CC-SA-4.0.
+
 
 Special Thanks to
 --------------
