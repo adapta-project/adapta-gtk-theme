@@ -336,6 +336,7 @@ Work in Progress
 TODO
 ----
 * Prepare for Meson build system (priority: high)
+* Prelare for x3 scaling (priority: mid or low)
 
 Public License
 --------------
