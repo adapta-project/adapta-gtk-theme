@@ -766,6 +766,8 @@ CLEANFILES += \
 	$(srcdir)/asset/assets-cinnamon/common/panel/window-list-active-bottom.svg \
 	$(srcdir)/asset/assets-cinnamon/common/panel/window-list-active-top.svg \
 	$(srcdir)/asset/assets-cinnamon/common/switch/switch-on.svg \
+	$(srcdir)/asset/assets-cinnamon/light/misc/thumbnail.svg \
+	$(srcdir)/asset/assets-cinnamon/nokto/misc/thumbnail.svg \
 	$(srcdir)/asset/inkscape.log
 endif
 if ENABLE_UNITY
