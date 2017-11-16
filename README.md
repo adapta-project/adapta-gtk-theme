@@ -100,7 +100,7 @@ Supported Desktop Environments
 
  > **Note:**
  >
- >   * Mate-Desktop support is a W.I.P.
+ >   * Unity7 support will be dropped in January 2018.
 
 Unsupported Gtk+ Based Desktop(s)
 -------------------------------
@@ -220,7 +220,7 @@ Installation from Git Source
 
  > **Note:**
  >
- >   * Development for Gtk+ 3.18.x theming is over.
+ >   * Development for Gtk+ 3.18.x theming is over. And Gtk+ 3.18 support will be dropped in April 2018.
 
 7. To change the default 4 **Key-Colors**, pass these options:
 
@@ -336,7 +336,9 @@ Work in Progress
 TODO
 ----
 * Prepare for Meson build system (priority: high)
-* Prelare for x3 scaling (priority: mid or low)
+* Prepare for x3 scaling (priority: mid or low)
+* Drop Unity7 support in January 2018 (Xenial -> Bionic).
+* Drop Gtk+ 3.18 support in April 2018 (Xenial -> Bionic).
 
 Public License
 --------------
@@ -348,4 +350,4 @@ Public License
 
 Special Thanks to
 --------------
- Nana-4, the developer of Flat-Plat.
+ Nana-4, the developer of Materia (formerly Flat-Plat).
