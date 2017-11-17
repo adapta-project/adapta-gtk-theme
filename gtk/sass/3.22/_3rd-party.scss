@@ -1949,23 +1949,11 @@ window.background.lightdm {
 //  * Corebird *
 //  ************/
 
-// use normal foreground colour
-stack button.profile-button {
-  &:checked { color: $fg_color; }
-}
-
 headerbar.titlebar box {
   button.toggle.account-button { // left-most account-button
-    min-width: $icon_size;
-    min-height: $icon_size;
-    // it doesn't work
-    padding: rem(6.7px) rem(10.7px) rem(6.7px);
     // revert to square button since we can't make perfect circle button
     border-radius: 2px;
     -gtk-outline-radius: 2px;
-
-    // it doesn't work
-    .avatar-round { border-color: transparent; }
   }
 }
 
