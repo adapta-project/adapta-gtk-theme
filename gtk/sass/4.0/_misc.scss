@@ -1849,15 +1849,6 @@ preferences > box.horizontal {
   }
 }
 
-preferencesbin > box.horizontal {
-  > image { // small 'ckeck' image
-    color: $selected_bg_color;
-
-    // back to standard 'arrows'
-    preferencesgroup#languages & { color: inherit; }
-  }
-}
-
 // info-bars beneath GtkHeaderBar
 window.background.workbench box.message-box.vertical {
   // hide bottom border
@@ -1942,11 +1933,6 @@ dzl {
 
       row.activatable { padding: rem(9.3px) rem(13.3px) rem(10.7px); }
     }
-  }
-
-  &preferencesgroup#languages {
-    // back to standard 'arrows'
-    preferencesbin > box.horizontal > image { color: inherit; }
   }
 }
 
