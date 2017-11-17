@@ -168,13 +168,11 @@ row.tweak { // basic row node container in right-pane
   }
 
   // child sub list elements
-  &:not(.title) > list { // raised material
-    border-radius: 2px;
-    background-color: $base_color;
-    box-shadow: $z-depth-1,
-                inset 0 1px $highlight_color;
+  &:not(.title) > list {
+    border: 1px solid $borders_color;
 
     > row.activatable {
+      background-color: $base_color;
       color: $secondary_fg_color;
       &:hover { // revive ripple effects
         background-image: radial-gradient(circle farthest-corner at center,
@@ -191,8 +189,6 @@ row.tweak { // basic row node container in right-pane
       > box.horizontal {
         > label,
         > box.vertical > label:first-child { font-weight: 500; }
-
-        > image { color: $selected_bg_color; }
       }
 
       // draw horizontal lines
