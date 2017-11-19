@@ -6097,14 +6097,7 @@ decoration {
                         url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
         }
       }
-    }
 
-    @each $_class, $_state in ('', ''),
-                              (':hover', '-hover'),
-                              (':active', '-active'),
-                              (':backdrop', '-backdrop'),
-                              (':backdrop:hover', '-backdrop-hover'),
-                              (':backdrop:active', '-backdrop-active') {
       &.maximize#{$_class} > image {
         background-image:
           -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
@@ -6169,7 +6162,6 @@ headerbar.titlebar.default-decoration {
     }
   }
 
-  %metacity_csd_button,
   button.titlebutton {
     @each $_class,
           $_state,
@@ -6229,8 +6221,6 @@ headerbar.titlebar.default-decoration {
 
   .maximized & {
     button.titlebutton {
-      @extend %metacity_csd_button;
-
       @each $_class, $_state in ('', ''),
                                 (':hover', '-hover'),
                                 (':active', '-active'),
