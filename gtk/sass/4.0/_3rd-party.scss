@@ -2772,15 +2772,11 @@ window.background {
 //  **************/
 
 // Most parts are themed in Gnome-panel section
+PanelToplevel.background { @extend %gnome_panel_toplevel; }
+
 #PanelWidget,
 #PanelPlug,
-#PanelApplet,
-PanelToplevel.background {
-  // Always use dark-color of dark variant
-  color: $inverted_secondary_fg_color;
-  background-color: $panel_bg_color;
-  box-shadow: none;
-}
+#PanelApplet { @extend %gnome_panel_applet; }
 
 PanelSeparator {
   border-width: 0;
@@ -2845,10 +2841,9 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 
 .mate-panel-menu-bar menubar,
 #PanelApplet-window-menu-applet-button {
-  background-color: transparent;
+  @extend %gnome_panel_menuabr;
 
-  // same value with Gnome-panel
-  > menuitem { padding: 0 rem(4px, $sw: 1.0); }
+  > menuitem { @extend %gnome_panel_menuitem; }
 }
 
 // Brisk-Menu applet

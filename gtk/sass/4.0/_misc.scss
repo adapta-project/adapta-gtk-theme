@@ -2,8 +2,10 @@
 //  * Gnome-Panel *
 //  ***************/
 
+%gnome_panel_toplevel,
 panel-toplevel.background { background-color: $panel_bg_color; }
 
+%gnome_panel_applet,
 panel-applet,
 panel-plug,
 panel-toplevel > grid.horizontal > widget > widget {
@@ -13,6 +15,7 @@ panel-toplevel > grid.horizontal > widget > widget {
   box-shadow: none;
 }
 
+%gnome_panel_menuabr,
 .gnome-panel-menu-bar,
 panel-applet > menubar,
 #clock-applet-button {
@@ -24,6 +27,7 @@ panel-applet > menubar,
 
 .gnome-panel-menu-bar,
 panel-applet menubar {
+  @at-root %gnome_panel_menuitem,
   > .gnome-panel-menu-item,
   > menuitem {
     padding: 0 rem(4px, $sw: 1.0);
