@@ -6249,14 +6249,15 @@ decoration {
         box-shadow: #{$_shadow};
 
         > image {
-          background-image:
-            -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
-                        url("assets/window-close-ssd#{$_state}@2.png"));
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
                           url("assets/window-close-ssd-eta#{$_state}@2.png"));
+          }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
+                          url("assets/window-close-ssd#{$_state}@2.png"));
           }
         }
       }
@@ -6270,15 +6271,16 @@ decoration {
                               (':backdrop:active', '-backdrop-active') {
       &.minimize#{$_class} {
         > image {
-          background-image:
-            -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
-                        url("assets/window-minimize-ssd#{$_state}@2.png"));
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(
                 url("assets/window-minimize-ssd-eta#{$_state}.png"),
                 url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+          }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
+                          url("assets/window-minimize-ssd#{$_state}@2.png"));
           }
         }
       }
@@ -6292,15 +6294,16 @@ decoration {
                               (':backdrop:active', '-backdrop-active') {
       &.maximize#{$_class} {
         > image {
-          background-image:
-            -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
-                        url("assets/window-maximize-ssd#{$_state}@2.png"));
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(
                 url("assets/window-maximize-ssd-eta#{$_state}.png"),
                 url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+          }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
+                          url("assets/window-maximize-ssd#{$_state}@2.png"));
           }
         }
       }
@@ -6318,15 +6321,16 @@ decoration {
                               (':backdrop:active', '-backdrop-active') {
       &.maximize#{$_class} {
         > image {
-          background-image:
-            -gtk-scaled(url("assets/window-unmaximize-ssd#{$_state}.png"),
-                        url("assets/window-unmaximize-ssd#{$_state}@2.png"));
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(
                 url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
                 url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+          }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-unmaximize-ssd#{$_state}.png"),
+                          url("assets/window-unmaximize-ssd#{$_state}@2.png"));
           }
         }
       }
@@ -6389,16 +6393,18 @@ headerbar.titlebar.default-decoration {
                         (':backdrop:hover', '-backdrop-hover', $z-depth-1),
                         (':backdrop:active', '-backdrop-active', $z-depth-1) {
         &.close#{$_class} {
-          background-image:
-            -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
-                        url("assets/window-close-ssd#{$_state}@2.png"));
-          box-shadow: #{$_shadow};
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(url("assets/window-close-ssd-eta#{$_state}.png"),
                           url("assets/window-close-ssd-eta#{$_state}@2.png"));
           }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-close-ssd#{$_state}.png"),
+                          url("assets/window-close-ssd#{$_state}@2.png"));
+          }
+
+          box-shadow: #{$_shadow};
         }
       }
 
@@ -6409,15 +6415,16 @@ headerbar.titlebar.default-decoration {
                                 (':backdrop:hover', '-backdrop-hover'),
                                 (':backdrop:active', '-backdrop-active') {
         &.minimize#{$_class} {
-          background-image:
-            -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
-                        url("assets/window-minimize-ssd#{$_state}@2.png"));
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(
                 url("assets/window-minimize-ssd-eta#{$_state}.png"),
                 url("assets/window-minimize-ssd-eta#{$_state}@2.png"));
+          }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-minimize-ssd#{$_state}.png"),
+                          url("assets/window-minimize-ssd#{$_state}@2.png"));
           }
         }
       }
@@ -6429,15 +6436,16 @@ headerbar.titlebar.default-decoration {
                                 (':backdrop:hover', '-backdrop-hover'),
                                 (':backdrop:active', '-backdrop-active') {
         &.maximize#{$_class} {
-          background-image:
-            -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
-                        url("assets/window-maximize-ssd#{$_state}@2.png"));
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(
                 url("assets/window-maximize-ssd-eta#{$_state}.png"),
                 url("assets/window-maximize-ssd-eta#{$_state}@2.png"));
+          }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-maximize-ssd#{$_state}.png"),
+                          url("assets/window-maximize-ssd#{$_state}@2.png"));
           }
         }
       }
@@ -6455,15 +6463,16 @@ headerbar.titlebar.default-decoration {
                                 (':backdrop:hover', '-backdrop-hover'),
                                 (':backdrop:active', '-backdrop-active') {
         &.maximize#{$_class} {
-          background-image:
-            -gtk-scaled(url("assets/window-unmaximize-ssd#{$_state}.png"),
-                        url("assets/window-unmaximize-ssd#{$_state}@2.png"));
-
           @if $ref_weight < 1.0 {
             background-image:
               -gtk-scaled(
                 url("assets/window-unmaximize-ssd-eta#{$_state}.png"),
                 url("assets/window-unmaximize-ssd-eta#{$_state}@2.png"));
+          }
+          @else {
+            background-image:
+              -gtk-scaled(url("assets/window-unmaximize-ssd#{$_state}.png"),
+                          url("assets/window-unmaximize-ssd#{$_state}@2.png"));
           }
         }
       }
