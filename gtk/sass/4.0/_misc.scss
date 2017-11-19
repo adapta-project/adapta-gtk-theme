@@ -2,42 +2,47 @@
 //  * Gnome-Panel *
 //  ***************/
 
-%gnome_panel_toplevel,
-panel-toplevel.background { background-color: $panel_bg_color; }
+%gnome_panel_toplevel { background-color: $panel_bg_color; }
 
-%gnome_panel_applet,
-panel-applet,
-panel-plug,
-panel-toplevel > grid.horizontal > widget > widget {
+%gnome_panel_applet {
   // Always use dark-color of dark variant
   color: $inverted_secondary_fg_color;
   background-color: transparent;
   box-shadow: none;
 }
 
-%gnome_panel_menuabr,
-.gnome-panel-menu-bar,
-panel-applet > menubar,
-#clock-applet-button {
+%gnome_panel_menubar {
   color: $inverted_secondary_fg_color;
   background-color: transparent;
   box-shadow: none;
   font-weight: 700;
 }
 
-.gnome-panel-menu-bar,
-panel-applet menubar {
-  %gnome_panel_menuitem,
-  > .gnome-panel-menu-item,
-  > menuitem {
-    padding: 0 rem(4px, $sw: 1.0);
-    color: $inverted_secondary_fg_color;
-    background-color: transparent;
-    &:hover {
-      color: $inverted_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
-    }
+%gnome_panel_menuitem {
+  padding: 0 rem(4px, $sw: 1.0);
+  color: $inverted_secondary_fg_color;
+  background-color: transparent;
+  &:hover {
+    color: $inverted_fg_color;
+    box-shadow: inset 0 -2px $selected_bg_color;
   }
+}
+
+panel-toplevel.background { @extend %gnome_panel_toplevel; }
+
+panel-applet,
+panel-plug,
+panel-toplevel > grid.horizontal > widget > widget {
+  @extend %gnome_panel_applet;
+}
+
+.gnome-panel-menu-bar,
+panel-applet > menubar,
+#clock-applet-button { @extend %gnome_panel_menubar; }
+
+.gnome-panel-menu-bar > .gnome-panel-menu-item,
+panel-applet menubar > menuitem {
+  @extend %gnome_panel_menuitem;
 }
 
 wnck-tasklist > button.toggle,
