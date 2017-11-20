@@ -259,9 +259,9 @@ GtkSourceView/Gedit Color Scheme Support
 
 Visual Studio Code (VS Code) Theme Support
 ------------------------------------------
- [**Visual Studio Marketplace**](https://marketplace.visualstudio.com/items?itemName=SolarLiner.linux-themes)
+ 1. Linux-themes (Author: SolarLiner): [**Visual Studio Marketplace**](https://marketplace.visualstudio.com/items?itemName=SolarLiner.linux-themes)
 
- Author: SolarLiner
+ 2. Vscode-theme-adapted (Author: About-Code): [**Github**](https://github.com/about-code/vscode-theme-adapted)
 
 Extra Browser Support
 ---------------------
