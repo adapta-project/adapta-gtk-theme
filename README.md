@@ -235,7 +235,7 @@ Installation from Git Source
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
  >     Uppercases are strongly recommended in Adapta code-base.
- >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
+ >   * The Material Design Color Palette can be found [**here**](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
  >     ```./autogen.sh --with-selection_color=#009688```
@@ -250,7 +250,7 @@ Installation from Git Source
 GtkSourceView/Gedit Color Scheme Support
 ----------------------------------------
  A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
- See details in [`README.md`](/extra/gedit/README.md).
+ See details in [**README.md**](/extra/gedit/README.md).
 
  > **Note:**
  >
