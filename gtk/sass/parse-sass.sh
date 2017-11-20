@@ -32,9 +32,11 @@ fi
 # Check Gtk+-3.0 version #
 ##########################
 
+PKG_CONFIG="`command -v pkg-config`"
+
 # evenize minor version number of gtk+-3.0
-major="`pkg-config --modversion gtk+-3.0 | cut -d. -f1`"
-minor="`pkg-config --modversion gtk+-3.0 | cut -d. -f2`"
+major="`$PKG_CONFIG --modversion gtk+-3.0 | cut -d. -f1`"
+minor="`$PKG_CONFIG --modversion gtk+-3.0 | cut -d. -f2`"
 if [ $(expr "$minor" % 2) -ne 0 ]; then
     css_minor="$(expr $minor + 1)"
 else
