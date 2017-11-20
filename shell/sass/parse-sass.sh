@@ -15,20 +15,21 @@
 #################
 
 SASSC="`command -v sassc` -M -t compact"
+PKG_CONFIG="`command -v pkg-config`"
 
 # Gnome-Shell
-GNOME_SHELL=`command -v gnome-shell`
-GNOME_VERSION="`$GNOME_SHELL --version | cut -d' ' -f3 | cut -d'.' -f1-2`"
-GNOME_MAJOR_VERSION="`echo $GNOME_VERSION | cut -d'.' -f1`"
-GNOME_MINOR_VERSION="`echo $GNOME_VERSION | cut -d'.' -f2`"
+GIO_VERSION="`$PKG_CONFIG --modversion glib-2.0`"
+GIO_MAJOR_VERSION="`echo $GIO_VERSION | cut -d'.' -f1`"
+GIO_MINOR_VERSION="`echo $GIO_VERSION | cut -d'.' -f2`"
 
-if [ -e $GNOME_SHELL ] && [ $GNOME_MAJOR_VERSION -eq "3" ] && \
-    [ $GNOME_MINOR_VERSION -ge "18" ]; then
-
-    if [ $GNOME_MINOR_VERSION -gt "24" ]; then
-        GNOME_SCSS_VERSION=$GNOME_MAJOR_VERSION.26
+if [ $GIO_MAJOR_VERSION -eq "2" ] && [ $GIO_MINOR_VERSION -lt "48" ]; then
+    echo Unmet dependency: glib-2.0 >= 2.48.0
+    exit 1
+else
+    if [ $GIO_MINOR_VERSION -ge "53" ]; then
+        GNOME_SCSS_VERSION="3.26"
     else
-        GNOME_SCSS_VERSION=$GNOME_MAJOR_VERSION.24
+        GNOME_SCSS_VERSION="3.24"
     fi
 
     $SASSC \
@@ -43,7 +44,7 @@ if [ -e $GNOME_SHELL ] && [ $GNOME_MAJOR_VERSION -eq "3" ] && \
     $SASSC \
         gnome-shell/$GNOME_SCSS_VERSION/gnome-shell-dark-eta.scss \
         ../gnome-shell-nokto-eta/gnome-shell.css
-    if [ $GNOME_MINOR_VERSION -gt "24" ]; then
+    if [ $GIO_MINOR_VERSION -ge "53" ]; then
         $SASSC \
             gnome-shell/$GNOME_SCSS_VERSION/gdm3.scss \
             ../gnome-shell/gdm3-Adapta.css
