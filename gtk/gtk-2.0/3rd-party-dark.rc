@@ -15,11 +15,11 @@ style "theme-panel" {
   bg[ACTIVE] = @selected_bg_color
   bg[PRELIGHT] = shade(1.1, @selected_bg_color)
   bg[SELECTED] = @selected_bg_color
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[NORMAL] = @inverted_fg_color
   fg[PRELIGHT] = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
-  text[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  text[NORMAL] = @inverted_fg_color
   text[PRELIGHT] = @inverted_fg_color
   text[ACTIVE] = @inverted_fg_color
   text[SELECTED] = @inverted_fg_color
@@ -28,7 +28,7 @@ style "theme-panel" {
 }
 
 style "panelbar" {
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[NORMAL] = @inverted_fg_color
   fg[ACTIVE] = @selected_fg_color
   fg[PRELIGHT] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
@@ -42,12 +42,12 @@ style "panelbuttons" {
   xthickness = 2
   ythickness = 0
 
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[NORMAL] = @inverted_fg_color
   fg[PRELIGHT] = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.28, @selected_fg_color, @bg_color)
-  bg[ACTIVE] = mix(0.1, @inverted_fg_color, @panel_bg_color)
+  fg[INSENSITIVE] = mix(0.28, @inverted_fg_color, @panel_bg_color)
+  bg[ACTIVE] = mix(0.12, @inverted_fg_color, @panel_bg_color)
 
   font_name = "Bold"
 
@@ -84,10 +84,10 @@ style "panelbuttons" {
 }
 
 style "theme-panel-text" {
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[NORMAL] = @inverted_fg_color
   fg[PRELIGHT] = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
-  text[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  text[NORMAL] = @inverted_fg_color
   text[PRELIGHT] = @selected_fg_color
   text[ACTIVE] = @selected_fg_color
 
@@ -99,16 +99,16 @@ style "regular-label" {
 }
 
 style "panel-entry" {
-  fg[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[NORMAL] = @inverted_fg_color
   fg[PRELIGHT] = @inverted_fg_color
   fg[ACTIVE] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
-  fg[INSENSITIVE] = mix(0.28, @selected_fg_color, @bg_color)
-  text[NORMAL] = mix(0.8, @selected_fg_color, shade(0.96, @bg_color))
+  fg[INSENSITIVE] = mix(0.28, @inverted_fg_color, @panel_bg_color)
+  text[NORMAL] = @inverted_fg_color
   text[PRELIGHT] = @inverted_fg_color
   text[ACTIVE] = @selected_fg_color
   text[SELECTED] = @selected_fg_color
-  text[INSENSITIVE] = mix(0.28, @selected_fg_color, @bg_color)
+  text[INSENSITIVE] = mix(0.28, @inverted_fg_color, @panel_bg_color)
 }
 
 style "theme-main-menu-text" = "theme-panel-text" {
