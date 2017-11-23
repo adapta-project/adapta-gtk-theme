@@ -6,13 +6,13 @@
 
 %gnome_panel_applet {
   // Always use dark-color of dark variant
-  color: $inverted_secondary_fg_color;
+  color: $inverted_fg_color;
   background-color: transparent;
   box-shadow: none;
 }
 
 %gnome_panel_menubar {
-  color: $inverted_secondary_fg_color;
+  color: $inverted_fg_color;
   background-color: transparent;
   box-shadow: none;
   font-weight: 700;
@@ -20,10 +20,10 @@
 
 %gnome_panel_menuitem {
   padding: 0 rem(4px, $sw: 1.0);
-  color: $inverted_secondary_fg_color;
+  color: $inverted_fg_color;
   background-color: transparent;
   &:hover {
-    color: $inverted_fg_color;
+    color: $selected_fg_color;
     box-shadow: inset 0 -2px $selected_bg_color;
   }
 }
@@ -53,17 +53,17 @@ wnck-tasklist > button.toggle,
   padding: 0px rem(4px, $sw: 1.0);
   border: none;
   border-radius: 0;
-  color: $inverted_secondary_fg_color;
+  color: $inverted_fg_color;
   background-color: transparent;
   &:hover {
-    color: $inverted_fg_color;
+    color: $selected_fg_color;
     background-color: transparent;
     box-shadow: inset 0 -2px $outline_track_color;
   }
   &:checked,
   &:hover:checked,
   &:disabled:checked { // 'checked' = 'active'
-    color: $inverted_fg_color;
+    color: $selected_fg_color;
     background-color: transparent;
     box-shadow: inset 0 -2px $selected_bg_color;
   }
@@ -93,9 +93,9 @@ gp-arrow-button {
   margin: 0 rem(2px);
   border: 1px solid transparent;
   background-image: none;
-  color: $inverted_secondary_fg_color;
+  color: $inverted_fg_color;
   &:hover,
-  &:active { color: $inverted_fg_color; }
+  &:active { color: $selected_fg_color; }
 }
 
 sn-button { padding: 0 rem(4px, $sw: 1.0); }
@@ -106,7 +106,7 @@ gp-applet > separator {
     margin: 3px;
   }
 
-  background-color: gtkopacity($inverted_fg_color, 0.2);
+  background-color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
 }
 
 
