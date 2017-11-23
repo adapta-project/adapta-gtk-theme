@@ -47,7 +47,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
   // transparent-mode
   &.transparent {
     background-color: transparent;
-    color: $panel_dynamic_fg_color;
+    color: $inverted_fg_color;
     transition: $budgie_transition;
 
     // draw shadows by default
@@ -307,12 +307,6 @@ window.budgie-popover:not(.csd) {
       transition: background-image 0.4s $slope_slow,
                   background-size 0.4s $slope_medium;
     }
-  }
-
-  &.transparent button.flat.budgie-menu-launcher {
-    color: $panel_dynamic_fg_color;
-    &:hover,
-    &:checked { color: $selected_fg_color; }
   }
 }
 
@@ -1449,13 +1443,6 @@ button.flat.raven-trigger {
   .right & {
     image { margin: 3px 0; } // add internal spacing
   }
-}
-
-.transparent button.flat.raven-trigger {
-  color: $panel_dynamic_fg_color;
-  &:hover,
-  &:active,
-  &:checked { color: $selected_fg_color; }
 }
 
 // misc settings
