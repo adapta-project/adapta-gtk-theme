@@ -1165,7 +1165,7 @@ $extra_spacing: 2.5px;
   .panel-button {
     -natural-hpadding: if($eta == 'false', 10px, 6px);
     -minimum-hpadding: if($eta == 'false', 10px, 6px);
-    color: $panel_dynamic_fg_color;
+    color: $osd_fg_color;
     font-weight: 700;
     // FIXME: once these buttons are placed in panel-corners,
     // all of transition properties are ignored?
@@ -1178,8 +1178,8 @@ $extra_spacing: 2.5px;
     }
 
     &:hover {
-      color: $selected_fg_color;
       background-color: $panel_hidden_fill_color;
+      color: $selected_fg_color;
       box-shadow: inset 0 2px $osd_outline_fill_color;
 
       StLabel { text-shadow: $z-depth-2; }
@@ -2739,8 +2739,8 @@ $provider_details_width: 120px;
         min-height: 24px;
         background-image:
           if($gdm == 'false',
-          url("assets/show-apps-panel-dynamic.svg"),
-          url("resource:///org/gnome/shell/theme/assets/show-apps-panel-dynamic.svg"));
+          url("assets/show-apps-panel.svg"),
+          url("resource:///org/gnome/shell/theme/assets/show-apps-panel.svg"));
         background-size: 32px 32px;
         // FIXME: G-S can't recognize position property
         // and may be aligned center automatically?

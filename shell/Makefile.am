@@ -41,7 +41,6 @@ shell_asset_file = \
 	$(shelldir)/assets/more-results.svg \
 	$(shelldir)/assets/show-apps-checked.svg \
 	$(shelldir)/assets/show-apps-hover.svg \
-	$(shelldir)/assets/show-apps-panel-dynamic.svg \
 	$(shelldir)/assets/show-apps-panel-hover.svg \
 	$(shelldir)/assets/show-apps-panel.svg \
 	$(shelldir)/assets/show-apps.svg \
@@ -144,7 +143,6 @@ shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/more-results.svg \
 	$(shellnoktodir)/assets/show-apps-checked.svg \
 	$(shellnoktodir)/assets/show-apps-hover.svg \
-	$(shellnoktodir)/assets/show-apps-panel-dynamic.svg \
 	$(shellnoktodir)/assets/show-apps-panel-hover.svg \
 	$(shellnoktodir)/assets/show-apps-panel.svg \
 	$(shellnoktodir)/assets/show-apps.svg \
@@ -187,7 +185,6 @@ shelleta_asset_file = \
 	$(shelletadir)/assets/more-results.svg \
 	$(shelletadir)/assets/show-apps-checked.svg \
 	$(shelletadir)/assets/show-apps-hover.svg \
-	$(shelletadir)/assets/show-apps-panel-dynamic.svg \
 	$(shelletadir)/assets/show-apps-panel-hover.svg \
 	$(shelletadir)/assets/show-apps-panel.svg \
 	$(shelletadir)/assets/show-apps.svg \
@@ -230,7 +227,6 @@ shell_nokto_eta_asset_file = \
 	$(shellnoktoetadir)/assets/more-results.svg \
 	$(shellnoktoetadir)/assets/show-apps-checked.svg \
 	$(shellnoktoetadir)/assets/show-apps-hover.svg \
-	$(shellnoktoetadir)/assets/show-apps-panel-dynamic.svg \
 	$(shellnoktoetadir)/assets/show-apps-panel-hover.svg \
 	$(shellnoktoetadir)/assets/show-apps-panel.svg \
 	$(shellnoktoetadir)/assets/show-apps.svg \
