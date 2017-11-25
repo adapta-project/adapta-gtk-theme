@@ -3075,34 +3075,22 @@ menu {
     min-height: rem(20px);
     min-width: rem(40px);
     padding: rem(5.3px) rem(8px) rem(6.7px);
+    color: $secondary_fg_color;
     font-weight: 400;
     font-size: 100%;
     text-shadow: none;
     transition: none;
-
-    &,
-    > label,
-    > arrow { color: $secondary_fg_color; }
-
     &:hover {
       background-color: $track_color;
+      color: $fg_color;
       transition: none;
-
-      &,
-      > label,
-      > arrow { color: $fg_color; }
     }
-    &:disabled {
-      &,
-      > label,
-      > arrow { color: $insensitive_fg_color; }
-    }
+    &:disabled { color: $insensitive_fg_color; }
 
     // submenu indicators
     arrow {
       min-height: rem($icon_size);
       min-width: rem($icon_size);
-
       &:dir(ltr) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
         margin-left: rem(10.7px);
@@ -3115,7 +3103,8 @@ menu {
 
     // avoids labels color being overridden, see
     // https://bugzilla.gnome.org/show_bug.cgi?id=767058
-    label {
+    label,
+    arrow {
       &:dir(rtl),
       &:dir(ltr) { color: inherit; }
     }
@@ -4183,20 +4172,15 @@ check {
     animation: check_radio_active 0.2s $slope_quick forwards;
   }
 
-  .background menu menuitem & {
+  .background:not(#MozillaGtkWidget) menuitem & {
     min-width: rem($icon_size, $sw: 1.0);
     min-height: rem($icon_size, $sw: 1.0);
     margin: 0;
     padding: 0;
-    &:dir(ltr) { margin-right: rem(8px, $sw: 1.0); }
-    &:dir(rtl) { margin-left: rem(8px, $sw: 1.0); }
+    &:dir(ltr) { margin-right: rem(8px); }
+    &:dir(rtl) { margin-left: rem(8px); }
     &:not(:backdrop) { // FIXME: use button reset mixin
-      border-color: transparent;
-      background-image: none;
-      background-color: transparent;
       color: inherit;
-      box-shadow: none;
-      -gtk-icon-shadow: none;
       -gtk-icon-transform: unset;
       transition: none;
       animation: none;
