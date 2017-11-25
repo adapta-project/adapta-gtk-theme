@@ -999,8 +999,8 @@ window.background box.vertical > paned.horizontal > box.vertical {
 //  **********/
 
 .polari-room-list { // override labels
-  row {
-    font-weight: 700;
+  row.activatable {
+    font-weight: 500;
     &:not(:hover):not(:active):not(:selected) {
       label,
       image { opacity: 1.0; }
@@ -1009,8 +1009,19 @@ window.background box.vertical > paned.horizontal > box.vertical {
     &.inactive {
       &:not(:hover):not(:active):not(:selected) {
         label,
-        image { opacity: 0.65; }
+        image { opacity: 0.54; }
       }
+    }
+
+    &:selected {
+      background-image: image(
+                        mix($selected_bg_color, $secondary_dark_color, 25%));
+      &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
+      &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+    }
+
+    label.pending-messages-count {
+      background-image: image($suggested_color);
     }
   }
 }
@@ -1018,22 +1029,6 @@ window.background box.vertical > paned.horizontal > box.vertical {
 .polari-nick-entry {
   border-image: none;
   font-weight: 700;
-}
-
-// FIXME: can not override Polari 3.20.2
-// style in 10 years ago...
-.polari-room-list list.sidebar {
-  > row.activatable {
-    &, &.inactive {
-      &, &:backdrop {
-        color: $secondary_fg_color;
-        background-color: transparent;
-        font-weight: 500;
-        &:hover { color: $fg_color; }
-        &:selected { @extend %selected_items; }
-      }
-    }
-  }
 }
 
 // bottom-paned entry area
@@ -1046,6 +1041,12 @@ window.background > box.horizontal > overlay > stack > overlay > box.vertical {
     box-shadow: if($variant == 'light', $inline-shadow-light,
                                         $inline-shadow-dark);
   }
+}
+
+popover.emoji-picker flowboxchild.emoji {
+  // FIXME: why did devs ignore the global emoji theming?
+  // Should set hover pseudo-class to child widget node.
+  &:hover > widget:not(:hover) label { color: $selected_fg_color; }
 }
 
 
