@@ -2364,6 +2364,38 @@ $provider_details_width: 120px;
 
     > StWidget { background-size: contain; }
   }
+
+  .number-overlay,
+  .notification-badge {
+    min-width: if($eta == 'false', 1.6em, 1.4em);
+    min-height: if($eta == 'false', 1.6em, 1.4em);
+    margin: 0; // unset margin/padding
+    padding: 0;
+    border-radius: 100px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: $z-depth-2;
+  }
+
+  .number-overlay { // colours are picked from their stylesheet.css only
+    // background-color: $accent_semi_fill_color;
+    // color: $inverted_accent_label_color;
+  }
+
+  .notification-badge { // Ubuntu-Dock specific?
+    background-color: $suggested_color;
+    color: $selected_fg_color;
+  }
+
+  // Ubuntu-Dock?
+  &.opaque { background-color: $panel_fill_color; }
+
+  &.transparent {
+    background-color: $panel_hidden_fill_color;
+    transition-timing-function: $slope_slow;
+    transition-duration: $duration_long;
+  }
+
 }
 
 // running-dot styling
