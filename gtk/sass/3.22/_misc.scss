@@ -5,9 +5,9 @@
 %gnome_panel_toplevel { background-color: $panel_bg_color; }
 
 %gnome_panel_applet {
-  // Always use dark-color of dark variant
+  // do not set transparent background in this template
+  // mate-panel >= 1.18.6 will be broken
   color: $inverted_fg_color;
-  background-color: transparent;
   box-shadow: none;
 }
 
@@ -34,6 +34,7 @@ panel-applet,
 panel-plug,
 panel-toplevel > grid.horizontal > widget > widget {
   @extend %gnome_panel_applet;
+  background-color: transparent;
 }
 
 .gnome-panel-menu-bar,

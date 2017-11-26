@@ -2764,7 +2764,10 @@ PanelToplevel.background { @extend %gnome_panel_toplevel; }
 
 #PanelWidget,
 #PanelPlug,
-#PanelApplet { @extend %gnome_panel_applet; }
+#PanelApplet {
+  @extend %gnome_panel_applet;
+  background-color: $panel_bg_color; // >= 1.18.6
+}
 
 PanelSeparator {
   border-width: 0;
