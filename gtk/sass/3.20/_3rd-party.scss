@@ -1169,6 +1169,7 @@ window.budgie-popover.workspace-popover {
 }
 
 // notifications
+%budgie_notification_window,
 .budgie-notification-window,
 .budgie-osd-window {
   border-radius: 2px;
@@ -1178,6 +1179,7 @@ window.budgie-popover.workspace-popover {
   .drop-shadow { background-color: gtkopacity($inverted_dark_color, 0.9); }
 }
 
+%budgie_notification,
 .budgie-notification,
 .budgie-osd {
   // always use dark-variant
@@ -3545,6 +3547,26 @@ MsdOsdWindow {
       background-color: $success_color;
     }
   }
+}
+
+
+// /***************************
+//  * Mate-Notification-Slate *
+//  ***************************/
+
+// use budgie-style OSDs
+.slate-notification {
+  &-window {
+    @extend %budgie_notification_window;
+
+    .drop-shadow {
+      margin: 4px 6px 10px; // enlarge the shadow area
+      border-radius: 2px;
+    }
+  }
+
+  @extend %budgie_notification;
+  border-radius: 2px;
 }
 
 
