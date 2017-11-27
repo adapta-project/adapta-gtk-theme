@@ -2262,6 +2262,9 @@ window.background:not(.csd) > box.vertical {
         background-image: none;
         background-color: $base_color;
         transition-duration: 0s;
+      }
+
+      > row {
         &:hover,
         &:active { // unset hover/active effects
           background-image: none;
@@ -2269,7 +2272,10 @@ window.background:not(.csd) > box.vertical {
           transition-duration: 0s;
           animation: none;
         }
-        &:selected { @extend %selected_items; }
+        &:selected { // use -image instead for >= 3.6.x
+          background-image: image($selected_bg_color);
+          color: $selected_fg_color;
+        }
       }
     }
   }
