@@ -3353,9 +3353,17 @@ window#MyControlCenter > frame > box.horizontal {
   }
 
   // 'presentation' mode fullscreen?
-  &.fullscreen {
+  &.fullscreen.background > box.vertical {
     background-color: black; // turn to pitch-black
     transition-duration: 0s; // unset transitions
+
+    // use opaque borders
+    > toolbar:not(.primary-toolbar).horizontal {
+      border-bottom-color: $solid_light_borders_color;
+    }
+
+    // revert to standard backgrounds
+    > paned.horizontal { background-color: $bg_color; }
   }
 }
 
