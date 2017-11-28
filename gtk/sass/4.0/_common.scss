@@ -3014,12 +3014,13 @@ menu {
     border-color: $menu_highlight_color transparent transparent;
   }
 
+  font: initial; // decouple the font of context-menus from parent nodes
+
   menuitem {
     min-height: rem(20px);
     min-width: rem(40px);
     padding: rem(5.3px) rem(8px) rem(6.7px);
     color: $secondary_fg_color;
-    font: initial; // decouple the font of context-menus from parent nodes
     text-shadow: none;
     transition: none;
     &:hover {
