@@ -5844,9 +5844,16 @@ button.flat.scale { // standalone Speaker/Mic buttons
   -gtk-outline-radius: 100px;
 }
 
+%fb_child_spacing {
+  min-height: rem($icon_size * 1.75);
+  min-width: rem($icon_size * 1.75);
+  margin: 0;
+  padding: 0;
+}
+
 .floating-bar {
   @extend %osd;
-  padding: rem(1.3px) 0 rem(2.7px);
+  padding: 0;
   border: 1px solid transparent;
   border-radius: 0;
   color: $inverted_secondary_fg_color;
@@ -5854,11 +5861,12 @@ button.flat.scale { // standalone Speaker/Mic buttons
   font-size: 90%;
   transition: none;
 
+  label { min-height: rem($icon_size * 1.75); }
+
+  spinner { @extend %fb_child_spacing; }
+
   button {
-    min-height: $icon_size;
-    min-width: $icon_size;
-    padding: rem(4px);
-    margin: 0 rem(4px);
+    @extend %fb_child_spacing;
     color: $inverted_secondary_accent_label_color;
     &:hover,
     &:active,
