@@ -251,14 +251,14 @@ $container_padding: 1px;
 
 .shell-link {
   border-radius: 2px;
-  color: $link_color;
+  color: $link_label_color;
   &:hover {
-    color: $link_color;
-    background-color: shellopacity($link_color, 0.12);
+    color: $link_label_color;
+    background-color: shellopacity($link_label_color, 0.12);
   }
   &:active {
-    color: $link_color;
-    background-color: shellopacity($link_color, 0.25);
+    color: $link_label_color;
+    background-color: shellopacity($link_label_color, 0.25);
   }
 }
 
@@ -1507,10 +1507,10 @@ $extra_spacing: 2.5px;
 
   &-with-events {
     background-image: none;
-    color: $link_color;
+    color: $link_label_color;
     font-weight: 500;
     text-decoration: underline;
-    &:hover { background-color: shellopacity($link_color, 0.12); }
+    &:hover { background-color: shellopacity($link_label_color, 0.12); }
     &:active,
     &:selected {
       &, &:hover {
@@ -1555,9 +1555,9 @@ $extra_spacing: 2.5px;
   &:focus { background-color: shellopacity($tertiary_fg_color, 0.12); }
 
   &.calendar-day-with-events {
-    color: shellopacity($link_color, 0.54);
+    color: shellopacity($link_label_color, 0.54);
     &:hover,
-    &:focus { background-color: shellopacity($link_color, 0.54 * 0.12); }
+    &:focus { background-color: shellopacity($link_label_color, 0.54 * 0.12); }
   }
 }
 
@@ -2907,7 +2907,7 @@ $provider_details_width: 120px;
 //  * Notifications & Message Tray *
 //  ********************************/
 
-.url-highlighter { link-color: $link_color; }
+.url-highlighter { link-color: $link_label_color; }
 
 // Banners
 .notification-banner {
@@ -3691,8 +3691,8 @@ $tool_icon_size: 24px;
   }
 
   .shell-link {
-    color: $link_color;
-    &:hover { color: $link_color; }
+    color: $link_label_color;
+    &:hover { color: $link_label_color; }
   }
 }
 
