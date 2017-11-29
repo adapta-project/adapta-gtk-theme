@@ -116,6 +116,13 @@ $insensitive_borders_color: $borders_color;
 $link_color: #03A9F4;
 $link_visited_color: #9C27B0;
 
+$link_label_color: if($nokto == 'false',
+                   $link_color,
+                   mix($link_color, $fg_color, 60%));
+$link_visited_label_color: if($nokto == 'false',
+                           $link_visited_color,
+                           mix($link_visited_color, $fg_color, 60%));
+
 $warning_color: #FF9800;
 $error_color: #F44336;
 $success_color: #00E676;
