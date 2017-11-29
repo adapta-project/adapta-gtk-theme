@@ -167,6 +167,13 @@ $menu_highlight_color: if($variant == 'light',
 $link_color: #03A9F4;                                           // = LtBlu500
 $link_visited_color: #9C27B0;                                   // = Purple500
 
+$link_label_color: if($variant == 'light',
+                   $link_color,
+                   mix($link_color, $fg_color, 60%));
+$link_visited_label_color: if($variant == 'light',
+                           $link_visited_color,
+                           mix($link_visited_color, $fg_color, 60%));
+
 $warning_color: #FF9800;                                        // = Orange500
 $error_color: #F44336;                                          // = Red500
 $success_color: #00E676;                                        // = GreenA400
