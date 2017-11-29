@@ -53,8 +53,8 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
   -GtkMenu-horizontal-padding: 0;
   -GtkMenu-vertical-padding: 0;
 
-  -GtkWidget-link-color: $link_color;
-  -GtkWidget-visited-link-color: $link_visited_color;
+  -GtkWidget-link-color: $link_label_color;
+  -GtkWidget-visited-link-color: $link_visited_label_color;
 
   -GtkWidget-text-handle-width: 16;
   -GtkWidget-text-handle-height: 16;
@@ -967,11 +967,11 @@ GtkButtonBox > .button {
 //  *********/
 
 *:link {
-  color: $link_color;
-  &:hover, &:active { color: $link_color; }
+  color: $link_label_color;
+  &:hover, &:active { color: $link_label_color; }
   &:visited {
-    color: $link_visited_color;
-    &:hover, &:active { color: $link_visited_color; }
+    color: $link_visited_label_color;
+    &:hover, &:active { color: $link_visited_label_color; }
     *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
   }
   &:selected,
