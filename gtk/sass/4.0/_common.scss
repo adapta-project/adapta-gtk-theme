@@ -3482,6 +3482,14 @@ notebook {
     &:disabled button.flat { color: $insensitive_fg_color; }
   }
 
+  tab:focus(visible) { // outline styling
+    outline-color: transparent;
+  }
+
+  &:focus(visible) tab { // actual outlines
+    outline-color: $outline_track_color;
+  }
+
   &:not(.reorderable-page) > entry {
     // do not pull 'fallback mode' entries
     @include entry(normal);

@@ -3495,7 +3495,6 @@ notebook {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%; // hide ripples in normal state
-    outline-offset: rem(-6px);
     transition: border-color 0.2s $slope_medium,
                 border-image 0.2s $slope_medium,
                 background-size 0s,
@@ -3535,6 +3534,15 @@ notebook {
       &:active { color: $fg_color; }
     }
     &:disabled button.flat { color: $insensitive_fg_color; }
+  }
+
+  tab { // outline styling
+    outline-offset: rem(-6px);
+    outline-color: transparent;
+  }
+
+  &:focus tab { // actual outlines
+    outline-color: $outline_track_color;
   }
 
   &:not(.reorderable-page) > entry {
