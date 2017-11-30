@@ -5705,7 +5705,6 @@ infobar {
 //  * Tooltips *
 //  ************/
 
-.tooltip, // metacity needs style-class
 tooltip {
   &.background {
     border: 1px solid gtkopacity($inverted_dark_color, 0.9);
@@ -5731,6 +5730,18 @@ tooltip {
 
   // use roundness only for CSDs
   &.csd { border-radius: 2px; }
+}
+
+.tooltip:not(tooltip) { // for legacy
+  border: 1px solid $borders_color;
+  background-color: gtkopacity($inverted_dark_color, 0.9);
+
+  > label { // for Metacity
+    color: $inverted_fg_color;
+  }
+
+  // protect the child widget foregrounds for damned Eclipse's debug tooltips
+  > * > label { color: $fg_color; }
 }
 
 
