@@ -1676,48 +1676,72 @@ eggsearchbar box.search-bar {
 }
 
 headerbar > omnibar.linked {
+  .titlebar & {
+    > entry { // unset spacing
+      padding: unset;
+      border: none;
+
+      > widget { // add actual spacing
+        min-height: $icon_size * 1.5;
+        padding: if($ref_weight < 1.0,
+                 rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                 rem(($widget_size - $icon_size * 1.5) / 2));
+      }
+    }
+  }
+
   // enforce inverted label colour
   &:not(:hover):not(:active) {
     > entry {
-      border-image:
-        radial-gradient(circle farthest-corner at center,
-                        gtkopacity($inverted_secondary_fg_color, 0.2) 100%,
-                        transparent)
-                        0 0 1 / 0 0 1px;
       background-image: image($inverted_dark_color);
       caret-color: $inverted_secondary_fg_color;
 
       &,
       label { color: $inverted_secondary_fg_color; }
+
+      widget {
+        border-image:
+          radial-gradient(circle farthest-corner at center,
+                          gtkopacity($inverted_secondary_fg_color, 0.2) 100%,
+                          transparent)
+                          0 0 1 / 0 0 1px;
+      }
     }
   }
 
   &:hover {
     > entry {
-      border-image:
-        radial-gradient(circle farthest-corner at center,
-                        gtkopacity($inverted_fg_color, 0.2) 100%,
-                        transparent)
-                        0 0 1 / 0 0 1px;
       background-image: image($inverted_dark_color);
       caret-color: $inverted_fg_color;
 
       &,
       label { color: $inverted_fg_color; }
+
+      widget {
+        border-image:
+          radial-gradient(circle farthest-corner at center,
+                          gtkopacity($inverted_fg_color, 0.2) 100%,
+                          transparent)
+                          0 0 1 / 0 0 1px;
+      }
     }
   }
   &:active {
     > entry {
       &, &:focus {
-        border-image: radial-gradient(circle farthest-corner at center,
-                                      $selected_bg_color 100%,
-                                      transparent)
-                                      0 0 2 / 0 0 2px;
         background-image: image($inverted_dark_color);
         caret-color: $inverted_fg_color;
 
         &,
         label { color: $inverted_fg_color; }
+
+        widget {
+          border-image:
+            radial-gradient(circle farthest-corner at center,
+                            $selected_bg_color 100%,
+                            transparent)
+                            0 0 2 / 0 0 2px;
+        }
       }
     }
   }
