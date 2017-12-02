@@ -13,10 +13,13 @@
 #workspacestodockDock {
   padding: 0;
 
-  @each $_dock, $_border, $_roundness in (top, "0 -1px 0", "2px 2px 0 0"),
-                                         (bottom, "0 1px 0", "0 0 2px 2px"),
-                                         (left, "-1px 0 0", "0 2px 2px 0"),
-                                         (right, "1px 0 0", "2px 0 0 2px") {
+  @each $_dock,
+        $_border,
+        $_shadow,
+        $_roundness in (top, bottom, "0 -1px 0", "2px 2px 0 0"),
+                       (bottom, top, "0 1px 0", "0 0 2px 2px"),
+                       (left, right, "-1px 0 0", "0 2px 2px 0"),
+                       (right, left, "1px 0 0", "2px 0 0 2px") {
 
     &.#{$_dock} {
       .workspace-thumbnails {
@@ -24,6 +27,12 @@
         border-radius: #{$_roundness};
         background-color: rgba(19, 25, 28, 0.0);
         box-shadow: none;
+
+        .workspace-thumbnail-indicator {
+          padding: 6px - 1px; // revert to symmetrical padding
+          border-width: 0; // unset before adding indicators
+          border-#{$_border}-width: 2px;
+        }
       }
     }
 
@@ -52,7 +61,7 @@
       padding: 2px;
       spacing: 0;
       border-radius: 0;
-      box-shadow: inset #{$_border} $osd_outline_fill_color;
+      box-shadow: inset #{$_shadow} $osd_outline_fill_color;
     }
   }
 }
