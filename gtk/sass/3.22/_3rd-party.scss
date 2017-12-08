@@ -2764,6 +2764,18 @@ window.background:not(.solid-csd) > box.vertical {
 }
 
 #MozillaGtkWidget.background {
+  // FIXME: unset all our specific titlebuttons
+  // until upstream stops rendering useless (weird) icons
+  headerbar.titlebar.default-decoration button.titlebutton {
+    min-width: $icon_size;
+    min-height: $icon_size;
+    margin: (24px - $icon_size) / 2 2px;
+    padding: 0;
+    &:active { // revive backgrounds
+      background-color: gtkopacity($inverted_fg_color, 0.25);
+    }
+  }
+
   // blend with weird toolbar backgrounds
   background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
 
