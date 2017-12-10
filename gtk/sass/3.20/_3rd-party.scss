@@ -3919,45 +3919,54 @@ window.background.chromium {
   background-color: if($variant == 'light', $bg_color, $base_color);
   color: if($variant == 'light', $secondary_fg_color, $fg_color);
 
-  // from nav_button_provider_gtk3.cc (> 62.0.3202?)
-  headerbar.titlebar button.titlebutton {
-    // define global titlebutton class sizing
-    min-width: $icon_size; // > 16px causes image blurring
-    min-height: $icon_size;
-    margin: 0; // unset margins
-    padding: 0;
-    color: transparent; // hide stock icons
+  headerbar.titlebar {
+    button.toggle { // account-button (> 64.0.3282?)
+      border-radius: 2px; // back to text-button radius
+      &:active { // use chromium-style toggled backgrounds
+        background-color: gtkopacity($inverted_fg_color, 0.25);
+      }
+    }
 
-    @each $_class, $_suffix1 in ('close', 'close'),
-                                ('minimize', 'minimize'),
-                                ('maximize', 'maximize'),
-                                ('restore', 'unmaximize') {
-      @each $_pseudo, $_suffix2 in ('', ''),
-                                   (':hover', '-active'),
-                                   (':active', '-active'),
-                                   (':backdrop', '-backdrop') {
-        &.#{$_class}#{$_pseudo} {
-          background-image:
-            -gtk-scaled(
-              url("assets/window-#{$_suffix1}#{$_suffix2}.png"),
-              url("assets/window-#{$_suffix1}#{$_suffix2}@2.png"));
+    // from nav_button_provider_gtk3.cc (> 62.0.3202?)
+    button.titlebutton { // title-buttons
+      // define global titlebutton class sizing
+      min-width: $icon_size; // > 16px causes image blurring
+      min-height: $icon_size;
+      margin: 0; // unset margins
+      padding: 0;
+      color: transparent; // hide stock icons
+
+      @each $_class, $_suffix1 in ('close', 'close'),
+                                  ('minimize', 'minimize'),
+                                  ('maximize', 'maximize'),
+                                  ('restore', 'unmaximize') {
+        @each $_pseudo, $_suffix2 in ('', ''),
+                                     (':hover', '-active'),
+                                     (':active', '-active'),
+                                     (':backdrop', '-backdrop') {
+          &.#{$_class}#{$_pseudo} {
+            background-image:
+              -gtk-scaled(
+                url("assets/window-#{$_suffix1}#{$_suffix2}.png"),
+                url("assets/window-#{$_suffix1}#{$_suffix2}@2.png"));
+          }
         }
       }
-    }
 
-    &.close {
-      &:hover { background-color: $destructive_color; }
-      &:active { background-color: $selected_bg_color; }
-      &:backdrop:hover {
-        background-color: gtkopacity($destructive_color, 0.4);
+      &.close {
+        &:hover { background-color: $destructive_color; }
+        &:active { background-color: $selected_bg_color; }
+        &:backdrop:hover {
+          background-color: gtkopacity($destructive_color, 0.4);
+        }
       }
-    }
 
-    &:not(.close) {
-      &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
-      &:active { background-color: gtkopacity($inverted_fg_color, 0.25); }
-      &:backdrop:hover {
-        background-color: gtkopacity($inverted_fg_color, 0.12 * 0.4);
+      &:not(.close) {
+        &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
+        &:active { background-color: gtkopacity($inverted_fg_color, 0.25); }
+        &:backdrop:hover {
+          background-color: gtkopacity($inverted_fg_color, 0.12 * 0.4);
+        }
       }
     }
   }
