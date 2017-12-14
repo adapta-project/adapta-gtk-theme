@@ -664,10 +664,17 @@ $extra_spacing: 2.5px;
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.12);
 
     // sub-menu 'label-only' item indentations
-    .popup-menu-item StLabel {
-      // .popup-menu-icon width - avatar icon's extra padding
-      &:ltr { margin-left: 16px - ($extra_spacing / 2); }
-      &:rtl { margin-right: 16px - ($extra_spacing / 2); }
+    .popup-menu-item *:first-child {
+      // .popup-menu-icon width + child spacing
+      // + avatar icon's extra spacing
+      &:ltr {
+        margin-left: 16px;
+        padding-left: $default_spacing * 2 + $extra_spacing;
+      }
+      &:rtl {
+        margin-right: 16px;
+        padding-right: $default_spacing * 2 + $extra_spacing;
+      }
     }
   }
 
