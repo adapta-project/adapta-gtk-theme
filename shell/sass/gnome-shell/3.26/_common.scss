@@ -652,6 +652,9 @@ $container_padding: 1px;
 //  * Popovers/Menus *
 //  ******************/
 
+$default_spacing: if($eta == 'false', 8px, 6px);
+$extra_spacing: 2.5px;
+
 .popup-menu {
   min-width: 15em;
 
@@ -662,15 +665,16 @@ $container_padding: 1px;
 
     // sub-menu 'label-only' item indentations
     .popup-menu-item StLabel {
-      &:ltr { margin-left: 16px; } // = width of .popup-menu-icon
-      &:rtl { margin-right: 16px; }
+      // .popup-menu-icon width - avatar icon's extra padding
+      &:ltr { margin-left: 16px - ($extra_spacing / 2); }
+      &:rtl { margin-right: 16px - ($extra_spacing / 2); }
     }
   }
 
   .popup-menu-content { padding: if($eta == 'false', 0.45em 0, 0.3em 0); }
 
   .popup-menu-item {
-    spacing: if($eta == 'false', 8px, 6px);
+    spacing: $default_spacing;
     color: $secondary_fg_color;
     font-weight: 400;
     transition-duration: 0s;
@@ -826,9 +830,6 @@ $container_padding: 1px;
 }
 
 // an avatar icon in menus
-$default_spacing: if($eta == 'false', 8px, 6px);
-$extra_spacing: 2.5px;
-
 .system-switch-user-submenu-icon {
   &.user-icon {
     icon-size: 16px + 4px;
