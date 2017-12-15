@@ -350,6 +350,9 @@ Public License
  > And an icon-theme in Cinnamon thumbnails:
  > [**Paper Icons**](http://snwh.org/paper/icons) by Sam Hewitt is licensed under CC-SA-4.0.
 
+Donations
+---------
+ [**My Patreon Page**](https://www.patreon.com/tista500)
 
 Special Thanks to
 --------------
