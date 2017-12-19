@@ -2476,7 +2476,7 @@ GtkSwitch {
 
   &.trough {
     // similar to the .scale
-    border: 10px solid transparent;
+    border: 8px solid transparent;
     border-radius: 100px;
     background-color: $tertiary_fg_color;
     &:active {
@@ -2487,31 +2487,27 @@ GtkSwitch {
   }
 
   &.slider {
-    padding: 2px;
+    padding: 6px 8px;
     border-radius: 100px;
     outline-radius: 100px;
     background-color: if($variant == 'light', $light_color,
                                               mix($fg_color, $bg_color, 87%));
-    box-shadow: $z-depth-1,
-                inset 0 1px $highlight_color;
+    box-shadow: $z-depth-1;
     &:hover {
       background-image: linear-gradient(to bottom,
                                         if($variant == 'light',
                                         gtkopacity($fixed_fg_color, 0.12),
                                         $fg_color));
-      box-shadow: $z-depth-2,
-                  inset 0 1px $highlight_color;
+      box-shadow: $z-depth-2;
     }
     &:active {
       background-color: $selected_bg_color;
       background-image: none;
-      box-shadow: $z-depth-1,
-                  inset 0 1px $highlight_color;
+      box-shadow: $z-depth-1;
       &:hover {
         background-image: linear-gradient(to bottom,
                                           gtkopacity($fixed_base_color, 0.12));
-        box-shadow: $z-depth-2,
-                    inset 0 1px $highlight_color;
+        box-shadow: $z-depth-2;
       }
     }
     &:insensitive {
@@ -2542,8 +2538,7 @@ GtkSwitch {
         &:hover {
           background-image: linear-gradient(to bottom,
                                             gtkalpha($fixed_fg_color, 0.12));
-          box-shadow: $z-depth-2,
-                      inset 0 1px $highlight_color;
+          box-shadow: $z-depth-2;
         }
       }
     }
