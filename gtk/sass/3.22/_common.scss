@@ -2334,7 +2334,7 @@ headerbar {
 
   // switch styling
   switch {
-    min-width: rem(30px);
+    min-width: rem(32px);
     border: rem(10px) solid transparent;
     background-color: $inverted_tertiary_fg_color;
     outline-offset: rem(-4px);
@@ -2343,16 +2343,16 @@ headerbar {
     }
 
     slider {
-      min-width: rem(20px);
-      min-height: rem(20px);
-      margin: rem(-5px) 0 rem(-5px) rem(-5px);
+      min-width: rem(16px);
+      min-height: rem(16px);
+      margin: rem(-2px) 0;
       background-color: mix($inverted_fg_color, $inverted_bg_color, 87%);
     }
     &:hover slider {
       background-image: image($inverted_fg_color);
     }
     &:checked slider {
-      margin: rem(-5px) rem(-5px) rem(-5px) 0;
+      margin: rem(-2px) 0;
       background-color: $selected_bg_color;
       &:disabled {
         background-color:
@@ -3753,7 +3753,7 @@ scrollbar {
 //  **********/
 
 switch {
-  min-width: rem(30px, $sw: 1.0);
+  min-width: rem(32px, $sw: 1.0);
   // similar to the scale
   border: rem(10px, $sw: 1.0) solid transparent;
   border-radius: 100px;
@@ -3773,48 +3773,35 @@ switch {
   // switch slider doesn't respond to its own states
   // but relies on the switch ones
   slider {
-    min-width: rem(20px, $sw: 1.0);
-    min-height: rem(20px, $sw: 1.0);
+    min-width: rem(16px, $sw: 1.0);
+    min-height: rem(16px, $sw: 1.0);
+    margin: rem(-2px, $sw: 1.0) 0;
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
     background-color: if($variant == 'light', $light_color,
                                               mix($fg_color, $bg_color, 87%));
-    box-shadow: $z-depth-1,
-                inset 0 1px $highlight_color;
+    box-shadow: $z-depth-1;
     transition-timing-function: $slope_slow;
     transition-duration: 0.2s;
-  }
-
-  // trough-based indentation
-  slider {
-    margin: rem(-5px, $sw: 1.0) 0
-            rem(-5px, $sw: 1.0) rem(-5px, $sw: 1.0);
-  }
-  &:checked slider {
-    margin: rem(-5px, $sw: 1.0) rem(-5px, $sw: 1.0)
-            rem(-5px, $sw: 1.0) 0;
   }
 
   &:hover slider {
     background-image: image(if($variant == 'light',
                             gtkopacity($fixed_fg_color, 0.12),
                             $fg_color));
-    box-shadow: $z-depth-2,
-                inset 0 1px $highlight_color;
+    box-shadow: $z-depth-2;
   }
 
   &:checked slider {
     background-color: $selected_bg_color;
     background-image: none;
-    box-shadow: $z-depth-1,
-                inset 0 1px $highlight_color;
+    box-shadow: $z-depth-1;
   }
 
   &:checked:hover slider {
     background-image: image(gtkopacity($fixed_base_color, 0.12));
-    box-shadow: $z-depth-2,
-                inset 0 1px $highlight_color;
+    box-shadow: $z-depth-2;
   }
 
   &:disabled {
@@ -3870,15 +3857,14 @@ switch {
     &:not(:indeterminate) {
       @extend %reset_switch;
       min-width: rem(50px, $sw: 1.0);
-      min-height: rem(28px, $sw: 1.0);
-      margin-bottom: rem(-7px, $sw: 1.0);
-      background-size: rem(50px, $sw: 1.0) rem(35px, $sw: 1.0);
+      min-height: rem(30px, $sw: 1.0);
+      background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
 
       // reset all of default sliders
       slider:not(:indeterminate) {
         @extend %reset_switch;
         margin: 0;
-        background-size: rem(50px, $sw: 1.0) rem(35px, $sw: 1.0);
+        background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
       }
     }
   }
