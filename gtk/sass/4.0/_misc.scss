@@ -264,7 +264,7 @@ dialog.csd > headerbar.titlebar {
     // 'indeterminate' is the synthetic wildcard
     &:not(:indeterminate) {
       @extend %reset_switch;
-      min-width: rem(50px);
+      min-width: rem(52px);
       min-height: rem(30px);
       background-size: rem(50px) rem(30px);
 
@@ -273,7 +273,17 @@ dialog.csd > headerbar.titlebar {
         margin: 0;
         background-size: rem(50px) rem(30px);
       }
+    }
+    &:disabled { // specificity bump
+      &, &:checked {
+        @extend %reset_switch;
+        min-width: rem(52px);
+        min-height: rem(30px);
+        background-size: rem(50px) rem(30px);
+      }
+    }
 
+    &:not(:indeterminate) {
       // use ugly pixmaps
       background-image: -gtk-scaled(
                         url("assets/toggle-off-dark.png"),

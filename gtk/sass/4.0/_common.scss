@@ -3766,20 +3766,18 @@ switch {
 }
 
 %reset_switch {
-  &, &:disabled { // specificity bump
-    padding: 0;
-    border: none;
-    color: transparent;
-    background: unset;
-    background-image: unset;
-    background-repeat: no-repeat;
-    background-position: right center;
-    box-shadow: none;
-    font-size: 0;
-    &:focus(visible) { outline-color: transparent; }
+  padding: 0;
+  border: unset;
+  color: transparent;
+  background: unset;
+  background-image: unset;
+  background-repeat: no-repeat;
+  background-position: right center;
+  box-shadow: none;
+  font-size: 0;
+  outline-color: transparent;
 
-    &:dir(rtl) { background-position: left center; }
-  }
+  &:dir(rtl) { background-position: left center; }
 }
 
 switch {
@@ -3793,7 +3791,7 @@ switch {
     // 'indeterminate' is the synthetic wildcard
     &:not(:indeterminate) {
       @extend %reset_switch;
-      min-width: rem(50px, $sw: 1.0);
+      min-width: rem(52px, $sw: 1.0);
       min-height: rem(30px, $sw: 1.0);
       background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
 
@@ -3801,6 +3799,14 @@ switch {
       slider:not(:indeterminate) {
         @extend %reset_switch;
         margin: 0;
+        background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
+      }
+    }
+    &:disabled { // specificity bump
+      &, &:checked {
+        @extend %reset_switch;
+        min-width: rem(52px, $sw: 1.0);
+        min-height: rem(30px, $sw: 1.0);
         background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
       }
     }
