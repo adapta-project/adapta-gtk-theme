@@ -446,6 +446,12 @@ endif
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell/pad-osd.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-nokto/pad-osd.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-eta/pad-osd.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-nokto-eta/pad-osd.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/classic.scss ../gnome-shell/extensions/window-list/classic.css
@@ -693,6 +699,9 @@ CLEANFILES += \
 	$(srcdir)/gnome-shell-eta/gnome-shell.css \
 	$(srcdir)/gnome-shell-nokto-eta/gnome-shell.css \
 	$(srcdir)/gnome-shell/pad-osd.css \
+	$(srcdir)/gnome-shell-nokto/pad-osd.css \
+	$(srcdir)/gnome-shell-eta/pad-osd.css \
+	$(srcdir)/gnome-shell-nokto-eta/pad-osd.css \
 	$(srcdir)/gnome-shell/extensions/window-list/stylesheet.css \
 	$(srcdir)/gnome-shell/extensions/window-list/classic.css \
 	$(srcdir)/gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css \

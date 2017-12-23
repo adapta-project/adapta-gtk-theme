@@ -2413,28 +2413,30 @@ $provider_details_width: 120px;
 }
 
 // running-dot styling
-@each $_dock, $_dot, $_inv in (top, -top, -top),
-                              (bottom, -bottom, -bottom),
-                              (left, -left, -right),
-                              (right, -right, -left) {
-  #dashtodockContainer.#{$_dock},
-  #dashtodockContainer.extended.#{$_dock} {
-    @each $_num in 1, 2, 3, 4 {
-      &:ltr {
-        .dash-item-container > StWidget.running#{$_num} {
-          background-image: url("assets/dot/running#{$_num}#{$_dot}.svg");
-          &.focused {
-            background-image:
-              url("assets/dot/running#{$_num}#{$_dot}-focused.svg");
+@if $gdm == 'false' {
+  @each $_dock, $_dot, $_inv in (top, -top, -top),
+                                (bottom, -bottom, -bottom),
+                                (left, -left, -right),
+                                (right, -right, -left) {
+    #dashtodockContainer.#{$_dock},
+    #dashtodockContainer.extended.#{$_dock} {
+      @each $_num in 1, 2, 3, 4 {
+        &:ltr {
+          .dash-item-container > StWidget.running#{$_num} {
+            background-image: url("assets/dot/running#{$_num}#{$_dot}.svg");
+            &.focused {
+              background-image:
+                url("assets/dot/running#{$_num}#{$_dot}-focused.svg");
+            }
           }
         }
-      }
-      &:rtl {
-        .dash-item-container > StWidget.running#{$_num} {
-          background-image: url("assets/dot/running#{$_num}#{$_inv}.svg");
-          &.focused {
-            background-image:
-              url("assets/dot/running#{$_num}#{$_inv}-focused.svg");
+        &:rtl {
+          .dash-item-container > StWidget.running#{$_num} {
+            background-image: url("assets/dot/running#{$_num}#{$_inv}.svg");
+            &.focused {
+              background-image:
+                url("assets/dot/running#{$_num}#{$_inv}-focused.svg");
+            }
           }
         }
       }

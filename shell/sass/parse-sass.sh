@@ -73,6 +73,18 @@ else
         ../gnome-shell/pad-osd.css
     echo Wrote ../gnome-shell/pad-osd.css
     $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/pad-osd.scss \
+        ../gnome-shell-nokto/pad-osd.css
+    echo Wrote ../gnome-shell-nokto/pad-osd.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/pad-osd.scss \
+        ../gnome-shell-eta/pad-osd.css
+    echo Wrote ../gnome-shell-eta/pad-osd.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/pad-osd.scss \
+        ../gnome-shell-nokto-eta/pad-osd.css
+    echo Wrote ../gnome-shell-nokto-eta/pad-osd.css
+    $SASSC \
         gnome-shell/$GNOME_SCSS_VERSION/stylesheet.scss \
         ../gnome-shell/extensions/window-list/stylesheet.css
     echo Wrote ../gnome-shell/extensions/window-list/stylesheet.css
