@@ -34,27 +34,29 @@ $osd_secondary_fg_color: shellopacity($osd_fg_color, 0.87);
 $osd_tertiary_fg_color: shellopacity($osd_fg_color, 0.54);
 
 $insensitive_osd_fg_color: shellopacity($osd_fg_color, 0.28);
-$insensitive_osd_secondary_fg_color: shellopacity($osd_secondary_fg_color, 0.28);
+$insensitive_osd_secondary_fg_color:
+  shellopacity($osd_secondary_fg_color, 0.28);
 
 
 //
 // Background colors
 //
 
-$bg_color: if($nokto == 'false', #FAFBFC, #263238);
-$base_color: if($nokto == 'false', #FFFFFF, #29353B);
-$secondary_base_color: if($nokto == 'false', #FDFDFE, #28343A);
-$secondary_dark_color: if($nokto == 'false', #ECEFF1, #243035);
-$light_color: if($nokto == 'false',
-                 $base_color,
-                 mix(#263238, #37474F, 50%));
+$bg_color: if($nokto == 'false', mix(#FFFFFF, #ECEFF1, 75%),
+                                 #263238);
+$base_color: if($nokto == 'false', #FFFFFF,
+                                   mix(#263238, #37474F, 85%));
+$secondary_base_color: mix($base_color, $bg_color, 50%);
+$secondary_dark_color: if($nokto == 'false', #ECEFF1,
+                                             mix(#263238, #000000, 95%));
+$light_color: if($nokto == 'false', $base_color,
+                                    mix(#263238, #37474F, 50%));
 
 $fill_color: shellopacity($fg_color, 0.25);
 $semi_fill_color: shellopacity($fg_color, 0.12);
 $hidden_fill_color: rgba(0, 0, 0, 0.01);
-$menuentry_hidden_fill_color: if($nokto == 'false',
-                                 rgba(255, 255, 255, 0.01),
-                                 rgba(0, 0, 0, 0.01));
+$menuentry_hidden_fill_color: if($nokto == 'false', rgba(255, 255, 255, 0.01),
+                                                    rgba(0, 0, 0, 0.01));
 
 $selected_bg_color: $key_selection_color;
 
@@ -74,7 +76,8 @@ $osd_semi_fill_color: shellopacity($osd_fg_color, 0.12);
 $osd_indicator_color: $selected_bg_color;
 
 $osd_outline_fill_color: shellopacity($osd_fg_color, 0.2);
-$insensitive_osd_outline_fill_color: shellopacity($osd_outline_fill_color, 0.28);
+$insensitive_osd_outline_fill_color:
+  shellopacity($osd_outline_fill_color, 0.28);
 
 
 //
@@ -116,12 +119,11 @@ $insensitive_borders_color: $borders_color;
 $link_color: #03A9F4;
 $link_visited_color: #9C27B0;
 
-$link_label_color: if($nokto == 'false',
-                   $link_color,
-                   mix($link_color, $fg_color, 60%));
+$link_label_color: if($nokto == 'false', $link_color,
+                                         mix($link_color, $fg_color, 60%));
 $link_visited_label_color: if($nokto == 'false',
-                           $link_visited_color,
-                           mix($link_visited_color, $fg_color, 60%));
+                              $link_visited_color,
+                              mix($link_visited_color, $fg_color, 60%));
 
 $warning_color: #FF9800;
 $error_color: #F44336;
