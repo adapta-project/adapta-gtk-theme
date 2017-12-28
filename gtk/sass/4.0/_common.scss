@@ -2594,16 +2594,7 @@ headerbar {
       }
     }
   }
-
-  // paned-separator is actually drawn by paned itself
-  paned &:not(:only-child):last-child {
-    &:dir(ltr) {
-    }
-    &:dir(rtl) {
-    }
-  }
 }
-
 
 %headerbar_child_margins {
   button, // set spacer with vertical margin
@@ -2665,26 +2656,18 @@ window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
 
-      > headerbar:not(:last-child) {
-        &:dir(ltr) {
-          border-top-left-radius: 2px;
-          border-top-right-radius: 0;
-        }
-        &:dir(rtl) {
-          border-top-left-radius: 0;
-          border-top-right-radius: 2px;
-        }
+      separator:first-child + headerbar { // only-child case
+        border-top-left-radius: 2px;
       }
 
-      > headerbar:last-child {
-        &:dir(ltr) {
-          border-top-left-radius: 0;
-          border-top-right-radius: 2px;
-        }
-        &:dir(rtl) {
-          border-top-left-radius: 2px;
-          border-top-right-radius: 0;
-        }
+      headerbar:first-child {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 0;
+      }
+
+      headerbar:last-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 2px;
       }
     }
   }
