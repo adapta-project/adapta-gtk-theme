@@ -5022,10 +5022,13 @@ messagedialog {
   }
 
   expander {
-    label {
-      color: $inverted_secondary_fg_color;
-      &:hover,
-      &:active { color: $inverted_fg_color; }
+    title {
+      label,
+      arrow {
+        color: $inverted_secondary_fg_color;
+        &:hover,
+        &:active { color: $inverted_fg_color; }
+      }
     }
 
     textview.view { // scrolled text-views
