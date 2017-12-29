@@ -3181,10 +3181,10 @@ window.popup {
 
     > box > label { color: $tertiary_fg_color; }
 
-    widget > label {
+    widget label {
       color: $secondary_fg_color;
       font-size: 110%;
-      -gtk-secondary-caret-color: $suggested_color;
+      -gtk-secondary-caret-color: $suggested_color; // =< 1.5.14
       &:selected { color: $selected_fg_color; }
     }
 
