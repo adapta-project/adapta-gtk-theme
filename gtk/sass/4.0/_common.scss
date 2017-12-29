@@ -4852,18 +4852,6 @@ row:selected { // special case to use raised GtkEntry
 //  *************/
 
 expander {
-  padding: rem(2.7px) rem(4px) rem(3.3px);
-
-  arrow {
-    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-    min-width: $icon_size;
-    min-height: $icon_size;
-    &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
-    &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
-    &:selected { color: $selected_fg_color; }
-  }
-
   label {
     color: $secondary_fg_color;
     &:hover,
@@ -4871,10 +4859,24 @@ expander {
     &:selected { color: $selected_fg_color; }
   }
 
-  > title > label {
-    // spacer between arrow and label
-    &:dir(ltr) { padding-left: rem(4px, $sw: 1.0); }
-    &:dir(rtl) { padding-right: rem(4px, $sw: 1.0); }
+  title {
+    padding: rem(2.7px) rem(4px) rem(3.3px);
+
+    > arrow {
+      -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+      min-width: $icon_size;
+      min-height: $icon_size;
+      &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
+      &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+      &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
+      &:selected { color: $selected_fg_color; }
+    }
+
+    > label {
+      // spacer between arrow and label
+      &:dir(ltr) { padding-left: rem(4px, $sw: 1.0); }
+      &:dir(rtl) { padding-right: rem(4px, $sw: 1.0); }
+    }
   }
 }
 
