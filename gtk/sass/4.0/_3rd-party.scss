@@ -2674,7 +2674,14 @@ window.background:not(.solid-csd) > box.vertical {
     background-color: $secondary_base_color;
 
     // revert to standard separators
-    > separator { background-color: $solid_light_borders_color; }
+    > separator {
+      padding: if($ref_weight < 1.0, 2px, 3px) // non-scalable units
+               0
+               if($ref_weight < 1.0, 3px, 4px);
+      border-top: if($ref_weight < 1.0, 2px, 3px) solid transparent;
+      border-bottom: if($ref_weight < 1.0, 3px, 4px) solid transparent;
+      background-color: $solid_light_borders_color;
+    }
 
     > menuitem > radio:checked {
       -gtk-icon-source: -gtk-scaled(
