@@ -3137,6 +3137,8 @@ menu {
 
   > separator { // asymmetrical separators with gaps
                 // same as check/radio width and its paddings
+    margin-top: rem(4px / 2);
+    margin-bottom: rem(4px / 2);
     &:dir(ltr) { margin-left: rem($icon_size + 10px * 2, $sw: 1.0); }
     &:dir(rtl) { margin-right: rem($icon_size + 10px * 2, $sw: 1.0); }
   }
@@ -3146,9 +3148,11 @@ menuitem {
   accelerator { color: gtkalpha(currentColor, 0.54); }
 
   separator {
+    margin-top: rem(4px / 2);
+    margin-bottom: rem(4px / 2);
+    border-top: 1px solid $borders_color;
     color: transparent;
     background: none;
-    border-top: 1px solid $borders_color;
     &:dir(ltr) { margin-left: rem($icon_size + 10px * 2, $sw: 1.0); }
     &:dir(rtl) { margin-right: rem($icon_size + 10px * 2, $sw: 1.0); }
   }
