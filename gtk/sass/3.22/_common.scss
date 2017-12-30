@@ -3131,10 +3131,10 @@ menu {
 
   > separator { // asymmetrical separators with gaps
                 // same as check/radio width and its paddings
-    margin-top: rem(4px / 2);
-    margin-bottom: rem(4px / 2);
-    &:dir(ltr) { margin-left: rem($icon_size + 10px * 2, $sw: 1.0); }
-    &:dir(rtl) { margin-right: rem($icon_size + 10px * 2, $sw: 1.0); }
+    margin-top: rem(4px);
+    margin-bottom: rem(4px);
+    &:dir(ltr) { margin-left: rem($icon_size, $sw: 1.0) + rem(8px); }
+    &:dir(rtl) { margin-right: rem($icon_size, $sw: 1.0) + rem(8px); }
   }
 }
 
@@ -3142,13 +3142,13 @@ menuitem {
   accelerator { color: gtkalpha(currentColor, 0.54); }
 
   separator {
-    margin-top: rem(4px / 2);
-    margin-bottom: rem(4px / 2);
+    margin-top: rem(4px);
+    margin-bottom: rem(4px);
     border-top: 1px solid $borders_color;
     color: transparent;
     background: none;
-    &:dir(ltr) { margin-left: rem($icon_size + 10px * 2, $sw: 1.0); }
-    &:dir(rtl) { margin-right: rem($icon_size + 10px * 2, $sw: 1.0); }
+    &:dir(ltr) { margin-left: rem($icon_size, $sw: 1.0) + rem(8px); }
+    &:dir(rtl) { margin-right: rem($icon_size, $sw: 1.0) + rem(8px); }
   }
 
   box.horizontal separator { // special case for nm-applet
