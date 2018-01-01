@@ -2,7 +2,7 @@
 #
 # This file is part of adapta-gtk-theme
 #
-# Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
+# Copyright (C) 2016-2018 Tista <tista.gma500@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
