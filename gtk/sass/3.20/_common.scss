@@ -1619,6 +1619,7 @@ toolbar {
   // on OSD
   .osd & { background-color: transparent; }
 
+  %osd_toolbar,
   .osd &,
   &.osd {
     padding: 3px;
@@ -4934,7 +4935,7 @@ row:selected { // special case to use raised GtkEntry
 .app-notification {
   &, &.frame {
     @extend %osd;
-    @extend toolbar.osd;
+    @extend %osd_toolbar;
     color: $inverted_fg_color;
     background-color: $inverted_dark_color;
     box-shadow: none;
