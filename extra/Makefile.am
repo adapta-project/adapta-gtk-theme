@@ -31,7 +31,7 @@ all:
 # *****************
 
 install-data-local:
-if ENABLE_CHROME
+if ENABLE_CHROME_LEGACY
 	$(MKDIR_P) $(adaptadir)/chrome
 	$(MKDIR_P) $(noktodir)/chrome
 	cp -Rv $(chrome_file) $(adaptadir)/chrome
@@ -72,7 +72,7 @@ endif
 # *******************
 
 uninstall-local:
-if ENABLE_CHROME
+if ENABLE_CHROME_LEGACY
 	test -e $(noktodir)/chrome && rm -rfv $(noktodir)/chrome
 	test -e $(adaptadir)/chrome && rm -rfv $(adaptadir)/chrome
 	test -e $(noktoetadir)/chrome && rm -rfv $(noktoetadir)/chrome

@@ -23,18 +23,18 @@ AM_INIT_AUTOMAKE([
 AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
-ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
-ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
-ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
-ADAPTA_OPTION([GNOME],     [gnome],     [Gnome-Shell],    [disable])
-ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
-ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
-ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
-ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
-ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
-ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
-ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
-ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
+ADAPTA_OPTION([PARALLEL],     [parallel],     [parallel-build],    [disable])
+ADAPTA_OPTION([GTK_NEXT],     [gtk_next],     [Gtk-4.0],           [disable])
+ADAPTA_OPTION([GTK_LEGACY],   [gtk_legacy],   [Gtk-3.18],          [disable])
+ADAPTA_OPTION([GNOME],        [gnome],        [Gnome-Shell],       [disable])
+ADAPTA_OPTION([CINNAMON],     [cinnamon],     [Cinnamon],          [disable])
+ADAPTA_OPTION([FLASHBACK],    [flashback],    [Flashback],         [disable])
+ADAPTA_OPTION([XFCE],         [xfce],         [XFce],              [disable])
+ADAPTA_OPTION([MATE],         [mate],         [Mate],              [disable])
+ADAPTA_OPTION([OPENBOX],      [openbox],      [Openbox],           [disable])
+ADAPTA_OPTION([CHROME_LEGACY],[chrome_legacy],[Chrome(ium)-legacy],[disable])
+ADAPTA_OPTION([PLANK],        [plank],        [Plank],             [disable])
+ADAPTA_OPTION([TELEGRAM],     [telegram],     [Telegram],          [disable])
 
 PKG_PROG_PKG_CONFIG()
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
@@ -126,7 +126,7 @@ AC_MSG_RESULT([
         -----------------------------------------------------------
 
          GtkSourceView/Gedit:    always
-         Chrome(ium):            $ENABLE_CHROME
+         Chrome(ium)-legacy:     $ENABLE_CHROME_LEGACY
          Plank:                  $ENABLE_PLANK
          Telegram:               $ENABLE_TELEGRAM
 

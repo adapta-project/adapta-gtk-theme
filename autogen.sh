@@ -16,7 +16,7 @@ if test -z "${NOCONFIGURE}"; then
                       --disable-gtk_legacy \
                       --disable-gtk_next \
                       --disable-parallel \
-                      --disable-chrome \
+                      --disable-chrome-legacy \
                       --disable-plank \
                       --disable-telegram \
                       "$@"
