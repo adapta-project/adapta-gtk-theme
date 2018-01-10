@@ -29,7 +29,6 @@ ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 ADAPTA_OPTION([GNOME],     [gnome],     [Gnome-Shell],    [disable])
 ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
-ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
 ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
 ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
 ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
@@ -118,7 +117,6 @@ AC_MSG_RESULT([
          GNOME:                  $ENABLE_GNOME (SCSS ver. $GNOME_SCSS_VERSION)
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
-         Unity:                  $ENABLE_UNITY
          XFce:                   $ENABLE_XFCE
          Mate:                   $ENABLE_MATE
          Openbox:                $ENABLE_OPENBOX

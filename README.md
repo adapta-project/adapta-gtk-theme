@@ -92,15 +92,10 @@ Supported Desktop Environments
  * GNOME-Flashback >= 3.18.2
  * Budgie-Desktop  >= 10.4
  * Cinnamon        >= 2.8.6
- * Unity7          >= 7.4.0 (Gtk+ 3.x only)
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0 (Gtk+ 3.2x only)
  * LXDE            >= 0.99.1 (Gtk+ 2.x only)
  ```
-
- > **Note:**
- >
- >   * Unity7 support will be dropped in January 2018.
 
 Unsupported Gtk+ Based Desktop(s)
 -------------------------------
@@ -200,7 +195,6 @@ Installation from Git Source
  --disable-gnome         disable gnome-shell support (type: bool)
  --disable-cinnamon      disable cinnamon support (type: bool)
  --disable-flashback     disable flashback support (type: bool)
- --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
  --disable-mate          disable mate support (type: bool)
  --disable-openbox       disable openbox support (type: bool)
@@ -209,7 +203,7 @@ Installation from Git Source
  > **Note:**
  >
  >   * The installer installs Budgie-Desktop support even if all of options above were applied.
- >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
+ >   * Cinnamon/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
 6. To enable extra Gtk+ release support, pass these options:
 
@@ -337,7 +331,6 @@ TODO
 ----
 * Prepare for Meson build system (priority: high)
 * Prepare for x3 scaling (priority: mid or low)
-* Drop Unity7 support in January 2018 (Xenial -> Bionic).
 * Drop Gtk+ 3.18 support in April 2018 (Xenial -> Bionic).
 
 Public License
