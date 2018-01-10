@@ -4304,30 +4304,26 @@ scale {
 }
 
 scale { // marks color
-  marks {
+  &.horizontal > marks,
+  &.vertical > marks {
     color: gtkalpha(currentColor, 0.55);
-    @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
-                                                     (bottom, bottom, top),
-                                                     (top, left, right),
-                                                     (bottom, right, left) {
-      &.#{$marks_class} {
-        margin-#{$marks_margin}: $_marks_distance;
-        margin-#{$marks_pos}: -($_marks_distance + $_marks_length);
+
+    indicator { background-color: currentColor; }
+  }
+
+  @each $d, $_top, $_bottom, $_h, $_w in
+    ('horizontal', bottom, top, height, width),
+    ('vertical', right, left, width, height) {
+
+    &.#{$d} > marks {
+      &.top { margin-#{$_top}: $_marks_distance; }
+
+      &.bottom { margin-#{$_bottom}: $_marks_distance; }
+
+      indicator {
+        min-#{$_h}: $_marks_length;
+        min-#{$_w}: 1px;
       }
-    }
-  }
-
-  &.horizontal {
-    indicator {
-      min-height: $_marks_length;
-      min-width: 1px;
-    }
-  }
-
-  &.vertical {
-    indicator {
-      min-height: 1px;
-      min-width: $_marks_length;
     }
   }
 }
