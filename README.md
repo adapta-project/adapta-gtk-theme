@@ -262,7 +262,7 @@ Extra Browser Support
  To try legacy Chrome(ium) specific theming (`< 59.0.30xx`), pass this option:
 
  ```
- --enable-chrome         enable Chrome(ium) support (type: bool)
+ --enable-chrome         enable legacy Chrome(ium) support (type: bool)
  ```
 
  The compressed `crx` files will be installed into `Adapta/chrome` and `Adapta-Nokto/chrome`.
