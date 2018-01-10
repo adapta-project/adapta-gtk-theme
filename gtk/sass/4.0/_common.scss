@@ -2674,7 +2674,7 @@ window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
   }
 }
 
-// workaround for ugly Ubuntu-related CSD patches
+// workaround for inline-mode headerbars
 .background:not(.csd):not(.ssd):not(.solid-csd) {
   box headerbar,
   headerbar {
@@ -2961,16 +2961,6 @@ menubar {
     &:disabled {
       color: $insensitive_inverted_fg_color;
       box-shadow: none;
-    }
-
-    // special mode in .unity-csd class
-    .background.unity-csd > grid.vertical & {
-      color: $secondary_fg_color;
-      box-shadow: inset 0 -1px $outline_track_color;
-      &:hover {
-        color: $fg_color;
-        box-shadow: inset 0 -2px $selected_bg_color;
-      }
     }
   }
 }

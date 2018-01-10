@@ -363,7 +363,7 @@ list.tweak-group-startup {
   &:selected { text-shadow: none; }
 }
 
-.background.nautilus-window:not(.nautilus-desktop-window):not(.unity-csd) {
+.background.nautilus-window:not(.nautilus-desktop-window) {
   &:not(nautilus-desktop-window) {
     // enforce base-color backgrounds
     background-color: $base_color;
@@ -1278,34 +1278,6 @@ overlay > box.vertical > paned.horizontal > box.vertical {
       border-radius: 100px;
       -gtk-outline-radius: 100px;
     }
-  }
-}
-
-// workaround for unity7
-.background:not(.csd):not(.ssd) overlay > box > paned.horizontal {
-  > headerbar {
-    &:not(:only-child) {
-      button.flat.toggle.popup:not(.image-button) { // left-pane header button
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
-
-        box > .title { color: $inverted_secondary_fg_color; }
-
-        &:hover,
-        &:active,
-        &:checked {
-          box > .title { color: $inverted_fg_color; }
-        }
-      }
-    }
-  }
-
-  separator { // hide un-controllable pane-separator
-    min-width: 0;
-    margin: 0 rem(-6px); // hidden gap in .wide class
-    padding: 0;
-    background: none;
-    background-image: none;
   }
 }
 
