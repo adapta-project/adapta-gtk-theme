@@ -100,6 +100,7 @@ Supported Desktop Environments
 Unsupported Gtk+ Based Desktop(s)
 -------------------------------
  * Pantheon
+ * Unity7
 
  > **Note:**
  >
