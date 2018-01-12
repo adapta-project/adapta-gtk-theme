@@ -302,12 +302,6 @@ spinner {
 //  * Text Entries *
 //  ****************/
 
-%entry_spacing {
-  min-height: rem(13.3px);
-  min-width: rem(33.3px);
-  padding: rem(9.3px) rem(8px) rem(10.7px);
-}
-
 %entry_fallback {
   &, &.flat {
     @extend %entry_fallback_normal;
@@ -330,10 +324,6 @@ spinner {
       @include entry(insensitive);
       background-color: transparent;
     }
-
-    selection {
-      &, &:focus { @extend %selected_items; }
-    }
   }
 
   .background &.flat {
@@ -352,7 +342,9 @@ spinner {
 }
 
 entry {
-  @extend %entry_spacing;
+  min-height: rem(13.3px);
+  min-width: rem(33.3px);
+  padding: rem(9.3px) rem(8px) rem(10.7px);
 
   // fallback entries for non-native apps
   @extend %entry_fallback;
@@ -1249,7 +1241,6 @@ spinbutton {
     // in this horizontal configuration, the whole spinbutton
     // behaves as the entry, so we extend the entry styling
     // and nuke the style on the internal entry
-    @extend %entry_spacing;
     @extend %entry_fallback;
     @extend %entry_native;
 
