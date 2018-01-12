@@ -1337,10 +1337,19 @@ spinbutton {
         &:disabled { color: $insensitive_inverted_fg_color; }
       }
 
-      button.up,
-      button.down {
+      button {
         color: $inverted_secondary_fg_color;
         &:disabled { color: $insensitive_inverted_fg_color; }
+
+        &.down {
+          &:hover,
+          &:active { color: $error_color; }
+        }
+
+        &.up {
+          &:hover,
+          &:active { color: $success_color; }
+        }
       }
     }
   }
