@@ -4305,9 +4305,6 @@ scale {
     }
   }
 
-  // same opacity value with dim-label
-  value { color: gtkalpha(currentColor, 0.55); }
-
   separator {
     color: transparent;
     background-color: $outline_track_color;
@@ -4324,6 +4321,16 @@ scale { // marks color
     color: gtkalpha(currentColor, 0.55);
 
     indicator { background-color: currentColor; }
+  }
+
+  &.horizontal > value,
+  &.vertical > value {
+    color: gtkalpha(currentColor, 0.55); // same opacity value with dim-label
+
+    // NEED_REVIEW: need to compute proper values in future
+    // &.top { margin-bottom: 9px; }
+    //
+    // &.bottom { margin-top: 9px; }
   }
 
   @each $d, $_top, $_bottom, $_h, $_w in
