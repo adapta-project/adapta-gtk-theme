@@ -2131,7 +2131,8 @@ $provider_icon_size: 32px;
 }
 
 .dash-label { // osd tooltip
-  padding: if($eta == 'false', 0.3em 0.9em 0.4em, 0.2em 0.6em 0.3em);
+  padding: if($eta == 'false', 7px 8px 8px,
+                               6px 7px 7px); // non-scalable unit instead
   border-radius: 2px;
   color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
