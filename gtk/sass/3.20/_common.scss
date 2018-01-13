@@ -5693,9 +5693,11 @@ tooltip {
     background-color: gtkopacity($base_color, 0.001);
     background-image: image(gtkopacity($inverted_dark_color, 0.901));
     background-clip: padding-box;
+
+    // add inner padding (use non-scalable unit instead)
+    > box { padding: if($ref_weight < 1.0, 0 1px 1px, 1px 2px 2px); }
   }
 
-  padding: rem(4px);
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
 
   // FIXME: we need a border or tooltips vanish on black background.
