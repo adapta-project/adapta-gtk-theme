@@ -322,11 +322,12 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   box-shadow: none;
 }
 
-@mixin entry($t, $fc:$selected_bg_color) {
+@mixin entry($t, $c: $fg_color, $fc:$selected_bg_color) {
 //
 // Entries drawing function
 //
 // $t: entry type
+// $c: text color
 // $fc: focus color
 //
 // possible $t values:
@@ -341,7 +342,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $outline_track_color 100%,
                                   transparent)
                                   0 0 1 / 0 0 1px;
-    color: $secondary_fg_color;
+    color: gtkalpha($c, 0.87);
   }
   @if $t==focus {
     border-color: $solid_light_borders_color;
@@ -349,7 +350,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $fc 100%,
                                   transparent)
                                   0 0 2 / 0 0 2px;
-    color: $fg_color;
+    color: $c;
     transition: all 0.2s $slope_medium,
                 box-shadow 0.2s $slope_medium,
                 color 0s;
@@ -360,7 +361,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $outline_track_color 100%,
                                   transparent)
                                   0 0 1 / 0 0 1px;
-    color: $insensitive_fg_color;
+    color: gtkalpha($c, 0.28);
   }
   @if $t==flat-normal {
     border-radius: 0;
@@ -371,7 +372,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   transparent)
                                   0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $secondary_fg_color;
+    color: gtkalpha($c, 0.87);
   }
   @if $t==flat-focus {
     border-color: $solid_light_borders_color;
@@ -379,7 +380,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $fc 100%,
                                   transparent)
                                   0 0 2 / 0 0 2px;
-    color: $fg_color;
+    color: $c;
     transition: all 0.2s $slope_medium,
                 box-shadow 0.2s $slope_medium,
                 color 0s;
@@ -391,7 +392,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   transparent)
                                   0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $insensitive_fg_color;
+    color: gtkalpha($c, 0.28);
   }
 }
 

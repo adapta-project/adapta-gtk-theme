@@ -2383,20 +2383,15 @@ window.background:not(.csd) > box.vertical {
   }
 
   .passwordentry {
-    @include entry(flat-normal);
+    @include entry(flat-normal, $c: $inverted_fg_color);
     border-radius: 0;
-    color: $inverted_secondary_fg_color;
-    caret-color: $inverted_secondary_fg_color;
+    caret-color: inherit;
     font-family: monospace;
     &:focus {
-      @include entry(flat-focus);
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
+      @include entry(flat-focus, $c: $inverted_fg_color);
+      caret-color: inherit;
     }
-    &:disabled {
-      @include entry(flat-insensitive);
-      color: $insensitive_inverted_fg_color;
-    }
+    &:disabled { @include entry(flat-insensitive, $c: $inverted_fg_color); }
     &:backdrop { // for alt-text keyboard layout?
       color: $selected_bg_color;
     }
