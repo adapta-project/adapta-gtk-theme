@@ -256,6 +256,10 @@ Visual Studio Code (VS Code) Theme Support
  1. Linux-themes (Author: SolarLiner): [**Visual Studio Marketplace**](https://marketplace.visualstudio.com/items?itemName=SolarLiner.linux-themes)
 
  2. Vscode-theme-adapted (Author: About-Code): [**Github**](https://github.com/about-code/vscode-theme-adapted)
+ 
+Mailspring Theme Support
+------------------------
+1. Mailspring Adapta Theme (Author: Dennis Otugo): [**Github**](https://github.com/dennisotugo/Mailspring-Adapta-Theme)
 
 Extra Browser Support
 ---------------------
