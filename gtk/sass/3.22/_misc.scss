@@ -2,7 +2,11 @@
 //  * Gnome-Panel *
 //  ***************/
 
-%gnome_panel_toplevel { background-color: $panel_bg_color; }
+%gnome_panel_toplevel {
+  background-color: $panel_bg_color;
+
+  * { outline-width: 0; } // unset outlines
+}
 
 %gnome_panel_applet {
   // do not set transparent background in this template

@@ -2,7 +2,11 @@
 //  * Gnome-Panel *
 //  ***************/
 
-panel-toplevel.background { background-color: $panel_bg_color; }
+panel-toplevel.background {
+  background-color: $panel_bg_color;
+
+  * { outline-width: 0; } // unset outlines
+}
 
 panel-applet,
 panel-plug,
