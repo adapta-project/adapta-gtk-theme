@@ -1702,7 +1702,7 @@ toolbar {
       &:disabled {
         @extend %button_flat_disabled;
         background-color: transparent;
-        color: gtkalpha($inverted_fg_color, 0.4);
+        color: gtkopacity($inverted_fg_color, 0.4);
       }
 
       &.image-button {
@@ -2932,8 +2932,10 @@ treeview.view {
   }
 
   &.trough { // progressbar trough in treeviews
-    box-shadow: inset 0 -4px gtkalpha($accent_color, 0.2);
-    &:selected { box-shadow: inset 0 -4px gtkalpha($selected_fg_color, 0.2); }
+    box-shadow: inset 0 -4px gtkopacity($accent_color, 0.2);
+    &:selected {
+      box-shadow: inset 0 -4px gtkopacity($selected_fg_color, 0.2);
+    }
   }
 
   &, paned & { // redraw some stuff for RhythmBox
@@ -3953,14 +3955,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0.12)),
+                                    to(gtkopacity($selected_bg_color, 0.12)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.12)),
+                                    to(gtkopacity($selected_bg_color, 0.12)),
                                     to(transparent));
   }
 }
@@ -3970,14 +3972,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.25)),
+                                    to(gtkopacity($selected_bg_color, 0.25)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0)),
+                                    to(gtkopacity($selected_bg_color, 0)),
                                     to(transparent));
   }
 }
@@ -5024,7 +5026,7 @@ calendar {
     &:disabled { @include button(flat-insensitive); }
   }
 
-  &:indeterminate { color: gtkalpha(currentColor, 0.20); }
+  &:indeterminate { color: gtkalpha(currentColor, 0.2); }
   &.highlight {
     color: gtkalpha(currentColor, 0.54);
     font-size: 90%;
@@ -5153,7 +5155,7 @@ messagedialog {
         &:active,
         &:checked { color: $inverted_accent_label_color; }
         &:disabled {
-          color: gtkalpha($inverted_fg_color, 0.4);
+          color: gtkopacity($inverted_fg_color, 0.4);
           &:checked {
             color: gtkopacity($inverted_accent_label_color, 0.4);
           }
@@ -5785,7 +5787,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($success_color, 0.4);
+        color: gtkopacity($success_color, 0.4);
       }
     }
     &:last-child { // '-' button
@@ -5798,7 +5800,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($error_color, 0.4);
+        color: gtkopacity($error_color, 0.4);
       }
     }
   }
@@ -5820,7 +5822,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($error_color, 0.4);
+        color: gtkopacity($error_color, 0.4);
       }
     }
     &:last-child { // '+' button
@@ -5833,7 +5835,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($success_color, 0.4);
+        color: gtkopacity($success_color, 0.4);
       }
     }
   }

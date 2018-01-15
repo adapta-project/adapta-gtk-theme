@@ -1673,7 +1673,7 @@ toolbar {
       &:disabled {
         @extend %button_flat_disabled;
         background-color: transparent;
-        color: gtkalpha($inverted_fg_color, 0.4);
+        color: gtkopacity($inverted_fg_color, 0.4);
       }
 
       &.image-button {
@@ -2874,8 +2874,10 @@ treeview.view {
   }
 
   &.trough { // progressbar trough in treeviews
-    box-shadow: inset 0 -4px gtkalpha($accent_color, 0.2);
-    &:selected { box-shadow: inset 0 -4px gtkalpha($selected_fg_color, 0.2); }
+    box-shadow: inset 0 -4px gtkopacity($accent_color, 0.2);
+    &:selected {
+      box-shadow: inset 0 -4px gtkopacity($selected_fg_color, 0.2);
+    }
   }
 
   &, paned & { // redraw some stuff for RhythmBox
@@ -3869,40 +3871,46 @@ switch {
 
 @keyframes check_radio_hover {
   from {
-    background-image: radial-gradient(circle closest-side at center,
-                                      $track_color 0%,
-                                      transparent);
+    background-image: radial-gradient(
+                        circle closest-side at center,
+                        $track_color 0%,
+                        transparent);
   }
   to {
-    background-image: radial-gradient(circle closest-side at center,
-                                      $track_color 100%,
-                                      transparent);
+    background-image: radial-gradient(
+                        circle closest-side at center,
+                        $track_color 100%,
+                        transparent);
   }
 }
 
 @keyframes check_radio_active {
   from {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.12) 0%,
-                                      transparent);
+    background-image: radial-gradient(
+                        circle closest-side at center,
+                        gtkopacity($selected_bg_color, 0.12) 0%,
+                        transparent);
   }
   to {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.12) 100%,
-                                      transparent);
+    background-image: radial-gradient(
+                        circle closest-side at center,
+                        gtkopacity($selected_bg_color, 0.12) 100%,
+                        transparent);
   }
 }
 
 @keyframes check_radio_active_reverse {
   from {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.25) 100%,
-                                      transparent);
+    background-image: radial-gradient(
+                        circle closest-side at center,
+                        gtkopacity($selected_bg_color, 0.25) 100%,
+                        transparent);
   }
   to {
-    background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.25) 0%,
-                                      transparent);
+    background-image: radial-gradient(
+                        circle closest-side at center,
+                        gtkopacity($selected_bg_color, 0.25) 0%,
+                        transparent);
   }
 }
 
@@ -5065,7 +5073,7 @@ messagedialog {
         &:active,
         &:checked { color: $inverted_accent_label_color; }
         &:disabled {
-          color: gtkalpha($inverted_fg_color, 0.4);
+          color: gtkopacity($inverted_fg_color, 0.4);
           &:checked {
             color: gtkopacity($inverted_accent_label_color, 0.4);
           }
@@ -5678,7 +5686,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($success_color, 0.4);
+        color: gtkopacity($success_color, 0.4);
       }
     }
     &:last-child { // '-' button
@@ -5690,7 +5698,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($error_color, 0.4);
+        color: gtkopacity($error_color, 0.4);
       }
     }
   }
@@ -5711,7 +5719,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($error_color, 0.4);
+        color: gtkopacity($error_color, 0.4);
       }
     }
     &:last-child { // '+' button
@@ -5723,7 +5731,7 @@ colorchooser .popover.osd {
       &:disabled {
         @extend %button_flat_disabled;
         background: none;
-        color: gtkalpha($success_color, 0.4);
+        color: gtkopacity($success_color, 0.4);
       }
     }
   }

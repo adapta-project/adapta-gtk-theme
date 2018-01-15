@@ -5,22 +5,25 @@
 // specific ripple-effect for IconTaskList
 @keyframes budgie_ripple_effect {
   0% {
-    background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0.25) 0%,
-                                      transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.12));
+    background-image: radial-gradient(
+                        circle farthest-corner at center,
+                        gtkopacity($inverted_fg_color, 0.25) 0%,
+                        transparent 0%),
+                      image(gtkopacity($inverted_fg_color, 0.12));
   }
   66% {
-    background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0.25) 100%,
-                                      transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.12));
+    background-image: radial-gradient(
+                        circle farthest-corner at center,
+                        gtkopacity($inverted_fg_color, 0.25) 100%,
+                        transparent 0%),
+                      image(gtkopacity($inverted_fg_color, 0.12));
   }
   100% {
-    background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0) 100%,
-                                      transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.12));
+    background-image: radial-gradient(
+                        circle farthest-corner at center,
+                        gtkopacity($inverted_fg_color, 0) 100%,
+                        transparent 0%),
+                      image(gtkopacity($inverted_fg_color, 0.12));
   }
 }
 
@@ -67,8 +70,8 @@ $budgie_transition: opacity 0.2s $slope_medium,
   .#{$along_side} .shadow-block {
     background-color: transparent;
     background-image: linear-gradient(to #{$opp_side},
-                                      gtkalpha(#000000, 0.23),
-                                      gtkalpha(#000000, 0.08),
+                                      gtkopacity(#000000, 0.23),
+                                      gtkopacity(#000000, 0.08),
                                       transparent);
   }
 }
@@ -77,9 +80,9 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-panel button#tasklist-button {
   border: none;
   background-image: radial-gradient(circle farthest-corner at center,
-                                    gtkalpha($inverted_fg_color, 0) 100%,
+                                    gtkopacity($inverted_fg_color, 0) 100%,
                                     transparent 0%),
-                    image(gtkalpha($inverted_fg_color, 0));
+                    image(gtkopacity($inverted_fg_color, 0));
   background-color: transparent;
   box-shadow: none; // unset standard wnck styling
   transition: $budgie_transition;
@@ -131,9 +134,9 @@ box.pinned { // drop-target
     padding: 0;
     border-radius: 0;
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0) 100%,
+                                      gtkopacity($inverted_fg_color, 0) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0));
+                      image(gtkopacity($inverted_fg_color, 0));
     background-position: center center;
     transition: $budgie_transition;
 
@@ -192,7 +195,7 @@ box.pinned { // drop-target
     button#tasklist-button,
     button.flat.launcher {
       &:hover {
-        box-shadow: inset #{$_line} gtkalpha($inverted_fg_color, 0.4);
+        box-shadow: inset #{$_line} gtkopacity($inverted_fg_color, 0.4);
       }
       &:active,
       &:checked {
@@ -293,9 +296,9 @@ window.budgie-popover:not(.csd) {
     border: 0 none transparent;
     border-radius: 0;
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0.4) 50%,
+                                      gtkopacity($inverted_fg_color, 0.4) 50%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.5));
+                      image(gtkopacity($inverted_fg_color, 0.5));
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%; // hide ripples in normal state
@@ -310,9 +313,9 @@ window.budgie-popover:not(.csd) {
     }
     &:checked {
       background-image: radial-gradient(circle farthest-corner at center,
-                                        gtkalpha($inverted_fg_color, 0) 50%,
+                                        gtkopacity($inverted_fg_color, 0) 50%,
                                         transparent 0%),
-                        image(gtkalpha($inverted_fg_color, 0));
+                        image(gtkopacity($inverted_fg_color, 0));
       background-size: 100% * 2 100% * 2;
       background-color: transparent;
       color: $selected_fg_color;
@@ -1854,7 +1857,7 @@ box.topbar {
       min-height: $icon_size * 1.5;
       padding: rem(6.7px);
       background-image: radial-gradient(circle farthest-corner at center,
-                                        gtkalpha($inverted_fg_color, 0.4) 25%,
+                                        gtkopacity($inverted_fg_color, 0.4) 25%,
                                         transparent 0%);
       background-repeat: no-repeat;
       background-position: center center;
@@ -1875,7 +1878,7 @@ box.topbar {
 
     &:checked > image {
       background-image: radial-gradient(circle farthest-corner at center,
-                                        gtkalpha($inverted_fg_color, 0) 25%,
+                                        gtkopacity($inverted_fg_color, 0) 25%,
                                         transparent 0%);
       background-size: 100% * 4 100% * 4;
       background-color: if($variant == 'light',
@@ -2380,7 +2383,7 @@ window.background:not(.csd) > box.vertical {
     &:active,
     &:checked { color: $inverted_accent_label_color; }
     &:disabled {
-      color: gtkalpha($inverted_fg_color, 0.4);
+      color: gtkopacity($inverted_fg_color, 0.4);
       &:checked {
         color: gtkopacity($inverted_accent_label_color, 0.4);
       }
@@ -3861,7 +3864,7 @@ list.tilix-session-sidebar {
     min-height: 20px;
     min-width: 20px;
     padding: 0;
-    color: gtkalpha($destructive_color, 0.87);
+    color: gtkopacity($destructive_color, 0.87);
     &:hover,
     &:active,
     &:checked { color: $destructive_color; }
