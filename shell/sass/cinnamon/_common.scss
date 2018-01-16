@@ -1319,16 +1319,26 @@ $ws_thumb_spacing: 32px;
 
   // Name and description of the currently hovered item in the menu
   // This appears on the bottom right hand corner of the menu
-  &-selected-app-box {
-    margin-bottom: 1em;
-    padding: 0 30px;
-    color: $insensitive_fg_color;
-    text-align: right;
+  &-selected-app {
+    &-box {
+      margin-bottom: 7px * 2.5;
+      padding: 0 30px;
+      text-align: right;
+    }
+
+    &-title {
+      @include fontscaling($ref_size * 0.9);
+      margin-top: 7px * 0.5;
+      color: $secondary_fg_color;
+      font-weight: 700;
+    }
+
+    &-description {
+      @include fontscaling($ref_size * 0.9);
+      max-width: 150px;
+      color: $tertiary_fg_color;
+    }
   }
-
-  &-selected-app-title { font-weight: 700; }
-
-  &-selected-app-description { max-width: 150px; }
 
   &-search-box:ltr { padding-left: 30px; }
   &-search-box-rtl { padding-right: 30px; }
