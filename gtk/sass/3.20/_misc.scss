@@ -1686,18 +1686,6 @@ notebook > stack > grid.vertical > actionbar {
 
 
 // /**********
-//  * Baobab *
-//  **********/
-
-window > box.vertical > grid.vertical > stack > grid.horizontal {
-  stack > spinner { // shrink spinner height
-    min-height: $icon_size;
-    padding: 56px 0;
-  }
-}
-
-
-// /**********
 //  * Evince *
 //  **********/
 
@@ -1961,14 +1949,6 @@ window stack > frame > frame > grid.horizontal {
     background: transparent;
     background-image: linear-gradient(to bottom,
                                       gtkopacity($dark_color, 0.9));
-  }
-}
-
-window > grid.vertical > stack > stack > grid.vertical {
-  // allocated 128px x 128px?
-  > spinner {
-    min-height: $icon_size;
-    padding: 56px 0;
   }
 }
 
@@ -2236,40 +2216,6 @@ button.round-button { // categories expander button
   padding: 0;
   border-radius: 16px;
   -gtk-outline-radius: 16px;
-}
-
-
-// /****************
-//  * Gnome-Photos *
-//  ****************/
-
-window.background {
-  &.csd,
-  &.solid-csd {
-    > box.vertical > overlay > revealer > spinner { // allocation: 128 x 128
-      min-height: $icon_size;
-      padding: 56px 0;
-    }
-  }
-}
-
-
-// /**************
-//  * Gnome-Maps *
-//  **************/
-
-window.background {
-  > grid.horizontal > stack > spinner {
-    // allocation: 768 x 600!?
-    min-height: $icon_size;
-    padding: (600px - $icon_size * 2) / 2 (768px - $icon_size * 20) / 2;
-  }
-
-  > popover > grid.vertical > grid.horizontal > stack > spinner {
-    // allocation: 96 x 48
-    min-height: $icon_size;
-    padding: (48px - $icon_size) / 2 (96px - $icon_size * 4) / 2;
-  }
 }
 
 

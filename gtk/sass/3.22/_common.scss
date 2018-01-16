@@ -267,25 +267,21 @@ assistant {
 //  * Spinner Animation *
 //  *********************/
 
+@keyframes spinner {
+  to { -gtk-icon-transform: rotate(1turn); }
+}
+
 spinner {
-  min-height: rem($icon_size);
-  min-width: $icon_size;
-  padding: rem(5.3px) 0 rem(5.3px);
-  margin: 0;
   background: none;
+  -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
+  color: $accent_label_color;
   opacity: 0; // non spinning spinner makes no sense
-  -gtk-icon-source: linear-gradient(to bottom,
-                                    transparent 50%,
-                                    $solid_red 50%,
-                                    $solid_red calc(50% + 2px),
-                                    transparent calc(50% + 2px),
-                                    transparent 100%);
   &:checked {
     opacity: 1.0;
-    animation: colorful_bar 2s linear infinite;
-    &:disabled { opacity: 0.4; }
+    animation: spinner 1s linear infinite;
     &:backdrop { opacity: 1.0; }
   }
+  &:disabled { color: gtkopacity($accent_label_color, 0.54); }
   &:backdrop { opacity: 0; }
 }
 
@@ -2665,8 +2661,7 @@ headerbar {
   button, // set spacer with vertical margin
   entry,
   spinbutton,
-  scale,
-  spinner { margin: rem(5.3px) 0; }
+  scale { margin: rem(5.3px) 0; }
 
   switch {
     margin: if($ref_weight < 1.0,
@@ -5871,8 +5866,6 @@ button.flat.scale { // standalone Speaker/Mic buttons
   transition: none;
 
   label { min-height: rem($icon_size * 1.75); }
-
-  spinner { @extend %fb_child_spacing; }
 
   button {
     @extend %fb_child_spacing;

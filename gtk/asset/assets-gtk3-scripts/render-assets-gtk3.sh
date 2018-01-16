@@ -18,6 +18,5 @@
 . "render-assets-gtk3-toggle.sh"
 . "render-assets-gtk3-windowbutton.sh"
 . "render-assets-gtk3-windowbutton-eta.sh"
-. "clone-assets-gtk3.sh"
 
 exit 0

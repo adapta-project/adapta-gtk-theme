@@ -575,8 +575,7 @@ if ENABLE_PARALLEL
 		render-assets-gtk3-slider.sh \
 		render-assets-gtk3-toggle.sh \
 		render-assets-gtk3-windowbutton.sh \
-		render-assets-gtk3-windowbutton-eta.sh \
-		clone-assets-gtk3.sh
+		render-assets-gtk3-windowbutton-eta.sh
 else
 	cd $(srcdir)/asset/assets-gtk2-scripts && \
 		./render-assets-gtk2.sh

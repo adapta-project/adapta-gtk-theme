@@ -935,8 +935,7 @@ window.sound-popover.background box.horizontal {
 
       button.text-button.name-button {
         > box.horizontal { // adjust spacing
-          > image,
-          > spinner { margin: rem(5.3px) 0; }
+          > image { margin: rem(5.3px) 0; }
 
           > label { padding: rem(5.3px) 0 rem(6.7px); }
         }
@@ -1817,13 +1816,8 @@ window.background.lightdm {
   .lightdm-combo entry { @extend %greeter_entry; }
 
   entry:active { // for spinner
-    -gtk-icon-source: linear-gradient(to bottom,
-                                      transparent 50%,
-                                      $solid_red 50%,
-                                      $solid_red calc(50% + 2px),
-                                      transparent calc(50% + 2px),
-                                      transparent 100%);
-    animation: colorful_bar 2s linear infinite;
+    -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
+    animation: spinner 1s linear infinite;
   }
 
   .lightdm-combo {
@@ -2514,18 +2508,6 @@ paned.headerbar_pane.titlebar > headerbar.header_right.titlebar {
     // back to square buttons
     border-radius: 2px;
     -gtk-outline-radius: 2px;
-  }
-}
-
-// hide unneeded spinner
-overlay.article-list > stack > box.horizontal {
-  spinner {
-    &,
-    &:checked,
-    &:checked:disabled,
-    &:checked:backdrop {
-      opacity: 0; // makes no sense here
-    }
   }
 }
 
@@ -3778,12 +3760,6 @@ window.background.chromium {
         &, &:focus { @extend %selected_items; }
       }
     }
-  }
-
-  // spinner colour
-  > spinner {
-    color: $accent_label_color;
-    &:disabled { color: gtkopacity($accent_label_color, 0.54); }
   }
 }
 
