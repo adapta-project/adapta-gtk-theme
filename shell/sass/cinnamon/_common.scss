@@ -92,7 +92,7 @@ stage {
 }
 
 %osd_entry {
-  @include entry(normal);
+  @include entry(osd-normal);
   min-height: 1.2em;
   padding: 7px 8px 8px;
   border-radius: 0;
@@ -102,9 +102,9 @@ stage {
   caret-color: $osd_fg_color;
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
-  &:hover { @include entry(hover); }
-  &:focus { @include entry(focus); }
-  &:insensitive { @include entry(insensitive); }
+  &:hover { @include entry(osd-hover); }
+  &:focus { @include entry(osd-focus); }
+  &:insensitive { @include entry(osd-insensitive); }
 }
 
 
