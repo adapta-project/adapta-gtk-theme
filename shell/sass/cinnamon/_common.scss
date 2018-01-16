@@ -65,10 +65,10 @@ stage {
   @include entry(normal);
   min-height: 1.2em;
   padding: 7px 8px 8px;
-  caret-size: 1px;
   border-radius: 0;
   border-width: 0;
   color: $fg_color;
+  caret-size: 1px;
   transition: none;
   selection-background-color: $selected_bg_color;
   selected-color: $selected_fg_color;
@@ -76,6 +76,13 @@ stage {
   &:focus:hover { @include entry(focus); }
   &:hover { @include entry(hover); }
   &:insensitive { @include entry(insensitive); }
+
+  &,
+  &:focus,
+  &:hover,
+  &:insensitive { // tweak fake background colours
+    background-color: $menuentry_hidden_fill_color;
+  }
 
   StIcon.capslock-warning {
     icon-size: 16px;
