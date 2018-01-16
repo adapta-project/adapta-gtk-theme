@@ -250,6 +250,15 @@ GtkTextView {
   }
   &:insensitive { color: gtkopacity($accent_label_color, 0.54); }
   &:backdrop { opacity: 0; }
+
+  .osd &,
+  .floating-bar &,
+  .app-notification &,
+  .header-bar &,
+  .message-dialog & {
+    color: $inverted_accent_label_color;
+    &:insensitive { color: gtkopacity($inverted_accent_label_color, 0.54); }
+  }
 }
 
 

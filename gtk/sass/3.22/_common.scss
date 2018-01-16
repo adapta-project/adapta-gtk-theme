@@ -283,6 +283,15 @@ spinner {
   }
   &:disabled { color: gtkopacity($accent_label_color, 0.54); }
   &:backdrop { opacity: 0; }
+
+  .osd &,
+  .floating-bar &,
+  .app-notification &,
+  headerbar &,
+  messagedialog & {
+    color: $inverted_accent_label_color;
+    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.54); }
+  }
 }
 
 
