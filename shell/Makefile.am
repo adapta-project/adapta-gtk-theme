@@ -636,6 +636,7 @@ CLEANFILES += \
 	$(srcdir)/asset/assets-gnome-shell/common/media-control-active.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/media-control-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/more-results.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/process-working.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close-active.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close-hover.svg \
