@@ -1463,6 +1463,16 @@ $ws_thumb_spacing: 32px;
         }
       }
     }
+    &:closed { // IcingTaskManager!?
+      &,
+      &:hover,
+      &:active,
+      &:checked,
+      &:focus { // return to :normal state
+        color: $osd_fg_color;
+        box-shadow: none;
+      }
+    }
 
     &:progress,
     .progress {
