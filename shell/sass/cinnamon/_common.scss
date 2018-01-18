@@ -1430,7 +1430,8 @@ $ws_thumb_spacing: 32px;
   }
 
   &-item-box {
-    border: none;
+    border: 0 none transparent;
+    border-image: none;
     background-image: none;
     background-color: $hidden_fill_color;
     color: $osd_fg_color;
@@ -1464,21 +1465,19 @@ $ws_thumb_spacing: 32px;
         }
       }
     }
-    &:closed { // IcingTaskManager!?
-      &,
-      &:hover,
-      &:active,
-      &:checked,
-      &:focus { // return to :normal state
-        color: $osd_fg_color;
-        box-shadow: $empty_shadow;
-      }
-    }
 
     &:progress,
     .progress {
       background-gradient-start: $accent_fill_color;
       background-gradient-end: $accent_fill_color;
+    }
+
+    .panel-top &,
+    .panel-bottom & {
+      StLabel {
+        &:ltr { padding-left: 2px; }
+        &:rtl { padding-right: 2px; }
+      }
     }
   }
 
@@ -2214,5 +2213,54 @@ $bottom_gap: 4px;
 
   // insert vertical spacing
   > StBoxLayout > StBoxLayout { margin: 3px 0; }
+}
+
+
+// /*******************************
+//  * IcingTaskListManager Applet *
+//  *******************************/
+
+.applet-box { // the parent container
+  .window-list-item-box { // actual childs
+    @each $position, $_indicator in (top, 0 2px),
+                                    (bottom, 0 -2px),
+                                    (left, 2px 0),
+                                    (right, -2px 0) {
+      .panel-#{$position} & {
+        spacing: 0;
+        padding: 0;
+        border: 0 none transparent;
+        border-image: none;
+        background-color: $hidden_fill_color;
+        box-shadow: inset #{$_indicator} $osd_outline_fill_color;
+        &:hover {
+          background-color: $hidden_fill_color;
+          box-shadow: inset #{$_indicator} $osd_outline_fill_color;
+        }
+        &:focus,
+        &:active,
+        &:checked {
+          background-color: $hidden_fill_color;
+          box-shadow: inset #{$_indicator} $osd_indicator_color;
+        }
+        &:closed {
+          &,
+          &:hover,
+          &:focus,
+          &:active,
+          &:checked { // return to :normal state
+            background-color: $hidden_fill_color;
+            box-shadow: $empty_shadow;
+          }
+        }
+      }
+    }
+  }
+
+  .window-icon-list-numlabel {
+    @include fontscaling($ref_size * 0.9);
+    color: $selected_fg_color;
+    font-weight: 700;
+  }
 }
 
