@@ -2331,9 +2331,8 @@ terminal-window {
 //  * Gnome-Weather *
 //  *****************/
 
-popover > grid > stack > grid#locations-grid > frame#locations-frame {
-  // hide double borders
-  > border { border: none; }
+frame#locations-frame > border { // hide double borders
+  border: none;
 }
 
 frame#weather-page-content-view {
@@ -2365,7 +2364,6 @@ frame#weather-page-content-view {
     &:hover { @extend %button_flat_hover; }
     &:active { @extend %button_flat_active; }
     &:checked { @extend %button_flat_checked; }
-    &:disabled { @extend %button_flat_disabled; }
   }
 
   frame#weekly-forecast-frame { background: transparent; }
@@ -2411,25 +2409,18 @@ frame#weather-page-content-view { // condition-specific
     0.75, 0.1, 100%) {
 
     &.weather-#{$_condition} {
-      > grid > grid {
-        > label,
-        > image { color: gtkopacity($_label_1_color, $_label_alpha); }
-      }
-
-      .linked.osd.stack-switcher > button.radio.text-button,
+      button.radio.text-button,
       button.osd {
         color: gtkopacity($_label_1_color, $_label_alpha);
         &:hover,
         &:active,
         &:checked { color: #{$_label_1_color}; }
-        &:disabled { color: gtkopacity($_label_1_color, 0.28); }
       }
 
       frame#weekly-forecast-frame {
         background-image: image(gtkopacity($_frame_mask, $_mask_alpha));
 
-        label,
-        image { color: mix($_label_1_color, $_label_2_color, $_mix_pct); }
+        * { color: mix($_label_1_color, $_label_2_color, $_mix_pct); }
       }
     }
   }
