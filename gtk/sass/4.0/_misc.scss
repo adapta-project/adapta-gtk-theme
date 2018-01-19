@@ -351,34 +351,6 @@ dialog.csd > headerbar.titlebar {
   &.solid { border-radius: 0; }
 }
 
-#gf-bubble {
-  box.horizontal > button { // 'close' button
-    // upstream always calls gtk_image_new_from_icon_name with 'window-close'
-    // instead of 'window-close-symbolic', so draw background for dark icon
-    // foreground
-    min-width: $icon_size;
-    min-height: $icon_size;
-    padding: rem(6.7px);
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-    color: $inverted_secondary_accent_label_color;
-    background-color: gtkopacity($accent_color, 0.25);
-    &:hover {
-      color: $inverted_accent_label_color;
-      background-color: gtkopacity($accent_color, 0.25);
-    }
-    &:active,
-    &:checked {
-      color: $inverted_accent_label_color;
-      background-color: gtkopacity($accent_color, 0.25);
-    }
-    &:disabled {
-      color: $insensitive_inverted_fg_color;
-      background-color: transparent;
-    }
-  }
-}
-
 #gf-label-window {
   font-size: rem(40px, $sw: 1.0);
   font-weight: 400;
