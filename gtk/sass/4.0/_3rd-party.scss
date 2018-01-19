@@ -1813,12 +1813,10 @@ window.background.lightdm {
 //  * Corebird *
 //  ************/
 
-headerbar.titlebar box {
-  button.toggle.account-button { // left-most account-button
-    // revert to square button since we can't make perfect circle button
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-  }
+headerbar.titlebar button.toggle.account-button { // left-most account-button
+  // revert to square button since we can't make perfect circle button
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
 }
 
 box.topbar {
@@ -1971,7 +1969,6 @@ window.background > popover.background > frame > list > row.activatable {
 
 // popup window for media
 window.background:not(.csd):not(.solid-csd) > overlay {
-  > box.nobg.osd > revealer > button, // < 1.6
   > revealer > button.osd {  // back/forward buttons
     @extend button.osd.image-button;
     min-width: $icon_size * 1.5;
