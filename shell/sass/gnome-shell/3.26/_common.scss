@@ -1174,6 +1174,8 @@ $extra_spacing: 2.5px;
     }
 
     StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
+
+    StIcon { margin-top: 1px; } // reset base-line
   }
 
   .panel-button {
@@ -1221,6 +1223,8 @@ $extra_spacing: 2.5px;
     }
 
     StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
+
+    StIcon { margin-top: 1px; } // reset base-line
 
     &,
     &:hover,
@@ -1806,12 +1810,8 @@ $extra_spacing: 2.5px;
     url("resource:///org/gnome/shell/theme/process-working.svg"));
   padding: if($eta == 'false', 0 10px, 0 6px);
 
-  StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
-
-  StIcon { // override StLabel base-line shifter
-    padding-top: 1px;
-    padding-bottom: 0;
-  }
+  // only LR padding
+  StLabel { padding: if($eta == 'false', 0 4px, 0 2px); }
 
   .label-shadow { color: transparent; }
 }
