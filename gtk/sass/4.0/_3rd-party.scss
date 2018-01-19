@@ -2197,17 +2197,11 @@ row.trackrow {
 }
 
 // Track menu GtkPopover
-popover.background.menu > stack > grid.vertical {
-  // parent container of GtkWidgets 'Ratings' and 'Heart'
-  > grid.horizontal {
-    // subtract hard-coded useless margin in child widgets
-    margin: -5px 0 6px;
-    // add extra menuitem's bottom padding
-    padding-bottom: if($ref_weight < 1.0, calc(6px + 0.35rem),
-                                          calc(6px + 0.5rem));
-
-    // > widget { margin: 0; }
-  }
+// parent container of GtkWidgets 'Ratings' and 'Heart'
+grid.popover-rating-loved-grid {
+  // tweak bottom margin
+  margin-bottom: if($ref_weight < 1.0, calc(12px + 0.35rem),
+                                       calc(12px + 0.5rem));
 }
 
 
