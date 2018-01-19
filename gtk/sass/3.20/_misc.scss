@@ -678,53 +678,37 @@ paned.vertical > overlay > scrolledwindow > overlay {
 // most of widget styling are hard-coded by ephy's stylesheet,
 // but we should force using dark foregrounds at least...
 
-%incognito_button {
-  &,
-  label,
-  image { color: $secondary_fixed_fg_color; }
-
-  &:hover,
-  &:active,
-  &:checked {
-    &,
-    label,
-    image { color: $fixed_fg_color; }
-  }
-  &:disabled,
-  &:checked:disabled {
-    &,
-    label,
-    image { color: $insensitive_fixed_fg_color; }
-  }
-}
-
 headerbar.titlebar.incognito-mode {
   entry {
-    color: $secondary_fixed_fg_color;
-    caret-color: $fixed_fg_color;
-
-    image {color: $secondary_fixed_fg_color; }
-
-    &:focus {
-      &, image { color: $fixed_fg_color; }
+    &, &:focus {
+      color: $fixed_fg_color;
+      caret-color: $fixed_fg_color;
     }
-    &:disabled {
-      &, image { color: $insensitive_fixed_fg_color; }
-    }
+    &:disabled { color: $insensitive_fixed_fg_color; }
   }
 
   button:not(.destructive-action):not(.suggested-action) {
-    &.image-button,
-    &.toggle.popup,
-    &.minimize,
-    &.maximize,
-    &.close { @extend %incognito_button; }
-  }
+    // these classes are specificity bump to override titlebuttons
+    &:not(.appmenu):not(.icon):not(:indeterminate) {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
 
-  box.linked.raised > button {
-    &:not(.destructive-action):not(.suggested-action) {
-      &.image-button,
-      &.toggle.popup { @extend %incognito_button; }
+      &,
+      &:hover,
+      &:active,
+      &:checked {
+        * {
+          background-image: none;
+          color: $fixed_fg_color;
+        }
+      }
+      &:disabled,
+      &:checked:disabled {
+        * {
+          background-image: none;
+          color: $insensitive_fixed_fg_color;
+        }
+      }
     }
   }
 }
