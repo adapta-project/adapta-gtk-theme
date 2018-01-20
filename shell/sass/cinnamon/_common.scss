@@ -165,8 +165,8 @@ StScrollBar {
   height: 16px;
   min-width: 15em;
   border: 0 solid transparent;
-  border-right-width: 1px;
-  border-left-width: 5px;
+  border-right-width: 3px;
+  border-left-width: 3px;
   color: $accent_color;
   -slider-height: 2px;
   -slider-background-color: $outline_fill_color; // background of the trough
@@ -1561,64 +1561,62 @@ $ws_thumb_spacing: 32px;
 
 // 2.8
 .sound-player {
-  padding: 0 4px;
+  padding: 0 3px;
 
   > StBoxLayout:first-child {
-    padding: 5px 10px 12px 10px;
-    spacing: 0.5em;
+    padding: 0.4em (1.75em - 0.75em) 0.4em * 2;
+
+    StLabel { padding: 0 5px 1px; }
 
     StButton:small {
       width: $icon_size;
-      height: 8px;
-      padding: 1px;
+      height: $icon_size;
+      padding: 1px 5px 0;
 
-      StIcon { icon-size: 12px; }
+      StIcon { icon-size: $icon_size; }
     }
   }
 
-  &-generic-coverart {
-    background: rgba(0, 0, 0, 0.2);
-  }
+  &-generic-coverart { background-color: $secondary_dark_color; }
 
   &-overlay {
     width: 290px;
     height: 70px;
-    padding: 15px;
-    spacing: 0.5em;
-    border: 0 solid darken($osd_bg_color, 10%);
-    border-bottom: 1px ;
+    padding: 0.4em (1.75em - 0.75em) 0.4em * 3;
+    spacing: 5px;
+    border: 0 solid $osd_bg_color;
+    border-bottom-width: 1px;
     color: $osd_fg_color;
     background: shellopacity($osd_bg_color, 0.9);
 
     StButton {
-      width: 22px;
-      height: 13px;
-      padding: 5px;
-      border-radius: 2px;
-      border: 1px solid transparent;
-      color: $osd_fg_color;
+      width: $icon_size * 2;
+      height: $icon_size * 2;
+      padding: 0;
+      border-radius: 100px;
+      border: 0 none transparent;
+      color: $osd_secondary_fg_color;
       &:hover{ @include button(osd-hover); }
       &:active { @include button(osd-active); }
 
       StIcon { icon-size: $icon_size; }
     }
 
-    StBoxLayout { padding-top: 2px; }
-
-    StLabel { padding: 0 5px; }
+    StLabel { padding: 0 5px 1px; }
   }
 
   .slider {
-    height: 8px;
+    height: 4px;
     padding: 0;
-    border: none;
-    -slider-height: 2px;
-    -slider-background-color: $outline_fill_color; // background of the trough
-    -slider-border-color: transparent; // trough border color
-    -slider-active-background-color: $accent_color; // active trough fill
-    -slider-active-border-color: transparent; // active trough border
+    border: 0 none transparent;
+    -slider-height: 4px;
+    // FIXME: do not use transparentize
+    -slider-background-color: mix($secondary_base_color, $accent_color, 80%);
+    -slider-border-color: transparent;
+    -slider-active-background-color: $accent_color;
+    -slider-active-border-color: transparent;
     -slider-border-width: 0;
-    -slider-handle-radius: 4px;
+    -slider-handle-radius: 0;
   }
 }
 
