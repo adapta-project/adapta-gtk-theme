@@ -312,7 +312,6 @@ StScrollBar {
 .menu {
   min-width: 0;
   padding: 0;
-  border-width: 3px; // same value as padding embedded in the pixmaps
   border-image: url("assets/menu/menu.svg") 9 9 9 9;
   color: $secondary_fg_color;
 
@@ -333,7 +332,10 @@ StScrollBar {
     }
   }
 
-  .popup-menu-content { padding: 0.3em 0; }
+  .popup-menu-content {
+    // embed parent border-image region as asymmetrical padding
+    padding: 0.3em * 2 2px 0.33em * 2;
+  }
 
   .popup-menu-item {
     min-width: 120px;
