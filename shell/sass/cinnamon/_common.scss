@@ -2262,3 +2262,22 @@ $bottom_gap: 4px;
   }
 }
 
+StBin.popup-menu,
+StBin.menu {
+  // .switcher-list should be with StBin
+  // at the root metaWindow
+  StBoxLayout.switcher-list {
+    border-radius: 0;
+
+    .item-box {
+      border-radius: 0; // fill entire surface to cover up the parent
+      background-color: $osd_bg_color; // use opaque
+      &:outlined,
+      &:selected { border-radius: 2px; }
+      &:selected {
+        background-color: mix($osd_bg_color, $accent_color, 75%);
+      }
+    }
+  }
+}
+
