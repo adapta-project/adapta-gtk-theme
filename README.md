@@ -20,17 +20,18 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
    - Developed by Monotype and Adobe.
    - Weight used in Adapta: 400, (500), 700
 
-| |Primary|Fallback|
-|:-----:|:-----:|:-----:|
-|Gnome-Shell >= 3.26|**Roboto**|Sans-serif|
-|Gnome-Shell =< 3.24|**NotoSans**|Sans-serif|
-|Cinnamon           |**NotoSans**|Sans-serif|
+| |Primary|Secondary|Fallback|
+|:-----:|:-----:|:-----:|:-----:|
+|Gnome-Shell >= 3.26|**Roboto**|**NotoSans**|Sans-serif|
+|Gnome-Shell =< 3.24|**NotoSans**||Sans-serif|
+|Cinnamon           |**NotoSans**||Sans-serif|
 
 > **Note:**
 >
 > * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
 > * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
 > * NotoSans CJK supports 500 weight.
+> * NotoSans is used as the 'password chars' only in Gnome-Shell >= 3.26.
 
 Adapta is designed with nominal **13px (or 14px)** Roboto font.
 In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
