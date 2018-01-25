@@ -31,7 +31,7 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
 > * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
 > * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
 > * NotoSans CJK supports 500 weight.
-> * NotoSans is used as the 'password chars' only in Gnome-Shell >= 3.26.
+> * NotoSans is used as the 'password chars **U+25CF**' only in Gnome-Shell >= 3.26.
 
 Adapta is designed with nominal **13px (or 14px)** Roboto font.
 In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
