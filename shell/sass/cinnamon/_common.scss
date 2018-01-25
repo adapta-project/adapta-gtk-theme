@@ -1249,7 +1249,7 @@ $ws_thumb_spacing: 32px;
   &-favorites-button {
     padding: 7px;
     border: 1px solid transparent;
-    &:hover { @extend %button:hover; }
+    &:hover { @include button(flat-hover); }
   }
 
   &-places {
@@ -1281,10 +1281,9 @@ $ws_thumb_spacing: 32px;
     &:highlighted { font-weight: 700; }
 
     &-selected {
-      @extend %button:hover;
+      @include button(flat-hover);
       padding: 0 7px;
       border: 1px solid transparent;
-      color: $fg_color;
       &:highlighted { font-weight: 700; }
     }
 
