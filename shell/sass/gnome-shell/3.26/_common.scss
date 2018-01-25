@@ -19,11 +19,11 @@
 }
 
 $font-family: Roboto, Sans-Serif;
+$font-family-for-pass-char: Noto Sans, Sans-Serif;
 
 stage {
   @include fontscaling($ref_size);
   font-family: $font-family;
-  font-weight: 400;
   color: $fg_color;
 }
 
@@ -499,6 +499,8 @@ StScrollBar {
   &-password-box {
     spacing: 1em;
     padding-bottom: if($eta == 'false', 1em, 0.7em);
+
+    StEntry { font-family: $font-family-for-pass-char; }
   }
 
   &-error-label {
@@ -3273,6 +3275,7 @@ $provider_details_width: 120px;
     color: $osd_fg_color;
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
+    font-family: $font-family-for-pass-char;
     transition-duration: 0s;
     &:hover { @include entry(hover, $fc: $osd_outline_fill_color); }
     &:focus { @include entry(focus, $fc: $osd_indicator_color); }
