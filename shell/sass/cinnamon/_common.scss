@@ -1293,6 +1293,32 @@ $ws_thumb_spacing: 32px;
     }
   }
 
+  StScrollView.menu-application-button { // extracted submenu container
+    padding: 0;
+    border-radius: 2px;
+    border: 1px solid $borders_color;
+    background-color: $secondary_dark_color;
+
+    .popup-menu-item {
+      padding: 0;
+      spacing: 0;
+      &:ltr { padding-left: 7px; }
+      &:rtl { padding-right: 7px; }
+
+      &:active {
+        border-image: none; // image independent
+        background-color: $semi_fill_color;
+      }
+
+      StIcon { min-width: 22px; } // indentation
+
+      StLabel {
+        &:ltr { padding: 6px 0 7px 5px; }
+        &:rtl { padding: 6px 5px 7px 0; }
+      }
+    }
+  }
+
   &-category-button {
     padding: 0 7px;
     border: 1px solid transparent;
