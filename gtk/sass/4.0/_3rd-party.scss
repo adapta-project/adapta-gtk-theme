@@ -3875,3 +3875,36 @@ notebook.tilix-background tab.reorderable-page button.tilix-small-button {
   }
 }
 
+
+// /********
+//  * PSPP *
+//  ********/
+
+// upstream should convert this to treeview node
+notebook.psppire-data-editor widget.view {
+  border-radius: 0; // unset roundness of cells
+
+  entry { // = editable cell
+    &,
+    &:focus,
+    &:disabled {
+      min-width: unset;
+      min-height: unset;
+      padding: 0 2px;
+      border-image: none;
+      background-color: $light_color;
+      transition: none;
+      &:dir(ltr) { border-left-width: 2px; }
+      &:dir(rtl) { border-right-width: 2px; }
+    }
+
+    border-color: $light_color;
+    &:focus { border-color: $selected_bg_color; }
+    &:disabled { border-color: $light_color; }
+  }
+
+  button:not(.flat) { // = column_header buttons
+    @extend %column_header_button;
+  }
+}
+
