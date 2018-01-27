@@ -4040,21 +4040,17 @@ notebook.psppire-data-editor widget.view {
 
   entry { // = editable cell
     &,
-    &:focus,
-    &:disabled {
+    &:focus {
       min-width: unset;
       min-height: unset;
       padding: 0 2px;
       border-image: none;
+      border-color: $selected_bg_color;
       background-color: $light_color;
       transition: none;
       &:dir(ltr) { border-left-width: 2px; }
       &:dir(rtl) { border-right-width: 2px; }
     }
-
-    border-color: $light_color;
-    &:focus { border-color: $selected_bg_color; }
-    &:disabled { border-color: $light_color; }
   }
 
   button:not(.flat) { // = column_header buttons
