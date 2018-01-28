@@ -532,6 +532,9 @@ window.budgie-popover:not(.csd) {
 }
 
 // raven styling
+$raven_box_spacing: 4px;
+$switcher_width: 127px;
+
 .raven-frame { // hide frame
   > border { border: none 0 transparent; }
 }
@@ -543,48 +546,73 @@ window.budgie-popover:not(.csd) {
   background-color: $secondary_dark_color;
 
   .raven-header {
-    border: none;
     color: $tertiary_fg_color;
-    background-color: transparent;
-    font-weight: 700;
+    font-weight: 500;
 
-    &.top { // always use dark variant
-      background-color: $inverted_dark_color;
-      color: $inverted_fg_color;
-      box-shadow: if($variant == 'light', $header-shadow-light,
-                                          $header-shadow-dark);
+    &.top {
+      border-bottom: 1px solid $borders_color;
+      background-color: transparent;
 
-      button.text-button {
-        color: $inverted_secondary_fg_color;
-        &:hover,
-        &:active,
-        &:checked { color: $inverted_fg_color; }
-        &:disabled { color: $insensitive_inverted_fg_color; }
+      stackswitcher.linked {
+        // hide embedded top/bottom-gap
+        margin: -$raven_box_spacing 0;
+
+        button.text-button.radio { // switcher buttons
+          min-width: rem($switcher_width, $sw: 1.0);
+          min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
+          padding-top: 0;
+          padding-bottom: 0;
+          outline-style: none; // unset outlines
+          &:not(:hover):not(:active):not(:checked) {
+            color: $tertiary_fg_color;
+          }
+          // show underlines for :checked only
+          &:not(:checked) { border-image: none; }
+
+          label { padding-bottom: rem(1.3px); }
+        }
       }
     }
 
-    // reduce the gap between child elements
-    &:not(.top):not(.bottom) { margin-top: rem(-10.7px); }
+    // reduce height of scale node
+    scale { padding: rem(10px - 2px, $sw: 1.0); }
   }
 
-  .raven-background {
-    border-width: 1px 0 0;
-    border-style: solid none none;
-    border-color: $borders_color;
-    background-color: transparent;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+  scrolledwindow > .frame { // stacking raised-grid
+    // reserve L/R shadow region
+    // FIXME: Do not set any L/R margins and borders
+    padding: 0 $raven_box_spacing;
+
+    > box.vertical > box.vertical {
+      margin: $raven_box_spacing 0; // do not set L/R margins
+      border-radius: 2px;
+      background-color: $base_color;
+      box-shadow: $z-depth-1;
+    }
+
+    .raven-header {
+      margin-top: -$raven_box_spacing * 2; // unset parent margin
+      border-radius: 2px 2px 0 0;
+      // draw side edges via opaque box-shadows
+      box-shadow: inset 0 1px $highlight_color,
+                  inset 1px 0 $solid_light_borders_color,
+                  inset -1px 0 $solid_light_borders_color;
+    }
+
+    .raven-background {
+      margin-bottom: -$raven_box_spacing * 2; // unset parent margin
+      border-radius: 0 0 2px 2px;
+      box-shadow: inset 1px 0 $solid_light_borders_color,
+                  inset -1px 0 $solid_light_borders_color;
+    }
   }
 
   .powerstrip {
     background-color: $panel_bg_color;
     box-shadow: none;
 
-    // = stackswitcher width in raven-header
-    $strip_width: rem(112px * 2, $sw: 1.0);
-
     button.flat.image-button {
-      min-width: $strip_width / 3;
+      min-width: rem($switcher_width, $sw: 1.0) * 2  / 3;
       margin: -2px -8px;
       padding: rem(6.7px, $sw: 1.0) 0;
       color: $inverted_fg_color;
@@ -594,73 +622,29 @@ window.budgie-popover:not(.csd) {
     }
   }
 
-  scrolledwindow,
-  list { background: transparent; }
+  button.flat.expander-button { // expander arrow buttons
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(8px);
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    color: $tertiary_fg_color;
+    &:hover,
+    &:active { color: $fg_color; }
 
-  row.activatable {
-    background-color: transparent;
-    &:hover { color: $fg_color; }
-    &:selected {
-      &, label { color: $selected_bg_color; }
-
-      &:hover { background-color: $track_color; }
-    }
+    &:dir(ltr) { margin-right: rem(2.7px); }
+    &:dir(rtl) { margin-left: rem(2.7px); }
   }
 
-  // use flat-style
-  button.image-button {
-    @include button(flat-normal);
-    &:hover {
-      @include button(flat-hover);
-      -gtk-icon-filter: brightness(1.2);
-      }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { @include button(flat-checked); }
-    &:checked:disabled { @include button(flat-checked-insensitive); }
-  }
-
-  .raven-header {
-    > .linked { margin: 0 rem(10.7px, $sw: 1.0); }
-
-    button.flat.expander-button { // expander arrow buttons
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(8px);
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
-      color: $tertiary_fg_color;
-      &:hover,
-      &:active { color: $fg_color; }
-
-      &:dir(ltr) { margin-right: rem(2.7px); }
-      &:dir(rtl) { margin-left: rem(2.7px); }
-    }
-
-    button.flat.image-button.primary-control { // close button in MPRIS
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(8px);
-      color: gtkopacity($destructive_color, 0.87);
-      &:hover,
-      &:active,
-      &:checked { color: $destructive_color; }
-      &:disabled { color: gtkopacity($destructive_color, 0.4); }
-    }
-
-    // reduce height of scale node
-    scale { padding: rem(10px - 2px, $sw: 1.0); }
-  }
-
-  stackswitcher.linked > button.text-button.radio { // switcher buttons
-    min-width: rem(112px, $sw: 1.0);
-    min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
-    padding-top: 0;
-    padding-bottom: 0;
-    // show underlines for :checked only
-    &:not(:checked) { border-image: none; }
-
-    label { padding-bottom: rem(1.3px); }
+  button.flat.image-button.primary-control { // close button in MPRIS
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: rem(8px);
+    color: gtkopacity($destructive_color, 0.87);
+    &:hover,
+    &:active,
+    &:checked { color: $destructive_color; }
+    &:disabled { color: gtkopacity($destructive_color, 0.4); }
   }
 
   calendar {
@@ -669,37 +653,52 @@ window.budgie-popover:not(.csd) {
   }
 
   // notification list
-  box.vertical > stack > box.vertical > .raven-background {
-    > viewport.frame > list > row.activatable {
-      padding-bottom: 4px;
+  box.vertical > stack > box.vertical {
+    > .raven-header {
+      margin-top: -$raven_box_spacing; // reduce top margin
       border-bottom: 1px solid $borders_color;
-      &:selected {
-        &, &:focus {
-          background-color: gtkopacity($selected_bg_color, 0.25);
-          &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
-          &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+    }
 
-          > grid > label {
-            &, &.dim-label {
-              color: $fg_color;
-              opacity: 1.0;
+    > .raven-background > viewport.frame {
+      padding: 0; // reset padding for full-width list node
+
+      list { background-color: transparent; }
+
+      row.activatable {
+        padding-bottom: 4px;
+        border-bottom: 1px solid $borders_color;
+        background-color: transparent;
+        &:selected {
+          &, &:focus {
+            background-color: gtkopacity($selected_bg_color, 0.25);
+            &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
+            &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+
+            > grid > label {
+              &, &.dim-label {
+                color: $fg_color;
+                opacity: 1.0;
+              }
             }
-          }
 
-          > grid > image { color: $fg_color; }
+            > grid > image { color: $fg_color; }
+          }
         }
       }
     }
   }
-}
 
-// MPRIS Applet
-.raven-mpris {
-  border: none;
-  color: $fg_color;
-  background-color: gtkopacity($dark_color, 0.9);
+  // MPRIS Applet
+  .raven-mpris {
+    border: none;
+    color: $fg_color;
+    background-color: gtkopacity($dark_color, 0.9);
 
-  button.image-button { padding: rem(8px); }
+    button.image-button {
+      margin: 0 rem(5.3px) $raven_box_spacing * 2;
+      padding: rem(8px);
+    }
+  }
 }
 
 // clock-applet styling
