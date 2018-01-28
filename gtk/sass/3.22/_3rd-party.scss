@@ -681,19 +681,13 @@ $switcher_width: 127px;
         border-bottom: 1px solid $borders_color;
         background-color: transparent;
         &:selected {
-          &, &:focus {
-            background-color: gtkopacity($selected_bg_color, 0.25);
-            &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
-            &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+          background-color: gtkopacity($selected_bg_color, 0.25);
+          &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
+          &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
 
-            > grid > label {
-              &, &.dim-label {
-                color: $fg_color;
-                opacity: 1.0;
-              }
-            }
-
-            > grid > image { color: $fg_color; }
+          > grid > * {
+            color: $fg_color;
+            opacity: 1.0;
           }
         }
       }
