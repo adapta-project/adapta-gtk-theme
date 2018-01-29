@@ -2857,7 +2857,17 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 .brisk-menu {
   border-top: 1px solid $menu_highlight_color;
 
+  entry { margin: rem(4px); } // search-entry
+
+  box.horizontal scrolledwindow { // right-pane
+    &:dir(ltr) { margin: rem(4px) rem(4px) rem(4px) 0; }
+    &:dir(rtl) { margin: rem(4px) 0 rem(4px) rem(4px); }
+  }
+
   .categories-list { // left-pane
+    &:dir(ltr) { margin: rem(4px) 0 rem(4px) rem(4px); }
+    &:dir(rtl) { margin: rem(4px) rem(4px) rem(4px) 0; }
+
     button.flat {
       padding-top: unset;
       padding-bottom: unset;
