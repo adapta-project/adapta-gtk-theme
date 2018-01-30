@@ -2037,56 +2037,6 @@ grid.tweet-info-grid.view { // raised material
     border-bottom: 1px solid $borders_color;
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
                                         $toolbar-shadow-dark);
-
-    > button.flat.toggle { // 'back/forward'?
-      min-height: $icon_size * 2.0;
-      min-width: $icon_size * 2.0;
-      padding: 0;
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
-    }
-
-    .linked.raised > button,
-    .raised > button {
-      // path-bar widget buttons
-      &, &.text-button.toggle {
-        min-height: rem(26.7px);
-        min-width: rem(26.7px);
-        padding-top: 0;
-        padding-bottom: 0;
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
-
-        > widget { padding: rem(4px) 0; } // GtkArrow?
-      }
-
-      &.image-button,
-      &.image-button.toggle {
-        min-height: $icon_size * 2.0;
-        min-width: $icon_size * 2.0;
-        padding: 0;
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
-      }
-    }
-
-    // optional buttons
-    .raised:not(.linked) > button {
-      &:not(.text-button):not(.toggle) {
-        min-height: $icon_size * 2.0;
-        min-width: $icon_size * 2.0;
-        padding: 0;
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
-      }
-    }
-
-    // shrink height of entry node
-    box.horizontal > widget > entry,
-    button.text-button {
-      padding-top: rem(5.3px);
-      padding-bottom: rem(6.7px);
-    }
   }
 
   // tweak notebook colour
@@ -3011,11 +2961,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     }
 
     button.flat:last-child { // 'close' button on header
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(10.7px);
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
+      @extend %toolitem_size;
     }
   }
 
@@ -3024,12 +2970,6 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     border-bottom: 1px solid $borders_color;
     box-shadow: if($variant == 'light', $toolbar-shadow-light,
                                         $toolbar-shadow-dark);
-
-    button { // uniform button sizes
-      min-width: $icon_size * 1.5;
-      min-height: $icon_size * 1.5;
-      padding: rem(4px);
-    }
   }
 
   // path-bar styling
@@ -3047,35 +2987,17 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
         &:dir(rtl) { margin-right: -2px; }
       }
 
-      &.toggle,
-      &.image-button,
-      &.text-button,
-      &.slider-button { // enforce square buttons
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
-      }
-
       &, &.slider-button { // use linked-array button styling
         @extend %button_array;
+        @extend %toolitem_size;
       }
     }
   }
 
   button.image-button.toggle { // most-left toggle button in path-bar pane
-    @include button(flat-normal);
+    @extend %toolitem_size;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { // use underline-indicator
-      @include button(flat-checked);
-      border-radius: 0;
-      -gtk-outline-radius: 0;
-      background-image: none;
-      background-color: transparent;
-      box-shadow: inset 0 -2px $selected_bg_color;
-    }
   }
 
   .caja-notebook { // remove lateral borders

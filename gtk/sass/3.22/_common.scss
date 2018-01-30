@@ -1631,6 +1631,12 @@ combobox {
 //  * Toolbars *
 //  ************/
 
+%toolitem_size {
+  min-width: rem(30px / 2, $sw: 1.0);
+  min-height: rem(30px, $sw: 1.0);
+  padding: 0 rem(30px / 4, $sw: 1.0);
+}
+
 toolbar {
   -GtkWidget-window-dragging: true;
 
@@ -1795,33 +1801,6 @@ toolbar {
       color: $insensitive_secondary_fg_color;
     }
 
-    &,
-    &.flat { // set specific roundness
-      &,
-      &.text-button,
-      &.text-button.image-button {
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
-      }
-      &.image-button {
-        border-radius: 100px;
-        -gtk-outline-radius: 100px;
-      }
-    }
-
-    &.text-button,
-    &.image-button.text-button {
-      min-width: rem(13.3px);
-      min-height: rem($icon_size + 13.3px);
-      padding: 0 rem(13.3px) 0;
-    }
-
-    &.image-button {
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(6.7px);
-    }
-
     &.toggle,
     &.popup.toggle { // remove double-background
       &,
@@ -1851,10 +1830,6 @@ toolbar {
         background-color: transparent;
         box-shadow: none;
       }
-      &:not(:disabled) { // revive roundness
-        border-radius: 100px;
-        -gtk-outline-radius: 100px;
-      }
 
       &.raised.toggle,
       &.toggle { // revive underlines
@@ -1868,34 +1843,35 @@ toolbar {
         }
       }
     }
-
-    &.image-button {
-      min-width: $icon_size;
-      min-height: $icon_size;
-      padding: rem(6.7px);
-      border-radius: 100px;
-      -gtk-outline-radius: 100px;
-    }
   }
 
   .linked > button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
+  }
+
+  // sizing
+  .background & button,
+  .background & .linked > button {
+    &,
+    &.text-button,
+    &.image-button {
+      @extend %toolitem_size;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
   }
 
   combobox {
     button.combo,
-    .linked > button.combo {
-      padding-top: rem(6.7px);
-      padding-bottom: rem(6.7px);
-    }
+    .linked > button.combo { @extend %toolitem_size; }
   }
 
   .background & entry {
-    min-width: rem(33.3px);
-    min-height: rem($icon_size + 13.3px);
-    padding: 0 rem(8px) 0;
+    &, &.combo {
+      @extend %toolitem_size;
+
+      progress { margin: 0; } // unset default margins
+    }
   }
 
   // toolbar separators
