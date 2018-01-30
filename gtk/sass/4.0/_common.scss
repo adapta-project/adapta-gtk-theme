@@ -5447,13 +5447,28 @@ infobar {
   &.question,
   &.warning,
   &.error {
-    // always use dark forefground
-    &:not(.error) {
-      color: if($variant == 'light', $secondary_fg_color,
-                                     $secondary_fixed_fg_color);
-    }
+    selection { background-color: darken($selected_bg_color, 10%); }
 
-    button {
+    *:link { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+
+    progressbar { // use 'white' bit and trough
+      trough { background-color: gtkopacity($selected_fg_color, 0.2); }
+
+      progress { background-color: $selected_fg_color; }
+    }
+  }
+
+  &:not(.error) { // always use dark forefground
+    color: if($variant == 'light', $secondary_fg_color,
+                                   $secondary_fixed_fg_color);
+  }
+
+  &.error { // use white text for this
+    color: $selected_fg_color;
+  }
+
+  button {
+    &:not(.destructive-action):not(.suggested-action) {
       @extend %button_flat_normal;
       background-color: transparent;
       color: $secondary_fixed_fg_color;
@@ -5473,57 +5488,31 @@ infobar {
         color: $fixed_fg_color;
       }
       &:disabled { color: $insensitive_fixed_fg_color; }
-      &.flat {
-        color: $secondary_fixed_fg_color;
-        &:hover, &:active { color: $fixed_fg_color; }
-        &:disabled { color: $insensitive_fixed_fg_color; }
-      }
-
-      &.image-button:not(.text-button),
-      &.close {
-        min-height: $icon_size;
-        min-width: $icon_size;
-        padding: rem(10.7px);
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
-      }
     }
 
-    selection { background-color: darken($selected_bg_color, 10%); }
-
-    *:link { color: mix($selected_fg_color, $selected_bg_color, 80%); }
-
-    progressbar { // use 'white' bit and trough
-      trough { background-color: gtkopacity($selected_fg_color, 0.2); }
-
-      progress { background-color: $selected_fg_color; }
+    &,
+    &.text-button,
+    &.image-button,
+    &.toggle,
+    &.combo,
+    &.close {
+      min-height: $icon_size;
+      min-width: $icon_size;
+      padding: rem(6.7px);
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
     }
   }
 }
 
-.info {
-  background-color: if($variant == 'dark',
-                       mix($info_bg_color, $bg_color, 75%),
-                       $info_bg_color);
-}
-
-.question {
-  background-color: if($variant == 'dark',
-                       mix($question_bg_color, $bg_color, 75%),
-                       $question_bg_color);
-}
-
-.warning {
-  background-color: if($variant == 'dark',
-                       mix($warning_bg_color, $bg_color, 75%),
-                       $warning_bg_color);
-}
-
-.error { // use white text for this
-  color: $selected_fg_color;
-  background-color: if($variant == 'dark',
-                       mix($error_bg_color, $bg_color, 75%),
-                       $error_bg_color);
+@each $_type, $_color in (info, $info_bg_color),
+                         (question, $question_bg_color),
+                         (warning, $warning_bg_color),
+                         (error, $error_bg_color) {
+  .#{$_type} {
+    background-color: if($variant == 'dark', mix($_color, $bg_color, 75%),
+                                             $_color);
+  }
 }
 
 
