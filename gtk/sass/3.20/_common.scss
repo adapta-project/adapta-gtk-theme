@@ -2300,29 +2300,6 @@ headerbar {
   }
 
   // check and radio styling
-  @each $w,$a in ('check', 'checkbox'),
-                 ('radio','radio') {
-    @each $s,$as in ('','-unchecked'),
-                    (':hover', '-unchecked-active'),
-                    (':active', '-unchecked-active'),
-                    (':disabled','-unchecked-insensitive'),
-                    (':indeterminate', '-mixed'),
-                    (':indeterminate:hover', '-mixed-active'),
-                    (':indeterminate:active', '-mixed-active'),
-                    (':indeterminate:disabled', '-mixed-insensitive'),
-                    (':checked', '-checked'),
-                    (':checked:hover', '-checked-active'),
-                    (':checked:active', '-checked-active'),
-                    (':checked:disabled','-checked-insensitive') {
-      #{$w}#{$s},
-      #{$w}button.text-button #{$w}#{$s} {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"),
-                                      url("assets/#{$a}#{$as}-dark@2.png"));
-        -gtk-icon-shadow: none;
-      }
-    }
-  }
-
   radio,
   check {
     min-width: rem($icon_size, $sw: 1.0);
@@ -4035,7 +4012,7 @@ switch {
 @each $w,$a in ('check', 'checkbox'),
                ('radio','radio') {
 
-  // workaround for WebKitGtk and LibreOffice
+  // workaround for WebKitGtk, FirefoxQuantum and LibreOffice
   @each $s,$as in ('','-unchecked-solid'),
                   (':hover', '-unchecked-solid'),
                   (':active', '-unchecked-solid'),
@@ -4069,23 +4046,32 @@ switch {
                   (':checked:hover', '-checked-active'),
                   (':checked:active', '-checked-active'),
                   (':checked:disabled','-checked-insensitive') {
-    .background .#{$w}#{$s},
-    .background #{$w}#{$s} {
+    // FIXME: exclude damned FirefoxQuantum
+    .background:not(#MozillaGtkWidget) .#{$w}#{$s},
+    .background:not(#MozillaGtkWidget) #{$w}#{$s} {
       -gtk-icon-source:
         -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       -gtk-icon-shadow: none;
     }
+
+    // dark-variant-only mode
+    .background:not(#MozillaGtkWidget) headerbar #{$w}#{$s},
+    messagedialog.background:not(#MozillaGtkWidget) #{$w}#{$s} {
+      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"),
+                                    url("assets/#{$a}#{$as}-dark@2.png"));
+      -gtk-icon-shadow: none;
+    }
   }
 }
 
-// check/radio inside treeview
-treeview.view check,
-treeview.view radio {
-  &, &:only-child {
-    // margin: rem(-6.7px);
-    // padding: rem(6.7px);
-    padding: 0; // FIXME: negative margin doesn't work.
+.background:not(#MozillaGtkWidget) {
+  // check/radio inside treeview
+  treeview.view check,
+  treeview.view radio {
+    &, &:only-child {
+      padding: 0; // FIXME: negative margin doesn't work.
+    }
   }
 }
 
@@ -4100,34 +4086,36 @@ treeview.view radio {
                   (':indeterminate:active', '-mixed'),
                   (':checked', '-checked'),
                   (':checked:active', '-checked') {
-    treeview.view,
-    row,
-    row.activatable {
-      #{$w}:selected#{$s},
-      #{$w}:selected:focus#{$s} {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
-                      url("assets/#{$a}#{$as}-selected@2.png"));
-        -gtk-icon-shadow: none;
-      }
-      // use dark variant for insensitive states
-      #{$w}:selected:disabled,
-      #{$w}:selected:focus:disabled {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
-                      url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
-      }
-      #{$w}:selected:indeterminate:disabled,
-      #{$w}:selected:focus:indeterminate:disabled {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
-                      url("assets/#{$a}-mixed-insensitive-dark@2.png"));
-      }
-      #{$w}:selected:checked:disabled,
-      #{$w}:selected:focus:checked:disabled {
-        -gtk-icon-source:
-          -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
-                      url("assets/#{$a}-checked-insensitive-dark@2.png"));
+    .background:not(#MozillaGtkWidget) {
+      treeview.view,
+      row,
+      row.activatable {
+        #{$w}:selected#{$s},
+        #{$w}:selected:focus#{$s} {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
+                        url("assets/#{$a}#{$as}-selected@2.png"));
+          -gtk-icon-shadow: none;
+        }
+        // use dark variant for insensitive states
+        #{$w}:selected:disabled,
+        #{$w}:selected:focus:disabled {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}-unchecked-insensitive-dark.png"),
+                        url("assets/#{$a}-unchecked-insensitive-dark@2.png"));
+        }
+        #{$w}:selected:indeterminate:disabled,
+        #{$w}:selected:focus:indeterminate:disabled {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}-mixed-insensitive-dark.png"),
+                        url("assets/#{$a}-mixed-insensitive-dark@2.png"));
+        }
+        #{$w}:selected:checked:disabled,
+        #{$w}:selected:focus:checked:disabled {
+          -gtk-icon-source:
+            -gtk-scaled(url("assets/#{$a}-checked-insensitive-dark.png"),
+                        url("assets/#{$a}-checked-insensitive-dark@2.png"));
+        }
       }
     }
   }
@@ -4142,7 +4130,7 @@ treeview.view radio {
                 (':checked:hover', '-checked-active-selectionmode'),
                 (':checked:active', '-checked-active-selectionmode'),
                 (':disabled:checked', '-checked-insensitive-selectionmode') {
-  .view.content-view.check#{$s}:not(list) {
+  .background:not(#MozillaGtkWidget) .view.content-view.check#{$s}:not(list) {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
@@ -4151,9 +4139,13 @@ treeview.view radio {
 
 checkbutton.text-button,
 radiobutton.text-button {
-  // this is for a nice focus on check and radios text
-  padding: rem(2.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
-  outline-offset: 0;
+  // FIXME: exclude damned FirefoxQuantum
+  .background:not(#MozillaGtkWidget) & {
+    // this is for a nice focus on check and radios text
+    padding: rem(2.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
+    outline-offset: 0;
+  }
+
   color: $secondary_fg_color;
   &:hover,
   &:active,
@@ -4171,7 +4163,8 @@ check {
   min-width: rem($icon_size, $sw: 1.0);
   min-height: rem($icon_size, $sw: 1.0);
 
-  .background & { // exclude non-native apps
+  // FIXME: exclude damned FirefoxQuantum as well
+  .background:not(#MozillaGtkWidget) & {
     margin: rem(-10px, $sw: 1.0) rem(-3.3px, $sw: 1.0);
     padding: rem(10px, $sw: 1.0);
   }
@@ -4188,7 +4181,7 @@ check {
     animation: check_radio_active 0.2s $slope_quick forwards;
   }
 
-  .background menuitem & {
+  .background:not(#MozillaGtkWidget) menuitem & {
     min-width: rem($icon_size, $sw: 1.0);
     min-height: rem($icon_size, $sw: 1.0);
     margin: 0;
@@ -5138,31 +5131,6 @@ messagedialog {
     -gtk-outline-radius: 2px;
     border-image: none;
     box-shadow: none;
-  }
-
-  @each $s,$as in ('','-unchecked'),
-                  (':hover', '-unchecked-active'),
-                  (':active', '-unchecked-active'),
-                  (':disabled','-unchecked-insensitive'),
-                  (':indeterminate', '-mixed'),
-                  (':indeterminate:hover', '-mixed-active'),
-                  (':indeterminate:active', '-mixed-active'),
-                  (':indeterminate:disabled', '-mixed-insensitive'),
-                  (':checked', '-checked'),
-                  (':checked:hover', '-checked-active'),
-                  (':checked:active', '-checked-active'),
-                  (':checked:disabled','-checked-insensitive') {
-    check#{$s},
-    &.csd check#{$s} { // always use dark variant
-      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}-dark.png"),
-                                    url("assets/checkbox#{$as}-dark@2.png"));
-    }
-
-    radio#{$s},
-    &.csd radio#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/radio#{$as}-dark.png"),
-                                    url("assets/radio#{$as}-dark@2.png"));
-    }
   }
 
   checkbutton.text-button,
