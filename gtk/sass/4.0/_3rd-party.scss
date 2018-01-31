@@ -583,28 +583,28 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     // reserve L/R shadow region
     // FIXME: Do not set any L/R margins and borders
     padding: 0 $raven_box_spacing;
+    transition-duration: 0s;
 
     > box.vertical > box.vertical {
       margin: $raven_box_spacing 0; // do not set L/R margins
       border-radius: 2px;
       background-color: $base_color;
-      box-shadow: $z-depth-1;
+      // draw side edges via opaque box-shadows
+      box-shadow: inset 0 1px $menu_highlight_color,
+                  inset 1px 0 $solid_light_borders_color,
+                  inset -1px 0 $solid_light_borders_color,
+                  $z-depth-1;
+      transition-duration: 0s;
     }
 
     .raven-header {
       margin-top: -$raven_box_spacing * 2; // unset parent margin
       border-radius: 2px 2px 0 0;
-      // draw side edges via opaque box-shadows
-      box-shadow: inset 0 1px $menu_highlight_color,
-                  inset 1px 0 $solid_light_borders_color,
-                  inset -1px 0 $solid_light_borders_color;
     }
 
     .raven-background {
       margin-bottom: -$raven_box_spacing * 2; // unset parent margin
       border-radius: 0 0 2px 2px;
-      box-shadow: inset 1px 0 $solid_light_borders_color,
-                  inset -1px 0 $solid_light_borders_color;
     }
   }
 
@@ -689,6 +689,8 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     border: none;
     color: $fg_color;
     background-color: gtkopacity($dark_color, 0.9);
+    box-shadow: inset 1px 0 $solid_light_borders_color,
+                inset -1px 0 $solid_light_borders_color;
 
     button.image-button {
       margin: 0 rem(5.3px) $raven_box_spacing * 2;
