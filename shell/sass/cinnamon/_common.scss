@@ -607,15 +607,18 @@ $icon_size: 16px;
 .window-caption {
   -cinnamon-caption-spacing: 12px;
   spacing: 25px;
-  padding: 4px 8px;
+  padding: 7px 8px 8px;
   border-radius: 2px;
   color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-1;
+
+  // FIXME: Cinnamon does not have 'window-clone-border'
+  // and the name 'selected' looks incorrect, should be 'focused' instead
   &#selected {
     spacing: 25px;
-    color: $osd_fg_color;
-    background-color: $osd_semi_fill_color;
+    color: $selected_fg_color;
+    background-color: $osd_indicator_color;
     box-shadow: $z-depth-2;
   }
 }
