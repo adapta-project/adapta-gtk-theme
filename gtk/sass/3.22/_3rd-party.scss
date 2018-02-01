@@ -618,6 +618,30 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
       margin-bottom: -$raven_box_spacing * 2; // unset parent margin
       border-radius: 0 0 2px 2px;
     }
+
+    > box.vertical > box.vertical:last-child {
+      // FIXME: we can't crop album-art images horizontally with any borders,
+      // paddings, and margins. And parent GtkBox does not sync to the size
+      // of album-art dynamically while transitioning images. so set specific
+      // depth-0 OSD materials for MPRIS.
+      border-radius: 0; // unset raised materials
+      background-color: transparent;
+      box-shadow: none;
+
+      .raven-header {
+        border-radius: 0;
+        background-color: gtkopacity($inverted_dark_color, 0.9);
+        color: $inverted_tertiary_fg_color;
+
+        button.flat.expander-button {
+          color: $inverted_tertiary_fg_color;
+          &:hover,
+          &:active { color: $inverted_fg_color; }
+        }
+      }
+
+      .raven-background { border-radius: 0; }
+    }
   }
 
   .powerstrip {
@@ -700,17 +724,18 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     }
   }
 
-  // MPRIS Applet
-  .raven-mpris {
+  .raven-mpris { // MPRIS overlaid widget
     border: none;
-    color: $fg_color;
-    background-color: gtkopacity($dark_color, 0.9);
-    box-shadow: inset 1px 0 $solid_light_borders_color,
-                inset -1px 0 $solid_light_borders_color;
+    color: $inverted_fg_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
 
     button.image-button {
       margin: 0 rem(5.3px) $raven_box_spacing * 2;
       padding: rem(8px);
+      color: $inverted_secondary_accent_label_color;
+      &:hover,
+      &:active { color: $inverted_accent_label_color; }
+      &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
     }
   }
 }
