@@ -628,19 +628,18 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
       background-color: transparent;
       box-shadow: none;
 
-      .raven-header {
+      .raven-header,
+      .raven-background {
         border-radius: 0;
         background-color: gtkopacity($inverted_dark_color, 0.9);
         color: $inverted_tertiary_fg_color;
-
-        button.flat.expander-button {
-          color: $inverted_tertiary_fg_color;
-          &:hover,
-          &:active { color: $inverted_fg_color; }
-        }
       }
 
-      .raven-background { border-radius: 0; }
+      button.flat.expander-button {
+        color: $inverted_tertiary_fg_color;
+        &:hover,
+        &:active { color: $inverted_fg_color; }
+      }
     }
   }
 
