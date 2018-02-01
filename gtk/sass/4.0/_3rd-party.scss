@@ -654,6 +654,10 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     background-color: transparent;
   }
 
+  switch { // reduce vertical spacing
+    border-width: rem(10px - 4px, $sw: 1.0);
+  }
+
   // notification list
   box.vertical > stack > box.vertical {
     > .raven-header {
