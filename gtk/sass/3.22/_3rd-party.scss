@@ -3640,10 +3640,9 @@ window.background.chromium {
       padding: 0;
       color: transparent; // hide stock icons
 
-      @each $_class, $_suffix1 in ('close', 'close'),
-                                  ('minimize', 'minimize'),
-                                  ('maximize', 'maximize'),
-                                  ('restore', 'unmaximize') {
+      @each $_class, $_suffix1 in ('close', '-close'),
+                                  ('minimize', '-minimize'),
+                                  ('maximize', '-maximize') {
         @each $_pseudo, $_suffix2 in ('', ''),
                                      (':hover', '-active'),
                                      (':active', '-active'),
@@ -3651,8 +3650,8 @@ window.background.chromium {
           &.#{$_class}#{$_pseudo} {
             background-image:
               -gtk-scaled(
-                url("assets/window-#{$_suffix1}#{$_suffix2}.png"),
-                url("assets/window-#{$_suffix1}#{$_suffix2}@2.png"));
+                url("assets/window#{$_suffix1}#{$_suffix2}.png"),
+                url("assets/window#{$_suffix1}#{$_suffix2}@2.png"));
           }
         }
       }
@@ -3671,6 +3670,20 @@ window.background.chromium {
         &:backdrop:hover {
           background-color: gtkopacity($inverted_fg_color, 0.12 * 0.4);
         }
+      }
+    }
+  }
+
+  // for unmaximize(restore) titlebutton
+  &.maximized headerbar.titlebar button.titlebutton.maximize {
+    @each $_pseudo, $_suffix2 in ('', ''),
+                                 (':hover', '-active'),
+                                 (':active', '-active'),
+                                 (':backdrop', '-backdrop') {
+      &#{$_pseudo} {
+        background-image:
+          -gtk-scaled(url("assets/window-unmaximize#{$_suffix2}.png"),
+                      url("assets/window-unmaximize#{$_suffix2}@2.png"));
       }
     }
   }
