@@ -2605,24 +2605,23 @@ window.background:not(.solid-csd) > box.vertical {
   padding: if($ref_weight < 1.0, 0 4px, 0 7px);
 }
 
+$compact_tab_height: 28px;
+
 #MozillaGtkWidget.background {
   &,
   decoration { border-radius: 2px 2px 0 0; } // enforce radius
 
-  // FIXME: unset all our specific titlebuttons
-  // until upstream stops rendering useless (weird) icons
-  headerbar.titlebar {
+  headerbar.titlebar { // >= nightly 60.0a1(2018-02-02)
+    // FIXME: no backdrop state, no maximized state, bullshit...
+
+    // unset SSD's L/R titlebar padding
+    padding: if($ref_weight < 1.0, 0, 2px 0);
     border-radius: 2px 2px 0 0;
     border-top: 1px solid $top_edge_borders_color;
 
     &.default-decoration button.titlebutton {
-      min-width: $icon_size;
-      min-height: $icon_size;
-      margin: (28px - $icon_size) / 2 2px;
-      padding: 0;
-      &:active { // revive backgrounds
-        background-color: gtkopacity($inverted_fg_color, 0.25);
-      }
+      // compute proper T/B magins and add SSD's L/R titlebar padding
+      margin: ($compact_tab_height - $titlebutton_small) / 2 3px;
     }
   }
 
