@@ -3380,22 +3380,6 @@ window#MyControlCenter > frame > box.horizontal {
 //  * Libre-Office *
 //  ****************/
 
-window.background:not(.csd):not(.solid-csd) {
-  // FIXME: still keep blocing CSDs.
-  // reserved area at the most-right side of GtkMenuBar
-  > grid.horizontal > grid.horizontal {
-    background-color: $inverted_dark_color;
-
-    > button.flat.small-button { // 'close' button
-      color: $inverted_secondary_fg_color;
-      &:hover,
-      &:active,
-      &:checked { color: $inverted_fg_color; }
-      &:disabled { color: $insensitive_inverted_fg_color; }
-    }
-  }
-}
-
 window.background:not(.solid-csd) {
   // for 'Notebookbar' toolbar
   > notebook:not(.frame) {
