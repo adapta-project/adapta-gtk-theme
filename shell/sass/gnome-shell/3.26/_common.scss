@@ -3109,12 +3109,18 @@ $provider_details_width: 120px;
 #keyboard { background-color: shellopacity($panel_bg_color, 0.87); }
 
 .keyboard {
+  // -layout and -row will become legacy
   &-layout {
     spacing: if($eta == 'false', 12px, 8px);
     padding: if($eta == 'false', 12px, 8px);
   }
 
   &-row { spacing: if($eta == 'false', 12px, 8px); }
+
+  &-container { // NEEDS_REVIEW: upcoming
+    padding: 4px;
+    spacing: 4px;
+  }
 
   &-key {
     @include fontscaling($ref_size * 2.0);
@@ -3146,6 +3152,35 @@ $provider_details_width: 120px;
       background-color: $panel_bg_color;
       transition-timing-function: $slope_slow;
     }
+
+    &.default-key { // NEEDS_REVIEW: upcoming
+      border: none;
+      background-color: mix($osd_bg_color, $selected_bg_color, 80%);
+      color: $osd_secondary_fg_color;
+      &:focus,
+      &:hover,
+      &:checked { color: $osd_fg_color; }
+      &:active {
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+    }
+
+    &.enter-key { // NEEDS_REVIEW: upcoming
+      border: none;
+      background-color: $suggested_color;
+      color: $secondary_selected_fg_color;
+      &:focus,
+      &:hover,
+      &:checked {
+        background-color: $suggested_color;
+        color: $selected_fg_color;
+      }
+      &:active {
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+    }
   }
 
   &-subkeys { //long press on a key popup
@@ -3162,6 +3197,14 @@ $provider_details_width: 120px;
     color: $selected_fg_color;
     box-shadow: $z-depth-2;
   }
+}
+
+// OSK suggestion actor
+.word-suggestions { // NEEDS_REVIEW: upcoming
+  @include fontscaling($ref_size * 1.3);
+  min-height: 1.6em;
+  spacing: if($eta == 'false', 12px, 8px);
+  font-weight: 500;
 }
 
 
