@@ -3108,6 +3108,11 @@ $provider_details_width: 120px;
 // On-screen Keyboard
 #keyboard { background-color: shellopacity($panel_bg_color, 0.87); }
 
+.key-container { // NEEDS_REVIEW: upcoming
+  padding: 4px;
+  spacing: 4px;
+}
+
 .keyboard {
   // -layout and -row will become legacy
   &-layout {
@@ -3116,11 +3121,6 @@ $provider_details_width: 120px;
   }
 
   &-row { spacing: if($eta == 'false', 12px, 8px); }
-
-  &-container { // NEEDS_REVIEW: upcoming
-    padding: 4px;
-    spacing: 4px;
-  }
 
   &-key {
     @include fontscaling($ref_size * 2.0);
