@@ -2769,9 +2769,9 @@ window.background:not(.solid-csd) > box.vertical {
 }
 
 
-// /***********
-//  * Firefox *
-//  ***********/
+// /*******************
+//  * Firefox Quantum *
+//  *******************/
 
 %_html_button_spacing {
   min-width: unset; // do not set min-width/height
@@ -2785,27 +2785,91 @@ window.background:not(.solid-csd) > box.vertical {
   padding: if($ref_weight < 1.0, 0 4px, 0 7px);
 }
 
-// FIXME: Gtk+3 firefox needs this!
-window.background:not(.solid-csd) {
-  > widget > menubar {
-    color: $inverted_secondary_fg_color;
-    &:hover {
-      // underline-indicator doesn't work at all...
-      color: $inverted_fg_color;
+$compact_tab_height: 28px;
+
+window#MozillaGtkWidget.background {
+  &,
+  decoration,
+  headerbar.titlebar { border-radius: 0; } // unset roundness
+}
+
+#MozillaGtkWidget.background {
+  headerbar.titlebar { // >= nightly 60.0a1(2018-02-02)
+    // FIXME: no backdrop state, no maximized state, bullshit...
+
+    // unset SSD's L/R titlebar padding
+    padding: if($ref_weight < 1.0, 0, 2px 0);
+    border-radius: 2px 2px 0 0;
+    border-top: 1px solid $top_edge_borders_color;
+
+    &.default-decoration button.titlebutton {
+      // compute proper T/B magins and add SSD's L/R titlebar padding
+      margin: ($compact_tab_height - $titlebutton_small) / 2 3px;
     }
-    &:disabled { color: $insensitive_inverted_fg_color; }
   }
 
-  > menu { // needs to override?
-    > menuitem > label:disabled { color: $insensitive_fg_color; }
+  // blend with weird toolbar backgrounds
+  background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
+
+  // FIXME: resetting child elements background is not fully functional yet
+  // because WidgetStyleCache keeps holding initial background-color.
+  // the stem of this incorrect colouring seems to be caused by their
+  // gdk_rgba to ns_rgba conversion. I don't think theme's fault.
+  .background,
+  frame,
+  separator,
+  scrolledwindow { background-color: $bg_color; }
+
+  scrollbar { background-color: $base_color; }
+
+  *:not(menuitem):hover, // exclude menuitem node
+  *:focus,
+  *:active,
+  *:checked {
+    &, button { color: $fg_color; } // enforce opaque foregrounds
   }
 
-  // revert to standard separators
-  > window.background > menu separator { color: $borders_color; }
+  > window.background > menu { // context-menus
+    border: unset; // hide ugly double borders
+    background-color: $secondary_base_color;
+
+    // revert to standard separators
+    > separator {
+      padding: if($ref_weight < 1.0, 2px, 3px) // non-scalable units
+               0
+               if($ref_weight < 1.0, 3px, 4px);
+      border-top: // use opaque
+        if($ref_weight < 1.0, 2px, 3px) solid $secondary_base_color;
+      border-bottom:
+        if($ref_weight < 1.0, 3px, 4px) solid $secondary_base_color;
+      background-color: $solid_light_borders_color;
+    }
+
+    > menuitem > radio:checked {
+      -gtk-icon-source: -gtk-scaled(
+                        url("assets/radio-checked#{$asset_suffix}.png"),
+                        url("assets/radio-checked#{$asset_suffix}@2.png"));
+    }
+  }
 
   > widget {
-    > frame,
-    > separator { color: $borders_color; }
+    border { border-color: $solid_light_borders_color; }
+
+    separator { background-color: $solid_light_borders_color; }
+
+    // FIXME: this affected to popover widget as well,
+    // so we can not set $light_color to search-bar...
+    > scrolledwindow > textview {
+      background-color: $secondary_base_color;
+
+      text {
+        background-color: transparent;
+        color: $secondary_fg_color;
+        &:selected,
+        &:selected:focus,
+        selection { @extend %selected_items; }
+      }
+    }
 
     > button {
       &, &.combo {
@@ -2828,8 +2892,7 @@ window.background:not(.solid-csd) {
       &:not(.combo) > button { @extend %_html_button_spacing; }
     }
 
-    > entry, // 53.x
-    > entry > entry { // 52.x or lower
+    > entry {
       @extend %_html_entry_spacing;
       // enforce fallback entries inside the HTML pages
       @extend %entry_fallback_normal;
