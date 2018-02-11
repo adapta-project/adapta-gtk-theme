@@ -2647,6 +2647,7 @@ $compact_tab_height: 28px;
   }
 
   > window.background > menu { // context-menus
+    border: unset; // hide ugly double borders
     background-color: $secondary_base_color;
 
     // revert to standard separators
@@ -2654,8 +2655,10 @@ $compact_tab_height: 28px;
       padding: if($ref_weight < 1.0, 2px, 3px) // non-scalable units
                0
                if($ref_weight < 1.0, 3px, 4px);
-      border-top: if($ref_weight < 1.0, 2px, 3px) solid transparent;
-      border-bottom: if($ref_weight < 1.0, 3px, 4px) solid transparent;
+      border-top: // use opaque
+        if($ref_weight < 1.0, 2px, 3px) solid $secondary_base_color;
+      border-bottom:
+        if($ref_weight < 1.0, 3px, 4px) solid $secondary_base_color;
       background-color: $solid_light_borders_color;
     }
 
