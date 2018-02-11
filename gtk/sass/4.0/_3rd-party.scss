@@ -2585,6 +2585,12 @@ window.background:not(.solid-csd) > box.vertical {
 
 $compact_tab_height: 28px;
 
+window#MozillaGtkWidget.background {
+  &,
+  decoration,
+  headerbar.titlebar { border-radius: 0; } // unset roundness
+}
+
 #MozillaGtkWidget.background {
   headerbar.titlebar { // >= nightly 60.0a1(2018-02-02)
     // FIXME: no backdrop state, no maximized state, bullshit...
