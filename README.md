@@ -334,6 +334,12 @@ TODO
 * Prepare for x3 scaling (priority: mid or low)
 * Drop Gtk+ 3.18 support in April 2018 (Xenial -> Bionic).
 
+Other Projects
+------
+This is a list of community projects, related to Adapta:
+ - [Adapta KDE](https://github.com/PapirusDevelopmentTeam/adapta-kde) - Port of this theme to KDE Plasma 5.
+ - [Discord-Adapta-Nokto](https://github.com/Scrumplex/Discord-Adpata-Nokto) - Adapta-oriented theme for Discord
+
 Public License
 --------------
  GPLv2.0
