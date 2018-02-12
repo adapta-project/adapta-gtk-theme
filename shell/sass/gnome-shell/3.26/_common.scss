@@ -2500,11 +2500,17 @@ $provider_details_width: 120px;
 .show-apps,
 .grid-search-result {
   .overview-icon {
-    @extend %icon_tile;
+    padding: 9px;
+    border: none;
+    border-radius: 2px;
     color: $osd_fg_color;
+    text-align: center;
     transition-duration: 0s;
 
-    StLabel { text-shadow: $z-depth-1; }
+    // FIXME: on some GPUs, text-shadow property strongly affects to rendering
+    // performance while transitioning #overview <-> .all-apps, so do not set
+    // label shadows.
+    StLabel { padding-top: 6px; } // for HiDPI
   }
 
   &:focus .overview-icon,
@@ -2514,9 +2520,7 @@ $provider_details_width: 120px;
     background-color: $osd_semi_fill_color;
     background-image: none;
     color: $selected_fg_color;
-    transition-duration: 0s;
-
-    StLabel { text-shadow: $z-depth-2; }
+    transition-duration: $duration_short;
   }
 
   &:active .overview-icon {
@@ -2525,8 +2529,6 @@ $provider_details_width: 120px;
     background-image: none;
     color: $selected_fg_color;
     transition-duration: $duration_medium;
-
-    StLabel { text-shadow: $z-depth-2; }
   }
 
   &:checked .overview-icon {
@@ -2534,9 +2536,7 @@ $provider_details_width: 120px;
     background-color: $hidden_fill_color;
     color: $selected_fg_color;
     box-shadow: inset 0 -2px $osd_indicator_color;
-    transition-duration: $duration_long;
-
-    StLabel { text-shadow: $z-depth-2; }
+    transition-duration: 0s;
   }
 }
 
@@ -2552,7 +2552,7 @@ $provider_details_width: 120px;
     &:hover .overview-icon,
     &:focus .overview-icon {
       background-color: $osd_semi_fill_color;
-      transition-duration: 0s;
+      transition-duration: $duration_short;
     }
 
     &:active .overview-icon {
@@ -2564,7 +2564,7 @@ $provider_details_width: 120px;
     &:checked:hover .overview-icon {
       background-color: $hidden_fill_color;
       box-shadow: $empty_shadow;
-      transition-duration: $duration_long;
+      transition-duration: 0s;
     }
   }
 }
@@ -2576,17 +2576,6 @@ $provider_details_width: 120px;
   background-color: $osd_indicator_color;
 }
 
-%icon_tile {
-  padding: 9px;
-  border: none;
-  border-radius: 2px;
-  color: $osd_fg_color;
-  transition-duration: $duration_medium;
-  text-align: center;
-
-  StLabel { padding-top: 6px; }
-}
-
 .show-apps {
   .show-apps-icon {
     border: none;
@@ -2596,7 +2585,7 @@ $provider_details_width: 120px;
       url("resource:///org/gnome/shell/theme/assets/show-apps.svg"));
     background-size: contain;
     color: transparent;
-    transition-duration: $duration_long;
+    transition-duration: 0s; // unset transitions
     -st-background-image-shadow: $z-depth-1;
   }
 
@@ -2608,7 +2597,7 @@ $provider_details_width: 120px;
       if($gdm == 'false',
       url("assets/show-apps-hover.svg"),
       url("resource:///org/gnome/shell/theme/assets/show-apps-hover.svg"));
-    transition-duration: $duration_long;
+    transition-duration: 0s;
     -st-background-image-shadow: $z-depth-1;
   }
   &:checked .show-apps-icon {
@@ -2617,7 +2606,7 @@ $provider_details_width: 120px;
       if($gdm == 'false',
       url("assets/show-apps-checked.svg"),
       url("resource:///org/gnome/shell/theme/assets/show-apps-checked.svg"));
-    transition-duration: $duration_long;
+    transition-duration: 0s;
     -st-background-image-shadow: $z-depth-2;
   }
 }
