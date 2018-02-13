@@ -2829,6 +2829,12 @@ window#MozillaGtkWidget.background {
     &, button { color: $fg_color; } // enforce opaque foregrounds
   }
 
+  menubar > menuitem {
+    color: $inverted_secondary_fg_color;
+    &:hover { color: $inverted_fg_color; }
+    &:disabled { color: $insensitive_inverted_fg_color; }
+  }
+
   > window.background > menu { // context-menus
     border: unset; // hide ugly double borders
     background-color: $secondary_base_color;
