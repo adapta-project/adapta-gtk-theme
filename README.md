@@ -114,7 +114,8 @@ Installation from Package(s)
 
  * openSUSE (Tumbleweed): package can be found in official repositories
 
- * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
+ * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta (stable-channel)
+        https://launchpad.net/~tista/+archive/ubuntu/adapta-nightly (dev-channel)
 
  * Solus OS:  package can be found in official repositories
 
