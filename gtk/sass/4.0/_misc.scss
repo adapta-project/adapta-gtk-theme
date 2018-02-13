@@ -81,10 +81,19 @@ wnck-tasklist > button.toggle,
 }
 
 wnck-pager {
-  background: transparent;
-  color: $inverted_fg_color;
-  &:hover { box-shadow: inset 0 -2px $outline_track_color; }
-  &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+  background-color: transparent;
+  color: mix($inverted_fg_color, $panel_bg_color, 54%); // use opaque
+  box-shadow: inset 0 0 0 1px gtkopacity($inverted_fg_color, 0.12 * 0.55);
+  &:hover {
+    background-color: $track_color;
+    color: $inverted_fg_color;
+    box-shadow: inset 0 0 0 1px $outline_track_color;
+  }
+  &:selected {
+    background-color: gtkopacity($selected_bg_color, 0.2);
+    color: $inverted_fg_color;
+    box-shadow: none;
+  }
 }
 
 na-tray-applet {
