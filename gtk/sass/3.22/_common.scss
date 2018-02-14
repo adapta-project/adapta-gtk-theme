@@ -5516,7 +5516,9 @@ infobar {
     }
   }
 
-  &:not(.error) { // always use dark forefground
+  &.info,
+  &.question,
+  &.warning { // always use dark forefground
     color: if($variant == 'light', $secondary_fg_color,
                                    $secondary_fixed_fg_color);
   }
@@ -5525,8 +5527,11 @@ infobar {
     color: $selected_fg_color;
   }
 
-  button {
-    &:not(.destructive-action):not(.suggested-action) {
+  &.info,
+  &.question,
+  &.warning,
+  &.error {
+    button:not(.destructive-action):not(.suggested-action) {
       @extend %button_flat_normal;
       background-color: transparent;
       color: $secondary_fixed_fg_color;
@@ -5547,7 +5552,9 @@ infobar {
       }
       &:disabled { color: $insensitive_fixed_fg_color; }
     }
+  }
 
+  button {
     &,
     &.text-button,
     &.image-button,
