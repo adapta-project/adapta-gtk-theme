@@ -1244,8 +1244,19 @@ $ws_thumb_spacing: 32px;
     border-radius: 0;
     border: 0 solid $borders_color;
     background-color: transparent;
-    &:ltr { border-right-width: 1px; }
-    &:rtl { border-left-width: 1px; }
+    // FIXME: Embed hidden (=meaningless) opposite-side border for preventing
+    // weird miscomputing of the preferred width for other child elements
+    // placed at the left/right side of this box...
+    // That cuased unwanted 1px stretching of ClutterTexture (StIcon) width,
+    // I don't think this was the user-theme issue though.
+    &:ltr {
+      border-left: 1px solid transparent;
+      border-right-width: 1px;
+    }
+    &:rtl {
+      border-left-width: 1px;
+      border-right: 1px solid transparent;
+    }
 
     // reset minimum-limits used in generic popup-menus
     .popup-menu-item { min-width: 0; }
