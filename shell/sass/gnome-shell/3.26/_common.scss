@@ -3112,7 +3112,6 @@ $provider_details_width: 120px;
   &-row { spacing: if($eta == 'false', 12px, 8px); }
 
   &-key {
-    @include fontscaling($ref_size * 2.0);
     min-height: 2em;
     min-width: 2em;
     border-radius: 2px;
@@ -3122,6 +3121,7 @@ $provider_details_width: 120px;
     box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
+    font-size: 13px * 2; // use unscalable unit
     font-weight: 700;
     transition-timing-function: $slope_medium;
     &:focus,
@@ -3144,56 +3144,72 @@ $provider_details_width: 120px;
 
     &.default-key { // NEEDS_REVIEW: upcoming
       border: none;
-      background-color: mix($osd_bg_color, $selected_bg_color, 80%);
-      color: $osd_secondary_fg_color;
-      &:focus,
-      &:hover,
-      &:checked { color: $osd_fg_color; }
-      &:active {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color;
-      }
+      background-color: $osd_bg_color; // keep default bg until reviewed
+      background-size: 13px * 2;
     }
 
     &.enter-key { // NEEDS_REVIEW: upcoming
       border: none;
       background-image: none;
       background-color: $suggested_color;
-      color: $secondary_selected_fg_color;
+      background-image:
+        if($gdm == 'false',
+        url("key-enter.svg"),
+        url("resource:///org/gnome/shell/theme/key-enter.svg"));
       &:focus,
       &:hover,
       &:checked {
         background-color: $suggested_color;
-        color: $selected_fg_color;
+        background-image:
+          if($gdm == 'false',
+          url("key-enter-active.svg"),
+          url("resource:///org/gnome/shell/theme/key-enter-active.svg"));
       }
       &:active {
         background-color: $selected_bg_color;
-        color: $selected_fg_color;
+        background-image:
+          if($gdm == 'false',
+          url("key-enter-active.svg"),
+          url("resource:///org/gnome/shell/theme/key-enter-active.svg"));
       }
     }
 
     &.shift-key { // NEEDS_REVIEW: upcoming
       &-lowercase {
-        background-image: none;
+        background-image:
+          if($gdm == 'false',
+          url("key-shift.svg"),
+          url("resource:///org/gnome/shell/theme/key-shift.svg"));
       }
 
       &-uppercase {
-        background-image: none;
-        &:latched { // = checked?
-          background-image: none;
+        background-image:
+          if($gdm == 'false',
+          url("key-shift-uppercase.svg"),
+          url("resource:///org/gnome/shell/theme/key-shift-uppercase.svg"));
+        &:latched {
+          background-image:
+            if($gdm == 'false',
+            url("key-shift-latched-uppercase.svg"),
+            url("resource:///org/gnome/shell/theme/key-shift-latched-uppercase.svg"));
           background-color: mix($osd_bg_color, $osd_indicator_color, 88%);
-          color: $osd_indicator_color;
           transition-timing-function: $slope_medium;
         }
       }
     }
 
     &.hide-key { // NEEDS_REVIEW: upcoming
-      background-image: none;
+      background-image:
+        if($gdm == 'false',
+        url("key-hide.svg"),
+        url("resource:///org/gnome/shell/theme/key-hide.svg"));
     }
 
     &.layout-key { // NEEDS_REVIEW: upcoming
-      background-image: none;
+      background-image:
+        if($gdm == 'false',
+        url("key-layout.svg"),
+        url("resource:///org/gnome/shell/theme/key-layout.svg"));
     }
   }
 

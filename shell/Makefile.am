@@ -8,6 +8,13 @@ shelldir   = $(srcdir)/gnome-shell
 shell_file = \
 	$(shelldir)/gnome-shell.css \
 	$(shelldir)/gnome-shell-theme.gresource \
+	$(shelldir)/key-enter.svg \
+	$(shelldir)/key-enter-active.svg \
+	$(shelldir)/key-hide.svg \
+	$(shelldir)/key-layout.svg \
+	$(shelldir)/key-shift.svg \
+	$(shelldir)/key-shift-latched-uppercase.svg \
+	$(shelldir)/key-shift-uppercase.svg \
 	$(shelldir)/message-indicator-symbolic.svg \
 	$(shelldir)/no-events.svg \
 	$(shelldir)/no-notifications.svg \
@@ -625,7 +632,6 @@ CLEANFILES += \
 	$(srcdir)/gnome-shell-nokto-eta/*.png \
 	$(srcdir)/gnome-shell-nokto-eta/assets/*.svg \
 	$(srcdir)/gnome-shell-nokto-eta/assets/dot/*.svg \
-	$(srcdir)/asset/assets-gnome-shell/common/toggle-on.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/checkbox-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/checkbox.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/corner-ripple-ltr.svg \
@@ -633,10 +639,13 @@ CLEANFILES += \
 	$(srcdir)/asset/assets-gnome-shell/common/dash-placeholder.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/go-down.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/go-up.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/key-shift-latched-uppercase.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/key-shift-uppercase.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/media-control-active.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/media-control-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/more-results.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/process-working.svg \
+	$(srcdir)/asset/assets-gnome-shell/common/toggle-on.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close-active.svg \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close-hover.svg \
