@@ -337,8 +337,7 @@ StScrollBar {
     padding: 0.3em * 2 2px 0.33em * 2;
   }
 
-  .popup-menu-item {
-    min-width: 120px;
+  .popup-menu-item {  // FIXME: do not set min-width affected to fav-box
     padding: 0.4em 1.75em;
     spacing: 1em;
     border-width: 0 1px;
@@ -1244,37 +1243,24 @@ $ws_thumb_spacing: 32px;
     border-radius: 0;
     border: 0 solid $borders_color;
     background-color: transparent;
-    // FIXME: Embed hidden (=meaningless) opposite-side border for preventing
-    // weird miscomputing of the preferred width for other child elements
-    // placed at the left/right side of this box...
-    // That cuased unwanted 1px stretching of ClutterTexture (StIcon) width,
-    // I don't think this was the user-theme issue though.
-    &:ltr {
-      border-left: 1px solid transparent;
-      border-right-width: 1px;
-    }
-    &:rtl {
-      border-left-width: 1px;
-      border-right: 1px solid transparent;
-    }
+    &:ltr { border-right-width: 1px; }
+    &:rtl { border-left-width: 1px; }
 
-    // reset minimum-limits used in generic popup-menus
-    .popup-menu-item { min-width: 0; }
+    // FIXME: override generic menuitem padding with default theme's value.
+    // And we have no way to override the min-width of global secion here,
+    // so do not add min-width into .menu > .popup-menu-item.
+    .popup-menu-item { padding: 10px; }
   }
 
   &-favorites-button {
-    padding: 7px;
-    border: 1px solid transparent;
+    padding: 10px;
     &:hover { @include button(flat-hover); }
   }
 
   &-places {
-    &-box {
-      padding: 7px;
-      border: 0 solid transparent;
-    }
+    &-box { padding: 7px; }
 
-    &-button { padding: 7px; }
+    &-button { padding: 10px; }
   }
 
   &-categories-box {
