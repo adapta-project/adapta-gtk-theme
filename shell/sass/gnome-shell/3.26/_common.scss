@@ -3095,7 +3095,7 @@ $provider_details_width: 120px;
 //  ************/
 
 // On-screen Keyboard
-#keyboard { background-color: shellopacity($panel_bg_color, 0.87); }
+#keyboard { background-color: shellopacity($panel_bg_color, 0.54); }
 
 .key-container { // NEEDS_REVIEW: upcoming
   padding: 4px;
@@ -3142,12 +3142,27 @@ $provider_details_width: 120px;
       transition-timing-function: $slope_medium;
     }
 
-    &.default-key { // NEEDS_REVIEW: upcoming
-      background-color: $osd_bg_color; // keep default bg until reviewed
+    &.default-key {
+      background-color: mix($osd_bg_color, $panel_bg_color, 75%);
       background-size: 13px * 2;
+      color: $osd_secondary_fg_color;
+      &:focus,
+      &:hover,
+      &:checked {
+        background-color: mix(mix($osd_bg_color, $panel_bg_color, 75%),
+                              $osd_fg_color, 88%);
+        color: $osd_fg_color;
+        transition-timing-function: $slope_medium;
+      }
+      &:active {
+        background-color: mix(mix($osd_bg_color, $panel_bg_color, 75%),
+                              $osd_fg_color, 75%);
+        color: $osd_fg_color;
+        transition-timing-function: $slope_slow;
+      }
     }
 
-    &.enter-key { // NEEDS_REVIEW: upcoming
+    &.enter-key {
       background-color: $suggested_color;
       background-image:
         if($gdm == 'false',
@@ -3156,7 +3171,7 @@ $provider_details_width: 120px;
       &:focus,
       &:hover,
       &:checked {
-        background-color: $suggested_color;
+        background-color: mix($suggested_color, $selected_fg_color, 88%);
         background-image:
           if($gdm == 'false',
           url("key-enter-active.svg"),
@@ -3171,7 +3186,7 @@ $provider_details_width: 120px;
       }
     }
 
-    &.shift-key { // NEEDS_REVIEW: upcoming
+    &.shift-key {
       &-lowercase {
         background-image:
           if($gdm == 'false',
@@ -3184,25 +3199,41 @@ $provider_details_width: 120px;
           if($gdm == 'false',
           url("key-shift-uppercase.svg"),
           url("resource:///org/gnome/shell/theme/key-shift-uppercase.svg"));
+        &:focus,
+        &:hover,
+        &:checked {
+          background-color: mix(mix($osd_bg_color, $panel_bg_color, 75%),
+                            $osd_indicator_color, 88%);
+        }
+        &:active {
+          background-color: mix(mix($osd_bg_color, $panel_bg_color, 75%),
+                            $osd_indicator_color, 75%);
+        }
         &:latched {
           background-image:
             if($gdm == 'false',
             url("key-shift-latched-uppercase.svg"),
             url("resource:///org/gnome/shell/theme/key-shift-latched-uppercase.svg"));
-          background-color: mix($osd_bg_color, $osd_indicator_color, 88%);
+          background-color: mix(mix($osd_bg_color, $panel_bg_color, 75%),
+                            $osd_indicator_color, 88%);
           transition-timing-function: $slope_medium;
+          &:focus,
+          &:hover {
+            background-color: mix(mix($osd_bg_color, $panel_bg_color, 75%),
+                              $osd_indicator_color, 75%);
+          }
         }
       }
     }
 
-    &.hide-key { // NEEDS_REVIEW: upcoming
+    &.hide-key {
       background-image:
         if($gdm == 'false',
         url("key-hide.svg"),
         url("resource:///org/gnome/shell/theme/key-hide.svg"));
     }
 
-    &.layout-key { // NEEDS_REVIEW: upcoming
+    &.layout-key {
       background-image:
         if($gdm == 'false',
         url("key-layout.svg"),
