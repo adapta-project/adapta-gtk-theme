@@ -119,6 +119,13 @@ shellnoktodir    = $(srcdir)/gnome-shell-nokto
 shell_nokto_file = \
 	$(shellnoktodir)/gnome-shell.css \
 	$(shellnoktodir)/gnome-shell-theme.gresource \
+	$(shellnoktodir)/key-enter.svg \
+	$(shellnoktodir)/key-enter-active.svg \
+	$(shellnoktodir)/key-hide.svg \
+	$(shellnoktodir)/key-layout.svg \
+	$(shellnoktodir)/key-shift.svg \
+	$(shellnoktodir)/key-shift-latched-uppercase.svg \
+	$(shellnoktodir)/key-shift-uppercase.svg \
 	$(shellnoktodir)/message-indicator-symbolic.svg \
 	$(shellnoktodir)/no-events.svg \
 	$(shellnoktodir)/no-notifications.svg \
@@ -161,6 +168,13 @@ shelletadir   = $(srcdir)/gnome-shell-eta
 shelleta_file = \
 	$(shelletadir)/gnome-shell.css \
 	$(shelletadir)/gnome-shell-theme.gresource \
+	$(shelletadir)/key-enter.svg \
+	$(shelletadir)/key-enter-active.svg \
+	$(shelletadir)/key-hide.svg \
+	$(shelletadir)/key-layout.svg \
+	$(shelletadir)/key-shift.svg \
+	$(shelletadir)/key-shift-latched-uppercase.svg \
+	$(shelletadir)/key-shift-uppercase.svg \
 	$(shelletadir)/message-indicator-symbolic.svg \
 	$(shelletadir)/no-events.svg \
 	$(shelletadir)/no-notifications.svg \
@@ -203,6 +217,13 @@ shellnoktoetadir     = $(srcdir)/gnome-shell-nokto-eta
 shell_nokto_eta_file = \
 	$(shellnoktoetadir)/gnome-shell.css \
 	$(shellnoktoetadir)/gnome-shell-theme.gresource \
+	$(shellnoktoetadir)/key-enter.svg \
+	$(shellnoktoetadir)/key-enter-active.svg \
+	$(shellnoktoetadir)/key-hide.svg \
+	$(shellnoktoetadir)/key-layout.svg \
+	$(shellnoktoetadir)/key-shift.svg \
+	$(shellnoktoetadir)/key-shift-latched-uppercase.svg \
+	$(shellnoktoetadir)/key-shift-uppercase.svg \
 	$(shellnoktoetadir)/message-indicator-symbolic.svg \
 	$(shellnoktoetadir)/no-events.svg \
 	$(shellnoktoetadir)/no-notifications.svg \
