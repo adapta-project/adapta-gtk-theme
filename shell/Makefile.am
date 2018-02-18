@@ -23,7 +23,7 @@ shell_file = \
 	$(shelldir)/toggle-off.svg \
 	$(shelldir)/toggle-on.svg
 if ENABLE_GNOME
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 shell_gdm3_file = $(shelldir)/gdm3-Adapta.css
 endif
 endif
@@ -127,7 +127,7 @@ shell_nokto_file = \
 	$(shellnoktodir)/toggle-off.svg \
 	$(shellnoktodir)/toggle-on.svg
 if ENABLE_GNOME
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 shell_nokto_gdm3_file = $(shellnoktodir)/gdm3-Adapta-Nokto.css
 endif
 endif
@@ -169,7 +169,7 @@ shelleta_file = \
 	$(shelletadir)/toggle-off.svg \
 	$(shelletadir)/toggle-on.svg
 if ENABLE_GNOME
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 shell_eta_gdm3_file = $(shelletadir)/gdm3-Adapta-Eta.css
 endif
 endif
@@ -211,7 +211,7 @@ shell_nokto_eta_file = \
 	$(shellnoktoetadir)/toggle-off.svg \
 	$(shellnoktoetadir)/toggle-on.svg
 if ENABLE_GNOME
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 shell_nokto_eta_gdm3_file = $(shellnoktoetadir)/gdm3-Adapta-Nokto-Eta.css
 endif
 endif
@@ -359,7 +359,7 @@ if ENABLE_GNOME
 		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3.scss ../gnome-shell/gdm3-Adapta.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
@@ -448,7 +448,7 @@ if ENABLE_GNOME
 		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 	cp -Rv $(shell_gdm3_file) $(adaptadir)/gnome-shell
 endif
 
@@ -469,7 +469,7 @@ endif
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 	cp -Rv $(shell_nokto_gdm3_file) $(noktodir)/gnome-shell
 endif
 
@@ -490,7 +490,7 @@ endif
 		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 	cp -Rv $(shell_eta_gdm3_file) $(adaptaetadir)/gnome-shell
 endif
 
@@ -511,7 +511,7 @@ endif
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 	cp -Rv $(shell_nokto_eta_gdm3_file) $(noktoetadir)/gnome-shell
 endif
 endif
@@ -651,7 +651,7 @@ CLEANFILES += \
 	$(srcdir)/asset/assets-gnome-shell/common/window-close-hover.svg \
 	$(srcdir)/asset/assets-gnome-shell/dot/*.svg \
 	$(srcdir)/asset/assets-gnome-shell/workspaces-to-dock/*.svg
-if GNOME_IS_326
+if GNOME_IS_326_OR_NEWER
 CLEANFILES += \
 	$(srcdir)/gnome-shell/gdm3-Adapta.css \
 	$(srcdir)/gnome-shell-nokto/gdm3-Adapta-Nokto.css \
