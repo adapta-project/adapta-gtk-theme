@@ -128,6 +128,7 @@ box.pinned { // drop-target
 }
 
 .budgie-panel {
+  @at-root %budgie_icon_tasklist_button,
   button.flat.launcher {
     min-width: $icon_size;
     min-height: $icon_size;
@@ -166,6 +167,7 @@ box.pinned { // drop-target
     }
   }
 
+  @at-root %running_budgie_icon_tasklist_button,
   .unpinned button.flat.launcher,
   .pinned button.flat.launcher.running {
     &:hover { -gtk-icon-filter: brightness(1.2); }
@@ -3862,6 +3864,73 @@ notebook.psppire-data-editor widget.view {
 
   button:not(.flat) { // = column_header buttons
     @extend %column_header_button;
+  }
+}
+
+
+// /**************
+//  * Vala-Panel *
+//  **************/
+
+// That app does not have any position specific style-classes,
+// so embed indicators at the bottom of tasklist buttons as default.
+// Then that app looks quite weird in vertical layout at all.
+window#ValaPanel.background { // solid-mode
+  background-color: $panel_bg_color;
+  color: $inverted_fg_color;
+
+  decoration { all: unset; } // unset all decorations
+
+  widget.-vala-panel-background > separator { // separator applet
+    background-color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
+  }
+}
+
+button.flat.-panel-button { // generic panel buttons
+  border-radius: 0;
+  color: $inverted_fg_color;
+  font-weight: 700;
+  &:hover,
+  &:active { color: $selected_fg_color; }
+  &:checked {
+    background-color: transparent;
+    color: $selected_fg_color;
+    box-shadow: inset 0 -2px $selected_bg_color;
+    &:hover {
+      background-image: radial-gradient(circle farthest-corner at center,
+                          gtkopacity($inverted_fg_color, 0) 100%,
+                          transparent 0%),
+                          image(gtkopacity($inverted_fg_color, 0));
+    }
+  }
+  &:disabled { color: $insensitive_inverted_fg_color; }
+}
+
+button.flat.-panel-icon-button {
+  @extend %budgie_icon_tasklist_button;
+
+  &:hover {
+    box-shadow: inset 0 -2px gtkopacity($inverted_fg_color, 0.4);
+  }
+  &:active,
+  &:checked {
+    box-shadow: inset 0 -2px $selected_bg_color;
+  }
+}
+
+.unpinned button.flat.-panel-icon-button,
+.pinned button.flat.-panel-icon-button.running {
+  @extend %running_budgie_icon_tasklist_button;
+
+  > image {
+    background-image: image($selected_bg_color);
+    background-position: bottom center;
+  }
+
+  &:hover,
+  &:active,
+  &:checked {
+    box-shadow: inset 0 -2px $selected_bg_color;
   }
 }
 
