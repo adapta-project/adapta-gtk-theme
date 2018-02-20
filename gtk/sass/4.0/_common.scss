@@ -2631,7 +2631,7 @@ headerbar {
       border-top-right-radius: 2px;
     }
 
-    box headerbar {
+    box.horizontal headerbar {
       &:not(:last-child) {
         &:dir(ltr) {
           border-top-left-radius: 2px;
@@ -2646,6 +2646,13 @@ headerbar {
       &:last-child {
         &:dir(ltr) { border-top-left-radius: 0; }
         &:dir(rtl) { border-top-right-radius: 0; }
+      }
+    }
+
+    box.vertical headerbar:not(.titlebar) { // inline-mode
+      &:not(:last-child) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
     }
   }
