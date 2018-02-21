@@ -3008,3 +3008,74 @@ flowbox > flowboxchild > button.recipe.tile.view {
   margin: if($ref_weight < 1.0, 6px, 8px);
 }
 
+
+// /***************
+//  * Gnome-Usage *
+//  ***************/
+
+// FIXME: why was 'adwaita.css' used for all user-themes? :/
+widget {
+  &#PROCESSOR,
+  &#MEMORY {
+    list {
+      row {
+        margin: -1px; // kill ugly parent borders
+        border: 1px solid $solid_light_borders_color;
+
+        &.max {
+          color: $fixed_fg_color; // enforce dark foreground
+          // FIXME: we can't override the salmon-pinky background
+          // background-image: image($destructive_color);
+          // border: 1px solid $destructive_color;
+        }
+      }
+
+      // kill ugly separators
+      separator.list {
+        box-shadow: inset 0 0 0 1px $solid_light_borders_color;
+      }
+    }
+  }
+
+  &#STORAGE {
+    list {
+      @extend %sidebar_template;
+      margin: -1px; // kill ugly borders
+
+      row.activatable {
+        color: $secondary_fg_color;
+        &:hover,
+        &:active { color: $secondary_fg_color; }
+      }
+
+      // kill ugly separators
+      separator.list {
+        box-shadow: inset 0 0 0 1px $solid_light_borders_color;
+      }
+    }
+  }
+}
+
+graph-switcher-button.toggle {
+  color: $secondary_fg_color;
+  font-weight: 500;
+  &:hover { // use opaque
+    background-image: image(mix($secondary_dark_color, $fg_color, 88%));
+    color: $fg_color;
+  }
+  &:active,
+  &:checked { // use opaque
+    background-image: image( // use outline-track alpha
+                        mix($secondary_dark_color, $selected_bg_color, 80%));
+    color: $fg_color;
+  }
+}
+
+rg-graph.big {
+  // FIXME: We need to re-define these properties to prevent weird
+  // 'non-repeated' imaging behind the main graph.
+  background-position: left top;
+  background-origin: border-box;
+  background-repeat: repeat;
+}
+
