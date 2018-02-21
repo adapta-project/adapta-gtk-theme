@@ -83,7 +83,7 @@ wnck-tasklist > button.toggle,
 wnck-pager {
   background-color: transparent;
   color: mix($inverted_fg_color, $panel_bg_color, 54%); // use opaque
-  box-shadow: inset 0 0 0 1px gtkopacity($inverted_fg_color, 0.12 * 0.55);
+  box-shadow: inset 0 0 0 1px $panel_separator_color;
   &:hover {
     background-color: $track_color;
     color: $inverted_fg_color;
@@ -120,7 +120,7 @@ gp-applet > separator {
     margin: 3px;
   }
 
-  background-color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
+  background-color: $panel_separator_color;
 }
 
 

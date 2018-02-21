@@ -1029,8 +1029,7 @@ window.sound-popover.background box.horizontal {
 
 // separator applet
 .budgie-panel > box > widget > separator {
-  // borders_color -> track_color
-  background-color: gtkopacity($inverted_fg_color, 0.2);
+  background-color: $panel_separator_color;
 }
 
 // workspace-switcher applet
@@ -2772,12 +2771,12 @@ PanelSeparator {
   border-width: 0;
   background: none;
   background-image: none;
-  color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
+  color: $panel_separator_color;
 }
 
 MatePanelAppletFrameDBus {
   border-style: solid;
-  border-color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
+  border-color: $panel_separator_color;
 
   &:dir(ltr) { border-width: 0 0 0 2px; }
   &:dir(rtl) { border-width: 0 2px 0 0; }
@@ -2791,7 +2790,7 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   padding: 0;
   border-radius: 0;
   border-style: solid;
-  border-color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
+  border-color: $panel_separator_color;
   -gtk-outline-radius: 0;
   background-color: transparent;
   color: $inverted_fg_color;
@@ -3910,7 +3909,7 @@ window#ValaPanel.background { // solid-mode
   decoration { all: unset; } // unset all decorations
 
   widget.-vala-panel-background > separator { // separator applet
-    background-color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
+    background-color: $panel_separator_color;
   }
 }
 
