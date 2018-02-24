@@ -2698,6 +2698,20 @@ window.background > box.vertical {
   }
 }
 
+.dconf-editor list.keys-list { // >= 3.27.91
+  > grid.horizontal > separator { // hide separators from folder views
+    all: unset;
+  }
+
+  > row.key-row:not(:first-child) { // move separator lines into child rows
+    border-top: 1px solid $borders_color;
+  }
+
+  > grid.vertical { // grid node for headers
+    background-color: $bg_color;
+  }
+}
+
 
 // /*******************
 //  * Gnome-Documents *
