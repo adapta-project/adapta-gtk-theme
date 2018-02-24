@@ -2558,27 +2558,6 @@ button.image-button.reset-shortcut-button {
   }
 }
 
-// users section
-stack > box.vertical widget overlay grid.horizontal > stack {
-  > button.toggle {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-    &:checked { // draw underline
-      @extend %button_flat_checked;
-      border-image: -gtk-gradient(radial,
-                                  center bottom, 0,
-                                  center bottom, 0.5,
-                                  to($selected_bg_color),
-                                  to(transparent))
-                                  0 0 2 / 0 0 2px;
-      background-color: transparent;
-      color: $fg_color;
-    }
-  }
-}
-
 // carousel widgets
 .carousel-arrow-container.bottom.horizontal {
   // prevent double density border
