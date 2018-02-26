@@ -472,6 +472,9 @@ window.budgie-popover:not(.csd) {
     margin-bottom: rem(10.7px); // fix truncated drop-shadow
 
     .indicator-item {
+      background-image: image($borders_color);
+      background-repeat: no-repeat;
+      background-size: 38px auto; // non-scaling unit
       background-color: $suggested_color;
       box-shadow: $z-depth-1,
                   inset 0 1px $highlight_color;
@@ -481,17 +484,11 @@ window.budgie-popover:not(.csd) {
 
       &:dir(ltr) { // mask avatar's background
         padding-left: 7px; // non-scaling unit
-        background-image: image($borders_color);
         background-position: left center;
-        background-repeat: no-repeat;
-        background-size: 38px auto; // non-scaling unit
       }
       &:dir(rtl) {
         padding-right: 7px;
-        background-image: image($borders_color);
         background-position: right center;
-        background-repeat: no-repeat;
-        background-size: 38px auto;
       }
 
       label {
