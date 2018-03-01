@@ -818,7 +818,9 @@ button {
       &:checked:disabled { @include button(flat-checked-insensitive); }
     }
 
-    &, &:not(.text-button).image-button {
+    &,
+    &:not(.text-button).image-button,
+    &.circular {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(6.7px);
@@ -875,7 +877,9 @@ button {
 
   .inline-toolbar .linked > &,
   actionbar .linked > & {
-    &, &:not(.text-button).image-button {
+    &,
+    &:not(.text-button).image-button,
+    &.circular {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(6.7px);
