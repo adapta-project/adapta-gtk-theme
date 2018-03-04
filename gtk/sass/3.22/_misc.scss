@@ -3084,3 +3084,14 @@ rg-graph.big {
   background-repeat: repeat;
 }
 
+box.speedometer {
+  // FIXME: 'outter' meant 'outer'?
+  // circular progress should be drawn with our $accent_color though,
+  // damned adwaita.css picks @theme_selected_bg_color up.
+  &-outter { opacity: 0.8; } // reduce alpha for our troughs
+
+  &-content-area { // cover up meter troughs with selection colour
+    box-shadow: 0 0 0 4px gtkopacity($selected_bg_color, 0.2);
+  }
+}
+
