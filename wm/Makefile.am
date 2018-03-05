@@ -116,7 +116,7 @@ openbox_rc_nokto_file = \
 openbox_compton_file = \
 	$(openboxdir)/compton.conf
 
-parallel_option = -0 --no-notice --line-buffer --jobs 100%
+parallel_option = --null --no-notice --line-buffer --jobs 100%
 
 # ***************************************************
 # * Generate PNG images and clone SVG and XBM files *
