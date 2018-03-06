@@ -849,6 +849,83 @@ $extra_spacing: 2.5px;
   }
 }
 
+// /**********************
+//  * Gno-Menu Extension *
+//  **********************/
+
+%stackswitcher_box {
+  border-color: $solid_light_borders_color;
+  background-color: $light_color;
+}
+
+%stackswitcher_button {
+  padding: if($eta == 'false', 7px 0.8em 8px, 5px 0.6em 6px);
+  border-color: $solid_light_borders_color;
+  background-color: $light_color !important;
+  color: $secondary_fg_color;
+  box-shadow: $empty_shadow;
+  font-weight: 500;
+  &:hover,
+  &:focus {
+    background-color: mix($light_color, $fg_color, 88%) !important;
+    color: $fg_color;
+  }
+  &:active {
+    background-color: mix($light_color, $fg_color, 75%) !important;
+    color: $fg_color;
+  }
+  &:checked { // ignored?
+    &, &:hover {
+      background-color: $selected_bg_color !important;
+      color: $selected_fg_color !important;
+    }
+  }
+  &:insensitive {
+    background-color: $light_color;
+    color: $insensitive_fg_color;
+  }
+}
+
+#gnomenuMenuMainbox {
+  &, > * { transition-duration: 0s; }
+
+  StEntry {
+    &, &:focus {
+      min-height: 0;
+      padding: if($eta == 'false', 7px 0.8em 8px, 5px 0.6em 6px);
+      border-color: $solid_light_borders_color;
+      background-color: $light_color;
+      box-shadow: $empty_shadow;
+    }
+  }
+}
+
+.gnomenu {
+  &-user-group {
+    &-box { @extend %stackswitcher_box; }
+
+    &-button {
+      &:first-child,
+      &:last-child { @extend %stackswitcher_button; }
+    }
+  }
+
+  &-view-mode {
+    &-box { @extend %stackswitcher_box; }
+
+    &-button {
+      &:first-child,
+      &:last-child { @extend %stackswitcher_button; }
+    }
+  }
+
+  &-selected-app {
+    &-title { color: $secondary_fg_color; }
+
+    &-description { color: $tertiary_fg_color; }
+  }
+}
+
 
 // /*******
 //  * OSD *
