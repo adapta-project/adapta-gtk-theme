@@ -108,16 +108,20 @@ Unsupported Gtk+ Based Desktop(s)
 
 Installation from Package(s)
 ----------------------------
+ Packages can be found in the official repositories of these distributions:
+ 
+ * Fedora
+ 
+ * openSUSE (Tumbleweed)
+
+ * Solus OS
+ 
+ Other packages:
+ 
  * Arch Linux (community): https://www.archlinux.org/packages/community/any/adapta-gtk-theme/
-
- * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
-
- * openSUSE (Tumbleweed): package can be found in official repositories
 
  * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta (stable-channel)
         https://launchpad.net/~tista/+archive/ubuntu/adapta-nightly (dev-channel)
-
- * Solus OS:  package can be found in official repositories
 
 Installation from Git Source
 ----------------------------
