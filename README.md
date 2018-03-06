@@ -328,16 +328,16 @@ Extra Telegram Support
  >   * Bundled noise-texture images are for *tiled* mode.
  >   * Telegram support is a W.I.P currently.
 
-Work in Progress
-----------------
-* Performance tuning
-* Conversion to Gtk+ 4.0
-
 Other Projects
 ------
 This is a list of community projects, related to Adapta:
  - [**Adapta KDE**](https://github.com/PapirusDevelopmentTeam/adapta-kde) - Port of this theme to KDE Plasma 5.
  - [**Discord-Adapta-Nokto**](https://github.com/Scrumplex/Discord-Adpata-Nokto) - Adapta-oriented theme for Discord
+
+Work in Progress
+----------------
+* Performance tuning
+* Conversion to Gtk+ 4.0
 
 TODO
 ----
