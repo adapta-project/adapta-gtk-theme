@@ -110,7 +110,7 @@ Installation from Package(s)
 ----------------------------
  * Arch Linux (community): https://www.archlinux.org/packages/community/any/adapta-gtk-theme/
 
- * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
+ * Fedora: https://apps.fedoraproject.org/packages/adapta-gtk-theme
 
  * openSUSE (Tumbleweed): package can be found in official repositories
 
