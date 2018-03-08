@@ -354,13 +354,20 @@ dialog.csd > headerbar.titlebar {
   }
 
   &:not(.solid) {
+    border: none;
     border-style: solid;
     border-width: 10px;
     border-radius: 2px;
-    // no need to be variant-specific, share the same asset instead
-    border-image: -gtk-scaled(url("assets/osd-shadow.png"),
-                              url("assets/osd-shadow@2.png"))
-                  10 / 10px stretch;
+    @if $variant == 'light' {
+      border-image: -gtk-scaled(url("assets/osd-shadow.png"),
+                                url("assets/osd-shadow@2.png"))
+                    10 / 10px stretch;
+    }
+    @else {
+      border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"),
+                                url("assets/osd-shadow-dark@2.png"))
+                    10 / 10px stretch;
+    }
   }
 
   // for non-composited environments
@@ -392,16 +399,34 @@ dialog.csd > headerbar.titlebar {
 
 // popup for inpu-source candidates
 #gf-candidate-popup {
-  border-radius: 2px;
-
   &, &.solid {
-    border: 1px solid $borders_color;
     background-color: gtkopacity($inverted_dark_color, 0.9);
     color: $inverted_tertiary_fg_color;
   }
 
+  &:not(.solid) {
+    border: none;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 2px;
+    @if $variant == 'light' {
+      border-image: -gtk-scaled(url("assets/osd-shadow.png"),
+                                url("assets/osd-shadow@2.png"))
+                    10 / 10px stretch;
+    }
+    @else {
+      border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"),
+                                url("assets/osd-shadow-dark@2.png"))
+                    10 / 10px stretch;
+    }
+  }
+
   // for non-composited environments
-  &.solid { border-radius: 0; }
+  &.solid {
+    border-radius: 0;
+    border: 1px solid $borders_color;
+    border-image: none;
+  }
 
   gf-candidate-box {
     border-radius: 2px;
