@@ -344,10 +344,7 @@ dialog.csd > headerbar.titlebar {
 #gf-bubble,
 #gf-osd-window,
 #gf-input-source-popup {
-  border-radius: 2px;
-
   &, &.solid {
-    border: 1px solid $borders_color;
     background-color: gtkopacity($inverted_dark_color, 0.9);
     color: $inverted_fg_color;
 
@@ -356,8 +353,22 @@ dialog.csd > headerbar.titlebar {
     }
   }
 
+  &:not(.solid) {
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 2px;
+    // no need to be variant-specific, share the same asset instead
+    border-image: -gtk-scaled(url("assets/osd-shadow.png"),
+                              url("assets/osd-shadow@2.png"))
+                  10 / 10px stretch;
+  }
+
   // for non-composited environments
-  &.solid { border-radius: 0; }
+  &.solid {
+    border-radius: 0;
+    border: 1px solid $borders_color;
+    border-image: none;
+  }
 }
 
 #gf-label-window {
