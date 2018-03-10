@@ -2,7 +2,7 @@
 # -----------------------------------------------------------
 AC_DEFUN([ADAPTA_GNOME], [
 
-    # check glib-2.0 version for determing GNOME env version
+    # check glib-2.0 version for determining GNOME env version
     GIO_VERSION=`$PKG_CONFIG --modversion glib-2.0`
     GIO_MAJOR_VERSION=`echo $GIO_VERSION | cut -d'.' -f1`
     GIO_MINOR_VERSION=`echo $GIO_VERSION | cut -d'.' -f2`
