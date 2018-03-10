@@ -36,10 +36,7 @@ ADAPTA_OPTION([CHROME_LEGACY],[chrome_legacy],[Chrome(ium)-legacy],[disable])
 ADAPTA_OPTION([PLANK],        [plank],        [Plank],             [disable])
 ADAPTA_OPTION([TELEGRAM],     [telegram],     [Telegram],          [disable])
 
-AC_PATH_PROG([PKG_CONFIG], [pkg-config])
-if test x"$PKG_CONFIG" = x; then
-	AC_MSG_ERROR(['pkg-config' not found.])
-fi
+PKG_PROG_PKG_CONFIG
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
