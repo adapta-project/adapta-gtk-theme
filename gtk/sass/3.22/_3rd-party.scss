@@ -3964,3 +3964,18 @@ menubar.-vala-panel-background > menuitem { // override global values
   font-weight: 700;
 }
 
+// run dialog
+.-panel-run-dialog {
+  scrolledwindow.frame { margin: 6px 0 0; }
+
+  row.activatable {
+    .dim-label { opacity: 0.87; }
+
+    &:hover,
+    &:active,
+    &:selected {
+      .dim-label { opacity: 1.0; }
+    }
+  }
+}
+
