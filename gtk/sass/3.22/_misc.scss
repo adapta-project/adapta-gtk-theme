@@ -396,6 +396,10 @@ dialog.csd > headerbar.titlebar {
   &:disabled { color: $insensitive_inverted_fg_color; }
 }
 
+#notification-popup-window button.text-button { // 'clear' button
+  @extend %action-area-button;
+}
+
 // input-source switcher labels
 #gf-input-source {
   min-width: rem(120px, $sw: 1.0);
