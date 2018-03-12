@@ -383,6 +383,18 @@ dialog.csd > headerbar.titlebar {
   font-weight: 400;
 }
 
+#gf-bubble,
+#notification-popup-window { // enforce circular close buttons
+  box.horizontal > button.flat { @extend %gnome-software_round_button; }
+}
+
+#gf-bubble box.horizontal > button.flat { // OSD-style close button
+  color: $inverted_secondary_accent_label_color;
+  &:hover,
+  &:active { color: $inverted_accent_label_color; }
+  &:disabled { color: $insensitive_inverted_fg_color; }
+}
+
 // input-source switcher labels
 #gf-input-source {
   min-width: rem(120px, $sw: 1.0);
@@ -448,7 +460,6 @@ dialog.csd > headerbar.titlebar {
     }
   }
 
-  button,
   .linked > button { // page-up&down buttons
     @extend %button_flat_normal;
     border-radius: 0;
