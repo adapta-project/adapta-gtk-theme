@@ -67,37 +67,37 @@ $duration_short: 0.1s;
 // normal, focus, hover, insensitive,
 // osd-normal, osd-focus, osd-insensitive
 //
-  @if $t == normal {
+  @if $t==normal {
     border-color: transparent;
     background-color: $hidden_fill_color;
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
                                                          $outline_fill_color);
   }
-  @if $t == focus {
+  @if $t==focus {
     border-color: transparent;
     box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc,
                                                          $selected_bg_color);
   }
-  @if $t == hover {
+  @if $t==hover {
     border-color: transparent;
     box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc,
                                                          $outline_fill_color);
   }
-  @if $t == insensitive {
+  @if $t==insensitive {
     border-color: transparent;
     color: $insensitive_fg_color;
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color,
                                 $fc,
                                 $insensitive_outline_fill_color);
   }
-  @if $t == osd-normal {
+  @if $t==osd-normal {
     border-color: transparent;
     background-color: $hidden_fill_color;
     box-shadow: inset 0 -1px if($fc!=$selected_bg_color,
                                 $fc,
                                 $osd_outline_fill_color);
   }
-  @if $t == osd-focus {
+  @if $t==osd-focus {
     border-color: transparent;
     background-color: $hidden_fill_color;
     color: $selected_fg_color;
@@ -105,7 +105,7 @@ $duration_short: 0.1s;
     box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc,
                                                          $selected_bg_color);
   }
-  @if $t == osd-insensitive {
+  @if $t==osd-insensitive {
     border-color: transparent;
     background-color: $hidden_fill_color;
     color: $insensitive_osd_fg_color;
@@ -133,7 +133,7 @@ $duration_short: 0.1s;
 // flat-normal, flat-hover, flat-active, flat-insensitive,
 // undecorated
 //
-  @if $t == normal {
+  @if $t==normal {
   //
   // normal button
   //
@@ -145,7 +145,7 @@ $duration_short: 0.1s;
     text-shadow: none;
     icon-shadow: none;
   }
-  @if $t == focus {
+  @if $t==focus {
   //
   // focused button
   //
@@ -194,7 +194,7 @@ $duration_short: 0.1s;
     text-shadow: none;
     icon-shadow: none;
   }
-  @if $t == flat-normal {
+  @if $t==flat-normal {
   //
   // normal flat button
   //
@@ -205,7 +205,7 @@ $duration_short: 0.1s;
     text-shadow: none;
     icon-shadow: none;
   }
-  @if $t == flat-focus {
+  @if $t==flat-focus {
   //
   // focused flat button
   //
@@ -249,7 +249,7 @@ $duration_short: 0.1s;
     text-shadow: none;
     icon-shadow: none;
   }
-  @if $t == osd-normal {
+  @if $t==osd-normal {
   //
   // osd flat button
   //
@@ -260,7 +260,7 @@ $duration_short: 0.1s;
     text-shadow: none;
     icon-shadow: none;
   }
-  @if $t == osd-focus {
+  @if $t==osd-focus {
   //
   // focused osd flat button
   //
