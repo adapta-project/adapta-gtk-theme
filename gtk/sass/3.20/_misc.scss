@@ -825,7 +825,7 @@ box > headerbar > label.polari-titlebar-separator {
 
 // add top-border to inline-toolbar
 .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
-  @if $variant == 'light' {
+  @if $variant == light {
     box-shadow: inset 0 1px $solid_light_borders_color,
                 inset 0 2px 2px rgba(0, 0, 0, 0.05),
                 inset -2px 0 2px -2px rgba(0, 0, 0, 0.03),
@@ -839,7 +839,7 @@ box > headerbar > label.polari-titlebar-separator {
   }
 
   &:dir(rtl) {
-    @if $variant == 'light' {
+    @if $variant == light {
       box-shadow: inset 0 1px $solid_light_borders_color,
                   inset 0 2px 2px rgba(0, 0, 0, 0.05),
                   inset 2px 0 2px -2px rgba(0, 0, 0, 0.03),
@@ -1079,7 +1079,7 @@ window.background {
     padding: 3px;
     border-radius: 2px;
     border-width: 9px;
-    @if $variant == 'light' {
+    @if $variant == light {
       border-image: -gtk-scaled(url("assets/osd-shadow.png"),
                                 url("assets/osd-shadow@2.png"))
                     10 / 10px stretch;
@@ -1115,7 +1115,7 @@ window.background {
   }
 
   notebook > header.top { // show drop-shadows
-    @if $variant==light {
+    @if $variant == light {
       box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
                   inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
                   inset 0 -1px $borders_color;
@@ -1128,7 +1128,7 @@ window.background {
 
     tab.reorderable-page {
       &:hover {
-        @if $variant==light {
+        @if $variant == light {
           box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
                       inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
                       inset 0 -1px $borders_color;
@@ -1140,7 +1140,7 @@ window.background {
         }
       }
       &:checked {
-        @if $variant==light {
+        @if $variant == light {
           box-shadow: -1px 0 2px rgba(0, 0, 0, 0.02),
                       -1px 0 4px rgba(0, 0, 0, 0.02),
                       1px 0 2px rgba(0, 0, 0, 0.02),
@@ -1477,7 +1477,7 @@ layout {
   border-style: none solid none;
   border-color: $solid_light_borders_color;
   // draw vertically gradient pane-separators
-  @if $variant=='light' {
+  @if $variant == light {
     border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32),
                                              rgba(0, 0, 0, 0.21) 2px,
                                              rgba(0, 0, 0, 0.09) 4px,
@@ -1501,14 +1501,14 @@ layout {
 layoutgrid > paned.horizontal separator:not(.vertical),
 layoutgrid > paned.horizontal > paned.horizontal separator:not(.vertical) {
   // draw vertically gradient pane-separators
-  @if $variant=='light' {
+  @if $variant == light {
     border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32),
                                              rgba(0, 0, 0, 0.21) 2px,
                                              rgba(0, 0, 0, 0.09) 4px,
                                              rgba(0, 0, 0, 0.09))
                   0 1 0 / 0 1px 0 stretch;
   }
-  @if $variant=='dark' {
+  @else {
     border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24),
                                              rgba(0, 0, 0, 0.16) 2px,
                                              rgba(0, 0, 0, 0.11) 4px,
@@ -1811,7 +1811,7 @@ window.background > widget > window.background > box.vertical {
 //  ******************/
 
 %ssd_notebook_shadow {
-  @if $variant==light {
+  @if $variant == light {
     box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
                 inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
                 inset 0 -1px $borders_color;
@@ -1824,7 +1824,7 @@ window.background > widget > window.background > box.vertical {
 
   tab.reorderable-page {
     &:hover {
-      @if $variant==light {
+      @if $variant == light {
         box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.29),
                     inset 0 5px 3px -5px rgba(0, 0, 0, 0.57),
                     inset 0 -1px $borders_color;
@@ -1836,7 +1836,7 @@ window.background > widget > window.background > box.vertical {
       }
     }
     &:checked {
-      @if $variant==light {
+      @if $variant == light {
         box-shadow: -1px 0 2px rgba(0, 0, 0, 0.02),
                     -1px 0 4px rgba(0, 0, 0, 0.02),
                     1px 0 2px rgba(0, 0, 0, 0.02),

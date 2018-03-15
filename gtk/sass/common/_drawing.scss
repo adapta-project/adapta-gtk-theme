@@ -334,7 +334,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 // normal, focus, insensitive, flat-normal, flat-focus, flat-insensitive;
 //
 
-  @if $t==normal {
+  @if $t == normal {
     border-radius: 0;
     -gtk-outline-radius: 0;
     border-color: $solid_light_borders_color;
@@ -344,7 +344,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   0 0 1 / 0 0 1px;
     color: gtkopacity($c, 0.87);
   }
-  @if $t==focus {
+  @if $t == focus {
     border-color: $solid_light_borders_color;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $fc 100%,
@@ -355,7 +355,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                 box-shadow 0.2s $slope_medium,
                 color 0s;
   }
-  @if $t==insensitive {
+  @if $t == insensitive {
     border-color: $solid_light_borders_color;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $outline_track_color 100%,
@@ -363,7 +363,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   0 0 1 / 0 0 1px;
     color: gtkopacity($c, 0.28);
   }
-  @if $t==flat-normal {
+  @if $t == flat-normal {
     border-radius: 0;
     -gtk-outline-radius: 0;
     border-color: $solid_light_borders_color;
@@ -374,7 +374,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     background-color: transparent;
     color: gtkopacity($c, 0.87);
   }
-  @if $t==flat-focus {
+  @if $t == flat-focus {
     border-color: $solid_light_borders_color;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $fc 100%,
@@ -385,7 +385,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                 box-shadow 0.2s $slope_medium,
                 color 0s;
   }
-  @if $t==flat-insensitive {
+  @if $t == flat-insensitive {
     border-color: $solid_light_borders_color;
     border-image: radial-gradient(circle farthest-corner at center,
                                   $outline_track_color 100%,
@@ -535,7 +535,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 // flat-checked-insensitive, undecorated
 //
 
-  @if $t==normal {
+  @if $t == normal {
   //
   // normal button
   //
@@ -544,7 +544,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     color: $secondary_fg_color;
   }
 
-  @else if $t==hover {
+  @else if $t == hover {
   //
   // hovered button
   //
@@ -552,14 +552,14 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     color: $tc;
   }
 
-  @else if $t==active {
+  @else if $t == active {
   //
   // pushed button
   //
     @extend %button_active;
     color: $tc;
   }
-  @else if $t==insensitive {
+  @else if $t == insensitive {
   //
   // insensitive button
   //
@@ -568,7 +568,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     color: if($tc!=$fg_color, $insensitive_fg_color,
                               $insensitive_secondary_fg_color);
   }
-  @else if $t==checked {
+  @else if $t == checked {
   //
   // checked button
   //
@@ -576,7 +576,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     background-color: $selected_bg_color;
     color: $selected_fg_color;
   }
-  @else if $t==checked-insensitive {
+  @else if $t == checked-insensitive {
   //
   // checked insensitive button
   //
@@ -585,33 +585,33 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     color: gtkopacity($selected_bg_color, 0.4);
   }
 
-  @else if $t==flat-normal {
+  @else if $t == flat-normal {
   //
   // normal flat button
   //
     @extend %button_flat_normal;
     background-color: transparent;
   }
-  @else if $t==flat-hover {
+  @else if $t == flat-hover {
   //
   // hovered flat button
   //
     @extend %button_flat_hover;
   }
-  @else if $t==flat-active {
+  @else if $t == flat-active {
   //
   // pushed flat button
   //
     @extend %button_flat_active;
   }
-  @else if $t==flat-insensitive {
+  @else if $t == flat-insensitive {
   //
   // insensitive flat button
   //
     @extend %button_flat_disabled;
     background-color: transparent;
   }
-  @else if $t==flat-checked {
+  @else if $t == flat-checked {
   //
   // checked flat button
   //
@@ -619,7 +619,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
     background-color: $track_color;
     color: $tc;
   }
-  @else if $t==flat-checked-insensitive {
+  @else if $t == flat-checked-insensitive {
   //
   // checked flat insensitive button
   //
