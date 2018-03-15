@@ -900,8 +900,8 @@ popover.places-menu {
     > list { // drop-down list
       border: 1px solid $borders_color;
       background-color: $secondary_dark_color;
-      box-shadow: if($variant == 'light', $inline-shadow-light,
-                                          $inline-shadow-dark);
+      box-shadow: if($variant == light, $inline-shadow-light,
+                                        $inline-shadow-dark);
 
       &.always-expand { // 'always expanded' option
         // unset revealer elevations
@@ -973,8 +973,8 @@ popover.places-menu {
     border-style: solid none solid;
     border-color: $borders_color;
     background-color: $secondary_dark_color;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    box-shadow: if($variant == light, $inline-shadow-light,
+                                      $inline-shadow-dark);
 
     entry { // where is the combo node?
       min-height: $icon_size;
@@ -1859,15 +1859,15 @@ box.topbar {
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 0% 0%; // hide ripples in normal state
-      background-color: if($variant == 'light', $suggested_color,
-                                                $bg_color);
+      background-color: if($variant == light, $suggested_color,
+                                              $bg_color);
       transition: background-image 0s $slope_slow,
                   background-size 0s $slope_medium,
                   box-shadow 0.2s $slope_slow;
     }
 
     &:hover > image {
-      background-color: if($variant == 'light',
+      background-color: if($variant == light,
                         mix($inverted_fg_color, $suggested_color, 12%),
                         mix($fg_color, $bg_color, 12%));
       box-shadow: inset 0 -2px gtkopacity($inverted_fg_color, 0.2);
@@ -1878,21 +1878,21 @@ box.topbar {
                                         gtkopacity($inverted_fg_color, 0) 25%,
                                         transparent 0%);
       background-size: 100% * 4 100% * 4;
-      background-color: if($variant == 'light',
+      background-color: if($variant == light,
                         mix($inverted_fg_color, $suggested_color, 12%),
                         $bg_color);
-      box-shadow: inset 0 -2px if($variant == 'light', $selected_fg_color,
-                                                       $selected_bg_color);
+      box-shadow: inset 0 -2px if($variant == light, $selected_fg_color,
+                                                     $selected_bg_color);
       transition: background-image 0.4s $slope_slow,
                   background-size 0.4s $slope_medium;
     }
 
     &:checked:hover > image {
-      background-color: if($variant == 'light',
+      background-color: if($variant == light,
                         mix($inverted_fg_color, $suggested_color, 25%),
                         mix($fg_color, $bg_color, 12%));
-      box-shadow: inset 0 -2px if($variant == 'light', $selected_fg_color,
-                                                       $selected_bg_color);
+      box-shadow: inset 0 -2px if($variant == light, $selected_fg_color,
+                                                     $selected_bg_color);
     }
   }
 }
@@ -2045,8 +2045,8 @@ grid.tweet-info-grid.view { // raised material
   grid > box > box > toolbar.primary-toolbar {
     // draw bottom border and shadows
     border-bottom: 1px solid $borders_color;
-    box-shadow: if($variant == 'light', $toolbar-shadow-light,
-                                        $toolbar-shadow-dark);
+    box-shadow: if($variant == light, $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
   }
 
   // tweak notebook colour
@@ -2605,7 +2605,7 @@ window#MozillaGtkWidget.background {
   }
 
   // blend with weird toolbar backgrounds
-  background-color: if($variant == 'light', $base_color, rgb(4, 18, 25));
+  background-color: if($variant == light, $base_color, rgb(4, 18, 25));
 
   // FIXME: resetting child elements background is not fully functional yet
   // because WidgetStyleCache keeps holding initial background-color.
@@ -2978,8 +2978,8 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   // main toolbar styling
   toolbar.primary-toolbar {
     border-bottom: 1px solid $borders_color;
-    box-shadow: if($variant == 'light', $toolbar-shadow-light,
-                                        $toolbar-shadow-dark);
+    box-shadow: if($variant == light, $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
   }
 
   // path-bar styling
@@ -3019,8 +3019,8 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     > box > header.top { // revive top-border when tabs are shown
       border-top: 1px solid $borders_color;
       background-color: $secondary_dark_color;
-      box-shadow: if($variant == 'light', $inline-shadow-light,
-                                          $inline-shadow-dark);
+      box-shadow: if($variant == light, $inline-shadow-light,
+                                        $inline-shadow-dark);
     }
   }
 
@@ -3028,8 +3028,8 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     margin: 0 -10px; // hide weird lateral gaps
     padding: 0 rem(6.7px);
     background-color: $secondary_dark_color;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    box-shadow: if($variant == light, $inline-shadow-light,
+                                      $inline-shadow-dark);
   }
 
   // workaround for invisible text in rename entry
@@ -3120,8 +3120,8 @@ window#MyControlCenter > frame > box.horizontal {
     > box > header.top { // revive top-border when tabs are shown
       border-top: 1px solid $borders_color;
       background-color: $secondary_dark_color;
-      box-shadow: if($variant == 'light', $inline-shadow-light,
-                                          $inline-shadow-dark);
+      box-shadow: if($variant == light, $inline-shadow-light,
+                                        $inline-shadow-dark);
     }
   }
 
@@ -3129,8 +3129,8 @@ window#MyControlCenter > frame > box.horizontal {
     margin: 0 -10px; // hide weird lateral gaps
     padding: 0 rem(6.7px);
     background-color: $secondary_dark_color;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    box-shadow: if($variant == light, $inline-shadow-light,
+                                      $inline-shadow-dark);
 
     frame,
     .frame { border-style: none; }
@@ -3147,8 +3147,8 @@ window#MyControlCenter > frame > box.horizontal {
     border-style: solid none;
     border-color: $borders_color transparent;
     background-color: $secondary_dark_color;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    box-shadow: if($variant == light, $inline-shadow-light,
+                                      $inline-shadow-dark);
   }
 }
 
@@ -3584,8 +3584,8 @@ window#wb_main_window {
 
 window.background.chromium {
   // checked-tab & toolbar & button widgets
-  background-color: if($variant == 'light', $bg_color, $base_color);
-  color: if($variant == 'light', $secondary_fg_color, $fg_color);
+  background-color: if($variant == light, $bg_color, $base_color);
+  color: if($variant == light, $secondary_fg_color, $fg_color);
 
   headerbar.titlebar {
     button.toggle { // account-button (> 64.0.3282?)
@@ -3657,7 +3657,7 @@ window.background.chromium {
   button { // for active-tab borders
     border-width: 1px;
     border-style: solid;
-    border-color: if($variant == 'light',
+    border-color: if($variant == light,
                      $solid_light_borders_color,
                      mix($bg_color, $solid_dark_borders_color, 75%));
   }

@@ -1198,8 +1198,8 @@ overlay > box.vertical > paned.horizontal > box.vertical {
     border-width: 1px 0 0;
     border-color: $borders_color;
     background-color: $secondary_dark_color;
-    box-shadow: if($variant == 'light', $inline-shadow-light,
-                                        $inline-shadow-dark);
+    box-shadow: if($variant == light, $inline-shadow-light,
+                                      $inline-shadow-dark);
   }
 }
 
@@ -1219,8 +1219,8 @@ overlay > box.vertical > paned.horizontal > box.vertical {
   > box.vertical > stack > grid.horizontal {
     @extend %sidebar_template;
     padding: rem(2.7px);
-    background-image: if($variant == 'light', $fake-shadow-light,
-                                              $fake-shadow-dark);
+    background-image: if($variant == light, $fake-shadow-light,
+                                            $fake-shadow-dark);
 
     > box.horizontal {  // header-part
       margin: rem(4px) 0;
@@ -1252,8 +1252,8 @@ overlay > box.vertical > paned.horizontal > box.vertical {
 
 .gedit-document-panel { // 'documents' pane
   @extend %sidebar_template;
-  background-image: if($variant == 'light', $fake-shadow-light,
-                                            $fake-shadow-dark);
+  background-image: if($variant == light, $fake-shadow-light,
+                                          $fake-shadow-dark);
 
   row.activatable {
     color: $secondary_fg_color;
@@ -1394,8 +1394,8 @@ layouttabbar {
   padding: rem(5.3px);
   border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
-  background-image: if($variant == 'light', $fake-shadow-light,
-                                            $fake-shadow-dark);
+  background-image: if($variant == light, $fake-shadow-light,
+                                          $fake-shadow-dark);
 
   box.horizontal > button {
     &, &.popup.toggle {
@@ -1526,8 +1526,8 @@ eggsearchbar box.search-bar {
   padding: rem(5.3px) rem(16px);
   border-bottom: 1px solid $solid_light_borders_color;
   background-color: $secondary_dark_color;
-  background-image: if($variant == 'light', $fake-shadow-light,
-                                            $fake-shadow-dark);
+  background-image: if($variant == light, $fake-shadow-light,
+                                          $fake-shadow-dark);
 
   // remove fake-shadow from bottom tabstrip
   layoutpane.bottom & { background-image: none; }
@@ -1564,8 +1564,8 @@ dockstack > stack { // treeviews inside the left/right layoutpane
 }
 
 greeter > box.vertical > stack > box.vertical > scrolledwindow {
-  background-image: if($variant == 'light', $fake-shadow-light,
-                                            $fake-shadow-dark);
+  background-image: if($variant == light, $fake-shadow-light,
+                                          $fake-shadow-dark);
 }
 
 // 'Select a Project' label
@@ -1611,28 +1611,28 @@ workbench.background > stack.titlebar > headerbar > stack {
     border-right-width: 0; // hide hard-coded ugly separator
     border-right-style: none;
     // FIXME: swapped left/right?
-    box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
-                                        $sub-header-shadow-dark-rtl);
+    box-shadow: if($variant == light, $sub-header-shadow-light-rtl,
+                                      $sub-header-shadow-dark-rtl);
   }
   &:dir(rtl) {
     border-left-width: 0;
     border-left-style: none;
-    box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
-                                        $sub-header-shadow-dark-ltr);
+    box-shadow: if($variant == light, $sub-header-shadow-light-ltr,
+                                      $sub-header-shadow-dark-ltr);
   }
 
   &.selection-mode {
     &:dir(ltr) {
       border-right-width: 0;
       border-right-style: none;
-      box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
-                                          $selected-header-shadow-dark-rtl);
+      box-shadow: if($variant == light, $selected-header-shadow-light-rtl,
+                                        $selected-header-shadow-dark-rtl);
     }
     &:dir(rtl) {
       border-left-width: 0;
       border-left-style: none;
-      box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
-                                          $selected-header-shadow-dark-ltr);
+      box-shadow: if($variant == light, $selected-header-shadow-light-ltr,
+                                        $selected-header-shadow-dark-ltr);
     }
   }
 }
@@ -2044,8 +2044,8 @@ window > popover > stack > grid > button {
 window.background > box.vertical {
   > box.horizontal #main-toolbar { // main toolbar styling
     border-bottom: 1px solid $borders_color;
-    box-shadow: if($variant == 'light', $toolbar-shadow-light,
-                                        $toolbar-shadow-dark);
+    box-shadow: if($variant == light, $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
   }
 
   paned.horizontal > widget > notebook.switcher-visible { // side-pane styling
@@ -2115,8 +2115,8 @@ window.background > grid.horizontal {
 
     > frame {
       background: none;
-      box-shadow: if($variant == 'light', $inline-shadow-light,
-                                          $inline-shadow-dark);
+      box-shadow: if($variant == light, $inline-shadow-light,
+                                        $inline-shadow-dark);
 
       > box > label {
         margin: rem(-5.3px) rem(8px);

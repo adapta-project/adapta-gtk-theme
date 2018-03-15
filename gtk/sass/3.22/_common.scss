@@ -2,7 +2,7 @@
 // Suffix
 //
 
-$asset_suffix: if($variant == 'dark', '-dark', '');
+$asset_suffix: if($variant == dark, '-dark', '');
 
 
 //
@@ -1651,8 +1651,8 @@ toolbar {
   window > &,
   window box &,
   window grid & { // special case to draw fake-shadows
-    box-shadow: if($variant == 'light', $toolbar-shadow-light,
-                                        $toolbar-shadow-dark);
+    box-shadow: if($variant == light, $toolbar-shadow-light,
+                                      $toolbar-shadow-dark);
   }
 
   &.vertical,
@@ -1900,8 +1900,8 @@ toolbar {
   border-width: 0 1px 1px;
   border-color: $borders_color;
   background-color: $secondary_dark_color;
-  box-shadow: if($variant == 'light', $inline-shadow-light,
-                                      $inline-shadow-dark);
+  box-shadow: if($variant == light, $inline-shadow-light,
+                                    $inline-shadow-dark);
 }
 
 searchbar,
@@ -1931,8 +1931,8 @@ searchbar,
 
 actionbar {
   background-color: $secondary_dark_color;
-  box-shadow: if($variant == 'light', $inline-shadow-light,
-                                      $inline-shadow-dark);
+  box-shadow: if($variant == light, $inline-shadow-light,
+                                    $inline-shadow-dark);
 
   // actual padding
   > revealer > box { padding: rem(5.3px); }
@@ -2442,12 +2442,12 @@ headerbar {
     box & { // Remove unneeded side shadows with dirty hacks
       &:not(:only-child):last-child {
         &:dir(ltr) {
-          box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
-                                              $selected-header-shadow-dark-ltr);
+          box-shadow: if($variant == light, $selected-header-shadow-light-ltr,
+                                            $selected-header-shadow-dark-ltr);
         }
         &:dir(rtl) {
-          box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
-                                              $selected-header-shadow-dark-rtl);
+          box-shadow: if($variant == light, $selected-header-shadow-light-rtl,
+                                            $selected-header-shadow-dark-rtl);
         }
       }
     }
@@ -2621,8 +2621,8 @@ headerbar {
     @extend %headerbar_child_margins;
     padding: 0 rem(5.3px); // only add lateral spacer
     // draw hilight and shadows
-    box-shadow: if($variant == 'light', $header-shadow-light,
-                                        $header-shadow-dark);
+    box-shadow: if($variant == light, $header-shadow-light,
+                                      $header-shadow-dark);
   }
 
   // override unwanted side-borders
@@ -2635,12 +2635,12 @@ headerbar {
   box & { // Remove unneeded side shadows with dirty hacks
     &:not(:only-child):last-child {
       &:dir(ltr) {
-        box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
-                                            $sub-header-shadow-dark-ltr);
+        box-shadow: if($variant == light, $sub-header-shadow-light-ltr,
+                                          $sub-header-shadow-dark-ltr);
       }
       &:dir(rtl) {
-        box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
-                                            $sub-header-shadow-dark-rtl);
+        box-shadow: if($variant == light, $sub-header-shadow-light-rtl,
+                                          $sub-header-shadow-dark-rtl);
       }
     }
   }
@@ -3225,8 +3225,8 @@ popover.background {
     border-width: 1px;
     border-style: solid;
     border-radius: 0;
-    border-color: if($variant == 'light', gtkopacity($borders_color, 0.75),
-                                          gtkopacity($borders_color, 0.5))
+    border-color: if($variant == light, gtkopacity($borders_color, 0.75),
+                                        gtkopacity($borders_color, 0.5))
                   $secondary_base_color $secondary_base_color;
     border-image: linear-gradient(to bottom,
                                   $menu_highlight_color 1px,
@@ -3459,8 +3459,8 @@ notebook {
           border-#{$_border}-width: 2px;
           border-#{$_border}-color: $selected_bg_color;
           background-color: $base_color;
-          box-shadow: if($variant == 'light', $tab-shadow-light,
-                                              $tab-shadow-dark);
+          box-shadow: if($variant == light, $tab-shadow-light,
+                                            $tab-shadow-dark);
         }
       }
     }
@@ -3769,15 +3769,15 @@ switch {
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
-    background-color: if($variant == 'light', $light_color,
-                                              mix($fg_color, $bg_color, 87%));
+    background-color: if($variant == light, $light_color,
+                                            mix($fg_color, $bg_color, 87%));
     box-shadow: $z-depth-1;
     transition-timing-function: $slope_slow;
     transition-duration: 0.2s;
   }
 
   &:hover slider {
-    background-image: image(if($variant == 'light',
+    background-image: image(if($variant == light,
                             gtkopacity($fixed_fg_color, 0.12),
                             $fg_color));
     box-shadow: $z-depth-2;
@@ -5197,12 +5197,12 @@ filechooserbutton:drop(active) {
 %sidebar_template {
   background-color: $secondary_dark_color;
   &:dir(ltr) {
-    box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                        $sidebar-dark-ltr);
+    box-shadow: if($variant == light, $sidebar-light-ltr,
+                                      $sidebar-dark-ltr);
   }
   &:dir(rtl) {
-    box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                        $sidebar-dark-rtl);
+    box-shadow: if($variant == light, $sidebar-light-rtl,
+                                      $sidebar-dark-rtl);
   }
 }
 
@@ -5224,12 +5224,12 @@ filechooserbutton:drop(active) {
 
   &, list { // draw shadows
     &:dir(ltr) {
-      box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                          $sidebar-dark-ltr);
+      box-shadow: if($variant == light, $sidebar-light-ltr,
+                                        $sidebar-dark-ltr);
     }
     &:dir(rtl) {
-      box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                          $sidebar-dark-rtl);
+      box-shadow: if($variant == light, $sidebar-light-rtl,
+                                        $sidebar-dark-rtl);
     }
   }
 
@@ -5535,8 +5535,8 @@ infobar {
   &.info,
   &.question,
   &.warning { // always use dark forefground
-    color: if($variant == 'light', $secondary_fg_color,
-                                   $secondary_fixed_fg_color);
+    color: if($variant == light, $secondary_fg_color,
+                                 $secondary_fixed_fg_color);
   }
 
   &.error { // use white text for this
@@ -5591,8 +5591,8 @@ infobar {
                          (warning, $warning_bg_color),
                          (error, $error_bg_color) {
   .#{$_type} {
-    background-color: if($variant == 'dark', mix($_color, $bg_color, 75%),
-                                             $_color);
+    background-color: if($variant == dark, mix($_color, $bg_color, 75%),
+                                           $_color);
   }
 }
 
@@ -6422,8 +6422,8 @@ popover.touch-selection {
   border: none;
   border-radius: 2px;
   color: $inverted_fg_color;
-  background-color: if($variant == 'light', $inverted_base_color,
-                                            $inverted_dark_color);
+  background-color: if($variant == light, $inverted_base_color,
+                                          $inverted_dark_color);
   box-shadow: $z-depth-1,
               inset 0 1px $highlight_color;
   font-weight: 700;
