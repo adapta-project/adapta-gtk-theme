@@ -38,7 +38,7 @@ stage {
 
 .button {
   @include button(flat-normal);
-  padding: if($eta == 'false', 7px 16px 8px, 5px 12px 6px);
+  padding: if($eta == false, 7px 16px 8px, 5px 12px 6px);
   border-radius: 2px;
   border-width: 0;
   font-weight: 500;
@@ -49,7 +49,7 @@ stage {
 }
 
 .modal-dialog-linked-button {
-  padding: if($eta == 'false', 9px 16px 10px, 6px 12px 7px);
+  padding: if($eta == false, 9px 16px 10px, 6px 12px 7px);
   border: none;
   color: $inverted_secondary_accent_label_color;
   background-color: transparent;
@@ -92,9 +92,9 @@ stage {
 
 StEntry {
   @include entry(normal);
-  min-height: if($eta == 'false', 1em + 0.7em + 0.8em,
-                                  1em + 0.5em + 0.6em);
-  padding: if($eta == 'false', 0 0.8em, 0 0.6em);
+  min-height: if($eta == false, 1em + 0.7em + 0.8em,
+                                1em + 0.5em + 0.6em);
+  padding: if($eta == false, 0 0.8em, 0 0.6em);
   border-radius: 0;
   border-width: 0;
   color: $osd_fg_color;
@@ -127,8 +127,8 @@ StScrollBar {
   padding: 0;
 
   StScrollView & {
-    min-width: if($eta == 'false', 0.45em, 0.3em);
-    min-height: if($eta == 'false', 0.45em, 0.3em);
+    min-width: if($eta == false, 0.45em, 0.3em);
+    min-height: if($eta == false, 0.45em, 0.3em);
   }
 
   StBin#trough {
@@ -247,26 +247,26 @@ StScrollBar {
   background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-4;
 
-  &-content-box { padding: if($eta == 'false', 24px, 20px); }
+  &-content-box { padding: if($eta == false, 24px, 20px); }
 
   .run-dialog {
     &-entry {
       width: 20em;
-      margin-bottom: if($eta == 'false', 6px, 4px);
+      margin-bottom: if($eta == false, 6px, 4px);
     }
 
     &-error-box {
       @include fontscaling($ref_size * 0.9);
-      padding-top: if($eta == 'false', 16px, 12px);
-      spacing: if($eta == 'false', 6px, 4px);
+      padding-top: if($eta == false, 16px, 12px);
+      spacing: if($eta == false, 6px, 4px);
       color: $error_color;
     }
 
-    &-button-box { padding-top: if($eta == 'false', 1em, 0.7em); }
+    &-button-box { padding-top: if($eta == false, 1em, 0.7em); }
 
     &-label {
       @include fontscaling($ref_size * 1.1);
-      padding-bottom: if($eta == 'false', 0.4em, 0.3em);
+      padding-bottom: if($eta == false, 0.4em, 0.3em);
       font-weight: 400;
       color: $osd_tertiary_fg_color;
     }
@@ -285,26 +285,26 @@ StScrollBar {
 //  **********************/
 
 .end-session-dialog {
-  spacing: if($eta == 'false', 42px, 30px);
+  spacing: if($eta == false, 42px, 30px);
   border: none;
 
-  &-list { padding-top: if($eta == 'false', 20px, 14px); }
+  &-list { padding-top: if($eta == false, 20px, 14px); }
 
   &-layout {
-    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
-    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
+    &:ltr { padding-left: if($eta == false, 17px, 12px); }
+    &:rtl { padding-right: if($eta == false, 17px, 12px); }
   }
 
   &-description {
     width: 28em;
-    padding-bottom: if($eta == 'false', 10px, 7px);
+    padding-bottom: if($eta == false, 10px, 7px);
     &:ltr { text-align: left; }
     &:rtl { text-align: right; }
   }
 
   &-warning {
     width: 28em;
-    padding-top: if($eta == 'false', 6px, 4px);
+    padding-top: if($eta == false, 6px, 4px);
     color: $warning_color;
     &:ltr { text-align: left; }
     &:rtl { text-align: right; }
@@ -325,14 +325,14 @@ StScrollBar {
   }
 
   &-inhibitor-layout {
-    spacing: if($eta == 'false', 16px, 12px);
-    max-height: if($eta == 'false', 200px, 180px);
-    padding-right: if($eta == 'false', 65px, 50px);
-    padding-left: if($eta == 'false', 65px, 50px);
+    spacing: if($eta == false, 16px, 12px);
+    max-height: if($eta == false, 200px, 180px);
+    padding-right: if($eta == false, 65px, 50px);
+    padding-left: if($eta == false, 65px, 50px);
   }
 
   &-session-list,
-  &-app-list { spacing: if($eta == 'false', 1em, 0.7em); }
+  &-app-list { spacing: if($eta == false, 1em, 0.7em); }
 
   &-list-header {
     font-weight: 700;
@@ -341,7 +341,7 @@ StScrollBar {
   }
 
   &-app-list-item,
-  &-session-list-item { spacing: if($eta == 'false', 1em, 0.7em); }
+  &-session-list-item { spacing: if($eta == false, 1em, 0.7em); }
 
   &-app-list-item-name,
   &-session-list-item-name { font-weight: 700; }
@@ -365,45 +365,45 @@ StScrollBar {
 
 .show-processes,
 .mount-question {
-  &-dialog { spacing: if($eta == 'false', 24px, 18px); }
+  &-dialog { spacing: if($eta == false, 24px, 18px); }
 
   &-dialog-subject {
-    padding-top: if($eta == 'false', 10px, 8px);
-    padding-bottom: if($eta == 'false', 6px, 5px);
-    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
-    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
+    padding-top: if($eta == false, 10px, 8px);
+    padding-bottom: if($eta == false, 6px, 5px);
+    &:ltr { padding-left: if($eta == false, 17px, 12px); }
+    &:rtl { padding-right: if($eta == false, 17px, 12px); }
   }
 
   &-dialog-description {
     width: 28em;
-    &:ltr { padding-left: if($eta == 'false', 17px, 12px); }
-    &:rtl { padding-right: if($eta == 'false', 17px, 12px); }
+    &:ltr { padding-left: if($eta == false, 17px, 12px); }
+    &:rtl { padding-right: if($eta == false, 17px, 12px); }
   }
 }
 
 .show-processes-dialog {
   &-app-list {
-    max-height: if($eta == 'false', 200px, 180px);
-    padding-top: if($eta == 'false', 24px, 18px);
+    max-height: if($eta == false, 200px, 180px);
+    padding-top: if($eta == false, 24px, 18px);
     &:ltr {
-      padding-left: if($eta == 'false', 49px, 37px);
-      padding-right: if($eta == 'false', 32px, 26px);
+      padding-left: if($eta == false, 49px, 37px);
+      padding-right: if($eta == false, 32px, 26px);
     }
     &:rtl {
-      padding-right: if($eta == 'false', 49px, 37px);
-      padding-left: if($eta == 'false', 32px, 26px);
+      padding-right: if($eta == false, 49px, 37px);
+      padding-left: if($eta == false, 32px, 26px);
     }
 
     &-item {
       color: $osd_secondary_fg_color;
       &:hover { color: $osd_fg_color; }
-      &:ltr { padding-right: if($eta == 'false', 1em, 0.7em); }
-      &:rtl { padding-left: if($eta == 'false', 1em, 0.7em); }
+      &:ltr { padding-right: if($eta == false, 1em, 0.7em); }
+      &:rtl { padding-left: if($eta == false, 1em, 0.7em); }
     }
 
     &-item-icon {
-      &:ltr { padding-right: if($eta == 'false', 17px, 12px); }
-      &:rtl { padding-left: if($eta == 'false', 17px, 12px); }
+      &:ltr { padding-right: if($eta == false, 17px, 12px); }
+      &:rtl { padding-left: if($eta == false, 17px, 12px); }
     }
 
     &-item-name { @include fontscaling($ref_size * 1.0); }
@@ -421,11 +421,11 @@ StScrollBar {
   border: none;
 
   &-main-layout {
-    spacing: if($eta == 'false', 24px, 18px);
-    padding: if($eta == 'false', 10px, 8px);
+    spacing: if($eta == false, 24px, 18px);
+    padding: if($eta == false, 10px, 8px);
   }
 
-  &-message-layout { spacing: if($eta == 'false', 16px, 12px); }
+  &-message-layout { spacing: if($eta == false, 16px, 12px); }
 
   &-headline {
     @include fontscaling($ref_size * 1.3);
@@ -440,12 +440,12 @@ StScrollBar {
 
   &-password-box {
     spacing: 1em;
-    padding-bottom: if($eta == 'false', 1em, 0.7em);
+    padding-bottom: if($eta == false, 1em, 0.7em);
   }
 
   &-error-label {
     @include fontscaling($ref_size * 1.0);
-    padding-bottom: if($eta == 'false', 8px, 6px);
+    padding-bottom: if($eta == false, 8px, 6px);
     color: $error_color;
   }
 
@@ -465,9 +465,9 @@ StScrollBar {
 
 .polkit-dialog {
   &-user-layout {
-    spacing: if($eta == 'false', 10px, 7px);
-    &:ltr { padding-left: if($eta == 'false', 10px, 7px); }
-    &:rtl { padding-right: if($eta == 'false', 10px, 7px); }
+    spacing: if($eta == false, 10px, 7px);
+    &:ltr { padding-left: if($eta == false, 10px, 7px); }
+    &:rtl { padding-right: if($eta == false, 10px, 7px); }
   }
 
   &-user-root-label { color: $warning_color; }
@@ -485,12 +485,12 @@ StScrollBar {
 //  * Audio Selection Dialog *
 //  **************************/
 
-.audio-device-selection-dialog { spacing: if($eta == 'false', 3em, 2.2em); }
+.audio-device-selection-dialog { spacing: if($eta == false, 3em, 2.2em); }
 
 .audio-selection {
   &-content {
-    padding: if($eta == 'false', 2.2em, 1.8em);
-    spacing: if($eta == 'false', 2em, 1.6em);
+    padding: if($eta == false, 2.2em, 1.8em);
+    spacing: if($eta == false, 2em, 1.6em);
   }
 
   &-title {
@@ -498,7 +498,7 @@ StScrollBar {
     text-align: center;
   }
 
-  &-box { spacing: if($eta == 'false', 2em, 1.6em); }
+  &-box { spacing: if($eta == false, 2em, 1.6em); }
 
   &-device {
     border: 1px solid $borders_color;
@@ -512,8 +512,8 @@ StScrollBar {
   }
 
   &-device-box {
-    padding: if($eta == 'false', 2em, 1.6em);
-    spacing: if($eta == 'false', 2em, 1.6em);
+    padding: if($eta == false, 2em, 1.6em);
+    spacing: if($eta == false, 2em, 1.6em);
   }
 
   &-device-icon { icon-size: 64px; }
@@ -525,16 +525,16 @@ StScrollBar {
 //  *****************/
 
 .access-dialog {
-  spacing: if($eta == 'false', 30px, 24px);
+  spacing: if($eta == false, 30px, 24px);
 
   &-main-layout {
-    padding: if($eta == 'false', 1em 1.6em 0, 0.7em 1.2em 0);
-    spacing: if($eta == 'false', 1em, 0.7em);
+    padding: if($eta == false, 1em 1.6em 0, 0.7em 1.2em 0);
+    spacing: if($eta == false, 1em, 0.7em);
   }
 
   &-content {
     max-width: 28em;
-    spacing: if($eta == 'false', 2em, 1.6em);
+    spacing: if($eta == false, 2em, 1.6em);
   }
 
   &-icon {
@@ -557,11 +557,11 @@ StScrollBar {
 //  **********************/
 
 .geolocation-dialog {
-  spacing: if($eta == 'false', 30px, 24px);
+  spacing: if($eta == false, 30px, 24px);
 
-  &-main-layout { spacing: if($eta == 'false', 1em, 0.7em); }
+  &-main-layout { spacing: if($eta == false, 1em, 0.7em); }
 
-  &-content { spacing: if($eta == 'false', 2em, 1.6em); }
+  &-content { spacing: if($eta == false, 2em, 1.6em); }
 
   &-icon { icon-size: 48px; }
 
@@ -589,7 +589,7 @@ StScrollBar {
 //  * Popovers/Menus *
 //  ******************/
 
-$default_spacing: if($eta == 'false', 8px, 6px);
+$default_spacing: if($eta == false, 8px, 6px);
 $extra_spacing: 2.5px;
 
 .popup-menu {
@@ -615,7 +615,7 @@ $extra_spacing: 2.5px;
     }
   }
 
-  .popup-menu-content { padding: if($eta == 'false', 0.3em 0, 0.21em 0); }
+  .popup-menu-content { padding: if($eta == false, 0.3em 0, 0.21em 0); }
 
   .popup-menu-item {
     spacing: $default_spacing;
@@ -624,12 +624,12 @@ $extra_spacing: 2.5px;
     transition-duration: 0s;
 
     &:ltr {
-      padding: if($eta == 'false', 0.45em 1.75em 0.45em 0,
-                                   0.3em 1.2em 0.3em 0);
+      padding: if($eta == false, 0.45em 1.75em 0.45em 0,
+                                 0.3em 1.2em 0.3em 0);
     }
     &:rtl {
-      padding: if($eta == 'false', 0.45em 0 0.45em 1.75em,
-                                   0.3em 0 0.3em 1.2em);
+      padding: if($eta == false, 0.45em 0 0.45em 1.75em,
+                                 0.3em 0 0.3em 1.2em);
     }
 
     &:checked {
@@ -807,11 +807,11 @@ $extra_spacing: 2.5px;
     border-color: $borders_color;
 
     &:ltr {
-      padding: if($eta == 'false', 0 0 0 12px, 0 0 0 8px);
+      padding: if($eta == false, 0 0 0 12px, 0 0 0 8px);
       border-left-width: 1px;
     }
     &:rtl {
-      padding: if($eta == 'false', 0 12px 0 0, 0 8px 0 0);
+      padding: if($eta == false, 0 12px 0 0, 0 8px 0 0);
       border-right-width: 1px;
     }
   }
@@ -840,7 +840,7 @@ $extra_spacing: 2.5px;
   }
 
   StScrollView.apps-menu { // left-pane
-    margin-bottom: if($eta == 'false', 6px, 4px);
+    margin-bottom: if($eta == false, 6px, 4px);
     padding: 0;
     border-width: 1px;
     background-color: $bg_color;
@@ -860,7 +860,7 @@ $extra_spacing: 2.5px;
 }
 
 %stackswitcher_button {
-  padding: if($eta == 'false', 7px 0.8em 8px, 5px 0.6em 6px);
+  padding: if($eta == false, 7px 0.8em 8px, 5px 0.6em 6px);
   border-color: $solid_light_borders_color;
   background-color: $light_color !important;
   color: $secondary_fg_color;
@@ -893,7 +893,7 @@ $extra_spacing: 2.5px;
   StEntry {
     &, &:focus {
       min-height: 0;
-      padding: if($eta == 'false', 7px 0.8em 8px, 5px 0.6em 6px);
+      padding: if($eta == false, 7px 0.8em 8px, 5px 0.6em 6px);
       border-color: $solid_light_borders_color;
       background-color: $light_color;
       box-shadow: $empty_shadow;
@@ -935,8 +935,8 @@ $extra_spacing: 2.5px;
 .osd-window {
   min-width: 64px;
   min-height: 64px;
-  margin: if($eta == 'false', 32px, 24px);
-  spacing: if($eta == 'false', 1em, 0.7em);
+  margin: if($eta == false, 32px, 24px);
+  spacing: if($eta == false, 1em, 0.7em);
   font-weight: 700;
   text-align: center;
 
@@ -962,13 +962,13 @@ $extra_spacing: 2.5px;
 
 .pad-osd {
   &-window {
-    padding: if($eta == 'false', 32px, 26px);
+    padding: if($eta == false, 32px, 26px);
     background-color: shellopacity($osd_bg_color, 0.9);
 
     .pad-osd-title {
-      &-box { spacing: if($eta == 'false', 12px, 10px); }
+      &-box { spacing: if($eta == false, 12px, 10px); }
 
-      &-menu-box { spacing: if($eta == 'false', 6px, 5px); }
+      &-menu-box { spacing: if($eta == false, 6px, 5px); }
     }
   }
 }
@@ -981,8 +981,8 @@ $extra_spacing: 2.5px;
 //  ****************/
 
 .switcher-popup {
-  padding: if($eta == 'false', 8px, 6px);
-  spacing: if($eta == 'false', 16px, 12px);
+  padding: if($eta == false, 8px, 6px);
+  spacing: if($eta == false, 16px, 12px);
 }
 
 .osd-window,
@@ -997,14 +997,14 @@ $extra_spacing: 2.5px;
     min-height: 13.3px * 2; // use 'px' unit
   }
 
-  &-item-container { spacing: if($eta == 'false', 8px, 6px); }
+  &-item-container { spacing: if($eta == false, 8px, 6px); }
 
   .item-box {
-    padding: if($eta == 'false', 8px, 6px);
+    padding: if($eta == false, 8px, 6px);
     border-radius: 2px;
 
     &:outlined {
-      padding: if($eta == 'false', 6px, 4px);
+      padding: if($eta == false, 6px, 4px);
       border: 2px solid $osd_outline_fill_color;
     }
     &:selected {
@@ -1018,7 +1018,7 @@ $extra_spacing: 2.5px;
     spacing: 4px;
   }
 
-  .thumbnail { width: if($eta == 'false', 256px, 192px); }
+  .thumbnail { width: if($eta == false, 256px, 192px); }
 
   .separator {
     width: 1px;
@@ -1035,9 +1035,9 @@ $extra_spacing: 2.5px;
 }
 
 .input-source-switcher-symbol {
-  @include fontscaling($ref_size * if($eta == 'false', 3.0, 2.4));
-  width: if($eta == 'false', 96px, 72px);
-  height: if($eta == 'false', 96px, 72px);
+  @include fontscaling($ref_size * if($eta == false, 3.0, 2.4));
+  width: if($eta == false, 96px, 72px);
+  height: if($eta == false, 96px, 72px);
 }
 
 
@@ -1058,19 +1058,19 @@ $extra_spacing: 2.5px;
 
 .workspace-switcher {
   padding: 0;
-  spacing: if($eta == 'false', 8px, 6px);
+  spacing: if($eta == false, 8px, 6px);
   border: 0;
   border-radius: 0;
   background: transparent;
 
-  &-group { padding: if($eta == 'false', 12px, 8px); }
+  &-group { padding: if($eta == false, 12px, 8px); }
 
   &-container { @extend %osd-panel; }
 }
 
 .ws-switcher {
   &-active-up {
-    height: if($eta == 'false', 50px, 36px);
+    height: if($eta == false, 50px, 36px);
     background-color: $accent_fill_color;
     background-image: url("assets/go-up.svg");
     background-size: 24px;
@@ -1078,7 +1078,7 @@ $extra_spacing: 2.5px;
   }
 
   &-active-down {
-    height: if($eta == 'false', 50px, 36px);
+    height: if($eta == false, 50px, 36px);
     background-color: $accent_fill_color;
     background-image: url("assets/go-down.svg");
     background-size: 24px;
@@ -1086,7 +1086,7 @@ $extra_spacing: 2.5px;
   }
 
   &-box {
-    height: if($eta == 'false', 50px, 36px);
+    height: if($eta == false, 50px, 36px);
     border: 2px solid $osd_outline_fill_color;
     border-radius: 2px;
     background: transparent;
@@ -1096,7 +1096,7 @@ $extra_spacing: 2.5px;
 %osd-panel {
   // the value of bottom-padding is shared with '.switcher-arrow' size,
   // so do not reduce to < 12px (StDrawingArea)
-  padding: if($eta == 'false', 16px, 12px);
+  padding: if($eta == false, 16px, 12px);
   border-radius: 2px;
   border: none;
   color: $osd_fg_color;
@@ -1126,11 +1126,11 @@ $extra_spacing: 2.5px;
 
 #panel {
   // default height
-  min-height: if($eta == 'false', 30px,  // = 2.25em
-                                  25px); // = 1.875em
+  min-height: if($eta == false, 30px,  // = 2.25em
+                                25px); // = 1.875em
   // special height for upscaled via font-scaling-factor
   // this should be always smaller than min-height if f-s-f < 1.0
-  height: if($eta == 'false', 2.1em, 1.8em);
+  height: if($eta == false, 2.1em, 1.8em);
   background-color: $panel_bg_color;
   font-weight: 700;
   transition-timing-function: $slope_slow;
@@ -1178,14 +1178,14 @@ $extra_spacing: 2.5px;
       -panel-corner-border-color: transparent;
     }
 
-    StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
+    StLabel { padding: if($eta == false, 0 4px 1px, 0 2px 1px); }
 
     StIcon { margin-top: 1px; } // reset base-line
   }
 
   .panel-button {
-    -natural-hpadding: if($eta == 'false', 10px, 6px);
-    -minimum-hpadding: if($eta == 'false', 10px, 6px);
+    -natural-hpadding: if($eta == false, 10px, 6px);
+    -minimum-hpadding: if($eta == false, 10px, 6px);
     color: $osd_fg_color;
     font-weight: 700;
     // FIXME: once these buttons are placed in panel-corners,
@@ -1195,7 +1195,7 @@ $extra_spacing: 2.5px;
 
     .app-menu-icon { // dimensions of the icon are hardcoded
       -st-icon-style: symbolic;
-      padding: if($eta == 'false', 0 5px, 0 2px);
+      padding: if($eta == false, 0 5px, 0 2px);
     }
 
     &:hover {
@@ -1218,10 +1218,10 @@ $extra_spacing: 2.5px;
 
     .system-status-icon {
       icon-size: 16px;
-      padding: if($eta == 'false', 0 5px, 0 3px);
+      padding: if($eta == false, 0 5px, 0 3px);
     }
 
-    StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
+    StLabel { padding: if($eta == false, 0 4px 1px, 0 2px 1px); }
 
     StIcon { margin-top: 1px; } // reset base-line
 
@@ -1255,17 +1255,17 @@ $extra_spacing: 2.5px;
 //  ********************/
 
 #calendarArea {
-  padding: if($eta == 'false', 0.75em 1.0em,
-                               0.5em 0.7em);
+  padding: if($eta == false, 0.75em 1.0em,
+                             0.5em 0.7em);
 }
 
-.calendar { margin-bottom: if($eta == 'false', 1em, 0.7em); }
+.calendar { margin-bottom: if($eta == false, 1em, 0.7em); }
 
 .calendar,
 .datemenu-today-button,
 .datemenu-displays-box,
 .message-list-sections {
-  margin: if($eta == 'false', 0 1.5em, 0 1em);
+  margin: if($eta == false, 0 1.5em, 0 1em);
 }
 
 .datemenu { // optimize spacing
@@ -1273,7 +1273,7 @@ $extra_spacing: 2.5px;
 
   &-displays-section { padding-bottom: 0; }
 
-  &-displays-box { spacing: if($eta == 'false', 1em, 0.7em); }
+  &-displays-box { spacing: if($eta == false, 1em, 0.7em); }
 }
 
 // pane-separator between messages and calendar
@@ -1507,10 +1507,10 @@ $extra_spacing: 2.5px;
 //  ****************/
 
 .message-list {
-  width: if($eta == 'false', 420px, 380px);
+  width: if($eta == false, 420px, 380px);
 
   &-clear-button.button { // 'Clear all' button
-    margin:  if($eta == 'false', 1.5em 1.5em 0, 1.2em 1.2em 0);
+    margin:  if($eta == false, 1.5em 1.5em 0, 1.2em 1.2em 0);
     color: $secondary_accent_label_color;
     background-color: transparent;
     font-weight: 700;
@@ -1527,7 +1527,7 @@ $extra_spacing: 2.5px;
     &:insensitive { @include button(flat-insensitive); }
   }
 
-  &-sections { spacing: if($eta == 'false', 1.5em, 1.2em); }
+  &-sections { spacing: if($eta == false, 1.5em, 1.2em); }
 
   &-section,
   &-section-list { spacing: 0.7em; }
@@ -1707,13 +1707,13 @@ $extra_spacing: 2.5px;
 
 .media-message-cover-icon {
   // use 'important' flag to overrride .message-icon-bin > StIcon size
-  icon-size: if($eta == 'false', 48px, 36px) !important;
+  icon-size: if($eta == false, 48px, 36px) !important;
   // subtruct .message-content's 'close' button padding
   margin-bottom: 4px - 2px;
 
   &.fallback {
-    icon-size: if($eta == 'false', 24px, 16px) !important;
-    padding: if($eta == 'false', 12px, 10px);
+    icon-size: if($eta == false, 24px, 16px) !important;
+    padding: if($eta == false, 12px, 10px);
     border: none;
     border-radius: 2px;
     color: $osd_tertiary_fg_color;
@@ -1741,10 +1741,10 @@ $extra_spacing: 2.5px;
 
 #appMenu {
   spinner-image: url("process-working.svg");
-  padding: if($eta == 'false', 0 10px, 0 6px);
+  padding: if($eta == false, 0 10px, 0 6px);
 
   // only LR padding
-  StLabel { padding: if($eta == 'false', 0 4px, 0 2px); }
+  StLabel { padding: if($eta == false, 0 4px, 0 2px); }
 
   .label-shadow { color: transparent; }
 }
@@ -1752,17 +1752,17 @@ $extra_spacing: 2.5px;
 .aggregate-menu {
   min-width: 24em;
 
-  .popup-menu-icon { padding: if($eta == 'false', 0 6px, 0 4px); }
+  .popup-menu-icon { padding: if($eta == false, 0 6px, 0 4px); }
 }
 
 .system-menu-action {
-  padding: if($eta == 'false', 16px, 10px);
+  padding: if($eta == false, 16px, 10px);
   border-radius: 100px;
   border: none;
   color: $secondary_accent_label_color;
   &:hover,
   &:focus {
-    padding: if($eta == 'false', 16px, 10px);
+    padding: if($eta == false, 16px, 10px);
     border: none;
     background-color: $accent_semi_fill_color;
     color: $accent_label_color;
@@ -1872,12 +1872,12 @@ $extra_spacing: 2.5px;
   min-width: 34em;
 
   &-content {
-    spacing: if($eta == 'false', 20px, 16px);
-    padding: if($eta == 'false', 24px, 18px);
+    spacing: if($eta == false, 20px, 16px);
+    padding: if($eta == false, 24px, 18px);
   }
 
   &-header-hbox {
-    spacing: if($eta == 'false', 10px, 7px);
+    spacing: if($eta == false, 10px, 7px);
     // dimming for subtitle
     color: $osd_tertiary_fg_color;
   }
@@ -1895,7 +1895,7 @@ $extra_spacing: 2.5px;
 
   &-airplane {
     &-box {
-      spacing: if($eta == 'false', 12px, 9px);
+      spacing: if($eta == false, 12px, 9px);
 
       .button {
         color: $inverted_secondary_accent_label_color;
@@ -1926,8 +1926,8 @@ $extra_spacing: 2.5px;
 
   &-item {
     @include fontscaling($ref_size * 1.0);
-    spacing: if($eta == 'false', 20px, 16px);
-    padding: if($eta == 'false', 12px, 8px);
+    spacing: if($eta == false, 20px, 16px);
+    padding: if($eta == false, 12px, 8px);
     color: $osd_fg_color;
     &:selected {
       background-color: $selected_bg_color;
@@ -1943,7 +1943,7 @@ $extra_spacing: 2.5px;
 .no-networks {
   &-label { color: $osd_tertiary_fg_color; }
 
-  &-box { spacing: if($eta == 'false', 12px, 8px); }
+  &-box { spacing: if($eta == false, 12px, 8px); }
 }
 
 
@@ -1952,19 +1952,19 @@ $extra_spacing: 2.5px;
 //  ************/
 
 #overview {
-  spacing: if($eta == 'false', 24px, 18px);
+  spacing: if($eta == false, 24px, 18px);
 
-  &-controls { padding-bottom: if($eta == 'false', 32px, 26px); }
+  &-controls { padding-bottom: if($eta == false, 32px, 26px); }
 }
 
 .window-picker { // container around window thumbnails
-  -horizontal-spacing: if($eta == 'false', 32px, 26px);
-  -vertical-spacing: if($eta == 'false', 32px, 26px);
-  padding-left: if($eta == 'false', 32px, 26px);
-  padding-right: if($eta == 'false', 32px, 26px);
-  padding-bottom: if($eta == 'false', 48px, 36px);
+  -horizontal-spacing: if($eta == false, 32px, 26px);
+  -vertical-spacing: if($eta == false, 32px, 26px);
+  padding-left: if($eta == false, 32px, 26px);
+  padding-right: if($eta == false, 32px, 26px);
+  padding-bottom: if($eta == false, 48px, 36px);
 
-  &.external-monitor { padding: if($eta == 'false', 32px, 26px); }
+  &.external-monitor { padding: if($eta == false, 32px, 26px); }
 }
 
 .window-clone-border {
@@ -1977,12 +1977,12 @@ $extra_spacing: 2.5px;
 }
 
 .window-caption {
-  spacing: if($eta == 'false', 25px, 19px);
-  padding: if($eta == 'false', 0.3em 0.9em 0.4em, 0.2em 0.6em 0.3em);
+  spacing: if($eta == false, 25px, 19px);
+  padding: if($eta == false, 0.3em 0.9em 0.4em, 0.2em 0.6em 0.3em);
   border-radius: 2px;
   color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
-  -shell-caption-spacing: if($eta == 'false', 12px, 8px);
+  -shell-caption-spacing: if($eta == false, 12px, 8px);
   box-shadow: $z-depth-1;
   &:hover {
     color: $osd_fg_color;
@@ -1993,12 +1993,12 @@ $extra_spacing: 2.5px;
 
 // Search entry
 .search-entry { // use raised entry-box styling
-  width: if($eta == 'false', 400px, 340px);
-  padding: if($eta == 'false', 0.4em 0.8em, 0.3em 0.6em);
+  width: if($eta == false, 400px, 340px);
+  padding: if($eta == false, 0.4em 0.8em, 0.3em 0.6em);
   border-radius: 100px;
   border-top: 1px solid transparent;
   color: $tertiary_fg_color;
-  background-color: if($nokto == 'false', shellopacity($base_color, 0.54),
+  background-color: if($nokto == false, shellopacity($base_color, 0.54),
                                           shellopacity($panel_bg_color, 0.54));
   box-shadow: $empty_shadow;
   font-weight: 400;
@@ -2011,11 +2011,11 @@ $extra_spacing: 2.5px;
 
   &:hover,
   &:focus {
-    border-top: 1px solid if($nokto == 'false',
+    border-top: 1px solid if($nokto == false,
                              $borders_highlight,
                              shellopacity($borders_highlight, 0.54));
     color: $fg_color;
-    background-color: if($nokto == 'false', $base_color, $panel_bg_color);
+    background-color: if($nokto == false, $base_color, $panel_bg_color);
     box-shadow: $z-depth-2;
   }
 
@@ -2036,21 +2036,21 @@ $provider_icon_size: 32px;
 #searchResultsBin { max-width: 1000px; }
 
 #searchResultsContent {
-  spacing: if($eta == 'false', $provider_icon_size / 2,
-                               $provider_icon_size / 4);
-  padding: if($eta == 'false', $provider_icon_size / 2,
-                               $provider_icon_size / 4);
+  spacing: if($eta == false, $provider_icon_size / 2,
+                             $provider_icon_size / 4);
+  padding: if($eta == false, $provider_icon_size / 2,
+                             $provider_icon_size / 4);
 }
 
  // This should be equal to #searchResultsContent spacing
 .search-section {
-  spacing: if($eta == 'false', $provider_icon_size / 2,
-                               $provider_icon_size / 4);
+  spacing: if($eta == false, $provider_icon_size / 2,
+                             $provider_icon_size / 4);
 
   // This is the space between the provider icon and the results container
   &-content {
-    spacing: if($eta == 'false', $provider_icon_size / 2,
-                                 $provider_icon_size / 4);
+    spacing: if($eta == false, $provider_icon_size / 2,
+                               $provider_icon_size / 4);
   }
 
   &-separator {
@@ -2061,12 +2061,12 @@ $provider_icon_size: 32px;
     -gradient-start: $osd_outline_fill_color;
     -gradient-end: $osd_outline_fill_color;
     &:ltr {
-      margin-left: if($eta == 'false', $provider_icon_size * (2 + 0.5),
-                                       $provider_icon_size * (2 + 0.25));
+      margin-left: if($eta == false, $provider_icon_size * (2 + 0.5),
+                                     $provider_icon_size * (2 + 0.25));
     }
     &:rtl {
-      margin-right: if($eta == 'false', $provider_icon_size * (2 + 0.5),
-                                        $provider_icon_size * (2 + 0.25));
+      margin-right: if($eta == false, $provider_icon_size * (2 + 0.5),
+                                      $provider_icon_size * (2 + 0.25));
     }
   }
 }
@@ -2118,10 +2118,10 @@ $provider_icon_size: 32px;
     }
 
     &-content {
-      spacing: if($eta == 'false', $provider_icon_size / 2,
-                                   $provider_icon_size / 4);
-      padding: if($eta == 'false', $provider_icon_size / 2,
-                                   $provider_icon_size / 4);
+      spacing: if($eta == false, $provider_icon_size / 2,
+                                 $provider_icon_size / 4);
+      padding: if($eta == false, $provider_icon_size / 2,
+                                 $provider_icon_size / 4);
       // concern the rows without 48px icons
       min-height: $provider_icon_size * (1.5 + 0.5);
     }
@@ -2141,7 +2141,7 @@ $provider_icon_size: 32px;
 
 .search-provider {
   &-icon {
-    margin: if($eta == 'false', $provider_icon_size / 4 0, 0);
+    margin: if($eta == false, $provider_icon_size / 4 0, 0);
     padding: $provider_icon_size / 2;
     border: none;
     border-radius: 100px;
@@ -2207,8 +2207,8 @@ $provider_icon_size: 32px;
 }
 
 .dash-label { // osd tooltip
-  padding: if($eta == 'false', 7px 8px 8px,
-                               6px 7px 7px); // non-scalable unit instead
+  padding: if($eta == false, 7px 8px 8px,
+                             6px 7px 7px); // non-scalable unit instead
   border-radius: 2px;
   color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
@@ -2273,8 +2273,8 @@ $provider_icon_size: 32px;
   }
 
   .number-overlay { // colours are picked from their stylesheet.css only
-    min-width: if($eta == 'false', 1.6em, 1.4em);
-    min-height: if($eta == 'false', 1.6em, 1.4em);
+    min-width: if($eta == false, 1.6em, 1.4em);
+    min-height: if($eta == false, 1.6em, 1.4em);
     margin: 0; // unset margin/padding
     padding: 0;
     border-radius: 100px;
@@ -2333,14 +2333,14 @@ $provider_icon_size: 32px;
 // .app-display { spacing: 20px; }
 
 .app-view-controls { // favorites | all toggle container
-  width: if($eta == 'false', 400px, 340px);
-  padding-bottom: if($eta == 'false', 24px, 18px);
+  width: if($eta == false, 400px, 340px);
+  padding-bottom: if($eta == false, 24px, 18px);
   background-color: $hidden_fill_color !important;
   box-shadow: inset 0 1px $osd_outline_fill_color;
 }
 
 .app-view-control { // favorties | all toggle button
-  padding: if($eta == 'false', 7px 32px 8px, 5px 32px 6px);
+  padding: if($eta == false, 7px 32px 8px, 5px 32px 6px);
   border-radius: 0;
   font-weight: 700;
   color: $osd_secondary_fg_color;
@@ -2759,11 +2759,11 @@ $provider_icon_size: 32px;
   }
 
   .notification {
-    &-icon { padding: if($eta == 'false', 8px, 6px); }
+    &-icon { padding: if($eta == false, 8px, 6px); }
 
     &-content {
-      padding: if($eta == 'false', 8px, 6px);
-      spacing: if($eta == 'false', 8px, 6px);
+      padding: if($eta == false, 8px, 6px);
+      spacing: if($eta == false, 8px, 6px);
     }
 
     &-actions {
@@ -2790,7 +2790,7 @@ $provider_icon_size: 32px;
   }
 
   .notification-button {
-    padding: if($eta == 'false', 9px 4px 10px, 6px 3px 7px);
+    padding: if($eta == false, 9px 4px 10px, 6px 3px 7px);
     background-color: transparent;
     color: $inverted_secondary_accent_label_color;
     font-weight: 700;
@@ -2920,7 +2920,7 @@ $provider_icon_size: 32px;
 //  * Legacy Tray *
 //  ***************/
 
-$legacy_icon_size: if($eta == 'false', 24px, 16px);
+$legacy_icon_size: if($eta == false, 24px, 16px);
 
 .legacy-tray {
   padding: 0;
@@ -2982,11 +2982,11 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
 .keyboard {
   &-layout {
-    spacing: if($eta == 'false', 12px, 8px);
-    padding: if($eta == 'false', 12px, 8px);
+    spacing: if($eta == false, 12px, 8px);
+    padding: if($eta == false, 12px, 8px);
   }
 
-  &-row { spacing: if($eta == 'false', 12px, 8px); }
+  &-row { spacing: if($eta == false, 12px, 8px); }
 
   &-key {
     @include fontscaling($ref_size * 2.0);
@@ -3029,7 +3029,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     -arrow-border-color: transparent;
     -arrow-base: 0;
     -arrow-rise: 0;
-    -boxpointer-gap: if($eta == 'false', 12px, 8px);
+    -boxpointer-gap: if($eta == false, 12px, 8px);
     background-color: $suggested_color;
     color: $selected_fg_color;
     box-shadow: $z-depth-2;
@@ -3487,7 +3487,7 @@ $tool_icon_size: 24px;
   box-shadow: $z-depth-4;
 
   > #Toolbar {
-    padding: if($eta == 'false', 0 8px, 0 6px);
+    padding: if($eta == false, 0 8px, 0 6px);
     border: none;
     border-radius: 0;
     background-color: $osd_bg_color;
@@ -3495,7 +3495,7 @@ $tool_icon_size: 24px;
 
     > StIcon { // 'color-picker' and 'trash'
       // base-line shift
-      padding: if($eta == 'false', 5px 4px 3px, 4px 3px 2px);
+      padding: if($eta == false, 5px 4px 3px, 4px 3px 2px);
     }
   }
 
@@ -3503,8 +3503,8 @@ $tool_icon_size: 24px;
 
   .notebook-tab {
     @include fontscaling($ref_size * 0.9);
-    min-height: $tool_icon_size + if($eta == 'false', 8px, 6px);
-    padding: if($eta == 'false', 0 8px * 2, 0 6px * 2);
+    min-height: $tool_icon_size + if($eta == false, 8px, 6px);
+    padding: if($eta == false, 0 8px * 2, 0 6px * 2);
     color: $osd_secondary_fg_color;
     font-family: $font-family; // stop using fixed-fonts
     font-weight: 700;

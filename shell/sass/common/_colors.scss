@@ -15,7 +15,7 @@
 // Foreground colors
 //
 
-$fg_color: if($nokto == 'false', #263238, #CFD8DC);
+$fg_color: if($nokto == false, #263238, #CFD8DC);
 $secondary_fg_color: shellopacity($fg_color, 0.87);
 $tertiary_fg_color: shellopacity($fg_color, 0.54);
 $insensitive_fg_color: shellopacity($fg_color, 0.28);
@@ -42,21 +42,21 @@ $insensitive_osd_secondary_fg_color:
 // Background colors
 //
 
-$bg_color: if($nokto == 'false', mix(#FFFFFF, #ECEFF1, 75%),
-                                 #263238);
-$base_color: if($nokto == 'false', #FFFFFF,
-                                   mix(#263238, #37474F, 85%));
+$bg_color: if($nokto == false, mix(#FFFFFF, #ECEFF1, 75%),
+                               #263238);
+$base_color: if($nokto == false, #FFFFFF,
+                                 mix(#263238, #37474F, 85%));
 $secondary_base_color: mix($base_color, $bg_color, 50%);
-$secondary_dark_color: if($nokto == 'false', mix(#FFFFFF, #ECEFF1, 60%),
-                                             mix(#263238, #000000, 95%));
-$light_color: if($nokto == 'false', $base_color,
-                                    mix(#263238, #37474F, 50%));
+$secondary_dark_color: if($nokto == false, mix(#FFFFFF, #ECEFF1, 60%),
+                                           mix(#263238, #000000, 95%));
+$light_color: if($nokto == false, $base_color,
+                                  mix(#263238, #37474F, 50%));
 
 $fill_color: shellopacity($fg_color, 0.25);
 $semi_fill_color: shellopacity($fg_color, 0.12);
 $hidden_fill_color: rgba(0, 0, 0, 0.01);
-$menuentry_hidden_fill_color: if($nokto == 'false', rgba(255, 255, 255, 0.01),
-                                                    rgba(0, 0, 0, 0.01));
+$menuentry_hidden_fill_color: if($nokto == false, rgba(255, 255, 255, 0.01),
+                                                  rgba(0, 0, 0, 0.01));
 
 $selected_bg_color: $key_selection_color;
 
@@ -85,7 +85,7 @@ $insensitive_osd_outline_fill_color:
 //
 
 $accent_color: $key_accent_color;
-$accent_label_color: if($nokto == 'false',
+$accent_label_color: if($nokto == false,
                         mix($key_accent_color, $fg_color, 80%),
                         mix($key_accent_color, $fg_color, 60%));
 $secondary_accent_color: shellopacity($accent_color, 0.87);
@@ -105,13 +105,13 @@ $inverted_secondary_accent_label_color:
 // Misc colors
 //
 
-$borders_color: if($nokto == 'false', shellopacity(#000000, 0.09),
-                                      shellopacity(#000000, 0.13));
-$solid_light_borders_color: if($nokto == 'false', #E5E9EC, #212B30);
+$borders_color: if($nokto == false, shellopacity(#000000, 0.09),
+                                    shellopacity(#000000, 0.13));
+$solid_light_borders_color: if($nokto == false, #E5E9EC, #212B30);
 $borders_edge: shellopacity(#000000, 0.05);
 $top_hilight: $borders_edge;
 $borders_highlight: shellopacity(#FFFFFF, 0.07);
-$menu_highlight: if($nokto == 'false',
+$menu_highlight: if($nokto == false,
                     $base_color,
                     mix($secondary_base_color, #FFFFFF, 98%));
 $insensitive_borders_color: $borders_color;
@@ -119,9 +119,9 @@ $insensitive_borders_color: $borders_color;
 $link_color: #03A9F4;
 $link_visited_color: #9C27B0;
 
-$link_label_color: if($nokto == 'false', $link_color,
-                                         mix($link_color, $fg_color, 60%));
-$link_visited_label_color: if($nokto == 'false',
+$link_label_color: if($nokto == false, $link_color,
+                                       mix($link_color, $fg_color, 60%));
+$link_visited_label_color: if($nokto == false,
                               $link_visited_color,
                               mix($link_visited_color, $fg_color, 60%));
 
