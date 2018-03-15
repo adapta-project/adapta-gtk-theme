@@ -1772,7 +1772,7 @@ headerbar > omnibar.linked {
   }
 }
 
-tabstrip {
+%tabstrip {
   min-height: rem(34.7px);
   padding: rem(5.3px) rem(16px);
   border-bottom: 1px solid $solid_light_borders_color;
@@ -1784,25 +1784,24 @@ tabstrip {
   layoutpane.bottom & { background-image: none; }
 }
 
-docktabstrip { @extend tabstrip; }
-
-tabstrip {
-  %tabstrip_tab,
-  tab {
-    color: $tertiary_fg_color;
-    font-weight: 700;
-    box-shadow: inset 0 -1px $outline_track_color;
-    &:hover {
-      color: $fg_color;
-      box-shadow: inset 0 -2px $outline_track_color;
-    }
-    &:checked {
-      color: $fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
-    }
+%tabstrip_tab {
+  color: $tertiary_fg_color;
+  font-weight: 700;
+  box-shadow: inset 0 -1px $outline_track_color;
+  &:hover {
+    color: $fg_color;
+    box-shadow: inset 0 -2px $outline_track_color;
+  }
+  &:checked {
+    color: $fg_color;
+    box-shadow: inset 0 -2px $selected_bg_color;
   }
 }
 
+tabstrip,
+docktabstrip { @extend %tabstrip; }
+
+tabstrip tab,
 docktabstrip docktab { @extend  %tabstrip_tab; }
 
 dockstack > stack { // treeviews inside the left/right layoutpane
