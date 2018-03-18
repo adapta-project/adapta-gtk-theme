@@ -2615,14 +2615,13 @@ window#MozillaGtkWidget.background {
   headerbar.titlebar { // >= nightly 60.0a1(2018-02-02)
     // FIXME: no backdrop state, no maximized state, bullshit...
 
-    // unset SSD's L/R titlebar padding
-    padding: if($ref_weight < 1.0, 0, 2px 0);
+    padding: if($ref_weight < 1.0, 0 3px, 2px 3px);
     border-radius: 2px 2px 0 0;
     border-top: 1px solid $top_edge_borders_color;
 
     &.default-decoration button.titlebutton {
-      // compute proper T/B magins and add SSD's L/R titlebar padding
-      margin: ($compact_tab_height - $titlebutton_small) / 2 3px;
+      // compute proper T/B magins
+      margin: ($compact_tab_height - $titlebutton_small) / 2 0;
     }
   }
 
