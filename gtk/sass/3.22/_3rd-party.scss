@@ -1543,6 +1543,9 @@ window.background.budgie-settings-window.csd {
 
   &, &.background,
   > * > * { background-color: transparent; } // FIXME: ugly wildcard
+
+  // avoid translucent top-bar
+  &.osd { opacity: 1.0; } // >= 2.0.5
 }
 
 %greeter_panel_menubar {
