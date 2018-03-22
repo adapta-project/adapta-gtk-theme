@@ -383,13 +383,9 @@ dialog.csd > headerbar.titlebar {
   font-weight: 400;
 }
 
-#gf-bubble,
-#notification-popup-window { // enforce circular close buttons
-  box.horizontal > button.flat { @extend %gnome-software_round_button; }
-}
-
-#gf-bubble box.horizontal > button.flat { // OSD-style close button
+#gf-bubble box.horizontal > button.flat { // OSD-style button
   color: $inverted_secondary_accent_label_color;
+  font-weight: 700;
   &:hover,
   &:active { color: $inverted_accent_label_color; }
   &:disabled { color: $insensitive_inverted_fg_color; }
