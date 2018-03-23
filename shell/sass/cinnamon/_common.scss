@@ -41,8 +41,13 @@ stage {
   &:active { @include button(flat-active); }
   &:insensitive { @include button(flat-insensitive); }
 
-  &, &:focus, &:hover, &:hover:focus,
-  &:active, &:active:focus, &:insensitive { border-radius: 2px; }
+  &,
+  &:focus,
+  &:hover,
+  &:hover:focus,
+  &:active,
+  &:active:focus,
+  &:insensitive { border-radius: 2px; }
 }
 
 %osd_button {
@@ -2080,6 +2085,7 @@ $bottom_gap: 4px;
   border-radius: 0;
   background-color: transparent;
 }
+
 
 // /******************
 //  * Systray Applet *
