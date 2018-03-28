@@ -484,13 +484,15 @@ entry {
   }
 
   > window.background:not(.csd) { // 'candidate' pop-down window
+    border-radius: 0;
     background-color: $base_color;
 
-    // draw solid borders
-    frame > border { border-color: $solid_light_borders_color; }
+    // non-CSD decoration
+    decoration { box-shadow: $z-depth-1; }
+
+    frame > border { border: none; }
 
     treeview.view {
-      color: $secondary_fg_color;
       &:selected { // fallback to standard hovering
         background-color: $track_color;
         color: $fg_color;
