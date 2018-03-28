@@ -42,23 +42,23 @@ AS_IF([test -z "$PKG_CONFIG"], [AC_MSG_ERROR(['pkg-config' not found.])])
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
 
-AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
+AC_PATH_TOOL([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
 if test x"$GLIB_COMPILE_RESOURCES" = x; then
 	AC_MSG_ERROR(['glib-compile-resources' not found.])
 fi
 
-AC_PATH_PROG([INKSCAPE], [inkscape])
+AC_PATH_TOOL([INKSCAPE], [inkscape])
 if test x"$INKSCAPE" = x; then
 	AC_MSG_ERROR(['inkscape' not found.])
 fi
 
-AC_PATH_PROG([SASSC], [sassc])
+AC_PATH_TOOL([SASSC], [sassc])
 if test x"$SASSC" = x; then
 	AC_MSG_ERROR(['sassc' not found.])
 fi
 
 if test x"$ENABLE_PARALLEL" = xyes; then
-	AC_PATH_PROG([PARALLEL], [parallel])
+	AC_PATH_TOOL([PARALLEL], [parallel])
 	if test x"$PARALLEL" = x; then
 		AC_MSG_ERROR(['parallel' not found.])
 	fi
