@@ -37,6 +37,8 @@ ADAPTA_OPTION([PLANK],        [plank],        [Plank],             [disable])
 ADAPTA_OPTION([TELEGRAM],     [telegram],     [Telegram],          [disable])
 
 PKG_PROG_PKG_CONFIG
+AS_IF([test -z "$PKG_CONFIG"], [AC_MSG_ERROR(['pkg-config' not found.])])
+
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
 
