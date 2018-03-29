@@ -115,7 +115,7 @@ AC_MSG_RESULT([
         | DE and WM Support
         -----------------------------------------------------------
 
-         Budgie-Desktop:         always (>= 10.2.7)
+         Budgie-Desktop:         always (>= 10.4)
          GNOME:                  $ENABLE_GNOME (SCSS ver. $GNOME_SCSS_VERSION)
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
