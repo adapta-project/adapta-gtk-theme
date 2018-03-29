@@ -249,26 +249,30 @@ label {
   opacity: 0.55;
 }
 
-assistant {
-  // sidebar styling
+%osd, .osd { opacity: 0.9; }
+
+
+// /*************
+//  * Assistant *
+//  *************/
+
+assistant { // sidebar styling
   .sidebar {
     padding: rem(6.7px, $sw: 1.0) 0;
     background-color: $secondary_dark_color;
     &:dir(ltr) { border-right: 1px solid $borders_color; }
     &:dir(rtl) { border-left: 1px solid $borders_color; }
+
+    label {
+      padding: rem(5.3px, $sw: 1.0) rem(8px, $sw: 1.0) rem(6.7px, $sw: 1.0);
+      color: $secondary_fg_color;
+      font-weight: 500;
+      &.highlight { color: $selected_bg_color; }
+    }
   }
 
   &.csd .sidebar { border-top-style: none; }
-
-  .sidebar label {
-    padding: rem(5.3px, $sw: 1.0) rem(8px, $sw: 1.0) rem(6.7px, $sw: 1.0);
-    color: $secondary_fg_color;
-    font-weight: 500;
-    &.highlight { color: $selected_bg_color; }
-  }
 }
-
-%osd, .osd { opacity: 0.9; }
 
 
 // /*********************
