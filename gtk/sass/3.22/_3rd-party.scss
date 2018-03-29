@@ -3981,3 +3981,15 @@ menubar.-vala-panel-background > menuitem { // override global values
   }
 }
 
+// non-CSD preference dialog
+dialog.background:not(.csd) {
+  .dialog-vbox stacksidebar.sidebar scrolledwindow {
+    .frame { border: 1px solid $borders_color; }
+
+    list {
+      &:dir(ltr),
+      &:dir(rtl) { box-shadow: none; }
+    }
+  }
+}
+
