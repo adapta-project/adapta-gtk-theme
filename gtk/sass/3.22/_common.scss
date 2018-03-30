@@ -5894,7 +5894,7 @@ button.flat.scale { // standalone Speaker/Mic buttons
 //  *********************/
 
 decoration {
-  margin: 8px; // this is used for the resize cursor area
+  margin: 10px; // this is used for the resize cursor area
   border-radius: 2px 2px 0 0;
   border-width: 0;
   box-shadow: $z-depth-4;
@@ -5931,19 +5931,15 @@ decoration {
   }
 
   // server-side decorations as used by mutter
-  .ssd & {
-    // just doing borders, wm draws actual shadows
-    // otherwise incorrect shadows are appeared
-    box-shadow: $z-depth-1-backdrop;
-  }
+  .ssd & { box-shadow: $z-depth-2; }
 
   // 'tiled' state in X11-SSD mode
   @each $_constraint,
-        $_shadow in ('', $z-depth-1-backdrop-tiled),
-                    ('-top', $z-depth-1-backdrop-tiled-top),
-                    ('-bottom', $z-depth-1-backdrop-tiled-bottom),
-                    ('-left', $z-depth-1-backdrop-tiled-left),
-                    ('-right' $z-depth-1-backdrop-tiled-right) {
+        $_shadow in ('', $z-depth-2-tiled),
+                    ('-top', $z-depth-2-tiled-top),
+                    ('-bottom', $z-depth-2-tiled-bottom),
+                    ('-left', $z-depth-2-tiled-left),
+                    ('-right' $z-depth-2-tiled-right) {
     // draw empty shadows + window edges when tiled
     window.ssd.tiled#{$_constraint} & { box-shadow: #{$_shadow}; }
   }

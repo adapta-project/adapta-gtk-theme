@@ -36,22 +36,21 @@ $z-depth-3: 0 4.5px 5.5px rgba(0, 0, 0, 0.38);
 $z-depth-4: 0 10px 14px rgba(0, 0, 0, 0.44);
 $z-depth-5: 0 14px 19px rgba(0, 0, 0, 0.50);
 
-// z-depth-1 actual shadows + dummy z-depth-2 area
-$z-depth-1-backdrop: 0 3px 4px transparent,
-                     $z-depth-1;
-$z-depth-1-backdrop-tiled: 0 3px 4px transparent,
-                           1px 0 $panel_bg_color, // side-edges
-                           -1px 0 $panel_bg_color;
-$z-depth-1-backdrop-tiled-top: 0 3px 4px transparent,
-                               0 1px $panel_bg_color;
-$z-depth-1-backdrop-tiled-bottom: 0 3px 4px transparent,
-                                  0 -1px $panel_bg_color;
-$z-depth-1-backdrop-tiled-left: 0 3px 4px transparent,
-                                1px 0 $panel_bg_color;
-$z-depth-1-backdrop-tiled-right: 0 3px 4px transparent,
-                                 -1px 0 $panel_bg_color;
-// z-depth-2 actual shadows + dummy z-depth-4 area
+// tile borders + dummy z-depth-2 area
+$z-depth-2-tiled: 0 2.5px 4.5px transparent,
+                  1px 0 $panel_bg_color, // side-edges
+                  -1px 0 $panel_bg_color;
+$z-depth-2-tiled-top: 0 2.5px 4.5px transparent,
+                      0 1px $panel_bg_color;
+$z-depth-2-tiled-bottom: 0 2.5px 4.5px transparent,
+                         0 -1px $panel_bg_color;
+$z-depth-2-tiled-left: 0 2.5px 4.5px transparent,
+                       1px 0 $panel_bg_color;
+$z-depth-2-tiled-right: 0 2.5px 4.5px transparent,
+                        -1px 0 $panel_bg_color;
+// z-depth-2.5 actual shadows + dummy z-depth-4 area
 $z-depth-2-backdrop: 0 10px 14px transparent,
+                     0 4.5px 5.5px rgba(0, 0, 0, 0.13),
                      $z-depth-2;
 $z-depth-2-backdrop-tiled: 0 10px 14px transparent,
                            1px 0 $panel_bg_color,
