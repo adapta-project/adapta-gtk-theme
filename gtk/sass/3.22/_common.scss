@@ -2336,7 +2336,7 @@ headerbar {
 
   // switch styling
   switch {
-    min-width: rem(32px);
+    min-width: rem($icon_size + 2);
     border: rem(10px) solid transparent;
     background-color: $inverted_tertiary_fg_color;
     outline-offset: rem(-4px);
@@ -2345,13 +2345,15 @@ headerbar {
     }
 
     slider {
-      min-width: rem(16px);
-      min-height: rem(16px);
+      min-width: rem($icon_size);
+      min-height: rem($icon_size);
       margin: rem(-2px) 0;
       background-color: mix($inverted_fg_color, $inverted_bg_color, 87%);
     }
     &:hover slider {
       background-image: image($inverted_fg_color);
+      box-shadow: $z-depth-1,
+                  0 0 0 rem(6.7px) gtkopacity($inverted_fg_color, 0.2);
     }
     &:checked slider {
       margin: rem(-2px) 0;
@@ -2360,6 +2362,10 @@ headerbar {
         background-color:
           mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
       }
+    }
+    &:checked:hover slider {
+      box-shadow: $z-depth-1,
+                  0 0 0 rem(6.7px) gtkopacity($selected_bg_color, 0.2);
     }
     &:disabled slider {
       background-color:
@@ -3744,7 +3750,7 @@ scrollbar {
 //  **********/
 
 switch {
-  min-width: rem(32px, $sw: 1.0);
+  min-width: rem($icon_size * 2, $sw: 1.0);
   // similar to the scale
   border: rem(10px, $sw: 1.0) solid transparent;
   border-radius: 100px;
@@ -3764,8 +3770,8 @@ switch {
   // switch slider doesn't respond to its own states
   // but relies on the switch ones
   slider {
-    min-width: rem(16px, $sw: 1.0);
-    min-height: rem(16px, $sw: 1.0);
+    min-width: rem($icon_size, $sw: 1.0);
+    min-height: rem($icon_size, $sw: 1.0);
     margin: rem(-2px, $sw: 1.0) 0;
     padding: 0;
     border-radius: 100px;
@@ -3781,7 +3787,8 @@ switch {
     background-image: image(if($variant == light,
                             gtkopacity($fixed_fg_color, 0.12),
                             $fg_color));
-    box-shadow: $z-depth-2;
+    box-shadow: $z-depth-1,
+                0 0 0 rem(6.7px, $sw: 1.0) $outline_track_color;
   }
 
   &:checked slider {
@@ -3791,8 +3798,9 @@ switch {
   }
 
   &:checked:hover slider {
-    background-image: image(gtkopacity($fixed_base_color, 0.12));
-    box-shadow: $z-depth-2;
+    background-image: image(gtkopacity($selected_fg_color, 0.12));
+    box-shadow: $z-depth-1,
+                0 0 0 rem(6.7px, $sw: 1.0) gtkopacity($selected_bg_color, 0.2);
   }
 
   &:disabled {
@@ -3813,9 +3821,16 @@ switch {
 
     &:hover slider {
       background-image: image(gtkopacity($fixed_fg_color, 0.12));
+      box-shadow: $z-depth-1,
+                  0 0 0 rem(6.7px, $sw: 1.0) gtkopacity($selected_fg_color, 0.2);
     }
 
     &:checked slider { background-color: $selected_fg_color; }
+
+    &:checked:hover slider {
+      box-shadow: $z-depth-1,
+                  0 0 0 rem(6.7px, $sw: 1.0) gtkopacity($selected_fg_color, 0.2);
+    }
   }
 }
 
@@ -3845,7 +3860,7 @@ switch {
     // 'indeterminate' is the synthetic wildcard
     &:not(:indeterminate) {
       @extend %reset_switch;
-      min-width: rem(52px, $sw: 1.0);
+      min-width: rem(50px, $sw: 1.0);
       min-height: rem(30px, $sw: 1.0);
       background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
 
@@ -3859,7 +3874,7 @@ switch {
     &:disabled { // specificity bump
       &, &:checked {
         @extend %reset_switch;
-        min-width: rem(52px, $sw: 1.0);
+        min-width: rem(50px, $sw: 1.0);
         min-height: rem(30px, $sw: 1.0);
         background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
       }

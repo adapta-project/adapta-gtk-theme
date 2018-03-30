@@ -1568,9 +1568,15 @@ GtkComboBox {
       background-color: mix($inverted_fg_color, $inverted_bg_color, 87%);
       &:hover {
         background-image: linear-gradient(to bottom, $inverted_fg_color);
+        box-shadow: $z-depth-1,
+                    0 0 0 6px gtkopacity($inverted_fg_color, 0.2);
       }
       &:active {
         background-color: $selected_bg_color;
+        &:hover {
+          box-shadow: $z-depth-1,
+                      0 0 0 6px gtkopacity($selected_bg_color, 0.2);
+        }
         &:insensitive {
           background-color: mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
         }
@@ -2475,7 +2481,8 @@ GtkSwitch {
                                         if($variant == 'light',
                                         gtkopacity($fixed_fg_color, 0.12),
                                         $fg_color));
-      box-shadow: $z-depth-2;
+      box-shadow: $z-depth-1,
+                  0 0 0 6px $outline_track_color;
     }
     &:active {
       background-color: $selected_bg_color;
@@ -2484,7 +2491,8 @@ GtkSwitch {
       &:hover {
         background-image: linear-gradient(to bottom,
                                           gtkopacity($fixed_base_color, 0.12));
-        box-shadow: $z-depth-2;
+        box-shadow: $z-depth-1,
+                    0 0 0 6px gtkopacity($selected_bg_color, 0.2);
       }
     }
     &:insensitive {
@@ -2509,13 +2517,16 @@ GtkSwitch {
       &:hover {
         background-image: linear-gradient(to bottom,
                                           gtkalpha($fixed_fg_color, 0.12));
+        box-shadow: $z-depth-1,
+                    0 0 0 6px gtkopacity($selected_fg_color, 0.2);
       }
       &:active {
         background-color: $selected_fg_color;
         &:hover {
           background-image: linear-gradient(to bottom,
                                             gtkalpha($fixed_fg_color, 0.12));
-          box-shadow: $z-depth-2;
+          box-shadow: $z-depth-1,
+                      0 0 0 6px gtkopacity($selected_fg_color, 0.2);
         }
       }
     }
