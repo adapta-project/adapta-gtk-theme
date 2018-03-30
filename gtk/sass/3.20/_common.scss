@@ -2380,12 +2380,27 @@ headerbar {
     border-width: 1px 0 1px 0; // remove side borders
     border-top-color: $highlight_color;
     border-bottom-color: transparent;
-    background-color: $selected_bg_color;
+    background-color: mix($selected_bg_color, $inverted_dark_color, 87%);
     color: $selected_fg_color;
     &:backdrop > * { opacity: 1.0; } // unset fade_effect
 
+    box & { // Remove unneeded side shadows with dirty hacks
+      &:not(:only-child):last-child {
+        &:dir(ltr) {
+          box-shadow: if($variant == light, $selected-header-shadow-light-ltr,
+                                            $selected-header-shadow-dark-ltr);
+        }
+        &:dir(rtl) {
+          box-shadow: if($variant == light, $selected-header-shadow-light-rtl,
+                                            $selected-header-shadow-dark-rtl);
+        }
+      }
+    }
+
     .tiled &,
-    .maximized & { border-top-color: $selected_bg_color; }
+    .maximized & {
+      border-top-color: mix($selected_bg_color, $inverted_dark_color, 87%);
+    }
 
     label {
       &.title { color: $fixed_fg_color; } // turn to dark label
