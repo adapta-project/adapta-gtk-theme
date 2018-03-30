@@ -4973,6 +4973,7 @@ expander {
     &:hover,
     &:active { color: $fg_color; }
     &:selected { color: $selected_fg_color; }
+    &:disabled { color: $insensitive_fg_color; }
   }
 
   title {
@@ -4986,6 +4987,7 @@ expander {
       &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
       &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
       &:selected { color: $selected_fg_color; }
+      &:disabled { color: $insensitive_fg_color; }
     }
 
     > label {
@@ -5145,6 +5147,7 @@ messagedialog {
         color: $inverted_secondary_fg_color;
         &:hover,
         &:active { color: $inverted_fg_color; }
+        &:disabled { color: $insensitive_inverted_fg_color; }
       }
     }
 
