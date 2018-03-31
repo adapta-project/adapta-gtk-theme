@@ -9,7 +9,6 @@ metacity_file = \
 	$(metacitydir)/button_close_prelight.svg \
 	$(metacitydir)/button_close_pressed.svg \
 	$(metacitydir)/button_close.svg \
-	$(metacitydir)/button_fill.svg \
 	$(metacitydir)/button_maximize_prelight.svg \
 	$(metacitydir)/button_maximize_pressed.svg \
 	$(metacitydir)/button_maximize.svg \
