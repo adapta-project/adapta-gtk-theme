@@ -220,7 +220,7 @@ Installation from Git Source
 
  > **Note:**
  >
- >   * Development for Gtk+ 3.18.x theming is over. And Gtk+ 3.18 support will be dropped in April 2018.
+ >   * Development for Gtk+ 3.18.x theming is over. And Gtk+ 3.18 support will be dropped in April 26th 2018.
 
 7. To change the default 4 **Key-Colors**, pass these options:
 
