@@ -343,7 +343,7 @@ TODO
 ----
 * Prepare for Meson build system (priority: high)
 * Prepare for x3 scaling (priority: mid or low)
-* Drop Gtk+ 3.18 support in April 2018 (Xenial -> Bionic).
+* Drop Gtk+ 3.18 support in April 26th 2018 (Xenial -> Bionic).
 
 Public License
 --------------
