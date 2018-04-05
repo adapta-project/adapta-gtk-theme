@@ -275,9 +275,11 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
       }
 
       &.running {
-        &:hover,
         &:active,
         &:checked { box-shadow: none; }
+        &:not(:checked):hover {
+          box-shadow: inset #{$_line} $selected_bg_color;
+        }
       }
     }
   }
