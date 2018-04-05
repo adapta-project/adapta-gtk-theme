@@ -196,3 +196,21 @@
 
 @define-color content_view_bg #{"" + $base_color};
 
+
+//
+// Budgie-desktop specific indicator colours
+//
+
+// minimized 'dots'
+@define-color budgie_tasklist_indicator_color
+              #{"" + $selected_bg_color};
+// focused window 'line'
+@define-color budgie_tasklist_indicator_color_active
+              #{"" + $selected_bg_color};
+// group-ed and unfocused window 'line(s)'
+@define-color budgie_tasklist_indicator_color_active_window
+              #{"" + mix($selected_bg_color, $panel_bg_color, 54%)};
+// attention 'background'
+@define-color budgie_tasklist_indicator_color_attention
+              #{"" + $suggested_color};
+
