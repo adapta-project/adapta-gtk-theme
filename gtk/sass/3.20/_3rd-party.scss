@@ -221,6 +221,69 @@ box.pinned { // drop-target
   }
 }
 
+// upcoming icon tasklist
+widget.icon-tasklist {
+  > box:drop(active) { // drop-target
+    border: none;
+    border-radius: 0;
+    background-color: gtkopacity($drop_target_color, 0.2);
+    box-shadow: inset 0 0 0 1px $drop_target_color;
+  }
+
+  button.flat.launcher {
+    min-width: $icon_size;
+    min-height: $icon_size;
+    padding: 0;
+    border-radius: 0;
+    background-image: none;
+    transition-duration: 0s; // unset transitions
+
+    > widget.icon { opacity: 0.87; }
+
+    &:hover {
+      > widget.icon { opacity: 1.0; }
+    }
+    &:active {
+      animation: none;
+
+      > widget.icon { opacity: 1.0; }
+    }
+    &:checked {
+      background-color: transparent;
+
+      > widget.icon { opacity: 1.0; }
+    }
+
+    &.running {
+      > widget.icon { opacity: 1.0; }
+    }
+  }
+
+  @each $position, $_line in (top, 0 3px),
+                             (bottom, 0 -3px),
+                             (left, 3px 0),
+                             (right, -3px 0) {
+    .#{$position} & {
+      button.flat.launcher {
+        &:hover {
+          box-shadow: inset #{$_line} gtkopacity($inverted_fg_color, 0.4);
+        }
+        &:active,
+        &:checked {
+          &, &:hover { box-shadow: none; }
+        }
+
+        &.running {
+          &:hover,
+          &:active,
+          &:checked { box-shadow: none; }
+        }
+      }
+    }
+  }
+}
+
+// end region
 .end-region > widget > widget {
   > box.horizontal { // 'Stats Indicator'
     > widget > widget > image { // 'bluetooth'
