@@ -241,23 +241,15 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 
   widget.icon { opacity: 0.87; }
 
-  &:hover {
-    widget.icon { opacity: 1.0; }
-  }
-  &:active {
-    animation: none;
-
-    widget.icon { opacity: 1.0; }
-  }
-  &:checked {
-    background-color: transparent;
-
-    widget.icon { opacity: 1.0; }
-  }
-
+  &:hover,
+  &:active,
+  &:checked,
   &.running {
+    box-shadow: none; // unset before drawing indicators
     widget.icon { opacity: 1.0; }
   }
+
+  &:active { animation: none; } // disable ink reactions
 }
 
 @each $position, $_line in (top, 0 3px),
@@ -266,18 +258,9 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
                            (right, -3px 0) {
   .#{$position} {
     box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
-      &:hover {
+      &:not(:checked):hover {
         box-shadow: inset #{$_line} gtkopacity($inverted_fg_color, 0.4);
-      }
-      &:active,
-      &:checked {
-        &, &:hover { box-shadow: none; }
-      }
-
-      &.running {
-        &:active,
-        &:checked { box-shadow: none; }
-        &:not(:checked):hover {
+        &.running {
           box-shadow: inset #{$_line} $selected_bg_color;
         }
       }
