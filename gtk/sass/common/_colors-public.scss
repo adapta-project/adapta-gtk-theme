@@ -212,7 +212,10 @@
 // group-ed and unfocused window 'line(s)'
 @define-color budgie_tasklist_indicator_color_active_window #{"" +
               mix($selected_bg_color, $panel_bg_color, 54%)};
-// attention 'background'
+// attention 'dot'
+// FIXME: we can't fill whole widget backgrounds with our suggestion colour
+//        because of lacking specific style-class on 'needs_attention' state,
+//        so use warning orange dot instead.
 @define-color budgie_tasklist_indicator_color_attention #{"" +
-              $suggested_color};
+              $warning_color};
 
