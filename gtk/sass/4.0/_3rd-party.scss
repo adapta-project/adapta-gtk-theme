@@ -3929,6 +3929,8 @@ window#ValaPanel.background { // solid-mode
 }
 
 button.flat.-panel-button { // generic panel buttons
+  min-width: $icon_size;
+  min-height: $icon_size;
   border-radius: 0;
   color: $inverted_fg_color;
   font-weight: 700;
@@ -3946,6 +3948,14 @@ button.flat.-panel-button { // generic panel buttons
     }
   }
   &:disabled { color: $insensitive_inverted_fg_color; }
+
+  // FIXME: weird asymmetrical spacing exists at the right side of Application-
+  // Menu icon even if the 'caption' GtkLabel was hidden, so add damned
+  // compensator at the opposite side...
+  > widget > box.horizontal {
+    &:dir(ltr) { margin-left: 2px; }
+    &:dir(rtl) { margin-right: 2px; }
+  }
 }
 
 button.flat.-panel-icon-button {
