@@ -4019,3 +4019,44 @@ dialog.background:not(.csd) {
   }
 }
 
+
+// /************
+//  * Ubiquity *
+//  ************/
+
+window#live_installer {
+  widget#title_eventbox.menubar { // title header container
+    font-weight: 700;
+
+    label#page_title,
+    image#page_logo { color: $inverted_fg_color; }
+  }
+
+  widget#progress_eventbox.menubar { // bottom container
+    color: $inverted_fg_color;
+
+    expander {
+      title {
+        label,
+        arrow {
+          color: $inverted_secondary_fg_color;
+          &:hover,
+          &:active { color: $inverted_fg_color; }
+          &:disabled { color: $insensitive_inverted_fg_color; }
+        }
+      }
+
+      textview.view { // scrolled text-views
+        &, > text {
+          background-color: $base_color;
+          color: $fg_color;
+          caret-color: $fg_color;
+        }
+      }
+    }
+
+    // 4px from <data>
+    progressbar trough { border-radius: 4px; }
+  }
+}
+
