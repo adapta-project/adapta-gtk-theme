@@ -2235,13 +2235,20 @@ headerbar {
     min-height: $icon_size;
     padding-top: rem(($widget_size - $icon_size - 5px) / 2);
     padding-bottom: rem(($widget_size - $icon_size - 2.3px) / 2);
-    color: $inverted_secondary_fg_color;
-    caret-color: $inverted_secondary_fg_color;
-    &:focus {
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
+  }
+
+  .background & { // bump with .background class to override
+    entry,
+    .linked > entry,
+    combobox > entry.combo {
+      color: $inverted_secondary_fg_color;
+      caret-color: $inverted_secondary_fg_color;
+      &:focus {
+        color: $inverted_fg_color;
+        caret-color: $inverted_fg_color;
+      }
+      &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
-    &:disabled { color: $insensitive_inverted_secondary_fg_color; }
   }
 
   // combobox styling
@@ -2251,13 +2258,6 @@ headerbar {
       min-height: $icon_size;
       padding-top: rem(($widget_size - $icon_size - 5px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 2.3px) / 2);
-      color: $inverted_secondary_fg_color;
-      caret-color: $inverted_secondary_fg_color;
-      &:focus {
-        color: $inverted_fg_color;
-        caret-color: $inverted_fg_color;
-      }
-      &:disabled { color: $insensitive_inverted_secondary_fg_color; }
     }
 
     > button.combo {
