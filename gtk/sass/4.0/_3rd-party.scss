@@ -1897,6 +1897,8 @@ box.topbar {
     all: unset;
 
     > image {
+      border-left: 1px solid $inverted_bg_color;
+      border-right: 1px solid $inverted_bg_color;
       min-width: $icon_size * 1.5;
       min-height: $icon_size * 1.5;
       padding: rem(6.7px);
@@ -1906,40 +1908,39 @@ box.topbar {
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 0% 0%; // hide ripples in normal state
-      background-color: if($variant == light, $suggested_color,
-                                              $bg_color);
+      background-color: $inverted_bg_color;
       transition: background-image 0s $slope_slow,
                   background-size 0s $slope_medium,
                   box-shadow 0.2s $slope_slow;
     }
 
     &:hover > image {
-      background-color: if($variant == light,
-                        mix($inverted_fg_color, $suggested_color, 12%),
-                        mix($fg_color, $bg_color, 12%));
+      border-left-color: mix($inverted_fg_color, $inverted_bg_color, 12%);
+      border-right-color: mix($inverted_fg_color, $inverted_bg_color, 12%);
+      background-color: mix($inverted_fg_color, $inverted_bg_color, 12%);
       box-shadow: inset 0 -2px gtkopacity($inverted_fg_color, 0.2);
     }
 
     &:checked > image {
+      border-left-color: mix($inverted_base_color, #000000, 87%);
+      border-right-color: mix($inverted_base_color, #000000, 87%);
       background-image: radial-gradient(circle farthest-corner at center,
                                         gtkopacity($inverted_fg_color, 0) 25%,
                                         transparent 0%);
       background-size: 100% * 4 100% * 4;
-      background-color: if($variant == light,
-                        mix($inverted_fg_color, $suggested_color, 12%),
-                        $bg_color);
-      box-shadow: inset 0 -2px if($variant == light, $selected_fg_color,
-                                                     $selected_bg_color);
+      background-color: $inverted_base_color;
+      box-shadow: $tab-shadow-dark,
+                  inset 0 -2px $selected_bg_color;
       transition: background-image 0.4s $slope_slow,
                   background-size 0.4s $slope_medium;
     }
 
     &:checked:hover > image {
-      background-color: if($variant == light,
-                        mix($inverted_fg_color, $suggested_color, 25%),
-                        mix($fg_color, $bg_color, 12%));
-      box-shadow: inset 0 -2px if($variant == light, $selected_fg_color,
-                                                     $selected_bg_color);
+      border-left-color: mix($inverted_base_color, #000000, 87%);
+      border-right-color: mix($inverted_base_color, #000000, 87%);
+      background-color: mix($inverted_fg_color, $inverted_base_color, 12%);
+      box-shadow: $tab-shadow-dark,
+                  inset 0 -2px $selected_bg_color;
     }
   }
 }
