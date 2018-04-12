@@ -396,7 +396,6 @@
         // and may be aligned center automatically?
         // background-position: center center;
         transition-duration: 0s;
-        -st-background-image-shadow: $z-depth-1;
       }
 
       &:hover .show-apps-icon,
@@ -406,7 +405,6 @@
           if($gdm == false,
           url("assets/show-apps-panel-hover.svg"),
           url("resource:///org/gnome/shell/theme/assets/show-apps-panel-hover.svg"));
-        -st-background-image-shadow: $z-depth-2;
       }
 
       &:checked .show-apps-icon {
@@ -414,7 +412,6 @@
           if($gdm == false,
           url("assets/show-apps-panel-hover.svg"),
           url("resource:///org/gnome/shell/theme/assets/show-apps-panel-hover.svg"));
-        -st-background-image-shadow: $z-depth-2;
       }
     }
 
@@ -425,14 +422,6 @@
             if($gdm == false,
             url("assets/show-apps-panel.svg"),
             url("resource:///org/gnome/shell/theme/assets/show-apps-panel.svg"));
-        }
-
-        &,
-        &:hover,
-        &:active,
-        &:focus,
-        &:checked { // unset icon-shadows
-          .show-apps-icon { -st-background-image-shadow: none; }
         }
       }
     }
