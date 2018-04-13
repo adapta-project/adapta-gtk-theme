@@ -1201,7 +1201,7 @@ window.budgie-popover.workspace-popover {
     min-width: $icon_size;
     min-height: $icon_size;
     border-radius: 0;
-    color: $insensitive_inverted_fg_color; // dim normal state
+    color: $inverted_tertiary_fg_color; // dim normal state
     transition: $budgie_transition;
     &:hover {
       background-image: image(transparent);
@@ -1217,22 +1217,7 @@ window.budgie-popover.workspace-popover {
     &:checked {
       background-image: image(transparent);
       background-color: transparent;
-      color: $selected_fg_color;
-    }
-  }
-}
-
-@each $position, $_spacing, $_line in (top, 0 6px, 0 2px),
-                                      (bottom, 0 6px, 0 -2px),
-                                      (left, 3px 0, 2px 0),
-                                      (right, 3px 0, -2px 0) {
-  .#{$position} .budgie-panel {
-    > box > widget > button.flat {
-      // specificity bump to prevent conflicts
-      &:not(.raven-trigger):not(.budgie-menu-launcher) {
-        padding: #{$_spacing};
-        &:checked { box-shadow: inset #{$_line} $selected_bg_color; }
-      }
+      color: $selected_bg_color;
     }
   }
 }
