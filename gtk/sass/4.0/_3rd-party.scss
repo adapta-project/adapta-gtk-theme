@@ -173,7 +173,6 @@ box.pinned { // drop-target
     &:hover { -gtk-icon-filter: brightness(1.2); }
 
     > image {
-      background-size: 2px 2px;
       background-repeat: no-repeat;
       transition: opacity 0.2s $slope_medium,
                   background-image 0s;
@@ -189,10 +188,10 @@ box.pinned { // drop-target
 }
 
 // draw underscores and dots
-@each $position, $_line in (top, 0 2px),
-                           (bottom, 0 -2px),
-                           (left, 2px 0),
-                           (right, -2px 0) {
+@each $position, $_line, $_dot in (top, 0 2px, 6px 2px),
+                                  (bottom, 0 -2px, 6px 2px),
+                                  (left, 2px 0, 2px 6px),
+                                  (right, -2px 0, 2px 6px) {
   .#{$position} .budgie-panel {
     button#tasklist-button,
     button.flat.launcher {
@@ -209,6 +208,7 @@ box.pinned { // drop-target
     .pinned button.flat.launcher.running {
       > image {
         background-image: image($selected_bg_color);
+        background-size: #{$_dot};
         background-position: #{$position} center;
       }
 
@@ -3962,6 +3962,7 @@ button.flat.-panel-icon-button {
 
   > image {
     background-image: image($selected_bg_color);
+    background-size: 6px 2px;
     background-position: bottom center;
   }
 
