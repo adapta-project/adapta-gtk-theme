@@ -4944,19 +4944,13 @@ expander {
 
 calendar {
   margin: rem(8px) 0;
-  padding: rem(5.3px) rem(1.3px) rem(2.7px);
+  padding: rem(4px, $sw: 1.0) rem(1.3px, $sw: 1.0);
   border: 1px solid $borders_color;
   color: $fg_color;
   &:selected {
     border: none;
-    border-radius: 100px;
-    color: $selected_fg_color;
-    background-color: transparent;
-    background-image: -gtk-scaled(url("assets/calendar-day-selected.png"),
-                                  url("assets/calendar-day-selected@2.png"));
-    background-size: rem(19.3px, $sw: 1.0) rem(19.3px, $sw: 1.0);
-    background-position: center top;
-    background-repeat: no-repeat;
+    background: none;
+    color: $selected_bg_color;
   }
 
   &.header {
@@ -4983,11 +4977,7 @@ calendar {
 
   &:indeterminate { color: gtkopacity($tertiary_fg_color, 0.55); }
 
-  &.highlight {
-    color: $tertiary_fg_color;
-    font-size: 90%;
-    font-weight: 500;
-  }
+  &.highlight { color: $tertiary_fg_color; }
 }
 
 
