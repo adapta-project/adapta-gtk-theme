@@ -270,69 +270,6 @@ list.tweak-group-startup {
   }
 }
 
-// FIXME: weird allocations with standard switches,
-// use pixmap based switches instead. Python...
-.tweak-titlebar-right,
-dialog.csd > headerbar.titlebar {
-  > switch {
-    // 'indeterminate' is the synthetic wildcard
-    &:not(:indeterminate) {
-      @extend %reset_switch;
-      min-width: rem(50px);
-      min-height: rem(30px);
-      background-size: rem(50px) rem(30px);
-
-      slider:not(:indeterminate) {
-        @extend %reset_switch;
-        margin: 0;
-        background-size: rem(50px) rem(30px);
-      }
-    }
-    &:disabled { // specificity bump
-      &, &:checked {
-        @extend %reset_switch;
-        min-width: rem(50px);
-        min-height: rem(30px);
-        background-size: rem(50px) rem(30px);
-      }
-    }
-
-    &:not(:indeterminate) {
-      // use ugly pixmaps
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-dark.png"),
-                        url("assets/toggle-off-dark@2.png"));
-      &:hover {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-off-hover-dark.png"),
-                          url("assets/toggle-off-hover-dark@2.png"));
-      }
-      &:checked {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-on-dark.png"),
-                          url("assets/toggle-on-dark@2.png"));
-        &:hover {
-          background-image: -gtk-scaled(
-                            url("assets/toggle-on-hover-dark.png"),
-                            url("assets/toggle-on-hover-dark@2.png"));
-        }
-        &:disabled,
-        &:disabled:hover {
-          background-image: -gtk-scaled(
-                            url("assets/toggle-on-insensitive-dark.png"),
-                            url("assets/toggle-on-insensitive-dark@2.png"));
-        }
-      }
-      &:disabled,
-      &:disabled:hover {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-off-insensitive-dark.png"),
-                          url("assets/toggle-off-insensitive-dark@2.png"));
-      }
-    }
-  }
-}
-
 
 // /*******************
 //  * Gnome-Flashback *

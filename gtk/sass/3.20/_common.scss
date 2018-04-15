@@ -2329,42 +2329,25 @@ headerbar {
   }
 
   // switch styling
+  // use pixmap based switches instead for some apps
   switch {
-    min-width: rem($icon_size + 2);
-    border: rem(10px) solid transparent;
-    background-color: $inverted_tertiary_fg_color;
-    outline-offset: rem(-4px);
-    &:disabled {
-      background-color: gtkopacity($inverted_tertiary_fg_color, 0.28);
-    }
+    // 'indeterminate' is the synthetic wildcard
+    &:not(:indeterminate) {
+      @extend %reset_switch;
+      min-width: 50px;
+      min-height: 30px;
 
-    slider {
-      min-width: rem($icon_size);
-      min-height: rem($icon_size);
-      margin: rem(-2px) 0;
-      background-color: mix($inverted_fg_color, $inverted_bg_color, 87%);
+      slider:not(:indeterminate) { @extend %reset_switch; }
     }
-    &:hover slider {
-      background-image: linear-gradient(to bottom, $inverted_fg_color);
-      box-shadow: $z-depth-1,
-                  0 0 0 rem(6.7px) gtkopacity($inverted_fg_color, 0.2);
-    }
-    &:checked slider {
-      margin: rem(-2px) 0;
-      background-color: $selected_bg_color;
-      &:disabled {
-        background-color:
-          mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
+    &:disabled { // specificity bump
+      &, &:checked {
+        @extend %reset_switch;
+        min-width: 50px;
+        min-height: 30px;
       }
     }
-    &:checked:hover slider {
-      box-shadow: $z-depth-1,
-                  0 0 0 rem(6.7px) gtkopacity($selected_bg_color, 0.2);
-    }
-    &:disabled slider {
-      background-color:
-        mix($inverted_fg_color, $inverted_bg_color, 54% * 0.28);
-    }
+
+    &:not(:indeterminate) {@extend %pixmap_headerbar_switch; }
   }
 
   // spinbutton spacing
@@ -2630,13 +2613,8 @@ headerbar {
   spinbutton,
   scale { margin: rem(5.3px) 0; }
 
-  switch {
-    margin: if($ref_weight < 1.0,
-               rem(5.3px + (($widget_size - 30px) / 2) + 1.3px)
-               0
-               rem(5.3px + (($widget_size - 30px) / 2) - 1.3px),
-               rem(5.3px + (($widget_size - 30px) / 2) - 2px) 0);
-  }
+  // pixmap based switch does not need margins
+  switch { margin: 0; }
 
   .title { margin-bottom: rem(5.3px - 1.3px); }
 
@@ -3792,14 +3770,14 @@ scrollbar,
 //  **********/
 
 switch {
-  min-width: rem($icon_size * 2, $sw: 1.0);
+  min-width: $icon_size * 2;
   // similar to the scale
-  border: rem(10px, $sw: 1.0) solid transparent;
+  border: rem(10px) solid transparent;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
   background-color: $tertiary_fg_color;
   font-size: 0;
-  outline-offset: rem(-4px, $sw: 1.0);
+  outline-offset: rem(-4px);
   &:checked {
     background-color: gtkopacity($selected_bg_color, 0.54);
     &:disabled {
@@ -3812,9 +3790,9 @@ switch {
   // switch slider doesn't respond to its own states
   // but relies on the switch ones
   slider {
-    min-width: rem($icon_size, $sw: 1.0);
-    min-height: rem($icon_size, $sw: 1.0);
-    margin: rem(-2px) 0;
+    min-width: $icon_size;
+    min-height: $icon_size;
+    margin: -2px 0;
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
@@ -3830,7 +3808,7 @@ switch {
                             gtkopacity($fixed_fg_color, 0.12),
                             $fg_color));
     box-shadow: $z-depth-1,
-                0 0 0 rem(6.7px, $sw: 1.0) $outline_track_color;
+                0 0 0 7px $outline_track_color;
   }
 
   &:checked slider {
@@ -3842,7 +3820,7 @@ switch {
   &:checked:hover slider {
     background-image: image(gtkopacity($fixed_base_color, 0.12));
     box-shadow: $z-depth-1,
-                0 0 0 rem(6.7px, $sw: 1.0) gtkopacity($selected_bg_color, 0.2);
+                0 0 0 7px gtkopacity($selected_bg_color, 0.2);
   }
 
   &:disabled {
@@ -3864,130 +3842,155 @@ switch {
     &:hover slider {
       background-image: image(gtkopacity($fixed_fg_color, 0.12));
       box-shadow: $z-depth-1,
-                  0 0 0 rem(6.7px, $sw: 1.0) gtkopacity($selected_fg_color, 0.2);
+                  0 0 0 7px gtkopacity($selected_fg_color, 0.2);
     }
 
     &:checked slider { background-color: $selected_fg_color; }
     &:checked:hover slider {
       box-shadow: $z-depth-1,
-                  0 0 0 rem(6.7px, $sw: 1.0) gtkopacity($selected_fg_color, 0.2);
+                  0 0 0 7px gtkopacity($selected_fg_color, 0.2);
     }
   }
+}
 
+%reset_switch {
+  margin: 0;
+  padding: 0;
+  border: unset;
+  color: transparent;
+  background: unset;
+  background-image: unset;
+  background-size: 50px 30px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  box-shadow: none;
+  font-size: 0;
+  outline-color: transparent;
+
+  &:dir(rtl) { background-position: left center; }
+}
+
+%pixmap_switch {
+  // use ugly pixmaps
+  background-image: -gtk-scaled(
+                    url("assets/toggle-off#{$asset_suffix}.png"),
+                    url("assets/toggle-off#{$asset_suffix}@2.png"));
+  &:hover {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-off-hover#{$asset_suffix}.png"),
+                      url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
+  }
+  &:checked {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-on#{$asset_suffix}.png"),
+                      url("assets/toggle-on#{$asset_suffix}@2.png"));
+    &:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-on-hover#{$asset_suffix}.png"),
+                        url("assets/toggle-on-hover#{$asset_suffix}@2.png"));
+    }
+    &:disabled,
+    &:disabled:hover {
+      background-image:
+        -gtk-scaled(
+          url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
+          url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
+    }
+  }
+  &:disabled,
+  &:disabled:hover {
+    background-image:
+      -gtk-scaled(
+        url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
+        url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
+  }
+}
+
+%pixmap_selected_row_switch {
+  background-image: -gtk-scaled(
+                    url("assets/toggle-off-selected-row.png"),
+                    url("assets/toggle-off-selected-row@2.png"));
+  &:hover {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-off-selected-row-hover.png"),
+                      url("assets/toggle-off-selected-row-hover@2.png"));
+  }
+  &:checked {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-on-selected-row.png"),
+                      url("assets/toggle-on-selected-row@2.png"));
+    &:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-on-selected-row-hover.png"),
+                        url("assets/toggle-on-selected-row-hover@2.png"));
+    }
+  }
+}
+
+%pixmap_headerbar_switch {
+  background-image: -gtk-scaled(
+                    url("assets/toggle-off-dark.png"),
+                    url("assets/toggle-off-dark@2.png"));
+  &:hover {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-off-hover-dark.png"),
+                      url("assets/toggle-off-hover-dark@2.png"));
+  }
+  &:checked {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-on-dark.png"),
+                      url("assets/toggle-on-dark@2.png"));
+    &:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-on-hover-dark.png"),
+                        url("assets/toggle-on-hover-dark@2.png"));
+    }
+    &:disabled,
+    &:disabled:hover {
+      background-image: -gtk-scaled(
+                        url("assets/toggle-on-insensitive-dark.png"),
+                        url("assets/toggle-on-insensitive-dark@2.png"));
+    }
+  }
+  &:disabled,
+  &:disabled:hover {
+    background-image: -gtk-scaled(
+                      url("assets/toggle-off-insensitive-dark.png"),
+                      url("assets/toggle-off-insensitive-dark@2.png"));
+  }
+}
+
+switch {
   // special case inside the grid and row container,
   // need to protect geometry by using pixmaps images...
   // FIXME: wild-card should be dropped
   row * &,
   row:selected * &,
   grid & {
-    min-width: rem(50px, $sw: 1.0);
-    min-height: rem(30px, $sw: 1.0);
-    font-size: 0;
-    outline-color: transparent;
-
     // reset all of default troughs
-    &:not(:hover):not(:checked):not(:disabled),
-    &:hover,
-    &:checked,
-    &:checked:hover,
-    &:checked:disabled,
-    &:disabled {
-      padding: 0;
-      border: none;
-      color: transparent;
-      background: none;
-      background-image: none;
-      background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none;
+    // 'indeterminate' is the synthetic wildcard
+    &:not(:indeterminate) {
+      @extend %reset_switch;
+      min-width: 50px;
+      min-height: 30px;
 
-      &:dir(rtl) { background-position: left center; }
+      // reset all of default sliders
+      slider:not(:indeterminate) { @extend %reset_switch; }
     }
-
-    // reset all of default sliders
-    &:not(:hover):not(:checked):not(:disabled) slider,
-    &:hover slider,
-    &:checked slider,
-    &:checked:hover slider,
-    &:checked:disabled slider,
-    &:disabled slider {
-      margin: 0;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      color: transparent;
-      background: none;
-      background-image: none;
-      background-size: rem(50px, $sw: 1.0) rem(30px, $sw: 1.0);
-      background-repeat: no-repeat;
-      background-position: right center;
-      box-shadow: none;
-
-      &:dir(rtl) { background-position: left center; }
+    &:disabled { // specificity bump
+      &, &:checked {
+        @extend %reset_switch;
+        min-width: 50px;
+        min-height: 30px;
+      }
     }
   }
 
-  row * &,
-  grid & {
-    // use ugly pixmaps
-    &:not(:hover):not(:checked):not(:disabled) {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off#{$asset_suffix}.png"),
-                        url("assets/toggle-off#{$asset_suffix}@2.png"));
-    }
-    &:hover {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-hover#{$asset_suffix}.png"),
-                        url("assets/toggle-off-hover#{$asset_suffix}@2.png"));
-    }
-    &:checked {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-on#{$asset_suffix}.png"),
-                        url("assets/toggle-on#{$asset_suffix}@2.png"));
-      &:hover {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-on-hover#{$asset_suffix}.png"),
-                          url("assets/toggle-on-hover#{$asset_suffix}@2.png"));
-      }
-      &:disabled,
-      &:disabled:hover {
-        background-image:
-          -gtk-scaled(
-            url("assets/toggle-on-insensitive#{$asset_suffix}.png"),
-            url("assets/toggle-on-insensitive#{$asset_suffix}@2.png"));
-      }
-    }
-    &:disabled,
-    &:disabled:hover {
-      background-image:
-        -gtk-scaled(
-          url("assets/toggle-off-insensitive#{$asset_suffix}.png"),
-          url("assets/toggle-off-insensitive#{$asset_suffix}@2.png"));
-    }
-  }
+  row * &:not(:indeterminate),
+  grid &:not(:indeterminate) { @extend %pixmap_switch; }
 
-  row:selected * & {
-    &:not(:hover):not(:checked):not(:disabled) {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-selected-row.png"),
-                        url("assets/toggle-off-selected-row@2.png"));
-    }
-    &:hover {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-off-selected-row-hover.png"),
-                        url("assets/toggle-off-selected-row-hover@2.png"));
-    }
-    &:checked {
-      background-image: -gtk-scaled(
-                        url("assets/toggle-on-selected-row.png"),
-                        url("assets/toggle-on-selected-row@2.png"));
-      &:hover {
-        background-image: -gtk-scaled(
-                          url("assets/toggle-on-selected-row-hover.png"),
-                          url("assets/toggle-on-selected-row-hover@2.png"));
-      }
-    }
+  row:selected * &:not(:indeterminate) {
+    @extend %pixmap_selected_row_switch;
   }
 }
 
