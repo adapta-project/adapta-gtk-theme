@@ -5631,25 +5631,15 @@ infobar {
 
 tooltip {
   &.background {
-    border: 1px solid gtkopacity($inverted_dark_color, 0.9);
-    // background-color needs to be set this way otherwise it gets drawn twice
-    // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    //
     // FIXME: Eclipse specific tooltip widgets needs non-inverted backgrounds
     // even if alpha-value was 0.1%, so real backgrounds are drawin with
     // background-image property instead.
     background-color: gtkopacity($base_color, 0.001);
     background-image: image(gtkopacity($inverted_dark_color, 0.901));
-    background-clip: padding-box;
 
     // add inner padding (use non-scalable unit instead)
     > box { padding: if($ref_weight < 1.0, 0 1px 1px, 1px 2px 2px); }
   }
-
-  box-shadow: none; // otherwise it gets inherited by windowframe.csd
-
-  // FIXME: we need a border or tooltips vanish on black background.
-  decoration { background-color: transparent; }
 
   label,
   image { color: $inverted_fg_color; } // default foregrounds
@@ -5660,7 +5650,6 @@ tooltip {
 
 .tooltip:not(tooltip) {
   // FIXME: This should be purged! Only for ancient Marco.
-  border: 1px solid $borders_color;
   background-color: gtkopacity($inverted_dark_color, 0.9);
 
   > label { // for Marco
@@ -5923,6 +5912,7 @@ decoration {
   margin: 10px; // this is used for the resize cursor area
   border-radius: 2px 2px 0 0;
   border-width: 0;
+  background-color: transparent;
   box-shadow: $z-depth-4;
   transition-property: box-shadow;
   transition-timing-function: $slope_slow;
