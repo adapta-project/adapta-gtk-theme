@@ -3034,8 +3034,8 @@ $provider_details_width: 120px;
   font-weight: 700;
   text-align: left;
 
-  &:ltr { padding-left: 1.5em; }
-  &:rtl { padding-right: 1.5em; }
+  &:ltr { padding-left: 1em; }
+  &:rtl { padding-right: 1em; }
 }
 
 .login-dialog {
@@ -3058,11 +3058,14 @@ $provider_details_width: 120px;
   &-not-listed-button {
     // this class seems almost meaningless
     margin: 12px 0 0;
+
+    &:ltr { margin-right: 4px; }
+    &:rtl { margin-left: 4px; }
   }
 
   &-not-listed-label {
     @include fontscaling($ref_size * 0.9);
-    padding: 4px 4px 5px;
+    padding: 4px 0 5px;
     border-radius: 2px;
     color: $inverted_secondary_accent_label_color;
     font-weight: 500;
@@ -3086,7 +3089,6 @@ $provider_details_width: 120px;
 
   &-user-list {
     width: 23em;
-    padding: 4px;
     spacing: 12px;
 
     &:expanded .login-dialog-user-list-item {
@@ -3133,8 +3135,9 @@ $provider_details_width: 120px;
     border-radius: 2px;
     transition-duration: $duration_short;
 
-    &:ltr { padding-right: 1em; }
-    &:rtl { padding-left: 1em; }
+    // exclude timed-login-indicator
+    &:ltr .user-widget { padding-right: 1em; }
+    &:rtl .user-widget { padding-left: 1em; }
 
     .login-dialog-username, // actual label colour
     .user-widget-label { color: $osd_secondary_fg_color; }
