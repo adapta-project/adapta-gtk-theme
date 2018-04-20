@@ -383,48 +383,6 @@
         }
       }
     }
-
-    .show-apps {
-      .show-apps-icon {
-        min-height: 24px;
-        background-image:
-          if($gdm == false,
-          url("assets/show-apps-panel.svg"),
-          url("resource:///org/gnome/shell/theme/assets/show-apps-panel.svg"));
-        background-size: 32px 32px;
-        // FIXME: G-S can't recognize position property
-        // and may be aligned center automatically?
-        // background-position: center center;
-        transition-duration: 0s;
-      }
-
-      &:hover .show-apps-icon,
-      &:active .show-apps-icon,
-      &:focus .show-apps-icon {
-        background-image:
-          if($gdm == false,
-          url("assets/show-apps-panel-hover.svg"),
-          url("resource:///org/gnome/shell/theme/assets/show-apps-panel-hover.svg"));
-      }
-
-      &:checked .show-apps-icon {
-        background-image:
-          if($gdm == false,
-          url("assets/show-apps-panel-hover.svg"),
-          url("resource:///org/gnome/shell/theme/assets/show-apps-panel-hover.svg"));
-      }
-    }
-
-    &.solid {
-      .show-apps {
-        .show-apps-icon {
-          background-image:
-            if($gdm == false,
-            url("assets/show-apps-panel.svg"),
-            url("resource:///org/gnome/shell/theme/assets/show-apps-panel.svg"));
-        }
-      }
-    }
   }
 }
 

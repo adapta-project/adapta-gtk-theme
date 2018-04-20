@@ -2138,7 +2138,8 @@ $provider_icon_size: 32px;
 
     &:checked .overview-icon,
     &:checked:hover .overview-icon {
-      background-color: $hidden_fill_color;
+      background-color: shellopacity($osd_indicator_color, 0.12);
+      color: $osd_indicator_color;
       box-shadow: $empty_shadow;
       transition-duration: 0s;
     }
@@ -2153,29 +2154,10 @@ $provider_icon_size: 32px;
 }
 
 .show-apps {
-  .show-apps-icon {
-    border: none;
-    background-image: url("assets/show-apps.svg");
-    background-size: contain;
-    color: transparent;
-    transition-duration: 0s; // unset transitions
-    -st-background-image-shadow: $z-depth-1;
-  }
+  .show-apps-icon { border: none; }
 
-  &:hover .show-apps-icon,
-  &:active .show-apps-icon,
-  &:focus .show-apps-icon {
-    color: transparent;
-    background-image: url("assets/show-apps-hover.svg");
-    transition-duration: 0s;
-    -st-background-image-shadow: $z-depth-1;
-  }
-  &:checked .show-apps-icon {
-    color: transparent;
-    background-image: url("assets/show-apps-checked.svg");
-    transition-duration: 0s;
-    -st-background-image-shadow: $z-depth-2;
-  }
+  &:checked .show-apps-icon,
+  &:checked:hover .show-apps-icon { color: $osd_indicator_color; }
 }
 
 // Collections
