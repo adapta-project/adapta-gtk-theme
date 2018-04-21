@@ -6,7 +6,7 @@
 #workspacestodock {
   &TriggerSpacer,
   &ContainerWrapper,
-  &Container { background-color: rgba(19, 25, 28, 0.0); }
+  &Container { background-color: $panel_transparent_color; }
 }
 
 // dock styling
@@ -25,7 +25,7 @@
       .workspace-thumbnails {
         margin: 0; // unset default margins
         border-radius: #{$_roundness};
-        background-color: rgba(19, 25, 28, 0.0);
+        background-color: $panel_transparent_color;
         box-shadow: none;
 
         .workspace-thumbnail-indicator {
@@ -39,7 +39,7 @@
     &.#{$_dock}.inside {
       .workspace-thumbnails {
         border-radius: 0;
-        background-color: rgba(19, 25, 28, 0.0);
+        background-color: $panel_transparent_color;
         box-shadow: none;
       }
 
@@ -47,7 +47,7 @@
         padding: 2px;
         spacing: 0;
         border-radius: 0;
-        background-color: rgba(19, 25, 28, 0.0);
+        background-color: $panel_transparent_color;
         box-shadow: none;
       }
     }
@@ -208,12 +208,12 @@
     }
 
     &:hover > &-icon {
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: $hidden_fill_color;
       box-shadow: inset 0 -2px $osd_outline_fill_color;
     }
     &-active > &-icon,
     &-active:hover > &-icon {
-      background-color: rgba(0, 0, 0, 0.01);
+      background-color: $hidden_fill_color;
       box-shadow: inset 0 -2px $osd_indicator_color;
     }
   }
