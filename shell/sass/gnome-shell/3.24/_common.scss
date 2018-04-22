@@ -19,6 +19,7 @@
 }
 
 $font-family: Noto Sans, Sans-Serif;
+$font-family-for-ornament: Sans-Serif;
 
 stage {
   @include fontscaling($ref_size);
@@ -713,8 +714,11 @@ $extra_spacing: 2.5px;
   &-icon { icon-size: 16px; }
 
   &-ornament {
+    @include fontscaling($ref_size * 1.1);
     height: 0; // trick for minimum separator-menu-item height
+    padding-top: 1.3px; // not need to scale
     color: $selected_bg_color;
+    font-family: $font-family-for-ornament;
     font-weight: 700;
   }
 }
