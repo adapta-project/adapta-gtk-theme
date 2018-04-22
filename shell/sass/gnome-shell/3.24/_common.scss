@@ -1606,8 +1606,11 @@ $extra_spacing: 2.5px;
   spinner-image: url("process-working.svg");
   padding: if($eta == false, 0 10px, 0 6px);
 
-  // only LR padding
-  StLabel { padding: if($eta == false, 0 4px, 0 2px); }
+  // LR padding and make more gap between label and spinner
+  StLabel {
+    &:ltr { padding: if($eta == false, 0 10px 0 3px, 0 6px 0 2px); }
+    &:rtl { padding: if($eta == false, 0 3px 0 10px, 0 2px 0 6px); }
+  }
 
   .label-shadow { color: transparent; }
 }
