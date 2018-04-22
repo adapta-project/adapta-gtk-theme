@@ -2204,6 +2204,9 @@ $bottom_gap: 4px;
         min-width: $icon_size * 1.5;
         min-height: $icon_size * 1.5;
         padding: 0;
+        // FIXME: weird asymmetrical L/R padding
+        &:ltr { margin-right: 4px; }
+        &:rtl { margin-left: 4px; }
       }
     }
 
