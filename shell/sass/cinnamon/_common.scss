@@ -587,8 +587,6 @@ $icon_size: 16px;
   // &-menu { -boxpointer-gap: 4px }
 }
 
-// #appMenu { spacing: 4px; }
-
 .system-status-icon {
   icon-size: $icon_size;
   margin: 0;
@@ -1449,7 +1447,7 @@ $ws_thumb_spacing: 32px;
 
 .window-list {
   &-box {
-    spacing: 2px;
+    spacing: 0;
 
     .panel-top,
     .panel-bottom & { padding: 0 0 0 8px; }
@@ -1457,12 +1455,6 @@ $ws_thumb_spacing: 32px;
     &.vertical { padding: 6px 0 0 0; }
 
     &:highlight { background-color: $accent_fill_color; }
-  }
-
-  &-item-label {
-    width: 15em;
-    min-width: 5px;
-    font-weight: 400;
   }
 
   &-item-box {
@@ -1502,18 +1494,35 @@ $ws_thumb_spacing: 32px;
       }
     }
 
+    StIcon {
+      .panel-top &,
+      .panel-bottom & {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: 0 (6px - 2px);
+      }
+    }
+
+    &.vertical StIcon {
+      min-width: $icon_size * 1.5;
+      min-height: $icon_size * 1.5;
+      padding: 0;
+    }
+
+    StLabel {
+      font-weight: 400;
+
+      .panel-top &,
+      .panel-bottom & {
+        &:ltr { padding-left: 6px - 2px; }
+        &:rtl { padding-right: 6px - 2px; }
+      }
+    }
+
     &:progress,
     .progress {
       background-gradient-start: $accent_fill_color;
       background-gradient-end: $accent_fill_color;
-    }
-
-    .panel-top &,
-    .panel-bottom & {
-      StLabel {
-        &:ltr { padding-left: 2px; }
-        &:rtl { padding-right: 2px; }
-      }
     }
   }
 
@@ -2189,6 +2198,15 @@ $bottom_gap: 4px;
 
 .applet-box { // the parent container
   .window-list-item-box { // actual childs
+    .panel-top &,
+    .panel-bottom & {
+      StIcon { // reset generic item-box icons
+        min-width: $icon_size * 1.5;
+        min-height: $icon_size * 1.5;
+        padding: 0;
+      }
+    }
+
     @each $position, $_indicator in (top, 0 2px),
                                     (bottom, 0 -2px),
                                     (left, 2px 0),
