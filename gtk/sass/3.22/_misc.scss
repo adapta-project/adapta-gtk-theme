@@ -2329,6 +2329,37 @@ terminal-window {
   }
 }
 
+window.background:not(.csd) { // preferences window (>= 3.28)
+  box.horizontal > frame > scrolledwindow > viewport.frame > list {
+    > row.activatable {
+      padding: 0; // unset padding;
+
+      > box.horizontal > label { // indentations
+        &:dir(ltr) { margin-left: rem(13.3px, $sw: 1.0); }
+        &:dir(rtl) { margin-right: rem(13.3px, $sw: 1.0); }
+      }
+
+      > box.horizontal > stack > button.popup.toggle {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(6.7px);
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+      }
+    }
+
+    > box.horizontal {
+      label { color: $tertiary_fg_color; } // titles
+
+      > stack > button.image-button {
+        min-width: $icon_size;
+        min-height: $icon_size;
+        padding: rem(6.7px);
+      }
+    }
+  }
+}
+
 
 // /*****************
 //  * Gnome-Weather *
