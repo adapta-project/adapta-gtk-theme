@@ -1865,6 +1865,11 @@ terminal-window {
     }
   }
 
+  vte-terminal,
+  notebook { // unset unneeded transitions
+    transition-duration: 0s;
+  }
+
   notebook > header.top { // show drop-shadows
     @extend %ssd_notebook_shadow;
   }
