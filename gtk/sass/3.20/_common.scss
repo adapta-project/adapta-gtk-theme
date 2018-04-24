@@ -220,6 +220,7 @@ label {
   }
 }
 
+%dim_label,
 .dim-label {
   opacity: 0.55;
 }
@@ -2024,7 +2025,7 @@ headerbar {
   }
 
   .subtitle {
-    @extend .dim-label;
+    @extend %dim_label;
     padding: 0 rem(13.3px);
     color: $inverted_secondary_fg_color;
     font-size: if($ref_weight < 1.0, 80%, 90%);
