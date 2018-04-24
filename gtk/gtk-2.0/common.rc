@@ -1197,6 +1197,14 @@ style "misc_button_label" {
   font_name = "Regular"
 }
 
+style "buttonbox_button_label" {
+  fg[NORMAL] = mix(0.87, mix(0.8, @accent_color, @fg_color), @bg_color)
+  fg[PRELIGHT] = mix(0.8, @accent_color, @fg_color)
+  fg[ACTIVE] = mix(0.8, @accent_color, @fg_color)
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
+  font_name = "Bold"
+}
+
 style "flat_button" {
   GtkButton::inner-border = { 1, 1, 1, 1 }
   xthickness = 6
@@ -1251,6 +1259,66 @@ style "flat_button" {
       state    = INSENSITIVE
       shadow   = IN
       file     = "Buttons/button-insensitive.png"
+      border   = { 6, 6, 6, 6 }
+      stretch  = TRUE
+    }
+  }
+}
+
+style "buttonbox_flat_button" {
+  GtkButton::inner-border = { 1, 1, 1, 1 }
+  xthickness = 6
+  ythickness = 6
+
+  fg[NORMAL] = mix(0.87, mix(0.6, @accent_color, @fg_color), @bg_color)
+  fg[PRELIGHT] = mix(0.6, @accent_color, @fg_color)
+  fg[ACTIVE] = mix(0.6, @accent_color, @fg_color)
+  fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
+
+  engine "pixmap" {
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "Others/null.svg"
+      border   = { 6, 6, 6, 6 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      shadow   = OUT
+      file     = "Buttons/buttonbox-flat-button-hover.png"
+      border   = { 6, 6, 6, 6 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      shadow   = OUT
+      file     = "Others/null.svg"
+      border   = { 6, 6, 6, 6 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "Buttons/buttonbox-flat-button-active.png"
+      border   = { 6, 6, 6, 6 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      shadow   = IN
+      file     = "Buttons/buttonbox-flat-button-hover.png"
+      border   = { 6, 6, 6, 6 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      shadow   = IN
+      file     = "Others/null.svg"
       border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
@@ -2559,6 +2627,10 @@ widget_class "*<GtkNotebook>*<GtkExpander>"                  style "base"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkSpinButton>"  style "bg"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkCheckButton>" style "bg"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkExpander>"    style "bg"
+
+# GtkButtonBox specific
+widget_class "*<GtkButtonBox>*<GtkButton>"            style "buttonbox_flat_button"
+widget_class "*<GtkButtonBox>*<GtkButton>*<GtkLabel>" style "buttonbox_button_label"
 
 widget_class "*<GtkToolbar>*<GtkButton>"            style "flat_button"
 widget_class "*<GtkToolbar>*<GtkButton>*<GtkLabel>" style "button_label"
