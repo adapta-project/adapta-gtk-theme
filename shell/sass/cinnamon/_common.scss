@@ -1644,21 +1644,28 @@ $ws_thumb_spacing: 32px;
   .panel-bottom & {
     padding-left: 3px;
     padding-right: 3px;
+    // padding: 0 3px; // NEEDS_REVIEW
   }
 
   .panel-left &,
   .panel-right & {
     padding-top: 3px;
     padding-bottom: 3px;
+    // padding: 3px; // NEEDS_REVIEW
   }
 }
 
 .workspace-button { // numeric buttons
+  // in future, we will drop damned fixed width/height properties
   width: 20px;
   height: 10px;
+  // padding: 0 6px; // NEEDS_REVIEW
   color: $osd_fg_color;
   background-color: $hidden_fill_color;
   transition-duration: 0.2s;
+
+  // .vertical & { padding: 3px; } // NEEDS_REVIEW
+
   &:hover {
     color: $selected_fg_color;
 
