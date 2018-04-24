@@ -3375,6 +3375,8 @@ widget > box#DesktopMainTable {
 }
 
 #DesktopMainTable spinbutton > entry {
+  &:dir(ltr) { margin-right: rem(8px); } // gap between entry and buttons
+  &:dir(rtl) { margin-left: rem(8px); }
   // workaround for truncated labels in GimpSpinScale
   // FIXME: need to override weird inner-padding?
   padding: 0;
@@ -3383,21 +3385,32 @@ widget > box#DesktopMainTable {
   > progress > trough > progress { margin: 0; }
 }
 
-#InkscapePanel box#PanelContents button {
-  &.toggle,
-  &.radio {
-    min-width: rem($icon_size * 2.5);
-    min-height: rem($icon_size * 2.5);
-    margin: 0;
-    padding: 0;
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-    &:checked {
-      @include button(flat-checked);
-      border-image: none;
-      &:disabled { @include button(flat-checked-insensitive); }
+#InkscapePanel {
+  box#PanelContents,
+  box#PaintSelector {
+    button {
+      &.toggle,
+      &.radio {
+        min-width: rem($icon_size * 2.5);
+        min-height: rem($icon_size * 2.5);
+        margin: 0;
+        padding: 0;
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
+        &:checked {
+          @include button(flat-checked);
+          border-image: none;
+          &:disabled { @include button(flat-checked-insensitive); }
+        }
+      }
     }
   }
+}
+
+box#InkSpinScale { // >= 0.92+
+  // cover up ugly stock style.css
+  border-image: image($bg_color) 2 / 2px;
+  box-shadow: inset 0 0 0 999px $bg_color;
 }
 
 
