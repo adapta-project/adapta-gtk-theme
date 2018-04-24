@@ -3080,3 +3080,23 @@ box.speedometer {
   }
 }
 
+
+// /*********
+//  * Glade *
+//  *********/
+
+GladeWindow {
+  headerbar#headerbar.titlebar {
+    button#recent-button.popup.toggle { // down-arrow button
+      min-width: $icon_size;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+
+  box.horizontal scrolledwindow.frame + button.image-button {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+  }
+}
+
