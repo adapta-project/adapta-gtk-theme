@@ -88,12 +88,12 @@ Supported Desktop Environments
 ------------------------------
 
  ```
- * GNOME-Shell     >= 3.18.3
- * GNOME-Flashback >= 3.18.2
+ * GNOME-Shell     >= 3.20.0
+ * GNOME-Flashback >= 3.20
  * Budgie-Desktop  >= 10.4
  * Cinnamon        >= 2.8.6
  * XFce4           >= 4.12.2
- * Mate            >= 1.14.0 (Gtk+ 3.2x only)
+ * Mate            >= 1.14.0
  * LXDE            >= 0.99.1 (Gtk+ 2.x only)
  ```
 
@@ -214,13 +214,8 @@ Installation from Git Source
 6. To enable extra Gtk+ release support, pass these options:
 
  ```
- --enable-gtk_legacy    enable Gtk+ 3.18 support (type: bool)
  --enable-gtk_next      enable Gtk+ 4.0 support (type: bool)
  ```
-
- > **Note:**
- >
- >   * Development for Gtk+ 3.18.x theming is over. And Gtk+ 3.18 support will be dropped in April 26th 2018.
 
 7. To change the default 4 **Key-Colors**, pass these options:
 
@@ -343,7 +338,6 @@ TODO
 ----
 * Prepare for Meson build system (priority: high)
 * Prepare for x3 scaling (priority: mid or low)
-* Drop Gtk+ 3.18 support in April 26th 2018 (Xenial -> Bionic).
 
 Public License
 --------------

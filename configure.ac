@@ -25,7 +25,6 @@ AM_SILENT_RULES([yes])
 
 ADAPTA_OPTION([PARALLEL],     [parallel],     [parallel-build],    [disable])
 ADAPTA_OPTION([GTK_NEXT],     [gtk_next],     [Gtk-4.0],           [disable])
-ADAPTA_OPTION([GTK_LEGACY],   [gtk_legacy],   [Gtk-3.18],          [disable])
 ADAPTA_OPTION([GNOME],        [gnome],        [Gnome-Shell],       [disable])
 ADAPTA_OPTION([CINNAMON],     [cinnamon],     [Cinnamon],          [disable])
 ADAPTA_OPTION([FLASHBACK],    [flashback],    [Flashback],         [disable])
@@ -106,7 +105,7 @@ AC_MSG_RESULT([
         | Supported Gtk+ Version
         -----------------------------------------------------------
 
-         Gtk+ 3.18:              $ENABLE_GTK_LEGACY
+         Gtk+ 2.0:               always
          Gtk+ 3.20:              always
          Gtk+ 3.22:              always
          Gtk+ 4.0:               $ENABLE_GTK_NEXT
