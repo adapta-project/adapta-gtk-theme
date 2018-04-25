@@ -33,8 +33,6 @@ xml="gtk.gresource.xml"
 xml_eta="gtk-eta.gresource.xml"
 xml_dark="gtk-dark.gresource.xml"
 xml_dark_eta="gtk-dark-eta.gresource.xml"
-xml_legacy="gtk-legacy.gresource.xml"
-xml_dark_legacy="gtk-dark-legacy.gresource.xml"
 image_list="`grep -e '.png' ./$xml.in | cut -d'>' -f2 | cut -d'<' -f1 | \
            cut -d'/' -f2`"
 
@@ -47,31 +45,6 @@ do
 done
 
 case "$1" in
-    3.18)
-        cp "$xml_legacy".in ../gtk-"$1"/"$xml"
-        sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"/"$xml"
-        cd ../gtk-"$1" && ln -sf ../asset/assets-gtk3 assets && cd ../sass
-        $(command -v glib-compile-resources) --sourcedir=../gtk-"$1" \
-                                             ../gtk-"$1"/"$xml"
-        echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained.css");' \
-            > ../gtk-"$1"/gtk.css
-        echo '@import url("resource:///org/adapta-project/gtk-'$1'/gtk-contained-dark.css");' \
-            > ../gtk-"$1"/gtk-dark.css
-
-        rm -f ../gtk-"$1"/"$xml"
-        rm -rf ../gtk-"$1"/assets
-
-        cp "$xml_dark_legacy".in ../gtk-"$1"-nokto/"$xml"
-        sed -i "s|@VERSION[@]|$1-nokto|g" ../gtk-"$1"-nokto/"$xml"
-        cd ../gtk-"$1"-nokto && ln -sf ../asset/assets-gtk3 assets && cd ../sass
-        $(command -v glib-compile-resources) --sourcedir=../gtk-"$1"-nokto \
-                                             ../gtk-"$1"-nokto/"$xml"
-        echo '@import url("resource:///org/adapta-project/gtk-'$1'-nokto/gtk-contained-dark.css");' \
-            > ../gtk-"$1"-nokto/gtk.css
-
-        rm -f ../gtk-"$1"-nokto/"$xml"
-        rm -rf ../gtk-"$1"-nokto/assets
-        ;;
     3.20|3.22|4.0)
         cp "$xml".in ../gtk-"$1"/"$xml"
         sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"/"$xml"

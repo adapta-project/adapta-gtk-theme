@@ -56,16 +56,6 @@ SASSC="`command -v sassc` -M -t compact"
 
 case "$1" in
     -a)
-        if [ ! -d ../gtk-3.18 ]; then
-            mkdir -p ../gtk-3.18
-        fi
-        $SASSC 3.18/gtk.scss ../gtk-3.18/gtk-contained.css
-        $SASSC 3.18/gtk-dark.scss ../gtk-3.18/gtk-contained-dark.css
-        if [ ! -d ../gtk-3.18-nokto ]; then
-            mkdir -p ../gtk-3.18-nokto
-        fi
-        cp -f ../gtk-3.18/gtk-contained-dark.css ../gtk-3.18-nokto/gtk-contained-dark.css
-
         if [ ! -d ../gtk-3.20 ]; then
             mkdir -p ../gtk-3.20 ../gtk-3.20-eta
         fi
@@ -111,54 +101,34 @@ case "$1" in
         $SASSC common/xfce-notify-4.0.scss ../xfce-notify-4.0/gtk.css
         ;;
     *)
-        if [ "$major" = 3 ] && [ "$css_minor" = 18 ]; then
-            if [ ! -d ../gtk-"$major"."$css_minor" ]; then
-                mkdir -p ../gtk-"$major"."$css_minor"
-            fi
-
-            $SASSC \
-                "$major"."$css_minor"/gtk.scss ../gtk-"$major"."$css_minor"/gtk-contained.css
-            echo Wrote ../gtk-"$major"."$css_minor"/gtk-contained.css
-            $SASSC \
-                "$major"."$css_minor"/gtk-dark.scss ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
-            echo Wrote ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
-
-            if [ ! -d ../gtk-"$major"."$css_minor"-nokto ]; then
-                mkdir -p ../gtk-"$major"."$css_minor"-nokto
-            fi
-            cp -f ../gtk-"$major"."$css_minor"/gtk-contained-dark.css \
-                ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
-            echo Copied ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
-        else
-            if [ ! -d ../gtk-"$major"."$css_minor" ]; then
-                mkdir -p ../gtk-"$major"."$css_minor" \
-                         ../gtk-"$major"."$css_minor"-eta
-            fi
-
-            $SASSC \
-                "$major"."$css_minor"/gtk.scss ../gtk-"$major"."$css_minor"/gtk-contained.css
-            echo Wrote ../gtk-"$major"."$css_minor"/gtk-contained.css
-            $SASSC \
-                "$major"."$css_minor"/gtk-dark.scss ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
-            echo Wrote ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
-            $SASSC \
-                "$major"."$css_minor"/gtk-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk-contained.css
-            echo Wrote ../gtk-"$major"."$css_minor"-eta/gtk-contained.css
-            $SASSC \
-                "$major"."$css_minor"/gtk-dark-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css
-            echo Wrote ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css
-
-            if [ ! -d ../gtk-"$major"."$css_minor"-nokto ]; then
-                mkdir -p ../gtk-"$major"."$css_minor"-nokto \
-                         ../gtk-"$major"."$css_minor"-nokto-eta
-            fi
-            cp -f ../gtk-"$major"."$css_minor"/gtk-contained-dark.css \
-                ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
-            echo Copied ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
-            cp -f ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css \
-                ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained-dark.css
-            echo Copied ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained-dark.css
+        if [ ! -d ../gtk-"$major"."$css_minor" ]; then
+            mkdir -p ../gtk-"$major"."$css_minor" \
+                     ../gtk-"$major"."$css_minor"-eta
         fi
+
+        $SASSC \
+            "$major"."$css_minor"/gtk.scss ../gtk-"$major"."$css_minor"/gtk-contained.css
+        echo Wrote ../gtk-"$major"."$css_minor"/gtk-contained.css
+        $SASSC \
+            "$major"."$css_minor"/gtk-dark.scss ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
+        echo Wrote ../gtk-"$major"."$css_minor"/gtk-contained-dark.css
+        $SASSC \
+            "$major"."$css_minor"/gtk-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk-contained.css
+        echo Wrote ../gtk-"$major"."$css_minor"-eta/gtk-contained.css
+        $SASSC \
+            "$major"."$css_minor"/gtk-dark-eta.scss ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css
+        echo Wrote ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css
+
+        if [ ! -d ../gtk-"$major"."$css_minor"-nokto ]; then
+            mkdir -p ../gtk-"$major"."$css_minor"-nokto \
+                     ../gtk-"$major"."$css_minor"-nokto-eta
+        fi
+        cp -f ../gtk-"$major"."$css_minor"/gtk-contained-dark.css \
+            ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
+        echo Copied ../gtk-"$major"."$css_minor"-nokto/gtk-contained-dark.css
+        cp -f ../gtk-"$major"."$css_minor"-eta/gtk-contained-dark.css \
+            ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained-dark.css
+        echo Copied ../gtk-"$major"."$css_minor"-nokto-eta/gtk-contained-dark.css
         ;;
 esac
 

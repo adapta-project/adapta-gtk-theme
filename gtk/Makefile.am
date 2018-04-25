@@ -12,17 +12,6 @@ gtk3_thumb_file = \
 gtk3_darkthumb_file = \
 	$(gtk3_assetdir)/thumbnail-dark.png
 
-gtk318dir   = $(srcdir)/gtk-3.18
-gtk318_file = \
-	$(gtk318dir)/gtk.css \
-	$(gtk318dir)/gtk-dark.css \
-	$(gtk318dir)/gtk.gresource
-
-gtk318noktodir   = $(srcdir)/gtk-3.18-nokto
-gtk318nokto_file = \
-	$(gtk318noktodir)/gtk.css \
-	$(gtk318noktodir)/gtk.gresource
-
 gtk320dir   = $(srcdir)/gtk-3.20
 gtk320_file = \
 	$(gtk320dir)/gtk.css \
@@ -515,13 +504,6 @@ all:
 
 	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
 
-if ENABLE_GTK_LEGACY
-	$(MKDIR_P) $(srcdir)/gtk-3.18
-	$(MKDIR_P) $(srcdir)/gtk-3.18-nokto
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.18/gtk.scss ../gtk-3.18/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.18/gtk-dark.scss ../gtk-3.18/gtk-contained-dark.css
-	cp -Rv $(srcdir)/gtk-3.18/gtk-contained-dark.css $(srcdir)/gtk-3.18-nokto/gtk-contained-dark.css
-endif
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk.scss ../gtk-3.20/gtk-contained.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css
 	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css
@@ -587,9 +569,6 @@ else
 		./render-assets-gtk3.sh
 endif
 
-if ENABLE_GTK_LEGACY
-	cd $(srcdir)/sass && ./compile-gresource.sh 3.18
-endif
 	cd $(srcdir)/sass && ./compile-gresource.sh 3.20
 	cd $(srcdir)/sass && ./compile-gresource.sh 3.22
 if ENABLE_GTK_NEXT
@@ -611,23 +590,6 @@ install-data-local:
 	cp -Rv $(indexeta_file) $(adaptaetadir)/index.theme
 	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
 
-if ENABLE_GTK_LEGACY
-	$(MKDIR_P) $(adaptadir)/gtk-3.0
-	cp -Rv $(gtk318_file) $(adaptadir)/gtk-3.0
-	cp -Rv $(gtk3_thumb_file) $(adaptadir)/gtk-3.0
-	$(MKDIR_P) $(noktodir)/gtk-3.0
-	cp -Rv $(gtk318nokto_file) $(noktodir)/gtk-3.0
-	cp -Rv $(gtk3_darkthumb_file) $(noktodir)/gtk-3.0/thumbnail.png
-
-	$(MKDIR_P) $(adaptadir)/gtk-3.20
-	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.20
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
-	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.20
-	$(MKDIR_P) $(noktodir)/gtk-3.20
-	cp -Rv $(gtk320nokto_file) $(noktodir)/gtk-3.20
-	$(MKDIR_P) $(noktoetadir)/gtk-3.20
-	cp -Rv $(gtk320noktoeta_file) $(noktoetadir)/gtk-3.20
-else
 	$(MKDIR_P) $(adaptadir)/gtk-3.0
 	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.0
 	cp -Rv $(gtk3_thumb_file) $(adaptadir)/gtk-3.0
@@ -640,7 +602,7 @@ else
 	$(MKDIR_P) $(noktoetadir)/gtk-3.0
 	cp -Rv $(gtk320noktoeta_file) $(noktoetadir)/gtk-3.0
 	cp -Rv $(gtk3_darkthumb_file) $(noktoetadir)/gtk-3.0/thumbnail.png
-endif
+
 	$(MKDIR_P) $(adaptadir)/gtk-3.22
 	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.22
@@ -803,57 +765,25 @@ endif
 # *******************
 
 uninstall-local:
-if ENABLE_GTK_LEGACY
-	test -e $(noktodir)/index.theme && rm -rfv $(noktodir)/index.theme
-	test -e $(noktodir)/gtk-3.0 && rm -rfv $(noktodir)/gtk-3.0
-	test -e $(noktodir)/gtk-3.20 && rm -rfv $(noktodir)/gtk-3.20
-	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
-	test -e $(noktodir)/gtk-2.0 && rm -rfv $(noktodir)/gtk-2.0
-else
 	test -e $(noktodir)/index.theme && rm -rfv $(noktodir)/index.theme
 	test -e $(noktodir)/gtk-3.0 && rm -rfv $(noktodir)/gtk-3.0
 	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
 	test -e $(noktodir)/gtk-2.0 && rm -rfv $(noktodir)/gtk-2.0
-endif
 
-if ENABLE_GTK_LEGACY
-	test -e $(adaptadir)/index.theme && rm -rfv $(adaptadir)/index.theme
-	test -e $(adaptadir)/gtk-3.0 && rm -rfv $(adaptadir)/gtk-3.0
-	test -e $(adaptadir)/gtk-3.20 && rm -rfv $(adaptadir)/gtk-3.20
-	test -e $(adaptadir)/gtk-3.22 && rm -rfv $(adaptadir)/gtk-3.22
-	test -e $(adaptadir)/gtk-2.0 && rm -rfv $(adaptadir)/gtk-2.0
-else
 	test -e $(adaptadir)/index.theme && rm -rfv $(adaptadir)/index.theme
 	test -e $(adaptadir)/gtk-3.0 && rm -rfv $(adaptadir)/gtk-3.0
 	test -e $(adaptadir)/gtk-3.22 && rm -rfv $(adaptadir)/gtk-3.22
 	test -e $(adaptadir)/gtk-2.0 && rm -rfv $(adaptadir)/gtk-2.0
-endif
 
-if ENABLE_GTK_LEGACY
-	test -e $(noktoetadir)/index.theme && rm -rfv $(noktoetadir)/index.theme
-	test -e $(noktoetadir)/gtk-3.0 && rm -rfv $(noktoetadir)/gtk-3.0
-	test -e $(noktoetadir)/gtk-3.20 && rm -rfv $(noktoetadir)/gtk-3.20
-	test -e $(noktoetadir)/gtk-3.22 && rm -rfv $(noktoetadir)/gtk-3.22
-	test -e $(noktoetadir)/gtk-2.0 && rm -rfv $(noktoetadir)/gtk-2.0
-else
 	test -e $(noktoetadir)/index.theme && rm -rfv $(noktoetadir)/index.theme
 	test -e $(noktoetadir)/gtk-3.0 && rm -rfv $(noktoetadir)/gtk-3.0
 	test -e $(noktoetadir)/gtk-3.22 && rm -rfv $(noktoetadir)/gtk-3.22
 	test -e $(noktoetadir)/gtk-2.0 && rm -rfv $(noktoetadir)/gtk-2.0
-endif
 
-if ENABLE_GTK_LEGACY
-	test -e $(adaptaetadir)/index.theme && rm -rfv $(adaptaetadir)/index.theme
-	test -e $(adaptaetadir)/gtk-3.0 && rm -rfv $(adaptaetadir)/gtk-3.0
-	test -e $(adaptaetadir)/gtk-3.20 && rm -rfv $(adaptaetadir)/gtk-3.20
-	test -e $(adaptaetadir)/gtk-3.22 && rm -rfv $(adaptaetadir)/gtk-3.22
-	test -e $(adaptaetadir)/gtk-2.0 && rm -rfv $(adaptaetadir)/gtk-2.0
-else
 	test -e $(adaptaetadir)/index.theme && rm -rfv $(adaptaetadir)/index.theme
 	test -e $(adaptaetadir)/gtk-3.0 && rm -rfv $(adaptaetadir)/gtk-3.0
 	test -e $(adaptaetadir)/gtk-3.22 && rm -rfv $(adaptaetadir)/gtk-3.22
 	test -e $(adaptaetadir)/gtk-2.0 && rm -rfv $(adaptaetadir)/gtk-2.0
-endif
 
 if ENABLE_GTK_NEXT
 	test -e $(noktodir)/gtk-4.0 && rm -rfv $(noktodir)/gtk-4.0
@@ -915,17 +845,6 @@ CLEANFILES = \
 	$(srcdir)/gtk-2.0/colors.rc \
 	$(srcdir)/gtk-2.0/colors-dark.rc \
 	$(srcdir)/xfce-notify-4.0/gtk.css
-if ENABLE_GTK_LEGACY
-CLEANFILES += \
-	$(srcdir)/gtk-3.18/gtk.css \
-	$(srcdir)/gtk-3.18/gtk-dark.css \
-	$(srcdir)/gtk-3.18/gtk-contained.css \
-	$(srcdir)/gtk-3.18/gtk-contained-dark.css \
-	$(srcdir)/gtk-3.18/gtk.gresource \
-	$(srcdir)/gtk-3.18-nokto/gtk.css \
-	$(srcdir)/gtk-3.18-nokto/gtk-contained-dark.css \
-	$(srcdir)/gtk-3.18-nokto/gtk.gresource
-endif
 if ENABLE_GTK_NEXT
 CLEANFILES += \
 	$(srcdir)/gtk-4.0/gtk.css \
