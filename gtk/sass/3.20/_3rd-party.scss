@@ -232,20 +232,30 @@ widget.icon-tasklist {
 }
 
 box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
-  background-image: none;
-  transition-duration: 0s; // unset transitions
+  transition: opacity 0.2s $slope_medium,
+              background-color 0.4s $slope_slow,
+              background-image 0.4s $slope_slow,
+              box-shadow 0s $slope_slow; // exclude box-shadows
 
   widget.icon { opacity: 0.87; }
 
   &:hover,
-  &:active,
   &:checked,
   &.running {
     box-shadow: none; // unset before drawing indicators
+
     widget.icon { opacity: 1.0; }
   }
 
-  &:active { animation: none; } // disable ink reactions
+  &:active {
+    box-shadow: none;
+    transition: opacity 0.2s $slope_medium,
+                background-color 0.4s $slope_slow,
+                background-image 0s $slope_slow,
+                box-shadow 0s $slope_slow;
+
+    widget.icon { opacity: 1.0; }
+  }
 }
 
 @each $position, $_line in (top, 0 3px),
