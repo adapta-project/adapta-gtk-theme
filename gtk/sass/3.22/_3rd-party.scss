@@ -1308,6 +1308,8 @@ window.budgie-popover.workspace-popover {
 }
 
 // alt-tab apps switcher styling
+$child_margin: 2px;
+
 window.budgie-switcher-window {
   border-radius: 2px;
   background-color: transparent;
@@ -1324,12 +1326,13 @@ window.budgie-switcher-window {
       min-height: 13.3px * 2; // use non-scaling unit
       color: $inverted_accent_label_color;
       font-weight: 500;
-      &:dir(ltr) { padding: 0 0 0 6px; }
-      &:dir(rtl) { padding: 0 6px 0 0; }
+      &:dir(ltr) { padding: 0 0 0 ($child_margin * 2); }
+      &:dir(rtl) { padding: 0 ($child_margin * 2) 0 0; }
     }
   }
 
   flowboxchild { // icon-tiles
+    margin: $child_margin;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
     color: $inverted_secondary_accent_label_color;
