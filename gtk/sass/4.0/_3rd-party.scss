@@ -1296,26 +1296,18 @@ window.budgie-popover.workspace-popover {
 }
 
 // alt-tab apps switcher styling
-$min_child_width: 60px;
-$min_spacing: 6px;
-$max_childs: 8;
-
 window.budgie-switcher-window {
   border-radius: 2px;
   background-color: transparent;
 
   // draw actual backgrounds and shadows
   .drop-shadow {
-    margin: 8px 8px 16px; // reserve area for shadows
+    margin: 16px 24px 32px; // reserve area for shadows
     border-radius: 2px;
     background-color: gtkopacity($inverted_dark_color, 0.9);
     box-shadow: $z-depth-4; // raise to level-4
 
     label.budgie-switcher-title { // bottom label for app titles
-      // default max_children_per_line = 8
-      // keep the minimum width defined by tabswitcher.ui
-      min-width: ($min_child_width + $min_spacing) * $max_childs
-                 + $min_spacing * ($max_childs - 1);
       // prepare for tall and dense fonts
       min-height: 13.3px * 2; // use non-scaling unit
       color: $inverted_accent_label_color;
@@ -1326,7 +1318,6 @@ window.budgie-switcher-window {
   }
 
   flowboxchild { // icon-tiles
-    margin: $min_spacing / 2;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
     color: $inverted_secondary_accent_label_color;
