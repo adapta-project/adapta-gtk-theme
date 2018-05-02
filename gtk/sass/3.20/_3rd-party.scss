@@ -2817,8 +2817,6 @@ window.background:not(.solid-csd) > box.vertical {
   padding: if($ref_weight < 1.0, 0 4px, 0 7px);
 }
 
-$compact_tab_height: 28px;
-
 window#MozillaGtkWidget.background {
   &,
   decoration,
@@ -2829,14 +2827,11 @@ window#MozillaGtkWidget.background {
   headerbar.titlebar { // >= nightly 60.0a1(2018-02-02)
     // FIXME: no backdrop state, no maximized state, bullshit...
 
-    padding: if($ref_weight < 1.0, 0 3px, 2px 3px);
+    padding: 0 3px;
     border-radius: 2px 2px 0 0;
     border-top: 1px solid $top_edge_borders_color;
 
-    &.default-decoration button.titlebutton {
-      // compute proper T/B magins
-      margin: ($compact_tab_height - $titlebutton_small) / 2 0;
-    }
+    &.default-decoration button.titlebutton { margin: 0; }
   }
 
   // blend with weird toolbar backgrounds
