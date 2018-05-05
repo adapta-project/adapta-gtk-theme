@@ -2604,22 +2604,79 @@ window.background:not(.solid-csd) > box.vertical {
   padding: if($ref_weight < 1.0, 0 4px, 0 7px);
 }
 
-window#MozillaGtkWidget.background {
-  &,
-  decoration,
-  headerbar.titlebar { border-radius: 0; } // unset roundness
+%browser_csd_titlebutton {
+  // define global titlebutton class sizing
+  margin: 0; // unset margins
+  padding: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: transparent; // hide stock icons
+
+  @each $_class, $_suffix1 in ('close', '-close'),
+                              ('minimize', '-minimize'),
+                              ('maximize', '-maximize') {
+    @each $_pseudo, $_suffix2 in ('', ''),
+                                 (':hover', '-active'),
+                                 (':active', '-active'),
+                                 (':backdrop', '-backdrop') {
+      &.#{$_class}#{$_pseudo} {
+        background-image:
+          -gtk-scaled(
+            url("assets/window#{$_suffix1}#{$_suffix2}.png"),
+            url("assets/window#{$_suffix1}#{$_suffix2}@2.png"));
+      }
+    }
+  }
+
+  &.close {
+    &:hover { background-color: $destructive_color; }
+    &:active { background-color: $selected_bg_color; }
+    &:backdrop:hover {
+      background-color: gtkopacity($destructive_color, 0.4);
+    }
+  }
+
+  &:not(.close) {
+    &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
+    &:active { background-color: gtkopacity($inverted_fg_color, 0.25); }
+    &:backdrop:hover {
+      background-color: gtkopacity($inverted_fg_color, 0.12 * 0.4);
+    }
+  }
+}
+
+%browser_maxd_csd_titlebutton {
+  @each $_pseudo, $_suffix2 in ('', ''),
+                               (':hover', '-active'),
+                               (':active', '-active'),
+                               (':backdrop', '-backdrop') {
+    &#{$_pseudo} {
+      background-image:
+        -gtk-scaled(url("assets/window-unmaximize#{$_suffix2}.png"),
+                    url("assets/window-unmaximize#{$_suffix2}@2.png"));
+    }
+  }
 }
 
 #MozillaGtkWidget.background {
   headerbar.titlebar { // >= nightly 60.0a1(2018-02-02)
     // FIXME: no backdrop state, no maximized state, bullshit...
-
-    padding: 0 3px;
-    border-radius: 2px 2px 0 0;
+    padding: 0 if($ref_weight < 1.0, (28px - $icon_size * 1.25) / 2,
+                                     (28px - $icon_size * 1.5) / 2);
     border-top: 1px solid $top_edge_borders_color;
 
-    &.default-decoration button.titlebutton { margin: 0; }
+    &.default-decoration button.titlebutton {
+      @extend %browser_csd_titlebutton;
+      min-width: if($ref_weight < 1.0, $icon_size * 1.25,
+                                       $icon_size * 1.5);
+      min-height: if($ref_weight < 1.0, $icon_size * 1.25,
+                                       $icon_size * 1.5);
+    }
   }
+
+  // &.maximized headerbar.titlebar.default-decoration {
+  //   button.titlebutton.maximize { @extend %browser_maxd_csd_titlebutton; }
+  // }
 
   // blend with weird toolbar backgrounds
   background-color: if($variant == light, $base_color, rgb(4, 18, 25));
@@ -3627,59 +3684,15 @@ window.background.chromium {
 
     // from nav_button_provider_gtk3.cc (> 62.0.3202?)
     button.titlebutton { // title-buttons
-      // define global titlebutton class sizing
+      @extend %browser_csd_titlebutton;
       min-width: $icon_size; // > 16px causes image blurring
       min-height: $icon_size;
-      margin: 0; // unset margins
-      padding: 0;
-      color: transparent; // hide stock icons
-
-      @each $_class, $_suffix1 in ('close', '-close'),
-                                  ('minimize', '-minimize'),
-                                  ('maximize', '-maximize') {
-        @each $_pseudo, $_suffix2 in ('', ''),
-                                     (':hover', '-active'),
-                                     (':active', '-active'),
-                                     (':backdrop', '-backdrop') {
-          &.#{$_class}#{$_pseudo} {
-            background-image:
-              -gtk-scaled(
-                url("assets/window#{$_suffix1}#{$_suffix2}.png"),
-                url("assets/window#{$_suffix1}#{$_suffix2}@2.png"));
-          }
-        }
-      }
-
-      &.close {
-        &:hover { background-color: $destructive_color; }
-        &:active { background-color: $selected_bg_color; }
-        &:backdrop:hover {
-          background-color: gtkopacity($destructive_color, 0.4);
-        }
-      }
-
-      &:not(.close) {
-        &:hover { background-color: gtkopacity($inverted_fg_color, 0.12); }
-        &:active { background-color: gtkopacity($inverted_fg_color, 0.25); }
-        &:backdrop:hover {
-          background-color: gtkopacity($inverted_fg_color, 0.12 * 0.4);
-        }
-      }
     }
   }
 
   // for unmaximize(restore) titlebutton
   &.maximized headerbar.titlebar button.titlebutton.maximize {
-    @each $_pseudo, $_suffix2 in ('', ''),
-                                 (':hover', '-active'),
-                                 (':active', '-active'),
-                                 (':backdrop', '-backdrop') {
-      &#{$_pseudo} {
-        background-image:
-          -gtk-scaled(url("assets/window-unmaximize#{$_suffix2}.png"),
-                      url("assets/window-unmaximize#{$_suffix2}@2.png"));
-      }
-    }
+    @extend %browser_maxd_csd_titlebutton;
   }
 
   // FIXME: not for actual button widgets but for toolbar's separators
