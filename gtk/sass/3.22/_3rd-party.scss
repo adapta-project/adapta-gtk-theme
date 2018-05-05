@@ -118,6 +118,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
 }
 
 // icon tasklist styling
+%icon_tasklist_droptarget,
 box.pinned { // drop-target
   &:drop(active) {
     border: none;
@@ -224,10 +225,7 @@ box.pinned { // drop-target
 // upcoming icon tasklist
 widget.icon-tasklist {
   > box:drop(active) { // drop-target
-    border: none;
-    border-radius: 0;
-    background-color: gtkopacity($drop_target_color, 0.2);
-    box-shadow: inset 0 0 0 1px $drop_target_color;
+    @extend %icon_tasklist_droptarget;
   }
 }
 
@@ -237,15 +235,9 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
               background-image 0.4s $slope_slow,
               box-shadow 0s $slope_slow; // exclude box-shadows
 
-  widget.icon { opacity: 0.87; }
-
   &:hover,
   &:checked,
-  &.running {
-    box-shadow: none; // unset before drawing indicators
-
-    widget.icon { opacity: 1.0; }
-  }
+  &.running { box-shadow: none; } // unset before drawing indicators
 
   &:active {
     box-shadow: none;
@@ -253,8 +245,6 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
                 background-color 0.4s $slope_slow,
                 background-image 0s $slope_slow,
                 box-shadow 0s $slope_slow;
-
-    widget.icon { opacity: 1.0; }
   }
 }
 
