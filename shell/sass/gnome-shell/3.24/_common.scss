@@ -715,9 +715,11 @@ $extra_spacing: 2.5px;
 
   &-ornament {
     @include fontscaling($ref_size * 1.1);
+    width: 1.1em; // protect the region
     height: 0; // trick for minimum separator-menu-item height
     padding-top: 1.3px; // not need to scale
     color: $selected_bg_color;
+    text-align: right;
     font-family: $font-family-for-ornament;
     font-weight: 700;
   }
