@@ -1933,12 +1933,18 @@ $extra_spacing: 2.5px;
 }
 
 .window-caption { // hovered tooltips
+  max-width: 75em; // set horizontal limit for damned looong web page titles
   padding: if($eta == false, 0.6em 1.2em 0.7em, 0.4em 0.9em 0.5em);
   border-radius: 100px;
   border-top: 1px solid $borders_highlight;
   color: $osd_fg_color;
   background-color: $panel_bg_color;
   box-shadow: $z-depth-3;
+  // FIXME: Still label width computing is quite weird in Wayland session
+  // (brings unwatened larger L/R padding than we set) though, at least
+  // we should align StLabel in the center of finalized widget width
+  // as possible as we can...
+  text-align: center; // enforce label centering for Wayland session
 }
 
 // Search entry
