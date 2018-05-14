@@ -2702,6 +2702,12 @@ window.background:not(.solid-csd) > box.vertical {
 
     separator { background-color: $solid_light_borders_color; }
 
+    > scrolledwindow > textview text {
+      &:selected,
+      &:selected:focus,
+      selection { @extend %selected_items; }
+    }
+
     > button {
       &, &.combo {
         > button { // enforce fallback buttons inside the HTML pages
