@@ -2674,31 +2674,6 @@ window.background:not(.solid-csd) > box.vertical {
     }
   }
 
-  // &.maximized headerbar.titlebar.default-decoration {
-  //   button.titlebutton.maximize { @extend %browser_maxd_csd_titlebutton; }
-  // }
-
-  // blend with weird toolbar backgrounds
-  background-color: if($variant == light, $base_color, rgb(4, 18, 25));
-
-  // FIXME: resetting child elements background is not fully functional yet
-  // because WidgetStyleCache keeps holding initial background-color.
-  // the stem of this incorrect colouring seems to be caused by their
-  // gdk_rgba to ns_rgba conversion. I don't think theme's fault.
-  .background,
-  frame,
-  separator,
-  scrolledwindow { background-color: $bg_color; }
-
-  scrollbar { background-color: $base_color; }
-
-  *:not(menuitem):hover, // exclude menuitem node
-  *:focus,
-  *:active,
-  *:checked {
-    &, button { color: $fg_color; } // enforce opaque foregrounds
-  }
-
   > window.background > menu { // context-menus
     border: unset; // hide ugly double borders
     background-color: $secondary_base_color;
@@ -2726,20 +2701,6 @@ window.background:not(.solid-csd) > box.vertical {
     border { border-color: $solid_light_borders_color; }
 
     separator { background-color: $solid_light_borders_color; }
-
-    // FIXME: this affected to popover widget as well,
-    // so we can not set $light_color to search-bar...
-    > scrolledwindow > textview {
-      background-color: $secondary_base_color;
-
-      text {
-        background-color: transparent;
-        color: $secondary_fg_color;
-        &:selected,
-        &:selected:focus,
-        selection { @extend %selected_items; }
-      }
-    }
 
     > button {
       &, &.combo {
