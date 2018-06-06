@@ -260,6 +260,13 @@ Visual Studio Code (VS Code) Theme Support
 
 Extra Browser Support
 ---------------------
+ To try our color samples for FirefoxColor test pilot, check these URLs:
+
+  1. [**Adapta**](https://color.firefox.com/?theme=XQAAAALUAAAAAAAAAABBKYhm849SCiazH1KEGccwS-xNVAWBvoBvsLDMFdiXwrZEjOV1NwO6XqPerXD8qYVs0UlDwqcfPjkI5BlCqpxbOuNeJwXm4sy3HA4lOEOUuj7r2BX_aau25f73XS-aCn8rM44KG1ziXlUkyswFedsbNXsbyCuvqICTnT-dm_jA5ysYE3lw6w3ttdt_KvOHMTgXtVSM787sAPvJ9f_sPigA)
+
+  2. [**Adapta-Nokto**](https://color.firefox.com/?theme=XQAAAALUAAAAAAAAAABBKYhm849SCiazH1KEGccwS-xNVAVNrWV6_89xtxNWy3sM0X99YG7itotZ8sB9kkK0owJCyKXJNAryj9IJU_wtu72r-X3skC4prCeW-fnJweq-4xu9tLmeXj8UkSdZGnzwrWVCNr3bToa6Zufrkj2b7e0PqstuOnN1gdAzjKSHwEJvdQThz-ruhge78cW2PaG0mCwQPvE72cX8OQiA)
+
+
  To try legacy Chrome(ium) specific theming (`< 59.0.30xx`), pass this option:
 
  ```
