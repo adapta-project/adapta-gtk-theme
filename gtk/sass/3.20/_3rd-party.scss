@@ -2907,6 +2907,12 @@ window.background:not(.solid-csd) > box.vertical {
   }
 
   > widget {
+    // 'PageInfo' window's ViewGroup > radio?
+    > radiobutton,
+    > checkbutton {
+      &:focus { outline-width: 0; } // hide outlines
+    }
+
     border { border-color: $solid_light_borders_color; }
 
     separator { background-color: $solid_light_borders_color; }
