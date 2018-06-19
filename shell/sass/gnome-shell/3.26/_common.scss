@@ -1055,6 +1055,9 @@ $extra_spacing: 2.5px;
   transition-timing-function: $slope_slow;
   transition-duration: $duration_long;
 
+  // NEEDS_REVIEW
+  // font-feature-settings: "tnum"; // >= 3.29
+
   &:overview,
   &.unlock-screen,
   &.login-screen,
@@ -1396,6 +1399,10 @@ $extra_spacing: 2.5px;
   border-radius: 100px;
   text-align: center;
   transition-duration: $duration_short;
+
+  // NEEDS_REVIEW
+  // font-feature-settings: "tnum"; // >= 3.29
+
   &:hover,
   &:focus { background-color: $semi_fill_color; }
   &:active,
@@ -3262,6 +3269,9 @@ $provider_details_width: 120px;
     padding-bottom: 1.5em;
     color: $osd_fg_color;
     text-align: center;
+
+    // NEEDS_REVIEW
+    // font-feature-settings: "tnum"; // >= 3.29
 
     &-time {
       @include fontscaling($ref_size * 8.4);
