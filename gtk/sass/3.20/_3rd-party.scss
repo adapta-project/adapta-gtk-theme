@@ -2577,6 +2577,24 @@ TopMenuAppMenuBar {
 }
 
 
+// /**********
+//  * Thunar *
+//  **********/
+
+window.thunar {
+  toolbar#location-toolbar { border-bottom: 1px solid $borders_color; }
+
+  notebook {
+    // hide unneeded border
+    stack > scrolledwindow.frame.standard-view { border-top-width: 0; }
+
+    // an allocation height of label node affects to close button's
+    // image height (it's quite weird).
+    header.top tab.reorderable-page > box > label { min-height: 0; }
+  }
+}
+
+
 // /**************
 //  * FeedReader *
 //  **************/
