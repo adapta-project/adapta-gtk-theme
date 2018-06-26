@@ -4328,3 +4328,28 @@ window#live_installer {
   }
 }
 
+
+// /********
+//  * GHex *
+//  ********/
+
+window.background > box.vertical > menubar + box.vertical > widget {
+  > widget {
+    &:not(.view) { // left-most pane
+      background-image: none;
+      color: $tertiary_fg_color;
+      transition: unset;
+    }
+
+    &.view {
+      background-image: none;
+      transition: unset;
+      &.header:selected { // a focused cell
+        // do not use transparency
+        background-color: mix($base_color, $selected_bg_color, 87%);
+        color: $selected_bg_color;
+      }
+    }
+  }
+}
+
