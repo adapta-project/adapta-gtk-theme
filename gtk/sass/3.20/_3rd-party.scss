@@ -2947,7 +2947,6 @@ window.background:not(.solid-csd) > box.vertical {
     // FIXME: no backdrop state, no maximized state, bullshit...
     padding: 0 if($ref_weight < 1.0, (28px - $icon_size * 1.25) / 2,
                                      (28px - $icon_size * 1.5) / 2);
-    border-top: 1px solid $top_edge_borders_color;
 
     &.default-decoration button.titlebutton {
       @extend %browser_csd_titlebutton;
@@ -2999,9 +2998,7 @@ window.background:not(.solid-csd) > box.vertical {
     separator { background-color: $solid_light_borders_color; }
 
     > scrolledwindow > textview text {
-      &:selected,
-      &:selected:focus,
-      selection { @extend %selected_items; }
+      &:selected { @extend %selected_items; }
     }
 
     > button {
