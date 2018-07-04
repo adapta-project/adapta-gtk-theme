@@ -6463,11 +6463,20 @@ popover.touch-selection {
 //  * Emoji Picker *
 //  ****************/
 
-popover.emoji-picker {
-  scrolledwindow.view {
+popover.emoji {
+  &-picker scrolledwindow.view {
     margin-top: 2px;
     border: 1px solid $borders_color;
     background-image: none;
+  }
+
+  &-completion {
+    arrow {
+      border: none;
+      background: none;
+    }
+
+    contents row box { padding: 2px 10px; } // NEEDS_REVIEW
   }
 }
 
