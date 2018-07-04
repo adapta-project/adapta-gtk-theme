@@ -902,7 +902,7 @@ notebook > box > stack > box.vertical > paned.vertical > overlay {
 }
 
 // popover for downloaded lists
-popover.background:not(.emoji-picker) > box.vertical > scrolledwindow {
+popover:not(.emoji-picker) > contents > box.vertical > scrolledwindow {
   // re-define background colours for GtkListBox
   > viewport.frame > list.background {
     background-color: $secondary_base_color;
@@ -910,7 +910,7 @@ popover.background:not(.emoji-picker) > box.vertical > scrolledwindow {
 }
 
 // popover for bookmarks
-popover.background:not(.emoji-picker) > box.vertical > stack > box.vertical {
+popover:not(.emoji-picker) > contents > box.vertical > stack > box.vertical {
   scrolledwindow > viewport.frame {
     border: 1px solid $borders_color;
 
@@ -1763,7 +1763,7 @@ headerbar > box > box.linked {
 }
 
 popover {
-  > list > row.activatable > box.horizontal {
+  > contents > list > row.activatable > box.horizontal {
     > label { // add lateral gaps
       &:dir(ltr) { margin-left: rem(8px); }
       &:dir(rtl) { margin-right: rem(8px); }
@@ -1943,8 +1943,8 @@ popover.messagepopover {
   }
 }
 
-window.background.workbench > popover.menu { // right-most popover
-  > stack { // reduce embedded margins more
+window.background.workbench > popover { // right-most popover
+  > contents.menu > stack { // reduce embedded margins more
     margin: -(12px - 2px) -12px -12px;
   }
 }
@@ -2486,7 +2486,7 @@ window headerbar > box.horizontal:not(.linked) {
   }
 }
 
-window > popover > stack > grid > button.text-button {
+window > popover > contents > stack > grid > button.text-button {
   // prevent unwanted truncation of drop-shadows
   margin: 2px 6px 12px;
 }
