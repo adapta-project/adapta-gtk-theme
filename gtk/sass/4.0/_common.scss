@@ -4934,10 +4934,12 @@ expander {
       min-height: $icon_size;
       &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
       &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-      &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.87); }
+      &:not(:hover):not(:active) { color: $secondary_fg_color; }
       &:selected { color: $selected_fg_color; }
       &:disabled { color: $insensitive_fg_color; }
     }
+
+    &:hover > arrow { color: $fg_color; }
 
     > label {
       // spacer between arrow and label
