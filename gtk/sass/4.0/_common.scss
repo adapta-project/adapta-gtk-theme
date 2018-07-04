@@ -90,11 +90,16 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   color: $fg_color;
 }
 
+// icon sizing
+.normal-icons { -gtk-icon-size: $icon_size; }
+
+.large-icons,
+image.drag-icons { -gtk-icon-size: $icon_size * 2; }
+
 // These wildcard seems unavoidable, need to investigate.
 // Wildcards are bad and troublesome, use them with care,
 // or better, just don't.
 // Everytime a wildcard is used a kitten dies, painfully.
-
 *:disabled { -gtk-icon-filter: opacity(0.5); }
 
 // for backdrop, tone down element surfaces with transparentize
