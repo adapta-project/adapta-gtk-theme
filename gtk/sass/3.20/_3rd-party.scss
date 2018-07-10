@@ -4344,6 +4344,14 @@ dialog.background:not(.csd) {
       &:dir(rtl) { box-shadow: none; }
     }
   }
+
+  // hide unndeeded animations (child radio node already has)
+  .dialog-vbox grid.horizontal > grid.horizontal > modelbutton.flat {
+    &:not(:disabled) {
+      background-image: none;
+      animation: none;
+    }
+  }
 }
 
 
