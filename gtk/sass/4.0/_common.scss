@@ -595,8 +595,22 @@ button {
     &:disabled { opacity: 0; }
 
     .linked > & { // 'rotate CW/CCW' linked-buttons
-      &:hover,
-      &:active { background-color: gtkopacity($inverted_dark_color, 0.9); }
+      &.image-button {
+        &:not(:disabled) {
+          border: none;
+          background-color: gtkopacity($inverted_dark_color, 0.9);
+        }
+        &:first-child {
+          &:dir(ltr) { border-radius: 2px 0 0 2px; }
+          &:dir(rtl) { border-radius: 0 2px 2px 0; }
+        }
+        &:last-child {
+          &:dir(ltr) { border-radius: 0 2px 2px 0; }
+          &:dir(rtl) { border-radius: 2px 0 0 2px; }
+        }
+
+        image { padding: 0 rem(8px); }
+      }
     }
   }
 
