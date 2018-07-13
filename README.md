@@ -143,7 +143,6 @@ Installation from Git Source
  * inkscape                                  >= 0.91
  * libgdk-pixbuf2.0-dev (gdk-pixbuf2-devel)  >= 2.32.2
  * libglib2.0-dev (glib2-devel)              >= 2.48.0
- * libsass0 (libsass)                        >= 3.3
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
  * sassc                                     >= 3.3
