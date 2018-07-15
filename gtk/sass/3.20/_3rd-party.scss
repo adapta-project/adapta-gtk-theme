@@ -3186,7 +3186,11 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   }
 
   // vertical panel mode?
-  &.brisk-button-vertical { padding: 0; }
+  &.brisk-button-vertical {
+    padding: 0;
+    &:hover { box-shadow: inset 2px 0 $outline_track_color; }
+    &:checked { box-shadow: inset 2px 0 $selected_bg_color; }
+  }
 }
 
 .brisk-menu {
