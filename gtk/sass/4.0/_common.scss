@@ -5128,6 +5128,9 @@ messagedialog {
         caret-color: $fg_color;
       }
     }
+
+    // Why doesn't Nautilus use textview? Damned...
+    > label:not(text):not(textview):not(title) { color: $inverted_fg_color; }
   }
 
   &.background,
