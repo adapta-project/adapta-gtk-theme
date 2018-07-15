@@ -42,15 +42,14 @@ panel-toplevel > grid.horizontal > widget > widget {
 }
 
 .gnome-panel-menu-bar,
-panel-applet > menubar,
+gp-applet > menubar,
 #clock-applet-button { @extend %gnome_panel_menubar; }
 
 .gnome-panel-menu-bar > menuitem,
-panel-applet menubar > menuitem {
+gp-applet menubar > menuitem {
   @extend %gnome_panel_menuitem;
 }
 
-wnck-tasklist > button.toggle,
 #tasklist-button,
 #clock-applet-button,
 #showdesktop-button {
@@ -81,7 +80,6 @@ wnck-tasklist > button.toggle,
   }
 }
 
-wnck-tasklist > button.toggle,
 #tasklist-button {
   &,
   label { font-weight: 400; }
