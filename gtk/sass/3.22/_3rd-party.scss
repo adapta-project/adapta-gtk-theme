@@ -2895,12 +2895,29 @@ PanelSeparator {
   color: $panel_separator_color;
 }
 
-MatePanelAppletFrameDBus {
-  border-style: solid;
-  border-color: $panel_separator_color;
+@each $layout, $size, $dir in (horizontal, 7px 14px, right),
+                              (vertical, 14px 7px, bottom) {
+  // a grip
+  PanelToplevel.#{$layout} MatePanelAppletFrameDBus {
+    background-image: linear-gradient(to #{$dir},
+                        transparent 2px,
+                        $panel_separator_color 2px,
+                        $panel_separator_color 3px,
+                        transparent 3px,
+                        transparent 4px,
+                        $panel_separator_color 4px,
+                        $panel_separator_color 5px,
+                        transparent 5px,
+                        transparent 7px);
+    background-repeat: no-repeat;
+    background-size: #{$size};
 
-  &:dir(ltr) { border-width: 0 0 0 2px; }
-  &:dir(rtl) { border-width: 0 2px 0 0; }
+    @if $layout == horizontal {
+      &:dir(ltr) { background-position: left center; }
+      &:dir(rtl) { background-position: right center; }
+    }
+    @else if $layout == vertical { background-position: center top; }
+  }
 }
 
 // 'hide' arrow buttons
