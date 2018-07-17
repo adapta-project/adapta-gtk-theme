@@ -2966,11 +2966,31 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   }
 }
 
-.mate-panel-menu-bar menubar,
-#PanelApplet-window-menu-applet-button {
-  @extend %gnome_panel_menubar;
+.mate-panel-menu-bar {
+  menubar,
+  #PanelApplet-window-menu-applet-button {
+    @extend %gnome_panel_menubar;
 
-  > menuitem { @extend %gnome_panel_menuitem; }
+    > menuitem { @extend %gnome_panel_menuitem; }
+  }
+}
+
+.mate-panel-menu-bar.vertical { // vertical layout
+  menubar,
+  #PanelApplet-window-menu-applet-button {
+    > menuitem {
+      padding: rem(4px, $sw: 1.0) 0;
+      &:hover { box-shadow: inset 2px 0 $selected_bg_color; }
+    }
+  }
+
+  #tasklist-button,
+  #clock-applet-button,
+  #showdesktop-button {
+    &:hover { box-shadow: inset 2px 0 $outline_track_color; }
+    &:checked,
+    &:hover:checked { box-shadow: inset 2px 0 $selected_bg_color; }
+  }
 }
 
 // Brisk-Menu applet

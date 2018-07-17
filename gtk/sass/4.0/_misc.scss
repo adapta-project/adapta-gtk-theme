@@ -48,6 +48,16 @@ gp-applet > menubar,
 .gnome-panel-menu-bar > menuitem,
 gp-applet menubar > menuitem {
   @extend %gnome_panel_menuitem;
+
+  .vertical & { padding: rem(4px, $sw: 1.0) 0; }
+
+  @each $_layout, $_line in (top, 0 2px),
+                            (left, 2px 0),
+                            (right, -2px 0) {
+    .#{$_layout} & {
+      &:hover { box-shadow: inset #{$_line} $selected_bg_color; }
+    }
+  }
 }
 
 #tasklist-button,
@@ -65,18 +75,22 @@ gp-applet menubar > menuitem {
     box-shadow: inset 0 -2px $outline_track_color;
   }
   &:checked,
-  &:hover:checked,
-  &:disabled:checked { // 'checked' = 'active'
+  &:hover:checked {
     color: $selected_fg_color;
     background-color: transparent;
     box-shadow: inset 0 -2px $selected_bg_color;
   }
 
-  .vertical & {
-    &:hover { box-shadow: inset 2px 0 $outline_track_color; }
-    &:checked,
-    &:hover:checked,
-    &:disabled:checked { box-shadow: inset 2px 0 $selected_bg_color; }
+  .vertical & { padding: rem(4px, $sw: 1.0) 0; }
+
+  @each $_layout, $_line in (top, 0 2px),
+                            (left, 2px 0),
+                            (right, -2px 0) {
+    .#{$_layout} & {
+      &:hover { box-shadow: inset #{$_line} $outline_track_color; }
+      &:checked,
+      &:hover:checked { box-shadow: inset #{$_line} $selected_bg_color; }
+    }
   }
 }
 
