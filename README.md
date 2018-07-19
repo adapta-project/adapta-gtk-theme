@@ -24,7 +24,7 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
 |:-----:|:-----:|:-----:|:-----:|
 |Gnome-Shell >= 3.26|**Roboto**|**NotoSans**|Sans-serif|
 |Gnome-Shell =< 3.24|**NotoSans**||Sans-serif|
-|Cinnamon           |**NotoSans**||Sans-serif|
+|Cinnamon           |**Roboto**||Sans-serif|
 
 > **Note:**
 >
@@ -91,7 +91,7 @@ Supported Desktop Environments
  * GNOME-Shell     >= 3.20.0
  * GNOME-Flashback >= 3.20
  * Budgie-Desktop  >= 10.4
- * Cinnamon        >= 2.8.6
+ * Cinnamon        >= 3.2.0
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0
  * LXDE            >= 0.99.1 (Gtk+ 2.x only)
