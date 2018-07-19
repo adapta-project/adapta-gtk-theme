@@ -4441,3 +4441,24 @@ window.background > box.vertical > menubar + box.vertical > widget {
   }
 }
 
+
+// /*********
+//  * Pamac *
+//  *********/
+
+// toggle buttons in the buttonbox!? non-sense at all...
+buttonbox.vertical > button.toggle {
+  @each $b_type, $b_color in (suggested, $selected_bg_color),
+                             (destructive, $destructive_color) {
+    &.#{$b_type}-action:checked {
+      background-image: none;
+      background-color: mix($selected_fg_color, $b_color, 20%);
+      color: $selected_fg_color;
+      &:hover {
+        background-image: none;
+        background-color: $b_color;
+      }
+    }
+  }
+}
+
