@@ -4232,3 +4232,23 @@ buttonbox.vertical > button.toggle {
   }
 }
 
+// left-pane
+box.vertical > stack > box > revealer > stack > scrolledwindow {
+  > viewport.frame > list {
+    @extend %sidebar_template;
+    &:dir(ltr) { border-right: 1px solid $borders_color; }
+    &:dir(rtl) { border-left: 1px solid $borders_color; }
+
+    > row.activatable {
+      &:selected {
+        background-color: transparent;
+        &:hover { background-image: image($track_color); }
+
+        &, label { color: $selected_bg_color; }
+      }
+
+      > label { font-weight: 500; }
+    }
+  }
+}
+
