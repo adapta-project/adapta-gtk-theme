@@ -3164,3 +3164,34 @@ GladeWindow {
   }
 }
 
+
+// /********
+//  * GHex *
+//  ********/
+
+menubar#MainMenu + box.vertical > widget, // main window
+menubar#MainMenu + widget { // 'Add view' window(s)
+  > widget {
+    &:not(.view) { // left-most pane
+      background-image: none;
+      color: $tertiary_fg_color;
+      transition: unset;
+    }
+
+    &.view {
+      background-image: none;
+      transition: unset;
+    }
+  }
+}
+
+// a focused cell
+menubar#MainMenu + box.vertical > widget > widget.view.header,
+menubar#MainMenu + widget >  widget.view:first-child {
+  &:selected {
+    // do not use transparency
+    background-color: mix($base_color, $selected_bg_color, 87%);
+    color: $selected_bg_color;
+  }
+}
+
