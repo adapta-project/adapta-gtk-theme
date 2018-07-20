@@ -2489,23 +2489,29 @@ widget#display > widget box > switch  { margin: rem(5.3px) 0; }
   &, // unset borders
   frame > border { border: 0 none transparent; }
 
+  &#XfcePanelWindow { // main panel container >= 4.13.3?
+    // FIXME: unneeded 1px borders are reserved by its code itself
+    border: 1px solid $panel_bg_color;
+
+    &, &.marching-ants { transition: none; } // unset transitions
+  }
+
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
   font-weight: 700;
   text-shadow: none;
   -gtk-icon-shadow: none;
 
-  // dashed outline indicator?
-  // default -> 1px dashed #ff0000;
-  &.marching-ants { border: 1px dashed $destructive_color; }
-
   button {
+    min-width: 0;
+    min-height: 0;
     padding: 0 4px;
     border: none;
     border-radius: 0;
     background-color: transparent;
     background-image: none;
     color: $inverted_fg_color;
+    box-shadow: none; // >= 4.13.3?
     font-weight: 700;
     transition: none;
     &:hover {
@@ -2536,6 +2542,8 @@ widget#display > widget box > switch  { margin: rem(5.3px) 0; }
     text-shadow: none;
     -gtk-icon-effect: none;
   }
+
+  widget.tasklist > button.toggle { font-weight: 400; }
 }
 
 
