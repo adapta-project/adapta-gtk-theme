@@ -2476,16 +2476,18 @@ widget#display > widget box > switch  { margin: rem(5.3px) 0; }
 //  *********/
 
 .XfceHeading {
-  margin: 0;
-  padding: 0;
-  border-width: 0;
-  background-image: none;
+  border: 0 none transparent;
   background-color: $bg_color;
   color: $fg_color;
-  text-shadow: none;
 }
 
 .xfce4-panel {
+  background-color: $panel_bg_color;
+  color: $inverted_fg_color;
+  font-weight: 700;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+
   &, // unset borders
   frame > border { border: 0 none transparent; }
 
@@ -2495,12 +2497,6 @@ widget#display > widget box > switch  { margin: rem(5.3px) 0; }
 
     &, &.marching-ants { transition: none; } // unset transitions
   }
-
-  background-color: $panel_bg_color;
-  color: $inverted_fg_color;
-  font-weight: 700;
-  text-shadow: none;
-  -gtk-icon-shadow: none;
 
   button {
     min-width: 0;
