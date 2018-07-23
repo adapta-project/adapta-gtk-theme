@@ -1460,7 +1460,10 @@ $ws_thumb_spacing: 32px;
     spacing: 0;
 
     .panel-top,
-    .panel-bottom & { padding: 0 0 0 8px; }
+    .panel-bottom & {
+      &:ltr { padding: 0 0 0 8px; }
+      &:rtl { padding: 0 8px 0 0; }
+    }
 
     &.vertical { padding: 6px 0 0 0; }
 
@@ -1524,8 +1527,8 @@ $ws_thumb_spacing: 32px;
 
       .panel-top &,
       .panel-bottom & {
-        &:ltr { padding-left: 6px - 2px; }
-        &:rtl { padding-right: 6px - 2px; }
+        &:ltr { padding: 0 (6px - 2px) 0 2px; }
+        &:rtl { padding: 0 2px 0 (6px - 2px); }
       }
     }
 
