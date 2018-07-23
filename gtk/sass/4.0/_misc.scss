@@ -718,18 +718,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
   }
 }
 
-// left-pane styling (legacy)
-.sidebar.vertical > paned.sidebar-pane-separator {
-  .conversation-frame { @extend %conversation_frame; }
-
-  .folder-frame {
-    > border { @extend %folder_frame_border; }
-
-    > scrolledwindow { @extend %folder_frame; }
-  }
-}
-
-// left-pane styling (current)
+// left-pane styling
 .sidebar.vertical > paned.geary-sidebar-pane-separator {
   .geary-conversation-frame { @extend %conversation_frame; }
 
@@ -795,14 +784,7 @@ window.background > box.vertical > paned.horizontal > frame {
   }
 }
 
-// right-pane styling (legacy)
-paned.vertical > overlay > scrolledwindow > overlay {
-  > widget > widget > box > widget > headerbar { // in-line headerbars
-    @extend %composer_headerbar;
-  }
-}
-
-// right-pane styling (current)
+// right-pane styling
 stack#conversation_viewer {
   scrolledwindow.geary-conversation-scroller > viewport.frame {
     border: none; // unset borders
