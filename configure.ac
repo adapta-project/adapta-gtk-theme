@@ -108,6 +108,7 @@ AC_MSG_RESULT([
          Gtk+ 2.0:               always
          Gtk+ 3.20:              always
          Gtk+ 3.22:              always
+         Gtk+ 3.24:              always
          Gtk+ 4.0:               $ENABLE_GTK_NEXT
 
         -----------------------------------------------------------
