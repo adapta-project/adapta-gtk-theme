@@ -58,9 +58,6 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 
   -GtkToolItemGroup-expander-size: 11;
 
-  -GtkWidget-text-handle-width: 16;
-  -GtkWidget-text-handle-height: 16;
-
   -GtkDialog-button-spacing: 4;
   -GtkDialog-action-area-border: 0;
 
@@ -79,6 +76,10 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   // disable drop-shadows as default
   text-shadow: none;
   -gtk-icon-shadow: none;
+
+  // for a cursor-handle node
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 25;
 }
 
 
@@ -6514,9 +6515,6 @@ cursor-handle {
 
   &.insertion-cursor:dir(ltr),
   &.insertion-cursor:dir(rtl) {
-    -GtkWidget-text-handle-width: 20;
-    -GtkWidget-text-handle-height: 25;
-
     $_url: 'assets/slider-horz-scale-has-marks-above#{$asset_suffix}';
     -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
                                   url('#{$_url}@2.png'));
