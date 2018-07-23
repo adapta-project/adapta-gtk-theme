@@ -45,7 +45,7 @@ do
 done
 
 case "$1" in
-    3.20|3.22|4.0)
+    3.20|3.22|3.24|4.0)
         cp "$xml".in ../gtk-"$1"/"$xml"
         sed -i "s|@VERSION[@]|$1|g" ../gtk-"$1"/"$xml"
         cd ../gtk-"$1" && ln -sf ../asset/assets-gtk3 assets && cd ../sass

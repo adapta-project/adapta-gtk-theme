@@ -82,6 +82,19 @@ case "$1" in
         cp -f ../gtk-3.22/gtk-contained-dark.css ../gtk-3.22-nokto/gtk-contained-dark.css
         cp -f ../gtk-3.22-eta/gtk-contained-dark.css ../gtk-3.22-nokto-eta/gtk-contained-dark.css
 
+        if [ ! -d ../gtk-3.24 ]; then
+            mkdir -p ../gtk-3.24 ../gtk-3.24-eta
+        fi
+        $SASSC 3.24/gtk.scss ../gtk-3.24/gtk-contained.css
+        $SASSC 3.24/gtk-dark.scss ../gtk-3.24/gtk-contained-dark.css
+        $SASSC 3.24/gtk-eta.scss ../gtk-3.24-eta/gtk-contained.css
+        $SASSC 3.24/gtk-dark-eta.scss ../gtk-3.24-eta/gtk-contained-dark.css
+        if [ ! -d ../gtk-3.24-nokto ]; then
+            mkdir -p ../gtk-3.24-nokto ../gtk-3.24-nokto-eta
+        fi
+        cp -f ../gtk-3.24/gtk-contained-dark.css ../gtk-3.24-nokto/gtk-contained-dark.css
+        cp -f ../gtk-3.24-eta/gtk-contained-dark.css ../gtk-3.24-nokto-eta/gtk-contained-dark.css
+
         if [ ! -d ../gtk-4.0 ]; then
             mkdir -p ../gtk-4.0 ../gtk-4.0-eta
         fi
