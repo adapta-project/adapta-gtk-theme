@@ -2050,35 +2050,34 @@ window overlay > grid > frame > grid {
   scrolledwindow > viewport.frame { @extend %sidebar_template; }
 }
 
-list.contacts-view, // legacy
-list.contacts-contact-list { // >= 3.27.90
-  row.activatable {
-    color: $secondary_fg_color;
-    font-weight: 500;
-    &:hover { color: $fg_color; }
-    &:selected {
-      background-color: transparent;
+list.contacts {
+  &-contact-list {
+    border-top: 1px solid $borders_color;
 
-      &, label { color: $selected_bg_color; }
+    row.activatable {
+      color: $secondary_fg_color;
+      font-weight: 500;
+      &:hover { color: $fg_color; }
+      &:selected {
+        background-color: transparent;
+
+        &, label { color: $selected_bg_color; }
+      }
+    }
+  }
+
+  &-view {
+    // hide horizontal separator
+    separator {
+      min-height: 0;
+      border-color: transparent;
+      background-color: transparent;
     }
   }
 }
 
-list.contacts-contact-list { border-top: 1px solid $borders_color; }
-
-list.contacts-view {
-  // hide horizontal separator
-  separator {
-    min-height: 0;
-    border-color: transparent;
-    background-color: transparent;
-  }
-}
-
 // bottom-paned actionbar
-notebook > stack > grid.vertical > actionbar,
-stack > overlay > grid.horizontal > overlay > stack actionbar, // >= 3.26
-overlay > stack > box.horizontal > grid > actionbar { // >= 3.28.90
+overlay > stack > box.horizontal > grid > actionbar {
   revealer > box.horizontal {
     // 'New Detail' button
     button.popup.toggle:not(.image-button):not(.text-button) {

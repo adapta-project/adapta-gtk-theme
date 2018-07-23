@@ -2034,17 +2034,35 @@ window overlay > grid > frame > grid {
   scrolledwindow > viewport.frame { @extend %sidebar_template; }
 }
 
-list.contacts-contact-list {
-  border-top: 1px solid $borders_color;
+// side-bar styling
+window overlay > grid > frame > grid {
+  toolbar.primary-toolbar { box-shadow: none; }
 
-  row.activatable {
-    color: $secondary_fg_color;
-    font-weight: 500;
-    &:hover { color: $fg_color; }
-    &:selected {
+  scrolledwindow > viewport.frame { @extend %sidebar_template; }
+}
+
+list.contacts {
+  &-contact-list {
+    border-top: 1px solid $borders_color;
+
+    row.activatable {
+      color: $secondary_fg_color;
+      font-weight: 500;
+      &:hover { color: $fg_color; }
+      &:selected {
+        background-color: transparent;
+
+        &, label { color: $selected_bg_color; }
+      }
+    }
+  }
+
+  &-view {
+    // hide horizontal separator
+    separator {
+      min-height: 0;
+      border-color: transparent;
       background-color: transparent;
-
-      &, label { color: $selected_bg_color; }
     }
   }
 }
