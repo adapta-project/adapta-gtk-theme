@@ -1471,135 +1471,6 @@ overlay > box.vertical > paned.horizontal > box.vertical {
 //  * Gnome-Builder *
 //  *****************/
 
-// styling for editor search
-frame.gb-search-frame {
-  background-image: image($bg_color);
-  padding: rem(6px);
-  border-style: solid;
-  border-color: $borders_color;
-  border-width: 0 1px 1px;
-  border-radius: 0;
-
-  border { border: none; }
-}
-
-.gb-search-entry-occurrences-tag {
-  color: $insensitive_fg_color;
-  margin: rem(2px);
-  padding: rem(2px);
-  border-width: 0;
-}
-
-// Tweaks for the editortweak popover in the editor.
-editortweak {
-  button { padding: 0 rem(6px) 0 rem(6px); }
-
-  list row { padding: 0; }
-}
-
-// Keep search bar and layouttab height in sync.
-layouttabbar > box { min-height: rem(39px); }
-
-eggsearchbar > revealer > box { min-height: rem(39px); }
-
-eggsearchbar entry { min-height: rem(24px); }
-
-// Pillbox is used to render "languages" in the greeter.
-pillbox {
-  border-radius: 2px;
-  background-color: $bg_color;
-}
-
-// Styling in the genesis (create project) perspective.
-genesisperspective stack > box:first-child list row {
-  padding: rem(10px);
-  border-bottom: 1px solid $solid_light_borders_color;
-  &:last-child { border-bottom: none; }
-}
-
-// Layout tab and tab bar tweaks
-//
-// The following makes the layout stack header look similar to a tab bar.
-layouttabbar {
-  min-height: rem(37.3px);
-  padding: rem(5.3px);
-  border-bottom: 1px solid $solid_light_borders_color;
-  background-color: $secondary_dark_color;
-  background-image: if($variant == light, $fake-shadow-light,
-                                          $fake-shadow-dark);
-
-  box.horizontal > button {
-    &, &.popup.toggle {
-      @extend %button_flat_normal;
-      margin: 4px;
-      padding: rem(4px) rem(5.3px) rem(5.3px);
-      border-radius: 2px;
-      background-color: transparent;
-      &:hover { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
-      &:disabled { @include button(flat-insensitive); }
-      &:checked { // draw underline
-        border-image: radial-gradient(circle farthest-corner at center,
-                                      $selected_bg_color 100%,
-                                      transparent)
-                                      0 0 2 / 0 0 2px;
-        background-color: transparent;
-        color: $fg_color;
-      }
-      &:checked:disabled { @include button(flat-checked-insensitive); }
-    }
-  }
-}
-
-layouttab {
-  margin: 4px;
-  padding: rem(5.3px);
-  background-color: transparent;
-
-  label { padding: rem(4px); }
-
-  separator.vertical {
-    margin: 0 rem(2.7px); // expand vertically
-    background-color: $borders_color;
-  }
-
-  button {
-    &, &.popup.toggle {
-      @extend %button_flat_normal;
-      margin: 4px;
-      border-radius: 2px;
-      padding-left: rem(5.3px);
-      padding-right: rem(5.3px);
-      background-color: transparent;
-      &:hover { @include button(flat-hover); }
-      &:active { @include button(flat-active); }
-      &:disabled { @include button(flat-insensitive); }
-      &:checked { // draw underline
-        border-image: radial-gradient(circle farthest-corner at center,
-                                      $selected_bg_color 100%,
-                                      transparent)
-                                      0 0 2 / 0 0 2px;
-        background-color: transparent;
-        color: $fg_color;
-      }
-      &:checked:disabled { @include button(flat-checked-insensitive); }
-    }
-  }
-
-  // close button styling for layouttab.
-  > box > button.close {
-    @extend %button_flat_normal;
-    min-height: rem(13.3px);
-    min-width: rem(13.3px);
-    padding: rem(6.7px);
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-  }
-}
-
 %builder_gradient_separator {
   // draw vertically gradient pane-separators
   @if $variant == light {
@@ -1712,7 +1583,7 @@ omnibar.linked {
   .titlebar & { @extend %omnibar_entry; } // window-ed mode
 }
 
-%tabstrip {
+docktabstrip {
   min-height: rem(34.7px);
   padding: rem(5.3px) rem(16px);
   border-bottom: 1px solid $solid_light_borders_color;
@@ -1724,7 +1595,7 @@ omnibar.linked {
   layoutpane.bottom & { background-image: none; }
 }
 
-%tabstrip_tab {
+docktabstrip docktab {
   color: $tertiary_fg_color;
   font-weight: 700;
   box-shadow: inset 0 -1px $outline_track_color;
@@ -1735,22 +1606,6 @@ omnibar.linked {
   &:checked {
     color: $fg_color;
     box-shadow: inset 0 -2px $selected_bg_color;
-  }
-}
-
-tabstrip,
-docktabstrip { @extend %tabstrip; }
-
-tabstrip tab,
-docktabstrip docktab { @extend  %tabstrip_tab; }
-
-dockstack > stack { // treeviews inside the left/right layoutpane
-  > dockwidget treeview.project-tree.view,
-  > devhelppanel treeview.view {
-    background-color: $bg_color;
-    font-weight: 500;
-    &:selected, // use standard selection styling
-    &:selected:focus { @extend %selected_items; }
   }
 }
 
@@ -1777,11 +1632,17 @@ popover {
 
 greeter > box.vertical > stack { // draw fake-shadows
   > box.vertical > stack > box.vertical > scrolledwindow,
-  > stack > createprojectwidget > scrolledwindow,
-  > stack > gitclonewidget > overlay > box.vertical,
-  > stack > flatpakclonewidget > overlay > box.vertical {
+  createprojectwidget > scrolledwindow,
+  gitclonewidget > overlay > box.vertical,
+  flatpakclonewidget > overlay > box.vertical {
     background-image: if($variant == light, $fake-shadow-light,
                                             $fake-shadow-dark);
+  }
+
+  gitclonewidget > overlay > box.vertical,
+  flatpakclonewidget > overlay > box.vertical {
+    margin: -36px; // kill hard-coded margins
+    padding: 36px;
   }
 
   // project selections
@@ -1937,11 +1798,7 @@ dzl {
 
 popover.messagepopover {
   // use action-area style buttons
-  box.popover-content-area button {
-    @extend %action-area-button;
-    // desired negative margin breaks builder 3.22 theming...
-    // margin: -12px;
-  }
+  box.popover-content-area button { @extend %action-area-button; }
 }
 
 window.background.workbench > popover { // right-most popover
