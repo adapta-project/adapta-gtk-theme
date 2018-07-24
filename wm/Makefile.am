@@ -302,7 +302,6 @@ CLEANFILES += \
 	$(xfwmdir)/*.png \
 	$(srcdir)/asset/assets-xfwm/close-pressed.svg \
 	$(srcdir)/asset/assets-xfwm/close-prelight.svg \
-	$(srcdir)/asset/assets-xfwm/menu-pressed.svg \
 	$(srcdir)/asset/inkscape.log
 endif
 
