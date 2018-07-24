@@ -1811,9 +1811,7 @@ popover {
 
 greeter > box.vertical > stack { // draw fake-shadows
   > box.vertical > stack > box.vertical > scrolledwindow,
-  > stack > createprojectwidget > scrolledwindow,
-  > stack > gitclonewidget > overlay > box.vertical,
-  > stack > flatpakclonewidget > overlay > box.vertical {
+  createprojectwidget > scrolledwindow {
     background-image: if($variant == light, $fake-shadow-light,
                                             $fake-shadow-dark);
   }
