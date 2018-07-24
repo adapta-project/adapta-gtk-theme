@@ -2517,6 +2517,17 @@ widget#display > widget box > switch  { margin: rem(5.3px) 0; }
       color: $selected_fg_color;
       box-shadow: inset 0 -2px $selected_bg_color;
     }
+
+    &#launcher-arrow { // launcher applet
+      // FIXME: quite weird pseudo-classe transitions, especially :hover
+      // state can't be cleared properly ( -> an upstream issue)
+      &, + button.toggle {
+        &:hover { box-shadow: none; } // hide indicators
+      }
+
+      // re-add toggled indicators
+      + button.toggle:checked { box-shadow: inset 0 -2px $selected_bg_color; }
+    }
   }
 
   menu {
