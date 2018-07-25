@@ -1177,6 +1177,13 @@ buttonbox {
   &, &.dialog-action-area {
     &:not(.linked) button { @extend %action-area-button; }
   }
+
+  dialog.background & {
+    &.dialog-action-area.linked button {
+      @extend %action-area-button;
+      border: 0 none transparent;
+    }
+  }
 }
 
 %action-area-button {
