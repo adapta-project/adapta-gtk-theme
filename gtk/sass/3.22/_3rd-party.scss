@@ -2498,6 +2498,8 @@ widget#display > widget box > switch  { margin: rem(5.3px) 0; }
     &, &.marching-ants { transition: none; } // unset transitions
   }
 
+  button:not(:selected) { all: unset; } // unset all styling first
+
   button {
     background-color: transparent;
     color: $inverted_fg_color;
