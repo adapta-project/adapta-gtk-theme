@@ -1507,28 +1507,22 @@ $ws_thumb_spacing: 32px;
       }
     }
 
-    StIcon {
+    StIcon,
+    StBin {
       .panel-top &,
-      .panel-bottom & {
-        min-width: $icon_size;
-        min-height: $icon_size;
-        padding: 0 (6px - 2px);
-      }
+      .panel-bottom & { padding: 0 (6px - 2px); }
     }
 
-    &.vertical StIcon {
-      min-width: $icon_size * 1.5;
-      min-height: $icon_size * 1.5;
-      padding: 0;
-    }
+    &.vertical StIcon,
+    &.vertical StBin { padding: 0; }
 
     StLabel {
       font-weight: 400;
 
       .panel-top &,
       .panel-bottom & {
-        &:ltr { padding: 0 (6px - 2px) 0 2px; }
-        &:rtl { padding: 0 2px 0 (6px - 2px); }
+        &:ltr { padding-right: (6px - 2px); }
+        &:rtl { padding-left: (6px - 2px); }
       }
     }
 
@@ -2219,15 +2213,10 @@ $bottom_gap: 4px;
 .applet-box { // the parent container
   .window-list-item-box { // actual childs
     .panel-top &,
-    .panel-bottom & {
-      StIcon { // reset generic item-box icons
-        min-width: $icon_size * 1.5;
-        min-height: $icon_size * 1.5;
-        padding: 0;
-        // FIXME: weird asymmetrical L/R padding
-        &:ltr { margin-right: 4px; }
-        &:rtl { margin-left: 4px; }
-      }
+    .panel-bottom &,
+    .panel-left &,
+    .panel-right & {
+      StIcon, StBin { padding: 0; }
     }
 
     @each $position, $_indicator in (top, 0 2px),
