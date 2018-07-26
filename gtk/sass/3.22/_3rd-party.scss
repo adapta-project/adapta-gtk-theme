@@ -629,9 +629,6 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
         }
       }
     }
-
-    // reduce height of scale node
-    scale { padding: rem(10px - 2px, $sw: 1.0); }
   }
 
   scrolledwindow > .frame { // stacking raised-grid
@@ -776,6 +773,9 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
       &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
     }
   }
+
+  // reduce height of scale node
+  scale { padding: rem(10px - 2px, $sw: 1.0); }
 }
 
 // clock-applet styling
