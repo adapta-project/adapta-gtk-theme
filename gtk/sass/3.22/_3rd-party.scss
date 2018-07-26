@@ -591,6 +591,18 @@ $raven_box_spacing: 4px;
 $switcher_width: 127px;
 $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
 
+%raven_switcher_radio_button {
+  min-height: rem($switcher_height, $sw: 1.0);
+  padding-top: 0;
+  padding-bottom: 0;
+  outline-style: none; // unset outlines
+  &:not(:hover):not(:active):not(:checked) { color: $tertiary_fg_color; }
+  // show underlines for :checked only
+  &:not(:checked) { border-image: none; }
+
+  label { padding-bottom: rem(1.3px); }
+}
+
 .raven-frame { // hide frame
   > border { border: none 0 transparent; }
 }
@@ -614,18 +626,8 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
         margin: -$raven_box_spacing 0;
 
         button.text-button.radio { // switcher buttons
+          @extend %raven_switcher_radio_button;
           min-width: rem($switcher_width, $sw: 1.0);
-          min-height: rem($switcher_height, $sw: 1.0);
-          padding-top: 0;
-          padding-bottom: 0;
-          outline-style: none; // unset outlines
-          &:not(:hover):not(:active):not(:checked) {
-            color: $tertiary_fg_color;
-          }
-          // show underlines for :checked only
-          &:not(:checked) { border-image: none; }
-
-          label { padding-bottom: rem(1.3px); }
         }
       }
     }
@@ -679,6 +681,15 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
         color: $inverted_tertiary_fg_color;
         &:hover,
         &:active { color: $inverted_fg_color; }
+      }
+    }
+
+    // audio app/device switcher
+    box.audio-widget stackswitcher.linked {
+      padding: 0 $raven_box_spacing; // limit child horizontal spacing
+
+      > button.text-button.radio {
+        @extend %raven_switcher_radio_button;
       }
     }
   }
