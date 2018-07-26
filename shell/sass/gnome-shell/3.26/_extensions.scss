@@ -287,28 +287,42 @@
 
 // running-dot styling
 @if $gdm == false {
-  @each $_dock, $_dot, $_inv in (top, -top, -top),
-                                (bottom, -bottom, -bottom),
-                                (left, -left, -right),
-                                (right, -right, -left) {
+  @each $_dock, $_dot, $_inv_dot, $_line, $_inv_line in
+  (top, -top, -top, 0 -2px, 0 -2px),
+  (bottom, -bottom, -bottom, 0 2px, 0 2px),
+  (left, -left, -right, -2px 0, 2px 0),
+  (right, -right, -left, 2px 0, -2px 0) {
     #dashtodockContainer.#{$_dock},
     #dashtodockContainer.extended.#{$_dock} {
       @each $_num in 1, 2, 3, 4 {
+        .dash-item-container > StWidget.running#{$_num} {
+          &.focused { // fill whole focused backgrounds
+            .overview-icon {
+              border-radius: 0;
+              background-color: $osd_semi_fill_color;
+            }
+
+            &:hover .overview-icon {
+              border-radius: 0;
+              background-color: $osd_fill_color;
+            }
+          }
+        }
+
         &:ltr {
           .dash-item-container > StWidget.running#{$_num} {
             background-image: url("assets/dot/running#{$_num}#{$_dot}.svg");
-            &.focused {
-              background-image:
-                url("assets/dot/running#{$_num}#{$_dot}-focused.svg");
+            &.focused .overview-icon {
+              box-shadow: inset #{$_line} $selected_bg_color;
             }
           }
         }
         &:rtl {
           .dash-item-container > StWidget.running#{$_num} {
-            background-image: url("assets/dot/running#{$_num}#{$_inv}.svg");
-            &.focused {
-              background-image:
-                url("assets/dot/running#{$_num}#{$_inv}-focused.svg");
+            background-image:
+              url("assets/dot/running#{$_num}#{$_inv_dot}.svg");
+            &.focused .overview-icon {
+              box-shadow: inset #{$_inv_line} $selected_bg_color;
             }
           }
         }
