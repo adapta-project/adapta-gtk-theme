@@ -4245,3 +4245,35 @@ box.vertical > stack > box > revealer > stack > scrolledwindow {
   }
 }
 
+
+// /*********
+//  * Geany *
+//  *********/
+
+window#GeanyMainWindow {
+  toolbar#GeanyToolbar { border-bottom: 1px solid $borders_color; }
+
+  paned.vertical {
+    > notebook.frame { // bottom-frame
+      &:dir(ltr) { border-width: 0 0 1px 1px; }
+      &:dir(rtl) { border-width: 0 1px 1px 0; }
+
+      treeview.view:selected {
+        background-color: gtkopacity($selected_bg_color, 0.13);
+        color: $selected_bg_color;
+      }
+    }
+
+    paned.horizontal > notebook.frame {
+      border: none; // remove double borders around the L/R panes
+
+      > stack > scrolledwindow { // left-pane
+        @extend %sidebar_template;
+
+        // Geany overrides theme's font settings anyway
+        treeview.view { @extend %sidebar_treeview; }
+      }
+    }
+  }
+}
+
