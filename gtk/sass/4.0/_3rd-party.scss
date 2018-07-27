@@ -2330,7 +2330,9 @@ window.background:not(.csd) > box.vertical {
 }
 
 // add extra vertical margins for weird switch node allocation
-widget#display > widget box > switch  { margin: rem(5.3px) 0; }
+widget box.horizontal > widget + box.horizontal {
+  switch  { margin: rem(5.3px) 0; }
+}
 
 
 // /************************
