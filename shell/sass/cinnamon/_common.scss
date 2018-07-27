@@ -2276,6 +2276,18 @@ StBin.menu {
       &:selected {
         background-color: mix($osd_bg_color, $accent_color, 75%);
       }
+
+      > StBoxLayout { // icon and title
+        &:ltr { margin: 8px 0 0 8px; }
+        &:rtl { margin: 8px 8px 0 0; }
+      }
+
+      > StButton { // close button
+        &:ltr { margin: 8px 8px 0 0; }
+        &:rtl { margin: 8px 0 0 8px; }
+      }
+
+      > StBin.thumbnail { margin: 8px; }
     }
   }
 }
