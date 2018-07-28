@@ -300,6 +300,15 @@ headerbar.titlebar.tweak-titlebar {
   }
 }
 
+dialog.background.csd > box.dialog-vbox.vertical {
+  > searchbar + scrolledwindow > viewport.frame > list {
+    // FIXME: who needed hard-coded 5px outer margins
+    // causing weird pitch black band?
+    border: 1px solid $solid_light_borders_color; // use opaque
+    box-shadow: 0 0 0 5px $bg_color;
+  }
+}
+
 
 // /*******************
 //  * Gnome-Flashback *
