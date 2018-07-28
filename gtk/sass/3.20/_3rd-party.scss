@@ -2645,7 +2645,12 @@ TopMenuAppMenuBar {
 //  **********/
 
 window.thunar {
-  toolbar#location-toolbar { border-bottom: 1px solid $borders_color; }
+  toolbar#location-toolbar {
+    border-bottom: 1px solid $borders_color;
+
+    // FIXME: need to unset for weird allocation height
+    entry { min-height: 0; }
+  }
 
   notebook {
     // hide unneeded border
