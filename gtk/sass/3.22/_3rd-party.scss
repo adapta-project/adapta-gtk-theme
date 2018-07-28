@@ -2554,6 +2554,46 @@ widget box.horizontal > widget + box.horizontal {
   widget.tasklist > button.toggle { font-weight: 400; }
 }
 
+window#whiskermenu-window {
+  background-color: $secondary_base_color;
+
+  // no CSD class even if the sw compositor was enabled.
+  > frame > border {
+    border-radius: 0;
+    border-top-color: $menu_highlight_color;
+  }
+
+  // why wasn't .popup class implemented in this window node? :/
+  > decoration { box-shadow: $z-depth-3; }
+
+  stack > box > box.horizontal:first-child { // ugly resize-grip
+    widget { color: $outline_track_color; }
+  }
+
+  scrolledwindow {
+    > viewport button.radio {
+      &:not(:disabled) {
+        border-radius: 0;
+        background-image: none;
+        animation: none;
+        transition: none;
+      }
+      &:hover { background-color: $track_color; }
+      &:checked {
+        background-color: gtkopacity($selected_bg_color, 0.12);
+        color: $selected_bg_color;
+      }
+    }
+
+    treeview.view {
+      &:selected:hover {
+        background-color: transparent;
+        color: $fg_color;
+      }
+    }
+  }
+}
+
 
 // /**********
 //  * Thunar *
