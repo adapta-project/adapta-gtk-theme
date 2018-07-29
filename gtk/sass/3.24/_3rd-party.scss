@@ -3653,15 +3653,28 @@ box#InkSpinScale { // >= 0.92+
         transition: none;
       }
     }
-  }
 
-  window#Emacs#{$_version} widget#emacs#{$_version} {
-    transition: none;
+    widget#emacs#{$_version} {
+      &, > widget { transition: none; }
 
-    > widget > scrollbar {
-      background-color: $bg_color;
+      > widget {
+        > scrollbar {
+          background-color: $base_color;
 
-      &, * { transition: none; }
+          // scrollbar node width '16px' is hard-coded?
+          &.vertical {
+            trough {
+              border-width: 0 1px 0;
+              border-style: solid;
+              border-color: $solid_light_borders_color;
+            }
+
+            slider { min-width: 16px - (1px * 2); }
+          }
+
+          &, * { transition: none; }
+        }
+      }
     }
   }
 }
