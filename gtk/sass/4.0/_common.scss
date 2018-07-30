@@ -2874,13 +2874,24 @@ treeview.view {
   }
 
   &.separator {
-    &, &:hover { background-color: $borders_color; }
+    min-height: if($ref_weight < 1.0, 1px + 2px,
+                                      1px + (2px * 2));
+    color: $solid_light_borders_color;
   }
 
-  &.dnd {
+  &.sidebar { // for lollypop
+    background-color: $secondary_dark_color;
+    font-weight: 500;
+  }
+
+  &:drop(active) {
     border-style: solid none;
     border-width: 1px;
-    border-color: mix($fg_color, $selected_bg_color, 50%);
+    border-color: $drop_target_color;
+
+    &.after { border-top-style: none; }
+
+    &.before { border-bottom-style: none; }
   }
 
   &.expander {
@@ -2937,12 +2948,6 @@ treeview.view {
         color: $insensitive_fg_color;
       }
     }
-  }
-
-  &.separator {
-    min-width: 1px;
-    min-height: 1px;
-    background-color: $borders_color;
   }
 
   button.dnd,
