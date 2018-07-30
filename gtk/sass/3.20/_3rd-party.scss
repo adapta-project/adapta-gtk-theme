@@ -2277,62 +2277,29 @@ grid.tweet-info-grid.view { // raised material
 //  * Lollypop *
 //  ************/
 
-window > headerbar > widget > box.horizontal {
-  > grid.horizontal > button.toggle.image-button {
-    min-width: $icon_size * 1.5;
-    min-height: $icon_size * 1.5;
-    padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-             rem(($widget_size - $icon_size * 1.5) / 2));
-  }
-
-  > button.image-button {
-    min-width: $icon_size * 1.5;
-    min-height: $icon_size * 1.5;
-    margin: -2px 0;
-    padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-             rem(($widget_size - $icon_size * 1.5) / 2));
-  }
-}
-
-// left-pane styling
-window.background > grid.vertical > stack > paned.horizontal > widget {
-  grid.vertical > scrolledwindow {
-    @extend %sidebar_template;
-
-    > treeview.view.sidebar {
-      background-color: transparent;
-      font-weight: 500;
-
-      // FIXME: hard-coded?
-      // separator { color: $borders_color; }
+// header grid?
+paned.horizontal > paned.horizontal stack grid.vertical > grid.horizontal {
+  button.image-button {
+    &, &.toggle {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
     }
   }
 }
 
 // playlists styling
-window.background > grid.vertical > stack > paned.horizontal {
-  > paned.horizontal > grid grid > grid {
-    button.flat.image-button { // back to square button
-      &, &.toggle {
+row.trackrow {
+  &, &playing {
+    // lollypop can not understand outer marigns
+    button.image-button:not(.text-button),
+    .track-menu-button { // back to square button
+      &, &.toggle { // back to square button
+        margin: 0;
         border-radius: 2px;
         -gtk-outline-radius: 2px;
       }
     }
   }
-}
-
-row.trackrow {
-  &, &playing {
-    // lollypop can not understand outer marigns
-    button.image-button:not(.text-button) { margin: 0; }
-  }
-}
-
-.track-menu-button { // back to square button
-  border-radius: 2px;
-  -gtk-outline-radius: 2px;
 }
 
 // Track menu GtkPopover
