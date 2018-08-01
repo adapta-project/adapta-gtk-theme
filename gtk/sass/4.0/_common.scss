@@ -2740,10 +2740,23 @@ window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
 // Development versions of apps to use a differently styled headerbar
 headerbar {
   window.devel & {
-    background-color: transparent;
-    background-image: image(mix($destructive_color,
-                                $inverted_dark_color, 87%)); // NEEDS_REVIEW
-    color: $selected_fg_color;
+    background-image: linear-gradient(to bottom,
+                                      gtkopacity($inverted_dark_color, 0.8),
+                                      gtkopacity($inverted_dark_color, 0.8)),
+                      -gtk-icontheme("system-run-symbolic");
+    background-position: 85% center;
+    background-size: if($ref_weight < 1.0, 64px 64px, 80px 80px);
+    background-repeat: no-repeat;
+
+    &.selection-mode {
+      background-image:
+        linear-gradient(to bottom,
+                        gtkopacity(mix($selected_bg_color,
+                                       $inverted_dark_color, 87%), 0.8),
+                        gtkopacity(mix($selected_bg_color,
+                                       $inverted_dark_color, 87%), 0.8)),
+        -gtk-icontheme("system-run-symbolic");
+    }
   }
 }
 
