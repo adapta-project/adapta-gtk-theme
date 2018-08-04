@@ -199,6 +199,9 @@
 //  * Dash to Dock Extension *
 //  **************************/
 
+$hard_coded_alpha: 0.2;
+$alpha_override: 0.54 - $hard_coded_alpha;
+
 #dashtodockContainer {
   background: transparent;
 
@@ -208,7 +211,6 @@
   &.extended:overview #dash {
     padding: 0;
     border: none;
-    box-shadow: $empty_shadow;
     transition-duration: $duration_long;
   }
 
@@ -216,21 +218,50 @@
                             (bottom, 2px 2px 0 0),
                             (left, 0 2px 2px 0),
                             (right, 2px 0 0 2px) {
-    &.#{$_dock} #dash {
-      border-radius: #{$_radius};
-      background-color: $panel_bg_color;
+    &.#{$_dock} #dash,
+    &.#{$_dock}:overview #dash { border-radius: #{$_radius}; }
+
+    &.#{$_dock}.extended #dash,
+    &.#{$_dock}.extended:overview #dash { border-radius: 0; }
+  }
+
+  #dash { // default-mode
+    background-color: $panel_bg_color;
+    box-shadow: $empty_shadow;
+  }
+
+  &.opaque #dash { // solid-mode
+    background-color: $panel_bg_color;
+    // FIXME: enforce opaque background
+    box-shadow: inset 0 0 0 9999px $panel_bg_color;
+  }
+
+  &.transparent #dash { // translucent-mode
+    background-color: $panel_hidden_fill_color; // does not work
+    // FIXME: add lacked alpha via box-shadow property
+    box-shadow: inset 0 0 0 9999px shellopacity($panel_bg_color,
+                                                $alpha_override);
+  }
+
+  &:overview #dash { // overview-mode #1
+    background-color: $osd_semi_fill_color;
+    box-shadow: $empty_shadow;
+  }
+
+  &.opaque:overview,
+  &.transparent:overview { // overview-mode #2
+    #dash {
+      background-color: $panel_hidden_fill_color;
+      box-shadow: inset 0 0 0 9999px $osd_semi_fill_color;
     }
-    &.#{$_dock}:overview #dash {
-      border-radius: #{$_radius};
-      background-color: $osd_semi_fill_color;
-    }
-    &.#{$_dock}.extended #dash {
-      border-radius: 0;
-      background-color: $panel_bg_color;
-    }
-    &.#{$_dock}.extended:overview #dash {
-      border-radius: 0;
-      background-color: $osd_semi_fill_color;
+  }
+
+  &.extended:overview, // overview-mode #3
+  &.opaque.extended:overview,
+  &.transparent.extended:overview {
+    #dash {
+      background-color: $panel_hidden_fill_color;
+      box-shadow: $empty_shadow;
     }
   }
 
@@ -265,23 +296,14 @@
     box-shadow: $z-depth-2;
   }
 
-  .number-overlay { // colours are picked from their stylesheet.css only
-    // background-color: $accent_semi_fill_color;
-    // color: $inverted_accent_label_color;
-  }
-
-  .notification-badge { // Ubuntu-Dock specific?
-    background-color: $suggested_color;
+  .number-overlay {
+    background-color: $osd_bg_color;
     color: $selected_fg_color;
   }
 
-  // Ubuntu-Dock?
-  &.opaque { background-color: $panel_bg_color; }
-
-  &.transparent {
-    background-color: $panel_hidden_fill_color;
-    transition-timing-function: $slope_slow;
-    transition-duration: $duration_long;
+  .notification-badge {
+    background-color: $suggested_color;
+    color: $selected_fg_color;
   }
 }
 

@@ -253,17 +253,26 @@
     > StWidget { background-size: contain; }
   }
 
-  .number-overlay { // colours are picked from their stylesheet.css only
+  .number-overlay,
+  .notification-badge {
     min-width: if($eta == false, 1.6em, 1.4em);
     min-height: if($eta == false, 1.6em, 1.4em);
     margin: 0; // unset margin/padding
     padding: 0;
     border-radius: 100px;
-    // background-color: $accent_semi_fill_color;
-    // color: $inverted_accent_label_color;
     font-weight: 700;
     text-align: center;
     box-shadow: $z-depth-2;
+  }
+
+  .number-overlay {
+    background-color: $osd_bg_color;
+    color: $selected_fg_color;
+  }
+
+  .notification-badge {
+    background-color: $suggested_color;
+    color: $selected_fg_color;
   }
 }
 
