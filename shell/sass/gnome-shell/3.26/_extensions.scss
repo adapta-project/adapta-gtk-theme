@@ -350,6 +350,25 @@ $alpha_override: 0.54 - $hard_coded_alpha;
         }
       }
     }
+
+    #dashtodockContainer.#{$_dock},
+    #dashtodockContainer.extended.#{$_dock} { // overview-mode
+      &:overview {
+        @each $_num in 1, 2, 3, 4 {
+          .dash-item-container > StWidget.running#{$_num} {
+            &.focused { // clear backgrounds
+              .overview-icon {
+                background-color: $hidden_fill_color;
+              }
+
+              &:hover .overview-icon {
+                background-color: $osd_semi_fill_color;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
