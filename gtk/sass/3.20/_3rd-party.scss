@@ -709,24 +709,60 @@ window.budgie-popover:not(.csd) {
   }
 
   // notification list
-  box.vertical > stack > box.vertical > .raven-background {
-    > viewport.frame > list > row.activatable {
-      padding-bottom: 4px;
+  box.vertical > stack > box.vertical {
+    > .raven-header {
+      margin-top: -$raven_box_spacing; // reduce top margin
       border-bottom: 1px solid $borders_color;
-      &:selected {
-        &, &:focus {
+    }
+
+    > .raven-background > viewport.frame {
+      padding: 0; // reset padding for full-width list node
+
+      list { background-color: transparent; }
+
+      > list > row.activatable {
+        padding-bottom: 4px;
+        border-bottom: 1px solid $borders_color;
+        background-color: transparent;
+        &:selected {
           background-color: gtkopacity($selected_bg_color, 0.25);
           &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
           &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
 
-          > grid > label {
-            &, &.dim-label {
-              color: $fg_color;
-              opacity: 1.0;
+          > grid > *, // legacy
+          > box.vertical * {
+            color: $fg_color;
+            opacity: 1.0;
+          }
+        }
+
+        > box.vertical > box.horizontal > button.image-button { // 'dismiss'
+          // left-most image size = 32px?
+          margin-top: if($ref_weight < 1.0,
+                         calc((32px - 16px - (0.42rem - 0.1rem) * 2) / 2),
+                         calc((32px - 16px - (0.6rem - 0.1rem) * 2) / 2));
+          margin-bottom: if($ref_weight < 1.0,
+                            calc((32px - 16px - (0.42rem - 0.1rem) * 2) / 2),
+                            calc((32px - 16px - (0.6rem - 0.1rem) * 2) / 2));
+          &:dir(ltr) { margin-right: rem(2.7px + 4px); }
+          &:dir(rtl) { margin-left: rem(2.7px + 4px); }
+        }
+
+        // sub-list rows grouping
+        list {
+          border-radius: 2px;
+          border: 1px solid $borders_color;
+
+          > row.activatable {
+            border-bottom: 1px solid $borders_color;
+            &:last-child { border-bottom: none; }
+            &:dir(ltr) { padding: 2px rem(2.7px) 2px 8px; }
+            &:dir(rtl) { padding: 2px 8px 2px rem(2.7px); }
+
+            &:selected {
+              background-color: gtkopacity($selected_bg_color, 0.25);
             }
           }
-
-          > grid > image { color: $fg_color; }
         }
       }
     }

@@ -740,7 +740,7 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
 
       list { background-color: transparent; }
 
-      row.activatable {
+      > list > row.activatable {
         padding-bottom: 4px;
         border-bottom: 1px solid $borders_color;
         background-color: transparent;
@@ -749,9 +749,39 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
           &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
           &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
 
-          > grid > * {
+          > grid > *, // legacy
+          > box.vertical * {
             color: $fg_color;
             opacity: 1.0;
+          }
+        }
+
+        > box.vertical > box.horizontal > button.image-button { // 'dismiss'
+          // left-most image size = 32px?
+          margin-top: if($ref_weight < 1.0,
+                         calc((32px - 16px - (0.42rem - 0.1rem) * 2) / 2),
+                         calc((32px - 16px - (0.6rem - 0.1rem) * 2) / 2));
+          margin-bottom: if($ref_weight < 1.0,
+                            calc((32px - 16px - (0.42rem - 0.1rem) * 2) / 2),
+                            calc((32px - 16px - (0.6rem - 0.1rem) * 2) / 2));
+          &:dir(ltr) { margin-right: rem(2.7px + 4px); }
+          &:dir(rtl) { margin-left: rem(2.7px + 4px); }
+        }
+
+        // sub-list rows grouping
+        list {
+          border-radius: 2px;
+          border: 1px solid $borders_color;
+
+          > row.activatable {
+            border-bottom: 1px solid $borders_color;
+            &:last-child { border-bottom: none; }
+            &:dir(ltr) { padding: 2px rem(2.7px) 2px 8px; }
+            &:dir(rtl) { padding: 2px 8px 2px rem(2.7px); }
+
+            &:selected {
+              background-color: gtkopacity($selected_bg_color, 0.25);
+            }
           }
         }
       }
