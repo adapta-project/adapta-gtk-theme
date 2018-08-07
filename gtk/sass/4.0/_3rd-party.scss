@@ -805,12 +805,17 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
       &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
     }
   }
+}
 
-  // reduce height of scale node
-  scale {
-    padding: rem(10px - 2px, $sw: 1.0);
+// some specific scale styling
+box.audio-widget,
+window.sound-popover.background {
+  scale.horizontal {
+    // reduce height of scale node
+    padding-top: 0;
+    padding-bottom: 0;
 
-    &.horizontal.marks-after { // overdrive-mode scale
+    &.marks-after { // overdrive-mode scale
       mark {
         // hide label for vertically centered troughs
         label { font-size: 0; }
@@ -890,11 +895,6 @@ window.sound-popover.background box.horizontal {
         animation: volume_hover 0.2s linear forwards;
       }
     }
-  }
-
-  > scale.horizontal {
-    padding-top: rem(5.3px, $sw: 1.0);
-    padding-bottom: rem(5.3px, $sw: 1.0);
   }
 }
 
