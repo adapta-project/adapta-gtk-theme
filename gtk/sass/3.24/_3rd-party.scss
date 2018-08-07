@@ -819,7 +819,22 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
   }
 
   // reduce height of scale node
-  scale { padding: rem(10px - 2px, $sw: 1.0); }
+  scale {
+    padding: rem(10px - 2px, $sw: 1.0);
+
+    &.horizontal.marks-after { // overdrive-mode scale
+      mark {
+        // hide label for vertically centered troughs
+        label { font-size: 0; }
+
+        indicator { // bold 100% gain mark with desctructive colour
+          min-width: 1px + 1px;
+          background-color: $destructive_color;
+          color: transparent; // draw actual colour with background instead
+        }
+      }
+    }
+  }
 }
 
 // clock-applet styling
