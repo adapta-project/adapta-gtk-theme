@@ -12,7 +12,6 @@ $asset_suffix: if($variant == dark, '-dark', '');
 $icon_size: 16px;
 $widget_size: 37.3px;
 $attention: rem(6.7px, $sw: 1.0) rem(6.7px, $sw: 1.0);
-$scale: 80%;
 $separator_narrow: 1px 1px;
 $separator_wide: 1px 1px, 1px 1px;
 $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
@@ -4317,6 +4316,12 @@ check {
 //  * GtkScale *
 //  ************/
 
+$scale: 80%;
+$scale_slider_size: 20px;
+$scale_trough_size: 2px;
+$_marks_length: rem(6px, $sw: 1.0);
+$_marks_distance: rem(6px, $sw: 1.0);
+
 @keyframes scale_enlarge {
   from { background-size: $scale; }
   to { background-size: 100%; }
@@ -4361,11 +4366,6 @@ check {
   .osd & {
   }
 }
-
-$scale_slider_size: 20px;
-$scale_trough_size: 2px;
-$_marks_length: rem(6px, $sw: 1.0);
-$_marks_distance: rem(6px, $sw: 1.0);
 
 scale {
   // remove ugly outlines
