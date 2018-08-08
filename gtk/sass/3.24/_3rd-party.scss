@@ -3663,6 +3663,10 @@ box#InkSpinScale { // >= 0.92+
   // cover up ugly stock style.css
   border-image: image($bg_color) 2 / 2px;
   box-shadow: inset 0 0 0 999px $bg_color;
+
+  trough {
+    &:not(:disabled) { background-color: gtkopacity($accent_color, 0.2); }
+  }
 }
 
 
