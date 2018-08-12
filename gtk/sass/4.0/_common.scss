@@ -5956,8 +5956,27 @@ decoration {
   }
 
   tooltip.csd & {
+    // FIXME: Depth-2 drop-shadow via box-shadow property sometimes causes
+    // flickering on its reserved shadow-region, so use asset-based border
+    // images instead until we can find the fixes for the stem of this issue.
+    // This assets can't solve the unwanted flickering perfectly,
+    // but fake-shadows might be better than box-shadows...
+    margin: 0;
+    border-style: solid;
+    border-width: 10px;
     border-radius: 2px;
-    box-shadow: $z-depth-2;
+    @if $variant == light {
+      border-image: -gtk-scaled(url("assets/osd-shadow.png"),
+                                url("assets/osd-shadow@2.png"))
+                    10 / 10px stretch;
+    }
+    @else {
+      border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"),
+                                url("assets/osd-shadow-dark@2.png"))
+                    10 / 10px stretch;
+    }
+    box-shadow: none;
+    transition: none;
   }
 
   message-dialog.csd & {
