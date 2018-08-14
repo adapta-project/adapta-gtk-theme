@@ -5716,16 +5716,26 @@ tooltip {
     // background-image property instead.
     background-color: gtkopacity($base_color, 0.001);
     background-image: image(gtkopacity($inverted_dark_color, 0.901));
+  }
+
+  &.csd { // asset-based drop-shadows
+    border-style: solid;
+    border-width: 11px;
+    // no need to specify the light-variant specific shadows
+    border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"),
+                              url("assets/osd-shadow-dark@2.png"))
+                  11 / 11px stretch;
 
     // add inner padding (use non-scalable unit instead)
-    > box { padding: if($ref_weight < 1.0, 0 1px 1px, 1px 2px 2px); }
+    > box {
+      padding: 10px - 1px; // use symmetrical padding for border-images
+
+      label { padding: if($ref_weight < 1.0, 0px 1px 1px, 1px 2px 2px); }
+    }
   }
 
   label,
   image { color: $inverted_fg_color; } // default foregrounds
-
-  // use roundness only for CSDs
-  &.csd { border-radius: 2px; }
 }
 
 .tooltip:not(tooltip) { // for legacy
@@ -6027,26 +6037,10 @@ decoration {
   }
 
   tooltip.csd & {
-    // FIXME: Depth-2 drop-shadow via box-shadow property sometimes causes
-    // flickering on its reserved shadow-region, so use asset-based border
-    // images instead until we can find the fixes for the stem of this issue.
-    // This assets can't solve the unwanted flickering perfectly,
-    // but fake-shadows might be better than box-shadows...
-    margin: 0;
-    border-style: solid;
-    border-width: 10px;
-    @if $variant == light {
-      border-image: -gtk-scaled(url("assets/osd-shadow.png"),
-                                url("assets/osd-shadow@2.png"))
-                    10 / 10px stretch;
-    }
-    @else {
-      border-image: -gtk-scaled(url("assets/osd-shadow-dark.png"),
-                                url("assets/osd-shadow-dark@2.png"))
-                    10 / 10px stretch;
-    }
-    box-shadow: none;
-    transition: none;
+    // FIXME: drop-shadows via box-shadow property sometimes causes
+    // flickering on its reserved shadow-region, so unset all properties
+    // here and embed actual shadows onto tooltip node directly instead...
+    all: unset;
   }
 
   message-dialog.csd & {
