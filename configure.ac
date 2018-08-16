@@ -23,17 +23,18 @@ AM_INIT_AUTOMAKE([
 AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
-ADAPTA_OPTION([PARALLEL],     [parallel],     [parallel-build],    [disable])
-ADAPTA_OPTION([GTK_NEXT],     [gtk_next],     [Gtk-4.0],           [disable])
-ADAPTA_OPTION([GNOME],        [gnome],        [Gnome-Shell],       [disable])
-ADAPTA_OPTION([CINNAMON],     [cinnamon],     [Cinnamon],          [disable])
-ADAPTA_OPTION([FLASHBACK],    [flashback],    [Flashback],         [disable])
-ADAPTA_OPTION([XFCE],         [xfce],         [XFce],              [disable])
-ADAPTA_OPTION([MATE],         [mate],         [Mate],              [disable])
-ADAPTA_OPTION([OPENBOX],      [openbox],      [Openbox],           [disable])
-ADAPTA_OPTION([CHROME_LEGACY],[chrome_legacy],[Chrome(ium)-legacy],[disable])
-ADAPTA_OPTION([PLANK],        [plank],        [Plank],             [disable])
-ADAPTA_OPTION([TELEGRAM],     [telegram],     [Telegram],          [disable])
+ADAPTA_OPTION([PARALLEL],     [parallel],     [parallel-build],      [disable])
+ADAPTA_OPTION([GTK_NEXT],     [gtk_next],     [Gtk-4.0],             [disable])
+ADAPTA_OPTION([GNOME],        [gnome],        [Gnome-Shell],         [disable])
+ADAPTA_OPTION([CINNAMON],     [cinnamon],     [Cinnamon],            [disable])
+ADAPTA_OPTION([FLASHBACK],    [flashback],    [Flashback],           [disable])
+ADAPTA_OPTION([XFCE],         [xfce],         [XFce],                [disable])
+ADAPTA_OPTION([MATE],         [mate],         [Mate],                [disable])
+ADAPTA_OPTION([OPENBOX],      [openbox],      [Openbox],             [disable])
+ADAPTA_OPTION([CHROME_LEGACY],[chrome_legacy],[Chrome(ium)-legacy],  [disable])
+ADAPTA_OPTION([PLANK],        [plank],        [Plank],               [disable])
+ADAPTA_OPTION([TELEGRAM],     [telegram],     [Telegram],            [disable])
+ADAPTA_OPTION([TWEETDECK],    [tweetdeck],    [Tweetdeck-Colordeck], [disable])
 
 PKG_PROG_PKG_CONFIG
 AS_IF([test -z "$PKG_CONFIG"], [AC_MSG_ERROR(['pkg-config' not found.])])
@@ -131,6 +132,7 @@ AC_MSG_RESULT([
          Chrome(ium)-legacy:     $ENABLE_CHROME_LEGACY
          Plank:                  $ENABLE_PLANK
          Telegram:               $ENABLE_TELEGRAM
+         Tweetdeck-Colordeck:    $ENABLE_TWEETDECK
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'

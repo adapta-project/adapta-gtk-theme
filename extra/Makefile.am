@@ -20,11 +20,18 @@ gedit_file = \
 	$(geditdir)/adapta.xml \
 	$(geditdir)/README.md
 
+tweetdeckdir         = $(srcdir)/tweetdeck
+tweetdeck_file       = $(tweetdeckdir)/light/ColorDeck-adapta.cdk
+tweetdeck_nokto_file = $(tweetdeckdir)/dark/ColorDeck-adapta-nokto.cdk
+
 # ******************
 # * Generate files *
 # ******************
 
 all:
+if ENABLE_TWEETDECK
+	cd $(tweetdeckdir) && ./recolor-cdk.sh
+endif
 
 # *****************
 # * Install files *
@@ -62,6 +69,16 @@ if ENABLE_TELEGRAM
 	ln -sf ../Adapta-Nokto/telegram $(noktoetadir)/telegram
 endif
 
+if ENABLE_TWEETDECK
+	$(MKDIR_P) $(adaptadir)/tweetdeck
+	$(MKDIR_P) $(noktodir)/tweetdeck
+	cp -Rv $(tweetdeck_file) $(adaptadir)/tweetdeck
+	cp -Rv $(tweetdeck_nokto_file) $(noktodir)/tweetdeck
+	cd $(adaptadir)
+	ln -sf ../Adapta/tweetdeck $(adaptaetadir)/tweetdeck
+	ln -sf ../Adapta-Nokto/tweetdeck $(noktoetadir)/tweetdeck
+endif
+
 	$(MKDIR_P) $(adaptadir)/gedit
 	cp -Rv $(gedit_file) $(adaptadir)/gedit
 	cd $(adaptadir)
@@ -93,6 +110,13 @@ if ENABLE_TELEGRAM
 	test -e $(adaptaetadir)/telegram && rm -rfv $(adaptaetadir)/telegram
 endif
 
+if ENABLE_TWEETDECK
+	test -e $(noktodir)/tweetdeck && rm -rfv $(noktodir)/tweetdeck
+	test -e $(adaptadir)/tweetdeck && rm -rfv $(adaptadir)/tweetdeck
+	test -e $(noktoetadir)/tweetdeck && rm -rfv $(noktoetadir)/tweetdeck
+	test -e $(adaptaetadir)/tweetdeck && rm -rfv $(adaptaetadir)/tweetdeck
+endif
+
 	test -e $(noktodir)/gedit && rm -rfv $(noktodir)/gedit
 	test -e $(adaptadir)/gedit && rm -rfv $(adaptadir)/gedit
 
@@ -101,6 +125,12 @@ endif
 # ****************************
 
 CLEANFILES =
+
+if ENABLE_TWEETDECK
+CLEANFILES += \
+	$(tweetdeckdir)/light/ColorDeck-adapta.cdk \
+	$(tweetdeckdir)/dark/ColorDeck-adapta-nokto.cdk
+endif
 
 DISTCLEANFILES = \
 	$(CLEANFILES)

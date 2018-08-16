@@ -330,6 +330,24 @@ Extra Telegram Support
  >   * Bundled noise-texture images are for *tiled* mode.
  >   * Telegram support is a W.I.P currently.
 
+Extra Tweetdeck Support
+-----------------------
+ To try "Colordeck for Tweetdeck" extension theming, pass this option:
+
+ ```
+ --enable-tweetdeck      enable Tweetdeck-colordeck support (type: bool)
+ ```
+
+ The installer installs `cdk` files into `Adapta*/tweetdeck` directories if Tweetdeck support is enabled.
+ Then open the file via Colordeck -> import > "Colors" -> Choose File.
+
+ > **Note:**
+ >
+ >   * [**Chrome Web Store**](https://chrome.google.com/webstore/detail/colordeck-for-tweetdeck/jgoilgghdiafcdpgaddhfnlnhjhiejjl)
+ >   * [**Firefox Add-ons**](https://addons.mozilla.org/en-US/firefox/addon/colordeck/)
+ >   * Light and dark variants are supported.
+ >   * Currently those files support "Colors" only, so enabling "Colors" checkbox is enough.
+
 Other Projects
 ------
 This is a list of community projects, related to Adapta:
