@@ -4181,6 +4181,10 @@ button.flat.-panel-button { // generic panel buttons
   }
   &:disabled { color: $insensitive_inverted_fg_color; }
 
+  box.vertical & {
+    &:checked { box-shadow: inset 2px 0 $selected_bg_color; }
+  }
+
   // FIXME: weird asymmetrical spacing exists at the right side of Application-
   // Menu icon even if the 'caption' GtkLabel was hidden, so add damned
   // compensator at the opposite side...
@@ -4188,17 +4192,32 @@ button.flat.-panel-button { // generic panel buttons
     &:dir(ltr) { margin-left: 2px; }
     &:dir(rtl) { margin-right: 2px; }
   }
+
+  &.text-button { // clock applet
+    label { padding: 0 rem(4px * 1.5, $sw: 1.0); }
+
+    box.vertical & label { padding: rem(4px * 1.5, $sw: 1.0) 0; }
+  }
 }
 
 button.flat.-panel-icon-button {
   @extend %budgie_icon_tasklist_button;
-
   &:hover {
     box-shadow: inset 0 -2px gtkopacity($inverted_fg_color, 0.4);
   }
   &:active,
   &:checked {
     box-shadow: inset 0 -2px $selected_bg_color;
+  }
+
+  box.vertical & {
+    &:hover {
+      box-shadow: inset 2px 0 gtkopacity($inverted_fg_color, 0.4);
+    }
+    &:active,
+    &:checked {
+      box-shadow: inset 2px 0 $selected_bg_color;
+    }
   }
 }
 
@@ -4217,12 +4236,30 @@ button.flat.-panel-icon-button {
   &:checked {
     box-shadow: inset 0 -2px $selected_bg_color;
   }
+
+  box.vertical & {
+    > image {
+      background-size: 2px 6px;
+      background-position: left center;
+    }
+
+    &:hover,
+    &:active,
+    &:checked {
+      box-shadow: inset 2px 0 $selected_bg_color;
+    }
+  }
 }
 
 // menubar-style'ed app menu
 menubar.-vala-panel-background > menuitem { // override global values
   padding: 0 rem(4px, $sw: 1.0);
   font-weight: 700;
+
+  box.vertical & {
+    padding: rem(4px, $sw: 1.0) 0;
+    &:hover { box-shadow: inset 2px 0 $selected_bg_color; }
+  }
 }
 
 // run dialog
