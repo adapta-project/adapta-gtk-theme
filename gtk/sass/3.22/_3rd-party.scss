@@ -3935,9 +3935,7 @@ window.background.chromium {
   button { // for active-tab borders
     border-width: 1px;
     border-style: solid;
-    border-color: if($variant == light,
-                     $solid_light_borders_color,
-                     mix($bg_color, $solid_dark_borders_color, 75%));
+    border-color: $solid_light_borders_color;
   }
 
   entry.chromium {
