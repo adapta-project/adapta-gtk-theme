@@ -3906,6 +3906,9 @@ window.background.chromium {
   color: if($variant == light, $secondary_fg_color, $fg_color);
 
   headerbar.titlebar {
+    // foregrounds for inactive tabs and new-tab button in Refresh-mode
+    color: $inverted_tertiary_fg_color; // >= 69.0.3497
+
     button.toggle { // account-button (> 64.0.3282?)
       border-radius: 2px; // back to text-button radius
       &:active { // use chromium-style toggled backgrounds
