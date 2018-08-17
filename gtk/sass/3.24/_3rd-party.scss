@@ -3066,6 +3066,11 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 
     > menuitem { @extend %gnome_panel_menuitem; }
   }
+
+  #clock-applet-button label {
+    // embed padding into label node directly (x 1.5)
+    padding: 0 rem(4px * 1.5, $sw: 1.0);
+  }
 }
 
 .mate-panel-menu-bar.vertical { // vertical layout
@@ -3084,6 +3089,8 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     &:checked,
     &:hover:checked { box-shadow: inset 2px 0 $selected_bg_color; }
   }
+
+  #clock-applet-button label { padding: rem(4px * 1.5, $sw: 1.0) 0; }
 }
 
 // Brisk-Menu applet
