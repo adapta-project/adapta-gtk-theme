@@ -2741,23 +2741,24 @@ $provider_details_width: 120px;
 // On-screen Keyboard
 #keyboard { background-color: $panel_tertiary_fill_color; }
 
-.key-container { // NEEDS_REVIEW: upcoming
-  padding: 4px;
-  spacing: 4px;
+.key-container { // current
+  // no need to set variant specific spacing
+  padding: $ref_size * 0.3;
+  spacing: $ref_size * 0.3;
 }
 
 .keyboard {
-  // -layout and -row will become legacy
-  &-layout {
-    spacing: if($eta == false, 12px, 8px);
-    padding: if($eta == false, 12px, 8px);
+  &-layout { // legacy
+    spacing: $ref_size * 0.3;
+    padding: $ref_size * 0.3;
   }
 
-  &-row { spacing: if($eta == false, 12px, 8px); }
+  &-row { spacing: $ref_size * 0.3; } // legacy
 
   &-key {
-    min-height: 2em;
-    min-width: 2em;
+    min-height: $ref_size * 2;
+    min-width: $ref_size * 2;
+    padding: 0;
     border-radius: 2px;
     border: none;
     background-color: $osd_bg_color;
@@ -2765,7 +2766,7 @@ $provider_details_width: 120px;
     box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
-    font-size: 13px * 2; // use unscalable unit
+    font-size: $ref_size * 2; // use unscalable unit
     font-weight: 700;
     transition-timing-function: $slope_medium;
     &:focus,
@@ -2788,7 +2789,7 @@ $provider_details_width: 120px;
 
     &.default-key {
       background-color: mix($osd_bg_color, $panel_bg_color, 75%);
-      background-size: 13px * 2;
+      background-size: $ref_size * 2;
       color: $osd_secondary_fg_color;
       &:focus,
       &:hover,
@@ -2894,7 +2895,7 @@ $provider_details_width: 120px;
     -arrow-border-color: transparent;
     -arrow-base: 0;
     -arrow-rise: 0;
-    -boxpointer-gap: if($eta == false, 12px, 8px);
+    -boxpointer-gap: $ref_size * 0.3;
     background-color: $suggested_color;
     color: $selected_fg_color;
     box-shadow: $z-depth-2;
@@ -2905,7 +2906,7 @@ $provider_details_width: 120px;
 .word-suggestions { // NEEDS_REVIEW: upcoming
   @include fontscaling($ref_size * 1.3);
   min-height: 1.6em;
-  spacing: if($eta == false, 12px, 8px);
+  spacing: $ref_size * 0.3;
   font-weight: 500;
 }
 
