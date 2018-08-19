@@ -1181,16 +1181,15 @@ $ws_thumb_spacing: 32px;
 
 .keyboard {
   &-layout {
-    spacing: 12px;
-    padding: 12px;
+    spacing: $ref_size * 0.3;
+    padding: $ref_size * 0.3;
   }
 
-  &-row { spacing: 12px; }
+  &-row { spacing: $ref_size * 0.3; }
 
   &-key {
-    @include fontscaling($ref_size * 2.0);
-    min-height: 2em;
-    min-width: 2em;
+    min-height: $ref_size * 2;
+    min-width: $ref_size * 2;
     border-radius: 2px;
     border: none;
     background-color: $osd_bg_color;
@@ -1198,6 +1197,7 @@ $ws_thumb_spacing: 32px;
     box-shadow: $empty_shadow;
     text-shadow: none;
     icon-shadow: none;
+    font-size: $ref_size * 2; // use unscalable unit
     font-weight: 700;
     transition-timing-function: $slope_slow;
     &:focus,
@@ -1228,7 +1228,7 @@ $ws_thumb_spacing: 32px;
     -arrow-border-color: transparent;
     -arrow-base: 0;
     -arrow-rise: 0;
-    -boxpointer-gap: 12px;
+    -boxpointer-gap: $ref_size * 0.3;
     background-color: $suggested_color;
     color: $selected_fg_color;
     box-shadow: $z-depth-2;
