@@ -570,35 +570,41 @@ endif
 if ENABLE_PARALLEL
 	cd $(srcdir)/asset/assets-gtk2-scripts && \
 		./recolor-assets-gtk2.sh
+	cd $(srcdir)/asset/assets-gtk2-scripts && \
+		./clone-assets-gtk2.sh
 	cd $(srcdir)/asset/assets-gtk3-scripts && \
 		./recolor-assets-gtk3.sh
 	cd $(srcdir)/asset/assets-gtk2-scripts && \
-	$(PARALLEL) $(parallel_option) bash ::: \
-		render-assets-gtk2-arrow.sh \
-		render-assets-gtk2-button.sh \
-		render-assets-gtk2-checkradio.sh \
-		render-assets-gtk2-column.sh \
-		render-assets-gtk2-entry.sh \
-		render-assets-gtk2-handle.sh \
-		render-assets-gtk2-misc.sh \
-		render-assets-gtk2-range.sh \
-		render-assets-gtk2-scrollbar.sh \
-		render-assets-gtk2-spin.sh \
-		clone-assets-gtk2.sh
+	$(PARALLEL) $(parallel_option) ./render-assets-gtk2.sh ::: \
+		arrow \
+		button \
+		checkradio \
+		column \
+		entry \
+		handle \
+		misc \
+		range \
+		scrollbar \
+		spin
 	cd $(srcdir)/asset/assets-gtk3-scripts && \
-	$(PARALLEL) $(parallel_option) bash ::: \
-		render-assets-gtk3-checkbox.sh \
-		render-assets-gtk3-misc.sh \
-		render-assets-gtk3-radio.sh \
-		render-assets-gtk3-slider.sh \
-		render-assets-gtk3-toggle.sh \
-		render-assets-gtk3-windowbutton.sh \
-		render-assets-gtk3-windowbutton-eta.sh
+	$(PARALLEL) $(parallel_option) ./render-assets-gtk3.sh ::: \
+		checkbox \
+		misc \
+		radio \
+		slider \
+		toggle \
+		window-close \
+		window-minimize \
+		window-maximize \
+		window-unmaximize
 else
 	cd $(srcdir)/asset/assets-gtk2-scripts && \
-		./render-assets-gtk2.sh
+		./recolor-assets-gtk2.sh && \
+		./clone-assets-gtk2.sh && \
+		./render-assets-gtk2.sh all
 	cd $(srcdir)/asset/assets-gtk3-scripts && \
-		./render-assets-gtk3.sh
+		./recolor-assets-gtk3.sh && \
+		./render-assets-gtk3.sh all
 endif
 
 	cd $(srcdir)/sass && ./compile-gresource.sh 3.20
