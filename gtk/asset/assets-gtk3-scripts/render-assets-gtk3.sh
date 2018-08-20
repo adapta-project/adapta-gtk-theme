@@ -14,6 +14,7 @@ INKSCAPE="`command -v inkscape`"
 
 SRC_FILE="../assets-gtk3.svg"
 ASSETS_DIR="../assets-gtk3"
+INDEX_SRC="assets-gtk3.txt"
 INDEX=""
 KEY_FILE="../../sass/common/_key_colors.scss"
 
@@ -46,34 +47,34 @@ render-scale() {
 # Generate PNG files
 case "$1" in
     checkbox)
-        INDEX=($(grep -e checkbox assets-gtk3.txt))
+        INDEX=($(grep -e checkbox $INDEX_SRC))
         ;;
     misc)
-        INDEX=($(grep -e osd -e thumb -e needs assets-gtk3.txt))
+        INDEX=($(grep -e osd -e thumb -e needs $INDEX_SRC))
         ;;
     radio)
-        INDEX=($(grep -e radio assets-gtk3.txt))
+        INDEX=($(grep -e radio $INDEX_SRC))
         ;;
     slider)
-        INDEX=($(grep -e slider assets-gtk3.txt))
+        INDEX=($(grep -e slider $INDEX_SRC))
         ;;
     toggle)
-        INDEX=($(grep -e toggle assets-gtk3.txt))
+        INDEX=($(grep -e toggle $INDEX_SRC))
         ;;
     window-close)
-        INDEX=($(grep -e 'window-close' assets-gtk3.txt))
+        INDEX=($(grep -e 'window-close' $INDEX_SRC))
         ;;
     window-minimize)
-        INDEX=($(grep -e 'window-minimize' assets-gtk3.txt))
+        INDEX=($(grep -e 'window-minimize' $INDEX_SRC))
         ;;
     window-maximize)
-        INDEX=($(grep -e 'window-maximize' assets-gtk3.txt))
+        INDEX=($(grep -e 'window-maximize' $INDEX_SRC))
         ;;
     window-unmaximize)
-        INDEX=($(grep -e 'window-unmaximize' assets-gtk3.txt))
+        INDEX=($(grep -e 'window-unmaximize' $INDEX_SRC))
         ;;
     all)
-        INDEX="`cat assets-gtk3.txt`"
+        INDEX=$(<$INDEX_SRC)
         ;;
     *)
         exit 1

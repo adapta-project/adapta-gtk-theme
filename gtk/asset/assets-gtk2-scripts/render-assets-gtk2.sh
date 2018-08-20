@@ -13,6 +13,7 @@
 INKSCAPE="`command -v inkscape`"
 SRC_FILE="../assets-gtk2.svg"
 ASSETS_DIR="../assets-gtk2"
+INDEX_SRC="assets-gtk2.txt"
 INDEX=""
 KEY_FILE="../../sass/common/_key_colors.scss"
 
@@ -36,38 +37,38 @@ render-non-scale() {
 # Generate PNG files
 case "$1" in
     arrow)
-        INDEX=($(grep -e Arrows assets-gtk2.txt))
+        INDEX=($(grep -e Arrows $INDEX_SRC))
         ;;
     button)
-        INDEX=($(grep -e Buttons assets-gtk2.txt))
+        INDEX=($(grep -e Buttons $INDEX_SRC))
         ;;
     checkradio)
-        INDEX=($(grep -e Check-Radio assets-gtk2.txt))
+        INDEX=($(grep -e Check-Radio $INDEX_SRC))
         ;;
     column)
-        INDEX=($(grep -e Column assets-gtk2.txt))
+        INDEX=($(grep -e Column $INDEX_SRC))
         ;;
     entry)
-        INDEX=($(grep -e Entry assets-gtk2.txt))
+        INDEX=($(grep -e Entry $INDEX_SRC))
         ;;
     handle)
-        INDEX=($(grep -e Handles assets-gtk2.txt))
+        INDEX=($(grep -e Handles $INDEX_SRC))
         ;;
     misc)
         INDEX=($(grep -e Lines -e Others -e ProgressBar -e Shadows -e Toolbar \
-              assets-gtk2.txt))
+              $INDEX_SRC))
         ;;
     range)
-        INDEX=($(grep -e Range assets-gtk2.txt))
+        INDEX=($(grep -e Range $INDEX_SRC))
         ;;
     scrollbar)
-        INDEX=($(grep -e Scrollbars assets-gtk2.txt))
+        INDEX=($(grep -e Scrollbars $INDEX_SRC))
         ;;
     spin)
-        INDEX=($(grep -e Spin assets-gtk2.txt))
+        INDEX=($(grep -e Spin $INDEX_SRC))
         ;;
     all)
-        INDEX="`cat assets-gtk2.txt`"
+        INDEX=$(<$INDEX_SRC)
         ;;
     *)
         exit 1
