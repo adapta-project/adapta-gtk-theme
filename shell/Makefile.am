@@ -336,37 +336,40 @@ if ENABLE_GNOME
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
 
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell.scss ../gnome-shell/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+	cd $(srcdir)/sass && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell.scss ../gnome-shell/gnome-shell.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css && \
+		$(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
 if GNOME_IS_326_OR_NEWER
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3.scss ../gnome-shell/gdm3-Adapta.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3-dark.scss ../gnome-shell-nokto/gdm3-Adapta-Nokto.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3-eta.scss ../gnome-shell-eta/gdm3-Adapta-Eta.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+	cd $(srcdir)/sass && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3.scss ../gnome-shell/gdm3-Adapta.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3-dark.scss ../gnome-shell-nokto/gdm3-Adapta-Nokto.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3-eta.scss ../gnome-shell-eta/gdm3-Adapta-Eta.css && \
+		$(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/gdm3-dark-eta.scss ../gnome-shell-nokto-eta/gdm3-Adapta-Nokto-Eta.css
 endif
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell/pad-osd.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-nokto/pad-osd.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-eta/pad-osd.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-nokto-eta/pad-osd.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		gnome-shell/$(GNOME_SCSS_VERSION)/classic.scss ../gnome-shell/extensions/window-list/classic.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+	cd $(srcdir)/sass && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell/pad-osd.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-nokto/pad-osd.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-eta/pad-osd.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell-nokto-eta/pad-osd.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css && \
+		$(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/classic.scss ../gnome-shell/extensions/window-list/classic.css && \
+		$(SASSC) $(sassc_option) \
 		gnome-shell/$(GNOME_SCSS_VERSION)/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 
 	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
@@ -385,10 +388,9 @@ if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto
 
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
-		cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
+	cd $(srcdir)/sass && \
+		$(SASSC) $(sassc_option) cinnamon/cinnamon.scss ../cinnamon/cinnamon.css && \
+		$(SASSC) $(sassc_option) cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
 
 	$(MKDIR_P) $(srcdir)/cinnamon/assets
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/checkbox
@@ -402,8 +404,9 @@ if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/misc
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/panel
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/switch
-	cd $(srcdir)/asset && ./clone-assets-cinnamon.sh
-	cd $(srcdir)/asset && ./render-assets-cinnamon-thumb.sh
+	cd $(srcdir)/asset && \
+		./clone-assets-cinnamon.sh && \
+		./render-assets-cinnamon-thumb.sh
 endif
 
 if ENABLE_XFCE
