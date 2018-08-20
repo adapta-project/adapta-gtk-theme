@@ -13,6 +13,7 @@
 INKSCAPE="`command -v inkscape`"
 SRC_DIR="../assets-xfwm"
 ASSETS_DIR="../../xfwm4"
+INDEX_SRC="assets-xfwm.txt"
 INDEX=""
 KEY_FILE="../../../sass/common/_key_colors.scss"
 
@@ -33,19 +34,19 @@ render-non-scale() {
 # Generate PNG files
 case "$1" in
     button1)
-        INDEX=($(grep -e close -e hide -e maximize assets-xfwm.txt))
+        INDEX=($(grep -e close -e hide -e maximize $INDEX_SRC))
         ;;
     button2)
-        INDEX=($(grep -e menu -e 'shade-' -e stick assets-xfwm.txt))
+        INDEX=($(grep -e menu -e 'shade-' -e stick $INDEX_SRC))
         ;;
     edge)
-        INDEX=($(grep -e top -e left -e right -e bottom assets-xfwm.txt))
+        INDEX=($(grep -e top -e left -e right -e bottom $INDEX_SRC))
         ;;
     title)
-        INDEX=($(grep -e title assets-xfwm.txt))
+        INDEX=($(grep -e title $INDEX_SRC))
         ;;
     all)
-        INDEX="`cat assets-xfwm.txt`"
+        INDEX=$(<$INDEX_SRC)
         ;;
     *)
         exit 1
