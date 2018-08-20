@@ -10,9 +10,62 @@
 # (at your option) any later version.
 #
 
-. "recolor-assets-xfwm.sh"
-. "render-assets-xfwm-button.sh"
-. "render-assets-xfwm-edge.sh"
-. "render-assets-xfwm-title.sh"
+INKSCAPE="`command -v inkscape`"
+SRC_DIR="../assets-xfwm"
+ASSETS_DIR="../../xfwm4"
+INDEX=""
+KEY_FILE="../../../sass/common/_key_colors.scss"
 
-exit 0
+inkver="`$INKSCAPE --version | awk '{print $2}' | cut -c 1-4`"
+if [ "$inkver" = 0.91 ]; then
+    non_scale_dpi=90
+else
+    non_scale_dpi=96
+fi
+
+# Renderer
+render-non-scale() {
+    $INKSCAPE --export-dpi="$non_scale_dpi" \
+              --export-png=$ASSETS_DIR/$i.png $SRC_DIR/$i.svg >/dev/null \
+                                                              2>>../inkscape.log
+}
+
+# Generate PNG files
+case "$1" in
+    button1)
+        INDEX=($(grep -e close -e hide -e maximize assets-xfwm.txt))
+        ;;
+    button2)
+        INDEX=($(grep -e menu -e 'shade-' -e stick assets-xfwm.txt))
+        ;;
+    edge)
+        INDEX=($(grep -e top -e left -e right -e bottom assets-xfwm.txt))
+        ;;
+    title)
+        INDEX=($(grep -e title assets-xfwm.txt))
+        ;;
+    all)
+        INDEX="`cat assets-xfwm.txt`"
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+for i in ${INDEX[@]}
+do
+    if [ -f $ASSETS_DIR/$i.png ] && \
+        [ $KEY_FILE -ot $ASSETS_DIR/$i.png ]; then
+        echo $ASSETS_DIR/$i.png exists.
+    elif [ -f $ASSETS_DIR/$i.png ] && \
+        [ $KEY_FILE -nt $ASSETS_DIR/$i.png ]; then
+        echo Re-rendering $ASSETS_DIR/$i.png
+        echo $i.png >>../inkscape.log
+        rm -f $ASSETS_DIR/$i.png
+        render-non-scale
+    else
+        echo Rendering $ASSETS_DIR/$i.png
+        echo $i.png >>../inkscape.log
+        render-non-scale
+    fi
+done

@@ -152,13 +152,15 @@ if ENABLE_PARALLEL
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
 		./recolor-assets-xfwm.sh
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
-	$(PARALLEL) $(parallel_option) bash ::: \
-		render-assets-xfwm-button.sh \
-		render-assets-xfwm-edge.sh \
-		render-assets-xfwm-title.sh
+	$(PARALLEL) $(parallel_option) ./render-assets-xfwm.sh ::: \
+		button1 \
+		button2 \
+		edge \
+		title
 else
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
-		./render-assets-xfwm.sh
+		./recolor-assets-xfwm.sh && \
+		./render-assets-xfwm.sh all
 endif
 endif
 
