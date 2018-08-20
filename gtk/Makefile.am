@@ -529,19 +529,35 @@ all:
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk3
 
 	cd $(srcdir)/gtk-2.0 && ./recolor-gtk2.sh
-
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk.scss ../gtk-3.20/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk.scss ../gtk-3.22/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.24/gtk.scss ../gtk-3.24/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.24/gtk-dark.scss ../gtk-3.24/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.24/gtk-eta.scss ../gtk-3.24-eta/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 3.24/gtk-dark-eta.scss ../gtk-3.24-eta/gtk-contained-dark.css
+if ENABLE_PARALLEL
+	cd $(srcdir)/sass && $(PARALLEL) $(parallel_option) ::: \
+		"$(SASSC) $(sassc_option) 3.20/gtk.scss ../gtk-3.20/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css" \
+		"$(SASSC) $(sassc_option) 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-contained-dark.css" \
+		"$(SASSC) $(sassc_option) 3.22/gtk.scss ../gtk-3.22/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css" \
+		"$(SASSC) $(sassc_option) 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css" \
+		"$(SASSC) $(sassc_option) 3.24/gtk.scss ../gtk-3.24/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 3.24/gtk-dark.scss ../gtk-3.24/gtk-contained-dark.css" \
+		"$(SASSC) $(sassc_option) 3.24/gtk-eta.scss ../gtk-3.24-eta/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 3.24/gtk-dark-eta.scss ../gtk-3.24-eta/gtk-contained-dark.css"
+else
+	cd $(srcdir)/sass && \
+		$(SASSC) $(sassc_option) 3.20/gtk.scss ../gtk-3.20/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 3.20/gtk-dark.scss ../gtk-3.20/gtk-contained-dark.css && \
+		$(SASSC) $(sassc_option) 3.20/gtk-eta.scss ../gtk-3.20-eta/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 3.20/gtk-dark-eta.scss ../gtk-3.20-eta/gtk-contained-dark.css && \
+		$(SASSC) $(sassc_option) 3.22/gtk.scss ../gtk-3.22/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 3.22/gtk-dark.scss ../gtk-3.22/gtk-contained-dark.css && \
+		$(SASSC) $(sassc_option) 3.22/gtk-eta.scss ../gtk-3.22-eta/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 3.22/gtk-dark-eta.scss ../gtk-3.22-eta/gtk-contained-dark.css && \
+		$(SASSC) $(sassc_option) 3.24/gtk.scss ../gtk-3.24/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 3.24/gtk-dark.scss ../gtk-3.24/gtk-contained-dark.css && \
+		$(SASSC) $(sassc_option) 3.24/gtk-eta.scss ../gtk-3.24-eta/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 3.24/gtk-dark-eta.scss ../gtk-3.24-eta/gtk-contained-dark.css
+endif
 	cp -Rv $(srcdir)/gtk-3.20/gtk-contained-dark.css $(srcdir)/gtk-3.20-nokto/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-3.20-eta/gtk-contained-dark.css $(srcdir)/gtk-3.20-nokto-eta/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-3.22/gtk-contained-dark.css $(srcdir)/gtk-3.22-nokto/gtk-contained-dark.css
@@ -554,10 +570,19 @@ if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(srcdir)/gtk-4.0-eta
 	$(MKDIR_P) $(srcdir)/gtk-4.0-nokto
 	$(MKDIR_P) $(srcdir)/gtk-4.0-nokto-eta
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk.scss ../gtk-4.0/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css
-	cd $(srcdir)/sass && $(SASSC) $(sassc_option) 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
+if ENABLE_PARALLEL
+	cd $(srcdir)/sass && $(PARALLEL) $(parallel_option) ::: \
+		"$(SASSC) $(sassc_option) 4.0/gtk.scss ../gtk-4.0/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css" \
+		"$(SASSC) $(sassc_option) 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css" \
+		"$(SASSC) $(sassc_option) 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css"
+else
+	cd $(srcdir)/sass && \
+		$(SASSC) $(sassc_option) 4.0/gtk.scss ../gtk-4.0/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 4.0/gtk-dark.scss ../gtk-4.0/gtk-contained-dark.css && \
+		$(SASSC) $(sassc_option) 4.0/gtk-eta.scss ../gtk-4.0-eta/gtk-contained.css && \
+		$(SASSC) $(sassc_option) 4.0/gtk-dark-eta.scss ../gtk-4.0-eta/gtk-contained-dark.css
+endif
 	cp -Rv $(srcdir)/gtk-4.0/gtk-contained-dark.css $(srcdir)/gtk-4.0-nokto/gtk-contained-dark.css
 	cp -Rv $(srcdir)/gtk-4.0-eta/gtk-contained-dark.css $(srcdir)/gtk-4.0-nokto-eta/gtk-contained-dark.css
 endif
@@ -607,9 +632,10 @@ else
 		./render-assets-gtk3.sh all
 endif
 
-	cd $(srcdir)/sass && ./compile-gresource.sh 3.20
-	cd $(srcdir)/sass && ./compile-gresource.sh 3.22
-	cd $(srcdir)/sass && ./compile-gresource.sh 3.24
+	cd $(srcdir)/sass && \
+		./compile-gresource.sh 3.20 && \
+		./compile-gresource.sh 3.22 && \
+		./compile-gresource.sh 3.24
 if ENABLE_GTK_NEXT
 	cd $(srcdir)/sass && ./compile-gresource.sh 4.0
 endif
