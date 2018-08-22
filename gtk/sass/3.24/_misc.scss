@@ -597,15 +597,20 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
   &.free {
     border-radius: 100px;
-    background-color: mix($fg_color, $base_color, 10%);
+    background-color: mix($fg_color, $base_color, 10%); // legacy
+    color: mix($fg_color, $base_color, 10%); // >= 3.29.90
   }
 
   &.used {
     border-radius: 100px;
     background-color: $accent_color;
+    color: $accent_color;
   }
 
-  &.unknown { background-color: mix($accent_color, $base_color, 55%); }
+  &.unknown {
+    background-color: mix($accent_color, $base_color, 55%);
+    color: mix($accent_color, $base_color, 55%);
+  }
 }
 
 // 'batch-rename' dialogs
