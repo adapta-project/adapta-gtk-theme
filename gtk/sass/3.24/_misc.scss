@@ -515,7 +515,24 @@ dialog.background.csd > box.dialog-vbox.vertical {
     transition: none;
   }
 
-  > headerbar.titlebar > box.horizontal > entry { // location-entry
+  > headerbar.titlebar > box.horizontal widget > stack { // >= 3.29.90
+    // we no longer need to keep zero t/b padding for switchable entry node
+    // anymore
+    .linked.path-bar button {
+      &.toggle,
+      &.popup { // set full-height spacing
+        min-height: $icon_size * 1.5;
+        padding-top: if($ref_weight < 1.0,
+                     rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                     rem(($widget_size - $icon_size * 1.5) / 2));
+        padding-bottom: if($ref_weight < 1.0,
+                        rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                        rem(($widget_size - $icon_size * 1.5) / 2));
+      }
+    }
+  }
+
+  > headerbar.titlebar > box.horizontal > entry { // location-entry (legacy)
     padding-top: 0; // = revealed path-bar
     padding-bottom: 0;
   }
@@ -528,11 +545,11 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
     * { transition-duration: 0s; } // unset child transitions
 
-    > widget box.icon {
+    box.icon {
       &-item-background {
         border: 0 none transparent;
 
-        > label {
+        label {
           padding: if($ref_weight < 1.0, 2px 4px 3px, 3px 6px 4px);
           border-radius: 2px;
           background-color: transparent;
@@ -551,14 +568,15 @@ dialog.background.csd > box.dialog-vbox.vertical {
     &:selected {
       background-color: transparent; // unset selection colour
 
-      > widget box.icon {
-        &-item-background > label {
+      box.icon {
+        &-item-background label {
           background-color: $selected_bg_color;
           color: $selected_fg_color;
         }
 
         // tone up image node
-        &-background > image { -gtk-icon-effect: highlight; }
+        &-background image,
+        &-item-background image { -gtk-icon-effect: highlight; }
       }
     }
   }
