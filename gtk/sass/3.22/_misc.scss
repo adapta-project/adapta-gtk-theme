@@ -532,11 +532,12 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
     * { transition-duration: 0s; } // unset child transitions
 
-    > widget box.icon {
+    box.icon {
       &-item-background {
         border: 0 none transparent;
 
-        > label {
+        label {
+          min-width: rem($ref_size * 5, $sw: 1.0);
           padding: if($ref_weight < 1.0, 2px 4px 3px, 3px 6px 4px);
           border-radius: 2px;
           background-color: transparent;
@@ -547,7 +548,7 @@ dialog.background.csd > box.dialog-vbox.vertical {
         // gap between images and labels
         margin: if($ref_weight < 1.0, 3px 0, 4px 0);
         border: 0 none transparent;
-        border-radius: 0;
+        border-radius: 2px;
         background-color: black;
       }
     }
@@ -555,14 +556,15 @@ dialog.background.csd > box.dialog-vbox.vertical {
     &:selected {
       background-color: transparent; // unset selection colour
 
-      > widget box.icon {
-        &-item-background > label {
+      box.icon {
+        &-item-background label {
           background-color: $selected_bg_color;
           color: $selected_fg_color;
         }
 
         // tone up image node
-        &-background > image { -gtk-icon-effect: highlight; }
+        &-background image,
+        &-item-background image { -gtk-icon-effect: highlight; }
       }
     }
   }
