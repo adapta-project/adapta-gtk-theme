@@ -532,6 +532,16 @@ dialog.background.csd > box.dialog-vbox.vertical {
     }
   }
 
+  > headerbar.titlebar > box.horizontal > box.linked { // >= 3.29.90
+    > button.disclosure-button.popup.toggle { // down-arrow button
+      min-width: $icon_size;
+      padding-left: 0;
+      padding-right: 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+  }
+
   > headerbar.titlebar > box.horizontal > entry { // location-entry (legacy)
     padding-top: 0; // = revealed path-bar
     padding-bottom: 0;
