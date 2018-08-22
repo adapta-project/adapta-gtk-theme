@@ -542,13 +542,14 @@ dialog.background.csd > box.dialog-vbox.vertical {
       -gtk-outline-radius: 2px;
     }
 
-    // radial-progress widget
-    > revealer > button.popup.toggle > widget { color: $accent_color; }
-
     > entry { // location-entry (legacy)
       padding-top: 0; // = revealed path-bar
       padding-bottom: 0;
     }
+  }
+
+  > headerbar.titlebar { // radial-progress widget
+    revealer > button.popup.toggle > widget { color: $accent_color; }
   }
 
   flowboxchild { // experimental 'new view' mode
