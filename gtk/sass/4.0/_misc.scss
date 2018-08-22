@@ -520,14 +520,18 @@ dialog.background.csd > box.dialog-vbox.vertical {
     }
   }
 
-  > headerbar.titlebar > box.horizontal > box.linked { // >= 3.29.90
-    > button.disclosure-button.popup.toggle { // down-arrow button
+  > headerbar.titlebar > box.horizontal {
+    > box.linked > button.disclosure-button.popup.toggle { // >= 3.29.90
+      // down-arrow button
       min-width: $icon_size;
       padding-left: 0;
       padding-right: 0;
       border-radius: 2px;
       -gtk-outline-radius: 2px;
     }
+
+    // radial-progress widget
+    > revealer > button.popup.toggle > widget { color: $accent_color; }
   }
 
   flowboxchild { // experimental 'new view' mode
