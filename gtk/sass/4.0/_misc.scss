@@ -547,10 +547,10 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
     box.icon {
       &-item-background {
+        margin: if($ref_weight < 1.0, 0 4px, 0 6px);
         border: 0 none transparent;
 
         label {
-          min-width: rem($ref_size * 5, $sw: 1.0);
           padding: if($ref_weight < 1.0, 2px 4px 3px, 3px 6px 4px);
           border-radius: 2px;
           background-color: transparent;
