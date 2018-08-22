@@ -505,22 +505,24 @@ dialog.background.csd > box.dialog-vbox.vertical {
     transition: none;
   }
 
-  > headerbar.titlebar > box.horizontal widget > stack {
-    .linked.path-bar button {
-      &.toggle,
-      &.popup { // set full-height spacing
-        min-height: $icon_size * 1.5;
-        padding-top: if($ref_weight < 1.0,
-                     rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-                     rem(($widget_size - $icon_size * 1.5) / 2));
-        padding-bottom: if($ref_weight < 1.0,
-                        rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
-                        rem(($widget_size - $icon_size * 1.5) / 2));
+  > headerbar.titlebar > box.horizontal {
+    widget > stack { // >= 3.29.90
+      // we no longer need to keep zero t/b padding for switchable entry node
+      // anymore
+      .linked.path-bar button {
+        &.toggle,
+        &.popup { // set full-height spacing
+          min-height: $icon_size * 1.5;
+          padding-top: if($ref_weight < 1.0,
+                       rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                       rem(($widget_size - $icon_size * 1.5) / 2));
+          padding-bottom: if($ref_weight < 1.0,
+                          rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
+                          rem(($widget_size - $icon_size * 1.5) / 2));
+        }
       }
     }
-  }
 
-  > headerbar.titlebar > box.horizontal {
     > box.linked > button.disclosure-button.popup.toggle { // >= 3.29.90
       // down-arrow button
       min-width: $icon_size;
