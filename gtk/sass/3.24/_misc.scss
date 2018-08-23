@@ -562,11 +562,12 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
     box.icon {
       &-item-background {
-        margin: if($ref_weight < 1.0, 0 4px, 0 6px);
+        padding: 4px;
         border: 0 none transparent;
 
         label {
-          padding: if($ref_weight < 1.0, 2px 4px 3px, 3px 6px 4px);
+          margin: 0 -4px; // enlarge to maximum parent width
+          padding: 3px 4px 4px;
           border-radius: 2px;
           background-color: transparent;
         }
@@ -574,7 +575,7 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
       &-background { // use solid black backgrounds
         // gap between images and labels
-        margin: if($ref_weight < 1.0, 3px 0, 4px 0);
+        margin-bottom: 4px;
         border: 0 none transparent;
         border-radius: 2px;
         background-color: black;
