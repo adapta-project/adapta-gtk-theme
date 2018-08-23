@@ -372,36 +372,6 @@ widget "*swt-toolbar-flat" style "null"
 
 
 #
-# Chrome(ium)
-#
-style "chrome-gtk-frame" {
-  ChromeGtkFrame::frame-color = @inverted_dark_color
-  ChromeGtkFrame::inactive-frame-color = @inverted_dark_color
-  ChromeGtkFrame::incognito-frame-color = @inverted_dark_color
-  ChromeGtkFrame::incognito-inactive-frame-color = @inverted_dark_color
-
-  ChromeGtkFrame::frame-gradient-size = 0
-  ChromeGtkFrame::frame-gradient-color = @inverted_dark_color
-  ChromeGtkFrame::inactive-frame-gradient-color = @inverted_dark_color
-  ChromeGtkFrame::incognito-frame-gradient-color = @inverted_dark_color
-  ChromeGtkFrame::incognito-inactive-frame-gradient-color = @inverted_dark_color
-
-  ChromeGtkFrame::scrollbar-slider-prelight-color = @scroll_slider_prelight_color
-  ChromeGtkFrame::scrollbar-slider-normal-color = @scroll_slider_color
-  ChromeGtkFrame::scrollbar-trough-color = @solid_white
-}
-
-style "chrome_menu_item" {
-  bg[SELECTED] = mix(0.9, @base_color, @fg_color)
-  fg[SELECTED] = shade(1.04, @fg_color)
-}
-
-class "ChromeGtkFrame"                               style "chrome-gtk-frame"
-widget_class "*Chrom*Button*"                        style "flat_button"
-widget_class "*<GtkCustomMenu>*<GtkCustomMenuItem>*" style "chrome_menu_item"
-
-
-#
 # Openoffice, Libreoffice
 #
 style "libreoffice_entry" {
