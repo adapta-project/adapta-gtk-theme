@@ -552,6 +552,13 @@ dialog.background.csd > box.dialog-vbox.vertical {
     revealer > button.popup.toggle > widget { color: $accent_color; }
   }
 
+  $child_gap: if($ref_weight < 1.0, 4px, 6px);
+  $container_padding: $child_gap ($child_gap * 1.5);
+  $label_margin: ($child_gap / 2) (-$child_gap * 1.5) 0;
+  $label_padding: if($ref_weight < 1.0,
+                  ($child_gap - 1px) $child_gap $child_gap,
+                  ($child_gap - 3px) $child_gap ($child_gap - 2px));
+
   flowboxchild { // experimental 'new view' mode
     margin: unset; // unset spacing first
     padding: unset;
@@ -562,20 +569,18 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
     box.icon {
       &-item-background {
-        padding: 4px;
+        padding: $container_padding;
         border: 0 none transparent;
 
         label {
-          margin: 0 -4px; // enlarge to maximum parent width
-          padding: 3px 4px 4px;
+          margin: $label_margin;
+          padding: $label_padding;
           border-radius: 2px;
           background-color: transparent;
         }
       }
 
       &-background { // use solid black backgrounds
-        // gap between images and labels
-        margin-bottom: 4px;
         border: 0 none transparent;
         border-radius: 2px;
         background-color: black;
