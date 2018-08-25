@@ -890,43 +890,9 @@ stack#conversation_viewer {
 //  ************/
 
 // incognito-mode styling
-//
-// most of widget styling are hard-coded by ephy's stylesheet,
-// but we should force using dark foregrounds at least...
-
 headerbar.titlebar.incognito-mode {
-  entry {
-    &, &:focus {
-      color: $fixed_fg_color;
-      caret-color: $fixed_fg_color;
-    }
-    &:disabled { color: $insensitive_fixed_fg_color; }
-  }
-
-  button:not(.destructive-action):not(.suggested-action) {
-    // these classes are specificity bump to override titlebuttons
-    &:not(.appmenu):not(.icon):not(:indeterminate) {
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
-
-      &,
-      &:hover,
-      &:active,
-      &:checked {
-        * {
-          background-image: none;
-          color: $fixed_fg_color;
-        }
-      }
-      &:disabled,
-      &:checked:disabled {
-        * {
-          background-image: none;
-          color: $insensitive_fixed_fg_color;
-        }
-      }
-    }
-  }
+  // change-viewing-mode button
+  buttonbox.linked > widget { color: $inverted-secondary_fg_color; }
 }
 
 // reset inverted foreground colour
