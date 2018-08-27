@@ -307,78 +307,20 @@ $alpha_override: 0.54 - $hard_coded_alpha;
   }
 }
 
-// running-dot styling
-@if $gdm == false {
-  @each $_dock, $_dot, $_inv_dot, $_line, $_inv_line in
-  (top, -top, -top, 0 -2px, 0 -2px),
-  (bottom, -bottom, -bottom, 0 2px, 0 2px),
-  (left, -left, -right, -2px 0, 2px 0),
-  (right, -right, -left, 2px 0, -2px 0) {
-    #dashtodockContainer.#{$_dock},
-    #dashtodockContainer.extended.#{$_dock} {
-      @each $_num in 1, 2, 3, 4 {
-        .dash-item-container > StWidget.running#{$_num} {
-          &.focused { // fill whole focused backgrounds
-            .overview-icon {
-              border-radius: 0;
-              background-color: $osd_semi_fill_color;
-            }
+@each $_dock in top, bottom, left, right {
+  #dashtodockContainer.#{$_dock},
+  #dashtodockContainer.extended.#{$_dock} {
+    .dash-item-container > StWidget.focused { // fill whole focused backgrounds
+      .overview-icon {
+        border-radius: 0;
+        background-color: $osd_semi_fill_color;
+      }
 
-            &:hover .overview-icon {
-              border-radius: 0;
-              background-color: $osd_fill_color;
-            }
-          }
-        }
-
-        &:ltr {
-          .dash-item-container > StWidget.running#{$_num} {
-            background-image: url("assets/dot/running#{$_num}#{$_dot}.svg");
-            &.focused .overview-icon {
-              box-shadow: inset #{$_line} $selected_bg_color;
-            }
-          }
-        }
-        &:rtl {
-          .dash-item-container > StWidget.running#{$_num} {
-            background-image:
-              url("assets/dot/running#{$_num}#{$_inv_dot}.svg");
-            &.focused .overview-icon {
-              box-shadow: inset #{$_inv_line} $selected_bg_color;
-            }
-          }
-        }
+      &:hover .overview-icon {
+        border-radius: 0;
+        background-color: $osd_fill_color;
       }
     }
-
-    #dashtodockContainer.#{$_dock},
-    #dashtodockContainer.extended.#{$_dock} { // overview-mode
-      &:overview {
-        @each $_num in 1, 2, 3, 4 {
-          .dash-item-container > StWidget.running#{$_num} {
-            &.focused { // clear backgrounds
-              .overview-icon {
-                background-color: $hidden_fill_color;
-              }
-
-              &:hover .overview-icon {
-                background-color: $osd_semi_fill_color;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-#workspacestodockContainer {
-  &,
-  &:overview,
-  &.fullheight:overview {
-    background-color: $panel_hidden_fill_color;
-
-    .workspace-thumbnails { background-color: transparent; }
   }
 }
 
