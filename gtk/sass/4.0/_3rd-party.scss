@@ -2414,8 +2414,11 @@ window#whiskermenu-window {
   // why wasn't .popup class implemented in this window node? :/
   > decoration { box-shadow: $z-depth-3; }
 
-  stack > box > box.horizontal:first-child { // ugly resize-grip
-    widget { color: $outline_track_color; }
+  stack > box > box.horizontal {
+    &:first-child widget,
+    &:last-child > widget:last-child { // ugly resize-grip
+      color: $outline_track_color;
+    }
   }
 
   scrolledwindow {
