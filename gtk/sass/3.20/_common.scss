@@ -6521,7 +6521,10 @@ cursor-handle {
   &.top,
   &.bottom {
     &:dir(ltr),
-    &:dir(rtl) { @extend %handle; }
+    &:dir(rtl) {
+      @extend %handle;
+      -gtk-icon-shadow: $z-depth-2;
+    }
   }
 
   &.top:dir(ltr),
@@ -6551,6 +6554,7 @@ cursor-handle {
     &:dir(rtl) {
       @extend %handle;
       -gtk-icon-transform: scale(0.9);
+      -gtk-icon-shadow: $z-depth-2;
       &:hover,
       &:active { -gtk-icon-transform: scale(1.0); }
     }
