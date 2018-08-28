@@ -60,10 +60,6 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   // disable drop-shadows as default
   text-shadow: none;
   -gtk-icon-shadow: none;
-
-  // for a cursor-handle node
-  -GtkWidget-text-handle-width: 20;
-  -GtkWidget-text-handle-height: 25;
 }
 
 
@@ -3322,12 +3318,14 @@ popover.background {
 }
 
 popover.background {
-  &.touch-selection,
-  &.magnifier,
-  &.osd {
-    @extend %osd;
+  &.osd { @extend %osd; }
 
-    button { @include button(flat-normal); }
+  &.touch-selection, // do not use OSD-style
+  &.magnifier {
+    button.image-button {
+      @extend %action-area-button;
+      padding: rem(10px);
+    }
   }
 }
 
@@ -6420,23 +6418,57 @@ headerbar.titlebar.default-decoration {
 //  *********************/
 
 // touch selection handlebars for the Popover.osd above
+%handle {
+  -gtk-icon-source:
+    -gtk-scaled(
+      url('assets/slider-horz-scale-has-marks-above#{$asset_suffix}.png'),
+      url('assets/slider-horz-scale-has-marks-above#{$asset_suffix}@2.png'));
+}
+
 cursor-handle {
-  border-style: none;
-  background-color: $accent_color;
-  background-image: none;
+  min-width: 20px;
+  min-height: 25px;
+  padding: 0 10px;
+  border: none;
+  background: none;
   box-shadow: none;
 
+  &.top,
+  &.bottom {
+    &:dir(ltr),
+    &:dir(rtl) { @extend %handle; }
+  }
+
   &.top:dir(ltr),
-  &.bottom:dir(rtl) { padding-left: 10px; }
+  &.bottom:dir(rtl) {
+    -gtk-icon-transform: rotate(45deg)
+                         scale(0.9);
+    &:hover,
+    &:active {
+      -gtk-icon-transform: rotate(45deg)
+                           scale(1.0);
+    }
+  }
 
-  &.bottom:dir(ltr),
-  &.top:dir(rtl) { padding-right: 10px; }
+  &.top:dir(rtl),
+  &.bottom:dir(ltr) {
+    -gtk-icon-transform: rotate(-45deg)
+                         scale(0.9);
+    &:hover,
+    &:active {
+      -gtk-icon-transform: rotate(-45deg)
+                           scale(1.0);
+    }
+  }
 
-  &.insertion-cursor:dir(ltr),
-  &.insertion-cursor:dir(rtl) {
-    $_url: 'assets/slider-horz-scale-has-marks-above#{$asset_suffix}';
-    -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
-                                  url('#{$_url}@2.png'));
+  &.insertion-cursor {
+    &:dir(ltr),
+    &:dir(rtl) {
+      @extend %handle;
+      -gtk-icon-transform: scale(0.9);
+      &:hover,
+      &:active { -gtk-icon-transform: scale(1.0); }
+    }
   }
 }
 
@@ -6446,16 +6478,10 @@ cursor-handle {
   font-size: 100%;
 }
 
-popover.touch-selection {
-  color: $fg_color;
-  background-color: $base_color;
-  box-shadow: $z-depth-2;
-  font-weight: 400;
-  font-size: 100%;
-  &:backdrop { box-shadow: $z-depth-1; }
-  button {
-  }
-}
+
+// /**********
+//  * Keycap *
+//  **********/
 
 // shortcut window keys
 .keycap {
