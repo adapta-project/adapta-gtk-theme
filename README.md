@@ -167,14 +167,14 @@ Installation from Git Source
 3. Build and install system-wide:
 
  ```
- ./autogen.sh
+ ./autogen.sh --prefix=/usr
  make
  sudo make install
  ```
 
  > **Note:**
  >
- >   * Default prefix is `/usr`.
+ >   * Default prefix is `/usr/local`.
  >   * All 4 variants are installed by default.
  >   * `make` generates proper CSSs and PNGs to be installed.
  >     It will take about 5min to 15min to build.

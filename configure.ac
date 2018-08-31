@@ -20,7 +20,7 @@ AM_INIT_AUTOMAKE([
 	1.9 \
 	tar-ustar
 ])
-AC_PREFIX_DEFAULT(/usr)
+AC_PREFIX_DEFAULT(/usr/local)
 AM_SILENT_RULES([yes])
 
 ADAPTA_OPTION([PARALLEL],     [parallel],     [parallel-build],      [disable])

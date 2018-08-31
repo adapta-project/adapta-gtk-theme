@@ -12,6 +12,5 @@ autoreconf --force --install --warnings=all
 
 if test -z "${NOCONFIGURE}"; then
     set -x
-    $srcdir/configure --prefix=/usr \
-                      "$@"
+    $srcdir/configure "$@"
 fi
