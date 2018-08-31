@@ -13,11 +13,5 @@ autoreconf --force --install --warnings=all
 if test -z "${NOCONFIGURE}"; then
     set -x
     $srcdir/configure --prefix=/usr \
-                      --disable-gtk_next \
-                      --disable-parallel \
-                      --disable-chrome-legacy \
-                      --disable-plank \
-                      --disable-telegram \
-                      --disable-tweetdeck \
                       "$@"
 fi
