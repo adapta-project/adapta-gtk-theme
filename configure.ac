@@ -25,12 +25,12 @@ AM_SILENT_RULES([yes])
 
 ADAPTA_OPTION([PARALLEL],     [parallel],     [parallel-build],      [disable])
 ADAPTA_OPTION([GTK_NEXT],     [gtk_next],     [Gtk-4.0],             [disable])
-ADAPTA_OPTION([GNOME],        [gnome],        [Gnome-Shell],         [disable])
-ADAPTA_OPTION([CINNAMON],     [cinnamon],     [Cinnamon],            [disable])
-ADAPTA_OPTION([FLASHBACK],    [flashback],    [Flashback],           [disable])
-ADAPTA_OPTION([XFCE],         [xfce],         [XFce],                [disable])
-ADAPTA_OPTION([MATE],         [mate],         [Mate],                [disable])
-ADAPTA_OPTION([OPENBOX],      [openbox],      [Openbox],             [disable])
+ADAPTA_OPTION([GNOME],        [gnome],        [Gnome-Shell],         [enable])
+ADAPTA_OPTION([CINNAMON],     [cinnamon],     [Cinnamon],            [enable])
+ADAPTA_OPTION([FLASHBACK],    [flashback],    [Flashback],           [enable])
+ADAPTA_OPTION([XFCE],         [xfce],         [XFce],                [enable])
+ADAPTA_OPTION([MATE],         [mate],         [Mate],                [enable])
+ADAPTA_OPTION([OPENBOX],      [openbox],      [Openbox],             [enable])
 ADAPTA_OPTION([CHROME_LEGACY],[chrome_legacy],[Chrome(ium)-legacy],  [disable])
 ADAPTA_OPTION([PLANK],        [plank],        [Plank],               [disable])
 ADAPTA_OPTION([TELEGRAM],     [telegram],     [Telegram],            [disable])
@@ -81,7 +81,7 @@ AC_CONFIG_FILES([
 AC_OUTPUT
 AC_MSG_RESULT([
         Adapta Gtk+ Theme $VERSION
-        ===========================================================
+        =================================================================
 
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
@@ -94,7 +94,7 @@ AC_MSG_RESULT([
          inkscape:               $INKSCAPE
          sassc:                  $SASSC
 
-         parallel-build:         $ENABLE_PARALLEL
+         parallel-build:         $ENABLE_PARALLEL (default: no)
          parallel:               $PARALLEL
 
          selection-color:        $SELECTION (default: $selection_default)
@@ -102,38 +102,38 @@ AC_MSG_RESULT([
          suggestion-color:       $SUGGESTION (default: $suggestion_default)
          destruction-color:      $DESTRUCTION (default: $destruction_default)
 
-        -----------------------------------------------------------
+        -----------------------------------------------------------------
         | Supported Gtk+ Version
-        -----------------------------------------------------------
+        -----------------------------------------------------------------
 
          Gtk+ 2.0:               always
          Gtk+ 3.20:              always
          Gtk+ 3.22:              always
          Gtk+ 3.24:              always
-         Gtk+ 4.0:               $ENABLE_GTK_NEXT
+         Gtk+ 4.0:               $ENABLE_GTK_NEXT (default: no)
 
-        -----------------------------------------------------------
+        -----------------------------------------------------------------
         | DE and WM Support
-        -----------------------------------------------------------
+        -----------------------------------------------------------------
 
          Budgie-Desktop:         always (>= 10.4)
-         GNOME:                  $ENABLE_GNOME (SCSS ver. $GNOME_SCSS_VERSION)
-         Cinnamon:               $ENABLE_CINNAMON
-         GNOME-Flashback:        $ENABLE_FLASHBACK
-         XFce:                   $ENABLE_XFCE
-         Mate:                   $ENABLE_MATE
-         Openbox:                $ENABLE_OPENBOX
+         GNOME:                  $ENABLE_GNOME (SCSS ver. $GNOME_SCSS_VERSION) (default: yes)
+         Cinnamon:               $ENABLE_CINNAMON (default: yes)
+         GNOME-Flashback:        $ENABLE_FLASHBACK (default: yes)
+         XFce:                   $ENABLE_XFCE (default: yes)
+         Mate:                   $ENABLE_MATE (default: yes)
+         Openbox:                $ENABLE_OPENBOX (default: yes)
 
-        -----------------------------------------------------------
+        -----------------------------------------------------------------
         | Extra Support
-        -----------------------------------------------------------
+        -----------------------------------------------------------------
 
          GtkSourceView/Gedit:    always
-         Chrome(ium)-legacy:     $ENABLE_CHROME_LEGACY
-         Plank:                  $ENABLE_PLANK
-         Telegram:               $ENABLE_TELEGRAM
-         Tweetdeck-Colordeck:    $ENABLE_TWEETDECK
+         Chrome(ium)-legacy:     $ENABLE_CHROME_LEGACY (default: no)
+         Plank:                  $ENABLE_PLANK (default: no)
+         Telegram:               $ENABLE_TELEGRAM (default: no)
+         Tweetdeck-Colordeck:    $ENABLE_TWEETDECK (default: no)
 
-        ===========================================================
-                             =>> run 'make' and 'sudo make install'
+        =================================================================
+                                   =>> run 'make' and 'sudo make install'
 ])
