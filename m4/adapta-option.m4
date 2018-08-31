@@ -10,8 +10,8 @@ AC_DEFUN([ADAPTA_OPTION], [
         [ENABLE_$1="$enableval"],
         [AS_IF(
             [test "x$4" = "xdisable"],
-            [ENABLE_$1="yes"],
-            [ENABLE_$1="no"]
+            [ENABLE_$1="no"],
+            [ENABLE_$1="yes"]
         )]
     )
     AM_CONDITIONAL([ENABLE_$1], [test "x$ENABLE_$1" = "xyes"])
