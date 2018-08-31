@@ -78,5 +78,5 @@ echo \
 cp -R ./gtk/sass/common/_key_colors.scss \
        ./shell/sass/common/_key_colors.scss
 
-AC_MSG_RESULT([creating sass/common/_key_colors.scss])
+AC_MSG_RESULT([creating ./gtk/sass/common/_key_colors.scss])
 ])
