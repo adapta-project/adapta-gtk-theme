@@ -3,6 +3,12 @@
 
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
+
+02 Sep 2018
+-----------
+# [Important]
+# Today, I locked "Issues", "Pull Requests" and all of our daily developments for current 3.94 series until next-gen lands.
+
 Before using Adapta
 -------------------
 
