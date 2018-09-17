@@ -15,7 +15,7 @@ INKSCAPE="`command -v inkscape`"
 SRC_DIR="../assets-metacity"
 ASSETS_DIR="../../metacity-1"
 INDEX="assets-metacity-misc.txt"
-KEY_FILE="../../../sass/common/_key_colors.scss"
+KEY_FILE="../../../gtk/sass/common/resources/_key_colors.scss"
 
 inkver="`$INKSCAPE --version | awk '{print $2}' | cut -c 1-4`"
 if [ "$inkver" = 0.91 ]; then
@@ -33,7 +33,13 @@ render-non-scale() {
 
 # Generate PNG files
 for i in $(<$INDEX)
-do 
+do
+    if [ '!' -d $ASSETS_DIR/light ]; then
+        mkdir -p $ASSETS_DIR/light
+    fi
+    if [ '!' -d $ASSETS_DIR/dark ]; then
+        mkdir -p $ASSETS_DIR/dark
+    fi
     if [ -f $ASSETS_DIR/$i.png ] && \
         [ $KEY_FILE -ot $ASSETS_DIR/$i.png ]; then
         echo $ASSETS_DIR/$i.png exists.

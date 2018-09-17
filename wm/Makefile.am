@@ -1,35 +1,64 @@
 themedir     = $(datadir)/themes
 adaptadir    = $(DESTDIR)$(themedir)/Adapta
+briladir     = $(DESTDIR)$(themedir)/Adapta-Brila
 noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
 adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
+brilaetadir  = $(DESTDIR)$(themedir)/Adapta-Brila-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
 metacitydir   = $(srcdir)/metacity-1
-metacity_file = \
-	$(metacitydir)/button_close_prelight.svg \
-	$(metacitydir)/button_close_pressed.svg \
-	$(metacitydir)/button_close.svg \
-	$(metacitydir)/button_maximize_prelight.svg \
-	$(metacitydir)/button_maximize_pressed.svg \
-	$(metacitydir)/button_maximize.svg \
-	$(metacitydir)/button_menu_prelight.svg \
-	$(metacitydir)/button_menu_pressed.svg \
-	$(metacitydir)/button_menu.svg \
-	$(metacitydir)/button_minimize_prelight.svg \
-	$(metacitydir)/button_minimize_pressed.svg \
-	$(metacitydir)/button_minimize.svg \
-	$(metacitydir)/button_shade_prelight.svg \
-	$(metacitydir)/button_shade_pressed.svg \
-	$(metacitydir)/button_shade.svg \
-	$(metacitydir)/button_unshade_prelight.svg \
-	$(metacitydir)/button_unshade_pressed.svg \
-	$(metacitydir)/button_unshade.svg \
-	$(metacitydir)/max_button_unmaximize_prelight.svg \
-	$(metacitydir)/max_button_unmaximize_pressed.svg \
-	$(metacitydir)/max_button_unmaximize.svg \
-	$(metacitydir)/thumbnail.png \
-	$(metacitydir)/metacity-theme-2.xml \
-	$(metacitydir)/metacity-theme-3.xml
+metacity_xml_file = \
+	$(metacitydir)/dark/metacity-theme-2.xml \
+	$(metacitydir)/dark/metacity-theme-3.xml
+metacity_asset_file = \
+	$(metacitydir)/dark/button_close_prelight.svg \
+	$(metacitydir)/dark/button_close_pressed.svg \
+	$(metacitydir)/dark/button_close.svg \
+	$(metacitydir)/dark/button_maximize_prelight.svg \
+	$(metacitydir)/dark/button_maximize_pressed.svg \
+	$(metacitydir)/dark/button_maximize.svg \
+	$(metacitydir)/dark/button_menu_prelight.svg \
+	$(metacitydir)/dark/button_menu_pressed.svg \
+	$(metacitydir)/dark/button_menu.svg \
+	$(metacitydir)/dark/button_minimize_prelight.svg \
+	$(metacitydir)/dark/button_minimize_pressed.svg \
+	$(metacitydir)/dark/button_minimize.svg \
+	$(metacitydir)/dark/button_shade_prelight.svg \
+	$(metacitydir)/dark/button_shade_pressed.svg \
+	$(metacitydir)/dark/button_shade.svg \
+	$(metacitydir)/dark/button_unshade_prelight.svg \
+	$(metacitydir)/dark/button_unshade_pressed.svg \
+	$(metacitydir)/dark/button_unshade.svg \
+	$(metacitydir)/dark/max_button_unmaximize_prelight.svg \
+	$(metacitydir)/dark/max_button_unmaximize_pressed.svg \
+	$(metacitydir)/dark/max_button_unmaximize.svg \
+	$(metacitydir)/dark/thumbnail.png
+metacity_brila_xml_file = \
+	$(metacitydir)/light/metacity-theme-2.xml \
+	$(metacitydir)/light/metacity-theme-3.xml
+metacity_brila_asset_file = \
+	$(metacitydir)/light/button_close_prelight.svg \
+	$(metacitydir)/light/button_close_pressed.svg \
+	$(metacitydir)/light/button_close.svg \
+	$(metacitydir)/light/button_maximize_prelight.svg \
+	$(metacitydir)/light/button_maximize_pressed.svg \
+	$(metacitydir)/light/button_maximize.svg \
+	$(metacitydir)/light/button_menu_prelight.svg \
+	$(metacitydir)/light/button_menu_pressed.svg \
+	$(metacitydir)/light/button_menu.svg \
+	$(metacitydir)/light/button_minimize_prelight.svg \
+	$(metacitydir)/light/button_minimize_pressed.svg \
+	$(metacitydir)/light/button_minimize.svg \
+	$(metacitydir)/light/button_shade_prelight.svg \
+	$(metacitydir)/light/button_shade_pressed.svg \
+	$(metacitydir)/light/button_shade.svg \
+	$(metacitydir)/light/button_unshade_prelight.svg \
+	$(metacitydir)/light/button_unshade_pressed.svg \
+	$(metacitydir)/light/button_unshade.svg \
+	$(metacitydir)/light/max_button_unmaximize_prelight.svg \
+	$(metacitydir)/light/max_button_unmaximize_pressed.svg \
+	$(metacitydir)/light/max_button_unmaximize.svg \
+	$(metacitydir)/light/thumbnail.png
 
 xfwmdir   = $(srcdir)/xfwm4
 xfwm_file = \
@@ -176,32 +205,41 @@ endif
 install-data-local:
 if ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
-	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
-	cd $(adaptadir)
-	ln -sf ../Adapta/metacity-1 $(noktodir)/metacity-1
-	ln -sf ../Adapta/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Adapta/metacity-1 $(noktoetadir)/metacity-1
+	$(MKDIR_P) $(briladir)/metacity-1
+	$(MKDIR_P) $(noktodir)/metacity-1
+	cp -Rv $(metacity_xml_file) $(adaptadir)/metacity-1
+	cp -Rv $(metacity_xml_file) $(noktodir)/metacity-1
+	cp -Rv $(metacity_brila_xml_file) $(briladir)/metacity-1
+	cp -Rv $(metacity_asset_file) $(adaptadir)/metacity-1
+	cp -Rv $(metacity_asset_file) $(noktodir)/metacity-1
+	cp -Rv $(metacity_brila_asset_file) $(briladir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
-	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
-	cd $(adaptadir)
-	ln -sf ../Adapta/metacity-1 $(noktodir)/metacity-1
-	ln -sf ../Adapta/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Adapta/metacity-1 $(noktoetadir)/metacity-1
+	$(MKDIR_P) $(briladir)/metacity-1
+	$(MKDIR_P) $(noktodir)/metacity-1
+	cp -Rv $(metacity_xml_file) $(adaptadir)/metacity-1
+	cp -Rv $(metacity_xml_file) $(noktodir)/metacity-1
+	cp -Rv $(metacity_brila_xml_file) $(briladir)/metacity-1
+	cp -Rv $(metacity_asset_file) $(adaptadir)/metacity-1
+	cp -Rv $(metacity_asset_file) $(noktodir)/metacity-1
+	cp -Rv $(metacity_brila_asset_file) $(briladir)/metacity-1
 endif
 endif
 
 if ENABLE_MATE
 if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
-	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
-	cd $(adaptadir)
-	ln -sf ../Adapta/metacity-1 $(noktodir)/metacity-1
-	ln -sf ../Adapta/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Adapta/metacity-1 $(noktoetadir)/metacity-1
+	$(MKDIR_P) $(briladir)/metacity-1
+	$(MKDIR_P) $(noktodir)/metacity-1
+	cp -Rv $(metacity_xml_file) $(adaptadir)/metacity-1
+	cp -Rv $(metacity_xml_file) $(noktodir)/metacity-1
+	cp -Rv $(metacity_brila_xml_file) $(briladir)/metacity-1
+	cp -Rv $(metacity_asset_file) $(adaptadir)/metacity-1
+	cp -Rv $(metacity_asset_file) $(noktodir)/metacity-1
+	cp -Rv $(metacity_brila_asset_file) $(briladir)/metacity-1
 endif
 endif
 
@@ -230,16 +268,14 @@ uninstall-local:
 if ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
-	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
-	test -e $(adaptaetadir)/metacity-1 && rm -rfv $(adaptaetadir)/metacity-1
+	test -e $(briladir)/metacity-1 && rm -rfv $(briladir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
-	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
-	test -e $(adaptaetadir)/metacity-1 && rm -rfv $(adaptaetadir)/metacity-1
+	test -e $(briladir)/metacity-1 && rm -rfv $(briladir)/metacity-1
 endif
 endif
 
@@ -247,8 +283,7 @@ if ENABLE_MATE
 if !ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(adaptadir)/metacity-1 && rm -rfv $(adaptadir)/metacity-1
-	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
-	test -e $(adaptaetadir)/metacity-1 && rm -rfv $(adaptaetadir)/metacity-1
+	test -e $(briladir)/metacity-1 && rm -rfv $(briladir)/metacity-1
 endif
 endif
 
@@ -270,20 +305,24 @@ CLEANFILES =
 
 if ENABLE_FLASHBACK
 CLEANFILES += \
-	$(metacitydir)/*.svg \
-	$(metacitydir)/*.png \
-	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(metacitydir)/light/*.svg \
+	$(metacitydir)/light/*.png \
+	$(metacitydir)/dark/*.svg \
+	$(metacitydir)/dark/*.png \
+	$(srcdir)/asset/assets-metacity/common/button_close_pressed.svg \
+	$(srcdir)/asset/assets-metacity/common/button_close_prelight.svg \
 	$(srcdir)/asset/inkscape.log
 endif
 
 if ENABLE_CINNAMON
 if !ENABLE_FLASHBACK
 CLEANFILES += \
-	$(metacitydir)/*.svg \
-	$(metacitydir)/*.png \
-	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(metacitydir)/light/*.svg \
+	$(metacitydir)/light/*.png \
+	$(metacitydir)/dark/*.svg \
+	$(metacitydir)/dark/*.png \
+	$(srcdir)/asset/assets-metacity/common/button_close_pressed.svg \
+	$(srcdir)/asset/assets-metacity/common/button_close_prelight.svg \
 	$(srcdir)/asset/inkscape.log
 endif
 endif
@@ -291,10 +330,12 @@ endif
 if ENABLE_MATE
 if !ENABLE_FLASHBACK
 CLEANFILES += \
-	$(metacitydir)/*.svg \
-	$(metacitydir)/*.png \
-	$(srcdir)/asset/assets-metacity/button_close_pressed.svg \
-	$(srcdir)/asset/assets-metacity/button_close_prelight.svg \
+	$(metacitydir)/light/*.svg \
+	$(metacitydir)/light/*.png \
+	$(metacitydir)/dark/*.svg \
+	$(metacitydir)/dark/*.png \
+	$(srcdir)/asset/assets-metacity/common/button_close_pressed.svg \
+	$(srcdir)/asset/assets-metacity/common/button_close_prelight.svg \
 	$(srcdir)/asset/inkscape.log
 endif
 endif

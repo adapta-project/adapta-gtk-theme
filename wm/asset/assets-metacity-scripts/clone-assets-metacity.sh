@@ -12,16 +12,17 @@
 
 SRC_DIR="../assets-metacity"
 ASSETS_DIR="../../metacity-1"
+INDEX_C="assets-metacity-common.txt"
 INDEX="assets-metacity.txt"
-RECOLOR_FILE1="./../assets-metacity/button_close_pressed.svg"
-RECOLOR_FILE2="./../assets-metacity/button_close_prelight.svg"
+RECOLOR_FILE1="./../assets-metacity/common/button_close_pressed.svg"
+RECOLOR_FILE2="./../assets-metacity/common/button_close_prelight.svg"
 COL_FILE="../../../gtk/sass/common/_colors.scss"
-KEY_FILE="../../../gtk/sass/common/_key_colors.scss"
+KEY_FILE="../../../gtk/sass/common/resources/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Cyan500' $COL_FILE | \
+selection1="`grep 'Indigo500' $COL_FILE | \
                    cut -d' ' -f3`"
-destruction1="`grep 'RedA200' $COL_FILE | \
+destruction1="`grep 'Red500' $COL_FILE | \
                      cut -d' ' -f3`"
 
 # Check and re-color 'button_close_pressed' button
@@ -44,19 +45,49 @@ if [ -e $KEY_FILE ]; then
         echo $destruction1 is re-colored with $destruction2.
     fi
 else
-    echo _key_colors.scss was not found. Stopped...
+    echo ../../../gtk/sass/common/resources/_key_colors.scss was not found. Stopped...
     exit 1
 fi
 
 # Clone stock SVG files
+for i in $(<$INDEX_C)
+do
+    if [ '!' -d $ASSETS_DIR/light ]; then
+        mkdir -p $ASSETS_DIR/light
+    fi
+    if [ '!' -d $ASSETS_DIR/dark ]; then
+        mkdir -p $ASSETS_DIR/dark
+    fi
+    if [ -f $ASSETS_DIR/light/$i.svg ] && \
+        [ $SRC_DIR/common/$i.svg -ot $ASSETS_DIR/light/$i.svg ]; then
+        echo $ASSETS_DIR/light/$i.svg exists.
+    else
+        echo Cloning $ASSETS_DIR/light/$i.svg
+        cp $SRC_DIR/common/$i.svg $ASSETS_DIR/light
+    fi
+    if [ -f $ASSETS_DIR/dark/$i.svg ] && \
+        [ $SRC_DIR/common/$i.svg -ot $ASSETS_DIR/dark/$i.svg ]; then
+        echo $ASSETS_DIR/dark/$i.svg exists.
+    else
+        echo Cloning $ASSETS_DIR/dark/$i.svg
+        cp $SRC_DIR/common/$i.svg $ASSETS_DIR/dark
+    fi
+done
 for i in $(<$INDEX)
 do
-    if [ -f $ASSETS_DIR/$i.svg ] && \
-        [ $SRC_DIR/$i.svg -ot $ASSETS_DIR/$i.svg ]; then
-        echo $ASSETS_DIR/$i.svg exists.
+    if [ -f $ASSETS_DIR/light/$i.svg ] && \
+        [ $SRC_DIR/light/$i.svg -ot $ASSETS_DIR/light/$i.svg ]; then
+        echo $ASSETS_DIR/light/$i.svg exists.
     else
-        echo Cloning $ASSETS_DIR/$i.svg
-        cp $SRC_DIR/$i.svg $ASSETS_DIR
+        echo Cloning $ASSETS_DIR/light/$i.svg
+        cp $SRC_DIR/light/$i.svg $ASSETS_DIR/light
+    fi
+    if [ -f $ASSETS_DIR/dark/$i.svg ] && \
+        [ $SRC_DIR/dark/$i.svg -ot $ASSETS_DIR/dark/$i.svg ]; then
+        echo $ASSETS_DIR/dark/$i.svg exists.
+    else
+        echo Cloning $ASSETS_DIR/dark/$i.svg
+        cp $SRC_DIR/dark/$i.svg $ASSETS_DIR/dark
     fi
 done
 
