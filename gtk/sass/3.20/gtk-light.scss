@@ -1,0 +1,20 @@
+// General guidelines:
+// - very unlikely you want to edit something else than _common.scss
+// - keep the number of defined colors to a minimum, use the color blending functions if
+//   you need a subtle shade
+// - if you need to inverse a color function use the @if directive to match for dark $variant
+
+$maj_ver: 3;
+$mnr_ver: 20;
+$variant: light;
+$ref_weight: 1.0;
+
+@import '../common/resources/color_palette';
+@import '../common/resources/functions';
+@import '../common/resources/variables';
+@import '../common/colors';
+@import '../common/drawing';
+@import '../common/common';
+@import '../common/misc'; // specific styling for Gnome-hosted apps
+@import '../common/3rd-party'; // other apps/desktops styling
+@import '../common/colors-public';

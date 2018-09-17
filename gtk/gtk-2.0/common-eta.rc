@@ -27,7 +27,7 @@ style "default" = "default_colors" {
   GtkToolButton::icon-spacing = 2
 
   GtkWidget::tooltip-radius = 2
-  GtkWidget::tooltip-alpha = 230
+  GtkWidget::tooltip-alpha = 238
   GtkWidget::new-tooltip-style = 1 #for compatibility
 
   GtkSeparatorMenuItem::horizontal-padding = 1
@@ -1198,9 +1198,9 @@ style "misc_button_label" {
 }
 
 style "buttonbox_button_label" {
-  fg[NORMAL] = mix(0.87, mix(0.8, @accent_color, @fg_color), @bg_color)
-  fg[PRELIGHT] = mix(0.8, @accent_color, @fg_color)
-  fg[ACTIVE] = mix(0.8, @accent_color, @fg_color)
+  fg[NORMAL] = mix(0.87, mix(0.54, @accent_color, @fg_color), @bg_color)
+  fg[PRELIGHT] = mix(0.54, @accent_color, @fg_color)
+  fg[ACTIVE] = mix(0.54, @accent_color, @fg_color)
   fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
   font_name = "Bold"
 }
@@ -1880,21 +1880,10 @@ style "menubar_item" {
   ythickness = 6
 
   bg[NORMAL] = @inverted_dark_color
-  bg[PRELIGHT] = @inverted_dark_color
+  bg[PRELIGHT] = mix(0.12, @inverted_fg_color, @inverted_dark_color)
   fg[NORMAL] = mix(0.87, @inverted_fg_color, @inverted_dark_color)
   fg[PRELIGHT] = @inverted_fg_color
   fg[INSENSITIVE] = mix(0.28, @inverted_fg_color, @inverted_dark_color)
-
-  engine "pixmap" {
-    image {
-      function    = BOX
-      recolorable = TRUE
-      state       = PRELIGHT
-      file        = "Others/top.png"
-      border      = { 0, 0, 0, 2 }
-      stretch     = TRUE
-    }
-  }
 }
 
 style "menubar_item_label" {
@@ -1907,9 +1896,9 @@ style "menu" {
 
   GtkMenuItem::arrow-scaling = 0.4
 
-  bg[NORMAL] = mix(0.5, @base_color, @bg_color)
-  bg[PRELIGHT] = mix(0.5, @base_color, @bg_color)
-  bg[INSENSITIVE] = mix(0.5, @base_color, @bg_color)
+  bg[NORMAL] = @dark_color
+  bg[PRELIGHT] = @dark_color
+  bg[INSENSITIVE] = @dark_color
 }
 
 style "menu_frame" {
@@ -1935,9 +1924,9 @@ style "menu_item" {
   # highlight. The price to pay is black text on menus as well,
   # but at least it's readable.
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
-  bg[SELECTED] = mix(0.9, @base_color, @fg_color)
-  bg[PRELIGHT] = mix(0.9, @base_color, @fg_color)
-  fg[NORMAL] = mix(0.87, @fg_color, @base_color)
+  bg[SELECTED] = mix(0.88, @dark_color, @fg_color)
+  bg[PRELIGHT] = mix(0.88, @dark_color, @fg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @dark_color)
   fg[PRELIGHT] = @fg_color
   fg[SELECTED] = @fg_color
   text[PRELIGHT] = @fg_color
@@ -2166,7 +2155,7 @@ style "menu_item" {
 }
 
 style "menu_item_label" {
-  fg[NORMAL] = mix(0.87, @fg_color, mix(0.5, @base_color, @bg_color))
+  fg[NORMAL] = mix(0.87, @fg_color, @dark_color)
   fg[PRELIGHT] = @fg_color
   fg[SELECTED] = @fg_color
 
@@ -2177,21 +2166,12 @@ style "separator_menu_item" {
   xthickness = 0
   ythickness = 1
 
-  # embedded blank area width = 20px
   engine "pixmap" {
     image {
       function  = BOX
-      file      = "Lines/menu-line-ltr.png"
-      border    = { 20, 0, 0, 0 }
+      file      = "Lines/menu-line.png"
+      border    = { 0, 0, 0, 0 }
       stretch   = TRUE
-      direction = LTR
-    }
-    image {
-      function  = BOX
-      file      = "Lines/menu-line-rtl.png"
-      border    = { 0, 20, 0, 0 }
-      stretch   = TRUE
-      direction = RTL
     }
   }
 }
@@ -2540,8 +2520,8 @@ style "base" {
 }
 
 style "calendar" {
-  bg[NORMAL] = @secondary_dark_color
-  base[NORMAL] = @light_color
+  bg[NORMAL] = @dark_color
+  base[NORMAL] = @base_color
 }
 
 style "tooltips" {

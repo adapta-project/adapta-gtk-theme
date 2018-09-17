@@ -1,208 +1,207 @@
 //
-// When color definition differs for dark and light variant,
-// it gets @if ed depending on $variant
+// Import resources
 //
-
-@function gtkalpha($c, $a) { // for 'currentColor'
-  @return unquote("alpha(#{$c}, #{$a})");
-}
-
-@function gtkopacity($c, $a) {
-  @return scale-color($c, $alpha: percentage(-1 + $a));
-}
-
-
-//
-// A Color palette
-//
-// Adapta uses google's palette:
-// [https://www.google.com/design/spec/style/color.html#color-color-palette]
-//
-
 
 // Import key colour-scheme defined at build-time.
-@import 'key_colors';
-
+@import 'resources/key_colors';
 
 //
 // Foreground colors
 //
 
-$fg_color: if($variant == light, #263238,                       // = BluGry900
-                                 #CFD8DC);                      // = BluGry100
-$secondary_fg_color: gtkopacity($fg_color, 0.87);
-$tertiary_fg_color: gtkopacity($fg_color, 0.54);
+$fg: if($variant == dark, color($grey, 100),
+                          mix(color($grey, 900), black));
+$sec_fg: track($fg, $a_fg_2nd);
+$ter_fg: track($fg, $a_fg_3rd);
 
-$selected_fg_color: #FFFFFF;                                    // = White
-$secondary_selected_fg_color: gtkopacity($selected_fg_color, 0.87);
-$tertiary_selected_fg_color: gtkopacity($selected_fg_color, 0.7);
+$sel_fg: white;
+$sec_sel_fg: track($sel_fg, $a_fg_sel_2nd);
+$ter_sel_fg: track($sel_fg, $a_fg_sel_3rd);
 
-$insensitive_fg_color: gtkopacity($fg_color, 0.28);
-$insensitive_secondary_fg_color: gtkopacity($secondary_fg_color, 0.28);
-$insensitive_tertiary_fg_color: gtkopacity($tertiary_fg_color, 0.28);
+$dis_fg: track($fg, $a_fg_dis);
+$dis_sec_fg: track($sec_fg, $a_fg_dis);
+$dis_ter_fg: track($ter_fg, $a_fg_dis);
 
-$insensitive_selected_fg_color: gtkopacity($selected_fg_color, 0.4);
-$insensitive_secondary_selected_fg_color:
-  gtkopacity($secondary_selected_fg_color, 0.4);
-$insensitive_tertiary_selected_fg_color:
-  gtkopacity($tertiary_selected_fg_color, 0.4);
+$dis_sel_fg: track($sel_fg, $a_fg_bdp);
+$dis_sec_sel_fg: track($sec_sel_fg, $a_fg_bdp);
+$dis_ter_sel_fg: track($ter_sel_fg, $a_fg_bdp);
 
-// preview text on empty GtkEntry
-$placeholder_text_color: #78909C;                               // = BluGry400
-
+// placeholder text in GtkEntry
+$plc_fg: if($variant == light, color($grey, $primary_level),
+                               color($grey, $primary_level + 200));
 
 //
 // Inverted foreground colors
 //
 
-$inverted_fg_color: #CFD8DC;                                    // = BluGry100
-$inverted_secondary_fg_color: gtkopacity($inverted_fg_color, 0.87);
-$inverted_tertiary_fg_color: gtkopacity($inverted_fg_color, 0.54);
+$inv_fg: color($grey, 100);
+$inv_sec_fg: track($inv_fg, $a_fg_2nd);
+$inv_ter_fg: track($inv_fg, $a_fg_3rd);
 
-$insensitive_inverted_fg_color: gtkopacity($inverted_fg_color, 0.28);
-$insensitive_inverted_secondary_fg_color:
-  gtkopacity($inverted_secondary_fg_color, 0.28);
+$dis_inv_fg: track($inv_fg, $a_fg_dis);
+$dis_inv_sec_fg: track($inv_sec_fg, $a_fg_dis);
+// for SSD titlebars
+$unf_title_fg: if($variant == light, track($fg, $a_fg_bdp),
+                                     track($inv_fg, $a_fg_bdp));
 
-$fixed_fg_color: #263238;                                       // = BluGry900
-$secondary_fixed_fg_color: gtkopacity($fixed_fg_color, 0.87);
-$tertiary_fixed_fg_color: gtkopacity($fixed_fg_color, 0.54);
-$insensitive_fixed_fg_color: gtkopacity($fixed_fg_color, 0.28);
-// used in Metacity-3
-$unfocused_inverted_fg_color: gtkopacity($inverted_fg_color, 0.4);
-
+$fix_fg: color($grey, 900);
+$sec_fix_fg: track($fix_fg, $a_fg_2nd);
+$ter_fix_fg: track($fix_fg, $a_fg_3rd);
+$dis_fix_fg: track($fix_fg, $a_fg_dis);
 
 //
 // Background colors
 //
 
-$bg_color: if($variant == light, mix(#FFFFFF, #ECEFF1, 75%),    // = #FAFBFC
-                                   #263238);                    // = BluGry900
-$base_color: if($variant == light,
-                #FFFFFF,                                        // = White
-                mix(#263238, #37474F, 85%));                    // = #29353B
-$secondary_base_color: mix($base_color, $bg_color, 50%);        // = #FDFDFE
-                                                                // = #28343A
-$light_color: if($variant == light,
-                 $base_color,                                   // = White
-                 mix(#263238, #37474F, 50%));                   // = #2F3D44
-$dark_color: if($variant == light,
-                mix(#ECEFF1, #CFD8DC, 75%),                     // = #E5E9EC
-                mix(#263238, #000000, 90%));                    // = #222D32
-$secondary_dark_color: if($variant == light,
-                          mix(#FFFFFF, #ECEFF1, 60%),           // = #F7F9F9
-                          mix(#263238, #000000, 95%));          // = #243035
-
+$bg: if($variant == dark,
+        mix(color($grey, 900), black, 87%),
+        mix(color($grey, 50), color($grey, 100)));
+$base: if($variant == dark,
+          mix(color($grey, 900), black),
+          white);
+$light_bg: if($variant == dark,
+              $base,
+              $base);
+//$mid_bg: if($variant == dark,
+//            mix($bg, $light_bg),
+//            mix(color($grey, 100),color($grey, 200)));
+$dark_bg: if($variant == dark,
+             mix(color($grey, 900), black, 25%),
+             mix(color($grey, 200), color($grey, 300)));
 
 //
 // Dark background colors on light variant
 //
 
-$inverted_bg_color: #263238;                                    // = BluGry900
-$inverted_base_color: mix(#263238, #37474F, 85%);               // = #29353B
-$inverted_light_color: mix(#263238, #37474F, 50%);              // = #2F3D44
-$inverted_dark_color: mix(#263238, #000000, 90%);               // = #222D32
-
+$inv_bg: mix(color($grey, 900), black, 87%);
+$inv_base: mix(color($grey, 900), black);
+$inv_light_bg: $inv_base;
+$inv_dark_bg: mix(color($grey, 900), black, 25%);
 
 //
 // Light background colors on dark variant
 //
 
-$fixed_base_color: #FFFFFF;                                     // = White
-
+$fix_base: white;
 
 //
 // Selection (primary) colors
 //
 
-// Default: #00BCD4                                             // = Cyan500
-$selected_bg_color: $key_selection_color;
-
+// Default: #3f51b5 (Indigo500)
+$sel_bg: $key_selection_color;
+// $sel_bg: color($indigo, $primary_level);
+$sel_label: if($variant == dark,
+               saturate(
+                 lighten($sel_bg, percentage($a_trk_2)),
+                 percentage($a_trk_2)),
+               $sel_bg);
+$sel_hi_label: if($variant == dark,
+                  saturate(
+                    lighten($sel_bg, percentage($a_trk_2 + $a_trk_1)),
+                    percentage($a_trk_2 + $a_trk_1)),
+                  desaturate(
+                    darken($sel_bg, percentage($a_trk_1)),
+                    percentage($a_trk_1)));
+$inv_sel_label: saturate(
+                  lighten($sel_bg, percentage($a_trk_2)),
+                  percentage($a_trk_2));
+$inv_sel_hi_label: saturate(
+                     lighten($sel_bg, percentage($a_trk_2 + $a_trk_1)),
+                     percentage($a_trk_2 + $a_trk_1));
 
 //
 // Accent (secondary) colors
 //
 
-// Default: #4DB6AC                                             // = Teal300
-$accent_color: $key_accent_color;
-$accent_label_color:
-  if($variant == light,
-  mix($key_accent_color, $fg_color, 80%),                       // = #459C95
-  mix($key_accent_color, $fg_color, 60%));                      // = #81C4BF
-$secondary_accent_color: gtkopacity($accent_color, 0.87);
-$secondary_accent_label_color: gtkopacity($accent_label_color, 0.87);
-$accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
-$drop_target_color: $accent_color;
-$drop_target_fill_color: gtkopacity($drop_target_color, 0.2);
+// Default: #7986cb (Indigo300)
+$acc_bg: $key_accent_color;
+//$acc_bg: color($indigo, $secondary_level);
+$acc_fg: if($variant == dark,
+            saturate(
+              lighten($acc_bg, percentage($a_trk_1)),
+              percentage($a_trk_1)),
+            saturate(
+              darken($acc_bg, percentage($a_trk_2)),
+              percentage($a_trk_2)));
+$sec_acc_fg: track($acc_fg, $a_fg_sel_2nd);
+$drp_fg: $acc_fg;
+$drp_bg: track($drp_fg, $a_trk_out);
 
-$inverted_accent_label_color:
-  mix($key_accent_color, $inverted_fg_color, 60%);              // = #81C4BF
-$inverted_secondary_accent_label_color:
-  gtkopacity($inverted_accent_label_color, 0.87);
-
+$inv_acc_fg: mix($acc_bg, $inv_fg, percentage($a_fg_3rd));
+$inv_sec_acc_fg: track($inv_acc_fg, $a_fg_2nd);
 
 //
 // Tracker colors
 //
 
-$track_color: gtkalpha(currentColor, 0.12);
-$outline_track_color: gtkalpha(currentColor, 0.2);
+$trk_bg: track(currentColor, $a_trk_1);
+$trk_out_fg: track(currentColor, $a_trk_out);
 
 
 //
 // Edge colors
 //
 
-$borders_color: if($variant == light, gtkopacity(#000000, 0.09),
-                                      gtkopacity(#000000, 0.13));
-$solid_light_borders_color: if($variant == light, #E5E9EC, #212B30);
-$solid_dark_borders_color: mix($inverted_dark_color, #000000, 0.06);
-$top_edge_borders_color: $inverted_base_color;
-$paned_borders_color: if($variant == light, gtkopacity(#000000, 0.05),
-                                            gtkopacity(#000000, 0.07));
-
-$highlight_color: gtkopacity(#FFFFFF, 0.07);
-$menu_highlight_color:
-  if($variant == light,
-  $base_color,
-  mix($secondary_base_color, #FFFFFF, 98%));                    // = #2C383E
+$div_fg: if($variant == dark, track(black, $a_div_0),
+                              track(black, $a_div_1));
+$div_sld_fg: if($variant == dark, mix(black, $base, percentage($a_div_0)),
+                                  mix(black, $bg, percentage($a_div_1)));
+$div_sld_dark_fg: if($variant != light,
+                     black,
+                     mix(black, $dark_bg, percentage($a_div_1)));
+$div_top_fg: if($variant == light,
+                mix(white, $dark_bg, percentage($a_div_1)),
+                mix(white, $inv_dark_bg, percentage($a_div_2)));
+$div_pane_fg: if($variant == dark, track(black, $a_div_1),
+                                   track(black, $a_div_2));
 
 //
 // Misc colors
 //
 
-$link_color: #03A9F4;                                           // = LtBlu500
-$link_visited_color: #9C27B0;                                   // = Purple500
+$link: color($blue, $primary_level);
+$link_vst: color($purple, $primary_level);
 
-$link_label_color: if($variant == light,
-                   $link_color,
-                   mix($link_color, $fg_color, 60%));           // = #55BCEA
-$link_visited_label_color:
-  if($variant == light,
-  $link_visited_color,
-  mix($link_visited_color, $fg_color, 60%));                    // = #B06EC2
+$link_fg: if($variant == dark,
+             saturate(lighten($link, percentage($a_trk_1)),
+               percentage($a_trk_1)),
+             $link);
+$link_vst_fg: if($variant == dark,
+                 saturate(lighten($link_vst, percentage($a_trk_2)),
+                   percentage($a_trk_2)),
+                 $link_vst);
 
-$warning_color: #FF9800;                                        // = Orange500
-$error_color: #F44336;                                          // = Red500
-$success_color: #00E676;                                        // = GreenA400
+// Default: #673ab7 (DPurple500)
+$sggt_bg: $key_suggestion_color;
+// $sggt_bg: color($d_purple, $primary_level);
 
-// Default: #009688                                             // = Teal500
-$suggested_color: $key_suggestion_color;
-// Default: #FF5252                                             // = RedA200
-$destructive_color: $key_destruction_color;
+// Default: #f44336 (Red500)
+$dest_bg: $key_destruction_color;
+// $dest_bg: color($red, $primary_level);
 
-$info_bg_color: #1DE9B6;                                        // = TealA400
-$question_bg_color: #FFEA00;                                    // = YellwA400
-$warning_bg_color: #FF9100;                                     // = OrangA400
-$error_bg_color: #FF1744;                                       // = RedA400
-$solid_red: #F44336;                                            // = Red500
-$solid_yellow: #FFEB3B;                                         // = Yellow500
-$solid_green: #4CAF50;                                          // = Green500
-$solid_blue: #2196F3;                                           // = Blue500
+$warn: color($orange, $primary_level);
+$err: color($red, $primary_level);
 
+$sccs_bg: color($green, $primary_level);
+$info_bg: color($teal, $secondary_level - 100);
+$ques_bg: color($yellow, $secondary_level - 100);
+$warn_bg: color($orange, $secondary_level - 100);
+$err_bg: $err;
 
 //
 // Solid panel color
 //
 
-$panel_bg_color: mix(#263238, #000000, 50%);                    // = #13191C
-$panel_separator_color: gtkopacity($inverted_fg_color, 0.12 * 0.55);
+$panel_bg: if($variant == light, color($grey, 300), black);
+$panel_div_fg: if($variant == light, track($fg, $a_div_2),
+                                     track($inv_fg, $a_div_2));
+
+//
+// Selection-mode headerbar
+//
+
+$dark_sel_bg: if($variant == light,
+                 mix($sel_bg, $dark_bg, percentage($a_fg_bdp)),
+                 mix($sel_bg, $inv_dark_bg, percentage($a_fg_bdp)));
+$div_top_sel_fg: mix(white, $dark_sel_bg, percentage($a_div_2));

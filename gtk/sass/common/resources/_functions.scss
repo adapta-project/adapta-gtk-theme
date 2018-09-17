@@ -1,0 +1,29 @@
+//
+// Alpha blending
+//
+
+@function track($c, $a) {
+  @return unquote("alpha(#{$c}, #{$a})");
+}
+
+//
+// Color picker
+//
+
+@function color($c, $lv) {
+  @return nth($c, index($c_level, $lv));
+}
+
+@function a_color($c_a, $lv_a) {
+  @return nth($c_a, index($c_level_a, $lv_a));
+}
+
+//
+// Scaling
+//
+
+$ref_size: 13.33px; // = 10pt = 1em
+
+@function rem($px, $fs: $ref_size, $sw: $ref_weight) {
+  @return round($px / $fs * $sw * 100) / 100 * 1rem;
+}

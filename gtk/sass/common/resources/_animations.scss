@@ -1,0 +1,48 @@
+//
+// Spinner
+//
+
+@if $maj_ver != xfce {
+  @keyframes spinner {
+    to { -gtk-icon-transform: rotate(1turn); }
+  }
+}
+
+//
+// Needs-attention
+//
+
+@if $maj_ver != xfce {
+  @keyframes needs_attention {
+    from { background-size: 0 0; }
+    to { background-size: $attention; }
+  }
+}
+
+//
+// Ink reactions
+//
+
+@keyframes ink-std {
+  to { background-size: 800% 800%; }
+}
+
+@keyframes ink-dec {
+  to { background-size: 1000% 1000%; }
+}
+
+//
+// Scrollbars
+//
+
+@if $maj_ver != xfce {
+  @keyframes slow_down_vert {
+    from {min-width: $slider_min_width / 2; }
+    to { min-width: $slider_min_width; }
+  }
+
+  @keyframes slow_down_horz {
+    from {min-height: $slider_min_width / 2; }
+    to { min-height: $slider_min_width; }
+  }
+}
