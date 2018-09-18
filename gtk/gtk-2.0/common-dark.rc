@@ -1063,9 +1063,7 @@ style "entry" {
   xthickness = 6
   ythickness = 6
 
-  base[NORMAL] = @light_color
-  base[ACTIVE] = @selected_bg_color
-  base[INSENSITIVE] = @light_color
+  base[ACTIVE] = @base_color
 
   engine "pixmap" {
     image {
@@ -1098,12 +1096,6 @@ style "entry" {
     image {
       function        = FLAT_BOX
       detail          = "entry_bg"
-      state           = NORMAL
-      file            = "Entry/bg-dark.png"
-    }
-    image {
-      function        = FLAT_BOX
-      detail          = "entry_bg"
       state           = ACTIVE
       file            = "Entry/bg-active-dark.png"
     }
@@ -1113,13 +1105,16 @@ style "entry" {
       state           = INSENSITIVE
       file            = "Entry/bg-insensitive-dark.png"
     }
+    image {
+      function        = FLAT_BOX
+      detail          = "entry_bg"
+      file            = "Entry/bg-dark.png"
+    }
   }
 }
 
 style "notebook_entry" = "entry" {
-  base[NORMAL] = @light_color
-  base[ACTIVE] = @selected_bg_color
-  base[INSENSITIVE] = @light_color
+  base[ACTIVE] = @base_color
 }
 
 style "button" {
@@ -1408,9 +1403,7 @@ style "combobox_entry" {
   xthickness = 6
   ythickness = 6
 
-  base[NORMAL] = @light_color
-  base[ACTIVE] = @selected_bg_color
-  base[INSENSITIVE] = @light_color
+  base[ACTIVE] = @light_color
 
   engine "pixmap" {
     # LTR version
@@ -1480,9 +1473,7 @@ style "combobox_entry" {
 }
 
 style "notebook_combobox_entry" {
-  base[NORMAL] = @light_color
-  base[ACTIVE] = @selected_bg_color
-  base[INSENSITIVE] = @light_color
+  base[ACTIVE] = @light_color
 
   engine "pixmap" {
     # LTR version
