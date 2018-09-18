@@ -206,6 +206,8 @@ openbox_rc_file = \
 	$(openboxdir)/themerc
 openbox_rc_nokto_file = \
 	$(openboxdir)/themerc-nokto
+openbox_rc_brila_file = \
+	$(openboxdir)/themerc-brila
 openbox_compton_file = \
 	$(openboxdir)/compton.conf
 
@@ -320,11 +322,14 @@ endif
 if ENABLE_OPENBOX
 	$(MKDIR_P) $(adaptadir)/openbox-3
 	$(MKDIR_P) $(noktodir)/openbox-3
+	$(MKDIR_P) $(briladir)/openbox-3
 	cp -Rv $(openbox_file) $(adaptadir)/openbox-3
 	cp -Rv $(openbox_rc_file) $(adaptadir)/openbox-3/themerc
 	cp -Rv $(openbox_compton_file) $(adaptadir)/openbox-3/
 	cp -Rv $(openbox_file) $(noktodir)/openbox-3
 	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
+	cp -Rv $(openbox_file) $(briladir)/openbox-3
+	cp -Rv $(openbox_rc_brila_file) $(briladir)/openbox-3/themerc
 endif
 
 # *******************
@@ -362,6 +367,7 @@ endif
 
 if ENABLE_OPENBOX
 	test -e $(noktodir)/openbox-3 && rm -rfv $(noktodir)/openbox-3
+	test -e $(briladir)/openbox-3 && rm -rfv $(briladir)/openbox-3
 	test -e $(adaptadir)/openbox-3 && rm -rfv $(adaptadir)/openbox-3
 endif
 
