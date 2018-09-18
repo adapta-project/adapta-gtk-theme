@@ -3006,10 +3006,12 @@ combobox > window.popup { // combobox specific context-menu popup
 }
 
 %reorderable_tab {
-  @each $_tab, $_border, $_rad in (top, bottom, $r_8 $r_8 0 0),
-                                  (bottom, top, 0 0 $r_8 $r_8),
-                                  (left, right, $r_8 0 0 $r_8),
-                                  (right, left, 0 $r_8 $r_8 0) {
+  @each $_tab, $_border, $_rad, $_line in
+    (top, bottom, $r_8 $r_8 0 0, 0 2px),
+    (bottom, top, 0 0 $r_8 $r_8, 0 -2px),
+    (left, right, $r_8 0 0 $r_8, 2px 0),
+    (right, left, 0 $r_8 $r_8 0, -2px 0) {
+
     &.#{$_tab} tab.reorderable-page {
       border: 1px solid transparent;
       border-radius: #{$_rad};
@@ -3020,9 +3022,11 @@ combobox > window.popup { // combobox specific context-menu popup
         background-color: mix($base, $bg);
       }
       &:checked {
-        border-color: $sel_bg;
+        border-color: $div_fg;
+        border-#{$_tab}-color: $sel_bg;
         border-#{$_border}-color: $base;
         background-color: $base;
+        box-shadow: inset #{$_line} $sel_bg;
       }
     }
   }
