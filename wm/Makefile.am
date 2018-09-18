@@ -62,70 +62,135 @@ metacity_brila_asset_file = \
 
 xfwmdir   = $(srcdir)/xfwm4
 xfwm_file = \
-	$(xfwmdir)/bottom-active.png \
-	$(xfwmdir)/bottom-inactive.png \
-	$(xfwmdir)/bottom-left-active.png \
-	$(xfwmdir)/bottom-left-inactive.png \
-	$(xfwmdir)/bottom-right-active.png \
-	$(xfwmdir)/bottom-right-inactive.png \
-	$(xfwmdir)/close-active.png \
-	$(xfwmdir)/close-inactive.png \
-	$(xfwmdir)/close-prelight.png \
-	$(xfwmdir)/close-pressed.png \
-	$(xfwmdir)/hide-active.png \
-	$(xfwmdir)/hide-inactive.png \
-	$(xfwmdir)/hide-prelight.png \
-	$(xfwmdir)/hide-pressed.png \
-	$(xfwmdir)/left-active.png \
-	$(xfwmdir)/left-inactive.png \
-	$(xfwmdir)/maximize-active.png \
-	$(xfwmdir)/maximize-inactive.png \
-	$(xfwmdir)/maximize-prelight.png \
-	$(xfwmdir)/maximize-pressed.png \
-	$(xfwmdir)/maximize-toggled-active.png \
-	$(xfwmdir)/maximize-toggled-inactive.png \
-	$(xfwmdir)/maximize-toggled-prelight.png \
-	$(xfwmdir)/maximize-toggled-pressed.png \
-	$(xfwmdir)/menu-active.png \
-	$(xfwmdir)/menu-inactive.png \
-	$(xfwmdir)/menu-prelight.png \
-	$(xfwmdir)/menu-pressed.png \
-	$(xfwmdir)/right-active.png \
-	$(xfwmdir)/right-inactive.png \
-	$(xfwmdir)/shade-active.png \
-	$(xfwmdir)/shade-inactive.png \
-	$(xfwmdir)/shade-prelight.png \
-	$(xfwmdir)/shade-pressed.png \
-	$(xfwmdir)/shade-toggled-active.png \
-	$(xfwmdir)/shade-toggled-inactive.png \
-	$(xfwmdir)/shade-toggled-prelight.png \
-	$(xfwmdir)/shade-toggled-pressed.png \
-	$(xfwmdir)/stick-active.png \
-	$(xfwmdir)/stick-inactive.png \
-	$(xfwmdir)/stick-prelight.png \
-	$(xfwmdir)/stick-pressed.png \
-	$(xfwmdir)/stick-toggled-active.png \
-	$(xfwmdir)/stick-toggled-inactive.png \
-	$(xfwmdir)/stick-toggled-prelight.png \
-	$(xfwmdir)/stick-toggled-pressed.png \
-	$(xfwmdir)/themerc \
-	$(xfwmdir)/title-1-active-shaded.png \
-	$(xfwmdir)/title-1-active.png \
-	$(xfwmdir)/title-1-inactive.png \
-	$(xfwmdir)/title-2-active.png \
-	$(xfwmdir)/title-2-inactive.png \
-	$(xfwmdir)/title-3-active.png \
-	$(xfwmdir)/title-3-inactive.png \
-	$(xfwmdir)/title-4-active.png \
-	$(xfwmdir)/title-4-inactive.png \
-	$(xfwmdir)/title-5-active.png \
-	$(xfwmdir)/title-5-inactive.png \
-	$(xfwmdir)/top-left-active-shaded.png \
-	$(xfwmdir)/top-left-active.png \
-	$(xfwmdir)/top-left-inactive.png \
-	$(xfwmdir)/top-right-active-shaded.png \
-	$(xfwmdir)/top-right-active.png \
-	$(xfwmdir)/top-right-inactive.png
+	$(xfwmdir)/dark/bottom-active.png \
+	$(xfwmdir)/dark/bottom-inactive.png \
+	$(xfwmdir)/dark/bottom-left-active.png \
+	$(xfwmdir)/dark/bottom-left-inactive.png \
+	$(xfwmdir)/dark/bottom-right-active.png \
+	$(xfwmdir)/dark/bottom-right-inactive.png \
+	$(xfwmdir)/dark/close-active.png \
+	$(xfwmdir)/dark/close-inactive.png \
+	$(xfwmdir)/dark/close-prelight.png \
+	$(xfwmdir)/dark/close-pressed.png \
+	$(xfwmdir)/dark/hide-active.png \
+	$(xfwmdir)/dark/hide-inactive.png \
+	$(xfwmdir)/dark/hide-prelight.png \
+	$(xfwmdir)/dark/hide-pressed.png \
+	$(xfwmdir)/dark/left-active.png \
+	$(xfwmdir)/dark/left-inactive.png \
+	$(xfwmdir)/dark/maximize-active.png \
+	$(xfwmdir)/dark/maximize-inactive.png \
+	$(xfwmdir)/dark/maximize-prelight.png \
+	$(xfwmdir)/dark/maximize-pressed.png \
+	$(xfwmdir)/dark/maximize-toggled-active.png \
+	$(xfwmdir)/dark/maximize-toggled-inactive.png \
+	$(xfwmdir)/dark/maximize-toggled-prelight.png \
+	$(xfwmdir)/dark/maximize-toggled-pressed.png \
+	$(xfwmdir)/dark/menu-active.png \
+	$(xfwmdir)/dark/menu-inactive.png \
+	$(xfwmdir)/dark/menu-prelight.png \
+	$(xfwmdir)/dark/menu-pressed.png \
+	$(xfwmdir)/dark/right-active.png \
+	$(xfwmdir)/dark/right-inactive.png \
+	$(xfwmdir)/dark/shade-active.png \
+	$(xfwmdir)/dark/shade-inactive.png \
+	$(xfwmdir)/dark/shade-prelight.png \
+	$(xfwmdir)/dark/shade-pressed.png \
+	$(xfwmdir)/dark/shade-toggled-active.png \
+	$(xfwmdir)/dark/shade-toggled-inactive.png \
+	$(xfwmdir)/dark/shade-toggled-prelight.png \
+	$(xfwmdir)/dark/shade-toggled-pressed.png \
+	$(xfwmdir)/dark/stick-active.png \
+	$(xfwmdir)/dark/stick-inactive.png \
+	$(xfwmdir)/dark/stick-prelight.png \
+	$(xfwmdir)/dark/stick-pressed.png \
+	$(xfwmdir)/dark/stick-toggled-active.png \
+	$(xfwmdir)/dark/stick-toggled-inactive.png \
+	$(xfwmdir)/dark/stick-toggled-prelight.png \
+	$(xfwmdir)/dark/stick-toggled-pressed.png \
+	$(xfwmdir)/dark/themerc \
+	$(xfwmdir)/dark/title-1-active-shaded.png \
+	$(xfwmdir)/dark/title-1-active.png \
+	$(xfwmdir)/dark/title-1-inactive.png \
+	$(xfwmdir)/dark/title-2-active.png \
+	$(xfwmdir)/dark/title-2-inactive.png \
+	$(xfwmdir)/dark/title-3-active.png \
+	$(xfwmdir)/dark/title-3-inactive.png \
+	$(xfwmdir)/dark/title-4-active.png \
+	$(xfwmdir)/dark/title-4-inactive.png \
+	$(xfwmdir)/dark/title-5-active.png \
+	$(xfwmdir)/dark/title-5-inactive.png \
+	$(xfwmdir)/dark/top-left-active-shaded.png \
+	$(xfwmdir)/dark/top-left-active.png \
+	$(xfwmdir)/dark/top-left-inactive.png \
+	$(xfwmdir)/dark/top-right-active-shaded.png \
+	$(xfwmdir)/dark/top-right-active.png \
+	$(xfwmdir)/dark/top-right-inactive.png
+xfwm_brila_file = \
+	$(xfwmdir)/light/bottom-active.png \
+	$(xfwmdir)/light/bottom-inactive.png \
+	$(xfwmdir)/light/bottom-left-active.png \
+	$(xfwmdir)/light/bottom-left-inactive.png \
+	$(xfwmdir)/light/bottom-right-active.png \
+	$(xfwmdir)/light/bottom-right-inactive.png \
+	$(xfwmdir)/light/close-active.png \
+	$(xfwmdir)/light/close-inactive.png \
+	$(xfwmdir)/light/close-prelight.png \
+	$(xfwmdir)/light/close-pressed.png \
+	$(xfwmdir)/light/hide-active.png \
+	$(xfwmdir)/light/hide-inactive.png \
+	$(xfwmdir)/light/hide-prelight.png \
+	$(xfwmdir)/light/hide-pressed.png \
+	$(xfwmdir)/light/left-active.png \
+	$(xfwmdir)/light/left-inactive.png \
+	$(xfwmdir)/light/maximize-active.png \
+	$(xfwmdir)/light/maximize-inactive.png \
+	$(xfwmdir)/light/maximize-prelight.png \
+	$(xfwmdir)/light/maximize-pressed.png \
+	$(xfwmdir)/light/maximize-toggled-active.png \
+	$(xfwmdir)/light/maximize-toggled-inactive.png \
+	$(xfwmdir)/light/maximize-toggled-prelight.png \
+	$(xfwmdir)/light/maximize-toggled-pressed.png \
+	$(xfwmdir)/light/menu-active.png \
+	$(xfwmdir)/light/menu-inactive.png \
+	$(xfwmdir)/light/menu-prelight.png \
+	$(xfwmdir)/light/menu-pressed.png \
+	$(xfwmdir)/light/right-active.png \
+	$(xfwmdir)/light/right-inactive.png \
+	$(xfwmdir)/light/shade-active.png \
+	$(xfwmdir)/light/shade-inactive.png \
+	$(xfwmdir)/light/shade-prelight.png \
+	$(xfwmdir)/light/shade-pressed.png \
+	$(xfwmdir)/light/shade-toggled-active.png \
+	$(xfwmdir)/light/shade-toggled-inactive.png \
+	$(xfwmdir)/light/shade-toggled-prelight.png \
+	$(xfwmdir)/light/shade-toggled-pressed.png \
+	$(xfwmdir)/light/stick-active.png \
+	$(xfwmdir)/light/stick-inactive.png \
+	$(xfwmdir)/light/stick-prelight.png \
+	$(xfwmdir)/light/stick-pressed.png \
+	$(xfwmdir)/light/stick-toggled-active.png \
+	$(xfwmdir)/light/stick-toggled-inactive.png \
+	$(xfwmdir)/light/stick-toggled-prelight.png \
+	$(xfwmdir)/light/stick-toggled-pressed.png \
+	$(xfwmdir)/light/themerc \
+	$(xfwmdir)/light/title-1-active-shaded.png \
+	$(xfwmdir)/light/title-1-active.png \
+	$(xfwmdir)/light/title-1-inactive.png \
+	$(xfwmdir)/light/title-2-active.png \
+	$(xfwmdir)/light/title-2-inactive.png \
+	$(xfwmdir)/light/title-3-active.png \
+	$(xfwmdir)/light/title-3-inactive.png \
+	$(xfwmdir)/light/title-4-active.png \
+	$(xfwmdir)/light/title-4-inactive.png \
+	$(xfwmdir)/light/title-5-active.png \
+	$(xfwmdir)/light/title-5-inactive.png \
+	$(xfwmdir)/light/top-left-active-shaded.png \
+	$(xfwmdir)/light/top-left-active.png \
+	$(xfwmdir)/light/top-left-inactive.png \
+	$(xfwmdir)/light/top-right-active-shaded.png \
+	$(xfwmdir)/light/top-right-active.png \
+	$(xfwmdir)/light/top-right-inactive.png
 
 openboxdir   = $(srcdir)/openbox-3
 openbox_file = \
@@ -245,9 +310,11 @@ endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfwm4
+	$(MKDIR_P) $(noktodir)/xfwm4
+	$(MKDIR_P) $(briladir)/xfwm4
 	cp -Rv $(xfwm_file) $(adaptadir)/xfwm4
-	cd $(adaptadir)
-	ln -sf ../Adapta/xfwm4 $(noktodir)/xfwm4
+	cp -Rv $(xfwm_file) $(noktodir)/xfwm4
+	cp -Rv $(xfwm_brila_file) $(briladir)/xfwm4
 endif
 
 if ENABLE_OPENBOX
@@ -289,6 +356,7 @@ endif
 
 if ENABLE_XFCE
 	test -e $(noktodir)/xfwm4 && rm -rfv $(noktodir)/xfwm4
+	test -e $(briladir)/xfwm4 && rm -rfv $(briladir)/xfwm4
 	test -e $(adaptadir)/xfwm4 && rm -rfv $(adaptadir)/xfwm4
 endif
 
@@ -342,9 +410,12 @@ endif
 
 if ENABLE_XFCE
 CLEANFILES += \
-	$(xfwmdir)/*.png \
-	$(srcdir)/asset/assets-xfwm/close-pressed.svg \
-	$(srcdir)/asset/assets-xfwm/close-prelight.svg \
+	$(xfwmdir)/light/*.png \
+	$(xfwmdir)/dark/*.png \
+	$(srcdir)/asset/assets-xfwm/light/close-pressed.svg \
+	$(srcdir)/asset/assets-xfwm/light/close-prelight.svg \
+	$(srcdir)/asset/assets-xfwm/dark/close-pressed.svg \
+	$(srcdir)/asset/assets-xfwm/dark/close-prelight.svg \
 	$(srcdir)/asset/inkscape.log
 endif
 

@@ -34,12 +34,6 @@ render-non-scale() {
 # Generate PNG files
 for i in $(<$INDEX)
 do
-    if [ '!' -d $ASSETS_DIR/light ]; then
-        mkdir -p $ASSETS_DIR/light
-    fi
-    if [ '!' -d $ASSETS_DIR/dark ]; then
-        mkdir -p $ASSETS_DIR/dark
-    fi
     if [ -f $ASSETS_DIR/$i.png ] && \
         [ $KEY_FILE -ot $ASSETS_DIR/$i.png ]; then
         echo $ASSETS_DIR/$i.png exists.
