@@ -263,6 +263,8 @@ endif
 if ENABLE_OPENBOX
 	cd $(srcdir)/asset/assets-openbox-scripts && \
 		./clone-assets-openbox.sh
+	cd $(srcdir)/openbox-3/ && \
+		./recolor-openbox.sh
 endif
 
 # *****************
@@ -427,7 +429,10 @@ endif
 
 if ENABLE_OPENBOX
 CLEANFILES += \
-	$(openboxdir)/*.xbm
+	$(openboxdir)/*.xbm \
+	$(openboxdir)/themerc \
+	$(openboxdir)/themerc-brila \
+	$(openboxdir)/themerc-nokto
 endif
 
 DISTCLEANFILES = \
