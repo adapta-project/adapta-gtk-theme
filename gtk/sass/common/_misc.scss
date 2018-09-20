@@ -593,6 +593,23 @@ dialog.background.csd > box.dialog-vbox.vertical {
   }
 }
 
+@if $maj_ver == 3 {
+  @if $mnr_ver > 23 {
+    headerbar box.path-bar-box { @extend %slashed_pathbar; }
+  }
+}
+@else {
+  headerbar box.path-bar-box { @extend %slashed_pathbar; }
+}
+
+%slashed_pathbar {
+  // enforce switching to flat-style
+  .linked.path-bar button:not(:checked):not(:hover):not(:active) {
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
 .disk-space-display {
   border: 0 none transparent;
 
