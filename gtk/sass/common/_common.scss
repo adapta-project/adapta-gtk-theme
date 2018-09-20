@@ -897,7 +897,6 @@ button {
   @each $b_type, $b_color in (suggested-action, $sggt_bg),
                              (destructive-action, $dest_bg) {
     &, &.flat {
-      @at-root %raised_action_button,
       &.#{$b_type} { // 1px border exists
         min-height: calc(#{rem($widget_size)} - 1px *2);
         min-width: calc(#{rem($widget_size)} - 1px *2);
@@ -3725,30 +3724,30 @@ scale {
     transition-timing-function: $tr_t_acc;
     transition-duration: $tr_d_std;
 
-    background-image:
-      -gtk-scaled(url('assets/slider#{$asset_suffix}.png'),
-                  url('assets/slider#{$asset_suffix}@2.png'));
-    background-size: $scale;
+    @each $s, $as in ('', ''),
+                     (':hover', '',),
+                     (':active', '-active'),
+                     (':disabled', '-insensitive') {
+      &#{$s} {
+        $_url: 'assets/slider#{$as}#{$asset_suffix}';
+        background-image: -gtk-scaled(url('#{$_url}.png'),
+                                      url('#{$_url}@2.png'));
+        background-size: $scale;
 
-    &:hover {
-      background-image:
-        -gtk-scaled(url('assets/slider#{$asset_suffix}.png'),
-                    url('assets/slider#{$asset_suffix}@2.png')),
-        -gtk-scaled(url('assets/slider#{$asset_suffix}.png'),
-                    url('assets/slider#{$asset_suffix}@2.png'));
-      background-size: $scale, 100% 100%;
+        @if $s == ':hover' {
+          $_url: 'assets/slider#{$as}#{$asset_suffix}';
+          background-image: -gtk-scaled(url('#{$_url}.png'),
+                                        url('#{$_url}@2.png')),
+                            -gtk-scaled(url('#{$_url}.png'),
+                                        url('#{$_url}@2.png'));
+          background-size: $scale, 100% 100%;
+        }
+        @if $s == ':active' {
+          background-size: 100% 100%;
+        }
+      }
     }
-    &:active {
-      background-image:
-        -gtk-scaled(url('assets/slider-active#{$asset_suffix}.png'),
-                    url('assets/slider-active#{$asset_suffix}@2.png'));
-      background-size: 100% 100%;
-    }
-    &:disabled {
-      background-image:
-        -gtk-scaled(url('assets/slider-insensitive#{$asset_suffix}.png'),
-                    url('assets/slider-insensitive#{$asset_suffix}@2.png'));
-    }
+
     // OSD sliders
     .osd & {
     }
@@ -5170,11 +5169,6 @@ colorchooser overlay > grid {
   @if rem($widget_size) < (32px / $ref_size * 1rem) {
     padding-top: calc((32px - #{rem($widget_size)}) / 2);
   }
-
-  // scale + widget { // main widget
-  //   &:dir(ltr) { margin-right: $thin_side; }
-  //   &:dir(ltr) { margin-left: $thin_side; }
-  // }
 }
 
 // colorscale popup
@@ -5612,7 +5606,7 @@ cursor-handle {
   @else {
     background-color: $dark_bg;
     color: $fg;
- }
+  }
   box-shadow: $z-depth-1;
   font-weight: 700;
 
