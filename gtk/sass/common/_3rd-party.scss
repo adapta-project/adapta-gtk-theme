@@ -2276,17 +2276,19 @@ window.background:not(.csd) > box.vertical {
       box-shadow: inset 0 -2px $trk_out_fg;
     }
     &:checked {
-      color: if($variant != light, $sel_fg, black);
-      box-shadow: inset 0 -2px $sel_bg;
+      @if $variant != light {
+        @include button(flat-lined-checked, $tc: $sel_fg);
+      }
+      @else {
+        @include button(flat-lined-checked, $tc: black);
+      }
     }
     &:active {
       @if $variant != light {
-        background-color: track($inv_fg, $a_trk_1);
-        color: $sel_fg;
+        @include button(flat-hover, $tc: $sel_fg);
       }
       @else {
-        background-color: track($fg, $a_trk_1);
-        color: black;
+        @include button(flat-hover, $tc: black);
       }
       box-shadow: inset 0 -2px $sel_bg;
     }
@@ -2797,15 +2799,22 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
     @else { @extend %flat_button; }
     font-weight: 700;
     &:hover {
-      background-color: transparent;
-      color: if($variant != light, $sel_fg, black);
+      @if $variant != light {
+        @include button(flat-normal, $tc: $sel_fg);
+      }
+      @else {
+        @include button(flat-normal, $tc: black);
+      }
       box-shadow: inset 0 -2px $trk_out_fg;
     }
     &:active { animation: none; }
     &:checked {
-      background-color: transparent;
-      color: if($variant != light, $sel_fg, black);
-      box-shadow: inset 0 -2px $sel_bg;
+      @if $variant != light {
+        @include button(flat-lined-checked, $tc: $sel_fg);
+      }
+      @else {
+        @include button(flat-lined-checked, $tc: black);
+      }
     }
   }
 
@@ -3767,9 +3776,12 @@ button.flat.-panel-button { // generic panel buttons
     }
   }
   &:checked {
-    background-color: transparent;
-    color: if($variant != light, $sel_fg, black);
-    box-shadow: inset 0 -2px $sel_bg;
+    @if $variant != light {
+      @include button(flat-lined-checked, $tc: $sel_fg);
+    }
+    @else {
+      @include button(flat-lined-checked, $tc: black);
+    }
   }
 
   box.vertical & {

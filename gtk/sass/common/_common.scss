@@ -944,19 +944,14 @@ button {
         @include button(flat-normal, $tc: $ter_fg);
         box-shadow: inset 0 -1px $trk_out_fg;
         @include ink-reaction(normal, $tr: ink-normal-dec);
-        &:hover {
-          @include button(flat-hover);
-          box-shadow: inset 0 -2px $trk_out_fg;
-        }
+        &:hover { @include button(flat-lined-hover); }
         &:active {
           @include button(flat-active);
           @include ink-reaction(active-dec, $tr: ink-active-dec);
         }
         &:disabled { @include button(flat-disabled); }
         &:checked {
-          background-color: transparent;
-          color: $sel_label;
-          box-shadow: inset 0 -2px $sel_bg;
+          @include button(flat-lined-checked, $tc: $sel_label);
           &:hover { @include button(flat-hover, $tc: $sel_hi_label); }
         }
 
@@ -968,10 +963,7 @@ button {
           @if $variant == mixed {
             @include ink-reaction(
                        normal, $fc: $inv_fg, $tr: ink-normal-dec);
-            &:hover {
-              @include button(flat-hover, $tc: $inv_fg);
-              box-shadow: inset 0 -2px $trk_out_fg;
-            }
+            &:hover { @include button(flat-lined-hover, $tc: $inv_fg); }
             &:active {
               @include button(flat-active, $tc: $inv_fg);
               @include ink-reaction(
@@ -981,9 +973,7 @@ button {
               @include button(flat-disabled, $tc: $inv_fg);
             }
             &:checked {
-              background-color: transparent;
-              color: $inv_sel_label;
-              box-shadow: inset 0 -2px $sel_bg;
+              @include button(flat-lined-checked, $tc: $inv_sel_label);
               &:hover { @include button(flat-hover, $tc: $inv_sel_hi_label); }
             }
           }

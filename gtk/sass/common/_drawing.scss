@@ -400,6 +400,12 @@ $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
     background-color: track($tc, $a_trk_1);
     color: $tc;
   }
+  @else if $t == flat-lined-hover {
+    border: none;
+    background-color: track($tc, $a_trk_1);
+    color: $tc;
+    box-shadow: inset 0 -2px track($tc, $a_trk_out);
+  }
   @else if $t == flat-active {
     border: none;
     background-color: track($tc, $a_trk_1);
@@ -409,6 +415,12 @@ $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
     border: none;
     background-color: track($tc, $a_trk_2);
     color: $tc;
+  }
+  @else if $t == flat-lined-checked {
+    border: none;
+    background-color: track($tc, 0);
+    color: $tc;
+    box-shadow: inset 0 -2px $sel_bg;
   }
   @else if $t == flat-checked-disabled {
     border: none;
