@@ -3892,6 +3892,16 @@ scale { // marks color
   }
 }
 
+scale.horizontal.marks { // vertically centered placements
+  &-before {
+    padding-bottom: calc(#{$_marks_length} + #{$scale_trough_size});
+  }
+
+  &-after {
+    padding-top: calc(#{$_marks_length} + #{$scale_trough_size});
+  }
+}
+
 // scale with marks
 @each $d,$dn in ('horizontal', 'horz'),
                 ('vertical', 'vert') {
