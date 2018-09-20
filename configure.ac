@@ -86,8 +86,10 @@ AC_MSG_RESULT([
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
          target directories:     ${datarootdir}/themes/Adapta
-                                 ${datarootdir}/themes/Adapta-Nokto
+                                 ${datarootdir}/themes/Adapta-Brila
+                                 ${datarootdir}/themes/Adapta-Brila-Eta
                                  ${datarootdir}/themes/Adapta-Eta
+                                 ${datarootdir}/themes/Adapta-Nokto
                                  ${datarootdir}/themes/Adapta-Nokto-Eta
 
          glib-compile-resources: $GLIB_COMPILE_RESOURCES
