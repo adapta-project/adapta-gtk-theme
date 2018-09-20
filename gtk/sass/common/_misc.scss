@@ -2011,8 +2011,8 @@ terminal-window {
 
   &.background:not(.csd),
   vte-terminal { // set the same background with decorations
-    background-color: if($variant == mixed, $inv_dark_bg,
-                                            $dark_bg);
+    background-color: if($variant == mixed, $inv_base,
+                                            $base);
     color: if($variant == mixed, $inv_fg, $fg);
   }
 
@@ -2033,30 +2033,37 @@ terminal-window {
 
 window.background:not(.csd) { // preferences window (>= 3.28)
   box.horizontal > frame > scrolledwindow > viewport.frame > list {
-    > row.activatable {
-      padding: 0; // unset padding;
+    @if $maj_ver == 3 {
+      @if $mnr_ver > 21 { @extend %term_pref_window;  }
+    }
+    @else { @extend %term_pref_window; }
+  }
+}
 
-      > box.horizontal > label { // indentations
-        &:dir(ltr) { margin-left: rem($ref_size, $sw: 1.0); }
-        &:dir(rtl) { margin-right: rem($ref_size, $sw: 1.0); }
-      }
+%term_pref_window {
+  > row.activatable {
+    padding: 0; // unset padding;
 
-      > box.horizontal > stack > button.popup.toggle {
-        min-width: rem($small_widget);
-        min-height: rem($small_widget);
-        padding: 0;
-        @include radius($r);
-      }
+    > box.horizontal > label { // indentations
+      &:dir(ltr) { margin-left: rem($ref_size, $sw: 1.0); }
+      &:dir(rtl) { margin-right: rem($ref_size, $sw: 1.0); }
     }
 
-    > box.horizontal {
-      label { color: $ter_fg; } // titles
+    > box.horizontal > stack > button.popup.toggle {
+      min-width: rem($small_widget);
+      min-height: rem($small_widget);
+      padding: 0;
+      @include radius($r);
+    }
+  }
 
-      > stack > button.image-button {
-        min-width: rem($small_widget);
-        min-height: rem($small_widget);
-        padding: 0;
-      }
+  > box.horizontal {
+    label { color: $ter_fg; } // titles
+
+    > stack > button.image-button {
+      min-width: rem($small_widget);
+      min-height: rem($small_widget);
+      padding: 0;
     }
   }
 }
