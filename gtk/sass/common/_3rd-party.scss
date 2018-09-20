@@ -2244,8 +2244,21 @@ window.background:not(.csd) > box.vertical {
 
 .XfceHeading {
   border: 0 none transparent;
-  background-color: $bg;
-  color: $fg;
+  background-color: if($variant == mixed, $inv_dark_bg, $dark_bg);
+  color: if($variant == mixed, $inv_fg, $fg);
+  &:backdrop {
+    background-color: if($variant == mixed, $inv_bg, $bg);
+    color: if($variant == mixed, track($inv_fg, $a_fg_bdp),
+                                 track($fg, $a_fg_bdp));
+  }
+
+  entry:not(.flat) {
+    @if $variant == mixed {
+      @extend %inv_entry;
+
+      selection { @extend %selected_items; }
+    }
+  }
 }
 
 .xfce4-panel {
