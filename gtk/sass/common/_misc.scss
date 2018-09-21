@@ -82,13 +82,13 @@ gp-applet menubar > menuitem {
   @if $variant != light {
     @include button(flat-normal, $tc: $inv_fg);
     &:hover {
-      @include button(flat-normal, $tc: $sel_fg);
-      box-shadow: inset 0 -2px $trk_out_fg;
+      @include button(flat-lined-hover, $tc: $sel_fg);
     }
     &:disabled { @include button(flat-disabled, $tc: $inv_fg); }
     &:checked {
       &, &:hover {
         @include button(flat-lined-checked, $tc: $sel_fg);
+        background-color: track($sel_fg, $a_trk_1);
       }
     }
 
@@ -99,13 +99,13 @@ gp-applet menubar > menuitem {
   @else {
     @include button(flat-normal, $tc: $fg);
     &:hover {
-      @include button(flat-normal, $tc: black);
-      box-shadow: inset 0 -2px $trk_out_fg;
+      @include button(flat-lined-hover, $tc: black);
     }
     &:disabled { @include button(flat-disabled, $tc: $fg); }
     &:checked {
       &, &:hover {
         @include button(flat-lined-checked, $tc: black);
+        background-color: track(black, $a_trk_1);
       }
     }
 

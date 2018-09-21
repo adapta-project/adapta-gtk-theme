@@ -47,8 +47,6 @@
 
 // wnck tasklist styling
 .budgie-panel button#tasklist-button {
-  border: none;
-  background-color: transparent;
   box-shadow: none; // unset standard wnck styling
   @include ink-reaction(normal, $tr: ink-normal-dec);
 
@@ -2331,7 +2329,25 @@ window.background:not(.csd) > box.vertical {
     @else { -gtk-icon-filter: none; }
   }
 
-  widget.tasklist > button.toggle { font-weight: 400; }
+  widget.tasklist > button.toggle {
+    font-weight: 400;
+    &:hover {
+      @if $variant != light {
+        @include button(flat-hover, $tc: $sel_fg);
+      }
+      @else {
+        @include button(flat-hover, $tc: black);
+      }
+    }
+    &:checked {
+      @if $variant != light {
+        background-color: track($sel_fg, $a_trk_1);
+      }
+      @else {
+        background-color: track(black, $a_trk_1);
+      }
+    }
+  }
 }
 
 XfdesktopIconView.view {
