@@ -530,7 +530,11 @@ dialog.background.csd > box.dialog-vbox.vertical {
   }
 
   > headerbar.titlebar { // radial-progress widget
-    revealer > button.popup.toggle > widget { color: $acc_fg; }
+    revealer > button.popup.toggle {
+      > widget { color: $acc_fg; }
+
+      &:checked > widget { color: $sel_fg; }
+    }
   }
 
   $child_gap: if($ref_weight < 1.0, 4px, 6px);
