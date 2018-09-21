@@ -253,8 +253,10 @@ gtk2_other_file = \
 	$(gtk2_assetdir)/Others/menu-bg.png \
 	$(gtk2_assetdir)/Others/null.svg \
 	$(gtk2_assetdir)/Others/right.png \
-	$(gtk2_assetdir)/Others/top-hover.png \
-	$(gtk2_assetdir)/Others/top-hover-light.png \
+	$(gtk2_assetdir)/Others/panel-active.png \
+	$(gtk2_assetdir)/Others/panel-active-dark.png \
+	$(gtk2_assetdir)/Others/panel-hover.png \
+	$(gtk2_assetdir)/Others/panel-hover-dark.png \
 	$(gtk2_assetdir)/Others/top.png
 gtk2_progress_file = \
 	$(gtk2_assetdir)/ProgressBar/bar.png \
@@ -448,7 +450,8 @@ gtk2_nokto_other_file = \
 	$(gtk2_assetdir)/Others/menu-bg-dark.png \
 	$(gtk2_assetdir)/Others/null.svg \
 	$(gtk2_assetdir)/Others/right.png \
-	$(gtk2_assetdir)/Others/top-hover.png \
+	$(gtk2_assetdir)/Others/panel-active-dark.png \
+	$(gtk2_assetdir)/Others/panel-hover-dark.png \
 	$(gtk2_assetdir)/Others/top.png
 gtk2_nokto_progress_file = \
 	$(gtk2_assetdir)/ProgressBar/bar.png \
