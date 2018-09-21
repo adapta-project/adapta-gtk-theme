@@ -59,12 +59,7 @@ $bg: if($variant == dark,
 $base: if($variant == dark,
           mix(color($grey, 900), black),
           white);
-$light_bg: if($variant == dark,
-              $base,
-              $base);
-//$mid_bg: if($variant == dark,
-//            mix($bg, $light_bg),
-//            mix(color($grey, 100),color($grey, 200)));
+$light_bg: $base;
 $dark_bg: if($variant == dark,
              mix(color($grey, 900), black, 25%),
              mix(color($grey, 200), color($grey, 300)));
@@ -137,7 +132,6 @@ $inv_sec_acc_fg: track($inv_acc_fg, $a_fg_2nd);
 
 $trk_bg: track(currentColor, $a_trk_1);
 $trk_out_fg: track(currentColor, $a_trk_out);
-
 
 //
 // Edge colors
