@@ -285,6 +285,7 @@ gtk2_scrollbar_file = \
 	$(gtk2_assetdir)/Scrollbars/v-trough.png
 gtk2_shadow_file = \
 	$(gtk2_assetdir)/Shadows/frame.png \
+	$(gtk2_assetdir)/Shadows/frame-notebook.png \
 	$(gtk2_assetdir)/Shadows/gap.png \
 	$(gtk2_assetdir)/Shadows/z-depth-1.svg \
 	$(gtk2_assetdir)/Shadows/z-depth-2.svg
@@ -480,6 +481,7 @@ gtk2_nokto_scrollbar_file = \
 	$(gtk2_assetdir)/Scrollbars/v-trough-dark.png
 gtk2_nokto_shadow_file = \
 	$(gtk2_assetdir)/Shadows/frame.png \
+	$(gtk2_assetdir)/Shadows/frame-notebook-dark.png \
 	$(gtk2_assetdir)/Shadows/gap.png \
 	$(gtk2_assetdir)/Shadows/z-depth-1.svg \
 	$(gtk2_assetdir)/Shadows/z-depth-2.svg
