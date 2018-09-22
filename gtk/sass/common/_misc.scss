@@ -1786,6 +1786,12 @@ window.workbench > stack.titlebar > stack > headerbar > box.horizontal {
 
     image { padding: 0 rem($txt_button_lr_space / 2); }
   }
+
+  > box.horizontal > button.popup.toggle { // radial-progress widget
+    > widget { color: $acc_fg; }
+
+    &:checked > widget { color: $sel_fg; }
+  }
 }
 
 button.dzlmenubuttonitem.check { // menuitem buttons
