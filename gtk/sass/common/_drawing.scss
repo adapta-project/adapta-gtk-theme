@@ -439,8 +439,8 @@ $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
     box-shadow: $z-depth-1;
   }
   @else if $t == raised-hover {
-    border-color: $c;
-    background-color: $c;
+    border-color: mix($tc, $c, percentage($a_trk_1));
+    background-color: mix($tc, $c, percentage($a_trk_1));
     color: $tc;
     box-shadow: $z-depth-2;
   }
