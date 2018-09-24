@@ -9,7 +9,6 @@
   }
 }
 
-
 // /*******************************
 //  * Applications Menu Extension *
 //  *******************************/
@@ -19,26 +18,25 @@
   StScrollView.apps-menu {
     margin: 0 4px;
     border-style: solid;
-    border-color: $borders_color;
+    border-color: $div_fg;
 
     &:ltr {
-      padding: if($eta == false, 0 0 0 12px, 0 0 0 8px);
+      padding: if($ref_weight >= 1.0, 0 0 0 12px, 0 0 0 8px);
       border-left-width: 1px;
     }
     &:rtl {
-      padding: if($eta == false, 0 12px 0 0, 0 8px 0 0);
+      padding: if($ref_weight >= 1.0, 0 12px 0 0, 0 8px 0 0);
       border-right-width: 1px;
     }
   }
 }
-
 
 // /**********************
 //  * Arc Menu Extension *
 //  **********************/
 
 .main-box {
-  background-color: $secondary_base_color;
+  background-color: $dark_bg;
 
   .popup-menu {
     &:ltr { padding-right: 4px; }
@@ -55,62 +53,61 @@
   }
 
   StScrollView.apps-menu { // left-pane
-    margin-bottom: if($eta == false, 6px, 4px);
+    margin-bottom: if($ref_weight >= 1.0, 6px, 4px);
     padding: 0;
     border-width: 1px;
-    background-color: $bg_color;
+    background-color: $bg;
 
     StIcon { icon-size: 16px; }
   }
 }
-
 
 // /**********************
 //  * Gno-Menu Extension *
 //  **********************/
 
 %stackswitcher_box {
-  border-color: $solid_light_borders_color;
-  background-color: $light_color;
+  border-color: $div_sld_fg;
+  background-color: $light_bg;
 }
 
 %stackswitcher_button {
-  padding: if($eta == false, 7px 0.8em 8px, 5px 0.6em 6px);
-  border-color: $solid_light_borders_color;
-  background-color: $light_color !important;
-  color: $secondary_fg_color;
+  padding: if($ref_weight >= 1.0, 7px 0.8em 8px, 5px 0.6em 6px);
+  border-color: $div_sld_fg;
+  background-color: $light_bg !important;
+  color: $sec_fg;
   box-shadow: $empty_shadow;
   font-weight: 500;
   &:hover,
   &:focus {
-    background-color: mix($light_color, $fg_color, 88%) !important;
-    color: $fg_color;
+    background-color: mix($light_bg, $fg, percentage(1 - $a_trk_1)) !important;
+    color: $fg;
   }
   &:active {
-    background-color: mix($light_color, $fg_color, 75%) !important;
-    color: $fg_color;
+    background-color: mix($light_bg, $fg, percentage(1 - $a_trk_2)) !important;
+    color: $fg;
   }
   &:checked { // ignored?
     &, &:hover {
-      background-color: $selected_bg_color !important;
-      color: $selected_fg_color !important;
+      background-color: $sel_bg !important;
+      color: $sel_fg !important;
     }
   }
   &:insensitive {
-    background-color: $light_color;
-    color: $insensitive_fg_color;
+    background-color: $light_bg;
+    color: $dis_fg;
   }
 }
 
 #gnomenuMenuMainbox {
-  &, > * { transition-duration: 0s; }
+  &, > * { transition-duration: $tr_d_non; }
 
   StEntry {
     &, &:focus {
       min-height: 0;
-      padding: if($eta == false, 7px 0.8em 8px, 5px 0.6em 6px);
-      border-color: $solid_light_borders_color;
-      background-color: $light_color;
+      padding: if($ref_weight >= 1.0, 7px 0.8em 8px, 5px 0.6em 6px);
+      border-color: $div_sld_fg;
+      background-color: $light_bg;
       box-shadow: $empty_shadow;
     }
   }
@@ -136,12 +133,11 @@
   }
 
   &-selected-app {
-    &-title { color: $secondary_fg_color; }
+    &-title { color: $sec_fg; }
 
-    &-description { color: $tertiary_fg_color; }
+    &-description { color: $ter_fg; }
   }
 }
-
 
 // /*************************
 //  * OpenWeather Extension *
@@ -152,48 +148,47 @@
   &-menu-button-container,
   &-button-box,
   &-provider {
-    color: $secondary_fg_color;
+    color: $sec_fg;
     &:hover {
-      color: $fg_color;
-      background-color: $semi_fill_color;
+      color: $fg;
+      background-color: $semi_fill_bg;
 
-      > StIcon { color: $fg_color; }
+      > StIcon { color: $fg; }
     }
     &:active,
     &:focus {
-      color: $fg_color;
-      background-color: $fill_color;
+      color: $fg;
+      background-color: $fill_bg;
 
-      > StIcon { color: $fg_color; }
+      > StIcon { color: $fg; }
     }
 
     > StIcon,
-    > StLabel { color: $secondary_fg_color; }
+    > StLabel { color: $sec_fg; }
   }
 
   &-current {
     &-icon,
     &-summary,
-    &-summarybox { color: $fg_color; }
+    &-summarybox { color: $fg; }
 
-    &-databox-values { color: $tertiary_fg_color; }
+    &-databox-values { color: $ter_fg; }
 
-    &-databox-captions { color: $tertiary_fg_color; }
+    &-databox-captions { color: $ter_fg; }
   }
 
   &-forecast {
     &-icon,
-    &-summary { color: $secondary_fg_color; }
+    &-summary { color: $sec_fg; }
 
     &-day,
-    &-temperature { color: $tertiary_fg_color; }
+    &-temperature { color: $ter_fg; }
   }
 
   &-sunrise-icon,
   &-sunset-icon,
-  &-build-icon { color: $secondary_fg_color; }
+  &-build-icon { color: $sec_fg; }
 }
-
 
 // /**************************
 //  * Dash to Dock Extension *
@@ -211,13 +206,13 @@ $alpha_override: 0.54 - $hard_coded_alpha;
   &.extended:overview #dash {
     padding: 0;
     border: none;
-    transition-duration: $duration_long;
+    transition-duration: $tr_d_lng;
   }
 
-  @each $_dock, $_radius in (top, 0 0 2px 2px),
-                            (bottom, 2px 2px 0 0),
-                            (left, 0 2px 2px 0),
-                            (right, 2px 0 0 2px) {
+  @each $_dock, $_radius in (top, 0 0 $r_2 $r_2),
+                            (bottom, $r_2 $r_2 0 0),
+                            (left, 0 $r_2 $r_2 0),
+                            (right, $r_2 0 0 $r_2) {
     &.#{$_dock} #dash,
     &.#{$_dock}:overview #dash { border-radius: #{$_radius}; }
 
@@ -226,33 +221,33 @@ $alpha_override: 0.54 - $hard_coded_alpha;
   }
 
   #dash { // default-mode
-    background-color: $panel_bg_color;
+    background-color: $panel_bg;
     box-shadow: $empty_shadow;
   }
 
   &.opaque #dash { // solid-mode
-    background-color: $panel_bg_color;
+    background-color: $panel_bg;
     // FIXME: enforce opaque background
-    box-shadow: inset 0 0 0 9999px $panel_bg_color;
+    box-shadow: inset 0 0 0 9999px $panel_bg;
   }
 
   &.transparent #dash { // translucent-mode
-    background-color: $panel_hidden_fill_color; // does not work
+    background-color: $panel_hidden_bg; // does not work
     // FIXME: add lacked alpha via box-shadow property
-    box-shadow: inset 0 0 0 9999px shellopacity($panel_bg_color,
-                                                $alpha_override);
+    box-shadow: inset 0 0 0 9999px opacity($panel_bg,
+                                           $alpha_override);
   }
 
   &:overview #dash { // overview-mode #1
-    background-color: $osd_semi_fill_color;
+    background-color: $ovv_semi_fill_bg;
     box-shadow: $empty_shadow;
   }
 
   &.opaque:overview,
   &.transparent:overview { // overview-mode #2
     #dash {
-      background-color: $panel_hidden_fill_color;
-      box-shadow: inset 0 0 0 9999px $osd_semi_fill_color;
+      background-color: $panel_hidden_bg;
+      box-shadow: inset 0 0 0 9999px $ovv_semi_fill_bg;
     }
   }
 
@@ -260,7 +255,7 @@ $alpha_override: 0.54 - $hard_coded_alpha;
   &.opaque.extended:overview,
   &.transparent.extended:overview {
     #dash {
-      background-color: $panel_hidden_fill_color;
+      background-color: $panel_hidden_bg;
       box-shadow: $empty_shadow;
     }
   }
@@ -281,24 +276,24 @@ $alpha_override: 0.54 - $hard_coded_alpha;
 
   .number-overlay,
   .notification-badge {
-    min-width: if($eta == false, 1.6em, 1.4em);
-    min-height: if($eta == false, 1.6em, 1.4em);
+    min-width: if($ref_weight >= 1.0, 1.6em, 1.4em);
+    min-height: if($ref_weight >= 1.0, 1.6em, 1.4em);
     margin: 0; // unset margin/padding
     padding: 0;
-    border-radius: 100px;
+    border-radius: $r;
     font-weight: 700;
     text-align: center;
     box-shadow: $z-depth-2;
   }
 
   .number-overlay {
-    background-color: $osd_bg_color;
-    color: $selected_fg_color;
+    background-color: $osd_bg;
+    color: $osd_fg;
   }
 
   .notification-badge {
-    background-color: $suggested_color;
-    color: $selected_fg_color;
+    background-color: $sggt_bg;
+    color: $sel_fg;
   }
 }
 
@@ -308,17 +303,16 @@ $alpha_override: 0.54 - $hard_coded_alpha;
     .dash-item-container > StWidget.focused { // fill whole focused backgrounds
       .overview-icon {
         border-radius: 0;
-        background-color: $osd_semi_fill_color;
+        background-color: $ovv_semi_fill_bg;
       }
 
       &:hover .overview-icon {
         border-radius: 0;
-        background-color: $osd_fill_color;
+        background-color: $ovv_fill_bg;
       }
     }
   }
 }
-
 
 // /***************************
 //  * Dash To Panel Extension *
@@ -332,13 +326,13 @@ $alpha_override: 0.54 - $hard_coded_alpha;
     .panel-corner,
     .panel-button {
       &:hover {
-        box-shadow: inset #{$_line} $osd_outline_fill_color;
+        box-shadow: inset #{$_line} $osd_out_fg;
       }
       &:active,
       &:focus,
       &:checked,
       &:overview {
-        box-shadow: inset #{$_line} $osd_indicator_color;
+        box-shadow: inset #{$_line} $sel_bg;
       }
     }
 
@@ -350,11 +344,11 @@ $alpha_override: 0.54 - $hard_coded_alpha;
       &:hover .overview-icon,
       &:active .overview-icon {
         border-radius: 0;
-        background-color: $hidden_fill_color;
-        box-shadow: inset #{$_line} $osd_outline_fill_color;
+        background-color: $hidden_fill_bg;
+        box-shadow: inset #{$_line} $osd_out_fg;
       }
       &:checked .overview-icon {
-        box-shadow: inset #{$_line} $osd_indicator_color;
+        box-shadow: inset #{$_line} $sel_bg;
       }
     }
 
@@ -366,18 +360,17 @@ $alpha_override: 0.54 - $hard_coded_alpha;
         &:focus .overview-icon,
         &:hover .overview-icon,
         &:active .overview-icon {
-          background-color: $osd_semi_fill_color;
+          background-color: $osd_semi_fill_bg;
           box-shadow: $empty_shadow;
         }
         &:checked .overview-icon {
-          background-color: $hidden_fill_color;
+          background-color: $hidden_fill_bg;
           box-shadow: $empty_shadow;
         }
       }
     }
 
     .show-apps:checked .show-apps-icon, // override indicator colour
-    .show-apps:checked:hover .show-apps-icon { color: $selected_fg_color; }
+    .show-apps:checked:hover .show-apps-icon { color: $osd_fg; }
   }
 }
-
