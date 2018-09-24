@@ -24,7 +24,8 @@
 // * used in wm/metacity-1/metacity-theme-3.xml
 //
 
-@define-color theme_inverted_fg_color #{"" + $inv_fg};
+@define-color theme_inverted_fg_color #{"" + if($variant == light, $fg,
+                                                                   $inv_fg)};
 
 //
 // Text color for entries, views and content in general
