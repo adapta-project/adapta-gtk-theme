@@ -1,0 +1,11 @@
+// alpha blending
+@function opacity($c, $a) {
+  @return scale-color($c, $alpha: percentage(-1 + $a));
+}
+
+// provide font size in rem, with px fallback
+$ref_size: 13.33;
+
+@mixin fontscaling($size: $ref_size) {
+  font-size: round( $size * 72 / 96 * 10 ) / 10 + pt;
+}

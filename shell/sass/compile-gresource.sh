@@ -11,10 +11,20 @@
 #
 
 glib-compile-resources --sourcedir="../gnome-shell" \
-	../gnome-shell/gnome-shell-theme.gresource.xml
+                       --target="../gnome-shell/gnome-shell-theme.gresource" \
+                       ./gnome-shell/gnome-shell-theme.gresource.xml
+glib-compile-resources --sourcedir="../gnome-shell-brila" \
+                       --target="../gnome-shell-brila/gnome-shell-theme.gresource" \
+                       ./gnome-shell/gnome-shell-theme.gresource.xml
 glib-compile-resources --sourcedir="../gnome-shell-nokto" \
-	../gnome-shell-nokto/gnome-shell-theme.gresource.xml
+                       --target="../gnome-shell-nokto/gnome-shell-theme.gresource" \
+                       ./gnome-shell/gnome-shell-theme.gresource.xml
 glib-compile-resources --sourcedir="../gnome-shell-eta" \
-	../gnome-shell-eta/gnome-shell-theme.gresource.xml
+                       --target="../gnome-shell-eta/gnome-shell-theme.gresource" \
+                       ./gnome-shell/gnome-shell-theme.gresource.xml
+glib-compile-resources --sourcedir="../gnome-shell-brila-eta" \
+                       --target="../gnome-shell-brila-eta/gnome-shell-theme.gresource" \
+                       ./gnome-shell/gnome-shell-theme.gresource.xml
 glib-compile-resources --sourcedir="../gnome-shell-nokto-eta" \
-	../gnome-shell-nokto-eta/gnome-shell-theme.gresource.xml
+                       --target="../gnome-shell-nokto-eta/gnome-shell-theme.gresource" \
+                       ./gnome-shell/gnome-shell-theme.gresource.xml

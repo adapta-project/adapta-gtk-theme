@@ -15,10 +15,10 @@ ASSETS_DIR="../xfce-notify-4.0"
 INDEX="assets-xfce.txt"
 RECOLOR_FILE1="./assets-xfce/flat-button-active.svg"
 RECOLOR_FILE2="./assets-xfce/flat-button-hover.svg"
-KEY_FILE="../../gtk/sass/common/_key_colors.scss"
+KEY_FILE="../../gtk/sass/common/resources/_key_colors.scss"
 
 # Default colours
-accent1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
+accent1="`grep 'Indigo300' ../../gtk/sass/common/_colors.scss | \
                 cut -d' ' -f3`"
 
 # Check and re-color 'flat-button-active' and 'flat-button-hover' file
@@ -35,7 +35,7 @@ if [ -e $KEY_FILE ]; then
         echo $accent1 is re-colored with $accent2.
     fi
 else
-    echo _key_colors.scss was not found. Stopped...
+    echo ../../gtk/sass/common/resources/_key_colors.scss was not found. Stopped...
     exit 1
 fi
 

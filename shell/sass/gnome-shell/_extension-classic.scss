@@ -1,0 +1,59 @@
+// /**************
+//  * Bottom Bar *
+//  **************/
+
+@import url("stylesheet.css");
+
+#panel.bottom-panel {
+  &, &.solid {
+    min-height: 30px; // = 2.25em
+    height: 2.2em;
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    border-color: $panel_bg;
+    background-color: $panel_bg;
+    background-gradient-drection: vertical;
+    background-gradient-start: $panel_bg;
+    background-gradient-end: $panel_bg;
+    color: $osd_fg;
+
+    StLabel { text-shadow: none; }
+
+    StIcon { icon-shadow: none; }
+  }
+}
+
+#panel {
+  &, &.solid {
+    min-height: 25px; // = 1.875em
+    height: 1.8em;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    border-color: $panel_bg;
+    background-color: $panel_bg;
+    background-gradient-drection: vertical;
+    background-gradient-start: $panel_bg;
+    background-gradient-end: $panel_bg;
+
+    StLabel { text-shadow: none; }
+
+    StIcon { icon-shadow: none; }
+
+    .panel-button {
+      color: $osd_fg;
+      &:hover,
+      &:active,
+      &:focus,
+      &:checked { color: if($variant != light, $sel_fg, black); }
+
+      &:active,
+      &:focus {
+        background-color: $panel_hidden_bg;
+        background-gradient-drection: vertical;
+        background-gradient-start: $panel_hidden_bg;
+        background-gradient-end: $panel_hidden_bg;
+      }
+    }
+  }
+}
+
