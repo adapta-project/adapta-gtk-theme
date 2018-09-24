@@ -435,15 +435,6 @@ cinnamon_nokto_asset_switch_file = \
 cinnamon_nokto_asset_thumb_file = \
 	$(cinnamonnoktodir)/assets/thumbnail.png
 
-xfcedir         = $(srcdir)/xfce-notify-4.0
-xfce_image_file = \
-	$(xfcedir)/flat-button-active.svg \
-	$(xfcedir)/flat-button-hover.svg \
-	$(xfcedir)/flat-button-insensitive.svg \
-	$(xfcedir)/flat-button.svg
-xfce_rc_file = \
-	$(xfcedir)/gtkrc
-
 sassc_option = -M -t compact
 
 # ****************************
@@ -602,10 +593,6 @@ if ENABLE_CINNAMON
 	cd $(srcdir)/asset && \
 		./clone-assets-cinnamon.sh && \
 		./render-assets-cinnamon-thumb.sh
-endif
-
-if ENABLE_XFCE
-	cd $(srcdir)/asset && ./clone-assets-xfce.sh
 endif
 
 # *****************
@@ -770,12 +757,6 @@ if ENABLE_CINNAMON
 		ln -sf ./assets/thumbnail.png thumbnail.png
 endif
 
-if ENABLE_XFCE
-	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfce_image_file) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfce_rc_file) $(adaptadir)/xfce-notify-4.0
-endif
-
 # *******************
 # * Uninstall files *
 # *******************
@@ -794,11 +775,6 @@ if ENABLE_CINNAMON
 	test -e $(noktodir)/cinnamon && rm -rfv $(noktodir)/cinnamon
 	test -e $(briladir)/cinnamon && rm -rfv $(briladir)/cinnamon
 	test -e $(adaptadir)/cinnamon && rm -rfv $(adaptadir)/cinnamon
-endif
-
-if ENABLE_XFCE
-	test -e $(adaptadir)/xfce-notify-4.0 && \
-		rm -rfv $(adaptadir)/xfce-notify-4.0
 endif
 
 # ****************************
@@ -923,12 +899,6 @@ CLEANFILES += \
 	$(srcdir)/asset/assets-cinnamon/mixed/misc/thumbnail.svg \
 	$(srcdir)/asset/assets-cinnamon/dark/misc/thumbnail.svg \
 	$(srcdir)/asset/inkscape.log
-endif
-if ENABLE_XFCE
-CLEANFILES += \
-	$(srcdir)/xfce-notify-4.0/*.svg \
-	$(srcdir)/asset/assets-xfce/flat-button-active.svg \
-	$(srcdir)/asset/assets-xfce/flat-button-hover.svg
 endif
 
 DISTCLEANFILES = \
