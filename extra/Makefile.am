@@ -4,10 +4,6 @@ noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
 adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
-chromedir         = $(srcdir)/chrome
-chrome_file       = $(chromedir)/adapta-theme.crx
-chrome_nokto_file = $(chromedir)/adapta-nokto-theme.crx
-
 plankdir   = $(srcdir)/plank
 plank_file = $(plankdir)/dock.theme
 
@@ -38,17 +34,6 @@ endif
 # *****************
 
 install-data-local:
-if ENABLE_CHROME_LEGACY
-	$(MKDIR_P) $(adaptadir)/chrome
-	$(MKDIR_P) $(noktodir)/chrome
-	cp -Rv $(chrome_file) $(adaptadir)/chrome
-	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
-
-	cd $(adaptadir)
-	ln -sf ../Adapta/chrome $(adaptaetadir)/chrome
-	ln -sf ../Adapta-Nokto/chrome $(noktoetadir)/chrome
-endif
-
 if ENABLE_PLANK
 	$(MKDIR_P) $(adaptadir)/plank
 	cp -Rv $(plank_file) $(adaptadir)/plank
@@ -89,13 +74,6 @@ endif
 # *******************
 
 uninstall-local:
-if ENABLE_CHROME_LEGACY
-	test -e $(noktodir)/chrome && rm -rfv $(noktodir)/chrome
-	test -e $(adaptadir)/chrome && rm -rfv $(adaptadir)/chrome
-	test -e $(noktoetadir)/chrome && rm -rfv $(noktoetadir)/chrome
-	test -e $(adaptaetadir)/chrome && rm -rfv $(adaptaetadir)/chrome
-endif
-
 if ENABLE_PLANK
 	test -e $(noktodir)/plank && rm -rfv $(noktodir)/plank
 	test -e $(adaptadir)/plank && rm -rfv $(adaptadir)/plank
