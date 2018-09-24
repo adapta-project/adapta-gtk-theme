@@ -3565,14 +3565,14 @@ $provider_icon_size: 32px; // for < 3.25
   .modal-dialog-button {
     @include fontscaling($ref_size * 1.1);
     padding: 7px 16px 8px;
-    border: none;
     font-weight: 500;
     @include button(flat-normal, $tc: $ovv_fg);
-    &:hover,
-    &:focus { @include button(flat-hover, $tc: $ovv_fg); }
+    &:hover { @include button(flat-hover, $tc: $ovv_fg); }
+    &:focus { @include button(flat-focus, $tc: $ovv_fg); }
     &:active { @include button(flat-active, $tc: $ovv_fg); }
     &:insensitive { @include button(flat-disabled, $tc: $ovv_fg); }
     &:default { // raised button
+      padding: (7px - 2px)  (16px - 2px) (8px - 2px); // subtract borders
       @include button(raised-normal, $c: $sggt_bg, $tc: $sel_fg);
       &:hover {
         @include button(raised-hover, $c: $sggt_bg, $tc: $sel_fg);
@@ -4007,7 +4007,6 @@ $tool_icon_size: 24px;
 
   &-button {
     padding: 4px;
-    border: none;
     border-radius: $r_2;
     font-weight: 500;
     @include button(raised-normal, $c: $sggt_bg, $tc: $sel_fg);

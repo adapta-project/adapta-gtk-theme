@@ -134,35 +134,32 @@ $empty_shadow: 0 0 transparent; // replacement of the 'none'
     box-shadow: $empty_shadow;
   }
   @else if $t == raised-normal {
-    border: none;
+    border: 2px solid transparent; // for outlines
     background-color: $c;
     color: opacity($tc, $a_fg_2nd);
     box-shadow: $z-depth-1;
   }
   @else if $t == raised-focus {
-    border: none;
-    background-color: $c;
+    border: 2px solid opacity($tc, $a_trk_out);
     color: $tc;
-    box-shadow: $z-depth-1,
-                inset 0 0 0 2px opacity($tc, $a_trk_out);
+    box-shadow: $z-depth-1;
   }
   @else if $t == raised-hover {
-    border: none;
+    border: 2px solid transparent;
     background-color: mix($tc, $c, percentage($a_trk_1));
     color: $tc;
     box-shadow: $z-depth-2;
   }
   @else if $t == raised-active {
-    border: none;
+    border-color: $sel_bg;
     background-color: $sel_bg;
     color: $sel_fg;
     box-shadow: $z-depth-1;
   }
   @else if $t == raised-disabled {
-    border: none;
+    border: 2px solid transparent;
     background-color: opacity($tc, ($a_trk_1));
     color: opacity($tc, $a_fg_dis);
     box-shadow: $empty_shadow;
   }
 }
-
