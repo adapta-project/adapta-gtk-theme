@@ -170,6 +170,14 @@ separator {
   min-height: 1px;
   min-width: 1px;
   background-color: $div_fg;
+
+  popover &,
+  menu > &,
+  menuitem & { // dark variant specific
+    @if $variant == dark {
+      background-color:  track(white, $a_div_2);
+    }
+  }
 }
 
 %arrow_size,
@@ -2702,10 +2710,7 @@ menu {
 menuitem {
   accelerator { color: track(currentColor, $a_fg_3rd); }
 
-  separator {
-    margin: rem($menu_padding) 0;
-    background-color: $div_fg;
-  }
+  separator { margin: rem($menu_padding) 0; }
 }
 
 window.popup {
