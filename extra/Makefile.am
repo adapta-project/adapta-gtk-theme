@@ -20,8 +20,8 @@ gedit_file = \
 	$(geditdir)/README.md
 
 tweetdeckdir         = $(srcdir)/tweetdeck
-tweetdeck_file       = $(tweetdeckdir)/light/ColorDeck-adapta.cdk
-tweetdeck_nokto_file = $(tweetdeckdir)/dark/ColorDeck-adapta-nokto.cdk
+tweetdeck_light_file = $(tweetdeckdir)/light/ColorDeck-adapta.cdk
+tweetdeck_dark_file  = $(tweetdeckdir)/dark/ColorDeck-adapta-nokto.cdk
 
 # ******************
 # * Generate files *
@@ -65,12 +65,11 @@ endif
 
 if ENABLE_TWEETDECK
 	$(MKDIR_P) $(adaptadir)/tweetdeck
+	$(MKDIR_P) $(briladir)/tweetdeck
 	$(MKDIR_P) $(noktodir)/tweetdeck
-	cp -Rv $(tweetdeck_file) $(adaptadir)/tweetdeck
-	cp -Rv $(tweetdeck_nokto_file) $(noktodir)/tweetdeck
-	cd $(adaptadir)
-	ln -sf ../Adapta/tweetdeck $(adaptaetadir)/tweetdeck
-	ln -sf ../Adapta-Nokto/tweetdeck $(noktoetadir)/tweetdeck
+	cp -Rv $(tweetdeck_light_file) $(adaptadir)/tweetdeck
+	cp -Rv $(tweetdeck_light_file) $(briladir)/tweetdeck
+	cp -Rv $(tweetdeck_dark_file) $(noktodir)/tweetdeck
 endif
 
 	$(MKDIR_P) $(adaptadir)/gedit
