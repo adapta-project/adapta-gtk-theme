@@ -442,7 +442,7 @@ gtk2_nokto_handle_file = \
 	$(gtk2_assetdir)/Handles/v-handle-insensitive-dark.png
 gtk2_nokto_line_file = \
 	$(gtk2_assetdir)/Lines/h-line.png \
-	$(gtk2_assetdir)/Lines/menu-line.png \
+	$(gtk2_assetdir)/Lines/menu-line-dark.png \
 	$(gtk2_assetdir)/Lines/v-line.png
 gtk2_nokto_other_file = \
 	$(gtk2_assetdir)/Others/bottom.png \
