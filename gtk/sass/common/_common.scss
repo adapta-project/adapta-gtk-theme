@@ -4433,7 +4433,9 @@ expander {
       @extend %arrow_size;
       -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
       &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
-      &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+      @if $maj_ver == 3 {
+        &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+      }
       &:not(:hover):not(:active) { color: track(currentColor, $a_fg_2nd); }
       &:selected { color: $sel_fg; }
       &:disabled { color: $dis_fg; }
@@ -4448,6 +4450,13 @@ expander {
       // spacer between arrow and label
       &:dir(ltr) { padding-left: rem($menu_padding, $sw: 1.0); }
       &:dir(rtl) { padding-right: rem($menu_padding, $sw: 1.0); }
+    }
+  }
+
+  @if $maj_ver == 4 {
+    title > arrow:checked,
+    title:checked > arrow {
+      -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     }
   }
 }
