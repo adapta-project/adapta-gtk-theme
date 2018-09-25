@@ -473,7 +473,8 @@ entry {
     }
   }
 
-  .linked &.flat {
+  .linked &.flat,
+  toolitem .linked &:not(.flat) {
     &:not(:first-child):not(:last-child) {
       @include radius(0, none);
     }
@@ -1731,13 +1732,14 @@ combobox {
 
 .linked.horizontal > entry.combo + button.combo { // fake combo entry+button
   &:last-child { // specificity bump
-    &:dir(ltr) {
-      @include radius(0 $r $r 0);
-      // &:checked { @include radius(0 rem($widget_size / 2) 0 0); }
-    }
-    &:dir(rtl) {
-      @include radius($r 0 0 $r);
-      // &:checked { @include radius(rem($widget_size / 2) 0 0 0); }
+    &:dir(ltr) { @include radius(0 $r $r 0); }
+    &:dir(rtl) { @include radius($r 0 0 $r); }
+  }
+
+  toolitem & {
+    &:last-child { // toolbar flat-style
+      &:dir(ltr) { @include radius(0 $r_4 $r_4 0); }
+      &:dir(rtl) { @include radius($r_4 0 0 $r_4); }
     }
   }
 }
