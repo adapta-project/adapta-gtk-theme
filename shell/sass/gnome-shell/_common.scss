@@ -877,7 +877,9 @@ $extra_spacing: 2.5px;
   height: 1px; // not really the whole box
   margin: 0;
   spacing: 0;
-  border-color: $div_fg;
+  border-color: if($variant != dark,
+                   $div_fg,
+                   mix(white, $dark_bg, percentage($a_div_2)));
   border-bottom-width: 1px;
   border-bottom-style: solid;
   background-color: transparent;
@@ -1007,7 +1009,9 @@ $extra_spacing: 2.5px;
 
   .separator {
     width: 1px;
-    background: $div_fg;
+    background: if($variant != dark,
+                   $div_fg,
+                   mix(white, $dark_bg, percentage($a_div_2)));
   }
 }
 
@@ -1339,7 +1343,9 @@ $extra_spacing: 2.5px;
 // pane-separator between messages and calendar
 .datemenu-calendar-column {
   border-style: solid;
-  border-color: $div_fg;
+  border-color: if($variant != dark,
+                   $div_fg,
+                   mix(white, $dark_bg, percentage($a_div_2)));
 
   &:ltr { border-left-width: 1px; }
   &:rtl { border-right-width: 1px; }
