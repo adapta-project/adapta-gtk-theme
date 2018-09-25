@@ -12,6 +12,7 @@ plank_dark_file  = $(plankdir)/dock-dark.theme
 
 telegramdir         = $(srcdir)/telegram
 telegram_file       = $(telegramdir)/adapta.tdesktop-theme
+telegram_brila_file = $(telegramdir)/adapta-brila.tdesktop-theme
 telegram_nokto_file = $(telegramdir)/adapta-nokto.tdesktop-theme
 
 geditdir   = $(srcdir)/gedit
@@ -54,13 +55,11 @@ endif
 
 if ENABLE_TELEGRAM
 	$(MKDIR_P) $(adaptadir)/telegram
+	$(MKDIR_P) $(briladir)/telegram
 	$(MKDIR_P) $(noktodir)/telegram
 	cp -Rv $(telegram_file) $(adaptadir)/telegram
+	cp -Rv $(telegram_brila_file) $(briladir)/telegram
 	cp -Rv $(telegram_nokto_file) $(noktodir)/telegram
-
-	cd $(adaptadir)
-	ln -sf ../Adapta/telegram $(adaptaetadir)/telegram
-	ln -sf ../Adapta-Nokto/telegram $(noktoetadir)/telegram
 endif
 
 if ENABLE_TWEETDECK
@@ -93,16 +92,14 @@ endif
 
 if ENABLE_TELEGRAM
 	test -e $(noktodir)/telegram && rm -rfv $(noktodir)/telegram
+	test -e $(briladir)/telegram && rm -rfv $(briladir)/telegram
 	test -e $(adaptadir)/telegram && rm -rfv $(adaptadir)/telegram
-	test -e $(noktoetadir)/telegram && rm -rfv $(noktoetadir)/telegram
-	test -e $(adaptaetadir)/telegram && rm -rfv $(adaptaetadir)/telegram
 endif
 
 if ENABLE_TWEETDECK
 	test -e $(noktodir)/tweetdeck && rm -rfv $(noktodir)/tweetdeck
+	test -e $(briladir)/tweetdeck && rm -rfv $(briladir)/tweetdeck
 	test -e $(adaptadir)/tweetdeck && rm -rfv $(adaptadir)/tweetdeck
-	test -e $(noktoetadir)/tweetdeck && rm -rfv $(noktoetadir)/tweetdeck
-	test -e $(adaptaetadir)/tweetdeck && rm -rfv $(adaptaetadir)/tweetdeck
 endif
 
 	test -e $(noktodir)/gedit && rm -rfv $(noktodir)/gedit
