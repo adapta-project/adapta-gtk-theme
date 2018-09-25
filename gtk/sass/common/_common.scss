@@ -2138,6 +2138,12 @@ headerbar {
     background-color: if($variant == light, $bg, $inv_bg);
   }
 
+  @if $maj_ver == 4 {
+    &.titlebar headerbar:not(.titlebar) { // nested headerbar mode
+      background: none; // resetting needed by sliding animations
+    }
+  }
+
   .tiled &,
   .tiled-top &,
   .tiled-bottom &,
