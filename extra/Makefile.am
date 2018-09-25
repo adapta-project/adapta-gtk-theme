@@ -1,11 +1,14 @@
 themedir     = $(datadir)/themes
 adaptadir    = $(DESTDIR)$(themedir)/Adapta
+briladir     = $(DESTDIR)$(themedir)/Adapta-Brila
 noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
 adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
+brilaetadir  = $(DESTDIR)$(themedir)/Adapta-Brila-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
-plankdir   = $(srcdir)/plank
-plank_file = $(plankdir)/dock.theme
+plankdir         = $(srcdir)/plank
+plank_light_file = $(plankdir)/dock-light.theme
+plank_dark_file  = $(plankdir)/dock-dark.theme
 
 telegramdir         = $(srcdir)/telegram
 telegram_file       = $(telegramdir)/adapta.tdesktop-theme
@@ -36,11 +39,17 @@ endif
 install-data-local:
 if ENABLE_PLANK
 	$(MKDIR_P) $(adaptadir)/plank
-	cp -Rv $(plank_file) $(adaptadir)/plank
-	cd $(adaptadir)
-	ln -sf ../Adapta/plank $(noktodir)/plank
-	ln -sf ../Adapta/plank $(adaptaetadir)/plank
-	ln -sf ../Adapta/plank $(noktoetadir)/plank
+	$(MKDIR_P) $(briladir)/plank
+	$(MKDIR_P) $(noktodir)/plank
+	$(MKDIR_P) $(adaptaetadir)/plank
+	$(MKDIR_P) $(brilaetadir)/plank
+	$(MKDIR_P) $(noktoetadir)/plank
+	cp -Rv $(plank_dark_file) $(adaptadir)/plank/dock.theme
+	cp -Rv $(plank_light_file) $(briladir)/plank/dock.theme
+	cp -Rv $(plank_dark_file) $(noktodir)/plank/dock.theme
+	cp -Rv $(plank_dark_file) $(adaptaetadir)/plank/dock.theme
+	cp -Rv $(plank_light_file) $(brilaetadir)/plank/dock.theme
+	cp -Rv $(plank_dark_file) $(noktoetadir)/plank/dock.theme
 endif
 
 if ENABLE_TELEGRAM
@@ -76,8 +85,10 @@ endif
 uninstall-local:
 if ENABLE_PLANK
 	test -e $(noktodir)/plank && rm -rfv $(noktodir)/plank
+	test -e $(briladir)/plank && rm -rfv $(briladir)/plank
 	test -e $(adaptadir)/plank && rm -rfv $(adaptadir)/plank
 	test -e $(noktoetadir)/plank && rm -rfv $(noktoetadir)/plank
+	test -e $(brilaetadir)/plank && rm -rfv $(brilaetadir)/plank
 	test -e $(adaptaetadir)/plank && rm -rfv $(adaptaetadir)/plank
 endif
 
