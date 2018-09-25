@@ -1819,10 +1819,32 @@ button.dzlmenubuttonitem.check { // menuitem buttons
 //  ***************/
 
 // side-bar styling
-.side-panel {
-  .view {
-    &,
-    row.activatable { font-weight: 500; }
+@if $maj_ver == 3 {
+  @if $mnr_ver < 23 {
+    .side-panel {
+      .view {
+        &,
+        row.activatable { font-weight: 500; }
+      }
+    }
+  }
+  @else {
+    overlay > stack.background stack grid scrolledwindow.sidebar {
+      &:dir(ltr) { border-right: 1px solid $div_fg; }
+      &:dir(rtl) { border-right: 1px solid $div_fg; }
+
+      list {
+        @extend %sidebar_template;
+      }
+    }
+  }
+}
+@else {
+  overlay > stack.background stack grid scrolledwindow.sidebar {
+    &:dir(ltr) { border-right: 1px solid $div_fg; }
+    &:dir(rtl) { border-right: 1px solid $div_fg; }
+
+    list { @extend %sidebar_template; }
   }
 }
 
