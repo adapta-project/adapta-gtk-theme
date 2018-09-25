@@ -4724,6 +4724,14 @@ filechooserbutton:drop(active) {
 
     label { color: $sel_hi_label; }
   }
+
+  button.flat {
+    color: $sel_label;
+    &:hover,
+    &:active,
+    &:checked { color: $sel_hi_label; }
+    &:disabled { color: $dis_fg; }
+  }
 }
 
 // FIXME: exclude treeview node for lollypop's sidebar
@@ -4781,7 +4789,7 @@ placessidebar {
 
   list {
     // Background color for Nautilus and FileChooser sidebar
-    background-color: $bg;
+    @extend %sidebar_template;
   }
 
   row {
