@@ -9,3 +9,33 @@ $ref_size: 13.33;
 @mixin fontscaling($size: $ref_size) {
   font-size: round( $size * 72 / 96 * 10 ) / 10 + pt;
 }
+
+// image loader
+@mixin image-loader($url: '', $type: bg) {
+  @if $type == bg {
+    @if $ver > 3.25 {
+      @if $gdm == false {
+        background-image: url("#{$url}");
+      }
+      @else {
+        background-image: url("resource:///org/gnome/shell/theme/#{$url}");
+      }
+    }
+    @else {
+      background-image: url("#{$url}");
+    }
+  }
+  @else if $type == sp {
+    @if $ver > 3.25 {
+      @if $gdm == false {
+        spinner-image: url("#{$url}");
+      }
+      @else {
+        spinner-image: url("resource:///org/gnome/shell/theme/#{$url}");
+      }
+    }
+    @else {
+      spinner-image: url("#{$url}");
+    }
+  }
+}

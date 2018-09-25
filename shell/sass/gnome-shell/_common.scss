@@ -181,52 +181,20 @@ StScrollBar {
   StBin {
     width: 20px;
     height: 20px;
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/checkbox-off.svg"),
-        url("resource:///org/gnome/shell/theme/assets/checkbox-off.svg"));
-    }
-    @else {
-      background-image: url("assets/checkbox-off.svg");
-    }
+    @include image-loader($url: 'assets/checkbox-off.svg');
     color: $osd_sec_fg;
   }
 
   &:focus StBin {
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/checkbox-off-hover.svg"),
-        url("resource:///org/gnome/shell/theme/assets/checkbox-off-hover.svg"));
-    }
-    @else {
-      background-image: url("assets/checkbox-off-hover.svg");
-    }
+    @include image-loader($url: 'assets/checkbox-off-hover.svg');
     color: $osd_fg;
   }
   &:checked StBin {
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/checkbox.svg"),
-        url("resource:///org/gnome/shell/theme/assets/checkbox.svg"));
-    }
-    @else {
-      background-image: url("assets/checkbox.svg");
-    }
+    @include image-loader($url: 'assets/checkbox.svg');
     color: $osd_fg;
   }
   &:focus:checked StBin {
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/checkbox-hover.svg"),
-        url("resource:///org/gnome/shell/theme/assets/checkbox-hover.svg"));
-    }
-    @else {
-      background-image: url("assets/checkbox-hover.svg");
-    }
+    @include image-loader($url: 'assets/checkbox-hover.svg');
     color: $osd_fg;
   }
 }
@@ -243,25 +211,9 @@ StScrollBar {
 
 @each $v in us, intl {
   .toggle-switch-#{$v} {
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("toggle-off.svg"),
-        url("resource:///org/gnome/shell/theme/toggle-off.svg"));
-    }
-    @else {
-      background-image: url("toggle-off.svg");
-    }
+    @include image-loader($url: 'toggle-off.svg');
     &:checked {
-      @if $ver > 3.25 {
-        background-image:
-          if($gdm == false,
-          url("toggle-on.svg"),
-          url("resource:///org/gnome/shell/theme/toggle-on.svg"));
-      }
-      @else {
-        background-image: url("toggle-on.svg");
-      }
+      @include image-loader($url: 'toggle-on.svg');
     }
   }
 }
@@ -1101,15 +1053,7 @@ $extra_spacing: 2.5px;
   &-active-up {
     height: if($ref_weight >= 1.0, 50px, 36px);
     background-color: $acc_fill_bg;
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/go-up.svg"),
-        url("resource:///org/gnome/shell/theme/assets/go-up.svg"));
-    }
-    @else {
-      background-image: url("assets/go-up.svg");
-    }
+    @include image-loader($url: 'assets/go-up.svg');
     background-size: 24px;
     border-radius: 2px;
   }
@@ -1117,15 +1061,7 @@ $extra_spacing: 2.5px;
   &-active-down {
     height: if($ref_weight >= 1.0, 50px, 36px);
     background-color: $acc_fill_bg;
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/go-down.svg"),
-        url("resource:///org/gnome/shell/theme/assets/go-down.svg"));
-    }
-    @else {
-      background-image: url("assets/go-down.svg");
-    }
+    @include image-loader($url: 'assets/go-down.svg');
     background-size: 24px;
     border-radius: 2px;
   }
@@ -1528,98 +1464,34 @@ $extra_spacing: 2.5px;
 
 .calendar-change-month {
   &-back { // arrow back
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/calendar-arrow-left.svg"),
-        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left.svg"));
-    }
-    @else {
-      background-image: url("assets/calendar-arrow-left.svg");
-    }
+    @include image-loader($url: 'assets/calendar-arrow-left.svg');
     &:hover,
     &:focus {
-      @if $ver > 3.25 {
-        background-image:
-          if($gdm == false,
-          url("assets/calendar-arrow-left-hover.svg"),
-          url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left-hover.svg"));
-      }
-      @else {
-        background-image: url("assets/calendar-arrow-left-hover.svg");
-      }
+      @include image-loader($url: 'assets/calendar-arrow-left-hover.svg');
     }
 
     &:rtl {
-      @if $ver > 3.25 {
-        background-image:
-          if($gdm == false,
-          url("assets/calendar-arrow-right.svg"),
-          url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right.svg"));
-      }
-      @else {
-        background-image: url("assets/calendar-arrow-right.svg");
-      }
+      @include image-loader($url: 'assets/calendar-arrow-right.svg');
     }
     &:rtl:hover,
     &:rtl:focus {
-      @if $ver > 3.25 {
-        background-image:
-          if($gdm == false,
-          url("assets/calendar-arrow-right-hover.svg"),
-          url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right-hover.svg"));
-      }
-      @else {
-        background-image: url("assets/calendar-arrow-right-hover.svg");
-      }
+      @include image-loader($url: 'assets/calendar-arrow-right-hover.svg');
     }
   }
 
   &-forward { // arrow foreward
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/calendar-arrow-right.svg"),
-        url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right.svg"));
-    }
-    @else {
-      background-image: url("assets/calendar-arrow-right.svg");
-    }
+    @include image-loader($url: 'assets/calendar-arrow-right.svg');
     &:hover,
     &:focus {
-      @if $ver > 3.25 {
-        background-image:
-          if($gdm == false,
-          url("assets/calendar-arrow-right-hover.svg"),
-          url("resource:///org/gnome/shell/theme/assets/calendar-arrow-right-hover.svg"));
-      }
-      @else {
-        background-image: url("assets/calendar-arrow-right-hover.svg");
-      }
+      @include image-loader($url: 'assets/calendar-arrow-right-hover.svg');
     }
 
     &:rtl {
-      @if $ver > 3.25 {
-        background-image:
-          if($gdm == false,
-          url("assets/calendar-arrow-left.svg"),
-          url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left.svg"));
-      }
-      @else {
-        background-image: url("assets/calendar-arrow-left.svg");
-      }
+      @include image-loader($url: 'assets/calendar-arrow-left.svg');
     }
     &:rtl:hover,
     &:rtl:focus {
-      @if $ver > 3.25 {
-        background-image:
-          if($gdm == false,
-          url("assets/calendar-arrow-left-hover.svg"),
-          url("resource:///org/gnome/shell/theme/assets/calendar-arrow-left-hover.svg"));
-      }
-      @else {
-        background-image: url("assets/calendar-arrow-left-hover.svg");
-      }
+      @include image-loader($url: 'assets/calendar-arrow-left-hover.svg');
     }
   }
 }
@@ -2001,28 +1873,12 @@ $extra_spacing: 2.5px;
   background-size: 32px 32px;
   &:hover {
     color: $acc_fg;
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/media-control-hover.svg"),
-        url("resource:///org/gnome/shell/theme/assets/media-control-hover.svg"));
-    }
-    @else {
-      background-image: url("assets/media-control-hover.svg");
-    }
+    @include image-loader($url: 'assets/media-control-hover.svg');
     background-size: 32px 32px;
   }
   &:active {
     color: $acc_fg;
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/media-control-active.svg"),
-        url("resource:///org/gnome/shell/theme/assets/media-control-active.svg"));
-    }
-    @else {
-      background-image: url("assets/media-control-active.svg");
-    }
+    @include image-loader($url: 'assets/media-control-active.svg');
     background-size: 32px 32px;
   }
   &:insensitive {
@@ -2064,15 +1920,7 @@ $extra_spacing: 2.5px;
 //  ************/
 
 #appMenu {
-  @if $ver > 3.25 {
-    spinner-image:
-      if($gdm == false,
-      url("process-working.svg"),
-      url("resource:///org/gnome/shell/theme/process-working.svg"));
-  }
-  @else {
-    spinner-image: url("process-working.svg");
-  }
+  @include image-loader($url: 'process-working.svg', $type: sp);
   padding: if($ref_weight >= 1.0, 0 10px, 0 6px);
 
   // LR padding and make more gap between label and spinner
@@ -2120,27 +1968,11 @@ $extra_spacing: 2.5px;
 .ripple-box {
   width: 52px;
   height: 52px;
-  @if $ver > 3.25 {
-    background-image:
-      if($gdm == false,
-      url("assets/corner-ripple-ltr.svg"),
-      url("resource:///org/gnome/shell/theme/assets/corner-ripple-ltr.svg"));
-  }
-  @else {
-    background-image: url("assets/corner-ripple-ltr.svg");
-  }
+  @include image-loader($url: 'assets/corner-ripple-ltr.svg');
   background-size: contain;
 
   &:rtl {
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/corner-ripple-rtl.svg"),
-        url("resource:///org/gnome/shell/theme/assets/corner-ripple-rtl.svg"));
-    }
-    @else {
-      background-image: url("assets/corner-ripple-rtl.svg");
-    }
+    @include image-loader($url: 'assets/corner-ripple-rtl.svg');
   }
 }
 
@@ -2153,38 +1985,14 @@ $extra_spacing: 2.5px;
   width: 32px;
   -shell-close-overlap: 24px;
   -st-background-image-shadow: $z-depth-1;
-  @if $ver > 3.25 {
-    background-image:
-      if($gdm == false,
-      url("assets/window-close.svg"),
-      url("resource:///org/gnome/shell/theme/assets/window-close.svg"));
-  }
-  @else {
-    background-image: url("assets/window-close.svg");
-  }
+  @include image-loader($url: 'assets/window-close.svg');
   background-size: 32px;
   &:hover {
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/window-close-hover.svg"),
-        url("resource:///org/gnome/shell/theme/assets/window-close-hover.svg"));
-    }
-    @else {
-      background-image: url("assets/window-close-hover.svg");
-    }
+    @include image-loader($url: 'assets/window-close-hover.svg');
     -st-background-image-shadow: $z-depth-2;
   }
   &:active {
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/window-close-active.svg"),
-        url("resource:///org/gnome/shell/theme/assets/window-close-active.svg"));
-    }
-    @else {
-      background-image: url("assets/window-close-active.svg");
-    }
+    @include image-loader($url: 'assets/window-close-active.svg');
   }
 }
 
@@ -2634,7 +2442,7 @@ $provider_icon_size: 32px; // for < 3.25
     &-more {
       width: $provider_icon_size / 2;
       height: $provider_icon_size / 2;
-      background-image: url("assets/more-results.svg");
+      @include image-loader($url: 'assets/more-results.svg');
       -st-background-image-shadow: $z-depth-2;
     }
   }
@@ -2658,15 +2466,7 @@ $provider_icon_size: 32px; // for < 3.25
 
   .placeholder {
     height: 24px;
-    @if $ver > 3.25 {
-      background-image:
-        if($gdm == false,
-        url("assets/dash-placeholder.svg"),
-        url("resource:///org/gnome/shell/theme/assets/dash-placeholder.svg"));
-    }
-    @else {
-      background-image: url("assets/dash-placeholder.svg");
-    }
+    @include image-loader($url: 'assets/dash-placeholder.svg');
     background-size: contain;
   }
 
@@ -3323,14 +3123,16 @@ $provider_icon_size: 32px; // for < 3.25
         &:focus,
         &:hover,
         &:checked {
-          background-color: mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
-                                $osd_fg, percentage($a_fg_2nd));
+          background-color:
+            mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
+                $osd_fg, percentage($a_fg_2nd));
           color: $osd_fg;
           transition-timing-function: $tr_t_std;
         }
         &:active {
-          background-color: mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
-                                $osd_fg, percentage(1 - $a_trk_2));
+          background-color:
+            mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
+                $osd_fg, percentage(1 - $a_trk_2));
           color: $osd_fg;
           transition-timing-function: $tr_t_dec;
         }
@@ -3338,80 +3140,60 @@ $provider_icon_size: 32px; // for < 3.25
 
       &.enter-key {
         background-color: $sggt_bg;
-        background-image:
-          if($gdm == false,
-          url("key-enter.svg"),
-          url("resource:///org/gnome/shell/theme/key-enter.svg"));
+        @include image-loader($url: 'key-enter.svg');
         &:focus,
         &:hover,
         &:checked {
+          @include image-loader($url: 'key-enter-active.svg');
           background-color: mix($sggt_bg, $sel_fg, percentage($a_fg_2nd));
-          background-image:
-            if($gdm == false,
-            url("key-enter-active.svg"),
-            url("resource:///org/gnome/shell/theme/key-enter-active.svg"));
         }
         &:active {
+          @include image-loader($url: 'key-enter-active.svg');
           background-color: $sel_bg;
-          background-image:
-            if($gdm == false,
-            url("key-enter-active.svg"),
-            url("resource:///org/gnome/shell/theme/key-enter-active.svg"));
         }
       }
 
       &.shift-key {
         &-lowercase {
-          background-image:
-            if($gdm == false,
-            url("key-shift.svg"),
-            url("resource:///org/gnome/shell/theme/key-shift.svg"));
+          @include image-loader($url: 'key-shift.svg');
         }
 
         &-uppercase {
-          background-image:
-            if($gdm == false,
-            url("key-shift-uppercase.svg"),
-            url("resource:///org/gnome/shell/theme/key-shift-uppercase.svg"));
+          @include image-loader($url: 'key-shift-uppercase.svg');
           &:focus,
           &:hover,
           &:checked {
-            background-color: mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
-                              $sel_bg, percentage($a_fg_2nd));
+            background-color:
+              mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
+                  $sel_bg, percentage($a_fg_2nd));
           }
           &:active {
-            background-color: mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
-                              $sel_bg, percentage(1 - $a_trk_2));
+            background-color:
+              mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
+                  $sel_bg, percentage(1 - $a_trk_2));
           }
           &:latched {
-            background-image:
-              if($gdm == false,
-              url("key-shift-latched-uppercase.svg"),
-              url("resource:///org/gnome/shell/theme/key-shift-latched-uppercase.svg"));
-            background-color: mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
-                              $sel_bg, percentage($a_fg_2nd));
+            @include image-loader($url: 'key-shift-latched-uppercase.svg');
+            background-color:
+              mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
+                  $sel_bg, percentage($a_fg_2nd));
             transition-timing-function: $tr_t_std;
             &:focus,
             &:hover {
-              background-color: mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
-                                $sel_bg, percentage(1 - $a_trk_2));
+              background-color:
+                mix(mix($osd_bg, $panel_bg, percentage(1 - $a_trk_2)),
+                    $sel_bg, percentage(1 - $a_trk_2));
             }
           }
         }
       }
 
       &.hide-key {
-        background-image:
-          if($gdm == false,
-          url("key-hide.svg"),
-          url("resource:///org/gnome/shell/theme/key-hide.svg"));
+        @include image-loader($url: 'key-hide.svg');
       }
 
       &.layout-key {
-        background-image:
-          if($gdm == false,
-          url("key-layout.svg"),
-          url("resource:///org/gnome/shell/theme/key-layout.svg"));
+        @include image-loader($url: 'key-layout.svg');
       }
     }
   }
@@ -3891,15 +3673,8 @@ $provider_icon_size: 32px; // for < 3.25
 }
 
 #lockDialogGroup {
-  @if $ver > 3.25 {
-    background: black
-                if($gdm == false,
-                url("noise-texture.png"),
-                url("resource:///org/gnome/shell/theme/noise-texture.png"));
-  }
-  @else {
-    background: black url("noise-texture.png");
-  }
+  background-color: black;
+  @include image-loader($url: 'noise-texture.png');
   background-repeat: repeat;
 }
 
