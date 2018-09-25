@@ -134,7 +134,9 @@ StScrollBar {
   height: 1px; // not really the whole box
   margin: 0;
   padding: 0;
-  border-color: $div_fg;
+  border-color: if($variant != dark,
+                   $div_fg,
+                   mix(white, $dark_bg, percentage($a_div_2)));
   border-bottom-width: 1px;
   border-bottom-style: solid;
   background-color: transparent;
@@ -375,7 +377,9 @@ StScrollBar {
     height: 1px; // not really the whole box
     margin: 0;
     padding: 0;
-    border-color: $div_fg;
+    border-color: if($variant != dark,
+                     $div_fg,
+                     mix(white, $dark_bg, percentage($a_div_2)));
     border-bottom-width: 1px;
     border-bottom-style: solid;
     background-color: transparent;
@@ -928,7 +932,9 @@ $ws_thumb_spacing: 32px;
 
   .separator {
     width: 1px;
-    background: $div_fg;
+    background: if($variant != dark,
+                   $div_fg,
+                   mix(white, $dark_bg, percentage($a_div_2)));
   }
 }
 
@@ -1217,7 +1223,9 @@ $ws_thumb_spacing: 32px;
   &-favorites-box {
     padding: 7px;
     border-radius: 0;
-    border: 0 solid $div_fg;
+    border: 0 solid if($variant != dark,
+                       $div_fg,
+                       mix(white, $dark_bg, percentage($a_div_2)));
     background-color: transparent;
     &:ltr { border-right-width: 1px; }
     &:rtl { border-left-width: 1px; }
@@ -1241,7 +1249,9 @@ $ws_thumb_spacing: 32px;
 
   &-categories-box {
     padding: 7px 7px 0 7px;
-    border: 0 solid $div_fg;
+    border: 0 solid if($variant != dark,
+                       $div_fg,
+                       mix(white, $dark_bg, percentage($a_div_2)));
     &:ltr { border-right-width: 1px; }
     &:rtl { border-left-width: 1px; }
   }
