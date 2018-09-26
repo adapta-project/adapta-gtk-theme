@@ -485,7 +485,13 @@ widget "*libreoffice-toplevel*GtkMenuBar.*GtkMenuItem" style "menubar_item_libre
 style "fm_side_pane" {
   font_name = "Medium"
 
-  base[NORMAL] = @bg_color
+  GtkTreeView::odd_row_color  = @bg_color
+  GtkTreeView::even_row_color = @bg_color
+
+  base[ACTIVE] = mix(0.12, @selected_bg_color, @bg_color)
+  base[SELECTED] = mix(0.12, @selected_bg_color, @bg_color)
+  text[ACTIVE] = mix(0.54, @selected_bg_color, @fg_color)
+  text[SELECTED] = mix(0.54, @selected_bg_color, @fg_color)
 }
 
 style "fm_toolbar" {
@@ -501,14 +507,44 @@ style "fm_toolbar" {
   }
 }
 
+style "fm_statusbar" {
+  xthickness = 8
+  ythickness = 4
+
+  engine "pixmap" {
+    image {
+      function = SHADOW
+      file     = "Shadows/frame.png"
+      border   = { 1, 1, 1, 1 }
+      stretch  = TRUE
+    }
+  }
+}
+
+style "fm_tabpage" {
+  GtkPaned::handle-size = 1
+
+  engine "pixmap" {
+    image {
+      function    = HANDLE
+      recolorable = TRUE
+      file        = "Shadows/frame.png"
+      border      = { 1, 1, 1, 1 }
+      stretch     = TRUE
+    }
+  }
+}
+
 style "location_button_label" {
   fg[ACTIVE] = @fg_color
 }
 
-widget_class "*<FmMainWin>*<GtkToolbar>"                          style "fm_toolbar"
-widget_class "*<FmMainWin>*<FmSidePane>*<GtkTreeView>"            style "fm_side_pane"
-widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>"               style "location_button"
-widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>*<GtkLabel>"    style "location_button_label"
+widget_class "*<FmMainWin>*<GtkToolbar>"                       style "fm_toolbar"
+widget_class "*<FmMainWin>*<GtkStatusbar>*<GtkFrame>"          style "fm_statusbar"
+widget_class "*<FmMainWin>*<FmSidePane>*<GtkTreeView>"         style "fm_side_pane"
+widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>"            style "location_button"
+widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>*<GtkLabel>" style "location_button_label"
+widget_class "*<FmMainWin>*<FmTabPage>"                        style "fm_tabpage"
 
 
 #
