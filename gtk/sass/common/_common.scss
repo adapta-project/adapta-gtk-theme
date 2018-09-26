@@ -3915,13 +3915,23 @@ scale { // marks color
   }
 }
 
-scale.horizontal.marks { // vertically centered placements
-  &-before {
+scale.marks {
+  &-before.horizontal { // vertically centered placements
     padding-bottom: calc(#{$_marks_length} + #{$scale_trough_size});
   }
 
-  &-after {
+  &-after.horizontal {
     padding-top: calc(#{$_marks_length} + #{$scale_trough_size});
+  }
+
+  &-before,
+  &-after {
+    &.vertical { // a rare case
+      window.background:not(.csd) > frame > box.vertical & {
+        margin-left: ($scale_slider_size / 2) - $scale_trough_size;
+        margin-right: ($scale_slider_size / 2) - $scale_trough_size;
+      }
+    }
   }
 }
 
