@@ -2326,7 +2326,13 @@ window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
 dialog.background.csd > headerbar.titlebar {
   // enforce square shape in 'Cancel' and 'Open' button
   > button:not(.image-button):not(.text-button):not(.toggle):not(.popup) {
-    @include radius($r_2, none);
+    // specificity bump
+    &:not(.suggested-action):not(.destructive-action) {
+      &:not(.titlebutton):not(.selection-menu) {
+        @include radius($r_2, none);
+        padding: 0 rem($txt_button_lr_space);
+      }
+    }
   }
 }
 
