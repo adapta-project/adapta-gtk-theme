@@ -1875,9 +1875,10 @@ window.background.lightdm {
       @extend %greeter_panel_menubar_menuitem;
       padding: 0 rem($entry_lr_space);
 
+      &,
       label,
       image {
-        color: if($variant == mixed, $inv_fg, $fg);
+        color: if($variant != dark, $inv_fg, $fg);
       }
 
       &:hover { box-shadow: inset 0 2px $sel_bg; }
@@ -1894,14 +1895,18 @@ window.background.lightdm {
 
   button {
     &:not(.option-button):not(.toggle-button) {
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(6.7px, $sw: 1.0);
       @include radius($r);
     }
 
     &.flat.option-button { // session logo button
+      min-width: $icon_size;
+      min-height: $icon_size;
       padding: rem(6.7px, $sw: 1.0);
       @include radius($r);
-      @if $variant == mixed { @extend %inv_flat_button; }
+      @if $variant != dark { @extend %inv_flat_button; }
       @else { @extend %flat_button; }
 
       image { opacity: $a_fg_2nd; }
@@ -1912,37 +1917,52 @@ window.background.lightdm {
       }
     }
 
-    &, // back arrow
+    &,
     &.toggle-button { // session list rows
-      padding: rem(10px) rem(13.3px);
-      @include radius(0);
-      @if $variant == mixed { @extend %inv_flat_button; }
+      min-width: $icon_size;
+      min-height: $icon_size;
+      @if $variant != dark { @extend %inv_flat_button; }
       @else { @extend %flat_button; }
-      font-size: 110%;
-      font-weight: 500;
 
       image { opacity: $a_fg_2nd; }
 
       &:hover,
       &:active,
-      &.selected {
-        background-color: transparent;
-        image { opacity: 1.0; }
-      }
+      &.selected { image { opacity: 1.0; } }
     }
 
-    &.toggle-button.selected { // selected row
-      &, &:hover {
-        @include button(flat-normal, $tc: $sel_fg);
-        background-image: image($sel_bg);
+    &.toggle-button {
+      padding: 0 rem(13.3px);
+      @include radius(0);
+      font-weight: 500;
 
-        image { opacity: 1.0; }
+      &.selected { // selected row
+        &, &:hover {
+          @include button(flat-normal, $tc: $sel_fg);
+          background-image: image($sel_bg);
+
+          image { opacity: 1.0; }
+        }
       }
     }
   }
 
   entry,
-  .lightdm-combo entry { @extend %greeter_entry; }
+  .lightdm-combo entry {
+    @extend %greeter_entry;
+    @if $variant != dark {
+      @include entry(flat-normal, $tc: $inv_fg);
+      caret-color: $inv_fg;
+      &:focus {
+        @include entry(flat-focus, $tc: $inv_fg);
+      }
+      &:disabled {
+        @include entry(flat-disabled, $tc: $inv_fg);
+      }
+    }
+
+    selection { @extend %selected_items; }
+  }
 
   entry:active { // for spinner
     -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
