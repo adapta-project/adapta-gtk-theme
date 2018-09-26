@@ -261,8 +261,7 @@ Extra Browser Support
 
  > **Note:**
  >
- >   * Chrome(ium) 59.0.30xx or newer, theming is pulled from Gtk+ 3.x directly.
- >     So `Settings > Appearance > Themes` should be `GTK+`.
+ >   * We no longer support "Normal" UI layout in Chrome(ium). Use "Refresh" instead.
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```
