@@ -5628,6 +5628,13 @@ cursor-handle {
   }
 }
 
+@if $maj_ver == 3 {
+  popover.background.touch-selection { background-color: $dark_bg; }
+}
+@else {
+  popover.touch-selection > contents.background { background-color: $dark_bg; }
+}
+
 // /*******************
 //  * Shortcut Window *
 //  *******************/
