@@ -2312,12 +2312,42 @@ window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
         if($ref_weight < 1.0, $icon_size * 4 $icon_size * 4,
                               $icon_size * 5 $icon_size * 5);
       background-repeat: no-repeat;
+      &:backdrop {
+        @if $variant == light {
+          background-image: linear-gradient(to bottom,
+                                            track($bg, 0.8),
+                                            track($bg, 0.8)),
+                            -gtk-icontheme("system-run-symbolic");
+        }
+        @else {
+          background-image: linear-gradient(to bottom,
+                                            track($inv_bg, 0.8),
+                                            track($inv_bg, 0.8)),
+                            -gtk-icontheme("system-run-symbolic");
+        }
+      }
 
       &.selection-mode {
         background-image: linear-gradient(to bottom,
                                           track($dark_sel_bg, 0.8),
                                           track($dark_sel_bg, 0.8)),
                           -gtk-icontheme("system-run-symbolic");
+        &:backdrop {
+          @if $variant == mixed {
+            background-image:
+              linear-gradient(to bottom,
+                track(mix($dark_sel_bg, $inv_bg, percentage($a_fg_bdp)), 0.8),
+                track(mix($dark_sel_bg, $inv_bg, percentage($a_fg_bdp)), 0.8)),
+              -gtk-icontheme("system-run-symbolic");
+          }
+          @else {
+            background-image:
+              linear-gradient(to bottom,
+                track(mix($dark_sel_bg, $bg, percentage($a_fg_bdp)), 0.8),
+                track(mix($dark_sel_bg, $bg, percentage($a_fg_bdp)), 0.8)),
+              -gtk-icontheme("system-run-symbolic");
+          }
+        }
       }
     }
   }
