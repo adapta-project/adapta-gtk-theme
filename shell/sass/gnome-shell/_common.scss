@@ -807,7 +807,7 @@ $extra_spacing: 2.5px;
     margin-bottom: 16px;
   }
 
-  StEntry { // use variant-sensitive foreground colours
+  StEntry { // use variant-sensitive foreground colors
     @include entry(normal);
     transition-duration: $tr_d_non;
     &:hover { @include entry(hover); }
@@ -934,7 +934,7 @@ $extra_spacing: 2.5px;
     .level { // >= 3.29.90
       -barlevel-height: 3px;
       // FIXME: above 'background-color' property rendered correct trough
-      // colour already, so keep -background-color style-property transparent
+      // color already, so keep -background-color style-property transparent
       -barlevel-background-color: transparent;
       -barlevel-active-background-color: $sccs;
       -barlevel-overdrive-color: $dest_bg;
@@ -1485,7 +1485,7 @@ $extra_spacing: 2.5px;
     }
   }
 
-  &-forward { // arrow foreward
+  &-forward { // arrow forward
     @include image-loader($url: 'assets/calendar-arrow-right.svg');
     &:hover,
     &:focus {
@@ -1676,13 +1676,13 @@ $extra_spacing: 2.5px;
       padding: 0;
 
       &-list {
-        spacing: 1px; // for internal seprators
+        spacing: 1px; // for internal separators
         margin-bottom: if($ref_weight >= 1.0, 0.6em, 0.4em);
         padding: 0;
         border: 1px solid if($variant == dark, $hidden_fill_bg,
                                                opacity(white, 0.01));
         border-radius: $r_2;
-        background-color: $div_fg; // for internal seprators
+        background-color: $div_fg; // for internal separators
       }
     }
   }
@@ -1770,7 +1770,7 @@ $extra_spacing: 2.5px;
       margin: if($ref_weight >= 1.0, 0.2em 0.6em 0, 0.2em 0.45em 0);
     }
     @else {
-      // subtruct .message-content's 'close' button padding
+      // subtract .message-content's 'close' button padding
       &:ltr { margin: 4px - 2px 0 0 6px; }
       &:rtl { margin: 4px - 2px 6px 0 0; }
     }
@@ -1895,7 +1895,7 @@ $extra_spacing: 2.5px;
 }
 
 .media-message-cover-icon {
-  // use 'important' flag to overrride .message-icon-bin > StIcon size
+  // use 'important' flag to override .message-icon-bin > StIcon size
   icon-size: if($ref_weight >= 1.0, 48px, 36px) !important;
 
   &.fallback {
@@ -2155,7 +2155,7 @@ $extra_spacing: 2.5px;
     background-color: $panel_bg;
     box-shadow: $z-depth-3;
     // FIXME: Still label width computing is quite weird in Wayland session
-    // (brings unwatened larger L/R padding than we set) though, at least
+    // (brings unwanted larger L/R padding than we set) though, at least
     // we should align StLabel in the center of finalized widget width
     // as possible as we can...
     text-align: center; // enforce label centering for Wayland session
@@ -2528,7 +2528,7 @@ $provider_icon_size: 32px; // for < 3.25
   box-shadow: inset 0 1px $ovv_out_fg;
 }
 
-.app-view-control { // favorties | all toggle button
+.app-view-control { // favorites | all toggle button
   padding: if($ref_weight >= 1.0, 7px 32px 8px, 5px 32px 6px);
   border-radius: 0;
   font-weight: 500;
@@ -3504,7 +3504,7 @@ $provider_icon_size: 32px; // for < 3.25
     &:rtl .user-widget { padding-left: 1em; }
 
     @if $ver > 3.25 {
-      .login-dialog-username, // actual label colour
+      .login-dialog-username, // actual label color
       .user-widget-label { color: $ovv_sec_fg; }
     }
 
