@@ -427,7 +427,7 @@ dialog.background.csd > box.dialog-vbox.vertical {
   }
 }
 
-// popup for inpu-source candidates
+// popup for input-source candidates
 #gf-candidate-popup {
   @extend %gf_window;
 
@@ -578,7 +578,7 @@ dialog.background.csd > box.dialog-vbox.vertical {
     }
 
     &:selected {
-      background-color: transparent; // unset selection colour
+      background-color: transparent; // unset selection color
 
       box.icon {
         &-item-background label {
@@ -923,7 +923,7 @@ headerbar.titlebar.incognito-mode {
   }
 }
 
-// reset inverted foreground colour
+// reset inverted foreground color
 @if $maj_ver == 3 {
   notebook > stack > box.vertical > paned.vertical > overlay {
     > .floating-bar { color: $sec_fg; }
@@ -962,7 +962,7 @@ headerbar.titlebar.incognito-mode {
 // popover for downloaded lists
 @if $maj_ver == 3 {
   popover.background:not(.emoji-picker) > box.vertical > scrolledwindow {
-    // re-define background colours for GtkListBox
+    // re-define background colors for GtkListBox
     > viewport.frame > list.background {
       background-color: $dark_bg;
     }
@@ -970,7 +970,7 @@ headerbar.titlebar.incognito-mode {
 }
 @else {
   popover:not(.emoji-picker) > box.vertical > scrolledwindow {
-    // re-define background colours for GtkListBox
+    // re-define background colors for GtkListBox
     > viewport.frame > list.background {
       background-color: $dark_bg;
     }
@@ -1028,7 +1028,7 @@ flowboxchild.bookmark-tag-widget {
 
   label { margin-bottom: rem($baseline, $sw: 1.0); }
 
-  button { @include radius($r_2); } // revert to sqaure button
+  button { @include radius($r_2); } // revert to square button
 
  &-selected { color: $sel_fg; } // checked
 }
@@ -1493,7 +1493,7 @@ eggsearchbar box.search-bar { background-color: $dark_bg; }
     &:dir(rtl) { border-width: 1px 1px 1px 0; }
   }
 
-  // enforce inverted label colour
+  // enforce inverted label color
   &:not(:hover):not(:active) > entry {
     @if $variant == mixed {
       background-image:
@@ -1693,7 +1693,7 @@ ide {
     background-image: image($bg);
   }
 
-  &layoutgridcolumn { /// main container of eidtor-pane
+  &layoutgridcolumn { /// main container of editor-pane
   }
 
   // editor-pane headers?
@@ -1807,7 +1807,7 @@ button.dzlmenubuttonitem.check { // menuitem buttons
   label { padding: rem(5.3px) 0 rem(6.7px); }
 
   // :checked inside the popover menus!?
-  &:checked label { // keep default label colour
+  &:checked label { // keep default label color
     color: $sec_fg;
 
     &.dim-label { color: $sec_fg; }
@@ -1977,7 +1977,7 @@ window.background > box.vertical box.horizontal {
     > separator {
       background-color: transparent; // hide single-line separators
 
-      &.compressed-rows-group-separator { // use opaque colour
+      &.compressed-rows-group-separator { // use opaque color
         background-image : image($div_sld_fg);
       }
     }
@@ -2279,7 +2279,7 @@ window.org-gnome-Todo headerbar > box.horizontal {
 
 // users section
 stack > box.vertical widget overlay grid.horizontal > stack {
-  // prevent unwatend truncation of shadows
+  // prevent unwanted truncation of shadows
   padding: $shadow_margin_3;
 }
 
@@ -2679,7 +2679,7 @@ flowbox > flowboxchild > button.recipe.tile.view {
 // Note box
 box.note > label { font-weight: 700; } // title
 
-label.content.note { color: $fix_fg; } // enforce dark label colour
+label.content.note { color: $fix_fg; } // enforce dark label color
 
 // /***************
 //  * Gnome-Usage *
@@ -2757,7 +2757,7 @@ box.speedometer {
   // damned adwaita.css picks @theme_selected_bg_color up.
   &-outter { opacity: 1 - $a_trk_out; } // reduce alpha for our troughs
 
-  &-content-area { // cover up meter troughs with selection colour
+  &-content-area { // cover up meter troughs with selection color
     box-shadow: 0 0 0 4px track($sel_bg, $a_trk_out);
   }
 }

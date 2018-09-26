@@ -938,7 +938,7 @@ button {
     }
   }
 
-  stackswitcher & { // do not shrink buton width
+  stackswitcher & { // do not shrink button width
     &:first-child,
     &:last-child,
     &:not(:first-child):not(:last-child) {
@@ -1939,7 +1939,7 @@ headerbar {
   background-color: if($variant == mixed, $inv_dark_bg, $dark_bg);
   background-clip: border-box;
 
-  // text colours
+  // text colors
   color: if($variant == mixed, $inv_sec_fg, $sec_fg);
 
   label,
@@ -1986,7 +1986,7 @@ headerbar {
   // comboboxes
 
   // menu
-  menu menuitem { // reset text colour
+  menu menuitem { // reset text color
     color: $sec_fg;
     &:hover { color: $fg; }
     &:disabled {
@@ -2433,7 +2433,7 @@ treeview.view {
     &, &:focus { @extend %selected_items; }
   }
 
-  // override foreground colours
+  // override foreground colors
   &, entry,
   entry > label {
     color: $sec_fg;
@@ -2735,7 +2735,7 @@ combobox > window.popup { // combobox specific context-menu popup
 
     > menuitem {
      // Create 1px L/R gap, otherwise hovered fill-area will hang over the
-     // parent 4px rounded edges especially in case of smalller (tiny)
+     // parent 4px rounded edges especially in case of smaller (tiny)
      // font-scaling * font-size. 
       margin: 0 1px;
       padding-top: $combo_button_padding_0;
@@ -3233,7 +3233,7 @@ scrollbar {
     }
   }
 
-  // slider colouring
+  // slider coloring
   slider {
     background-color: track($fg, $a_fg_3rd * $a_fg_3rd);
     @include transition(std);
@@ -3286,7 +3286,7 @@ scrollbar {
         // FIXME: for WebKitGtk2
         background-color: track(mix($fix_fg, $fix_base), $a_fg_3rd);
 
-        .background & { // standard colour
+        .background & { // standard color
           background-color: track($fg, $a_fg_3rd * $a_fg_3rd);
         }
       }
@@ -3594,7 +3594,7 @@ radiobutton.text-button {
   &:disabled,
   &:disabled:active,
   &:disabled:indeterminate {
-    // set insensitive color, which is overriden otherwise
+    // set insensitive color, which is overridden otherwise
     // color: $dis_fg;
   }
 }
@@ -3964,13 +3964,13 @@ scale.horizontal.marks { // vertically centered placements
 $thick_side: $scale_slider_size * 3 / 4;
 $thin_side: $scale_slider_size / 2;
 
-scale { // scales for colour
+scale { // scales for color
   &.color,
   &.fine-tune.color {
     // min-height: 0;
     // min-width: 0;
 
-    // not actual trough colour
+    // not actual trough color
     trough {
       min-width: $scale_trough_size * 2;
       min-height: $scale_trough_size * 2;
@@ -4804,7 +4804,7 @@ placessidebar {
     &:selected {
       button.image-button {
         color: $sel_label;
-        &:hover, // use opaque and brighter colour
+        &:hover, // use opaque and brighter color
         &:active {
           color: $sel_hi_label;
         }
@@ -4910,7 +4910,7 @@ paned {
       &,
       &:backdrop,
       &:selected {
-        // FIXME: still happaned double-border though
+        // FIXME: still happened double-border though
         background-image: image($div_pane_fg);
       }
     }
@@ -5098,7 +5098,7 @@ tooltip {
   &.background {
     @if $variant == mixed {
       // FIXME: Eclipse specific tooltip widgets needs non-inverted backgrounds
-      // even if alpha-value was 0.1%, so real backgrounds are drawin with
+      // even if alpha-value was 0.1%, so real backgrounds are drawn with
       // background-image property instead.
       background-color: track($base, 0.001);
       background-image: image(track($inv_dark_bg, ($a_osd + 0.001)));
@@ -5286,7 +5286,7 @@ colorchooser .popover.osd {
 
 button.flat.scale { // standalone Speaker/Mic buttons
   // I assume both are image-button *by default*
-  // with the image-button/text-button classes automagically applied
+  // with the image-button/text-button classes automatically applied
   // depending on the button child these selectors can be deleted.
   // @extend %image_button;
   padding: 0;

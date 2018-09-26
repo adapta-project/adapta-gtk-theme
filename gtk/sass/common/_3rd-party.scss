@@ -297,7 +297,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
   // > widget > box { // NaTray box container
   //   'mobile_helper_get_status_pixbuf' calls 22px * 22px * 8bit/ch
   //   pixbuf area for icons.
-  //   FXIME: introduces these allocations
+  //   FIXME: introduces these allocations
   //    * 22 x 18 @ > 36px hrz
   //    * 22 x 16 @ < 37px hrz
   //    * 18 x 24 @ > 36px vrt
@@ -828,10 +828,10 @@ window.sound-popover.background {
       // hide label for vertically centered troughs
       label { font-size: 0; }
 
-      indicator { // bold 100% gain mark with desctructive colour
+      indicator { // bold 100% gain mark with destructive color
         min-width: 1px + 1px;
         background-color: $dest_bg;
-        color: transparent; // draw actual colour with background instead
+        color: transparent; // draw actual color with background instead
       }
     }
   }
@@ -1347,7 +1347,7 @@ window.budgie-switcher-window {
     background-color: track($dark_bg, $a_osd);
   }
 
-  // sepcific 8px rounded corners need decoration
+  // specific 8px rounded corners need decoration
   // radii as well.
   &,
   decoration { @include radius($r_8 $r_8 0 0, none); }
@@ -1993,7 +1993,7 @@ window.background.lightdm {
     border-bottom: 1px solid $div_fg; // draw bottom border
   }
 
-  // tweak notebook colour
+  // tweak notebook color
   grid > paned > box > paned > box > notebook {
     @if $maj_ver == 3 {
       &, > stack:not(:only-child) {
@@ -2045,7 +2045,7 @@ paned.horizontal > paned.horizontal stack grid.vertical > grid.horizontal {
 // playlists styling
 row.trackrow {
   &, &playing {
-    // lollypop can not understand outer marigns
+    // lollypop can not understand outer margins
     button.image-button:not(.text-button),
     .track-menu-button { // back to square button
       &, &.toggle { // back to square button
@@ -2306,7 +2306,7 @@ window.background:not(.csd) > box.vertical {
     }
 
     &#launcher-arrow { // launcher applet
-      // FIXME: quite weird pseudo-classe transitions, especially :hover
+      // FIXME: quite weird pseudo-class transitions, especially :hover
       // state can't be cleared properly ( -> an upstream issue)
       &, + button.toggle {
         &:hover { box-shadow: none; } // hide indicators
@@ -2437,7 +2437,7 @@ window.background > paned.titlebar > headerbar.titlebar {
   }
 }
 
-// left-paned haederbar
+// left-paned headerbar
 paned.headerbar_pane.titlebar > headerbar.header_right.titlebar {
   > box.linked.raised > button.toggle { // should be .text-button
     // back to square buttons
@@ -3210,7 +3210,7 @@ MsdOsdWindow {
     }
     box-shadow: none;
 
-    // FIXME: seems images have inverted fore/back colours?
+    // FIXME: seems images have inverted fore/back colors?
     image { color: if($variant == mixed, $inv_fg, $fg); }
 
     .trough {
@@ -3306,7 +3306,7 @@ box#AuxToolbox {
   }
 }
 
-// scrolled colour-palette
+// scrolled color-palette
 #PreviewHolderScroller > viewport.frame {
   padding: 1px 0;
   border-style: solid none; // add fake border to top/bottom
@@ -3409,7 +3409,7 @@ box#InkSpinScale { // >= 0.92+
 //  ************/
 
 // workaround for the context-menus in Electron apps
-// do not use the alpha-blended colours
+// do not use the alpha-blended colors
 @if $maj_ver == 3 {
   @if $mnr_ver < 23 {
     window.popup:not(.csd) {
@@ -3592,7 +3592,7 @@ window.background > overlay > revealer { // parent container
     &.#{$_position} > scrolledwindow.frame {
       margin-#{$_side_margin}: 16px;
       border: none;
-      box-shadow: $z-depth-3; // depth-4 is semamtically right,
+      box-shadow: $z-depth-3; // depth-4 is semantically right,
                               // but too deep
     }
   }
@@ -3937,7 +3937,7 @@ dialog.background:not(.csd) {
     }
   }
 
-  // hide unndeeded animations (child radio node already has)
+  // hide unneeded animations (child radio node already has)
   .dialog-vbox grid.horizontal > grid.horizontal > modelbutton.flat {
     &:not(:disabled) {
       background-color: transparent;
