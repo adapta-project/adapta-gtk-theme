@@ -1115,7 +1115,8 @@ $extra_spacing: 2.5px;
   // this should be always smaller than min-height if f-s-f < 1.0
   height: if($ref_weight >= 1.0, 2.1em, 1.8em);
   @if $ver > 3.25 {
-    background-color: opacity($panel_bg, $a_fg_3rd);
+    background-color: if($variant == dark, $panel_hidden_bg,
+                                           opacity($panel_bg, $a_fg_3rd));
     box-shadow: $empty_shadow;
   }
   @else {
