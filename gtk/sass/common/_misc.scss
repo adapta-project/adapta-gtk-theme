@@ -608,9 +608,16 @@ dialog.background.csd > box.dialog-vbox.vertical {
 
 %slashed_pathbar {
   // enforce switching to flat-style
-  .linked.path-bar button:not(:checked):not(:hover):not(:active) {
-    border-color: transparent;
-    background-color: transparent;
+  .linked.path-bar button:not(:checked) {
+    &:not(:hover):not(:active) {
+      border-color: transparent;
+      background-color: transparent;
+    }
+    &:hover,
+    &:active {
+      border-color: transparent;
+      background-color: track(if($variant == mixed, $inv_fg, $fg), $a_trk_1);
+    }
   }
 }
 
