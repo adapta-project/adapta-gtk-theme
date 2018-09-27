@@ -966,7 +966,7 @@ button {
       }
     }
 
-    &.text-button {
+    &.text-button:not(.circular) { // exclude circular class
       &, &.flat { // use tab-like switcher styling
         min-width: rem($widget_size * 3);
         @include radius(0);
@@ -1008,6 +1008,18 @@ button {
             }
           }
         }
+      }
+    }
+
+    &.circular.text-button.radio { // for shortcut windows
+      &, &.flat {
+        min-width: rem($widget_size);
+        min-height: rem($widget_size);
+        padding: 0;
+        @include radius($r);
+
+        // we just concern that numeric button only
+        label { margin-bottom: 0; }
       }
     }
   }
@@ -5717,7 +5729,14 @@ cursor-handle {
   }
 }
 
-@if $maj_ver == 4 {
+@if $maj_ver == 3 {
+  shortcut.horizontal {
+    padding-bottom: 6px; // reserve drop-shadow region
+
+    tooltip.background & { padding: 0; } // reset for tooltip nodes
+  }
+}
+@else {
   shortcuts { // NEEDS_REVIEW
     &-group {
     }
