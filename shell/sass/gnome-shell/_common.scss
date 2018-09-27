@@ -2181,8 +2181,7 @@ $extra_spacing: 2.5px;
   border-radius: $r;
   border: 2px solid transparent;
   color: $ter_fg;
-  background-color: if($variant == dark, opacity($osd_bg, $a_fg_3rd),
-                                         opacity($base, $a_fg_3rd));
+  background-color: opacity($base, $a_fg_3rd);
   box-shadow: $empty_shadow;
   font-weight: 400;
   transition-duration: $tr_d_std;
@@ -2195,7 +2194,8 @@ $extra_spacing: 2.5px;
   &:hover,
   &:focus {
     color: $fg;
-    background-color: if($variant == dark, $osd_bg, $base);
+    caret-color: $fg;
+    background-color: $base;
     box-shadow: $z-depth-2;
   }
 
