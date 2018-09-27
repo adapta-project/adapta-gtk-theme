@@ -1872,6 +1872,12 @@ toolbar {
     color: if($variant == light, $fg, $inv_fg);
     box-shadow: $z-depth-3;
 
+   &.toolbar { // unset drop-shadows for Gnome-documents since that app can't
+               // deal with outer margins at all.
+     margin: unset;
+     box-shadow: none;
+   }
+
     button,
     .linked > button {
       &, &.flat {
