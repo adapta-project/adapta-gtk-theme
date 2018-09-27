@@ -2728,7 +2728,8 @@ widget {
   }
 }
 
-graph-switcher-button.toggle {
+%graph_switcher {
+  background-image: none;
   color: $sec_fg;
   font-weight: 500;
   &:hover { // use opaque
@@ -2740,7 +2741,22 @@ graph-switcher-button.toggle {
     background-image: image( // use outline-track alpha
                         mix($sel_bg, $bg, percentage($a_trk_out)));
     color: $sel_label;
+    animation: none;
   }
+}
+
+@if $maj_ver == 3 {
+  @if $mnr_ver < 23 {
+    graph-switcher-button.toggle { @extend %graph_switcher; }
+  }
+  @else {
+    button.flat.graph-switcher { // >= 3.30
+      @extend %graph_switcher;
+    }
+  }
+}
+@else {
+  button.flat.graph-switcher { @extend %graph_switcher; }
 }
 
 rg-graph.big {
