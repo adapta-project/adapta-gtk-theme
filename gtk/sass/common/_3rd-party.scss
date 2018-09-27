@@ -18,16 +18,33 @@
 
   // transparent-mode
   &.transparent {
-    background-color: transparent;
+    // keep translucent background in light variant (!dock-mode)
+    background-color: if($variant == light, track($panel_bg, $a_fg_3rd),
+                                            transparent);
     color: if($variant == mixed, $inv_fg, $fg);
     @include transition(dec);
 
-    // draw shadows by default
-    // FIXME: NaTray puts widgets as "widgets",
-    // so we can not render icons-shadows anyhow...
-    image { -gtk-icon-shadow: $z-depth-1; }
+    @if $variant != light {
+      // draw shadows by default
+      // FIXME: NaTray puts widgets as "widgets",
+      // so we can not render icons-shadows anyhow...
+      image { -gtk-icon-shadow: $z-depth-1; }
 
-    label { text-shadow: $z-depth-1; }
+      label { text-shadow: $z-depth-1; }
+    }
+
+    // clear all backgrounds for dock-mode
+    // &.dock-mode {
+    //   background-color: transparent;
+
+    //   @each $_pos, $_line in (top, 0 3px),
+    //                          (bottom, 0 -3px),
+    //                          (left, 3px 0),
+    //                          (right, -3px 0) {
+    //     // fill indicator region with panel backgrounds
+    //     .#{$_pos} & { box-shadow: inset #{$_line} $panel_bg; }
+    //   }
+    // }
   }
 }
 
