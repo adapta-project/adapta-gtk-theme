@@ -45,7 +45,13 @@ else
              ../gnome-shell-brila/extensions/window-list \
              ../gnome-shell-brila/extensions/workspaces-to-dock \
              ../gnome-shell-nokto/extensions/window-list \
-             ../gnome-shell-nokto/extensions/workspaces-to-dock
+             ../gnome-shell-nokto/extensions/workspaces-to-dock \
+             ../gnome-shell-eta/extensions/window-list \
+             ../gnome-shell-eta/extensions/workspaces-to-dock \
+             ../gnome-shell-brila-eta/extensions/window-list \
+             ../gnome-shell-brila-eta/extensions/workspaces-to-dock \
+             ../gnome-shell-nokto-eta/extensions/window-list \
+             ../gnome-shell-nokto-eta/extensions/workspaces-to-dock
 
     $SASSC \
         gnome-shell/$GNOME_SCSS_VERSION/gnome-shell.scss \
@@ -134,6 +140,18 @@ else
         ../gnome-shell-nokto/extensions/window-list/stylesheet.css
     echo Wrote ../gnome-shell-nokto/extensions/window-list/stylesheet.css
     $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/stylesheet-dark.scss \
+        ../gnome-shell-eta/extensions/window-list/stylesheet.css
+    echo Wrote ../gnome-shell-eta/extensions/window-list/stylesheet.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/stylesheet-light.scss \
+        ../gnome-shell-brila-eta/extensions/window-list/stylesheet.css
+    echo Wrote ../gnome-shell-brila-eta/extensions/window-list/stylesheet.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/stylesheet-dark.scss \
+        ../gnome-shell-nokto-eta/extensions/window-list/stylesheet.css
+    echo Wrote ../gnome-shell-nokto-eta/extensions/window-list/stylesheet.css
+    $SASSC \
         gnome-shell/$GNOME_SCSS_VERSION/classic-dark.scss \
         ../gnome-shell/extensions/window-list/classic.css
     echo Wrote ../gnome-shell/extensions/window-list/classic.css
@@ -146,6 +164,18 @@ else
         ../gnome-shell-nokto/extensions/window-list/classic.css
     echo Wrote ../gnome-shell-nokto/extensions/window-list/classic.css
     $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/classic-dark.scss \
+        ../gnome-shell-eta/extensions/window-list/classic.css
+    echo Wrote ../gnome-shell-eta/extensions/window-list/classic.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/classic-light.scss \
+        ../gnome-shell-brila-eta/extensions/window-list/classic.css
+    echo Wrote ../gnome-shell-brila-eta/extensions/window-list/classic.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/classic-dark.scss \
+        ../gnome-shell-nokto-eta/extensions/window-list/classic.css
+    echo Wrote ../gnome-shell-nokto-eta/extensions/window-list/classic.css
+    $SASSC \
         gnome-shell/$GNOME_SCSS_VERSION/workspaces-to-dock-dark.scss \
         ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
     echo Wrote ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
@@ -157,6 +187,18 @@ else
         gnome-shell/$GNOME_SCSS_VERSION/workspaces-to-dock-dark.scss \
         ../gnome-shell-nokto/extensions/workspaces-to-dock/workspaces-to-dock.css
     echo Wrote ../gnome-shell-nokto/extensions/workspaces-to-dock/workspaces-to-dock.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/workspaces-to-dock-dark.scss \
+        ../gnome-shell-eta/extensions/workspaces-to-dock/workspaces-to-dock.css
+    echo Wrote ../gnome-shell-eta/extensions/workspaces-to-dock/workspaces-to-dock.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/workspaces-to-dock-light.scss \
+        ../gnome-shell-brila-eta/extensions/workspaces-to-dock/workspaces-to-dock.css
+    echo Wrote ../gnome-shell-brila-eta/extensions/workspaces-to-dock/workspaces-to-dock.css
+    $SASSC \
+        gnome-shell/$GNOME_SCSS_VERSION/workspaces-to-dock-dark.scss \
+        ../gnome-shell-nokto-eta/extensions/workspaces-to-dock/workspaces-to-dock.css
+    echo Wrote ../gnome-shell-nokto-eta/extensions/workspaces-to-dock/workspaces-to-dock.css
 fi
 
 # Cinnamon
