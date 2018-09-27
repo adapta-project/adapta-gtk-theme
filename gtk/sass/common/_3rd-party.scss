@@ -197,7 +197,10 @@ box.pinned { // drop-target
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running {
       > image {
-        background-image: image($sel_bg);
+        background-image:
+          if($variant == light,
+             image($sel_bg),
+             image(mix($sel_bg, $sel_fg, percentage(1 - $a_trk_out))));
         background-size: #{$_dot};
         background-position: #{$position} center;
       }
@@ -3890,7 +3893,10 @@ button.flat.-panel-icon-button {
   @extend %running_budgie_icon_tasklist_button;
 
   > image {
-    background-image: image($sel_bg);
+    background-image:
+      if($variant == light,
+         image($sel_bg),
+         image(mix($sel_bg, $sel_fg, percentage(1 - $a_trk_out))));
     background-size: (6px / 1.1) 2px; // 1:1.1 aspect deformation exists
     background-position: bottom center;
   }
