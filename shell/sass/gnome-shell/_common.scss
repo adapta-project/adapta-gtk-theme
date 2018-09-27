@@ -2764,14 +2764,17 @@ $provider_icon_size: 32px; // for < 3.25
 .workspace {
   &-thumbnails,
   &-thumbnails-left { // container ala dash
-    visible-width: 32px; // amount visible before hover
+    visible-width: 32px + 24px; // amount visible before hover
     spacing: 12px;
+    margin-top: 16px;
     margin-bottom: 32px;
     padding: 12px;
     border: none;
-    border-radius: 0;
-    background-color: $panel_hidden_bg;
-    color: $ovv_fg;
+    background-color: opacity($osd_bg, $a_osd);
+    color: $osd_fg;
+    box-shadow: $z-depth-4;
+
+    > * { background-color: red; }
 
     StBin.placeholder { // solid-line indicator for drop-target
       height: 4px;
@@ -2780,30 +2783,32 @@ $provider_icon_size: 32px; // for < 3.25
   }
 
   &-thumbnail-indicator {
-    border: 0 solid $sel_bg;
     border-radius: 0;
+    background-color: $hidden_fill_bg;
     &:ltr {
-      padding: 6px 6px 6px 10px;
-      border-left-width: 2px;
+      padding: 0 0 0 12px;
+      box-shadow: inset 4px 0 $sel_bg;
     }
     &:rtl {
-      padding: 6px 10px 6px 6px;
-      border-right-width: 2px;
+      padding: 0 12px 0 0;
+      box-shadow: inset -4px 0 $sel_bg;
     }
   }
 
   &-thumbnails,
   &-thumbnails-left:rtl {
-    box-shadow: inset 1px 0 $ovv_out_fg;
+    border-radius: $r_8 0 0 $r_8;
+    margin-left: 24px;
   }
 
   &-thumbnails:rtl,
   &-thumbnails-left {
-    box-shadow: inset -1px 0 $ovv_out_fg;
+    border-radius: 0 $r_8 $r_8 0;
+    margin-right: 24px;
 
     .workspace-thumbnail-indicator {
-      padding: 6px 10px 6px 6px;
-      border-right-width: 2px;
+      padding: 0 12px 0 0;
+      box-shadow: inset -4px 0 $sel_bg;
     }
   }
 }
