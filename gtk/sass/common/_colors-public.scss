@@ -181,7 +181,9 @@
 
 // unfocused window 'dot(s)'
 @define-color budgie_tasklist_indicator_color #{"" +
-              $sel_bg};
+              if($variant == light,
+              $sel_bg,
+              mix($sel_bg, $sel_fg, percentage(1 - $a_trk_out)))};
 // focused window 'line'
 @define-color budgie_tasklist_indicator_color_active #{"" +
               $sel_bg};
