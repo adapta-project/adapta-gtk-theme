@@ -3555,7 +3555,9 @@ window.background.chromium {
     border-color: $sel_bg;
   }
 
-  > button:not(.suggested-action):not(.destructive-action) {
+  > button:not(.suggested-action):not(.destructive-action),
+  > treeview.view button,
+  > scrollbar button {
     // adn then reset above borders for generic buttons
     border-color: $div_fg;
   }
