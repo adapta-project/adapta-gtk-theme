@@ -24,10 +24,12 @@ shell_file = \
 	$(shelldir)/pad-osd.css \
 	$(shelldir)/process-working.svg \
 	$(shelldir)/toggle-off.svg \
-	$(shelldir)/toggle-on.svg \
+	$(shelldir)/toggle-on.svg
+shell_classic_file = \
 	$(shelldir)/extensions/window-list/classic.css \
 	$(shelldir)/extensions/window-list/stylesheet.css \
-	$(shelldir)/extensions/window-list/README \
+	$(shelldir)/extensions/window-list/README
+shell_wtd_file = \
 	$(shelldir)/extensions/workspaces-to-dock/workspaces-to-dock.css
 if ENABLE_GNOME
 if GNOME_IS_326_OR_NEWER
@@ -94,9 +96,11 @@ shell_brila_file = \
 	$(shellbriladir)/pad-osd.css \
 	$(shellbriladir)/process-working.svg \
 	$(shellbriladir)/toggle-off.svg \
-	$(shellbriladir)/toggle-on.svg \
+	$(shellbriladir)/toggle-on.svg
+shell_brila_classic_file = \
 	$(shellbriladir)/extensions/window-list/classic.css \
-	$(shellbriladir)/extensions/window-list/stylesheet.css \
+	$(shellbriladir)/extensions/window-list/stylesheet.css
+shell_brila_wtd_file = \
 	$(shellbriladir)/extensions/workspaces-to-dock/workspaces-to-dock.css
 if ENABLE_GNOME
 if GNOME_IS_326_OR_NEWER
@@ -143,8 +147,10 @@ shell_nokto_file = \
 	$(shellnoktodir)/process-working.svg \
 	$(shellnoktodir)/toggle-off.svg \
 	$(shellnoktodir)/toggle-on.svg
+shell_nokto_classic_file = \
 	$(shellnoktodir)/extensions/window-list/classic.css \
-	$(shellnoktodir)/extensions/window-list/stylesheet.css \
+	$(shellnoktodir)/extensions/window-list/stylesheet.css
+shell_nokto_wtd_file = \
 	$(shellnoktodir)/extensions/workspaces-to-dock/workspaces-to-dock.css
 if ENABLE_GNOME
 if GNOME_IS_326_OR_NEWER
@@ -190,9 +196,11 @@ shell_eta_file = \
 	$(shelletadir)/pad-osd.css \
 	$(shelletadir)/process-working.svg \
 	$(shelletadir)/toggle-off.svg \
-	$(shelletadir)/toggle-on.svg \
+	$(shelletadir)/toggle-on.svg
+shell_eta_classic_file = \
 	$(shelletadir)/extensions/window-list/classic.css \
-	$(shelletadir)/extensions/window-list/stylesheet.css \
+	$(shelletadir)/extensions/window-list/stylesheet.css
+shell_eta_wtd_file = \
 	$(shelletadir)/extensions/workspaces-to-dock/workspaces-to-dock.css
 if ENABLE_GNOME
 if GNOME_IS_326_OR_NEWER
@@ -238,9 +246,11 @@ shell_brila_eta_file = \
 	$(shellbrilaetadir)/pad-osd.css \
 	$(shellbrilaetadir)/process-working.svg \
 	$(shellbrilaetadir)/toggle-off.svg \
-	$(shellbrilaetadir)/toggle-on.svg \
+	$(shellbrilaetadir)/toggle-on.svg
+shell_brila_eta_classic_file = \
 	$(shellbrilaetadir)/extensions/window-list/classic.css \
-	$(shellbrilaetadir)/extensions/window-list/stylesheet.css \
+	$(shellbrilaetadir)/extensions/window-list/stylesheet.css
+shell_brila_eta_wtd_file = \
 	$(shellbrilaetadir)/extensions/workspaces-to-dock/workspaces-to-dock.css
 if ENABLE_GNOME
 if GNOME_IS_326_OR_NEWER
@@ -285,9 +295,11 @@ shell_nokto_eta_file = \
 	$(shellnoktoetadir)/noise-texture.png \
 	$(shellnoktoetadir)/process-working.svg \
 	$(shellnoktoetadir)/toggle-off.svg \
-	$(shellnoktoetadir)/toggle-on.svg \
+	$(shellnoktoetadir)/toggle-on.svg
+shell_nokto_eta_classic_file = \
 	$(shellnoktoetadir)/extensions/window-list/classic.css \
-	$(shellnoktoetadir)/extensions/window-list/stylesheet.css \
+	$(shellnoktoetadir)/extensions/window-list/stylesheet.css
+shell_nokto_eta_wtd_file = \
 	$(shellnoktoetadir)/extensions/workspaces-to-dock/workspaces-to-dock.css
 if ENABLE_GNOME
 if GNOME_IS_326_OR_NEWER
@@ -608,6 +620,8 @@ if ENABLE_GNOME
 	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_file) $(adaptadir)/gnome-shell
+	cp -Rv $(shell_classic_file) $(adaptadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_wtd_file) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_asset_file) $(adaptadir)/gnome-shell/assets
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
@@ -622,6 +636,8 @@ endif
 	$(MKDIR_P) $(briladir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(briladir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_brila_file) $(briladir)/gnome-shell
+	cp -Rv $(shell_brila_classic_file) $(briladir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_brila_wtd_file) $(briladir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_brila_asset_file) $(briladir)/gnome-shell/assets
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(briladir)/gnome-shell/extensions/workspaces-to-dock/assets
@@ -636,6 +652,8 @@ endif
 	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_nokto_file) $(noktodir)/gnome-shell
+	cp -Rv $(shell_nokto_classic_file) $(noktodir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_nokto_wtd_file) $(noktodir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_nokto_asset_file) $(noktodir)/gnome-shell/assets
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
@@ -650,6 +668,8 @@ endif
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_eta_file) $(adaptaetadir)/gnome-shell
+	cp -Rv $(shell_eta_classic_file) $(adaptaetadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_eta_wtd_file) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_eta_asset_file) $(adaptaetadir)/gnome-shell/assets
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
@@ -664,6 +684,8 @@ endif
 	$(MKDIR_P) $(brilaetadir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(brilaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_brila_eta_file) $(brilaetadir)/gnome-shell
+	cp -Rv $(shell_brila_eta_classic_file) $(brilaetadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_brila_eta_wtd_file) $(brilaetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_brila_eta_asset_file) $(brilaetadir)/gnome-shell/assets
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(brilaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
@@ -678,6 +700,8 @@ endif
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 	cp -Rv $(shell_nokto_eta_file) $(noktoetadir)/gnome-shell
+	cp -Rv $(shell_nokto_eta_classic_file) $(noktoetadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_nokto_eta_wtd_file) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_nokto_eta_asset_file) $(noktoetadir)/gnome-shell/assets
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
