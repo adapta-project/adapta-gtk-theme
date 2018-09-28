@@ -342,13 +342,19 @@ list.tweak-group-startup {
   }
   @else {
     list.tweak-group-startup {
-      > row { @extend %startup_list_row; }
+      > row {
+        @extend %startup_list_row;
+        &:hover > grid { background-image: none; }
+      }
     }
   }
 }
 @else {
   list.tweak-group-startup {
-    > row { @extend %startup_list_row; }
+    > row {
+      @extend %startup_list_row;
+      &:hover > grid { background-image: none; }
+    }
   }
 }
 
