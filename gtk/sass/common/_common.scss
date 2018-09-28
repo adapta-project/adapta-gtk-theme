@@ -349,8 +349,14 @@ entry {
     progress { @extend %entry_progress; }
   }
 
-  toolbar *:not(.linked) & progress,
-  &.flat progress { @include radius(0, none); }
+  @if $maj_ver == 4 {
+    toolbar *:not(.linked) & progress > trougn > progress,
+    &.flat progress > trougn > progress { @include radius(0, none); }
+  }
+  @else {
+    toolbar *:not(.linked) & progress,
+    &.flat progress { @include radius(0, none); }
+  }
 
   // entry error, warning and missing style
   @each $e_type, $e_color in (error, $err),
