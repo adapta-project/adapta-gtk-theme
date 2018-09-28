@@ -277,62 +277,78 @@ row.tweak {
 // container and tweaks in a group
 list.tweak-group-startup {
   background-color: $bg;
+}
 
-  row {
-    &.activatable {
-      padding: rem($entry_lr_space);
-      background-image: image($bg);
-      background-repeat: repeat-x;
-      background-size: auto;
-      transition-duration: 0s; // child 'grid' already has
-      &:hover {
-        > grid {
-          background-image: image(track($sec_fg, $a_trk_1));
-          transition: background-image $tr_d_std $tr_t_dec;
-        }
-      }
-      &:active { // disable ripples
-        @include transition(reset);
-      }
-
-      > grid { // actual container
-        @include radius($r_2);
-        padding: rem($entry_lr_space);
-        transition: background-image $tr_d_std $tr_t_dec;
-
-        > button { // 'remove' buttons
-          @include button(raised-normal, $c: $dest_bg,
-                                         $tc: $sec_sel_fg);
-          @include ink-reaction(normal, $fc: $sel_fg,
-                                $tr: ink-normal-dec);
-          &:hover {
-            @include button(raised-hover, $c: $dest_bg,
-                                          $tc: $sel_fg);
-          }
-          &:active {
-            @include button(raised-active, $c: $sel_bg,
-                                           $tc: $sel_fg);
-            @include ink-reaction(active-dec, $fc: $sel_fg,
-                                  $tr: ink-active-dec);
-          }
-          &:checked {
-            @include button(raised-checked);
-            &:disabled {
-              border-color: mix($dest_bg, $bg, percentage($a_trk_1));
-              background-color: mix($dest_bg, $bg, percentage($a_trk_1));
-              color: $dis_sel_fg;
-            }
-          }
-          &:disabled {
-            @include button(raised-disabled, $c: $base, $tc: $fg);
-          }
-        }
-      }
-
-      // raised 'plus' button
-      // prevent truncated drop-shadow
-      > button { margin: 0 rem($entry_lr_space) $entry_lr_space; }
+%startup_list_row {
+  padding: rem($entry_lr_space);
+  background-image: image($bg);
+  background-repeat: repeat-x;
+  background-size: auto;
+  transition-duration: 0s; // child 'grid' already has
+  &:hover {
+    > grid {
+      background-image: image(track($sec_fg, $a_trk_1));
+      transition: background-image $tr_d_std $tr_t_dec;
     }
+  }
+  &:active { // disable ripples
+    @include transition(reset);
+  }
+
+  > grid { // actual container
+    @include radius($r_2);
+    padding: rem($entry_lr_space);
+    transition: background-image $tr_d_std $tr_t_dec;
+
+    > button { // 'remove' buttons
+      @include button(raised-normal, $c: $dest_bg,
+                                     $tc: $sec_sel_fg);
+      @include ink-reaction(normal, $fc: $sel_fg,
+                            $tr: ink-normal-dec);
+      &:hover {
+        @include button(raised-hover, $c: $dest_bg,
+                                      $tc: $sel_fg);
+      }
+      &:active {
+        @include button(raised-active, $c: $sel_bg,
+                                       $tc: $sel_fg);
+        @include ink-reaction(active-dec, $fc: $sel_fg,
+                              $tr: ink-active-dec);
+      }
+      &:checked {
+        @include button(raised-checked);
+        &:disabled {
+          border-color: mix($dest_bg, $bg, percentage($a_trk_1));
+          background-color: mix($dest_bg, $bg, percentage($a_trk_1));
+          color: $dis_sel_fg;
+        }
+      }
+      &:disabled {
+        @include button(raised-disabled, $c: $base, $tc: $fg);
+      }
+    }
+  }
+
+  // raised 'plus' button
+  // prevent truncated drop-shadow
+  > button { margin: 0 rem($entry_lr_space) $entry_lr_space; }
+}
+
+@if $maj_ver == 3 {
+  @if $mnr_ver < 23 {
+    list.tweak-group-startup {
+      > row.activatable { @extend %startup_list_row; }
+    }
+  }
+  @else {
+    list.tweak-group-startup {
+      > row { @extend %startup_list_row; }
+    }
+  }
+}
+@else {
+  list.tweak-group-startup {
+    > row { @extend %startup_list_row; }
   }
 }
 
