@@ -354,8 +354,7 @@ entry {
 
   // entry error, warning and missing style
   @each $e_type, $e_color in (error, $err),
-                             (warning, $warn),
-                             (search-missing, $err) {
+                             (warning, $warn) {
     &.#{$e_type} {
       @include entry(normal, $fc: $e_color);
       &:focus { @include entry(focus, $fc: $e_color); }
