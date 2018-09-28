@@ -31,16 +31,33 @@
                   (row, solid, 2px, -2px),
                   (tab, none, 0, 0),
                   (label, solid, 2px, 0), {
-  #{$_node} {
-    outline-style: #{$_style};
-    outline-width: #{$_width};
-    outline-offset: #{$_offset};
+  @if $maj_ver == 3 {
+    #{$_node} {
+      outline-style: #{$_style};
+      outline-width: #{$_width};
+      outline-offset: #{$_offset};
 
-    @if $_style == solid {
-      .titlebar &,
-      headerbar & { // enforce hiding all in these elements
-        outline-style: none;
-        outline-width: 0;
+      @if $_style == solid {
+        .titlebar &,
+        headerbar & { // enforce hiding all in these elements
+          outline-style: none;
+          outline-width: 0;
+        }
+      }
+    }
+  }
+  @else {
+    #{$_node}:focus(visible) {
+      outline-style: #{$_style};
+      outline-width: #{$_width};
+      outline-offset: #{$_offset};
+
+      @if $_style == solid {
+        .titlebar &,
+        headerbar & { // enforce hiding all in these elements
+          outline-style: none;
+          outline-width: 0;
+        }
       }
     }
   }
