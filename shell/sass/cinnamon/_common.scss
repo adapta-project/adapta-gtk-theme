@@ -1529,8 +1529,8 @@ $ws_thumb_spacing: 32px;
     spacing: 8px; // = .switcher-list-item-container
     border: none;
     border-radius: $r_4;
-    color: $fg;
-    background-color: $dark_bg;
+    color: $osd_fg;
+    background-color: $osd_bg;
     box-shadow: $z-depth-3;
   }
 }
@@ -2231,13 +2231,13 @@ StBin.menu {
   // .switcher-list should be with StBin
   // at the root metaWindow
   StBoxLayout.switcher-list {
-    border-radius: 0;
+    margin: 10px - 4px;
+    border-radius: $r_4;
+    background-color: $osd_bg; // use opaque
 
     .item-box {
-      border-radius: 0; // fill entire surface to cover up the parent
-      background-color: $osd_bg; // use opaque
-      &:outlined,
-      &:selected { border-radius: $r_4; }
+      background-color: $hidden_fill_bg;
+      border-radius: $r_4;
       &:selected {
         background-color: mix($osd_bg, $acc_bg, percentage(1 - $a_trk_2));
       }
