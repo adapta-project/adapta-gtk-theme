@@ -360,4 +360,6 @@ Donations
 
 Special Thanks to
 --------------
- Nana-4, the developer of Materia (formerly Flat-Plat).
+ Nana-4, the developer of Materia Gtk+ theme (formerly Flat-Plat)
+
+ Sam Hewitt, the developer of Paper Icon/Cursor Theme
