@@ -2407,9 +2407,25 @@ dialog.background.csd {
 
         > .item { color: if($variant == mixed, $dis_inv_fg, $dis_fg); }
       }
+    }
 
-      // slash symbols
-      > label { color: if($variant == mixed, $inv_ter_fg, $ter_fg); }
+    // slash symbols
+    > label {
+      @if $maj_ver == 3 {
+        @if $mnr_ver < 23 {
+          color: if($variant == mixed, $inv_ter_fg, $ter_fg);
+        }
+        @else { // hack for stock dconf-editor.css
+          @if $variant == mixed {
+            &:not(:backdrop) { text-shadow: 1px 0 $inv_ter_fg; }
+          }
+        }
+      }
+      @else {
+        @if $variant == mixed {
+          &:not(:backdrop) { text-shadow: 1px 0 $inv_ter_fg; }
+        }
+      }
     }
   }
 }
@@ -2423,7 +2439,8 @@ dialog.background.csd {
 }
 
 .dconf-editor list.keys-list { // >= 3.27.91
-  > grid.horizontal > separator { // hide separators from folder views
+  > grid.horizontal > separator,
+  > grid.vertical > label.header-label + separator { // hide separators
     all: unset;
   }
 
