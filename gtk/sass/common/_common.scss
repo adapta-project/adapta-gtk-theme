@@ -3986,13 +3986,10 @@ scale { // marks color
 }
 
 scale.marks {
-  &-before.horizontal { // vertically centered placements
-    padding-bottom: calc(#{$_marks_length} + #{$scale_trough_size});
-  }
+  // vertically centered placements
+  &-before.horizontal { padding-bottom: $_marks_length; }
 
-  &-after.horizontal {
-    padding-top: calc(#{$_marks_length} + #{$scale_trough_size});
-  }
+  &-after.horizontal { padding-top: $_marks_length; }
 
   &-before,
   &-after {
