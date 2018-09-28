@@ -1893,8 +1893,15 @@ button.dzlmenubuttonitem.check { // menuitem buttons
 }
 
 // side-bar styling
-window overlay > grid > frame > grid {
-  scrolledwindow > viewport.frame { @extend %sidebar_template; }
+window grid.titlebar + overlay > grid.horizontal > frame {
+  > border {
+    &:dir(ltr) { border-width: 0 1px 0 0; }
+    &:dir(rtl) { border-width: 0 0 0 1px; }
+  }
+
+  > grid scrolledwindow > viewport.frame {
+    @extend %sidebar_template;
+  }
 }
 
 list.contacts {
