@@ -3589,14 +3589,10 @@ window.background.chromium {
   // internal region of toolbar's entry widget
   > textview.view {
     background-color: $base;
+  }
 
-    @if $variant == dark {
-      text selection {
-        // enforce light-variant mode selection
-        // background-color: mix($sel_bg, $fix_base, percentage($a_fg_bdp));
-        // color: $fix_fg;
-      }
-    }
+  @if $variant == mixed { // do not mix with foregrounds
+    > spinner { color: $acc_bg; }
   }
 }
 
