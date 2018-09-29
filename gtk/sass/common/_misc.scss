@@ -2674,65 +2674,79 @@ dialog.background {
 
 window.background > box.vertical > overlay > stack > box.vertical {
   > scrolledwindow > viewport.frame {
-    button.tile.view {
-      // prevent unwanted truncation of drop-shadows
-      margin: $shadow_margin_3;
-      @include ink-reaction(normal, $tr: ink-normal-dec);
-      // revive ripple-effect
-      &:active {
-        @include ink-reaction(active-dec, $tr: ink-active-dec);
-      }
-    }
-
     box.vertical > label.heading { color: $ter_fg; }
   }
 }
 
 window.background > box.vertical > overlay > stack > box.horizontal {
   > stack > box.horizontal > scrolledwindow > viewport.frame {
+    margin-top: -1px; // hide weird gap
+
     // right-pane scrolled-window
-    > box.vertical > label.heading { color: $ter_fg; }
+    > box.vertical {
+      > label.heading { color: $ter_fg; }
+    }
 
     // left-pane sidebar
     > list {
       @extend %sidebar_template;
+      &:dir(ltr) { border-right: 1px solid $div_fg; }
+      &:dir(rtl) { border-left: 1px solid $div_fg; }
 
       > row.activatable {
         background-color: transparent;
         color: $sec_fg;
-        box-shadow: none;
 
         > label.sidebar {
-          box-shadow: unset; // unset .sidebar class shadows
           color: $sec_fg;
           font-weight: 500;
         }
 
-        &:hover,
-        &:active {
+        &:hover {
+          background-color: $trk_bg;
 
           &, > label.sidebar { color: $fg; }
         }
+        &:active,
         &:selected {
-          background-color: transparent;
+          background-color: $trk_bg;
 
-          &, > label.sidebar { color: $sel_bg; }
+          &, > label.sidebar { color: $sel_label; }
+
+          &:hover {
+            background-color: $trk_bg;
+
+            &, > label.sidebar { color: $sel_hi_label; }
+          }
         }
       }
     }
   }
 }
 
-flowbox > flowboxchild > button.recipe.tile.view {
-  // add outer spacing around those tiles
-  // to prevent unwanted truncation of drop-shadows
-  margin: $shadow_margin_3;
-}
-
 // Note box
 box.note > label { font-weight: 700; } // title
 
 label.content.note { color: $fix_fg; } // enforce dark label color
+
+overlay.recipe > image + box { // title and author box
+  margin-bottom: 6px; // make room from bottom edge of images
+  opacity: $a_osd;
+  &:dir(ltr) {
+    margin-right: 12px;
+
+    box.name.recipe { border-top-right-radius: $r_4; }
+
+    label.author.recipe { border-bottom-right-radius: $r_4; }
+  }
+  &:dir(rtl) {
+    margin-left: 12px;
+
+    box.name.recipe { border-top-left-radius: $r_4; }
+
+    label.author.recipe { border-bottom-left-radius: $r_4; }
+  }
+}
 
 // /***************
 //  * Gnome-Usage *
