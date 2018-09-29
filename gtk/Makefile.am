@@ -164,6 +164,10 @@ gtk2_button_file = \
 	$(gtk2_assetdir)/Buttons/button.png \
 	$(gtk2_assetdir)/Buttons/flat-button-active.png \
 	$(gtk2_assetdir)/Buttons/flat-button-hover.png \
+	$(gtk2_assetdir)/Buttons/location-button.png \
+	$(gtk2_assetdir)/Buttons/location-button-hover.png \
+	$(gtk2_assetdir)/Buttons/location-button-active.png \
+	$(gtk2_assetdir)/Buttons/location-button-insensitive.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-active.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-hover.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-insensitive.png \
@@ -362,6 +366,10 @@ gtk2_nokto_button_file = \
 	$(gtk2_assetdir)/Buttons/button-insensitive-dark.png \
 	$(gtk2_assetdir)/Buttons/flat-button-active-dark.png \
 	$(gtk2_assetdir)/Buttons/flat-button-hover-dark.png \
+	$(gtk2_assetdir)/Buttons/location-button-dark.png \
+	$(gtk2_assetdir)/Buttons/location-button-active-dark.png \
+	$(gtk2_assetdir)/Buttons/location-button-hover-dark.png \
+	$(gtk2_assetdir)/Buttons/location-button-insensitive-dark.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-active-dark.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-dark.png \
 	$(gtk2_assetdir)/Buttons/ltr-button-hover-dark.png \

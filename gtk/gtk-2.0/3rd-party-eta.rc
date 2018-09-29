@@ -330,35 +330,35 @@ style "thunar_location_button" = "location_button" {
 
   fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @fg_color
+  fg[ACTIVE] = @selected_fg_color
   fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
       function = BOX
       state    = NORMAL
-      file     = "Others/null.svg"
+      file     = "Buttons/location-button.png"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = PRELIGHT
-      file     = "Buttons/flat-button-hover.png"
+      file     = "Buttons/location-button-hover.png"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = ACTIVE
-      file     = "Buttons/flat-button-active.png"
+      file     = "Buttons/location-button-active.png"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = INSENSITIVE
-      file     = "Others/null.svg"
+      file     = "Buttons/location-button-insensitive.png"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
@@ -561,10 +561,6 @@ style "fm_tabpage" {
       stretch     = TRUE
     }
   }
-}
-
-style "location_button_label" {
-  fg[ACTIVE] = @fg_color
 }
 
 widget_class "*<FmMainWin>*<GtkToolbar>"                       style "fm_toolbar"
