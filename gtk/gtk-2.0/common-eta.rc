@@ -1329,8 +1329,9 @@ style "link_button" = "button" {
 }
 
 style "location_button" {
-  xthickness = 2
-  ythickness = 3
+  GtkButton::inner-border = { 2, 2, 0, 0 }
+  xthickness = 3
+  ythickness = 0
 
   fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
