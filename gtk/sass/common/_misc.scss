@@ -2711,22 +2711,20 @@ button.tile.view { // damned stock CSS
   }
 
   &.recipe {
-    box > grid > & {
-      &:hover,
-      &:active { box-shadow: none; }
+    &:hover,
+    &:active { box-shadow: none; }
 
-      overlay.recipe > image {
-        opacity: if($variant != dark, 1.0, $a_osd);
-        transition-property: opacity,
-                             box-shadow;
-        transition-timing-function: $tr_t_dec;
-        transition-duration: $tr_d_lng;
-      }
+    overlay.recipe > image {
+      opacity: if($variant != dark, 1.0, $a_osd);
+      transition-property: opacity,
+                           box-shadow;
+      transition-timing-function: $tr_t_dec;
+      transition-duration: $tr_d_lng;
+    }
 
-      &:hover,
-      &:active {
-        overlay.recipe > image { opacity: if($variant != dark, $a_osd, 1.0); }
-      }
+    &:hover,
+    &:active {
+      overlay.recipe > image { opacity: if($variant != dark, $a_osd, 1.0); }
     }
   }
 }
