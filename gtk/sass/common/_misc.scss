@@ -2672,6 +2672,11 @@ dialog.background {
 //  * Gnome-Recipes *
 //  *****************/
 
+window.background > box.vertical > overlay > revealer.top + stack {
+  margin-top: -1px; // hide weird frame
+  background-color: $bg;
+}
+
 window.background > box.vertical > overlay > stack > box.vertical {
   > scrolledwindow > viewport.frame {
     box.vertical > label.heading { color: $ter_fg; }
@@ -2680,8 +2685,6 @@ window.background > box.vertical > overlay > stack > box.vertical {
 
 window.background > box.vertical > overlay > stack > box.horizontal {
   > stack > box.horizontal > scrolledwindow > viewport.frame {
-    margin-top: -1px; // hide weird gap
-
     // right-pane scrolled-window
     > box.vertical {
       > label.heading { color: $ter_fg; }
@@ -2724,12 +2727,54 @@ window.background > box.vertical > overlay > stack > box.horizontal {
   }
 }
 
+// tiles view buttons
+button.tile.view { // damned stock CSS
+  flowbox > flowboxchild > & {
+    &:hover { box-shadow: inset 0 0 0 9999px track($fg, $a_trk_1); }
+    &:active { box-shadow: inset 0 0 0 9999px track($fg, $a_trk_2); }
+  }
+
+  box > grid > & {
+    &:hover {
+      box-shadow: inset 0 0 0 9999px if($variant != dark,
+                                        track($inv_fg, $a_trk_1),
+                                        track($fg, $a_trk_1));
+    }
+    &:active {
+      box-shadow: inset 0 0 0 9999px if($variant != dark,
+                                        track($inv_fg, $a_trk_2),
+                                        track($fg, $a_trk_2));
+    }
+  }
+
+  &.recipe {
+    box > grid > & {
+      &:hover,
+      &:active { box-shadow: none; }
+
+      overlay.recipe > image {
+        opacity: if($variant != dark, 1.0, $a_osd);
+        transition-property: opacity,
+                             box-shadow;
+        transition-timing-function: $tr_t_dec;
+        transition-duration: $tr_d_lng;
+      }
+
+      &:hover,
+      &:active {
+        overlay.recipe > image { opacity: if($variant != dark, $a_osd, 1.0); }
+      }
+    }
+  }
+}
+
 // Note box
 box.note > label { font-weight: 700; } // title
 
 label.content.note { color: $fix_fg; } // enforce dark label color
 
-overlay.recipe > image + box { // title and author box
+// title and author box
+overlay.recipe > image + box {
   margin-bottom: 6px; // make room from bottom edge of images
   opacity: $a_osd;
   &:dir(ltr) {
