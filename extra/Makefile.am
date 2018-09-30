@@ -19,6 +19,8 @@ geditdir   = $(srcdir)/gedit
 gedit_file = \
 	$(geditdir)/adapta.xml \
 	$(geditdir)/README.md
+gedit_brila_file = \
+	$(geditdir)/adapta-brila.xml
 
 tweetdeckdir         = $(srcdir)/tweetdeck
 tweetdeck_light_file = $(tweetdeckdir)/light/ColorDeck-adapta.cdk
@@ -72,9 +74,11 @@ if ENABLE_TWEETDECK
 endif
 
 	$(MKDIR_P) $(adaptadir)/gedit
+	$(MKDIR_P) $(briladir)/gedit
+	$(MKDIR_P) $(noktodir)/gedit
 	cp -Rv $(gedit_file) $(adaptadir)/gedit
-	cd $(adaptadir)
-	ln -sf ../Adapta/gedit $(noktodir)/gedit
+	cp -Rv $(gedit_brila_file) $(briladir)/gedit
+	cp -Rv $(gedit_file) $(noktodir)/gedit
 
 # *******************
 # * Uninstall files *
@@ -103,6 +107,7 @@ if ENABLE_TWEETDECK
 endif
 
 	test -e $(noktodir)/gedit && rm -rfv $(noktodir)/gedit
+	test -e $(briladir)/gedit && rm -rfv $(briladir)/gedit
 	test -e $(adaptadir)/gedit && rm -rfv $(adaptadir)/gedit
 
 # ****************************
