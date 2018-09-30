@@ -234,14 +234,14 @@ Installation from Git Source
 
 GtkSourceView/Gedit Color Scheme Support
 ----------------------------------------
- A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
+ A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory, and `adapta-brila.xml` is installed into `Adapta-Brila/gedit` directory.
  See details in [**README.md**](/extra/gedit/README.md).
 
  > **Note:**
  >
  >   * The color-scheme can be used in Gnome-Builder, Gnome-Sushi, Meld and Gedit if installed to 
  >     `~/.local/share/gtksourceview-3.0/styles` or `~/.local/share/gtksourceview-4/styles` directory.
- >   * Currently only dark-variant is supported.
+ >   * A light-variant theming is experimental.
 
 Visual Studio Code (VS Code) Theme Support
 ------------------------------------------
