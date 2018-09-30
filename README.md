@@ -93,7 +93,7 @@ Supported Desktop Environments
 Unsupported Gtk+ Based Desktop(s)
 -------------------------------
  * Pantheon
- * Unity7
+ * Unity7 and Ubuntu customed Gnome-Shell
 
  > **Note:**
  >
