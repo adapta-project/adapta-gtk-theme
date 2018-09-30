@@ -3574,10 +3574,16 @@ window.background.chromium {
   }
 
   > button:not(.suggested-action):not(.destructive-action),
-  > treeview.view button,
-  > scrollbar button {
-    // adn then reset above borders for generic buttons
+  > treeview.view button {
+    // and then reset above borders for generic buttons
     border-color: $div_fg;
+  }
+
+  > treeview.view button { background-color: $bg; } // header buttons
+
+  > scrollbar button { // stepper buttons
+    border-color: $bg;
+    background-color: $bg;
   }
 
   entry.chromium {
