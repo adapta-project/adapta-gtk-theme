@@ -2346,7 +2346,11 @@ dialog.background.csd {
       @include radius($r_2);
 
       > .item {
-        margin: (-$toolbar_padding) 0;
+        @if $maj_ver == 3 {
+          @if $mnr_ver < 23 { margin: (-$toolbar_padding) 0; }
+          @else { margin: 0; }
+        }
+        @else { margin: 0; }
         padding: 0 rem($menuitem_padding);
         border: 0 none transparent;
         color: if($variant == mixed, $inv_sec_fg, $sec_fg);
