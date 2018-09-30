@@ -711,30 +711,12 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
 
 .geary-titlebar-right {
   > .linked.raised > button {
-    // tool-button array
-    &.image-button:not(.text-button) {
-    }
-
     // 'archive' button
     &:not(.image-button):not(.text-button):not(.suggested-action) {
       > widget > box > image { // archive icon
         margin-top: rem($baseline, $sw: 1.0); // reset baseline
       }
     }
-  }
-
-  > button.suggested-action { // 'send' button
-  }
-
-  box.horizontal:not(.linked):not(.right) {
-    button.image-button:not(.text-button):not(.titlebutton) {
-    }
-  }
-
-  button.suggested-action { // 'send' button
-  }
-
-  button.image-button.popup.toggle { // 'gear' button
   }
 }
 
@@ -748,8 +730,8 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
     font-weight: 400; // reset weight
     &:selected {
       &, &:focus {
-        background-color: track($sel_bg, $a_trk_2);
         color: $fg;
+        &, &:hover { background-color: track($sel_bg, $a_trk_2); }
         &:dir(ltr) { box-shadow: inset 4px 0 $sel_bg; }
         &:dir(rtl) { box-shadow: inset -4px 0 $sel_bg; }
       }
@@ -766,8 +748,6 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
 
     &.cell { // = row height of placessidebar
       min-height: rem($small_widget);
-      // padding-top: rem($menuitem_padding);
-      // padding-bottom: rem($menuitem_padding);
     }
   }
 }
