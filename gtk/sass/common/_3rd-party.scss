@@ -337,6 +337,12 @@ window.budgie-popover:not(.csd) {
     background-color: $dark_bg;
     // FIXME: we can't expose depth-3
     box-shadow: $z-depth-2;
+
+    separator.horizontal {
+      @if $variant == dark {
+        background-color:  track(white, $a_div_2);
+      }
+    }
   }
 
   > frame.container {
@@ -938,10 +944,7 @@ window.sound-popover.background box.horizontal {
     }
   }
 
-  box.vertical > button.flat.display-settings-button {
-    @extend %action-area-button;
-    font-weight: 500;
-  }
+  box.vertical > button.flat.display-settings-button { font-weight: 500; }
 }
 
 // places-indicator styling
