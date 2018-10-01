@@ -2438,14 +2438,18 @@ dialog.background.csd > headerbar.titlebar {
     &.text-button:not(.image-button) {
       padding: 0 rem($pathbar_min_size, $sw: 1.0);
 
-      label { margin: 0 rem($pathbar_min_size * 2); }
+      label {
+        margin-left: rem($pathbar_min_size * 2);
+        margin-right: rem($pathbar_min_size * 2);
+      }
     }
 
     &.image-button {
       padding: 0 rem($pathbar_min_size, $sw: 1.0);
 
       image {
-        margin: 0 rem($pathbar_min_size * 2);
+        margin-left: rem($pathbar_min_size * 2);
+        margin-right: rem($pathbar_min_size * 2);
         padding: 0;
       }
     }
@@ -2456,7 +2460,8 @@ dialog.background.csd > headerbar.titlebar {
 
       label,
       image {
-          margin: 0 rem($pathbar_min_size);
+        margin-left: rem($pathbar_min_size);
+        margin-right: rem($pathbar_min_size);
       }
     }
 
@@ -2465,7 +2470,8 @@ dialog.background.csd > headerbar.titlebar {
       padding: 0 rem($pathbar_min_size, $sw: 1.0);
 
       image {
-        margin: 0 rem($pathbar_min_size);
+        margin-left: rem($pathbar_min_size);
+        margin-right: rem($pathbar_min_size);
         padding: 0;
       }
     }
