@@ -707,8 +707,8 @@ button {
   &.image-button,
   &.circular,
   &.close {
-    min-height: calc(#{rem($widget_size)} - 0.5px *2);
-    min-width: calc(#{rem($widget_size)} - 0.5px *2);
+    min-height: calc(#{rem($widget_size)} - 0.5px * 2);
+    min-width: calc(#{rem($widget_size)} - 0.5px * 2);
     padding: 0;
     @include radius($r);
     @include ink-reaction(normal, $bs: 10, $tr: ink-normal-dec);
@@ -785,8 +785,8 @@ button {
     &:not(.suggested-action):not(.destructive-action) {
       &:not(.titlebutton):not(.selection-menu) {
         &:not(.text-button):not(.lock):not(.color):not(.image-button) {
-          min-height: calc(#{rem($widget_size)} - 0.5px *2);
-          min-width: calc(#{rem($widget_size)} - 0.5px *2);
+          min-height: calc(#{rem($widget_size)} - 0.5px * 2);
+          min-width: calc(#{rem($widget_size)} - 0.5px * 2);
           padding: 0;
         }
       }
@@ -798,8 +798,8 @@ button {
     &:not(.suggested-action):not(.destructive-action) {
       &:not(.titlebutton):not(.selection-menu) {
         &:not(.text-button):not(.lock):not(.color):not(.image-button) {
-          min-height: calc(#{rem($widget_size)} + 0.5px *2);
-          min-width: calc(#{rem($widget_size)} + 0.5px *2);
+          min-height: calc(#{rem($widget_size)} + 0.5px * 2);
+          min-width: calc(#{rem($widget_size)} + 0.5px * 2);
           padding: 0;
         }
       }
@@ -810,8 +810,8 @@ button {
     &:not(.suggested-action):not(.destructive-action) {
       &:not(.titlebutton),
       &.selection-menu { // enforce flat buttons
-        min-height: calc(#{rem($widget_size)} + 0.5px *2);
-        min-width: calc(#{rem($widget_size)} + 0.5px *2);
+        min-height: calc(#{rem($widget_size)} + 0.5px * 2);
+        min-width: calc(#{rem($widget_size)} + 0.5px * 2);
         @if $variant == mixed {
           @include button(flat-normal, $tc: $inv_fg);
           &:hover { @include button(flat-hover, $tc: $inv_fg); }
@@ -929,8 +929,8 @@ button {
                              (destructive-action, $dest_bg) {
     &, &.flat {
       &.#{$b_type} { // 1px border exists
-        min-height: calc(#{rem($widget_size)} - 1px *2);
-        min-width: calc(#{rem($widget_size)} - 1px *2);
+        min-height: calc(#{rem($widget_size)} - 1px * 2);
+        min-width: calc(#{rem($widget_size)} - 1px * 2);
         @include button(raised-normal, $c: $b_color,
                                        $tc: $sec_sel_fg);
         @include ink-reaction(normal, $fc: $sel_fg,
@@ -1325,8 +1325,8 @@ toolpalette {
   // font-selector buttons
   fontbutton { // standard raised button styling
     @include button(normal);
-    min-height: calc(#{rem($widget_size)} - 1px *2);
-    min-width: calc(#{rem($widget_size)} - 1px *2);
+    min-height: calc(#{rem($widget_size)} - 1px * 2);
+    min-width: calc(#{rem($widget_size)} - 1px * 2);
     padding: 0 rem($txt_button_lr_space);
     @include radius($r_2);
     &:hover { @include button(hover); }
@@ -1852,7 +1852,7 @@ toolbar {
     entry {
       &, &.combo {
         &, &.flat {
-          min-height: calc(#{rem($toolitem_size, $sw: 1.0)} - 2px *2);
+          min-height: calc(#{rem($toolitem_size, $sw: 1.0)} - 2px * 2);
         }
       }
     }
@@ -1861,7 +1861,7 @@ toolbar {
       &,
       entry,
       button {
-        min-height: calc(#{rem($toolitem_size, $sw: 1.0)} - 2px *2);
+        min-height: calc(#{rem($toolitem_size, $sw: 1.0)} - 2px * 2);
       }
     }
   }
