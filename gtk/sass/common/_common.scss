@@ -3762,7 +3762,6 @@ check {
 //  ************/
 
 %scale_trough {
-  border: 1px solid transparent;
   border-radius: 0;
   background-color: $trk_out_fg;
   box-shadow: none;
@@ -3770,52 +3769,30 @@ check {
     color: $dis_fg;
     background-color: $trk_out_fg;
   }
-
-  &:backdrop {
-  }
-
-  // OSD
-  .osd & {
-  }
 }
 
 %scale_highlight {
-  border: 1px solid transparent;
   border-radius: 0;
   background-color: $acc_bg;
   &:disabled {
     color: $dis_fg;
     background-color: $trk_out_fg;
   }
-
-  &:backdrop {
-  }
-
-  // OSD
-  .osd & {
-  }
 }
 
 scale {
-  min-height: calc(#{rem($widget_size)} - 2px * 2); // = GtkEntry sizing
-  min-width: calc(#{rem($widget_size)} - 2px * 2);
   @if $maj_ver == 4 {
     &:focus(visible) { outline: none; } // enforce hiding outlines
   }
 
   &, &.fine-tune {
-    &.horizontal {
-      padding-top: 0;
-      padding-bottom: 0;
-      padding-left: ($scale_slider_size / 2) - $scale_trough_size;
-      padding-right: ($scale_slider_size / 2) - $scale_trough_size;
-    }
+    padding: ($scale_slider_size - $scale_trough_size) / 2;
 
-    &.vertical {
-      padding-top: ($scale_slider_size / 2) - $scale_trough_size;
-      padding-bottom: ($scale_slider_size / 2) - $scale_trough_size;
-      padding-left: 0;
-      padding-right: 0;
+    &.marks {
+      &-before,
+      &-after { // vertically centered placements
+        &.horizontal { margin-top: $scale_trough_size / 2; }
+      }
     }
   }
 
@@ -3998,23 +3975,6 @@ scale { // marks color
           min-#{$_h}: $_marks_length;
           min-#{$_w}: 1px;
         }
-      }
-    }
-  }
-}
-
-scale.marks {
-  // vertically centered placements
-  &-before.horizontal { padding-bottom: $_marks_length; }
-
-  &-after.horizontal { padding-top: $_marks_length; }
-
-  &-before,
-  &-after {
-    &.vertical { // a rare case
-      window.background:not(.csd) > frame > box.vertical & {
-        margin-left: ($scale_slider_size / 2) - $scale_trough_size;
-        margin-right: ($scale_slider_size / 2) - $scale_trough_size;
       }
     }
   }
