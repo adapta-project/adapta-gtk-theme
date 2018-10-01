@@ -2455,9 +2455,20 @@ window.thunar {
   toolbar#location-toolbar {
     border-bottom: 1px solid $div_fg;
 
+    // why didn't devs use .text/.image button class?
+    .linked.path-bar > button.path-bar-button {
+      padding: 0 rem($pathbar_min_size, $sw: 1.0);
+
+      label,
+      image {
+          margin-left: rem($pathbar_min_size);
+          margin-right: rem($pathbar_min_size);
+      }
+    }
+
     entry:not(.flat) {
-      min-height: calc(#{rem($widget_size)} - 1px * 2);
-      margin: 1px 0;
+      min-height: rem($toolitem_size, $sw: 1.0);
+      margin: 1px 0; // = outlined button's border-widths
     }
   }
 
