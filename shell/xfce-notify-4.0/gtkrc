@@ -1,0 +1,95 @@
+#
+# This file is part of adapta-gtk-theme
+#
+# Copyright (C) 2016-2018 Tista <tista.gma500@gmail.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+
+style "notify-window"
+{
+  XfceNotifyWindow::summary-bold = 1
+  XfceNotifyWindow::border-color = "#222D32"
+  XfceNotifyWindow::border-color-hover = "#222D32"
+  XfceNotifyWindow::border-radius = 2.0
+  XfceNotifyWindow::border-width = 0.1
+  XfceNotifyWindow::border-width-hover = 0.1
+
+  bg[NORMAL] = "#222D32"
+  bg[PRELIGHT] = "#222D32"
+}
+
+style "notify-button"
+{
+  xthickness = 5
+  ythickness = 5
+
+  # bg[NORMAL] = "#222D32"
+  # bg[PRELIGHT] = "#222D32"
+  # bg[ACTIVE] = "#222D32"
+  fg[NORMAL] = "#47A49C"
+  fg[PRELIGHT] = "#4DB6AC"
+  fg[ACTIVE] = "#4DB6AC"
+
+  engine "pixmap" {
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "flat-button.svg"
+      border   = { 5, 5, 5, 5 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      file     = "flat-button-hover.svg"
+      border   = { 5, 5, 5, 5 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "flat-button-active.svg"
+      border   = { 5, 5, 5, 5 }
+      stretch  = TRUE
+    }
+  }
+}
+
+style "notify-text"
+{
+  GtkWidget::link-color = "#03A9F4"
+
+  fg[NORMAL] = "#CFD8DC"
+  fg[PRELIGHT] = "#FFFFFF"
+}
+
+style "notify-summary"
+{
+  font_name = "Bold"
+}
+
+style "notify-progressbar"
+{
+  GtkProgressBar::min-horizontal-bar-height = 4
+
+  xthickness   = 0
+  ythickness   = 0
+
+  bg[NORMAL]   = "#F0F2F3"
+  bg[SELECTED] = "#F0F2F3"
+  bg[ACTIVE]   = "#4DB6AC"
+  fg[PRELIGHT] = "#263238"
+}
+
+class "XfceNotifyWindow"                           style "notify-window"
+widget "XfceNotifyWindow.*.summary"                style "notify-summary"
+
+widget_class "XfceNotifyWindow.*<GtkButton>"       style "notify-button"
+widget_class "XfceNotifyWindow.*Button.*Label"     style "notify-button"
+widget_class "XfceNotifyWindow.<GtkLabel>"         style "notify-text"
+widget_class "XfceNotifyWindow.*.<GtkProgress>"    style "notify-progressbar"
+widget_class "XfceNotifyWindow.*.<GtkProgressBar>" style "notify-progressbar"
