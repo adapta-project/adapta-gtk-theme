@@ -12,20 +12,18 @@
 
 SRC_DIR="assets-gnome-shell"
 ASSETS_DIR="../gnome-shell"
-ASSETS_LIGHT_DIR="../gnome-shell-brila"
 ASSETS_DARK_DIR="../gnome-shell-nokto"
 ASSETS_ETA_DIR="../gnome-shell-eta"
-ASSETS_LIGHT_ETA_DIR="../gnome-shell-brila-eta"
 ASSETS_DARK_ETA_DIR="../gnome-shell-nokto-eta"
 INDEX="assets-gnome-shell.txt"
-KEY_FILE="../../gtk/sass/common/resources/_key_colors.scss"
+KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Indigo500' ../../gtk/sass/common/_colors.scss | \
+selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
                    cut -d' ' -f3`"
-accent1="`grep 'Indigo300' ../../gtk/sass/common/_colors.scss | \
+accent1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
                 cut -d' ' -f3`"
-destruction1="`grep 'Red500' ../../gtk/sass/common/_colors.scss | \
+destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
                      cut -d' ' -f3`"
 
 # Check and re-color SVG files
@@ -70,7 +68,7 @@ done
 unset IFS
 
 else
-    echo ../../gtk/sass/common/resources/_key_colors.scss was not found. Stopped...
+    echo _key_colors.scss was not found. Stopped...
     exit 1
 fi
 
@@ -84,14 +82,12 @@ do
     v="`echo $i | cut -c1`"                           # variant type
     d="`echo $i | cut -d' ' -f2`"                     # target directory
 
-    if [ $v = "c" ] || [ $v = "w" ]; then # 'commmon'
+    if [ $v = "c" ]; then # 'commmon'
         if [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
-            echo $ASSETS_LIGHT_DIR/$d/$f exists.
             echo $ASSETS_DARK_DIR/$d/$f exists.
             echo $ASSETS_ETA_DIR/$d/$f exists.
-            echo $ASSETS_LIGHT_ETA_DIR/$d/$f exists.
             echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
         elif [ $i = "common/noise-texture.png ." ]; then # PNG special case
             f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.png"
@@ -99,10 +95,6 @@ do
             cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f
             echo Cloning $ASSETS_ETA_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
-            echo Cloning $ASSETS_LIGHT_DIR/$d/$f
-            cp -f $SRC_DIR/$s $ASSETS_LIGHT_DIR/$d/$f
-            echo Cloning $ASSETS_LIGHT_ETA_DIR/$d/$f
-            cp -f $SRC_DIR/$s $ASSETS_LIGHT_ETA_DIR/$d/$f
             echo Cloning $ASSETS_DARK_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
@@ -112,16 +104,12 @@ do
             cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f
             echo Cloning $ASSETS_ETA_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
-            echo Cloning $ASSETS_LIGHT_DIR/$d/$f
-            cp -f $SRC_DIR/$s $ASSETS_LIGHT_DIR/$d/$f
-            echo Cloning $ASSETS_LIGHT_ETA_DIR/$d/$f
-            cp -f $SRC_DIR/$s $ASSETS_LIGHT_ETA_DIR/$d/$f
             echo Cloning $ASSETS_DARK_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
         fi
-    elif [ $v = "m" ]; then # 'mixed'
+    elif [ $v = "l" ] || [ $v = "w" ]; then # 'light'
         if [ -f $ASSETS_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DIR/$d/$f ]; then
             echo $ASSETS_DIR/$d/$f exists.
@@ -132,18 +120,7 @@ do
             echo Cloning $ASSETS_ETA_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_ETA_DIR/$d/$f
         fi
-    elif [ $v = "l" ]; then # 'light'
-        if [ -f $ASSETS_LIGHT_DIR/$d/$f ] && \
-            [ $SRC_DIR/$s -ot $ASSETS_LIGHT_DIR/$d/$f ]; then
-            echo $ASSETS_LIGHT_DIR/$d/$f exists.
-            echo $ASSETS_LIGHT_ETA_DIR/$d/$f exists.
-        else
-            echo Cloning $ASSETS_LIGHT_DIR/$d/$f
-            cp -f $SRC_DIR/$s $ASSETS_LIGHT_DIR/$d/$f
-            echo Cloning $ASSETS_LIGHT_ETA_DIR/$d/$f
-            cp -f $SRC_DIR/$s $ASSETS_LIGHT_ETA_DIR/$d/$f
-        fi
-    elif [ $v = "d" ]; then # 'dark'
+    elif [ $v = "n" ]; then # 'dark'
         if [ -f $ASSETS_DARK_DIR/$d/$f ] && \
             [ $SRC_DIR/$s -ot $ASSETS_DARK_DIR/$d/$f ]; then
             echo $ASSETS_DARK_DIR/$d/$f exists.

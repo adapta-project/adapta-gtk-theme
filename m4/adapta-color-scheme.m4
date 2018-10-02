@@ -2,13 +2,13 @@
 # -----------------------------------------------------------
 AC_DEFUN([ADAPTA_COLOR_SCHEME], [
 
-    selection_default="`grep 'Indigo500' ./gtk/sass/common/_colors.scss | \
+    selection_default="`grep 'Cyan500' ./gtk/sass/common/_colors.scss | \
                         cut -d' ' -f3`"
-    accent_default="`grep 'Indigo300' ./gtk/sass/common/_colors.scss | \
+    accent_default="`grep 'Teal300' ./gtk/sass/common/_colors.scss | \
                      cut -d' ' -f3`"
-    suggestion_default="`grep 'DPurple500' ./gtk/sass/common/_colors.scss | \
+    suggestion_default="`grep 'Teal500' ./gtk/sass/common/_colors.scss | \
                          cut -d' ' -f3`"
-    destruction_default="`grep 'Red500' ./gtk/sass/common/_colors.scss | \
+    destruction_default="`grep 'RedA200' ./gtk/sass/common/_colors.scss | \
                           cut -d' ' -f3`"
 
     AC_ARG_WITH(
@@ -16,7 +16,7 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-selection_color],
             [Primary color for selected-items \
-             (Default: #3f51b5 (Indigo500))]
+             (Default: #00BCD4 (Cyan500))]
         )],
         [SELECTION="$withval"],
         [SELECTION=$selection_default]
@@ -28,7 +28,7 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-accent_color],
             [Secondary color for notifications and OSDs \
-             (Default: #7986cb (Indigo300))]
+             (Default: #4DB6AC (Teal300))]
         )],
         [ACCENT="$withval"],
         [ACCENT=$accent_default]
@@ -40,7 +40,7 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-suggestion_color],
             [Secondary color for 'suggested' buttons \
-             (Default: #673ab7 (DPurple500))]
+             (Default: #009688 (Teal500))]
         )],
         [SUGGESTION="$withval"],
         [SUGGESTION=$suggestion_default]
@@ -52,7 +52,7 @@ AC_DEFUN([ADAPTA_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-destruction_color],
             [Tertiary color for 'destructive' buttons \
-             (Default: #f44336 (Red500))]
+             (Default: #FF5252 (RedA200))]
         )],
         [DESTRUCTION="$withval"],
         [DESTRUCTION=$destruction_default]
@@ -64,15 +64,19 @@ echo \
 "// Selection (Primary) color
 \$key_selection_color: `echo $SELECTION`;
 
-// Accent (Secondary) color
+// Accent (Seondary) color
 \$key_accent_color: `echo $ACCENT`;
 
-// Suggestion (Secondary) color
+// Suggestion color
 \$key_suggestion_color: `echo $SUGGESTION`;
 
 // Destruction (Tertiary) color
 \$key_destruction_color: `echo $DESTRUCTION`;" \
-> ./gtk/sass/common/resources/_key_colors.scss
+> ./gtk/sass/common/_key_colors.scss
 
-AC_MSG_RESULT([creating ./gtk/sass/common/resources/_key_colors.scss])
+# Copy SCSS to shell SASS directory
+cp -R ./gtk/sass/common/_key_colors.scss \
+       ./shell/sass/common/_key_colors.scss
+
+AC_MSG_RESULT([creating ./gtk/sass/common/_key_colors.scss])
 ])

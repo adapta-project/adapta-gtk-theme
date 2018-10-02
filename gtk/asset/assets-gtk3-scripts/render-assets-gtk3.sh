@@ -50,7 +50,7 @@ case "$1" in
         INDEX=($(grep -e checkbox $INDEX_SRC))
         ;;
     misc)
-        INDEX=($(grep -e thumb -e needs -e handle $INDEX_SRC))
+        INDEX=($(grep -e osd -e thumb -e needs $INDEX_SRC))
         ;;
     radio)
         INDEX=($(grep -e radio $INDEX_SRC))
@@ -60,6 +60,18 @@ case "$1" in
         ;;
     toggle)
         INDEX=($(grep -e toggle $INDEX_SRC))
+        ;;
+    window-close)
+        INDEX=($(grep -e 'window-close' $INDEX_SRC))
+        ;;
+    window-minimize)
+        INDEX=($(grep -e 'window-minimize' $INDEX_SRC))
+        ;;
+    window-maximize)
+        INDEX=($(grep -e 'window-maximize' $INDEX_SRC))
+        ;;
+    window-unmaximize)
+        INDEX=($(grep -e 'window-unmaximize' $INDEX_SRC))
         ;;
     all)
         INDEX=$(<$INDEX_SRC)

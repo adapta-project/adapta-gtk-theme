@@ -1,0 +1,354 @@
+// /*************************
+//  * VolumeMixer Extension *
+//  *************************/
+
+.masterslider.smaller {
+  .masterlabel,
+  .slider {
+    min-width: 15em - (0.4em * 2);
+  }
+}
+
+// /*******************************
+//  * Applications Menu Extension *
+//  *******************************/
+
+.popup-menu {
+  // '.apps-menu' is the child boxLayout (right-pane)
+  StScrollView.apps-menu {
+    margin: 0 4px;
+    border-style: solid;
+    border-color: $borders_color;
+
+    &:ltr {
+      padding: if($eta == false, 0 0 0 12px, 0 0 0 8px);
+      border-left-width: 1px;
+    }
+    &:rtl {
+      padding: if($eta == false, 0 12px 0 0, 0 8px 0 0);
+      border-right-width: 1px;
+    }
+  }
+}
+
+
+// /**********************
+//  * Arc Menu Extension *
+//  **********************/
+
+.main-box {
+  background-color: $secondary_base_color;
+
+  .popup-menu {
+    &:ltr { padding-right: 4px; }
+    &:rtl { padding-left: 4px; }
+  }
+
+  // use tiny padding
+  .system-menu-action {
+    &,
+    &:focus,
+    &:hover,
+    &:active,
+    &:checked { padding: 10px; }
+  }
+
+  StScrollView.apps-menu { // left-pane
+    margin-bottom: if($eta == false, 6px, 4px);
+    padding: 0;
+    border-width: 1px;
+    background-color: $bg_color;
+
+    StIcon { icon-size: 16px; }
+  }
+}
+
+
+// /**********************
+//  * Gno-Menu Extension *
+//  **********************/
+
+%stackswitcher_box {
+  border-color: $solid_light_borders_color;
+  background-color: $light_color;
+}
+
+%stackswitcher_button {
+  padding: if($eta == false, 7px 0.8em 8px, 5px 0.6em 6px);
+  border-color: $solid_light_borders_color;
+  background-color: $light_color !important;
+  color: $secondary_fg_color;
+  box-shadow: $empty_shadow;
+  font-weight: 500;
+  &:hover,
+  &:focus {
+    background-color: mix($light_color, $fg_color, 88%) !important;
+    color: $fg_color;
+  }
+  &:active {
+    background-color: mix($light_color, $fg_color, 75%) !important;
+    color: $fg_color;
+  }
+  &:checked { // ignored?
+    &, &:hover {
+      background-color: $selected_bg_color !important;
+      color: $selected_fg_color !important;
+    }
+  }
+  &:insensitive {
+    background-color: $light_color;
+    color: $insensitive_fg_color;
+  }
+}
+
+#gnomenuMenuMainbox {
+  &, > * { transition-duration: 0s; }
+
+  StEntry {
+    &, &:focus {
+      min-height: 0;
+      padding: if($eta == false, 7px 0.8em 8px, 5px 0.6em 6px);
+      border-color: $solid_light_borders_color;
+      background-color: $light_color;
+      box-shadow: $empty_shadow;
+    }
+  }
+}
+
+.gnomenu {
+  &-user-group {
+    &-box { @extend %stackswitcher_box; }
+
+    &-button {
+      &:first-child,
+      &:last-child { @extend %stackswitcher_button; }
+    }
+  }
+
+  &-view-mode {
+    &-box { @extend %stackswitcher_box; }
+
+    &-button {
+      &:first-child,
+      &:last-child { @extend %stackswitcher_button; }
+    }
+  }
+
+  &-selected-app {
+    &-title { color: $secondary_fg_color; }
+
+    &-description { color: $tertiary_fg_color; }
+  }
+}
+
+
+// /*************************
+//  * OpenWeather Extension *
+//  *************************/
+
+// FIXME: Why devs use 'system-menu-action' class? wrong place...
+.openweather {
+  &-button,
+  &-menu-button-container,
+  &-button-box,
+  &-provider {
+    color: $secondary_fg_color;
+    &:hover {
+      color: $fg_color;
+      background-color: $semi_fill_color;
+
+      > StIcon { color: $fg_color; }
+    }
+    &:active,
+    &:focus {
+      color: $fg_color;
+      background-color: $fill_color;
+
+      > StIcon { color: $fg_color; }
+    }
+
+    > StIcon,
+    > StLabel { color: $secondary_fg_color; }
+  }
+
+  &-current {
+    &-icon,
+    &-summary,
+    &-summarybox { color: $fg_color; }
+
+    &-databox-values { color: $tertiary_fg_color; }
+
+    &-databox-captions { color: $tertiary_fg_color; }
+  }
+
+  &-forecast {
+    &-icon,
+    &-summary { color: $secondary_fg_color; }
+
+    &-day,
+    &-temperature { color: $tertiary_fg_color; }
+  }
+
+  &-sunrise-icon,
+  &-sunset-icon,
+  &-build-icon { color: $secondary_fg_color; }
+}
+
+
+// /**************************
+//  * Dash To Dock Extension *
+//  **************************/
+
+#dashtodockContainer {
+  background: transparent;
+
+  #dash,
+  &:overview #dash,
+  &.extended #dash,
+  &.extended:overview #dash {
+    padding: 0;
+    border: none;
+    box-shadow: $empty_shadow;
+    transition-duration: $duration_long;
+  }
+
+  @each $_dock, $_radius in (top, 0 0 2px 2px),
+                            (bottom, 2px 2px 0 0),
+                            (left, 0 2px 2px 0),
+                            (right, 2px 0 0 2px) {
+    &.#{$_dock} #dash {
+      border-radius: #{$_radius};
+      background-color: $panel_bg_color;
+    }
+    &.#{$_dock}:overview #dash {
+      border-radius: #{$_radius};
+      background-color: $osd_semi_fill_color;
+    }
+    &.#{$_dock}.extended #dash {
+      border-radius: 0;
+      background-color: $panel_bg_color;
+    }
+    &.#{$_dock}.extended:overview #dash {
+      border-radius: 0;
+      background-color: $osd_semi_fill_color;
+    }
+  }
+
+  .app-well-app,
+  .show-apps {
+    .overview-icon {
+      padding: 9px;
+      background-size: contain;
+    }
+  }
+
+  .dash-item-container { // actual parent container
+    background: transparent;
+
+    > StWidget { background-size: contain; }
+  }
+
+  .number-overlay,
+  .notification-badge {
+    min-width: if($eta == false, 1.6em, 1.4em);
+    min-height: if($eta == false, 1.6em, 1.4em);
+    margin: 0; // unset margin/padding
+    padding: 0;
+    border-radius: 100px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: $z-depth-2;
+  }
+
+  .number-overlay {
+    background-color: $osd_bg_color;
+    color: $selected_fg_color;
+  }
+
+  .notification-badge {
+    background-color: $suggested_color;
+    color: $selected_fg_color;
+  }
+}
+
+@each $_dock in top, bottom, left, right {
+  #dashtodockContainer.#{$_dock},
+  #dashtodockContainer.extended.#{$_dock} {
+    .dash-item-container > StWidget.focused { // fill whole focused backgrounds
+      .overview-icon {
+        border-radius: 0;
+        background-color: $osd_semi_fill_color;
+      }
+
+      &:hover .overview-icon {
+        border-radius: 0;
+        background-color: $osd_fill_color;
+      }
+    }
+  }
+}
+
+
+// /***************************
+//  * Dash To Panel Extension *
+//  ***************************/
+
+@each $_position, $_line in (Top, 0 2px),
+                            (Bottom, 0 -2px) {
+  #panel.dashtopanelMainPanel.dashtopanel#{$_position} {
+    &:overview { box-shadow: inset #{$_line} $panel_bg_color; }
+
+    #panelLeft,
+    #panelCenter,
+    .panel-corner,
+    .panel-button {
+      &:hover {
+        box-shadow: inset #{$_line} $osd_outline_fill_color;
+      }
+      &:active,
+      &:focus,
+      &:checked,
+      &:overview {
+        box-shadow: inset #{$_line} $osd_indicator_color;
+      }
+    }
+
+    .app-well-app,
+    .show-apps {
+      .overview-icon { border-radius: 0; }
+
+      &:focus .overview-icon,
+      &:hover .overview-icon,
+      &:active .overview-icon {
+        border-radius: 0;
+        background-color: $hidden_fill_color;
+        box-shadow: inset #{$_line} $osd_outline_fill_color;
+      }
+      &:checked .overview-icon {
+        box-shadow: inset #{$_line} $osd_indicator_color;
+      }
+    }
+
+    #dashtopanelScrollview {
+      padding: 0;
+
+      .app-well-app,
+      .show-apps { // unset underlines
+        &:focus .overview-icon,
+        &:hover .overview-icon,
+        &:active .overview-icon {
+          background-color: $osd_semi_fill_color;
+          box-shadow: $empty_shadow;
+        }
+        &:checked .overview-icon {
+          background-color: $hidden_fill_color;
+          box-shadow: $empty_shadow;
+        }
+      }
+    }
+
+    .show-apps:checked .show-apps-icon, // override indicator colour
+    .show-apps:checked:hover .show-apps-icon { color: $selected_fg_color; }
+  }
+}
+

@@ -1,85 +1,66 @@
-// /*******************
-//  * Xfce-Notify-4.0 *
-//  *******************/
+/*******************
+ * Xfce-Notify-4.0 *
+ *******************/
 
 // FIXME: drop-shadow composition does not work
 #XfceNotifyWindow {
   &, &:hover {
     border-radius: 2px;
-    border: 1px solid $div_fg;
-    color: if($variant == mixed, $inv_fg, $fg);
-    @if $variant == mixed {
-      background-color: track($inv_dark_bg, $a_osd);
-    }
-    @else {
-      background-color: track($dark_bg, $a_osd);
-    }
+    border: 1px solid $inverted_dark_color;
+    color: $inverted_fg_color;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
     box-shadow: none;
   }
 
   box.vertical {
     > label#summary {
-      color: if($variant == mixed, $inv_fg, $fg);
+      color: $inverted_fg_color;
       font-weight: 700;
     }
 
-    > label#body {
-      color: if($variant == mixed, $inv_sec_fg, $sec_fg);
-    }
+    > label#body { color: $inverted_secondary_fg_color; }
   }
 
   buttonbox button {
-    @if $variant == mixed {
-      @include button(flat-normal, $tc: $inv_sec_acc_fg);
-      @include ink-reaction(normal, $fc: $inv_acc_fg, $tr: ink-normal-dec);
-      font-weight: 500;
-      &:hover {
-        @include button(flat-hover, $tc: $inv_acc_fg);
-      }
-      &:active {
-        @include button(flat-active, $tc: $inv_acc_fg);
-        @include ink-reaction(active-dec, $fc: $inv_acc_fg, $tr: ink-active-dec);
-      }
-      &:disabled {
-        @include button(flat-disabled, $tc: $inv_fg);
-      }
-      &:checked {
-        @include button(flat-checked, $tc: $inv_acc_fg);
-        &:disabled {
-          @include button(flat-checked-disabled, $tc: $inv_acc_fg);
-        }
-      }
+    @extend %button_flat_normal;
+    background-color: transparent;
+    &:not(:active):not(:disabled):not(hover) {
+      background-color: transparent;
+      color: $inverted_secondary_accent_label_color;
     }
-    @else {
-      @include button(flat-normal, $tc: $sec_acc_fg);
-      @include ink-reaction(normal, $fc: $acc_fg, $tr: ink-normal-dec);
-      font-weight: 700;
-      &:hover {
-        @include button(flat-hover, $tc: $acc_fg);
-      }
-      &:active {
-        @include button(flat-active, $tc: $acc_fg);
-        @include ink-reaction(active-dec, $fc: $acc_fg, $tr: ink-active-dec);
-      }
-      &:disabled {
-        @include button(flat-disabled, $tc: $fg);
-      }
-      &:checked {
-        @include button(flat-checked, $tc: $acc_fg);
-        &:disabled {
-          @include button(flat-checked-disabled, $tc: $acc_fg);
-        }
-      }
+    &:hover {
+      @extend %button_flat_hover;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+    }
+    &:active {
+      @extend %button_flat_active;
+      border-image: none;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+      box-shadow: none;
+    }
+    &:checked {
+      @extend %button_flat_checked;
+      border-image: none;
+      background-color: transparent;
+      color: $inverted_accent_label_color;
+      box-shadow: none;
+    }
+    &:disabled {
+      @extend %button_flat_disabled;
+      background-color: transparent;
+      color: gtkopacity($inverted_accent_label_color, 0.4);
     }
   }
 
   progressbar {
-    min-width: $progress_size;
-    min-height: $progress_size;
+    min-width: 4px;
+    min-height: 4px;
 
     trough {
       border-style: none;
-      background-color: track($acc_bg, $trk_out_fg);
+      background-color: gtkopacity($accent_color, 0.2);
       box-shadow: none;
     }
 
@@ -87,7 +68,7 @@
       border-style: none;
       border-radius: 0;
       background-image: none;
-      background-color: $acc_bg;
+      background-color: $accent_color;
     }
   }
 }

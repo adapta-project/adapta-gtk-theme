@@ -56,28 +56,28 @@ style "panelbuttons" {
       function = BOX
       state    = NORMAL
       file     = "Others/null.svg"
-      border   = { 2, 2, 2, 2 }
+      border   = { 0, 0, 0, 2 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = ACTIVE
-      file     = "Others/panel-active-dark.png"
-      border   = { 2, 2, 2, 2 }
+      file     = "Others/top.png"
+      border   = { 0, 0, 0, 2 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = PRELIGHT
-      file     = "Others/panel-hover-dark.png"
-      border   = { 2, 2, 2, 2 }
+      file     = "Others/top-hover.png"
+      border   = { 0, 0, 0, 2 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = INSENSITIVE
       file     = "Others/null.svg"
-      border   = { 2, 2, 2, 2 }
+      border   = { 0, 0, 0, 2 }
       stretch  = TRUE
     }
     image {
@@ -242,6 +242,7 @@ style "xfsm-logout" {
 
   bg[NORMAL]   = @bg_color
   bg[SELECTED] = @bg_color # Border around the dialog
+  fg[NORMAL]   = mix(0.87, @fg_color, @bg_color)
 }
 
 style "xfsm-label" {
@@ -327,41 +328,38 @@ widget_class "*XfsmLogoutDialog*GtkVBox.GtkVBox.GtkLabel" style "xfsm-label"
 
 style "thunar_location_button" = "location_button" {
   ThunarLocationButtons::spacing = 0
-  GtkButton::inner-border = { 2, 2, 0, 0 }
-  xthickness = 3
-  ythickness = 0
 
   fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @selected_fg_color
+  fg[ACTIVE] = @fg_color
   fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
       function = BOX
       state    = NORMAL
-      file     = "Buttons/location-button.png"
+      file     = "Others/null.svg"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = PRELIGHT
-      file     = "Buttons/location-button-hover.png"
+      file     = "Buttons/flat-button-hover.png"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = ACTIVE
-      file     = "Buttons/location-button-active.png"
-      border   = { 2, 2, 3, 3 }
+      file     = "Others/top.png"
+      border   = { 0, 0, 0, 2 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = INSENSITIVE
-      file     = "Buttons/location-button-insensitive.png"
+      file     = "Others/null.svg"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
@@ -371,7 +369,7 @@ style "thunar_location_button" = "location_button" {
 style "thunar_side_pane" {
   font_name = "Medium"
 
-  base[NORMAL] = @bg_color
+  base[NORMAL] = @secondary_dark_color
 }
 
 widget_class "*ThunarLocationButtons*" style "thunar_location_button"
@@ -516,13 +514,7 @@ widget "*libreoffice-toplevel*GtkMenuBar.*GtkMenuItem" style "menubar_item_libre
 style "fm_side_pane" {
   font_name = "Medium"
 
-  GtkTreeView::odd_row_color  = @bg_color
-  GtkTreeView::even_row_color = @bg_color
-
-  base[ACTIVE] = mix(0.12, @selected_bg_color, @bg_color)
-  base[SELECTED] = mix(0.12, @selected_bg_color, @bg_color)
-  text[ACTIVE] = @selected_bg_color
-  text[SELECTED] = @selected_bg_color
+  base[NORMAL] = @secondary_dark_color
 }
 
 style "fm_toolbar" {
@@ -538,40 +530,14 @@ style "fm_toolbar" {
   }
 }
 
-style "fm_statusbar" {
-  xthickness = 6
-  ythickness = 2
-
-  engine "pixmap" {
-    image {
-      function = SHADOW
-      file     = "Shadows/frame.png"
-      border   = { 1, 1, 1, 1 }
-      stretch  = TRUE
-    }
-  }
+style "location_button_label" {
+  fg[ACTIVE] = @fg_color
 }
 
-style "fm_tabpage" {
-  GtkPaned::handle-size = 4
-
-  engine "pixmap" {
-    image {
-      function    = HANDLE
-      recolorable = TRUE
-      file        = "Lines/v-line.png"
-      border      = { 0, 2, 0, 0 }
-      stretch     = TRUE
-    }
-  }
-}
-
-widget_class "*<FmMainWin>*<GtkToolbar>"                       style "fm_toolbar"
-widget_class "*<FmMainWin>*<GtkStatusbar>*<GtkFrame>"          style "fm_statusbar"
-widget_class "*<FmMainWin>*<FmSidePane>*<GtkTreeView>"         style "fm_side_pane"
-widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>"            style "location_button"
-widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>*<GtkLabel>" style "location_button_label"
-widget_class "*<FmMainWin>*<FmTabPage>"                        style "fm_tabpage"
+widget_class "*<FmMainWin>*<GtkToolbar>"                          style "fm_toolbar"
+widget_class "*<FmMainWin>*<FmSidePane>*<GtkTreeView>"            style "fm_side_pane"
+widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>"               style "location_button"
+widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>*<GtkLabel>"    style "location_button_label"
 
 
 #

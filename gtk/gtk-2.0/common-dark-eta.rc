@@ -27,7 +27,7 @@ style "default" = "default_colors" {
   GtkToolButton::icon-spacing = 2
 
   GtkWidget::tooltip-radius = 2
-  GtkWidget::tooltip-alpha = 238
+  GtkWidget::tooltip-alpha = 230
   GtkWidget::new-tooltip-style = 1 #for compatibility
 
   GtkSeparatorMenuItem::horizontal-padding = 1
@@ -1063,7 +1063,9 @@ style "entry" {
   xthickness = 4
   ythickness = 4
 
-  base[ACTIVE] = @light_color
+  base[NORMAL] = @light_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @light_color
 
   engine "pixmap" {
     image {
@@ -1096,6 +1098,12 @@ style "entry" {
     image {
       function        = FLAT_BOX
       detail          = "entry_bg"
+      state           = NORMAL
+      file            = "Entry/bg-dark.png"
+    }
+    image {
+      function        = FLAT_BOX
+      detail          = "entry_bg"
       state           = ACTIVE
       file            = "Entry/bg-active-dark.png"
     }
@@ -1105,16 +1113,13 @@ style "entry" {
       state           = INSENSITIVE
       file            = "Entry/bg-insensitive-dark.png"
     }
-    image {
-      function        = FLAT_BOX
-      detail          = "entry_bg"
-      file            = "Entry/bg-dark.png"
-    }
   }
 }
 
 style "notebook_entry" = "entry" {
-  base[ACTIVE] = @light_color
+  base[NORMAL] = @light_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @light_color
 }
 
 style "button" {
@@ -1193,9 +1198,9 @@ style "misc_button_label" {
 }
 
 style "buttonbox_button_label" {
-  fg[NORMAL] = mix(0.87, mix(0.54, @accent_color, @fg_color), @bg_color)
-  fg[PRELIGHT] = mix(0.54, @accent_color, @fg_color)
-  fg[ACTIVE] = mix(0.54, @accent_color, @fg_color)
+  fg[NORMAL] = mix(0.87, mix(0.6, @accent_color, @fg_color), @bg_color)
+  fg[PRELIGHT] = mix(0.6, @accent_color, @fg_color)
+  fg[ACTIVE] = mix(0.6, @accent_color, @fg_color)
   fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
   font_name = "Bold"
 }
@@ -1329,41 +1334,40 @@ style "link_button" {
 }
 
 style "location_button" {
-  GtkButton::inner-border = { 2, 2, 0, 0 }
-  xthickness = 3
-  ythickness = 0
+  xthickness = 2
+  ythickness = 3
 
   fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @selected_fg_color
+  fg[ACTIVE] = @fg_color
   fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
 
   engine "pixmap" {
     image {
       function = BOX
       state    = NORMAL
-      file     = "Buttons/location-button-dark.png"
+      file     = "Others/null.svg"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = PRELIGHT
-      file     = "Buttons/location-button-hover-dark.png"
+      file     = "Buttons/flat-button-hover-dark.png"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = ACTIVE
-      file     = "Buttons/location-button-active-dark.png"
-      border   = { 2, 2, 3, 3 }
+      file     = "Others/top.png"
+      border   = { 0, 0, 0, 2 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = INSENSITIVE
-      file     = "Buttons/location-button-insensitive-dark.png"
+      file     = "Others/null.svg"
       border   = { 2, 2, 3, 3 }
       stretch  = TRUE
     }
@@ -1373,7 +1377,7 @@ style "location_button" {
 style "location_button_label" {
   fg[NORMAL] = mix(0.87, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
-  fg[ACTIVE] = @selected_fg_color
+  fg[ACTIVE] = @fg_color
   fg[INSENSITIVE] = mix(0.28, @fg_color, @bg_color)
   font_name = "Bold"
 }
@@ -1404,7 +1408,9 @@ style "combobox_entry" {
   xthickness = 4
   ythickness = 4
 
-  base[ACTIVE] = @light_color
+  base[NORMAL] = @light_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @light_color
 
   engine "pixmap" {
     # LTR version
@@ -1474,7 +1480,9 @@ style "combobox_entry" {
 }
 
 style "notebook_combobox_entry" {
-  base[ACTIVE] = @light_color
+  base[NORMAL] = @light_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @light_color
 
   engine "pixmap" {
     # LTR version
@@ -1624,7 +1632,7 @@ style "spinbutton" {
   xthickness = 4
   ythickness = 4
 
-  bg[NORMAL] = @light_color
+  bg[NORMAL] = @bg_color
 
   engine "pixmap" {
     image {
@@ -1872,10 +1880,21 @@ style "menubar_item" {
   ythickness = 6
 
   bg[NORMAL] = @inverted_dark_color
-  bg[PRELIGHT] = mix(0.12, @inverted_fg_color, @inverted_dark_color)
+  bg[PRELIGHT] = @inverted_dark_color
   fg[NORMAL] = mix(0.87, @inverted_fg_color, @inverted_dark_color)
   fg[PRELIGHT] = @inverted_fg_color
   fg[INSENSITIVE] = mix(0.28, @inverted_fg_color, @inverted_dark_color)
+
+  engine "pixmap" {
+    image {
+      function    = BOX
+      recolorable = TRUE
+      state       = PRELIGHT
+      file        = "Others/top.png"
+      border      = { 0, 0, 0, 2 }
+      stretch     = TRUE
+    }
+  }
 }
 
 style "menubar_item_label" {
@@ -1888,9 +1907,9 @@ style "menu" {
 
   GtkMenuItem::arrow-scaling = 0.4
 
-  bg[NORMAL] = @dark_color
-  bg[PRELIGHT] = @dark_color
-  bg[INSENSITIVE] = @dark_color
+  bg[NORMAL] = mix(0.5, @base_color, @bg_color)
+  bg[PRELIGHT] = mix(0.5, @base_color, @bg_color)
+  bg[INSENSITIVE] = mix(0.5, @base_color, @bg_color)
 }
 
 style "menu_frame" {
@@ -1916,9 +1935,9 @@ style "menu_item" {
   # highlight. The price to pay is black text on menus as well,
   # but at least it's readable.
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
-  bg[SELECTED] = mix(0.88, @dark_color, @fg_color)
-  bg[PRELIGHT] = mix(0.88, @dark_color, @fg_color)
-  fg[NORMAL] = mix(0.87, @fg_color, @dark_color)
+  bg[SELECTED] = mix(0.9, @base_color, @fg_color)
+  bg[PRELIGHT] = mix(0.9, @base_color, @fg_color)
+  fg[NORMAL] = mix(0.87, @fg_color, @base_color)
   fg[PRELIGHT] = @fg_color
   fg[SELECTED] = @fg_color
   text[PRELIGHT] = @fg_color
@@ -2147,7 +2166,7 @@ style "menu_item" {
 }
 
 style "menu_item_label" {
-  fg[NORMAL] = mix(0.87, @fg_color, @dark_color)
+  fg[NORMAL] = mix(0.87, @fg_color, mix(0.5, @base_color, @bg_color))
   fg[PRELIGHT] = @fg_color
   fg[SELECTED] = @fg_color
 
@@ -2158,12 +2177,21 @@ style "separator_menu_item" {
   xthickness = 0
   ythickness = 1
 
+  # embedded blank area width = 20px
   engine "pixmap" {
     image {
       function  = BOX
-      file      = "Lines/menu-line-dark.png"
-      border    = { 0, 0, 0, 0 }
+      file      = "Lines/menu-line-ltr.png"
+      border    = { 20, 0, 0, 0 }
       stretch   = TRUE
+      direction = LTR
+    }
+    image {
+      function  = BOX
+      file      = "Lines/menu-line-rtl.png"
+      border    = { 0, 20, 0, 0 }
+      stretch   = TRUE
+      direction = RTL
     }
   }
 }
@@ -2237,46 +2265,46 @@ style "notebook" {
     # How to draw boxes with a gap on one side (ie the page of a notebook)
     image {
       function   = BOX_GAP
-      file       = "Shadows/frame-notebook-dark.png"
-      border     = { 2, 2, 2, 2 }
+      file       = "Shadows/frame.png"
+      border     = { 1, 1, 1, 1 }
       stretch    = TRUE
       gap_file   = "Others/null.svg"
-      gap_border = { 2, 2, 0, 0 }
+      gap_border = { 1, 1, 0, 0 }
       gap_side   = TOP
     }
     image {
       function   = BOX_GAP
-      file       = "Shadows/frame-notebook-dark.png"
-      border     = { 2, 2, 2, 2 }
+      file       = "Shadows/frame.png"
+      border     = { 1, 1, 1, 1 }
       stretch    = TRUE
       gap_file   = "Others/null.svg"
-      gap_border = { 2, 2, 0, 0 }
+      gap_border = { 1, 1, 0, 0 }
       gap_side   = BOTTOM
     }
     image {
       function   = BOX_GAP
-      file       = "Shadows/frame-notebook-dark.png"
-      border     = { 2, 2, 2, 2 }
+      file       = "Shadows/frame.png"
+      border     = { 1, 1, 1, 1 }
       stretch    = TRUE
       gap_file   = "Others/null.svg"
-      gap_border = { 0, 0, 2, 2 }
+      gap_border = { 0, 0, 1, 1 }
       gap_side   = LEFT
     }
     image {
       function   = BOX_GAP
-      file       = "Shadows/frame-notebook-dark.png"
-      border     = { 2, 2, 2, 2 }
+      file       = "Shadows/frame.png"
+      border     = { 1, 1, 1, 1 }
       stretch    = TRUE
       gap_file   = "Others/null.svg"
-      gap_border = { 0, 0, 2, 2 }
+      gap_border = { 0, 0, 1, 1 }
       gap_side   = RIGHT
     }
 
     # How to draw the box of a notebook when it isnt attached to a tab
     image {
       function = BOX
-      file     = "Shadows/frame-notebook-dark.png"
-      border   = { 2, 2, 2, 2 }
+      file     = "Shadows/frame.png"
+      border   = { 1, 1, 1, 1 }
       stretch  = TRUE
     }
   }
@@ -2287,7 +2315,7 @@ style "notebook_viewport" {
 }
 
 style "notebook_tab_label" {
-  fg[NORMAL] = mix(0.54, @selected_bg_color, @fg_color)
+  fg[NORMAL] = @fg_color
   fg[ACTIVE] = mix(0.54, @fg_color, @bg_color)
   font_name = "Medium"
 }
@@ -2512,8 +2540,8 @@ style "base" {
 }
 
 style "calendar" {
-  bg[NORMAL] = mix(0.12, @fg_color, @bg_color)
-  base[NORMAL] = @base_color
+  bg[NORMAL] = @secondary_dark_color
+  base[NORMAL] = @light_color
 }
 
 style "tooltips" {

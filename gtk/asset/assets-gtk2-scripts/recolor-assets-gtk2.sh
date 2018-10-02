@@ -12,12 +12,12 @@
 
 SRC_FILE="../assets-gtk2.svg"
 COL_FILE="../../sass/common/_colors.scss"
-KEY_FILE="../../sass/common/resources/_key_colors.scss"
+KEY_FILE="../../sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Indigo500' $COL_FILE | \
+selection1="`grep 'Cyan500' $COL_FILE | \
                    cut -d' ' -f3`"
-accent1="`grep 'Indigo300' $COL_FILE | \
+accent1="`grep 'Teal300' $COL_FILE | \
                 cut -d' ' -f3`"
 
 # Check and re-color color-scheme
@@ -38,6 +38,6 @@ if [ -e $KEY_FILE ]; then
         echo $accent1 is re-colored with $accent2.
     fi
 else
-    echo ../../sass/common/resources/_key_colors.scss was not found. Stopped...
+    echo _key_colors.scss was not found. Stopped...
     exit 1
 fi

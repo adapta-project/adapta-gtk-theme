@@ -4,6 +4,11 @@
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
 
+02 Sep 2018
+-----------
+# [Important]
+# Today, I locked "Issues", "Pull Requests" and all of our daily developments for current 3.94 series until next-gen lands.
+
 Before using Adapta
 -------------------
 
@@ -16,15 +21,23 @@ Adapta strongly depends on Material Design resources, especially its **fonts**.
    - Multilingual support is not good.
    - Weight used in Adapta: 300, 400, 500, 700
 
+ 2. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
+   - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
+   - Developed by Monotype and Adobe.
+   - Weight used in Adapta: 400, (500), 700
+
 | |Primary|Secondary|Fallback|
 |:-----:|:-----:|:-----:|:-----:|
-|Gnome-Shell >= 3.26|**Roboto**||Sans-serif|
-|Gnome-Shell =< 3.24|**Roboto**||Sans-serif|
+|Gnome-Shell >= 3.26|**Roboto**|**NotoSans**|Sans-serif|
+|Gnome-Shell =< 3.24|**NotoSans**||Sans-serif|
 |Cinnamon           |**Roboto**||Sans-serif|
 
 > **Note:**
 >
 > * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
+> * NotoSans may work well in various locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
+> * NotoSans CJK supports 500 weight.
+> * NotoSans is used as the 'password chars **U+25CF**' only in Gnome-Shell >= 3.26.
 
 Adapta is designed with nominal **13px (or 14px)** Roboto font.
 In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
@@ -32,31 +45,32 @@ In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
   13 [px] x 72 [pt/inch] / 96 [px/inch] = 9.75 [pt]
   14 [px] x 72 [pt/inch] / 96 [px/inch] = 10.5 [pt]
   ```
-That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x theming.
+That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x theming (In Gtk+ 3.18.x theming, em unit is directly used).
+
+> **Note:**
+>
+> NotoSans CJK (ChineseJapaneseKorean) opentype fonts are actually **0.1em taller than Roboto fonts**, so if 10pt Roboto was suitable on your LCDs, set 9pt for NotoSans CJK families.
 
 **Verify the fonts are rendered correctly via font-viewer tools like Gnome-Font-Viewer.**
 
 Variant Matrix
 --------------
-[check-on]: https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png
-[check-off]: https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png
 
-| |Adapta|Adapta-Brila|Adapta-Nokto|Adapta-Eta|Adapta-Brila-Eta|Adapta-Nokto-Eta|
-|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Gtk+ 2.24.x |![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|
-|Gtk+ 3.20.x |![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|
-|Gtk+ 3.22.x |![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|
-|Gtk+ 3.24.x |![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|
-|Mutter      |![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|
-|Metacity    |![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|![check-on]|
-|Muffin      |![check-on]|![check-on]|![check-on]|![check-off]|![check-off]|![check-off]|
-|XFwm4       |![check-on]|![check-on]|![check-on]|![check-off]|![check-off]|![check-off]|
-|Marco       |![check-on]|![check-on]|![check-on]|![check-off]|![check-off]|![check-off]|
-|Openbox-3   |![check-on]|![check-on]|![check-on]|![check-off]|![check-off]|![check-off]|
+| |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight.png" align="left"/> Adapta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon.png" align="left"/> Adapta-Nokto|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight-eta.png" align="left"/> Adapta-Eta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Gtk+ 2.24.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.20.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.22.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.24.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Mutter      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Metacity    |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Muffin      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|XFwm4       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Marco       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Openbox-3   |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
 
 > **Note:**
 >
->   * **Brila** is a complete light variant.
 >   * **Nokto** is a dark variant.
 >   * **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
@@ -93,7 +107,7 @@ Supported Desktop Environments
 Unsupported Gtk+ Based Desktop(s)
 -------------------------------
  * Pantheon
- * Unity7 and Ubuntu customed Gnome-Shell
+ * Unity7
 
  > **Note:**
  >
@@ -121,9 +135,9 @@ Installation from Git Source
 1. If previous versions were installed/existed, remove them first.
 
  ```
- sudo rm -rf /usr/share/themes/{Adapta,Adapta-Eta,Adapta-Brila,Adapta-Brila-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
- rm -rf ~/.local/share/themes/{Adapta,Adapta-Eta,Adapta-Brila,Adapta-Brila-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
- rm -rf ~/.themes/{Adapta,Adapta-Eta,Adapta-Brila,Adapta-Brila-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ sudo rm -rf /usr/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ rm -rf ~/.local/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ rm -rf ~/.themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
  ```
 
 2. Check build-requirements:
@@ -167,7 +181,7 @@ Installation from Git Source
  > **Note:**
  >
  >   * Default prefix is `/usr/local`.
- >   * All 6 variants are installed by default.
+ >   * All 4 variants are installed by default.
  >   * `make` generates proper CSSs and PNGs to be installed.
  >     It will take about 5min to 15min to build.
  >     For example, Ubuntu's build-server takes 10min.
@@ -212,36 +226,38 @@ Installation from Git Source
 7. To change the default 4 **Key-Colors**, pass these options:
 
  ```
- --with-selection_color        Primary color for 'selected-items' (Default: #3F51B5 = Indigo500, type: string)
- --with-accent_color           Secondary color for notifications and OSDs (Default: #7986CB = Indigo300, type: string)
- --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #673AB7 = DPurple500, type: string)
- --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #F44336 = Red500, type: string)
+ --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: string)
+ --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: string)
+ --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: string)
+ --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: string)
  ```
 
  > **Note:**
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
+ >     Uppercases are strongly recommended in Adapta code-base.
  >   * The Material Design Color Palette can be found [**here**](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
  >     ```./autogen.sh --with-selection_color=#009688```
  >
+ >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
  >     and `accent_color` should use `300` colors.
  >   * While doing `make`, Adapta changes those 4 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
- >   * This feature unfortunately is not supported in `Telegram 1.0` theming.
+ >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
 GtkSourceView/Gedit Color Scheme Support
 ----------------------------------------
- A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory, and `adapta-brila.xml` is installed into `Adapta-Brila/gedit` directory.
+ A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
  See details in [**README.md**](/extra/gedit/README.md).
 
  > **Note:**
  >
  >   * The color-scheme can be used in Gnome-Builder, Gnome-Sushi, Meld and Gedit if installed to 
  >     `~/.local/share/gtksourceview-3.0/styles` or `~/.local/share/gtksourceview-4/styles` directory.
- >   * A light-variant theming is experimental.
+ >   * Currently only dark-variant is supported.
 
 Visual Studio Code (VS Code) Theme Support
 ------------------------------------------
@@ -253,22 +269,30 @@ Extra Browser Support
 ---------------------
  To try our color samples for FirefoxColor test pilot, check these URLs:
 
-  1. [**Adapta**](https://mozilla.github.io/FirefoxColor/?theme=XQAAAAL8AAAAAAAAAABBKYhm849SCia2CaaEGccwS-xNKliFvd9NUAF6ENY3kBjKL2oHo45W2-O_o0hH8v9jyb1gPLS8xyg320t5BtQBRbshC37eqwUpEtrNzUXzzCCGCEnPVujOpTgJBqePqVNh4q1nxYUIdLIFaoaGFtpU8UGWTHdYK89VREGS2_uycyNkLyT_fUsp3rt8085FMcIrk2zP6zlQ8nXHifYExWUlXde95kD4F3H_cvgAAA)
+  1. [**Adapta**](https://color.firefox.com/?theme=XQAAAALUAAAAAAAAAABBKYhm849SCiazH1KEGccwS-xNVAWBvoBvsLDMFdiXwrZEjOV1NwO6XqPerXD8qZXG0Ve0ysSRDO_Fqq_1SFIUTSKR-LFqpoxVvvpw1Iq_PQcwWXZZeVXaSfmGGjCCdDkcOR3IcXyEWy-CbpLupG_UOE7d7U-IqXDfj3RCFFTYAW-cbj4Hku3mPIskyg-xRys_ul6HSl3J_IaFQA)
 
-  2. [**Adapta-Brila**](https://mozilla.github.io/FirefoxColor/?theme=XQAAAAL8AAAAAAAAAABBKYhm849SCia2CaaEGccwS-xNKliFvd9NUAF6ENY3kBjKL2oHo45W2-O_o0hH8v9jyb1gPLS8xyg3NbO0xf8CWW1IQ-VFBeST-c2ya550Jq-AJT3qXk84PCZgv4Q1Ip6G8KMxah3hVdR8-Zr9ze0kGqgOtR7bn1Nps1cYGNzQQkA8ajSLlQnjaMNzy_Cgfm6TGsTtSGCZPEHAaGevqPSrPV7L_8f2AAA)
+  2. [**Adapta-Nokto**](https://color.firefox.com/?theme=XQAAAALUAAAAAAAAAABBKYhm849SCiazH1KEGccwS-xNVAVNrWV6_89xtxNWy3sM0X99YG7itotZ8sB9kkK0owJCyKXJNAryj9IJU_wtu72r-X3skC4prCeW-fnJweq-4xu9tLmeXj8UkSdZGnzwrWVCNr3bToa6Zufrkj2b7e0PqstuOnN1gdAzjKSHwEJvdQThz-ruhge78cW2PaG0mCwQPvE72cX8OQiA)
 
-  3. [**Adapta-Nokto**](https://mozilla.github.io/FirefoxColor/?theme=XQAAAAL8AAAAAAAAAABBKYhm849SCia2CaaEGccwS-xNKlhR4U3ii01izoNSwV8EzxA9i34l-h9kNzmmbht5egIz1VwqGu4asy3bC0Iu-fSfcIJAVAwKwUYrdnMCFPHjDRh3WIEk3D10l1b0yhJ2JJ4iidXrDdOeHtPXECgT4mWPRinIv4rInTDn_LmydH4PXIv_OPeKQZiffADmQZvxlSWtpsLQfUznQX8sEtOtxfBaEVM7_-LnUAA)
+
+ To try legacy Chrome(ium) specific theming (`< 59.0.30xx`), pass this option:
+
+ ```
+ --enable-chrome-legacy     enable legacy Chrome(ium) support (type: bool)
+ ```
+
+ The compressed `crx` files will be installed into `Adapta/chrome` and `Adapta-Nokto/chrome`.
 
  > **Note:**
  >
- >   * We no longer support "Normal" UI layout in Chrome(ium). Use "Refresh" instead.
+ >   * Chrome(ium) 59.0.30xx or newer, theming is pulled from Gtk+ 3.x directly.
+ >     So `Settings > Appearance > Themes` should be `GTK+`.
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```
- >     Background: #F8F8F8 (#1D1D1D)
- >     Foreground: #111111 (#F5F5F5)
- >     Highlight:  #3F51B5
- >     Accent:     #E7E7E7 (#080808)
+ >     Background: #FAFBFC (#263238)
+ >     Foreground: #263238 (#CFD8DC)
+ >     Highlight:  #00BCD4
+ >     Accent:     #222D32
  >     Accent Color from Active Page: [ ]
  >     Apply Accent Color to Window:  [*]
  >     Transparent Tabs:              [*]
@@ -287,6 +311,7 @@ Extra Dock Support
 
  > **Note:**
  >
+ >   * Both Adapta and Adapta-Nokto shares the same theming.
  >   * Don't expect too much. Plank is NOT a themeable widget for me!
 
 Extra Compositor Support
@@ -303,11 +328,12 @@ Extra Telegram Support
  --enable-telegram      enable Telegram 1.0 support (type: bool)
  ```
 
- The installer installs compressed `tdesktop-theme` files into `Adapta/telegram`, `Adapta-Brila/telegram` and `Adapta-Nokto/telegram` directories if Telegram support is enabled.
+ The installer installs compressed `tdesktop-theme` files into `Adapta/telegram` and `Adapta-Nokto/telegram` directories if Telegram support is enabled.
  Then open the file via Telegram > Main Menu > Settings > Chat background > Choose from file.
 
  > **Note:**
  >
+ >   * The `adapta.tdesktop-theme` is for light-variant, and `adapta-nokto.tdesktop-theme` is for dark-variant.
  >   * Bundled noise-texture images are for *tiled* mode.
  >   * Telegram support is a W.I.P currently.
 
@@ -337,6 +363,7 @@ This is a list of community projects, related to Adapta:
 
 Work in Progress
 ----------------
+* Performance tuning
 * Conversion to Gtk+ 4.0
 
 TODO
@@ -360,6 +387,4 @@ Donations
 
 Special Thanks to
 --------------
- Nana-4, the developer of Materia Gtk+ theme (formerly Flat-Plat)
-
- Sam Hewitt, the developer of Paper Icon/Cursor Theme
+ Nana-4, the developer of Materia (formerly Flat-Plat).

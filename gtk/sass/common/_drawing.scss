@@ -10,10 +10,21 @@
  */
 
 //
-// Import resources
+// Drawing mixins
+//
+// Generic drawing of more complex things
 //
 
-@import 'resources/animations';
+//
+// Scaling function
+//
+
+$ref_size: 13.33px; // = 10pt = 1em
+
+@function rem($px, $fs: $ref_size, $sw: $ref_weight) {
+  @return round($px / $fs * $sw * 100) / 100 * 1rem;
+}
+
 
 //
 // Default shadows
@@ -27,509 +38,595 @@ $z-depth-5: 0 14px 19px rgba(0, 0, 0, 0.50);
 
 // tile borders + dummy z-depth-2 area
 $z-depth-2-tiled: 0 2.5px 4.5px transparent,
-                  1px 0 $div_sld_dark_fg, // side-edges
-                  -1px 0 $div_sld_dark_fg;
+                  1px 0 $panel_bg_color, // side-edges
+                  -1px 0 $panel_bg_color;
 $z-depth-2-tiled-top: 0 2.5px 4.5px transparent,
-                      0 1px $div_sld_dark_fg;
+                      0 1px $panel_bg_color;
 $z-depth-2-tiled-bottom: 0 2.5px 4.5px transparent,
-                         0 -1px $div_sld_dark_fg;
+                         0 -1px $panel_bg_color;
 $z-depth-2-tiled-left: 0 2.5px 4.5px transparent,
-                       1px 0 $div_sld_dark_fg;
+                       1px 0 $panel_bg_color;
 $z-depth-2-tiled-right: 0 2.5px 4.5px transparent,
-                        -1px 0 $div_sld_dark_fg;
-
+                        -1px 0 $panel_bg_color;
 // z-depth-2.5 actual shadows + dummy z-depth-4 area
 $z-depth-2-backdrop: 0 10px 14px transparent,
                      0 4.5px 5.5px rgba(0, 0, 0, 0.13),
                      $z-depth-2;
 $z-depth-2-backdrop-tiled: 0 10px 14px transparent,
-                           1px 0 $div_sld_dark_fg,
-                           -1px 0 $div_sld_dark_fg;
+                           1px 0 $panel_bg_color,
+                           -1px 0 $panel_bg_color;
 $z-depth-2-backdrop-tiled-top: 0 10px 14px transparent,
-                               0 1px $div_sld_dark_fg;
+                               0 1px $panel_bg_color;
 $z-depth-2-backdrop-tiled-bottom: 0 10px 14px transparent,
-                                  0 -1px $div_sld_dark_fg;
+                                  0 -1px $panel_bg_color;
 $z-depth-2-backdrop-tiled-left: 0 10px 14px transparent,
-                                1px 0 $div_sld_dark_fg;
+                                1px 0 $panel_bg_color;
 $z-depth-2-backdrop-tiled-right: 0 10px 14px transparent,
-                                 -1px 0 $div_sld_dark_fg;
+                                 -1px 0 $panel_bg_color;
 
+
+//
+// Header-bar shadows
+//
+
+$header-shadow-light: 0 1px 1px rgba(0, 0, 0, 0.16),
+                      0 1px 2px rgba(0, 0, 0, 0.26),
+                      0 2px 3px rgba(0, 0, 0, 0.32);
+$header-shadow-dark: 0 1px 1px rgba(0, 0, 0, 0.02),
+                     0 1px 2px rgba(0, 0, 0, 0.11),
+                     0 2px 3px rgba(0, 0, 0, 0.10);
+$sub-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
+                              0 1px 2px rgba(0, 0, 0, 0.26),
+                              0 2px 3px rgba(0, 0, 0, 0.32),
+                              -5px 0 0 -1px $inverted_dark_color,
+                              -2px 0 0 -1px $borders_color;
+$sub-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.02),
+                             0 1px 2px rgba(0, 0, 0, 0.11),
+                             0 2px 3px rgba(0, 0, 0, 0.10),
+                             -5px 0 0 -1px $inverted_dark_color,
+                             -2px 0 0 -1px $borders_color;
+$sub-header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
+                              0 1px 2px rgba(0, 0, 0, 0.26),
+                              0 2px 3px rgba(0, 0, 0, 0.32),
+                              5px 0 0 -1px $inverted_dark_color,
+                              2px 0 0 -1px $borders_color;
+$sub-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.02),
+                             0 1px 2px rgba(0, 0, 0, 0.11),
+                             0 2px 3px rgba(0, 0, 0, 0.10),
+                             5px 0 0 -1px $inverted_dark_color,
+                             2px 0 0 -1px $borders_color;
+$selected-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
+                                   0 1px 2px rgba(0, 0, 0, 0.26),
+                                   0 2px 3px rgba(0, 0, 0, 0.32),
+                                   -5px 0 0 -1px
+                                   mix($selected_bg_color,
+                                   $inverted_dark_color, 87%);
+$selected-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.02),
+                                  0 1px 2px rgba(0, 0, 0, 0.11),
+                                  0 2px 3px rgba(0, 0, 0, 0.10),
+                                  -5px 0 0 -1px
+                                  mix($selected_bg_color,
+                                  $inverted_dark_color, 87%);
+$selected_header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
+                                   0 1px 2px rgba(0, 0, 0, 0.26),
+                                   0 2px 3px rgba(0, 0, 0, 0.32),
+                                   5px 0 0 -1px
+                                   mix($selected_bg_color,
+                                   $inverted_dark_color, 87%);
+$selected-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.02),
+                                  0 1px 2px rgba(0, 0, 0, 0.11),
+                                  0 2px 3px rgba(0, 0, 0, 0.10),
+                                  5px 0 0 -1px
+                                  mix($selected_bg_color,
+                                  $inverted_dark_color, 87%);
+$tiled-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
+                                0 1px 2px rgba(0, 0, 0, 0.26),
+                                0 2px 3px rgba(0, 0, 0, 0.32),
+                                -5px 0 0 -1px $panel_bg_color,
+                                -2px 0 0 -1px $borders_color;
+$tiled-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.02),
+                               0 1px 2px rgba(0, 0, 0, 0.11),
+                               0 2px 3px rgba(0, 0, 0, 0.10),
+                               -5px 0 0 -1px $panel_bg_color,
+                               -2px 0 0 -1px $borders_color;
+$tiled-header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
+                                0 1px 2px rgba(0, 0, 0, 0.26),
+                                0 2px 3px rgba(0, 0, 0, 0.32),
+                                5px 0 0 -1px $panel_bg_color,
+                                2px 0 0 -1px $borders_color;
+$tiled-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.02),
+                               0 1px 2px rgba(0, 0, 0, 0.11),
+                               0 2px 3px rgba(0, 0, 0, 0.10),
+                               5px 0 0 -1px $panel_bg_color,
+                               2px 0 0 -1px $borders_color;
+$fake-shadow-light: linear-gradient(to bottom, rgba(0, 0, 0, 0.32),
+                                               rgba(0, 0, 0, 0.12) 2px,
+                                               rgba(0, 0, 0, 0.04) 4px,
+                                               rgba(0, 0, 0, 0.00) 6px,
+                                               transparent);
+$fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.14),
+                                              rgba(0, 0, 0, 0.05) 2px,
+                                              rgba(0, 0, 0, 0.02) 4px,
+                                              rgba(0, 0, 0, 0.00) 6px,
+                                              transparent);
+
+
+//
+// Side-bar shadows
+//
+
+$sidebar-light-ltr: inset -2px 2px 2px -2px rgba(0, 0, 0, 0.05),
+                    inset -3px 3px 3px -2px rgba(0, 0, 0, 0.05);
+$sidebar-light-rtl: inset 2px 2px 2px -2px rgba(0, 0, 0, 0.05),
+                    inset 3px 3px 3px -2px rgba(0, 0, 0, 0.05);
+$sidebar-dark-ltr: inset -2px 2px 1px -2px rgba(0, 0, 0, 0.01),
+                   inset -3px 1px 3px -2px rgba(0, 0, 0, 0.05);
+$sidebar-dark-rtl: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.01),
+                   inset 3px 1px 3px -2px rgba(0, 0, 0, 0.05);
+
+
+//
+// Inline-toolbar shadows
+//
+
+$inline-shadow-light: inset 0 1px 2px -1px rgba(0, 0, 0, 0.02),
+                      inset 0 2px 3px -2px rgba(0, 0, 0, 0.07);
+$inline-shadow-dark: inset 0 1px 2px -1px rgba(0, 0, 0, 0.12),
+                     inset 0 3px 4px -3px rgba(0, 0, 0, 0.05);
+
+
+//
+// Info-bar shadows
+//
+// $infobar-shadow-light: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+// $infobar-shadow-dark: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+
+
+//
+// Reorderable-tab shadows
+//
+
+$tab-shadow-light: -1px 0 2px rgba(0, 0, 0, 0.02),
+                  -1px 0 4px rgba(0, 0, 0, 0.02),
+                  1px 0 2px rgba(0, 0, 0, 0.02),
+                  1px 0 4px rgba(0, 0, 0, 0.02);
+$tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
+                  -1px 0 4px rgba(0, 0, 0, 0.03),
+                  1px 0 2px rgba(0, 0, 0, 0.02),
+                  1px 0 4px rgba(0, 0, 0, 0.03);
+
+
+//
+// Toolbar shadows
+//
+
+$toolbar-shadow-light: inset 0 1px 1px rgba(0, 0, 0, 0.18),
+                       inset 0 4px 2px -4px rgba(0, 0, 0, 0.20),
+                       inset 0 8px 3px -5px rgba(0, 0, 0, 0.24);
+$toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
+                      inset 0 4px 3px -4px rgba(0, 0, 0, 0.15),
+                      inset 0 8px 3px -5px rgba(0, 0, 0, 0.14);
+
+
+//
 // Nautilus Desktop Label shadow
+//
+
 $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
                   0 1px 2px rgba(0, 0, 0, 0.26),
                   0 2px 3px rgba(0, 0, 0, 0.32);
 
-//
-// Shape radius
-//
-// $r: amount of border-radius
-// $r_out: amount of outline-radius
-//
-
-@mixin radius($r, $r_out: $r) {
-  @if $r_out == none {
-    border-radius: #{$r};
-  }
-  @else {
-    border-radius: #{$r};
-    -gtk-outline-radius: #{$r_out};
-  }
-}
 
 //
-// Transitions
-//
-// $n: type name
-// $p: properties
-// $t: timing
-// $d: duration
+// Transition timing
 //
 
-@mixin transition($n, $p: $tr_p_std, $t: $tr_t_std, $d: $tr_d_std) {
-  @if $n == std {
-    transition-property: $p;
-    transition-timing-function: $t;
-    transition-duration: $d;
-  }
-  @else if $n == dec {
-    transition-property: $p;
-    transition-timing-function: $tr_t_dec;
-    transition-duration: $d;
-  }
-  @else if $n == acc-acc {
-    transition-property: $p;
-    transition-timing-function: $tr_t_acc;
-    transition-duration: $tr_d_sht;
-  }
-  @else if $n == dec-dec {
-    transition-property: $p;
-    transition-timing-function: $tr_t_dec;
-    transition-duration: $tr_d_lng;
-  }
-  @else if $n == ink-normal-std {
-    transition-property: $tr_p_ink_n;
-    transition-timing-function: $tr_t_std;
-    transition-duration: $tr_d_std;
-  }
-  @else if $n == ink-normal-dec {
-    transition-property: $tr_p_ink_n;
-    transition-timing-function: $tr_t_dec;
-    transition-duration: $tr_d_lng;
-  }
-  @else if $n == ink-active-std {
-    transition-property: $tr_p_ink_a;
-    transition-timing-function: $tr_t_std;
-    transition-duration: $tr_d_std;
-  }
-  @else if $n == ink-active-dec {
-    transition-property: $tr_p_ink_a;
-    transition-timing-function: $tr_t_dec;
-    transition-duration: $tr_d_lng;
-  }
-  @else if $n == ink-active-acc {
-    transition-property: $tr_p_ink_a;
-    transition-timing-function: $tr_t_acc;
-    transition-duration: $tr_d_lng;
-  }
-  @else if $n == ink-normal-combo {
-    transition-property: $tr_p_combo;
-    transition-timing-function: $tr_t_dec;
-    transition-duration: $tr_d_std;
-  }
-  @else if $n == ink-active-combo {
-    transition-property: $tr_p_ink_combo;
-    transition-timing-function: $tr_t_dec;
-    transition-duration: $tr_d_lng;
-  }
-  @else if $n == normal-deco {
-    transition-property: $tr_p_deco;
-    transition-timing-function: $tr_t_dec;
-    transition-duration: $tr_d_std;
-  }
-  @else if $n == ink-normal-tab {
-    transition: border-color $tr_d_std $tr_t_std,
-                border-image $tr_d_std $tr_t_std,
-                background-size 0s $tr_t_dec,
-                background-image 0s $tr_t_dec,
-                background-color $tr_d_std $tr_t_std,
-                box-shadow $tr_d_std $tr_t_std;
-  }
-  @else if $n == ink-active-tab {
-    transition: border-color $tr_d_std $tr_t_std,
-                border-image $tr_d_std $tr_t_std,
-                background-size $tr_d_lngr $tr_t_dec,
-                background-image $tr_d_lngr $tr_t_dec,
-                background-color $tr_d_std $tr_t_std,
-                box-shadow $tr_d_std $tr_t_std;
-  }
-  @else if $n == ink-normal-row {
-    transition: border-color $tr_d_std $tr_t_std,
-                border-image $tr_d_std $tr_t_std,
-                background-size ($tr_d_lng * 2) $tr_t_dec,
-                background-image ($tr_d_lng * 2) $tr_t_dec,
-                background-color $tr_d_std $tr_t_std,
-                box-shadow $tr_d_std $tr_t_std;
-  }
-  @else if $n == ink-active-row {
-    transition: border-color $tr_d_std $tr_t_std,
-                border-image $tr_d_std $tr_t_std,
-                background-size 0s $tr_t_dec,
-                background-image 0s $tr_t_dec,
-                background-color $tr_d_std $tr_t_std,
-                box-shadow $tr_d_std $tr_t_std;
-  }
-  @else if $n == reset {
-    transition-property: all;
-    transition-timing-function: $tr_t_lin;
-    transition-duration: $tr_d_non;
-    transition-delay: $tr_d_non;
-    animation: none;
-  }
-}
+$slope_slow: cubic-bezier(0.0, 0.0, 0.2, 1.0);
+$slope_medium: cubic-bezier(0.4, 0.0, 0.2, 1.0);
+$slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
+
+
+// /******************
+//  * Ripple effects *
+//  ******************/
 
 //
-// Animations
-//
-// $n: type name
-// $d: duration
-// $t: timing
+// Ripple effects
 //
 
-@mixin animation($n, $d: $tr_d_std, $t: $tr_t_std) {
-  @if $n == active-std {
-    animation: ink-std $d $t forwards;
-  }
-  @if $n == active-dec {
-    animation: ink-dec $tr_d_lng $tr_t_dec forwards;
-  }
-}
-
+@keyframes ripple_effect {
 //
-// Ink reactions
-//
-// $t: type
-// $fc: ink color
-// $bs: background scale
-// $i: ink intensity
-// $tr: transition
+// Ripple effect drawing function
 //
 
-@mixin ink-reaction(
-         $t, $fc: currentColor, $bs: 8, $i: 1.0, $tr: ink-normal-std) {
-  @if $t == normal {
-    background-image:
-      radial-gradient(circle farthest-corner at center,
-                      track($fc, 0 * $i) percentage(1 / $bs),
-                      transparent 0%);
-    background-size: percentage($bs) percentage($bs);
-    background-repeat: no-repeat;
-    background-position: center center;
-    @include transition($tr);
-  }
-  @else if $t == active-std {
-    background-image:
-      radial-gradient(circle farthest-corner at center,
-                      track($fc, $a_trk_1 *$i) percentage(1 / $bs),
-                      transparent 0%);
-    background-size: 0 0;
-    @include transition($tr);
-    @include animation(active-std);
-    transition-delay: $tr_d_dly; // reduce early ink ringing artifacts
-  }
-  @else if $t == active-dec {
-    background-image:
-      radial-gradient(circle farthest-corner at center,
-                      track($fc, $a_trk_1 * $i) percentage(1 / $bs),
-                      transparent 0%);
-    background-size: 0 0;
-    @include transition($tr);
-    @include animation(active-dec);
-    transition-delay: $tr_d_dly;
-  }
-  @else if $t == active-close-dec {
+  0% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      $fc percentage(1 / $bs),
-                                      transparent 0%);
-    background-size: 0 0;
-    @include transition($tr);
-    @include animation(active-dec);
-    transition-delay: $tr_d_dly;
+                                      $track_color 0%,
+                                      transparent 0%),
+                      image(gtkalpha(currentColor, 0));
   }
-  @if $t == tab-normal {
-    background-image:
-      radial-gradient(circle farthest-corner at center,
-                      track($fc, $a_trk_2 * $i) percentage(1 / $bs),
-                      transparent 0%);
-    background-size: 0 0;
-    background-repeat: no-repeat;
-    background-position: center center;
-    @include transition(ink-normal-tab);
+  66% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      $track_color 100%,
+                                      transparent 0%),
+                      image($track_color);
   }
-  @else if $t == tab-active {
-    border-color: $sel_bg;
-    background-image:
-      radial-gradient(circle farthest-corner at center,
-                      track($fc, 0 * $i) percentage(1 / $bs),
-                      transparent 0%);
-    background-size: percentage($bs) percentage($bs);
-    @include transition(ink-active-tab);
+  100% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      $track_color 100%,
+                                      transparent 0%),
+                      image(gtkalpha(currentColor, 0));
   }
 }
+
+@keyframes flat_ripple_effect {
+  0% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      $track_color 0%,
+                                      transparent 0%),
+                      image($track_color);
+  }
+  66% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      $track_color 100%,
+                                      transparent 0%),
+                      image($track_color);
+  }
+  100% {
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      gtkalpha(currentColor, 0) 100%,
+                                      transparent 0%),
+                      image($track_color);
+  }
+}
+
 
 //
 // Entries
 //
+
+// templates for the fallback mode entries
+%entry_fallback_normal {
+  border: 1px solid if($variant == light,
+                    mix($base_color, $fixed_fg_color, 90%),
+                    $solid_light_borders_color);
+  border-image: none;
+  background-color: $light_color;
+  color: $secondary_fg_color;
+  box-shadow: none;
+}
+
+%entry_fallback_focus {
+  border: 1px solid $selected_bg_color;
+  border-image: none;
+  background-color: $light_color;
+  color: $fg_color;
+  box-shadow: none;
+}
+
+%entry_fallback_insensitive {
+  border: 1px solid if($variant == light,
+                    mix($base_color, $fixed_fg_color, 90%),
+                    $solid_light_borders_color);
+  border-image: none;
+  background-color: mix($bg_color, $fg_color, 96%);
+  color: $insensitive_fg_color;
+  box-shadow: none;
+}
+
+@mixin entry($t, $c: $fg_color, $fc:$selected_bg_color) {
+//
+// Entries drawing function
+//
 // $t: entry type
-// $c: background color
-// $tc: text color
+// $c: text color
 // $fc: focus color
-// $ln: linked state
 //
 // possible $t values:
-// normal, focus, disabled, flat-normal, flat-focus, flat-disabled;
+// normal, focus, insensitive, flat-normal, flat-focus, flat-insensitive;
 //
 
-@mixin entry($t, $c: $light_bg, $tc: $fg, $fc: $sel_bg) {
   @if $t == normal {
-    border-color: mix($tc, $c, percentage($a_div_1));
-    background-color: mix($tc, $c, percentage($a_trk_1 / 2));
-    color: track($tc, $a_fg_2nd);
+    border-radius: 0;
+    -gtk-outline-radius: 0;
+    border-color: $solid_light_borders_color;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $outline_track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
+    color: gtkopacity($c, 0.87);
   }
-  @else if $t == focus {
-    border-color: $fc;
-    background-color: $c;
-    color: $tc;
+  @if $t == focus {
+    border-color: $solid_light_borders_color;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $fc 100%,
+                                  transparent)
+                                  0 0 2 / 0 0 2px;
+    color: $c;
+    transition: all 0.2s $slope_medium,
+                box-shadow 0.2s $slope_medium,
+                color 0s;
   }
-  @else if $t == disabled {
-    border-color: mix($tc, $c, percentage($a_div_1 * $a_fg_dis));
-    background-color: mix($tc, $c, percentage($a_trk_1 / 2 * $a_fg_dis));
-    color: track($tc, $a_fg_dis);
+  @if $t == insensitive {
+    border-color: $solid_light_borders_color;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $outline_track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
+    color: gtkopacity($c, 0.28);
   }
-  @else if $t == flat-normal {
-    border: none;
-    background-color: track($tc, $a_trk_1 / 2);
-    color: track($tc, $a_fg_2nd);
-    box-shadow: inset 0 -2px $trk_out_fg;
+  @if $t == flat-normal {
+    border-radius: 0;
+    -gtk-outline-radius: 0;
+    border-color: $solid_light_borders_color;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $outline_track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
+    background-color: transparent;
+    color: gtkopacity($c, 0.87);
   }
-  @else if $t == flat-focus {
-    border: none;
-    background-color: track($tc, $a_trk_1);
-    color: $tc;
-    box-shadow: inset 0 -2px $fc;
+  @if $t == flat-focus {
+    border-color: $solid_light_borders_color;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $fc 100%,
+                                  transparent)
+                                  0 0 2 / 0 0 2px;
+    color: $c;
+    transition: all 0.2s $slope_medium,
+                box-shadow 0.2s $slope_medium,
+                color 0s;
   }
-  @else if $t == flat-disabled {
-    border: none;
-    background-color: track($tc, $a_trk_1 / 2 * $a_fg_dis);
-    color: track($tc, $a_fg_dis);
-    box-shadow: none;
+  @if $t == flat-insensitive {
+    border-color: $solid_light_borders_color;
+    border-image: radial-gradient(circle farthest-corner at center,
+                                  $outline_track_color 100%,
+                                  transparent)
+                                  0 0 1 / 0 0 1px;
+    background-color: transparent;
+    color: gtkopacity($c, 0.28);
   }
 }
 
-@mixin linked-entry-outline($dir: ltr, $cld: first) {
-  @if $cld == center {
-    border-left-width: 1px;
-    border-right-width: 1px;
-  }
-  @if $cld == vert-center {
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-  }
-  @else if $cld == first {
-    @if $dir == ltr { border-right-width: 1px; }
-    @if $dir == rtl { border-left-width: 1px; }
-    @if $dir == vert { border-bottom-width: 1px; }
-  }
-  @else if $cld == last {
-    @if $dir == ltr { border-left-width: 1px; }
-    @if $dir == rtl { border-right-width: 1px; }
-    @if $dir == vert { border-top-width: 1px; }
-  }
-}
 
 //
 // Buttons
 //
+
+// template for standard buttons
+%button_normal {
+  background-image: radial-gradient(circle farthest-corner at center,
+                                    gtkalpha(currentColor, 0) 100%,
+                                    transparent 0%),
+                    image(gtkalpha(currentColor, 0));
+  box-shadow: $z-depth-1,
+              inset 0 1px $highlight_color;
+  transition-timing-function: $slope_slow;
+  transition-duration: 0.2s;
+}
+
+%button_hover {
+  background-image: radial-gradient(circle farthest-corner at center,
+                                    gtkalpha(currentColor, 0) 100%,
+                                    transparent 0%),
+                    image(gtkalpha(currentColor, 0));
+  box-shadow: $z-depth-2,
+              inset 0 1px $highlight_color;
+}
+
+%button_active {
+  box-shadow: $z-depth-2,
+              inset 0 1px $highlight_color;
+  transition: all 0.2s $slope_slow,
+              background-image 0s;
+  animation: ripple_effect 0.3s $slope_slow forwards;
+}
+
+%button_checked {
+  box-shadow: $z-depth-1,
+              inset 0 1px $highlight_color;
+}
+
+%button_disabled,
+%button_checked_disabled {
+  box-shadow: none;
+
+  > label { color: inherit; }
+}
+
+%button_flat_normal {
+  background-image: radial-gradient(circle farthest-corner at center,
+                                    gtkalpha(currentColor, 0) 100%,
+                                    transparent 0%),
+                    image(gtkalpha(currentColor, 0));
+  box-shadow: none;
+  transition-timing-function: $slope_slow;
+  transition-duration: 0.2s;
+}
+
+%button_flat_hover {
+  background-image: radial-gradient(circle farthest-corner at center,
+                                    gtkalpha(currentColor, 0) 100%,
+                                    transparent 0%),
+                    image($track_color);
+  box-shadow: none;
+}
+
+%button_flat_active {
+  box-shadow: none;
+  transition: all 0.2s $slope_slow,
+              background-image 0s;
+  animation: flat_ripple_effect 0.3s $slope_slow forwards;
+}
+
+%button_flat_checked {
+  box-shadow: none;
+}
+
+%button_flat_disabled,
+%button_flat_checked_disabled {
+  box-shadow: none;
+
+  > label { color: inherit; }
+}
+
+// templates for the fallback mode buttons
+%button_fallback_normal {
+  border: 1px solid if($variant == light,
+                    mix($base_color, $fixed_fg_color, 90%),
+                    $solid_light_borders_color);
+  background-color: $light_color;
+  color: $secondary_fg_color;
+  box-shadow: none;
+}
+
+%button_fallback_hover {
+  border: 1px solid if($variant == light,
+                    mix($base_color, $fixed_fg_color, 80%),
+                    $solid_light_borders_color);
+  background-color: mix($light_color, $fg_color, 96%);
+  color: $fg_color;
+  box-shadow: none;
+}
+
+%button_fallback_active {
+  border: 1px solid if($variant == light,
+                    mix($base_color, $fixed_fg_color, 80%),
+                    $solid_light_borders_color);
+  background-color: mix($light_color, $fg_color, 92%);
+  color: $fg_color; // do not use inverted colours
+  box-shadow: none;
+  animation: none;
+}
+
+%button_fallback_insensitive {
+  border: none;
+  background-color: mix($bg_color, $fg_color, 96%);
+  color: $insensitive_fg_color;
+  box-shadow: none;
+}
+
+%button_fallback_checked_insensitive {
+  border: none;
+  background-color: mix($selected_bg_color, $light_color, 20%);
+  color: mix($selected_bg_color, $light_color, 40%);
+  box-shadow: none;
+}
+
+@mixin button($t, $c:$light_color, $tc:$fg_color) {
+//
+// Button drawing function
+//
 // $t:    button type,
 // $c:    base button color for colored* types
 // $tc:   optional text color for colored* types
 //
+// possible $t values:
+// normal, hover, active, insensitive, checked, checked-insensitive,
+// flat-normal, flat-hover, flat-active, flat-insensitive, flat-checked,
+// flat-checked-insensitive, undecorated
+//
 
-@mixin button($t, $c: $light_bg, $tc: $fg) {
   @if $t == normal {
-    border-color: mix($tc, $c, percentage($a_div_1));
+  //
+  // normal button
+  //
+    @extend %button_normal;
     background-color: $c;
-    color: track($tc, $a_fg_2nd);
+    color: $secondary_fg_color;
   }
+
   @else if $t == hover {
-    border-color: mix($tc, $c, percentage($a_trk_1));
-    background-color: mix($tc, $c, percentage($a_trk_1));
+  //
+  // hovered button
+  //
+    @extend %button_hover;
     color: $tc;
   }
+
   @else if $t == active {
-    border-color: mix($tc, $c, percentage($a_div_1));
-    background-color: mix($tc, $c, percentage($a_trk_1));
+  //
+  // pushed button
+  //
+    @extend %button_active;
     color: $tc;
+  }
+  @else if $t == insensitive {
+  //
+  // insensitive button
+  //
+    @extend %button_disabled;
+    background-color: $track_color;
+    color: if($tc!=$fg_color, $insensitive_fg_color,
+                              $insensitive_secondary_fg_color);
   }
   @else if $t == checked {
-    border-color: $sel_bg;
-    background-color: $sel_bg;
-    color: $sel_fg;
+  //
+  // checked button
+  //
+    @extend %button_checked;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
   }
-  @else if $t == checked-hover {
-    border-color: mix($sel_fg, $sel_bg, percentage($a_trk_1));
-    background-color: mix($sel_fg, $sel_bg, percentage($a_trk_1));
-    color: $sel_fg;
+  @else if $t == checked-insensitive {
+  //
+  // checked insensitive button
+  //
+    @extend %button_checked_disabled;
+    background-color: $track_color;
+    color: gtkopacity($selected_bg_color, 0.4);
   }
-  @else if $t == checked-disabled {
-    border-color: mix($tc, $c, percentage($a_trk_1));
-    background-color: mix($tc, $c, percentage($a_trk_1));
-    color: track($tc, $a_fg_dis);
-  }
-  @else if $t == disabled {
-    border-color: mix($tc, $c, percentage($a_div_1 * $a_fg_dis));
-    background-color: mix($tc, $c, percentage($a_trk_1 / 2 * $a_fg_dis));
-    color: track($tc, $a_fg_dis);
-  }
+
   @else if $t == flat-normal {
-    border: none;
-    background-color: track($tc, 0);
-    color: track($tc, $a_fg_2nd);
+  //
+  // normal flat button
+  //
+    @extend %button_flat_normal;
+    background-color: transparent;
   }
   @else if $t == flat-hover {
-    border: none;
-    background-color: track($tc, $a_trk_1);
-    color: $tc;
-  }
-  @else if $t == flat-lined-hover {
-    border: none;
-    background-color: track($tc, $a_trk_1);
-    color: $tc;
-    box-shadow: inset 0 -2px track($tc, $a_trk_out);
+  //
+  // hovered flat button
+  //
+    @extend %button_flat_hover;
   }
   @else if $t == flat-active {
-    border: none;
-    background-color: track($tc, $a_trk_1);
-    color: $tc;
+  //
+  // pushed flat button
+  //
+    @extend %button_flat_active;
+  }
+  @else if $t == flat-insensitive {
+  //
+  // insensitive flat button
+  //
+    @extend %button_flat_disabled;
+    background-color: transparent;
   }
   @else if $t == flat-checked {
-    border: none;
-    background-color: track($tc, $a_trk_2);
+  //
+  // checked flat button
+  //
+    @extend %button_flat_checked;
+    background-color: $track_color;
     color: $tc;
   }
-  @else if $t == flat-lined-checked {
-    border: none;
-    background-color: track($tc, 0);
-    color: $tc;
-    box-shadow: inset 0 -2px $sel_bg;
-  }
-  @else if $t == flat-checked-disabled {
-    border: none;
-    background-color: track($tc, $a_trk_1 * $a_fg_dis);
-    color: track($tc, $a_fg_dis);
-  }
-  @else if $t == flat-disabled {
-    border: none;
-    background-color: track($tc, 0);
-    color: track($tc, $a_fg_dis);
-  }
-  @else if $t == raised-normal {
-    border-color: $c;
-    background-color: $c;
-    color: $tc;
-    box-shadow: $z-depth-1;
-  }
-  @else if $t == raised-hover {
-    border-color: mix($tc, $c, percentage($a_trk_1));
-    background-color: mix($tc, $c, percentage($a_trk_1));
-    color: $tc;
-    box-shadow: $z-depth-2;
-  }
-  @else if $t == raised-active {
-    border-color: $c;
-    background-color: $c;
-    color: $tc;
-    box-shadow: $z-depth-2;
-  }
-  @else if $t == raised-checked {
-    border-color: $sel_bg;
-    background-color: $sel_bg;
-    color: $sel_fg;
-    box-shadow: $z-depth-1;
-  }
-  @else if $t == raised-checked-disabled {
-    border-color: mix($tc, $c, percentage($a_trk_1));
-    background-color: mix($tc, $c, percentage($a_trk_1));
-    color: track($tc, $a_fg_dis);
-    box-shadow: none;
-  }
-  @else if $t == raised-disabled {
-    border-color: transparent;
-    background-color: track($tc, ($a_trk_1));
-    color: track($tc, $a_fg_dis);
-    box-shadow: none;
+  @else if $t == flat-checked-insensitive {
+  //
+  // checked flat insensitive button
+  //
+    @extend %button_flat_checked_disabled;
   }
 }
 
-//
-// Combobuttons
-//
-// $t:    button type,
-// $c:    base button color for colored* types
-// $tc:   optional text color for colored* types
-//
-
-@mixin combobutton($t, $c: $light_bg, $tc: $fg) {
-  @if $t == normal {
-    border: none;
-    background-color: track($tc, $a_trk_1);
-    color: track($tc, $a_fg_2nd);
-  }
-  @else if $t == hover {
-    background-color: track($tc, $a_trk_1 * 1.5);
-    color: $tc;
-  }
-  @else if $t == active {
-    background-color: track($tc, $a_trk_1 * 1.5);
-    color: $tc;
-  }
-  @else if $t == checked {
-    background-color: track($tc, $a_trk_1 * 1.5);
-    color: $tc;
-  }
-  @else if $t == disabled {
-    background-color:
-      mix($tc, $c, percentage(($a_trk_1 * 2 / 3) * $a_fg_dis));
-    color: track($tc, $a_fg_dis);
-    box-shadow: inset 0 0 0 1px
-                mix($tc, $c, percentage($a_div_1 * $a_fg_dis));
-  }
-  @else if $t == solid-normal {
-    background-color: mix($tc, $c, percentage($a_trk_1));
-    color: track($tc, $a_fg_2nd);
-  }
-  @else if $t == solid-hover {
-    background-color: mix($tc, $c, percentage($a_trk_1 * 1.5));
-    color: $tc;
-  }
-  @else if $t == solid-active {
-    background-color: mix($tc, $c, percentage($a_trk_2));
-    color: $tc;
-  }
-  @else if $t == solid-checked {
-    background-color: mix($tc, $c, percentage($a_trk_2));
-    color: $tc;
-  }
-  @else if $t == solid-disabled {
-    background-color:
-      mix($tc, $c, percentage(($a_trk_1 * 2 / 3) * $a_fg_dis));
-    color: track($tc, $a_fg_dis);
-    box-shadow: inset 0 0 0 1px
-                mix($tc, $c, percentage($a_div_1 * $a_fg_dis));
-  }
-}
 
 //
 // Overshoot
+//
+
+@mixin overshoot($p, $t:normal, $c:$accent_color) {
+//
+// Overshoot drawing function
 //
 // $p: position
 // $t: type
@@ -542,14 +639,13 @@ $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
 // normal, backdrop
 //
 
-@mixin overshoot($p, $t:normal, $c:$fg) {
   background-size: 150% 50%;
 
   @if ($p == left) or ($p == right) { background-size: 50% 150%; }
 
   background-image: radial-gradient(circle farthest-side at $p,
-                                    track($c, $a_trk_1) 50%,
-                                    track($c, $a_trk_1) 50%,
+                                    gtkopacity($c, 0.13) 50%,
+                                    gtkopacity($c, 0.13) 50%,
                                     transparent);
   background-repeat: no-repeat;
   background-position: $p;
@@ -559,3 +655,4 @@ $z-depth-1-label: 0 0 1px rgba(0, 0, 0, 0.26),
   box-shadow: none;
   transition: none;
 }
+

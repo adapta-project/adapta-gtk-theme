@@ -15,7 +15,7 @@ SRC_DIR="../assets-xfwm"
 ASSETS_DIR="../../xfwm4"
 INDEX_SRC="assets-xfwm.txt"
 INDEX=""
-KEY_FILE="../../../gtk/sass/common/resources/_key_colors.scss"
+KEY_FILE="../../../sass/common/_key_colors.scss"
 
 inkver="`$INKSCAPE --version | awk '{print $2}' | cut -c 1-4`"
 if [ "$inkver" = 0.91 ]; then

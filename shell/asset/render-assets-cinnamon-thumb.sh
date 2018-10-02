@@ -12,17 +12,15 @@
 
 INKSCAPE="`command -v inkscape`"
 
-SRC_DIR="assets-cinnamon/mixed/misc"
-SRC_DARK_DIR="assets-cinnamon/dark/misc"
-SRC_LIGHT_DIR="assets-cinnamon/light/misc"
+SRC_DIR="assets-cinnamon/light/misc"
+SRC_DARK_DIR="assets-cinnamon/nokto/misc"
 ASSETS_DIR="../cinnamon/assets"
-ASSETS_LIGHT_DIR="../cinnamon-brila/assets"
 ASSETS_DARK_DIR="../cinnamon-nokto/assets"
-KEY_FILE="../../gtk/sass/common/resources/_key_colors.scss"
+KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 THUMB="thumbnail"
 
 # Default colours
-selection1="`grep 'Indigo500' ../../gtk/sass/common/_colors.scss | \
+selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
                    cut -d' ' -f3`"
 
 # Check and re-color SVG files
@@ -32,12 +30,10 @@ if [ -e $KEY_FILE ]; then
 IFS=$'
 '
     cp -f $SRC_DIR/$THUMB.svg.in $SRC_DIR/$THUMB.svg
-    cp -f $SRC_LIGHT_DIR/$THUMB.svg.in $SRC_LIGHT_DIR/$THUMB.svg
     cp -f $SRC_DARK_DIR/$THUMB.svg.in $SRC_DARK_DIR/$THUMB.svg
 
     if [ $selection1 != $selection2 ]; then
         sed -i "s/$selection1/$selection2/gi" $SRC_DIR/$THUMB.svg
-        sed -i "s/$selection1/$selection2/gi" $SRC_LIGHT_DIR/$THUMB.svg
         sed -i "s/$selection1/$selection2/gi" $SRC_DARK_DIR/$THUMB.svg
         echo $THUMB.svg is re-colored with $selection2.
     fi
@@ -56,9 +52,6 @@ render-non-scale() {
               --export-png=$ASSETS_DIR/$THUMB.png $SRC_DIR/$THUMB.svg >/dev/null \
                                                                       2>>inkscape.log
     $INKSCAPE --export-dpi="$non_scale_dpi" \
-              --export-png=$ASSETS_LIGHT_DIR/$THUMB.png $SRC_LIGHT_DIR/$THUMB.svg >/dev/null \
-                                                                                2>>inkscape.log
-    $INKSCAPE --export-dpi="$non_scale_dpi" \
               --export-png=$ASSETS_DARK_DIR/$THUMB.png $SRC_DARK_DIR/$THUMB.svg >/dev/null \
                                                                                 2>>inkscape.log
 }
@@ -70,16 +63,13 @@ if [ -f $ASSETS_DIR/$THUMB.png ] && \
 elif [ -f $ASSETS_DIR/$THUMB.png ] && \
     [ $KEY_FILE -nt $ASSETS_DIR/$THUMB.png ]; then
     echo Re-rendering $ASSETS_DIR/$THUMB.png
-    echo Re-rendering $ASSETS_LIGHT_DIR/$THUMB.png
     echo Re-rendering $ASSETS_DARK_DIR/$THUMB.png
     echo $THUMB.png >>inkscape.log
     rm -f $ASSETS_DIR/$THUMB.png
-    rm -f $ASSETS_LIGHT_DIR/$THUMB.png
     rm -f $ASSETS_DARK_DIR/$THUMB.png
     render-non-scale
 else
     echo Rendering $ASSETS_DIR/$THUMB.png
-    echo Rendering $ASSETS_LIGHT_DIR/$THUMB.png
     echo Rendering $ASSETS_DARK_DIR/$THUMB.png
     echo $THUMB.png >>inkscape.log
     render-non-scale

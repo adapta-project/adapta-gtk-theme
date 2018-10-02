@@ -1,5 +1,5 @@
 m4_define([adapta_major_version], [3])
-m4_define([adapta_minor_version], [95])
+m4_define([adapta_minor_version], [94])
 m4_define([adapta_micro_version], [0])
 m4_define([adapta_version], [adapta_major_version.adapta_minor_version.adapta_micro_version])
 m4_define([adapta_git_url], [https://github.com/adapta-project/adapta-gtk-theme])
@@ -31,6 +31,7 @@ ADAPTA_OPTION([FLASHBACK],    [flashback],    [Flashback],           [enable])
 ADAPTA_OPTION([XFCE],         [xfce],         [XFce],                [enable])
 ADAPTA_OPTION([MATE],         [mate],         [Mate],                [enable])
 ADAPTA_OPTION([OPENBOX],      [openbox],      [Openbox],             [enable])
+ADAPTA_OPTION([CHROME_LEGACY],[chrome_legacy],[Chrome(ium)-legacy],  [disable])
 ADAPTA_OPTION([PLANK],        [plank],        [Plank],               [disable])
 ADAPTA_OPTION([TELEGRAM],     [telegram],     [Telegram],            [disable])
 ADAPTA_OPTION([TWEETDECK],    [tweetdeck],    [Tweetdeck-Colordeck], [disable])
@@ -85,10 +86,8 @@ AC_MSG_RESULT([
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
          target directories:     ${datarootdir}/themes/Adapta
-                                 ${datarootdir}/themes/Adapta-Brila
-                                 ${datarootdir}/themes/Adapta-Brila-Eta
-                                 ${datarootdir}/themes/Adapta-Eta
                                  ${datarootdir}/themes/Adapta-Nokto
+                                 ${datarootdir}/themes/Adapta-Eta
                                  ${datarootdir}/themes/Adapta-Nokto-Eta
 
          glib-compile-resources: $GLIB_COMPILE_RESOURCES
@@ -130,6 +129,7 @@ AC_MSG_RESULT([
         -----------------------------------------------------------------
 
          GtkSourceView/Gedit:    always
+         Chrome(ium)-legacy:     $ENABLE_CHROME_LEGACY (default: no)
          Plank:                  $ENABLE_PLANK (default: no)
          Telegram:               $ENABLE_TELEGRAM (default: no)
          Tweetdeck-Colordeck:    $ENABLE_TWEETDECK (default: no)

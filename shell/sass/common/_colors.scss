@@ -3,151 +3,143 @@
 // it gets @if ed depending on $variant
 //
 
-// Import base components from Gtk+ theming
-@import '../../../gtk/sass/common/resources/color_palette';
-@import '../../../gtk/sass/common/resources/functions';
-@import '../../../gtk/sass/common/resources/variables';
-@import '../../../gtk/sass/common/resources/key_colors';
-@import 'resources/function';
+
+@function shellopacity($c, $a) {
+  @return scale-color($c, $alpha: percentage(-1 + $a));
+}
+
+// Import key colour-scheme defined at build-time.
+@import 'key_colors';
 
 //
 // Foreground colors
 //
 
-$fg: if($variant == dark, color($grey, 100),
-                          mix(color($grey, 900), black));
-$sec_fg: opacity($fg, $a_fg_2nd);
-$ter_fg: opacity($fg, $a_fg_3rd);
-$dis_fg: opacity($fg, $a_fg_dis);
-$dis_sec_fg: opacity($sec_fg, $a_fg_dis);
+$fg_color: if($nokto == false, #263238, #CFD8DC);
+$secondary_fg_color: shellopacity($fg_color, 0.87);
+$tertiary_fg_color: shellopacity($fg_color, 0.54);
+$insensitive_fg_color: shellopacity($fg_color, 0.28);
+$insensitive_secondary_fg_color: shellopacity($secondary_fg_color, 0.28);
 
-$sel_fg: white;
-$sec_sel_fg: opacity($sel_fg, $a_fg_sel_2nd);
+$selected_fg_color: #FFFFFF;
+$secondary_selected_fg_color: shellopacity($selected_fg_color, 0.87);
+
 
 //
 // OSD Foreground colors
 //
 
-$osd_fg: if($variant == light, mix(color($grey, 900), black),
-                               color($grey, 100));
-$osd_sec_fg: opacity($osd_fg, $a_fg_2nd);
-$osd_ter_fg: opacity($osd_fg, $a_fg_3rd);
-$dis_osd_fg: opacity($osd_fg, $a_fg_dis);
-$dis_osd_sec_fg: opacity($osd_sec_fg, $a_fg_dis);
+$osd_fg_color: #CFD8DC;
+$osd_secondary_fg_color: shellopacity($osd_fg_color, 0.87);
+$osd_tertiary_fg_color: shellopacity($osd_fg_color, 0.54);
 
-$ovv_fg: white;
-$ovv_sec_fg: opacity($ovv_fg, $a_fg_2nd);
-$ovv_ter_fg: opacity($ovv_fg, $a_fg_3rd);
-$ovv_dis_fg: opacity($ovv_fg, $a_fg_dis);
+$insensitive_osd_fg_color: shellopacity($osd_fg_color, 0.28);
+$insensitive_osd_secondary_fg_color:
+  shellopacity($osd_secondary_fg_color, 0.28);
+
 
 //
 // Background colors
 //
 
-$bg: if($variant == dark,
-        mix(color($grey, 900), black, 87%),
-        mix(color($grey, 50), color($grey, 100)));
-$base: if($variant == dark,
-          mix(color($grey, 900), black),
-          white);
-$light_bg: $base;
-$dark_bg: if($variant == dark,
-             mix(color($grey, 900), black, 25%),
-             mix(color($grey, 200), color($grey, 300)));
+$bg_color: if($nokto == false, mix(#FFFFFF, #ECEFF1, 75%),
+                               #263238);
+$base_color: if($nokto == false, #FFFFFF,
+                                 mix(#263238, #37474F, 85%));
+$secondary_base_color: mix($base_color, $bg_color, 50%);
+$secondary_dark_color: if($nokto == false, mix(#FFFFFF, #ECEFF1, 60%),
+                                           mix(#263238, #000000, 95%));
+$light_color: if($nokto == false, $base_color,
+                                  mix(#263238, #37474F, 50%));
 
-$semi_fill_bg: opacity($fg, $a_trk_1);
-$fill_bg: opacity($fg, $a_trk_2);
-$hidden_fill_bg: rgba(0, 0, 0, 0.01);
+$fill_color: shellopacity($fg_color, 0.25);
+$semi_fill_color: shellopacity($fg_color, 0.12);
+$hidden_fill_color: rgba(0, 0, 0, 0.01);
+$menuentry_hidden_fill_color: if($nokto == false, rgba(255, 255, 255, 0.01),
+                                                  rgba(0, 0, 0, 0.01));
 
-$sel_bg: $key_selection_color;
-$sel_label: if($variant == dark,
-               saturate(
-                 lighten($sel_bg, percentage($a_trk_2)),
-                 percentage($a_trk_2)),
-               $sel_bg);
-$ovv_sel_label: saturate(
-                  lighten($sel_bg, percentage($a_trk_2)),
-                  percentage($a_trk_2));
+$selected_bg_color: $key_selection_color;
 
-$out_fg: opacity($fg, $a_trk_out);
-$dis_out_fg: opacity($out_fg, $a_fg_dis);
+$outline_fill_color: shellopacity($fg_color, 0.2);
+$insensitive_outline_fill_color: shellopacity($outline_fill_color, 0.28);
+
 
 //
 // OSD Background colors
 //
 
-$osd_bg: if($variant == light,
-             mix(color($grey, 200), color($grey, 300)),
-             mix(color($grey, 900), black, 25%));
-$osd_semi_fill_bg: opacity($osd_fg, $a_trk_1);
-$osd_fill_bg: opacity($osd_fg, $a_trk_2);
+$osd_bg_color: mix(#263238, #000000, 90%);
 
-$osd_out_fg: opacity($osd_fg, $a_trk_out);
-$dis_osd_out_fg: opacity($osd_out_fg, $a_fg_dis);
+$osd_fill_color: shellopacity($osd_fg_color, 0.25);
+$osd_semi_fill_color: shellopacity($osd_fg_color, 0.12);
 
-$ovv_semi_fill_bg: opacity($ovv_fg, $a_trk_1);
-$ovv_fill_bg: opacity($ovv_fg, $a_trk_2);
+$osd_indicator_color: $selected_bg_color;
 
-$ovv_out_fg: opacity($ovv_fg, $a_trk_out);
+$osd_outline_fill_color: shellopacity($osd_fg_color, 0.2);
+$insensitive_osd_outline_fill_color:
+  shellopacity($osd_outline_fill_color, 0.28);
+
 
 //
 // Accent colors
 //
 
-$acc_bg: $key_accent_color;
-$acc_fg: if($variant == dark,
-            saturate(
-              lighten($acc_bg, percentage($a_trk_1)),
-              percentage($a_trk_1)),
-            saturate(
-              darken($acc_bg, percentage($a_trk_2)),
-              percentage($a_trk_2)));
-$sec_acc_fg: opacity($acc_fg, $a_fg_2nd);
-$dis_acc_fg: opacity($acc_fg, $a_fg_dis);
+$accent_color: $key_accent_color;
+$accent_label_color: if($nokto == false,
+                        mix($key_accent_color, $fg_color, 80%),
+                        mix($key_accent_color, $fg_color, 60%));
+$secondary_accent_color: shellopacity($accent_color, 0.87);
+$secondary_accent_label_color: shellopacity($accent_label_color, 0.87);
+$insensitive_accent_label_color: shellopacity($accent_label_color, 0.28);
 
-$acc_semi_fill_bg: opacity($acc_fg, $a_trk_1);
-$acc_fill_bg: opacity($acc_fg, $a_trk_2);
-$acc_out_fg: opacity($acc_fg, $a_trk_out);
+$accent_fill_color: shellopacity($accent_color, 0.25);
+$accent_semi_fill_color: shellopacity($accent_color, 0.12);
+$accent_outline_fill_color: shellopacity($accent_color, 0.2);
 
-$inv_acc_fg: mix($acc_bg, $osd_fg, percentage($a_fg_3rd));
-$inv_sec_acc_fg: track($inv_acc_fg, $a_fg_2nd);
-$ovv_acc_fg: saturate(
-             lighten($acc_bg, percentage($a_trk_1)),
-             percentage($a_trk_1));
-$ovv_sec_acc_fg: track($ovv_acc_fg, $a_fg_2nd);
+$inverted_accent_label_color: mix($key_accent_color, $osd_fg_color, 60%);
+$inverted_secondary_accent_label_color:
+  shellopacity($inverted_accent_label_color, 0.87);
+
 
 //
 // Misc colors
 //
 
-$div_fg: if($variant == dark, opacity(black, $a_div_0),
-                              opacity(black, $a_div_1));
-$div_sld_fg: if($variant == dark, mix(black, $base, percentage($a_div_0)),
-                                  mix(black, $bg, percentage($a_div_1)));
+$borders_color: if($nokto == false, shellopacity(#000000, 0.09),
+                                    shellopacity(#000000, 0.13));
+$solid_light_borders_color: if($nokto == false, #E5E9EC, #212B30);
+$borders_edge: shellopacity(#000000, 0.05);
+$top_hilight: $borders_edge;
+$borders_highlight: shellopacity(#FFFFFF, 0.07);
+$menu_highlight: if($nokto == false,
+                    $base_color,
+                    mix($secondary_base_color, #FFFFFF, 98%));
+$insensitive_borders_color: $borders_color;
 
-$link: color($blue, $primary_level);
-$link_vst: color($purple, $primary_level);
+$link_color: #03A9F4;
+$link_visited_color: #9C27B0;
 
-$link_fg: if($variant == dark,
-             saturate(lighten($link, percentage($a_trk_1)),
-               percentage($a_trk_1)),
-             $link);
-$link_vst_fg: if($variant == dark,
-                 saturate(lighten($link_vst, percentage($a_trk_2)),
-                   percentage($a_trk_2)),
-                 $link_vst);
+$link_label_color: if($nokto == false, $link_color,
+                                       mix($link_color, $fg_color, 60%));
+$link_visited_label_color: if($nokto == false,
+                              $link_visited_color,
+                              mix($link_visited_color, $fg_color, 60%));
 
-$warn: color($orange, $primary_level);
-$err: color($red, $primary_level);
-$sccs: color($green, $primary_level);
+$warning_color: #FF9800;
+$error_color: #F44336;
+$success_color: #00E676;
 
-$sggt_bg: $key_suggestion_color;
-$dest_bg: $key_destruction_color;
+$suggested_color: $key_suggestion_color;
+$destructive_color: $key_destruction_color;
+
 
 //
 // Panel colors
 //
 
-$panel_bg: if($variant == light, color($grey, 300), black);
-$panel_trans_bg: opacity($panel_bg, 0.0);
-$panel_hidden_bg: opacity($panel_bg, 0.01);
+$panel_bg_color: mix(#263238, #000000, 50%);
+$panel_transparent_color: shellopacity($panel_bg_color, 0.0);
+$panel_hidden_fill_color: shellopacity($panel_bg_color, 0.01);
+$panel_secondary_fill_color: shellopacity($panel_bg_color, 0.87);
+$panel_tertiary_fill_color: shellopacity($panel_bg_color, 0.54);
+
