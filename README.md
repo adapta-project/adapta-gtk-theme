@@ -4,10 +4,10 @@
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
 
-02 Sep 2018
+02 Oct 2018
 -----------
 # [Important]
-# Today, I locked "Issues", "Pull Requests" and all of our daily developments for current 3.94 series until next-gen lands.
+# Reverted all changes to 3.94.0.x and I will move to somewhere else.
 
 Before using Adapta
 -------------------
@@ -383,8 +383,10 @@ Public License
 
 Donations
 ---------
- [**My Patreon Page**](https://www.patreon.com/tista500)
+
 
 Special Thanks to
 --------------
  Nana-4, the developer of Materia (formerly Flat-Plat).
+
+ And all supporters, thank you.
