@@ -4,10 +4,13 @@
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
 
+04 Oct 2018
+-----------
+ * Re-lock issues until we hunt a new maintainer (owner) of this project.
+
 02 Oct 2018
 -----------
-# [Important]
-# Reverted all changes to 3.94.0.x and I will move to somewhere else.
+ * Reverted all changes to 3.94.0.x.
 
 Before using Adapta
 -------------------
@@ -363,13 +366,9 @@ This is a list of community projects, related to Adapta:
 
 Work in Progress
 ----------------
-* Performance tuning
-* Conversion to Gtk+ 4.0
 
 TODO
 ----
-* Prepare for Meson build system (priority: high)
-* Prepare for x3 scaling (priority: mid or low)
 
 Public License
 --------------
@@ -383,7 +382,6 @@ Public License
 
 Donations
 ---------
-
 
 Special Thanks to
 --------------
