@@ -1560,6 +1560,174 @@ $ws_thumb_spacing: 32px;
   }
 }
 
+// /*******************************
+//  * Grouped window list
+//  *******************************/
+
+.grouped-window-list {
+  &-thumbnail-label {
+    padding-left: 4px;
+  }
+  &-number-label {
+    @include fontscaling($ref_size * 0.9);
+    color: $selected_fg_color;
+    font-weight: 700;
+  }
+  &-badge {
+    border-radius: 256px;
+    background-color: #000000;
+  }
+  &-button-label {
+    padding-left: 4px;
+  }
+  &-thumbnail-alert {
+    background: rgba(255, 52, 52, 0.3);
+  }
+
+  &-item-box {
+    border: 0 none transparent;
+    border-image: none;
+    background-image: none;
+    background-color: $hidden_fill_color;
+    color: $osd_fg_color;
+    box-shadow: $empty_shadow;
+    font-weight: 400;
+    .panel-top &,
+    .panel-bottom &,
+    .panel-left &,
+    .panel-right & {
+      StIcon, StBin { padding: 0; }
+    }
+
+    @each $position, $_indicator in (top, 0 2px),
+                                    (bottom, 0 -2px),
+                                    (left, 2px 0),
+                                    (right, -2px 0) {
+      .panel-#{$position} & {
+        spacing: 0;
+        padding: 0;
+        border: 0 none transparent;
+        border-image: none;
+        background-color: $hidden_fill_color;
+        box-shadow: inset #{$_indicator} $osd_outline_fill_color;
+        &:active {
+          background-color: $hidden_fill_color;
+          box-shadow: inset #{$_indicator} $osd_outline_fill_color;
+        }
+        &:active:focus:hover {
+          background-color: $hidden_fill_color;
+          box-shadow: inset #{$_indicator} mix($osd_outline_fill_color, $osd_indicator_color, 75%);
+        }
+        &:active:hover {
+          background-color: $hidden_fill_color;
+          box-shadow: inset #{$_indicator} mix($osd_outline_fill_color, $osd_indicator_color, 50%);
+        }
+        &:active:focus {
+          background-color: $hidden_fill_color;
+          box-shadow: inset #{$_indicator} $osd_indicator_color;
+        }
+        &:closed {
+          &,
+          &:hover,
+          &:focus,
+          &:active,
+          &:checked { // return to :normal state
+            background-color: $hidden_fill_color;
+            box-shadow: $empty_shadow;
+          }
+        }
+      }
+    }
+
+    StLabel {
+      font-weight: 400;
+
+      .panel-top &,
+      .panel-bottom & {
+        &:ltr {
+          padding: 0 (6px - 2px) 0 0;
+        }
+        &:rtl {
+          padding: 0 0 0 (6px - 2px);
+        }
+      }
+    }
+
+    &:progress,
+    .progress {
+      background-gradient-start: $accent_fill_color;
+      background-gradient-end: $accent_fill_color;
+    }
+  }
+
+  &-item-demands-attention {
+    background-gradient-start: $accent_fill_color;
+    background-gradient-end: $accent_fill_color;
+    color: $selected_fg_color;
+
+    @each $position, $_indicator in (top, 0 2px), (bottom, 0 -2px), (left, 2px 0), (right, -2px 0) {
+      .panel-#{$position} & {
+        box-shadow: inset #{$_indicator} $accent_color;
+      }
+    }
+  }
+  &-thumbnail-menu {
+    padding: 20px;
+    border: none;
+    border-image: url('assets/misc/osd.svg') 9 9 9 9;
+    border-radius: 2px;
+    color: $osd_fg_color;
+    background: none;
+
+    > StBoxLayout {
+      padding: 4px;
+    }
+
+    .item-box {
+      padding: 8px;
+      border-radius: 0; // fill entire surface to cover up the parent
+      background-color: $osd_bg_color; // use opaque
+      &:outlined,
+      &:selected { border-radius: 2px; }
+      &:outlined {
+        padding: 6px;
+        border: 2px solid $osd_outline_fill_color;
+      }
+      &:selected {
+        background-color: mix($osd_bg_color, $accent_color, 75%);
+        color: $inverted_accent_label_color;
+      }
+
+      > StBoxLayout { // icon and title
+        &:ltr { margin: 6px 0 0 6px; }
+        &:rtl { margin: 6px 6px 0 0; }
+
+        StLabel { padding-bottom: 0.1em; }
+      }
+
+      > StButton { // close button
+        &:ltr { margin: 6px 6px 0 0; }
+        &:rtl { margin: 6px 0 0 6px; }
+      }
+    }
+
+    .thumbnail {
+      width: 256px;
+      margin: 6px;
+    }
+
+    .thumbnail-box {
+      padding: 2px;
+      spacing: 4px;
+    }
+
+    .separator {
+      width: 1px;
+      background: $borders_color;
+    }
+  }
+}
+
 
 // /***********************************
 //  * Sound Applet (status/volume.js) *
