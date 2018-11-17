@@ -1836,7 +1836,11 @@ padding: 0.5em;
   background-color: $hidden_fill_color;
   transition-duration: 0.2s;
 
-  // .vertical & { padding: 3px; } // NEEDS_REVIEW
+.vertical & {
+  width: 10px;
+  height: 20px;
+  // padding: 3px 0; // NEEDS_REVIEW
+}
 
   &:hover {
     color: $selected_fg_color;
@@ -1869,7 +1873,11 @@ padding: 0.5em;
 .workspace-graph {
   padding: 3px;
   spacing: 3px;
-
+  
+  .vertical & {
+    padding: 0; 
+  }
+  
   .workspace {
     border: 1px solid shellopacity(black, 0.4);
     background-gradient-direction: none;
