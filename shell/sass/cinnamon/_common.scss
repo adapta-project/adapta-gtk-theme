@@ -1260,7 +1260,17 @@ $ws_thumb_spacing: 32px;
   // from other applet menus
   &-background {
   }
-
+  // top-box and systembuttons-box are for the abortive version 4.0 stock menu. Included in case it ever returns.
+  &-top-box {
+    spacing: 10px;
+  }
+  &-systembuttons-box {
+     padding: 5px 0;
+     }
+    .menu-favorites-button {
+    padding: 5px;
+    &:hover { @include button(flat-hover); }
+  }
   &-favorites-box {
     padding: 7px;
     border-radius: 0;
