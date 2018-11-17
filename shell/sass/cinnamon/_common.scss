@@ -606,6 +606,15 @@ $icon_size: 16px;
 
 #overview { spacing: 12px; }
 
+// >=4.0
+.overview-empty-placeholder {
+    color: $osd_fg_color;
+    font-size: 1.5em;
+}
+.window-border {
+    outline: 0 none transparent;
+    border: 2px solid $osd_indicator_color;
+}
 .window-caption {
   -cinnamon-caption-spacing: 12px;
   spacing: 25px;
@@ -617,7 +626,8 @@ $icon_size: 16px;
 
   // FIXME: Cinnamon does not have 'window-clone-border'
   // and the name 'selected' looks incorrect, should be 'focused' instead
-  &#selected {
+  // selector is :focus for >=4.0
+  &#selected, &:focus {
     spacing: 25px;
     color: $selected_fg_color;
     background-color: $osd_indicator_color;
