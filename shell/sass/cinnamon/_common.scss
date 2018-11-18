@@ -1634,12 +1634,12 @@ padding: 0.5em;
         border-image: none;
         background-color: $hidden_fill_color;
         box-shadow: $empty_shadow;
-        // emulate two state themeing as per current themeing for icing task manager and window-list.
-        &:active, &:hover, &active:hover {
+        // emulate two state theming as per current theming for icing task manager and window-list.
+        &:active, &:checked {
           background-color: $hidden_fill_color;
           box-shadow: inset #{$_indicator} $osd_outline_fill_color;
         }
-        &:focus, &:active:focus, &:focus:hover, &:active:focus:hover {
+        &:hover, &:active:hover, &:focus, &:active:focus, &:focus:hover, &:active:focus:hover {
           background-color: $hidden_fill_color;
           box-shadow: inset #{$_indicator} $osd_indicator_color;
         }
